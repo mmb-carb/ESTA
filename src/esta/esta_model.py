@@ -2,12 +2,13 @@
 
 class EstaModel(object):
 
-    def __init__(self, spatial_loaders, temporal_loaders, emis_loaders, output_writer, grid,
-                 sub_areas, dates, in_dir):
+    def __init__(self, spatial_loaders, temporal_loaders, emis_loaders, subarea_writers,
+                 grid, general_writers, sub_areas, dates, in_dir):
         self.spatial_loaders = spatial_loaders
         self.temporal_loaders = temporal_loaders
         self.emis_loaders = emis_loaders
-        self.output_writers = output_writers
+        self.subarea_writers = subarea_writers
+        self.general_writers = general_writers
         self.grid = grid
         self.sub_areas = sub_areas
         self.dates = dates
@@ -36,12 +37,15 @@ class EstaModel(object):
         for emis_loader in self.emis_loaders:
             emis_loader.load(self.emissions)
 
-        self.load_spatial_surrogates()
-        self.load_temporal_surrogates()
-        self.surrogates = self.surrogate_gen.generate()
-        self.daily_emis = self.emissions_gen.generate()
-        self.temporal_profs = self.temporal_prof_gen.generate()
-        self.speciation_refs, self.speciation_profs = self.speciation_profs_gen.generate()
+        # apply surrogates and write output files
+        for sub_area in subareas:
+            # TODO: Build a very general surrogate applier (One sub-area at a time)
+            pass
+            for subarea_writer in self.subarea_writers:
+                subarea_writer.write(self.gridded_emissions, subarea)
+
+        for general_writer in self.general_writers:
+                general_writer.write(self.gridded_emissions)
 
     def gen_output_files(self):
         ''' Put the new gridded, temporal emissions data into the final, formatted
