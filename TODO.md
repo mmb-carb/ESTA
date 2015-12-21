@@ -108,7 +108,6 @@ total run time. But I ran the spatial-surrogate-mapping portion of my ITN plotti
 the results. What follows is a list of 12 county grouping which will produce the optimal, though
 not perfect, 12 parallel runs (FIPS codes):
 
-
     county_groups = [[37],
                      [19],
                      [29],
@@ -121,16 +120,3 @@ not perfect, 12 parallel runs (FIPS codes):
                      [107, 77, 25, 87, 95, 115, 9],
                      [67, 47, 7, 113, 101, 109, 55],
                      [31, 89, 83, 61, 45, 57, 43]]
-
-
-## Class Importing
-
-I want people to just be able to drop new Import/Export classes in and use them, no playing around
-with imports. So, let's make this automatic:
-
->>> import sys
-
->>> mod = sys.modules['dtim4loader']
-
->>> loader = mod.DTIM4Loader
-

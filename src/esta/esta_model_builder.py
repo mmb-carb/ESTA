@@ -17,7 +17,7 @@ class EstaModelBuilder(object):
         #output_writers = self.build_output_writers()
 
         return EstaModel(spatial_loaders, temporal_loaders,
-                         None, None, None, None, None, None, None)
+                         [], [], [], None, [], None, None)
 
     def build_surrogate_loaders(self):
         ''' The spatial and temporal surrogates are built from '''

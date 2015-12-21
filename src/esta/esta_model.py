@@ -3,7 +3,7 @@
 class EstaModel(object):
 
     def __init__(self, spatial_loaders, temporal_loaders, emis_loaders, subarea_writers,
-                 grid, general_writers, sub_areas, dates, in_dir):
+                 general_writers, grid, sub_areas, dates, in_dir):
         self.spatial_loaders = spatial_loaders
         self.temporal_loaders = temporal_loaders
         self.emis_loaders = emis_loaders
@@ -38,7 +38,7 @@ class EstaModel(object):
             emis_loader.load(self.emissions)
 
         # apply surrogates and write output files
-        for sub_area in subareas:
+        for sub_area in self.sub_areas:
             # TODO: Build a very general surrogate applier (One sub-area at a time)
             pass
             for subarea_writer in self.subarea_writers:
