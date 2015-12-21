@@ -82,13 +82,13 @@
 4. Call to class(es) designed to create final output files (can be multiple)
 5. Description of the QA you want to do
 6. output directory
-7. data range to process
+7. date range to process
 8. sub-areas to process
 
 
 #### Code Structure (contents of /src/)
 
-class ConfigParse
+esta.py (take ConfigParser)
 abstract class EmissionsLoader
 class EMFAC2014CSVLoader(EmissionsLoader)
 abstract class RoadNetworkLoader
