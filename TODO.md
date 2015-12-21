@@ -31,6 +31,7 @@
  * creating new types of output files
  * have a "fast" mode, that ignores the complexity (maybe only uses one spatial surrogate)
  * input files come in wierd DOW/Month-of-Day mixings
+* Sparse-Matrix Design: Because many sub-areas will be involved in a larger grid domain
 
 
 ## Code Outline
@@ -87,7 +88,16 @@
 
 #### Code Structure (contents of /src/)
 
- * Coming Soon
+class ConfigParse
+abstract class EmissionsLoader
+class EMFAC2014CSVLoader(EmissionsLoader)
+abstract class RoadNetworkLoader
+class DTIM4Loader(RoadNetworkLoader)
+class SpatialSurrogate
+class TemporalSurrogate
+class DailyEmissions
+class SurrogatesApplier (takes SpatialSurrogate, TemporalSurrogate, & DailyEmissions)
+abstract class OutputFileCreator
 
 
 ## Testing
@@ -96,7 +106,7 @@ If we want to run all 58 counties in 12 parallel runs, we need a way to break th
 even groups. Of course, they won't be exactly even, because LA is more than 1/12th of the state's
 total run time. But I ran the spatial-surrogate-mapping portion of my ITN plotting script and timed
 the results. What follows is a list of 12 county grouping which will produce the optimal, though
-not perfect, 12 parallel runs:
+not perfect, 12 parallel runs (FIPS codes):
 
 
     county_groups = [[37],
@@ -111,4 +121,16 @@ not perfect, 12 parallel runs:
                      [107, 77, 25, 87, 95, 115, 9],
                      [67, 47, 7, 113, 101, 109, 55],
                      [31, 89, 83, 61, 45, 57, 43]]
+
+
+## Class Importing
+
+I want people to just be able to drop new Import/Export classes in and use them, no playing around
+with imports. So, let's make this automatic:
+
+>>> import sys
+
+>>> mod = sys.modules['dtim4loader']
+
+>>> loader = mod.DTIM4Loader
 
