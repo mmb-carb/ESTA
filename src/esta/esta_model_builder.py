@@ -16,9 +16,8 @@ class EstaModelBuilder(object):
         #emissions_loader = self.build_emissions_loaders()
         #output_writers = self.build_output_writers()
 
-        #return EstaModel(surr_loaders,, temporal_loaders emis_loaders, output_writers, grid,
-        #                  sub_areas, dates, in_dir)
-        return EstaModel(spatial_loaders, temporal_loaders, None, None, None, None, None, None)
+        return EstaModel(spatial_loaders, temporal_loaders,
+                         None, None, None, None, None, None, None)
 
     def build_surrogate_loaders(self):
         ''' The spatial and temporal surrogates are built from '''
@@ -40,13 +39,16 @@ class EstaModelBuilder(object):
 
         # build list of spatial surrogate loader objects
         spatial_loaders = []
-        for i in xrange(len(i)):
+        for i in xrange(len(spatial_loader_strs)):
             sl = spatial_loader_strs[i]
             try:
-                mod = sys.modules[sl.lower()]
+                __import__('src.spatial.' + sl.lower())
+                mod = sys.modules['src.spatial.' + sl.lower()]
                 spatial_loaders.append(getattr(mod, sl)(spatial_directories[i]))
             except NameError as ne:
-                sys.exit('ERROR: Unable to find class: ' + sl + '\n' + ne)
+                sys.exit('ERROR: Unable to find class: ' + sl + '\n' + str(ne))
+            except KeyError as ne:
+                sys.exit('ERROR: Unable to find class: ' + sl + '\n' + str(ne))
 
         # If we are using the same classes to load spatial and temporal surrogates, we're done.
         if temporal_separate.lower() in ['false', 'no', '0', 'na', 'none']:
@@ -66,9 +68,9 @@ class EstaModelBuilder(object):
         for i in xrange(len(i)):
             tl = spatial_loader_strs[i]
             try:
-                mod = sys.modules[tl.lower()]
+                mod = sys.modules['src.temporal.' + tl.lower()]
                 temporal_loaders.append(getattr(mod, tl)(temporal_directories[i]))
             except NameError as ne:
-                sys.exit('ERROR: Unable to find class: ' + tl + '\n' + ne)
+                sys.exit('ERROR: Unable to find class: ' + tl + '\n' + str(ne))
 
         return spatial_loaders, temporal_loaders
