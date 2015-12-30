@@ -13,11 +13,12 @@ class EstaModelBuilder(object):
         '''Perform various pre-processing steps, then return an EstaModel object'''
         print('\nBuilding ESTA model chain')
         spatial_loaders, temporal_loaders = self.build_surrogate_loaders()
-        #emissions_loader = self.build_emissions_loaders()
-        #output_writers = self.build_output_writers()
+        emissions_loaders = self.build_emissions_loaders()
+        # emisions_scaler = self.build_emissions_scaler()  # TODO
+        # output_writers = self.build_output_writers()     # TODO
 
-        return EstaModel(spatial_loaders, temporal_loaders,
-                         [], [], [], None, [], None, None)
+        return EstaModel(spatial_loaders, temporal_loaders, emissions_loaders,
+                         None, [], [], None, [], None, None)
 
     def build_surrogate_loaders(self):
         ''' The spatial and temporal surrogates are built from '''
@@ -42,13 +43,11 @@ class EstaModelBuilder(object):
         for i in xrange(len(spatial_loader_strs)):
             sl = spatial_loader_strs[i]
             try:
-                __import__('src.spatial.' + sl.lower())
-                mod = sys.modules['src.spatial.' + sl.lower()]
-                spatial_loaders.append(getattr(mod, sl)(spatial_directories[i]))
-            except NameError as ne:
-                sys.exit('ERROR: Unable to find class: ' + sl + '\n' + str(ne))
-            except KeyError as ne:
-                sys.exit('ERROR: Unable to find class: ' + sl + '\n' + str(ne))
+                __import__('src.surrogates.' + sl.lower())
+                mod = sys.modules['src.surrogates.' + sl.lower()]
+                spatial_loaders.append(getattr(mod, sl)(self.config, spatial_directories[i]))
+            except (NameError, KeyError) as e:
+                sys.exit('ERROR: Unable to find class: ' + sl + '\n' + str(e))
 
         # If we are using the same classes to load spatial and temporal surrogates, we're done.
         if temporal_separate.lower() in ['false', 'no', '0', 'na', 'none']:
@@ -65,12 +64,36 @@ class EstaModelBuilder(object):
 
         # build list of temporal surrogate loader objects
         temporal_loaders = []
-        for i in xrange(len(i)):
+        for i in xrange(len(temporal_directories)):
             tl = spatial_loader_strs[i]
             try:
-                mod = sys.modules['src.temporal.' + tl.lower()]
-                temporal_loaders.append(getattr(mod, tl)(temporal_directories[i]))
-            except NameError as ne:
-                sys.exit('ERROR: Unable to find class: ' + tl + '\n' + str(ne))
+                __import__('src.surrogates.' + tl.lower())
+                mod = sys.modules['src.surrogates.' + tl.lower()]
+                temporal_loaders.append(getattr(mod, tl)(self.config, temporal_directories[i]))
+            except (NameError, KeyError) as e:
+                sys.exit('ERROR: Unable to find class: ' + tl + '\n' + str(e))
 
         return spatial_loaders, temporal_loaders
+
+    def build_emissions_loaders(self):
+        """ The classes used to load your various emissions files """
+        directories = self.config['Emissions']['emissions_directories'].split()
+        loader_strs = self.config['Emissions']['emissions_loaders'].split()
+        time_units = self.config['Emissions']['time_units'].split()
+
+        # validate that we have the same number of directories, loaders, and time units
+        if len(directories) != len(loader_strs) or len(directories) != len(time_units):
+            sys.exit('ERROR: Different number of emission loaders, directories, and time units.')
+
+        # build list of emission loader objects
+        loaders = []
+        for i in xrange(len(loader_strs)):
+            el = loader_strs[i]
+            try:
+                __import__('src.emissions.' + el.lower())
+                mod = sys.modules['src.emissions.' + el.lower()]
+                loaders.append(getattr(mod, el)(self.config, directories[i], time_units[i]))
+            except (NameError, KeyError) as e:
+                sys.exit('ERROR: Unable to find class: ' + el + '\n' + str(e))
+
+        return loaders
