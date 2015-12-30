@@ -21,7 +21,7 @@ class SparceEmissions(defaultdict):
         """ Getter method for sparce-grid emissions """
         if type(val) != defaultdict:
             raise TypeError('The sparce-grid emissions must be two levels deep: EIC and pollutant.')
-        for value in val.values():
+        for value in val.itervalues():
             if type(value) != float:
                 raise TypeError('Emissions values must be of type float.')
         defaultdict.__setitem__(self, key, val)
@@ -31,5 +31,15 @@ class SparceEmissions(defaultdict):
         for single_cell in defaultdict.itervalues(self):
             for poll in single_cell.iterkeys():
                 single_cell[poll] *= factor
+
+    def add_grid(self, grid):
+        """ add a different sparce grid of emissions to this one """
+        for cell, cell_data in grid.iteritems():
+            if not defaultdict.__contains__(self, cell):
+                defaultdict.__setitem__(self, cell, cell_data)
+            else:
+                for poll, value in cell_data.iteritems():
+                    cell_dict = defaultdict.__getitem__(self, cell)
+                    cell_dict[poll] += value
 
     # TODO: Override 'type', 'str', and 'repr' methods.
