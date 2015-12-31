@@ -33,6 +33,9 @@ class EstaModel(object):
         for temporal_loader in self.temporal_loaders:
             temporal_loader.load(self.spatial_surrs, self.temporal_surrs)
 
+        print self.temporal_surr
+        exit()
+
         # load all emissions data
         self.emissions = None
         for emis_loader in self.emis_loaders:

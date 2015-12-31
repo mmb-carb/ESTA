@@ -25,7 +25,6 @@ class EstaModelBuilder(object):
         # read config file options
         spatial_directories = self.config['Surrogates']['spatial_directories'].split()
         spatial_loader_strs = self.config['Surrogates']['spatial_loaders'].split()
-        temporal_separate = self.config['Surrogates']['temporal_separate']
         temporal_directories = self.config['Surrogates']['temporal_directories'].split()
         temporal_loader_strs = self.config['Surrogates']['temporal_loaders'].split()
 
@@ -48,10 +47,6 @@ class EstaModelBuilder(object):
                 spatial_loaders.append(getattr(mod, sl)(self.config, spatial_directories[i]))
             except (NameError, KeyError) as e:
                 sys.exit('ERROR: Unable to find class: ' + sl + '\n' + str(e))
-
-        # If we are using the same classes to load spatial and temporal surrogates, we're done.
-        if temporal_separate.lower() in ['false', 'no', '0', 'na', 'none']:
-            return spatial_loaders, []
 
         # validate temporal surrogate input directories
         for td in temporal_directories:

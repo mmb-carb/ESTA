@@ -1,6 +1,6 @@
 # ESTA
 
-> EMFAC Spatial & Temporal Allocator
+> Emissions Spatial & Temporal Allocator
 
 
 ## TODO List & Thoughts
@@ -67,7 +67,7 @@
 4. Go through each hour and apply the spatial and temporal surrogate to each EIC
 5. Write output file (can allow more than one file type)
 6. Possible QA Tools
- a. simple `imshow` plotting of spatial surrogates
+ a. simple `plt.imshow(grid, interpolation=None)` plotting of spatial surrogates
 
 
 #### Config File Information
@@ -120,3 +120,34 @@ not perfect, 12 parallel runs (FIPS codes):
                      [107, 77, 25, 87, 95, 115, 9],
                      [67, 47, 7, 113, 101, 109, 55],
                      [31, 89, 83, 61, 45, 57, 43]]
+
+
+## How to Use CalTrans Factors
+
+    [ld, lm, hh] = self.dowfactors[cnum][self.downum]
+
+    # determine day-of-week factors to apply to hdv emissions
+    dowf = 1.0
+    if 'T7' in vtype:
+        dowf = hh
+    elif 'SBUS' in vtype:
+        # school busses don't drive on weekends or holidays
+        if self.downum in [1, 7, 8]:
+            dowf = 0.0
+        else:
+            dowf = 1.0
+    elif 'All Other Buses' in vtype:
+        dowf = lm
+    elif 'T6' in vtype:
+        dowf = lm
+    elif 'Motor Coach' in vtype:
+        dowf = lm
+    elif 'PTO' in vtype:
+        dowf = lm
+    else:
+        dowf = ld
+
+## TODO, part 2
+
+ * Build a helper script to create EIC-to-DTIM4 mapping for Onroad
+ * Add the option to support not only hour-of-day temporal profiles, but also DOW, and month-of-year
