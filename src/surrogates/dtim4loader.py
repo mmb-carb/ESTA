@@ -37,7 +37,7 @@ class Dtim4Loader(SpatialLoader):
         if not spatial_surrogates:
             spatial_surrogates = Dtim4SpatialData()
         if not temporal_surrogates:
-            temporal_surrogates = Dtim4TemporalData()
+            temporal_surrogates = {'diurnal': Dtim4TemporalData()}
 
         # figure out which DOWs we need to run
         dows = self._dows_to_run()
@@ -52,7 +52,7 @@ class Dtim4Loader(SpatialLoader):
                 for hr in xrange(1, 25):
                     # build the file paths
                     link_file = os.path.join(self.directory, fips,
-                                             'dtim_link_' + fips + '_' + dow + '_' + '%02d' % hr + '.dat')
+                                             'dtim_link_' + fips + '_' + dow + '_%02d.dat' % hr)
                     taz_file = link_file.replace('link', 'taz')
 
                     # read link file
@@ -72,8 +72,10 @@ class Dtim4Loader(SpatialLoader):
                     for date in dows[dow]:
                         spatial_surrogates.add_file(county, date, hr, link_spatial_surrs)
                         spatial_surrogates.add_file(county, date, hr, taz_spatial_surrs)
-                        temporal_surrogates.add_file(county, date, hr, link_temporal_surrs)
-                        temporal_surrogates.add_file(county, date, hr, taz_temporal_surrs)
+                        temporal_surrogates['diurnal'].add_file(county, date, hr, link_temporal_surrs)
+                        temporal_surrogates['diurnal'].add_file(county, date, hr, taz_temporal_surrs)
+
+        return spatial_surrogates, temporal_surrogates
 
     @staticmethod
     def spatial_dict_to_temporal(spatial_dict):

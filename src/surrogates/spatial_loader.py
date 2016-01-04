@@ -10,4 +10,4 @@ class SpatialLoader(object):
 
     @abc.abstractmethod
     def load(self, spatial_surrogates, temporal_surrogates):
-        return
+        return None, None

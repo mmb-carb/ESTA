@@ -34,11 +34,11 @@ class Emfac2014CsvLoader(EmissionsLoader):
 
         # load emissions for the correct time scale
         if self.time_units == 'daily':
-            self.load_daily(emissions)
+            return self.load_daily(emissions)
         elif self.time_units == 'seasonally':
-            self.load_seasonally(emissions)
+            return self.load_seasonally(emissions)
         elif self.time_units == 'monthly':
-            self.load_monthly(emissions)
+            return self.load_monthly(emissions)
         else:
             raise ValueError('EMFAC2014 emissions must be: daily, seasonally, or monthly.')
 
@@ -56,12 +56,14 @@ class Emfac2014CsvLoader(EmissionsLoader):
                               self.read_emfac_file(file_path))
             today += timedelta(days=1)
 
+        return emissions
+
     def load_seasonally(self, emissions):
         """ Read the seasonal EMFAC2014 CSV file and load them into the master emissions dictionary.
             This method is independent of LD/HD CSV file type.
         """
         file_paths = os.path.join(self.directory, self.hd_ld + '_%s',
-                                  'emfac_' + self.hd_ld + '%s.csv_all')
+                                  'emfac_' + self.hd_ld + '_%s.csv_all')
         days_by_season = self.find_days_by_season()
         for season, dates in days_by_season.iteritems():
             file_path = file_paths % (season, season)
@@ -69,7 +71,9 @@ class Emfac2014CsvLoader(EmissionsLoader):
             for date in dates:
                 for county in emissions_by_county:
                     emissions.set(county, date.strftime(self.date_format),
-                                  deepcopy(emissions_by_county[county]))
+                                  emissions_by_county[county])
+
+        return emissions
 
     def find_days_by_season(self):
         """ A simple helper method to find all the days of interest in each season """
@@ -97,9 +101,11 @@ class Emfac2014CsvLoader(EmissionsLoader):
                 emis = self.read_emfac_file(file_path)
                 month_new = month
                 while month_new == month:
-                    emissions.set(cnty, today.strftime(self.date_format), deepcopy(emis))
+                    emissions.set(cnty, today.strftime(self.date_format), emis)
                     today += timedelta(days=1)
                     month_new = today.month
+
+        return emissions
 
     def read_emfac_file(self, file_path):
         """ Read an EMFAC2014 LDV CSV emissions file and colate the data into a table.
@@ -130,8 +136,9 @@ class Emfac2014CsvLoader(EmissionsLoader):
             v = ln[3]
             p = ln[4]
             t = ln[5]
+            eic = vtp2eic[(v, t, p)]
             value = float(ln[-1])
-            e[(v, t, p)][poll] += value
+            e[eic][poll] += value
 
         f.close()
         return e

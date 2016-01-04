@@ -36,4 +36,12 @@ class EmissionsTable(defaultdict):
                     eic_dict = defaultdict.__getitem__(self, eic)
                     eic_dict[poll] += value
 
+    def __deepcopy__(self, table):
+        e = EmissionsTable()
+        for eic, eic_data in self.iteritems():
+            for poll, value in eic_data.iteritems():
+                e[eic][poll] = value
+
+        return e
+
     # TODO: Override 'type', 'str', and 'repr' methods.

@@ -1,8 +1,10 @@
 
+from collections import defaultdict
 import gzip
 import os
 from emfac2014csvloader import Emfac2014CsvLoader
 from emissions_table import EmissionsTable
+from vtp2eic import vtp2eic
 
 
 class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
@@ -18,7 +20,7 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
             2031,3,9.39715480515e-05,PMTW,T7 NNOOS,PM10
             2031,3,2.51918142645e-06,RUNEX,T7 POAK,SOx
         """
-        e = EmissionsTable()
+        emis_by_county = {}
 
         # check that the file exists
         if os.path.exists(file_path):
@@ -36,10 +38,14 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
             poll = ln[-1].lower()
             if poll not in Emfac2014CsvLoader.VALID_POLLUTANTS:
                 continue
+            county = int(ln[1])
             v = ln[4]
             p = ln[3]
+            eic = vtp2eic[(v, 'DSL', p)]
             value = float(ln[2])
-            e[(v, 'DSL', p)][poll] += value
+            if county not in emis_by_county:
+                emis_by_county[county] = EmissionsTable()
+            emis_by_county[county][eic][poll] += value
 
         f.close()
-        return e
+        return emis_by_county

@@ -14,11 +14,11 @@ class EstaModelBuilder(object):
         print('\nBuilding ESTA model chain')
         spatial_loaders, temporal_loaders = self.build_surrogate_loaders()
         emissions_loaders = self.build_emissions_loaders()
-        # emisions_scaler = self.build_emissions_scaler()  # TODO
+        emisions_scaler = self.build_emissions_scaler()
         # output_writers = self.build_output_writers()     # TODO
 
         return EstaModel(spatial_loaders, temporal_loaders, emissions_loaders,
-                         None, [], [], None, [], None, None)
+                         emisions_scaler, [], [], None, [], None, None)
 
     def build_surrogate_loaders(self):
         ''' The spatial and temporal surrogates are built from '''
@@ -60,7 +60,7 @@ class EstaModelBuilder(object):
         # build list of temporal surrogate loader objects
         temporal_loaders = []
         for i in xrange(len(temporal_directories)):
-            tl = spatial_loader_strs[i]
+            tl = temporal_loader_strs[i]
             try:
                 __import__('src.surrogates.' + tl.lower())
                 mod = sys.modules['src.surrogates.' + tl.lower()]
@@ -92,3 +92,16 @@ class EstaModelBuilder(object):
                 sys.exit('ERROR: Unable to find class: ' + el + '\n' + str(e))
 
         return loaders
+
+    def build_emissions_scaler(self):
+        """ Load the single class used to scale emissions into gridded, hourly results """
+        # build the scaler object
+        scaler_name = self.config['Scaling']['scalor']
+        try:
+            __import__('src.emissions.' + scaler_name.lower())
+            mod = sys.modules['src.emissions.' + scaler_name.lower()]
+            scaler = getattr(mod, scaler_name)(self.config)
+        except (NameError, KeyError) as e:
+            sys.exit('ERROR: Unable to find class: ' + scaler_name + '\n' + str(e))
+
+        return scaler

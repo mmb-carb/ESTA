@@ -36,18 +36,6 @@
 
 ## Code Outline
 
-#### Project Layout
-
-* esta.py
-* default.ini
-* LICENSE
-* README.md
-* src
-* input
- * possible mostly empty, depending on config.ini
-* output
- * possible mostly empty, depending on config.ini
-
 #### Processing Steps
 
 > This is for a single sub-area (don't use the word "county" or "GAI").
@@ -70,36 +58,6 @@
  a. simple `plt.imshow(grid, interpolation=None)` plotting of spatial surrogates
 
 
-#### Config File Information
-
-1. A list of ITN activity files
- a. with complete information about which DOW, HR, MONTH YEAR they apply to
- b. call to class designed to read DTIM4.2 ITN link & TAZ files
-2. A list of EMFAC emission files
- a. with complete info on day(s) of year the file applies to
- b. call to class designed to read EMFAC2014 CSV files
-3. Call to class designed to map DTIM4.2 ITN vehicle categories to EICS
-4. Call to class(es) designed to create final output files (can be multiple)
-5. Description of the QA you want to do
-6. output directory
-7. date range to process
-8. sub-areas to process
-
-
-#### Code Structure (contents of /src/)
-
-esta.py (take ConfigParser)
-abstract class EmissionsLoader
-class EMFAC2014CSVLoader(EmissionsLoader)
-abstract class RoadNetworkLoader
-class DTIM4Loader(RoadNetworkLoader)
-class SpatialSurrogate
-class TemporalSurrogate
-class DailyEmissions
-class SurrogatesApplier (takes SpatialSurrogate, TemporalSurrogate, & DailyEmissions)
-abstract class OutputFileCreator
-
-
 ## Testing
 
 If we want to run all 58 counties in 12 parallel runs, we need a way to break the counties into 12
@@ -120,34 +78,3 @@ not perfect, 12 parallel runs (FIPS codes):
                      [107, 77, 25, 87, 95, 115, 9],
                      [67, 47, 7, 113, 101, 109, 55],
                      [31, 89, 83, 61, 45, 57, 43]]
-
-
-## How to Use CalTrans Factors
-
-    [ld, lm, hh] = self.dowfactors[cnum][self.downum]
-
-    # determine day-of-week factors to apply to hdv emissions
-    dowf = 1.0
-    if 'T7' in vtype:
-        dowf = hh
-    elif 'SBUS' in vtype:
-        # school busses don't drive on weekends or holidays
-        if self.downum in [1, 7, 8]:
-            dowf = 0.0
-        else:
-            dowf = 1.0
-    elif 'All Other Buses' in vtype:
-        dowf = lm
-    elif 'T6' in vtype:
-        dowf = lm
-    elif 'Motor Coach' in vtype:
-        dowf = lm
-    elif 'PTO' in vtype:
-        dowf = lm
-    else:
-        dowf = ld
-
-## TODO, part 2
-
- * Build a helper script to create EIC-to-DTIM4 mapping for Onroad
- * Add the option to support not only hour-of-day temporal profiles, but also DOW, and month-of-year

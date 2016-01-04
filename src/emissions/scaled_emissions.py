@@ -1,4 +1,6 @@
 
+from sparce_emissions import SparceEmissions
+
 
 class ScaledEmissions(object):
     """ This class is designed as a helper to organize the emissions by pollutant and EIC
@@ -18,7 +20,7 @@ class ScaledEmissions(object):
     def set(self, county, date, hr, eic, grid):
         """ Setter method for the scaled emissions inventory """
         # type validation
-        if type(table) != SparceEmissions:
+        if type(grid) != SparceEmissions:
             raise TypeError('Only sparce-grid emissions can be in the scaled emissions inventory.')
 
         # auto-fill the mulit-level dictionary format, to hide this from the user
@@ -33,4 +35,4 @@ class ScaledEmissions(object):
         if eic not in self.data[county][date][hr]:
             self.data[county][date][hr][eic] = grid
         else:
-            self.data[county][date][hr][eic].add_grid(table)
+            self.data[county][date][hr][eic].add_grid(grid)
