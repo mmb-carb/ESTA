@@ -29,6 +29,7 @@ class Dtim4Loader(SpatialLoader):
         self.date_format = self.config['Dates']['format']
         self.start_date = datetime.strptime(self.config['Dates']['start'], self.date_format)
         self.end_date = datetime.strptime(self.config['Dates']['end'], self.date_format)
+        self.base_year = int(self.config['Dates']['base_year'])
         self.data = Dtim4SpatialData()
 
     def load(self, spatial_surrogates, temporal_surrogates):
@@ -103,25 +104,32 @@ class Dtim4Loader(SpatialLoader):
 
         return counties
 
-    def _find_holidays(self, yr):
-        '''Using Pandas calendar, find all 10 US Federal Holidays,
-        plus California's Cesar Chavez day'''
-        cal = USFederalHolidayCalendar()
-        holidays = cal.holidays(start=str(yr) + '-01-01', end=str(yr) + '-12-31').to_pydatetime()
-
-        return [d.strftime(self.date_format) for d in holidays] + [str(yr) + '-03-31']
-
     def _dows_to_run(self):
         """ Find all the DOWs to run in the given date range """
         dows = defaultdict(list)
+        holidays = self._find_holidays()
+        model_year = self.start_date.year
 
-        today = datetime(self.start_date.year, self.start_date.month, self.start_date.day)
-        while today <= self.end_date:
+        today = datetime(self.base_year, self.start_date.month, self.start_date.day)
+        end = datetime(self.base_year, self.end_date.month, self.end_date.day)
+        while today <= end:
             dow = Dtim4Loader.DOW[today.weekday()]
-            dows[dow].append(today.strftime(self.date_format))
+            if today.strftime('%m-%d') in holidays:
+                dows['holi'].append(str(model_year) + today.strftime(self.date_format)[4:])
+            else:
+                dows[dow].append(str(model_year) + today.strftime(self.date_format)[4:])
             today += timedelta(days=1)
 
         return dows
+
+    def _find_holidays(self):
+        '''Using Pandas calendar, find all 10 US Federal Holidays,
+        plus California's Cesar Chavez day'''
+        yr = str(self.base_year)
+        cal = USFederalHolidayCalendar()
+        holidays = cal.holidays(start=yr + '01-01', end=yr + '12-31').to_pydatetime()
+
+        return [d.strftime('%m-%d') for d in holidays] + ['03-31']
 
     def _read_link_file(self, file_path, area):
         """ Read the ITN activity data from a single Link file

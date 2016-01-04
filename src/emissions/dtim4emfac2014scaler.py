@@ -46,7 +46,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
             county_data = emissions.data[county]
             for date, et in county_data.iteritems():
                 # find the DOW
-                if date in self._find_holidays():
+                if date[4:] in self._find_holidays():
                     dow = 'holi'
                 else:
                     dow = Dtim4Emfac2014Scaler.DOW[dt.strptime(date, self.date_format).weekday()]
@@ -127,11 +127,11 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
     def _find_holidays(self):
         '''Using Pandas calendar, find all 10 US Federal Holidays,
         plus California's Cesar Chavez day'''
-        yr = self.start_date.year
+        yr = str(self.base_year)
         cal = USFederalHolidayCalendar()
-        holidays = cal.holidays(start=str(yr) + '-01-01', end=str(yr) + '-12-31').to_pydatetime()
+        holidays = cal.holidays(start=yr + '01-01', end=yr + '12-31').to_pydatetime()
 
-        return [d.strftime(self.date_format) for d in holidays] + [str(yr) + '-03-31']
+        return [d.strftime('%m-%d') for d in holidays] + ['03-31']
 
     @staticmethod
     def parse_counties(counties_str):

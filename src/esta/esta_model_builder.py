@@ -14,11 +14,10 @@ class EstaModelBuilder(object):
         print('\nBuilding ESTA model chain')
         spatial_loaders, temporal_loaders = self.build_surrogate_loaders()
         emissions_loaders = self.build_emissions_loaders()
-        emisions_scaler = self.build_emissions_scaler()
-        # output_writers = self.build_output_writers()     # TODO
+        scaler = self.build_emissions_scaler()
+        writers = self.build_output_writers()
 
-        return EstaModel(spatial_loaders, temporal_loaders, emissions_loaders,
-                         emisions_scaler, [], [], None, [], None, None)
+        return EstaModel(spatial_loaders, temporal_loaders, emissions_loaders, scaler, writers)
 
     def build_surrogate_loaders(self):
         ''' The spatial and temporal surrogates are built from '''
@@ -105,3 +104,26 @@ class EstaModelBuilder(object):
             sys.exit('ERROR: Unable to find class: ' + scaler_name + '\n' + str(e))
 
         return scaler
+
+    def build_output_writers(self):
+        """ The classes used to load your various emissions files """
+        directories = self.config['Output']['directories'].split()
+        writer_strs = self.config['Output']['writers'].split()
+        time_units = self.config['Output']['time_units'].split()
+
+        # validate that we have the same number of directories, loaders, and time units
+        if len(directories) != len(writer_strs) or len(directories) != len(time_units):
+            sys.exit('ERROR: Different number of output writers, directories, and time units.')
+
+        # build list of output writer objects
+        loaders = []
+        for i in xrange(len(writer_strs)):
+            ow = writer_strs[i]
+            try:
+                __import__('src.output.' + ow.lower())
+                mod = sys.modules['src.output.' + ow.lower()]
+                loaders.append(getattr(mod, ow)(self.config, directories[i], time_units[i]))
+            except (NameError, KeyError) as e:
+                sys.exit('ERROR: Unable to find class: ' + ow + '\n' + str(e))
+
+        return loaders
