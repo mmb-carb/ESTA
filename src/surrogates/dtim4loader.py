@@ -76,6 +76,10 @@ class Dtim4Loader(SpatialLoader):
                         temporal_surrogates['diurnal'].add_file(county, date, hr, link_temporal_surrs)
                         temporal_surrogates['diurnal'].add_file(county, date, hr, taz_temporal_surrs)
 
+        # normalize surrogates
+        spatial_surrogates.surrogates()
+        temporal_surrogates['diurnal'].surrogates()
+
         return spatial_surrogates, temporal_surrogates
 
     @staticmethod
@@ -346,6 +350,15 @@ class Dtim4SpatialData(object):
 
         return t
 
+    def surrogates(self):
+        """ Finally, normalize all the spatial surrogates, so the grid cells sum to 1.0. """
+        for county in self.data:
+            for date in self.data[county]:
+                for hr in self.data[county][date]:
+                    for veh in self.data[county][date][hr]:
+                        for act in self.data[county][date][hr][veh]:
+                            self.data[county][date][hr][veh][act] = self.data[county][date][hr][veh][act].surrogate()
+
 
 class Dtim4TemporalData(object):
     """ This class is designed as a helper to make organizing the huge amount of temporal
@@ -401,3 +414,11 @@ class Dtim4TemporalData(object):
         for veh in surrogate_dict:
             for act in surrogate_dict[veh]:
                 self.set_at_hour(county, date, veh, act, hr, surrogate_dict[veh][act])
+
+    def surrogates(self):
+        """ Finally, normalize all the temporal surrogates, so the 24 hours sum to 1.0. """
+        for county in self.data:
+            for date in self.data[county]:
+                for veh in self.data[county][date]:
+                    for act in self.data[county][date][veh]:
+                        self.data[county][date][veh][act] = self.data[county][date][veh][act].surrogate()

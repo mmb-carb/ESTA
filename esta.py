@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 
 import ConfigParser
 import sys

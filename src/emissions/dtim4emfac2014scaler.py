@@ -19,7 +19,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         self.date_format = self.config['Dates']['format']
         self.start_date = dt.strptime(self.config['Dates']['start'], self.date_format)
         self.end_date = dt.strptime(self.config['Dates']['end'], self.date_format)
-        self.counties = Dtim4Emfac2014Scaler.parse_counties(self.config['Subareas']['subareas'])
+        self.counties = EmissionsScaler.parse_counties(self.config['Subareas']['subareas'])
         self.base_year = int(self.config['Dates']['base_year'])
 
     def scale(self, emissions, spatial_surr, temporal_surr):
@@ -52,14 +52,14 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
                 else:
                     dow = Dtim4Emfac2014Scaler.DOW[dt.strptime(date, self.date_format).weekday()]
                 # apply CalTrans DOW factors
-                factors = temporal_surr['dow'][county][dow]
+                cal_factors = temporal_surr['dow'][county][dow]
                 emissions_table = deepcopy(et)
-                emissions_table = self._apply_caltrans_dow_factor(emissions_table, factors, dow)
+                emissions_table = self._apply_caltrans_dow_factor(emissions_table, cal_factors, dow)
+                hourly_factors = temporal_surr['diurnal'].data[county][date]
 
                 # loop through each hour of the day
                 for hr in xrange(1, 25):
                     # apply diurnal profile to emissions
-                    hourly_factors = temporal_surr['diurnal'].data[county][date]
                     emis_table = deepcopy(emissions_table)
                     emis_table = self._apply_diurnal_factors(emis_table, hourly_factors, hr - 1)
 
@@ -119,8 +119,10 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
             se = SparceEmissions()
             veh, act = eic2dtim4[eic]
             for poll, value in emis_table[eic].iteritems():
+                #surr = spatial_surrs[veh][act].surrogate()  # TODO: Unnecessary??????????????????????????????????????????????????????
+                #for cell,fraction in surr.iteritems():
                 for cell,fraction in spatial_surrs[veh][act].iteritems():
-                    se[cell][poll] = value*fraction
+                    se[cell][poll] = value * fraction
             e[eic] = se
 
         return e
@@ -133,14 +135,3 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         holidays = cal.holidays(start=yr + '-01-01', end=yr + '-12-31').to_pydatetime()
 
         return [d.strftime('%m-%d') for d in holidays] + ['03-31']
-
-    @staticmethod
-    def parse_counties(counties_str):
-        """ Parse the string we get back from the subareas field """
-        if '..' in counties_str:
-            counties = counties_str.split('..')
-            counties = range(int(counties[0]), int(counties[1]))
-        else:
-            counties = [int(c) for c in counties_str.split()]
-
-        return counties
