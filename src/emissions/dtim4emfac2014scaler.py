@@ -20,6 +20,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         self.start_date = dt.strptime(self.config['Dates']['start'], self.date_format)
         self.end_date = dt.strptime(self.config['Dates']['end'], self.date_format)
         self.counties = Dtim4Emfac2014Scaler.parse_counties(self.config['Subareas']['subareas'])
+        self.base_year = int(self.config['Dates']['base_year'])
 
     def scale(self, emissions, spatial_surr, temporal_surr):
         """ Master method to scale emissions using spatial and temporal surrogates.
@@ -129,7 +130,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         plus California's Cesar Chavez day'''
         yr = str(self.base_year)
         cal = USFederalHolidayCalendar()
-        holidays = cal.holidays(start=yr + '01-01', end=yr + '12-31').to_pydatetime()
+        holidays = cal.holidays(start=yr + '-01-01', end=yr + '-12-31').to_pydatetime()
 
         return [d.strftime('%m-%d') for d in holidays] + ['03-31']
 

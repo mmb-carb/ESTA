@@ -127,7 +127,7 @@ class Dtim4Loader(SpatialLoader):
         plus California's Cesar Chavez day'''
         yr = str(self.base_year)
         cal = USFederalHolidayCalendar()
-        holidays = cal.holidays(start=yr + '01-01', end=yr + '12-31').to_pydatetime()
+        holidays = cal.holidays(start=yr + '-01-01', end=yr + '-12-31').to_pydatetime()
 
         return [d.strftime('%m-%d') for d in holidays] + ['03-31']
 
