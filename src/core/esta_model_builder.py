@@ -1,7 +1,7 @@
 
 import os
 import sys
-from src.esta.esta_model import EstaModel
+from src.core.esta_model import EstaModel
 
 
 class EstaModelBuilder(object):

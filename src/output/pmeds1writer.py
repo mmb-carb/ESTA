@@ -2,9 +2,7 @@
 from datetime import datetime as dt
 import gzip
 import os
-from county_names import county_names
-from split_counties import county_to_gai, gai_basins, multi_gai_coords
-from output_writer import OutputWriter
+from src.core.output_writer import OutputWriter
 
 
 class Pmeds1Writer(OutputWriter):
@@ -25,6 +23,10 @@ class Pmeds1Writer(OutputWriter):
         by_subarea = self.config['Output']['by_subarea'].lower()
         self.by_subarea = False if by_subarea in ['false', '0', 'no'] else True
         self.version = self.config['Misc']['inventory_version']
+        self.county_names = eval(open(self.config['Misc']['county_names'], 'r').read())
+        self.county_to_gai = eval(open(self.config['Misc']['county_to_gai'], 'r').read())
+        self.gai_basins = eval(open(self.config['Misc']['gai_basins'], 'r').read())
+        self.multi_gai_coords = eval(open(self.config['Misc']['multi_gai_coords'], 'r').read())
 
     def write(self, scaled_emissions):
         """ The master method to write output files.
@@ -138,10 +140,10 @@ class Pmeds1Writer(OutputWriter):
         """
         # define parameters
         yr = date[2:4]
-        county = county_names[cnty][:8].ljust(8)
+        county = self.county_names[cnty][:8].ljust(8)
         x, y = grid_cell
         hour = '%02d%02d' % (hr, hr)
-        basin = gai_basins[gai].rjust(3)
+        basin = self.gai_basins[gai].rjust(3)
         emissions = ','.join(emis)
 
         return county + str(eic).rjust(28) + str(x).rjust(3) + str(y).rjust(3) + \
@@ -160,14 +162,14 @@ class Pmeds1Writer(OutputWriter):
             Since we know the county, this is very easy for the counties that match 1-to-1 with
             a GAI. Otherwise, we have to use a look-up table, by grid cell.
         """
-        gai_list = county_to_gai[county]
+        gai_list = self.county_to_gai[county]
 
         if len(gai_list) == 1:
             # For the easy counties
             return [[gai_list[0], 1.0]]
-        elif grid_cell in multi_gai_coords[county]:
+        elif grid_cell in self.multi_gai_coords[county]:
             # for the multi-GAI counties
-            return multi_gai_coords[county][grid_cell]
+            return self.multi_gai_coords[county][grid_cell]
         else:
             # multi-GAI grid cell not found, use default GAI in county
             return [[gai_list[0], 1.0]]
@@ -180,7 +182,7 @@ class Pmeds1Writer(OutputWriter):
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
 
-        return  os.path.join(out_dir, county_names[county] + '.pmeds')
+        return  os.path.join(out_dir, self.county_names[county] + '.pmeds')
 
     def _build_state_file_path(self, date):
         """ build output file directory and path for PMEDS file

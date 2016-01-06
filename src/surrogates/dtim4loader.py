@@ -5,8 +5,7 @@ from netCDF4 import Dataset
 import os
 from pandas.tseries.holiday import USFederalHolidayCalendar
 from pyproj import Proj
-from cali_county_boxes import county_boxes
-from spatial_loader import SpatialLoader
+from src.core.spatial_loader import SpatialLoader
 from spatial_surrogate import SpatialSurrogate
 import sys
 from temporal_surrogate import TemporalSurrogate
@@ -31,6 +30,7 @@ class Dtim4Loader(SpatialLoader):
         self.end_date = datetime.strptime(self.config['Dates']['end'], self.date_format)
         self.base_year = int(self.config['Dates']['base_year'])
         self.data = Dtim4SpatialData()
+        self.county_boxes = eval(open(self.config['Misc']['county_boxes'], 'r').read())
 
     def load(self, spatial_surrogates, temporal_surrogates):
         """ Overriding the abstract loader method to read DTIM4 road network files """
@@ -257,8 +257,8 @@ class Dtim4Loader(SpatialLoader):
         p2 = p[1]  # lat
 
         # find the grid cell bounding box for the county in question
-        lat_range = county_boxes[county]['lat']
-        lon_range = county_boxes[county]['lon']
+        lat_range = self.county_boxes[county]['lat']
+        lon_range = self.county_boxes[county]['lon']
 
         # loop through all grid cells until you find the correct one
         for i in lat_range:

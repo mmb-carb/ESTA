@@ -4,7 +4,6 @@ import gzip
 import os
 from emfac2014csvloader import Emfac2014CsvLoader
 from emissions_table import EmissionsTable
-from vtp2eic import vtp2eic
 
 
 class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
@@ -41,7 +40,7 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
             county = int(ln[1])
             v = ln[4]
             p = ln[3]
-            eic = vtp2eic[(v, 'DSL', p)]
+            eic = self.vtp2eic[(v, 'DSL', p)]
             value = float(ln[2])
             if county not in emis_by_county:
                 emis_by_county[county] = EmissionsTable()

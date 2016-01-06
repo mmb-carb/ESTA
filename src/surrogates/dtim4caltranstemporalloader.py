@@ -1,6 +1,6 @@
 
 from dtim4loader import Dtim4Loader
-from temporal_loader import TemporalLoader
+from src.core.temporal_loader import TemporalLoader
 
 
 class Dtim4CaltransTemporalLoader(TemporalLoader):

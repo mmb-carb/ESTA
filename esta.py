@@ -2,8 +2,8 @@
 
 import ConfigParser
 import sys
-from src.esta.esta_model_builder import EstaModelBuilder
-from src.esta.esta_model import EstaModel
+from src.core.esta_model_builder import EstaModelBuilder
+from src.core.esta_model import EstaModel
 #from src.testing.surrogate_plotter import SurrogatePlotter
 
 

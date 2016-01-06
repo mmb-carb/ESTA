@@ -2,8 +2,7 @@
 from copy import deepcopy
 from datetime import datetime as dt
 from pandas.tseries.holiday import USFederalHolidayCalendar
-from eic2dtim4 import eic2dtim4
-from emissions_scaler import EmissionsScaler
+from src.core.emissions_scaler import EmissionsScaler
 from scaled_emissions import ScaledEmissions
 from sparce_emissions import SparceEmissions
 
@@ -21,6 +20,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         self.end_date = dt.strptime(self.config['Dates']['end'], self.date_format)
         self.counties = EmissionsScaler.parse_counties(self.config['Subareas']['subareas'])
         self.base_year = int(self.config['Dates']['base_year'])
+        self.eic2dtim4 = eval(open(self.config['Misc']['eic2dtim4'], 'r').read())
 
     def scale(self, emissions, spatial_surr, temporal_surr):
         """ Master method to scale emissions using spatial and temporal surrogates.
@@ -80,7 +80,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         """
         for eic in emissions_table:
             # find default CalTrans factor
-            factor = factors[self.CALTRANS_TYPE[eic2dtim4[eic][0]]]
+            factor = factors[self.CALTRANS_TYPE[self.eic2dtim4[eic][0]]]
 
             # change factor for various special cases
             if (eic // 1e11) == 771:  # SBUS - School Busses run evenly on weekdays
@@ -100,7 +100,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         """
         for eic in emissions_table:
             for poll in emissions_table[eic]:
-                veh, act = eic2dtim4[eic]
+                veh, act = self.eic2dtim4[eic]
                 emissions_table[eic][poll] *= factors[veh][act][hr]
 
         return emissions_table
@@ -117,7 +117,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         e = {}
         for eic in emis_table:
             se = SparceEmissions()
-            veh, act = eic2dtim4[eic]
+            veh, act = self.eic2dtim4[eic]
             for poll, value in emis_table[eic].iteritems():
                 #surr = spatial_surrs[veh][act].surrogate()  # TODO: Unnecessary??????????????????????????????????????????????????????
                 #for cell,fraction in surr.iteritems():

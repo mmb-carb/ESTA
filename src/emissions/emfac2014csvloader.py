@@ -4,10 +4,8 @@ from copy import deepcopy
 from datetime import datetime, timedelta
 import gzip
 import os
-from county_names import county_names
-from emissions_loader import EmissionsLoader
+from src.core.emissions_loader import EmissionsLoader
 from emissions_table import EmissionsTable
-from vtp2eic import vtp2eic
 
 
 class Emfac2014CsvLoader(EmissionsLoader):
@@ -22,6 +20,8 @@ class Emfac2014CsvLoader(EmissionsLoader):
         self.start_date = datetime.strptime(self.config['Dates']['start'], self.date_format)
         self.end_date = datetime.strptime(self.config['Dates']['end'], self.date_format)
         self.counties = Emfac2014CsvLoader.parse_counties(self.config['Subareas']['subareas'])
+        self.county_names = eval(open(self.config['Misc']['county_names'], 'r').read())
+        self.vtp2eic = eval(open(self.config['Misc']['vtp2eic'], 'r').read())
         self.hd_ld = 'ld'
 
     def load(self, emissions):
@@ -50,7 +50,7 @@ class Emfac2014CsvLoader(EmissionsLoader):
         today = deepcopy(self.start_date)
         while today <= self.end_date:
             for cnty in self.counties:
-                county = county_names[int(cnty)]
+                county = self.county_names[int(cnty)]
                 file_path = file_paths % (today.month, today.day, county)
                 emissions.set(cnty, today.strftime(self.date_format),
                               self.read_emfac_file(file_path))
@@ -136,7 +136,7 @@ class Emfac2014CsvLoader(EmissionsLoader):
             v = ln[3]
             p = ln[4]
             t = ln[5]
-            eic = vtp2eic[(v, t, p)]
+            eic = self.vtp2eic[(v, t, p)]
             value = float(ln[-1])
             e[eic][poll] += value
 
