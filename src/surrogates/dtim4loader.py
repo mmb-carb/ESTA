@@ -20,7 +20,7 @@ class Dtim4Loader(SpatialLoader):
 
     def __init__(self, config, directory):
         super(Dtim4Loader, self).__init__(config, directory)
-        self.counties = Dtim4Loader.parse_counties(self.config['Subareas']['subareas'])
+        self.counties = SpatialLoader.parse_subareas(self.config['Subareas']['subareas'])
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
         self.grid_file_path = self.config['GridInfo']['grid_dot_file']
@@ -96,17 +96,6 @@ class Dtim4Loader(SpatialLoader):
     def county_to_fips(county):
         """ This converts the county code (1 to 58) to the FIPS code. """
         return '%03d' % (2 * county - 1)
-
-    @staticmethod
-    def parse_counties(counties_str):
-        """ Parse the string we get back from the subareas field """
-        if '..' in counties_str:
-            counties = counties_str.split('..')
-            counties = range(int(counties[0]), int(counties[1]))
-        else:
-            counties = [int(c) for c in counties_str.split()]
-
-        return counties
 
     def _dows_to_run(self):
         """ Find all the DOWs to run in the given date range """

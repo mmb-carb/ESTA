@@ -97,8 +97,8 @@ class EstaModelBuilder(object):
         # build the scaler object
         scaler_name = self.config['Scaling']['scalor']
         try:
-            __import__('src.emissions.' + scaler_name.lower())
-            mod = sys.modules['src.emissions.' + scaler_name.lower()]
+            __import__('src.scaling.' + scaler_name.lower())
+            mod = sys.modules['src.scaling.' + scaler_name.lower()]
             scaler = getattr(mod, scaler_name)(self.config)
         except (NameError, KeyError) as e:
             sys.exit('ERROR: Unable to find class: ' + scaler_name + '\n' + str(e))

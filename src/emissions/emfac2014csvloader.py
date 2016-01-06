@@ -16,10 +16,6 @@ class Emfac2014CsvLoader(EmissionsLoader):
     def __init__(self, config, directory, time_units):
         super(Emfac2014CsvLoader, self).__init__(config, directory)
         self.time_units = time_units
-        self.date_format = self.config['Dates']['format']
-        self.start_date = datetime.strptime(self.config['Dates']['start'], self.date_format)
-        self.end_date = datetime.strptime(self.config['Dates']['end'], self.date_format)
-        self.counties = Emfac2014CsvLoader.parse_counties(self.config['Subareas']['subareas'])
         self.county_names = eval(open(self.config['Misc']['county_names'], 'r').read())
         self.vtp2eic = eval(open(self.config['Misc']['vtp2eic'], 'r').read())
         self.hd_ld = 'ld'
@@ -49,7 +45,7 @@ class Emfac2014CsvLoader(EmissionsLoader):
         file_paths = os.path.join(self.directory, '%02d', '%02d', 'emis', '%s.csv')
         today = deepcopy(self.start_date)
         while today <= self.end_date:
-            for cnty in self.counties:
+            for cnty in self.subareas:
                 county = self.county_names[int(cnty)]
                 file_path = file_paths % (today.month, today.day, county)
                 emissions.set(cnty, today.strftime(self.date_format),
@@ -92,7 +88,7 @@ class Emfac2014CsvLoader(EmissionsLoader):
             This method is independent of LD/HD CSV file type.
         """
         file_paths = os.path.join(self.directory, '%02d', 'emis', '%s.csv')
-        for cnty in self.counties:
+        for cnty in self.subareas:
             today = datetime(self.start_date.year, self.start_date.month, self.start_date.day)
             month = -1
             while today <= self.end_date:
