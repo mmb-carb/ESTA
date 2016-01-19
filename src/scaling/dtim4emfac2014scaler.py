@@ -1,4 +1,5 @@
 
+from collections import defaultdict
 from copy import deepcopy
 from datetime import datetime as dt
 from pandas.tseries.holiday import USFederalHolidayCalendar
@@ -16,6 +17,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
     def __init__(self, config):
         super(Dtim4Emfac2014Scaler, self).__init__(config)
         self.eic2dtim4 = eval(open(self.config['Misc']['eic2dtim4'], 'r').read())
+        self.nh3_fractions = {}
 
     def scale(self, emissions, spatial_surr, temporal_surr):
         """ Master method to scale emissions using spatial and temporal surrogates.
@@ -35,6 +37,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
             ScaledEmissions: data[county][date][hr][eic] = SparceEmissions
                                 SparceEmissions[(grid, cell)][pollutant] = value
         """
+        self.nh3_fractions = self._read_nh3_inventory(self.config['Misc']['nh3_inventory'])
         e = ScaledEmissions()
 
         # loop through all the county/date combinations in the emissions
@@ -60,12 +63,54 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
 
                     # apply spatial surrogates & create sparcely-gridded emissions
                     spatial_surrs = spatial_surr.data[county][date][hr]
-                    sparce_emis_dict = self._apply_spatial_surrogates(emis_table, spatial_surrs)
+                    sparce_emis_dict = self._apply_spatial_surrogates(county, emis_table,
+                                                                      spatial_surrs)
 
                     for eic, sparce_emis in sparce_emis_dict.iteritems():
                         e.set(county, date, hr, eic, sparce_emis)
 
         return e
+
+    def _read_nh3_inventory(self, inv_file):
+        """ read the NH3/CO values from the inventory and generate the NH3/CO fractions
+            File format:
+            fyear,co,ab,dis,facid,dev,proid,scc,sic,eic,pol,ems
+            2012,33,SC,SC,17953,1,11,39000602,3251,5007001100000,42101,5.418156170044^M
+        """
+        inv = {}
+        f = open(inv_file, 'r')
+        header = f.readline()
+        
+        for line in f.xreadlines():
+            # parse line
+            ln = line.strip().split(',')
+            poll = int(ln[-2])
+            if poll not in [42101, 7664417]:
+                continue
+            county = int(ln[1])
+            eic = int(ln[-3])
+            val = float(ln[-1])
+            
+            # fill data structure
+            if county not in inv:
+                inv[county] = defaultdict(float)
+            if eic not in inv[county]:
+                inv[county][eic] = {42101: 0.0, 7664417: 0.0}
+            # fill in emissions values
+            inv[county][eic][poll] += val
+        f.close()
+        
+        # create fractions
+        for county in inv:
+            for eic in inv[county]:
+                co = inv[county][eic][42101]
+                if co == 0.0:
+                    inv[county][eic] = 0.0
+                else:
+                    nh3 = inv[county][eic][7664417]
+                    inv[county][eic] = nh3 / co
+        
+        return inv
 
     def _apply_caltrans_dow_factor(self, emissions_table, factors, dow):
         """ Apply CalTrans DOW factors to an emissions table, altering the table.
@@ -100,7 +145,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
 
         return emissions_table
 
-    def _apply_spatial_surrogates(self, emis_table, spatial_surrs):
+    def _apply_spatial_surrogates(self, county, emis_table, spatial_surrs):
         """ Apply the spatial surrogates for each hour to this EIC and create a dictionary of
             sparely-gridded emissions (one for each eic).
             Data Types:
@@ -116,6 +161,8 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
             for poll, value in emis_table[eic].iteritems():
                 for cell,fraction in spatial_surrs[veh][act].iteritems():
                     se[cell][poll] = value * fraction
+                    if poll == 'co':
+                        se[cell]['nh3'] = se[cell]['co' ] * self.nh3_fractions[county][eic]
             e[eic] = se
 
         return e

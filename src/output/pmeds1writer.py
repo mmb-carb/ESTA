@@ -137,7 +137,7 @@ class Pmeds1Writer(OutputWriter):
         yr = date[2:4]
         county = self.county_names[cnty][:8].ljust(8)
         y, x = grid_cell
-        hour = '%02d%02d' % (hr, hr)
+        hour = '%02d%02d' % (hr - 1, hr - 1)
         basin = self.gai_basins[gai].rjust(3)
         emissions = ','.join(emis)
 
