@@ -128,3 +128,4 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         holidays = cal.holidays(start=yr + '-01-01', end=yr + '-12-31').to_pydatetime()
 
         return [d.strftime('%m-%d') for d in holidays] + ['03-31']
+

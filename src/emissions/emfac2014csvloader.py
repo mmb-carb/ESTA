@@ -129,11 +129,13 @@ class Emfac2014CsvLoader(EmissionsLoader):
             poll = ln[6].lower()
             if poll not in Emfac2014CsvLoader.VALID_POLLUTANTS:
                 continue
+            value = float(ln[-1])
+            if value == 0.0:
+                continue
             v = ln[3]
             p = ln[4]
             t = ln[5]
             eic = self.vtp2eic[(v, t, p)]
-            value = float(ln[-1])
             e[eic][poll] += value
 
         f.close()
@@ -144,7 +146,7 @@ class Emfac2014CsvLoader(EmissionsLoader):
         """ Parse the string we get back from the subareas field """
         if '..' in counties_str:
             counties = counties_str.split('..')
-            counties = range(int(counties[0]), int(counties[1]))
+            counties = range(int(counties[0]), int(counties[1]) + 1)
         else:
             counties = [int(c) for c in counties_str.split()]
 
@@ -180,3 +182,4 @@ class EMFAC2014EmissionsData(object):
             self.data[county][date] = table
         else:
             self.data[county][date].add_table(table)
+

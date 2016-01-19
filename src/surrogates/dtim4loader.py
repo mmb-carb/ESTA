@@ -5,9 +5,13 @@ from netCDF4 import Dataset
 import os
 from pandas.tseries.holiday import USFederalHolidayCalendar
 from pyproj import Proj
+import sys
+import numpy as np
+from math import pi
+from numpy import cos, sin
+from scipy.spatial import cKDTree
 from src.core.spatial_loader import SpatialLoader
 from spatial_surrogate import SpatialSurrogate
-import sys
 from temporal_surrogate import TemporalSurrogate
 
 
@@ -23,7 +27,7 @@ class Dtim4Loader(SpatialLoader):
         self.counties = SpatialLoader.parse_subareas(self.config['Subareas']['subareas'])
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
-        self.grid_file_path = self.config['GridInfo']['grid_dot_file']
+        self.grid_file_path = self.config['GridInfo']['grid_cross_file']
         self.lat_dot, self.lon_dot = self._read_grid_corners_file()
         self.date_format = self.config['Dates']['format']
         self.start_date = datetime.strptime(self.config['Dates']['start'], self.date_format)
@@ -31,6 +35,9 @@ class Dtim4Loader(SpatialLoader):
         self.base_year = int(self.config['Dates']['base_year'])
         self.data = Dtim4SpatialData()
         self.county_boxes = eval(open(self.config['Misc']['county_boxes'], 'r').read())
+        self.kdtrees = {}
+        self.rad_factor = pi / 180.0  # need angles in radians
+        self._create_kdtrees()
 
     def load(self, spatial_surrogates, temporal_surrogates):
         """ Overriding the abstract loader method to read DTIM4 road network files """
@@ -130,7 +137,8 @@ class Dtim4Loader(SpatialLoader):
          ANODE         X         Y     BNODE         X         Y  DISTANCE     SPEED    volumes * 26
             19     60729    200387      7010     60671    200259     13992      5000    9.91898    ...
         """
-        lcc = Proj(proj='lcc', lat_1=30.0, lat_2=60, lat_0=37, lon_0=-120.5, rsphere=6370000.00)
+        lcc = Proj(proj='lcc', lat_1=30.0, lat_2=60, lat_0=37, lon_0=-120.5, rsphere=6370000.00,
+                   ellps='sphere')
 
         # create dictionary of surrogates and TAZ centroid locations
         surrs = dict([(i, {'vmt': SpatialSurrogate()}) for i in range(26)])
@@ -175,7 +183,7 @@ class Dtim4Loader(SpatialLoader):
                     grid_cells.append(grid_cell)
 
             # distance (cm)
-            distance = int(line[60: 70])  # TODO: Units???
+            distance = int(line[60: 70])  # TODO: Units?
             # speed (miles/hour * 100)
             # speed = int(line[70: 80])
             # volumes
@@ -226,61 +234,56 @@ class Dtim4Loader(SpatialLoader):
         '''
         # read in gridded lat/lon
         data = Dataset(self.grid_file_path, 'r')
-        lat_dot = data.variables['LATD'][0][0]
-        lon_dot = data.variables['LOND'][0][0]
+        lat_dot = data.variables['LAT'][0][0]
+        lon_dot = data.variables['LON'][0][0]
         data.close()
 
         # validate dimensions
-        if (lat_dot.shape[0] != self.ncols + 1) or (lon_dot.shape[0] != self.ncols + 1):
+        if (lat_dot.shape[0] != self.ncols) or (lon_dot.shape[0] != self.ncols):
             raise ValueError('The grid file has the wrong number of cols: ' + self.grid_file_path)
-        elif (lat_dot.shape[1] != self.nrows + 1) or (lon_dot.shape[1] != self.nrows + 1):
+        elif (lat_dot.shape[1] != self.nrows) or (lon_dot.shape[1] != self.nrows):
             raise ValueError('The grid file has the wrong number of rows: ' + self.grid_file_path)
 
         return lat_dot, lon_dot
+
+    def _create_kdtrees(self):
+        """ Create a KD Tree for each county """
+        lat_vals = self.lat_dot[:] * self.rad_factor
+        lon_vals = self.lon_dot[:] * self.rad_factor
+
+        for county in self.counties:
+            # find the grid cell bounding box for the county in question
+            lat_min, lat_max = self.county_boxes[county]['lat']
+            lon_min, lon_max = self.county_boxes[county]['lon']
+            
+            # slice grid down to this county
+            latvals = lat_vals[lat_min:lat_max, lon_min:lon_max]
+            lonvals = lon_vals[lat_min:lat_max, lon_min:lon_max]
+            
+            # create tree
+            clat,clon = cos(latvals),cos(lonvals)
+            slat,slon = sin(latvals),sin(lonvals)
+            triples = list(zip(np.ravel(clat*clon), np.ravel(clat*slon), np.ravel(slat)))
+            self.kdtrees[county] = cKDTree(triples)
 
     def _find_grid_cell(self, p, county):
         ''' Find the grid cell location of a single point in our 3D grid.
             (Point given as a tuple (height in meters, lon in degrees, lat in degrees)
         '''
-        p1 = p[0]  # lon
-        p2 = p[1]  # lat
+        lat_min, lat_max = self.county_boxes[county]['lat']
+        lon_min, lon_max = self.county_boxes[county]['lon']
+            
+        # define parameters
+        lon0 = p[0] * self.rad_factor
+        lat0 = p[1] * self.rad_factor
+        
+        # run KD Tree algorithm
+        clat0,clon0 = cos(lat0),cos(lon0)
+        slat0,slon0 = sin(lat0),sin(lon0)
+        dist_sq_min, minindex_1d = self.kdtrees[county].query([clat0*clon0, clat0*slon0, slat0])
+        y, x = np.unravel_index(minindex_1d, (lat_max - lat_min, lon_max - lon_min))
 
-        # find the grid cell bounding box for the county in question
-        lat_range = self.county_boxes[county]['lat']
-        lon_range = self.county_boxes[county]['lon']
-
-        # loop through all grid cells until you find the correct one
-        for i in lat_range:
-            for j in lon_range:
-                # first, determine if it's even worth continuing East at this Latitude
-                min_lon = min(self.lon_dot[i, j], self.lon_dot[i + 1, j])
-                if p1 < min_lon:
-                    break
-                # if so, get the lat/lon max/min for this grid cell
-                max_lon = max(self.lon_dot[i, j + 1], self.lon_dot[i + 1, j + 1])
-                # test if your point lays within this grid cell
-                if p1 <= max_lon and p1 >= min_lon:
-                    min_lat = min(self.lat_dot[i, j], self.lat_dot[i, j + 1])
-                    max_lat = max(self.lat_dot[i + 1, j], self.lat_dot[i + 1, j + 1])
-                    if p2 >= min_lat and p2 <= max_lat:
-                        return (i, j)
-
-        # If the grid cells are not found, the ITN files or the bounding boxes need fixing.
-        for i in xrange(18, 280):
-            for j in xrange(88, 318):
-                min_lon = min(self.lon_dot[i, j], self.lon_dot[i + 1, j])
-                if p1 < min_lon:
-                    break
-                max_lon = max(self.lon_dot[i, j + 1], self.lon_dot[i + 1, j + 1])
-                if p1 <= max_lon and p1 >= min_lon:
-                    min_lat = min(self.lat_dot[i, j], self.lat_dot[i, j + 1])
-                    max_lat = max(self.lat_dot[i + 1, j], self.lat_dot[i + 1, j + 1])
-                    if p2 >= min_lat and p2 <= max_lat:
-                        print('Found lat/lon outside County Bounding Box', county, p, i, j)
-                        return (i, j)
-
-        # This should never happen. Unless the Lat/Lon are way outside California.
-        exit('ERROR: Lat/Lon not found: ' + str(p))
+        return lat_min + y + 1, lon_min + x + 1
 
 
 class Dtim4SpatialData(object):

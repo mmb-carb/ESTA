@@ -17,7 +17,7 @@ class SpatialLoader(object):
         """ Parse the string we get back from the subareas field """
         if '..' in subareas_str:
             subareas = subareas_str.split('..')
-            subareas = range(int(subareas[0]), int(subareas[1]))
+            subareas = range(int(subareas[0]), int(subareas[1]) + 1)
         else:
             subareas = [int(c) for c in subareas_str.split()]
 

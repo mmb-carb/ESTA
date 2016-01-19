@@ -27,8 +27,7 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
         elif os.path.exists(file_path + '.gz'):
             f = gzip.open(file_path + '.gz', 'rb')
         else:
-            print('Emissions File Not Found: ' + file_path)
-            return e
+            exit('Emissions File Not Found: ' + file_path)
 
         # now that file exists, read it
         f = open(file_path, 'r')
@@ -37,11 +36,13 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
             poll = ln[-1].lower()
             if poll not in Emfac2014CsvLoader.VALID_POLLUTANTS:
                 continue
+            value = float(ln[2])
+            if value == 0.0:
+                continue
             county = int(ln[1])
             v = ln[4]
             p = ln[3]
             eic = self.vtp2eic[(v, 'DSL', p)]
-            value = float(ln[2])
             if county not in emis_by_county:
                 emis_by_county[county] = EmissionsTable()
             emis_by_county[county][eic][poll] += value

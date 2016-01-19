@@ -136,7 +136,7 @@ class Pmeds1Writer(OutputWriter):
         # define parameters
         yr = date[2:4]
         county = self.county_names[cnty][:8].ljust(8)
-        x, y = grid_cell
+        y, x = grid_cell
         hour = '%02d%02d' % (hr, hr)
         basin = self.gai_basins[gai].rjust(3)
         emissions = ','.join(emis)
@@ -193,3 +193,4 @@ class Pmeds1Writer(OutputWriter):
                     'd' + day + '..e14..pmeds'
 
         return  os.path.join(out_dir, file_name)
+
