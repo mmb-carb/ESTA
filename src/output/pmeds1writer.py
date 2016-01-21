@@ -159,6 +159,10 @@ class Pmeds1Writer(OutputWriter):
         """
         gai_list = self.county_to_gai[county]
 
+        #print county, grid_cell, gai_list
+        #print self.multi_gai_coords[county].keys()
+        #exit()
+
         if len(gai_list) == 1:
             # For the easy counties
             return [[gai_list[0], 1.0]]

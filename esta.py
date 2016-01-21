@@ -36,7 +36,6 @@ def esta_preprocess(config_dict):
 
 def esta_process(config_dict, model):
     '''Process ESTA Model'''
-    print('\nExecuting ESTA model')
     model.process()
 
 

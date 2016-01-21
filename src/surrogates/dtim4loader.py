@@ -52,7 +52,7 @@ class Dtim4Loader(SpatialLoader):
 
         # loop through all the counties
         for county in self.counties:
-            print('Processing county #' + str(county))
+            print('    + processing county #' + str(county))
             fips = Dtim4Loader.county_to_fips(county)
             # loop through each DOW
             for dow in dows:

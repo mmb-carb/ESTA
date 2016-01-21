@@ -17,29 +17,30 @@ class EstaModel(object):
         ''' build the spatial and temporal surrogates and apply them to
             the emissions
         '''
+        print('\nExecuting ESTA model')
         # reset all data
         self.spatial_surrs = None
         self.temporal_surrs = None
         self.emissions = None
         self.scaled_emissions = None
 
-        # load all spatial data
+        print('  - loading spatial surrogates')
         for spatial_loader in self.spatial_loaders:
             self.spatial_surrs, self.temporal_surrs = spatial_loader.load(self.spatial_surrs,
                                                                           self.temporal_surrs)
 
-        # load all temporal data
+        print('  - loading temporal surrogates')
         for temporal_loader in self.temporal_loaders:
             self.temporal_surrs = temporal_loader.load(self.spatial_surrs, self.temporal_surrs)
 
-        # load all emissions data
+        print('  - loading emissions data')
         for emis_loader in self.emis_loaders:
             self.emissions = emis_loader.load(self.emissions)
 
-        # scaling the emissions, based on the above surrogates
+        print('  - scaling emissions')
         self.scaled_emissions = self.emis_scaler.scale(self.emissions, self.spatial_surrs,
                                                        self.temporal_surrs)
 
-        # apply surrogates and write output files
+        print('  - writing output files')
         for writer in self.writers:
             writer.write(self.scaled_emissions)
