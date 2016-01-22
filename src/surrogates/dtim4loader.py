@@ -21,6 +21,7 @@ class Dtim4Loader(SpatialLoader):
     """
 
     DOW = {0: 'mon', 1: 'tuth', 2: 'tuth', 3: 'tuth', 4: 'fri', 5: 'sat', 6: 'sun', -1: 'holi'}
+    MAX_STEPS = 12
 
     def __init__(self, config, directory):
         super(Dtim4Loader, self).__init__(config, directory)
@@ -171,8 +172,8 @@ class Dtim4Loader(SpatialLoader):
             num_cells = 1.0
             if gridx1 != gridx2 or gridy1 != gridy2:
                 num_cells = abs(gridx1 - gridx2) + abs(gridy1 - gridy2)
-                if num_cells > 8:
-                    num_cells = 8
+                if num_cells > Dtim4Loader.MAX_STEPS:
+                    num_cells = Dtim4Loader.MAX_STEPS
                 elif num_cells == 1:
                     num_cells = 2
                 step_lat = (lat2 - lat1) / (num_cells - 1.0)
@@ -414,3 +415,4 @@ class Dtim4TemporalData(object):
                 for veh in self.data[county][date]:
                     for act in self.data[county][date][veh]:
                         self.data[county][date][veh][act] = self.data[county][date][veh][act].surrogate()
+
