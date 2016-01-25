@@ -36,6 +36,7 @@ class Dtim4Loader(SpatialLoader):
         self.base_year = int(self.config['Dates']['base_year'])
         self.data = Dtim4SpatialData()
         self.county_boxes = eval(open(self.config['Misc']['county_boxes'], 'r').read())
+        self.default_hour = int(self.config['Misc']['default_itn_hour'])
         self.kdtrees = {}
         self.rad_factor = pi / 180.0  # need angles in radians
         self._create_kdtrees()
@@ -45,11 +46,12 @@ class Dtim4Loader(SpatialLoader):
         # initialize surroagates, if needed
         if not spatial_surrogates:
             spatial_surrogates = Dtim4SpatialData()
-        if not temporal_surrogates:
-            temporal_surrogates = {'diurnal': Dtim4TemporalData()}
 
         # figure out which DOWs we need to run
         dows = self._dows_to_run()
+
+        # the current file format requires us to select a specific hour of the day
+        hr = self.default_hour
 
         # loop through all the counties
         for county in self.counties:
@@ -57,36 +59,31 @@ class Dtim4Loader(SpatialLoader):
             fips = Dtim4Loader.county_to_fips(county)
             # loop through each DOW
             for dow in dows:
-                # loop through the hourly files
-                for hr in xrange(1, 25):
-                    # build the file paths
-                    link_file = os.path.join(self.directory, fips,
-                                             'dtim_link_' + fips + '_' + dow + '_%02d.dat' % hr)
-                    taz_file = link_file.replace('link', 'taz')
+                # build the file paths
+                link_file = os.path.join(self.directory, fips,
+                                         'dtim_link_' + fips + '_' + dow + '_%02d.dat' % hr)
+                taz_file = link_file.replace('link', 'taz')
 
-                    # read link file
-                    if not os.path.exists(link_file):
-                        sys.exit('Link file does not exist: ' + link_file)
-                        continue
-                    link_spatial_surrs, nodes = self._read_link_file(link_file, county)
-                    link_temporal_surrs = Dtim4Loader.spatial_dict_to_temporal(link_spatial_surrs)
+                # read link file
+                if not os.path.exists(link_file):
+                    sys.exit('Link file does not exist: ' + link_file)
+                    continue
+                link_spatial_surrs, nodes = self._read_link_file(link_file, county)
+                link_temporal_surrs = Dtim4Loader.spatial_dict_to_temporal(link_spatial_surrs)
 
-                    # read TAZ file (TAZ file needs node definitions from link file)
-                    if not os.path.exists(taz_file):
-                        sys.exit('TAZ file does not exist: ' + link_file)
-                    taz_spatial_surrs = self._read_taz_file(taz_file, nodes)
-                    taz_temporal_surrs = Dtim4Loader.spatial_dict_to_temporal(taz_spatial_surrs)
+                # read TAZ file (TAZ file needs node definitions from link file)
+                if not os.path.exists(taz_file):
+                    sys.exit('TAZ file does not exist: ' + link_file)
+                taz_spatial_surrs = self._read_taz_file(taz_file, nodes)
+                taz_temporal_surrs = Dtim4Loader.spatial_dict_to_temporal(taz_spatial_surrs)
 
-                    # add surrogate data to the correct dates
-                    for date in dows[dow]:
-                        spatial_surrogates.add_file(county, date, hr, link_spatial_surrs)
-                        spatial_surrogates.add_file(county, date, hr, taz_spatial_surrs)
-                        temporal_surrogates['diurnal'].add_file(county, date, hr, link_temporal_surrs)
-                        temporal_surrogates['diurnal'].add_file(county, date, hr, taz_temporal_surrs)
+                # add surrogate data to the correct dates
+                for date in dows[dow]:
+                    spatial_surrogates.add_file(county, date, link_spatial_surrs)
+                    spatial_surrogates.add_file(county, date, taz_spatial_surrs)
 
         # normalize surrogates
         spatial_surrogates.surrogates()
-        temporal_surrogates['diurnal'].surrogates()
 
         return spatial_surrogates, temporal_surrogates
 
@@ -184,7 +181,7 @@ class Dtim4Loader(SpatialLoader):
                     grid_cells.append(grid_cell)
 
             # distance (cm)
-            distance = int(line[60: 70])  # TODO: Units?
+            distance = int(line[60: 70])  # units currently don't matter
             # speed (miles/hour * 100)
             # speed = int(line[70: 80])
             # volumes
@@ -297,72 +294,6 @@ class Dtim4SpatialData(object):
     def __init__(self):
         self.data = {}
 
-    def get(self, county, date, hr, veh, act):
-        """ Getter method for DTIM 4 Data dictionary """
-        return self.data.get(county, {}).get(date, {}).get(hr, {}).get(veh, {}).get(act, None)
-
-    def set(self, county, date, hr, veh, act, surrogate):
-        """ Setter method for DTIM 4 Data dictionary """
-        # type validation
-        if type(surrogate) != SpatialSurrogate:
-            raise TypeError('Only spatial surrogates can be used in Dtim4SpatialData.')
-
-        # auto-fill the mulit-level dictionary format, to hide this from the user
-        if county not in self.data:
-            self.data[county] = {}
-        if date not in self.data[county]:
-            self.data[county][date] = {}
-        if hr not in self.data[county][date]:
-            self.data[county][date][hr] = {}
-        if veh not in self.data[county][date][hr]:
-            self.data[county][date][hr][veh] = {}
-
-        # add surrogate
-        self.data[county][date][hr][veh][act] = surrogate
-
-    def add_file(self, county, date, hr, surrogate_dict):
-        """ Setter method to add an entire dictionary of spatial surrogates to this object.
-            The dict represents an entire DTIM Link or TAZ file. So it has two layers of keys:
-            vehicle type and activity type, then it has a spatial surrogate
-        """
-        for veh in surrogate_dict:
-            for act in surrogate_dict[veh]:
-                self.set(county, date, hr, veh, act, surrogate_dict[veh][act])
-
-    def generate_temporal_surrogates(self):
-        """ Use the data in these spatial surrogates to create a temporal surrogate """
-        t = Dtim4Temporal()
-
-        for county, county_data in self.data.iteritems():
-            for date, date_data in county_data.iteritems():
-                for hr, hr_data in date_data.iteritems():
-                    for veh, veh_data in hr_data.iteritems():
-                        for act in veh_data:
-                            total = sum(veh_data[act].values())
-                            t.set_at_hour(county, data, veh, act, int(hr), total)
-
-        return t
-
-    def surrogates(self):
-        """ Finally, normalize all the spatial surrogates, so the grid cells sum to 1.0. """
-        for county in self.data:
-            for date in self.data[county]:
-                for hr in self.data[county][date]:
-                    for veh in self.data[county][date][hr]:
-                        for act in self.data[county][date][hr][veh]:
-                            self.data[county][date][hr][veh][act] = self.data[county][date][hr][veh][act].surrogate()
-
-
-class Dtim4TemporalData(object):
-    """ This class is designed as a helper to make organizing the huge amount of temporal
-        information we pull out of the DTIM4 Link/TAZ files easier.
-        It is just a multiply-embedded dictionary with keys for things that we find in each file:
-        county, date, hour-of-the-day, vehicle type, and activity (VMT, Trips, etc).
-    """
-
-    def __init__(self):
-        self.data = {}
-
     def get(self, county, date, veh, act):
         """ Getter method for DTIM 4 Data dictionary """
         return self.data.get(county, {}).get(date, {}).get(veh, {}).get(act, None)
@@ -370,8 +301,8 @@ class Dtim4TemporalData(object):
     def set(self, county, date, veh, act, surrogate):
         """ Setter method for DTIM 4 Data dictionary """
         # type validation
-        if type(surrogate) != TemporalSurrogate:
-            raise TypeError('Only temporal surrogates can be used in Dtim4TemporalData.')
+        if type(surrogate) != SpatialSurrogate:
+            raise TypeError('Only spatial surrogates can be used in Dtim4SpatialData.')
 
         # auto-fill the mulit-level dictionary format, to hide this from the user
         if county not in self.data:
@@ -384,32 +315,17 @@ class Dtim4TemporalData(object):
         # add surrogate
         self.data[county][date][veh][act] = surrogate
 
-    def set_at_hour(self, county, date, veh, act, hr, value):
-        """ Setter method for DTIM 4 Data dictionary """
-        # auto-fill the mulit-level dictionary format, to hide this from the user
-        if county not in self.data:
-            self.data[county] = {}
-        if date not in self.data[county]:
-            self.data[county][date] = {}
-        if veh not in self.data[county][date]:
-            self.data[county][date][veh] = {}
-        if act not in self.data[county][date][veh]:
-            self.data[county][date][veh][act] = TemporalSurrogate()
-
-        # add surrogate
-        self.data[county][date][veh][act][hr - 1] += value
-
-    def add_file(self, county, date, hr, surrogate_dict):
-        """ Setter method to add an entire dictionary of temporal surrogates to this object.
+    def add_file(self, county, date, surrogate_dict):
+        """ Setter method to add an entire dictionary of spatial surrogates to this object.
             The dict represents an entire DTIM Link or TAZ file. So it has two layers of keys:
-            vehicle type and activity type, then it has a temporal surrogate
+            vehicle type and activity type, then it has a spatial surrogate
         """
         for veh in surrogate_dict:
             for act in surrogate_dict[veh]:
-                self.set_at_hour(county, date, veh, act, hr, surrogate_dict[veh][act])
+                self.set(county, date, veh, act, surrogate_dict[veh][act])
 
     def surrogates(self):
-        """ Finally, normalize all the temporal surrogates, so the 24 hours sum to 1.0. """
+        """ Finally, normalize all the spatial surrogates, so the grid cells sum to 1.0. """
         for county in self.data:
             for date in self.data[county]:
                 for veh in self.data[county][date]:
