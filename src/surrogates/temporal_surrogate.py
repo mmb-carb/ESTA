@@ -23,4 +23,6 @@ class TemporalSurrogate(array):
 
         return t
 
-    # TODO: Override 'type', 'str', and 'repr' methods.
+    def __repr__(self):
+        return array.__repr__(self).replace('array', self.__class__.__name__, 1)
+

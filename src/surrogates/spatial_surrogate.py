@@ -34,4 +34,6 @@ class SpatialSurrogate(defaultdict):
 
         return s
 
-    # TODO: Override 'type', 'str', and 'repr' methods.
+    def __repr__(self):
+        return defaultdict.__repr__(self).replace('defaultdict', self.__class__.__name__, 1)
+

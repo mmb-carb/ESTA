@@ -60,7 +60,6 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
                 factors_by_hour = temporal_surr['diurnal'][county][dow]
                 
                 # pull today's spatial surrogate
-                # TODO: I no longer need hours in this data.
                 spatial_surrs = spatial_surr.data[county][date]
 
                 # loop through each hour of the day

@@ -42,4 +42,6 @@ class SparceEmissions(defaultdict):
                     cell_dict = defaultdict.__getitem__(self, cell)
                     cell_dict[poll] += value
 
-    # TODO: Override 'type', 'str', and 'repr' methods.
+    def __repr__(self):
+        return defaultdict.__repr__(self).replace('defaultdict', self.__class__.__name__, 1)
+
