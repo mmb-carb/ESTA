@@ -1,4 +1,6 @@
 
+from version import __version__
+
 
 class EstaModel(object):
 
@@ -17,7 +19,7 @@ class EstaModel(object):
         ''' build the spatial and temporal surrogates and apply them to
             the emissions
         '''
-        print('\nExecuting ESTA model')
+        print('\nExecuting ESTA model v' + __version__)
         # reset all data
         self.spatial_surrs = None
         self.temporal_surrs = None
