@@ -132,7 +132,7 @@ class Dtim4Loader(SpatialLoader):
         """ Read the ITN activity data from a single Link file
         File format:
          ANODE         X         Y     BNODE         X         Y  DISTANCE     SPEED    volumes * 26
-            19     60729    200387      7010     60671    200259     13992      5000    9.91898    ...
+            19     60729    200387      7010     60671    200259     13992      5000    9.91898  ...
         """
         lcc = Proj(proj='lcc', lat_1=30.0, lat_2=60, lat_0=37, lon_0=-120.5, rsphere=6370000.00,
                    ellps='sphere')
@@ -252,11 +252,11 @@ class Dtim4Loader(SpatialLoader):
             # find the grid cell bounding box for the county in question
             lat_min, lat_max = self.county_boxes[county]['lat']
             lon_min, lon_max = self.county_boxes[county]['lon']
-            
+
             # slice grid down to this county
             latvals = lat_vals[lat_min:lat_max, lon_min:lon_max]
             lonvals = lon_vals[lat_min:lat_max, lon_min:lon_max]
-            
+
             # create tree
             clat,clon = cos(latvals),cos(lonvals)
             slat,slon = sin(latvals),sin(lonvals)
@@ -269,11 +269,11 @@ class Dtim4Loader(SpatialLoader):
         '''
         lat_min, lat_max = self.county_boxes[county]['lat']
         lon_min, lon_max = self.county_boxes[county]['lon']
-            
+
         # define parameters
         lon0 = p[0] * self.rad_factor
         lat0 = p[1] * self.rad_factor
-        
+
         # run KD Tree algorithm
         clat0,clon0 = cos(lat0),cos(lon0)
         slat0,slon0 = sin(lat0),sin(lon0)
@@ -330,4 +330,3 @@ class Dtim4SpatialData(object):
                 for veh in self.data[county][date]:
                     for act in self.data[county][date][veh]:
                         self.data[county][date][veh][act] = self.data[county][date][veh][act].surrogate()
-

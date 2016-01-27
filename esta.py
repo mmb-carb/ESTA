@@ -4,7 +4,7 @@ import ConfigParser
 import sys
 from src.core.esta_model_builder import EstaModelBuilder
 from src.core.esta_model import EstaModel
-#from src.testing.surrogate_plotter import SurrogatePlotter
+# TODO: from src.testing.surrogate_plotter import SurrogatePlotter
 
 
 def main():
@@ -25,7 +25,7 @@ def main():
     # ESTA processing
     model = esta_preprocess(config_dict)
     esta_process(config_dict, model)
-    #esta_postprocess(config_dict, model)
+    # TODO: esta_postprocess(config_dict, model)
 
 
 def esta_preprocess(config_dict):

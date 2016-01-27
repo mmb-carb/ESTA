@@ -142,8 +142,8 @@ class Pmeds1Writer(OutputWriter):
         emissions = ','.join(emis)
 
         return ''.join([county, str(eic).rjust(28), str(x).rjust(3), str(y).rjust(3),
-               '              ', str(cnty).rjust(2), yr, str(jul_day).rjust(3), hour, basin,
-               str(gai).rjust(3), '     ', emissions, '\n'])
+                       '              ', str(cnty).rjust(2), yr, str(jul_day).rjust(3), hour, basin,
+                        str(gai).rjust(3), '     ', emissions, '\n'])
 
     def _write_zipped_file(self, out_path, lines):
         """ simple helper method to write a list of strings to a file """
@@ -177,7 +177,7 @@ class Pmeds1Writer(OutputWriter):
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
 
-        return  os.path.join(out_dir, self.county_names[county] + '.pmeds')
+        return os.path.join(out_dir, self.county_names[county] + '.pmeds')
 
     def _build_state_file_path(self, date):
         """ build output file directory and path for PMEDS file
@@ -189,8 +189,7 @@ class Pmeds1Writer(OutputWriter):
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
 
-        file_name = 'st_4k.mv.' + self.version + '..' + str(self.base_year) + '.' +  yr + month + \
+        file_name = 'st_4k.mv.' + self.version + '..' + str(self.base_year) + '.' + yr + month + \
                     'd' + day + '..e14..pmeds'
 
-        return  os.path.join(out_dir, file_name)
-
+        return os.path.join(out_dir, file_name)

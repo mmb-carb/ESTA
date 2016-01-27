@@ -28,4 +28,3 @@ class EmissionsLoader(object):
             subareas = [int(c) for c in subareas_str.split()]
 
         return subareas
-

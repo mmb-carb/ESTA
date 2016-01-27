@@ -89,4 +89,3 @@ class Dtim4CalvadTemporalLoader(TemporalLoader):
         f.close()
 
         return calvad
-

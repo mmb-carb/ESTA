@@ -1,6 +1,7 @@
 
 import abc
 
+
 class SpatialLoader(object):
     __metaclass__ = abc.ABCMeta
 

@@ -55,10 +55,10 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
                 cal_factors = temporal_surr['dow'][county][dow]
                 emissions_table = deepcopy(et)
                 emissions_table = self._apply_factors(emissions_table, cal_factors)
-                
+
                 # find diurnal factors by hour
                 factors_by_hour = temporal_surr['diurnal'][county][dow]
-                
+
                 # pull today's spatial surrogate
                 spatial_surrs = spatial_surr.data[county][date]
 
@@ -85,7 +85,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         inv = {}
         f = open(inv_file, 'r')
         header = f.readline()
-        
+
         for line in f.xreadlines():
             # parse line
             ln = line.strip().split(',')
@@ -95,7 +95,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
             county = int(ln[1])
             eic = int(ln[-3])
             val = float(ln[-1])
-            
+
             # fill data structure
             if county not in inv:
                 inv[county] = defaultdict(float)
@@ -104,7 +104,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
             # fill in emissions values
             inv[county][eic][poll] += val
         f.close()
-        
+
         # create fractions
         for county in inv:
             for eic in inv[county]:
@@ -114,7 +114,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
                 else:
                     nh3 = inv[county][eic][7664417]
                     inv[county][eic] = nh3 / co
-        
+
         return inv
 
     def _apply_factors(self, emissions_table, factors):
@@ -143,10 +143,10 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
             se = SparceEmissions()
             veh, act = self.eic2dtim4[eic]
             for poll, value in emis_table[eic].iteritems():
-                for cell,fraction in spatial_surrs[veh][act].iteritems():
+                for cell, fraction in spatial_surrs[veh][act].iteritems():
                     se[cell][poll] = value * fraction
                     if poll == 'co':
-                        se[cell]['nh3'] = se[cell]['co' ] * self.nh3_fractions[county][eic]
+                        se[cell]['nh3'] = se[cell]['co'] * self.nh3_fractions[county][eic]
             e[eic] = se
 
         return e
@@ -159,4 +159,3 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         holidays = cal.holidays(start=yr + '-01-01', end=yr + '-12-31').to_pydatetime()
 
         return [d.strftime('%m-%d') for d in holidays] + ['03-31']
-
