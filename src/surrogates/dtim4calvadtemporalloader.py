@@ -46,13 +46,14 @@ class Dtim4CalvadTemporalLoader(TemporalLoader):
             ld = float(ln[3])
             lm = float(ln[4])
             hh = float(ln[5])
+            sbus = float(ln[6])
 
             # load data into surrogate
             if county not in calvad:
                 calvad[county] = {}
             if dow not in calvad[county]:
                 calvad[county][dow] = {}
-            calvad[county][dow][hr] = [ld, lm, hh]
+            calvad[county][dow][hr] = [ld, lm, hh, sbus]
 
         f.close()
 
@@ -78,11 +79,12 @@ class Dtim4CalvadTemporalLoader(TemporalLoader):
             ld = float(ln[4])
             lm = float(ln[5])
             hh = float(ln[6])
+            sbus = float(ln[7])
 
             # load data into surrogate
             if county not in calvad:
                 calvad[county] = {}
-            calvad[county][dow] = [ld, lm, hh]
+            calvad[county][dow] = [ld, lm, hh, sbus]
 
         f.close()
 

@@ -74,7 +74,7 @@ class Pmeds1Writer(OutputWriter):
                         # loop over GAIs
                         for gai, frac in gais:
                             # build list of six pollutants
-                            emis = ['']*6
+                            emis = ['', '', '', '', '', '']
                             for poll, value in grid_data.iteritems():
                                 if poll.lower() not in Pmeds1Writer.COLUMNS:
                                     continue
@@ -109,7 +109,7 @@ class Pmeds1Writer(OutputWriter):
                     # loop over GAIs
                     for gai, frac in gais:
                         # build list of six pollutants
-                        emis = ['']*6
+                        emis = ['', '', '', '', '', '']
                         for poll, value in grid_data.iteritems():
                             if poll.lower() not in Pmeds1Writer.COLUMNS:
                                 continue
@@ -141,9 +141,9 @@ class Pmeds1Writer(OutputWriter):
         basin = self.gai_basins[gai].rjust(3)
         emissions = ','.join(emis)
 
-        return county + str(eic).rjust(28) + str(x).rjust(3) + str(y).rjust(3) + \
-               '              ' + str(cnty).rjust(2) + yr + str(jul_day).rjust(3) + hour + basin + \
-               str(gai).rjust(3) + '     ' + emissions + '\n'
+        return ''.join([county, str(eic).rjust(28), str(x).rjust(3), str(y).rjust(3),
+               '              ', str(cnty).rjust(2), yr, str(jul_day).rjust(3), hour, basin,
+               str(gai).rjust(3), '     ', emissions, '\n'])
 
     def _write_zipped_file(self, out_path, lines):
         """ simple helper method to write a list of strings to a file """
@@ -158,10 +158,6 @@ class Pmeds1Writer(OutputWriter):
             a GAI. Otherwise, we have to use a look-up table, by grid cell.
         """
         gai_list = self.county_to_gai[county]
-
-        #print county, grid_cell, gai_list
-        #print self.multi_gai_coords[county].keys()
-        #exit()
 
         if len(gai_list) == 1:
             # For the easy counties

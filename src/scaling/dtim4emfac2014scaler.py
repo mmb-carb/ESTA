@@ -10,8 +10,8 @@ from src.emissions.sparce_emissions import SparceEmissions
 
 class Dtim4Emfac2014Scaler(EmissionsScaler):
 
-    CALVAD_TYPE = [1, 1, 1, 1, 0, 0, 0, 2, 0, 1, 1, 1, 1,
-                   1, 1, 1, 1, 0, 0, 0, 2, 0, 1, 1, 1, 1]
+    CALVAD_TYPE = [1, 1, 1, 1, 0, 0, 0, 2, 0, 1, 1, 3, 1,
+                   1, 1, 1, 1, 0, 0, 0, 2, 0, 1, 1, 3, 1]
     DOW = {0: 'mon', 1: 'tuth', 2: 'tuth', 3: 'tuth', 4: 'fri', 5: 'sat', 6: 'sun', -1: 'holi'}
 
     def __init__(self, config):
@@ -54,7 +54,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
                 # apply CalVad DOW factors
                 cal_factors = temporal_surr['dow'][county][dow]
                 emissions_table = deepcopy(et)
-                emissions_table = self._apply_dow_factor(emissions_table, cal_factors, dow)
+                emissions_table = self._apply_factors(emissions_table, cal_factors)
                 
                 # find diurnal factors by hour
                 factors_by_hour = temporal_surr['diurnal'][county][dow]
@@ -66,7 +66,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
                 for hr in xrange(24):
                     # apply diurnal profile to emissions
                     emis_table = deepcopy(emissions_table)
-                    emis_table = self._apply_diurnal_factors(emis_table, factors_by_hour[hr], hr)
+                    emis_table = self._apply_factors(emis_table, factors_by_hour[hr])
 
                     # apply spatial surrogates & create sparcely-gridded emissions
                     sparce_emis_dict = self._apply_spatial_surrs(county, emis_table, spatial_surrs)
@@ -117,36 +117,15 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         
         return inv
 
-    def _apply_dow_factor(self, emissions_table, factors, dow):
-        """ Apply CalVad DOW factors to an emissions table, altering the table.
+    def _apply_factors(self, emissions_table, factors):
+        """ Apply CalVad DOW or diurnal factors to an emissions table, altering the table.
             Date Types:
             EmissionsTable[EIC][pollutant] = value
-            factors = [ld, lm, hh]
+            factors = [ld, lm, hh, sbus]
         """
         for eic in emissions_table:
-            # find default CalVad factor
             factor = factors[self.CALVAD_TYPE[self.eic2dtim4[eic][0]]]
-
-            # change factor for various special cases
-            if (eic // 1e11) == 771:  # SBUS - School Busses run evenly on weekdays
-                factor = 0.0 if dow in ['sat', 'sun', 'holi'] else 1.0
-
-            # use factor on each pollutant
-            for poll in emissions_table[eic]:
-                emissions_table[eic][poll] *= factor
-
-        return emissions_table
-
-    def _apply_diurnal_factors(self, emissions_table, factors, hr):
-        """ Apply the diurnal factors derived from DTIM4 input files to each EIC in the emis table.
-            Data Types:
-            EmissionsTable[EIC][pollutant] = value
-            factors[veh][act] = [x]*24
-        """
-        for eic in emissions_table:
-            for poll in emissions_table[eic]:
-                veh = self.eic2dtim4[eic][0]
-                emissions_table[eic][poll] *= factors[self.CALVAD_TYPE[veh]]
+            emissions_table[eic].update((x, y * factor) for x, y in emissions_table[eic].items())
 
         return emissions_table
 

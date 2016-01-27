@@ -8,7 +8,15 @@ TODO: Everthing
 
 ## How to Run
 
-TODO: Everthing
+To run ESTA, you will need to have Python (v2.6 or 2.7) installed. To run the test case, go to the command line and type:
+
+    ./esta.py default.ini
+
+Or you can type:
+
+    python esta.py default.ini
+
+All of the information about your run can be found in the `default.ini` configuration file.
 
 ## Code Structure
 

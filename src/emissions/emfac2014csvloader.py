@@ -129,13 +129,16 @@ class Emfac2014CsvLoader(EmissionsLoader):
             poll = ln[6].lower()
             if poll not in Emfac2014CsvLoader.VALID_POLLUTANTS:
                 continue
+            v = ln[3]
+            t = ln[5]
+            if v == 'SBUS' and t == 'DSL':
+                # There is no such thing as Light-Duty, Diesel School Busses.
+                continue
+            p = ln[4]
+            eic = self.vtp2eic[(v, t, p)]
             value = float(ln[-1])
             if value == 0.0:
                 continue
-            v = ln[3]
-            p = ln[4]
-            t = ln[5]
-            eic = self.vtp2eic[(v, t, p)]
             e[eic][poll] += value
 
         f.close()
