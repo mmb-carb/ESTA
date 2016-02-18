@@ -29,8 +29,16 @@ class SpatialSurrogate(defaultdict):
         s = SpatialSurrogate()
 
         total = sum(defaultdict.values(self))
-        for key in defaultdict.__iter__(self):
-            s[key] = self.__getitem__(key) / total
+        if total:
+            # The easy solution, just normalize all the values so they sum to 1.0.
+            for key in defaultdict.__iter__(self):
+                s[key] = self.__getitem__(key) / total
+        else:
+            # What if the total is zero?
+            number_keys = len(list(defaultdict.values(self)))
+            if number_keys:
+                # This only works for non-zero number of keys.
+                s = dict(zip(defaultdict.__iter__(self), [1.0 / number_keys]*number_keys))
 
         return s
 

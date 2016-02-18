@@ -4,7 +4,6 @@ import ConfigParser
 import sys
 from src.core.esta_model_builder import EstaModelBuilder
 from src.core.esta_model import EstaModel
-# TODO: from src.testing.surrogate_plotter import SurrogatePlotter
 
 
 def main():
@@ -39,12 +38,9 @@ def esta_process(config_dict, model):
     model.process()
 
 
-def gate_postprocess(config_dict, model):
+def esta_postprocess(config_dict, model):
     '''Perform various post-processing steps, if necessary'''
-    if config_dict['Testing']['plot_surrogates'] == 'True':
-        print('''\nPerform various post-processing steps''')
-        s = SurrogatePlotter(model.surrogates, config_dict['Testing']['surr_plot_dir'])
-        s.plot_runways()
+    model.postprocess()  # TODO: This is not implemented. Yet.
 
 
 def usage():

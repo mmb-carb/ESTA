@@ -61,7 +61,8 @@ class Dtim4Loader(SpatialLoader):
                 # build the file paths
                 link_file = os.path.join(self.directory, fips,
                                          'dtim_link_' + fips + '_' + dow + '_%02d.dat' % hr)
-                taz_file = link_file.replace('link', 'taz')
+                index = link_file.rfind('link')
+                taz_file = link_file[:index] + 'taz' + link_file[index + 4:]
 
                 # read link file
                 if not os.path.exists(link_file):
@@ -72,7 +73,7 @@ class Dtim4Loader(SpatialLoader):
 
                 # read TAZ file (TAZ file needs node definitions from link file)
                 if not os.path.exists(taz_file):
-                    sys.exit('TAZ file does not exist: ' + link_file)
+                    sys.exit('TAZ file does not exist: ' + taz_file)
                 taz_spatial_surrs = self._read_taz_file(taz_file, nodes)
                 taz_temporal_surrs = Dtim4Loader.spatial_dict_to_temporal(taz_spatial_surrs)
 
