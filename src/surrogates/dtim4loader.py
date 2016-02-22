@@ -237,9 +237,9 @@ class Dtim4Loader(SpatialLoader):
         data.close()
 
         # validate dimensions
-        if (lat_dot.shape[0] != self.ncols) or (lon_dot.shape[0] != self.ncols):
+        if (lat_dot.shape[1] != self.ncols) or (lon_dot.shape[1] != self.ncols):
             raise ValueError('The grid file has the wrong number of cols: ' + self.grid_file_path)
-        elif (lat_dot.shape[1] != self.nrows) or (lon_dot.shape[1] != self.nrows):
+        elif (lat_dot.shape[0] != self.nrows) or (lon_dot.shape[0] != self.nrows):
             raise ValueError('The grid file has the wrong number of rows: ' + self.grid_file_path)
 
         return lat_dot, lon_dot

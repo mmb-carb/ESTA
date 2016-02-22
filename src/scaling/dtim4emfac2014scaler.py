@@ -49,7 +49,8 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
                 if date[4:] in self._find_holidays():
                     dow = 'holi'
                 else:
-                    dow = Dtim4Emfac2014Scaler.DOW[dt.strptime(date, self.date_format).weekday()]
+                    by_date = str(self.base_year) + date[4:]
+                    dow = Dtim4Emfac2014Scaler.DOW[dt.strptime(by_date, self.date_format).weekday()]
 
                 # apply CalVad DOW factors
                 cal_factors = temporal_surr['dow'][county][dow]
