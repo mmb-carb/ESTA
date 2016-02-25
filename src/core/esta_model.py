@@ -4,12 +4,13 @@ from version import __version__
 
 class EstaModel(object):
 
-    def __init__(self, spatial_loaders, temporal_loaders, emis_loaders, emis_scaler, writers):
+    def __init__(self, spatial_loaders, temporal_loaders, emis_loaders, emis_scaler, writers, tests):
         self.spatial_loaders = spatial_loaders
         self.temporal_loaders = temporal_loaders
         self.emis_loaders = emis_loaders
         self.emis_scaler = emis_scaler
         self.writers = writers
+        self.testers = tests
         self.spatial_surrs = None
         self.temporal_surrs = None
         self.emissions = None
@@ -46,3 +47,9 @@ class EstaModel(object):
         print('  - writing output files')
         for writer in self.writers:
             writer.write(self.scaled_emissions)
+
+    def postprocess(self):
+        ''' run all listed tests '''
+        print('  - testing output files')
+        for tester in self.testers:
+            tester.test()

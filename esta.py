@@ -24,7 +24,7 @@ def main():
     # ESTA processing
     model = esta_preprocess(config_dict)
     esta_process(config_dict, model)
-    # TODO: esta_postprocess(config_dict, model)
+    esta_postprocess(config_dict, model)
 
 
 def esta_preprocess(config_dict):
@@ -40,7 +40,7 @@ def esta_process(config_dict, model):
 
 def esta_postprocess(config_dict, model):
     '''Perform various post-processing steps, if necessary'''
-    model.postprocess()  # TODO: This is not implemented. Yet.
+    model.postprocess()
 
 
 def usage():

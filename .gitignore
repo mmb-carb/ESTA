@@ -52,7 +52,6 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
-# Test input directories
-test/
+# Various project-level directories
 tests/
 

@@ -16,8 +16,10 @@ class EstaModelBuilder(object):
         emissions_loaders = self.build_emissions_loaders()
         scaler = self.build_emissions_scaler()
         writers = self.build_output_writers()
+        testers = self.build_output_testers()
 
-        return EstaModel(spatial_loaders, temporal_loaders, emissions_loaders, scaler, writers)
+        return EstaModel(spatial_loaders, temporal_loaders, emissions_loaders, scaler, writers,
+                         testers)
 
     def build_surrogate_loaders(self):
         ''' The spatial and temporal surrogates are built from '''
@@ -127,3 +129,20 @@ class EstaModelBuilder(object):
                 sys.exit('ERROR: Unable to find class: ' + ow + '\n' + str(e))
 
         return loaders
+
+    def build_output_testers(self):
+        """ The classes used to test your various output files """
+        tester_strs = self.config['Testing']['tests'].split()
+
+        # build list of output tester objects
+        testers = []
+        for i in xrange(len(tester_strs)):
+            ot = tester_strs[i]
+            try:
+                __import__('src.testing.' + ot.lower())
+                mod = sys.modules['src.testing.' + ot.lower()]
+                testers.append(getattr(mod, ot)(self.config))
+            except (NameError, KeyError) as e:
+                sys.exit('ERROR: Unable to find class: ' + ot + '\n' + str(e))
+
+        return testers
