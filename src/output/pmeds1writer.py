@@ -18,6 +18,7 @@ class Pmeds1Writer(OutputWriter):
         by_subarea = self.config['Output']['by_subarea'].lower()
         self.by_subarea = False if by_subarea in ['false', '0', 'no'] else True
         self.version = self.config['Misc']['inventory_version']
+        self.grid_file = self.config['GridInfo']['grid_cross_file']
         self.county_names = eval(open(self.config['Misc']['county_names'], 'r').read())
         self.county_to_gai = eval(open(self.config['Misc']['county_to_gai'], 'r').read())
         self.gai_basins = eval(open(self.config['Misc']['gai_basins'], 'r').read())
@@ -189,7 +190,18 @@ class Pmeds1Writer(OutputWriter):
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
 
-        file_name = 'st_4k.mv.' + self.version + '..' + str(self.base_year) + '.' + yr + month + \
-                    'd' + day + '..e14..pmeds'
+        # This is to match the MMB CMAQ-ready file naming convention.
+        grid_size = '4k'
+        if '12km' in self.grid_file.split('/')[-1]:
+            grid_size = '12k'
+        elif '36km' in self.grid_file.split('/')[-1]:
+            grid_size = '36k'
+        elif '1km' in self.grid_file.split('/')[-1]:
+            grid_size = '1k'
+        elif '250m' in self.grid_file.split('/')[-1]:
+            grid_size = '250m'
+
+        file_name = 'st_' + grid_size + '.mv.' + self.version + '..' + str(self.base_year) + '.' + \
+                    yr + month + 'd' + day + '..e14..pmeds'
 
         return os.path.join(out_dir, file_name)
