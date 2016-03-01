@@ -17,6 +17,12 @@ GRIDCRO2D = 'GRIDCRO2D.California_12km_97x107'
 ROWS = 97
 COLS = 107
 '''
+# SCAQMD 4km Grid
+'''
+GRIDCRO2D = 'GRIDCRO2D.SCAQMD_4km_102x156'
+ROWS = 102
+COLS = 156
+'''
 
 
 def main():
@@ -91,8 +97,8 @@ class PreprocessCountyBoxes(object):
         boxes = {}
         for county in xrange(1, 59):
             ll_lat, ll_lon, ur_lat, ur_lon = COUNTY_BOXES_LAT_LON[county]
-            ll_y, ll_x = pcb.find_grid_cell((ll_lon, ll_lat))
-            ur_y, ur_x = pcb.find_grid_cell((ur_lon, ur_lat))
+            ll_y, ll_x = self.find_grid_cell((ll_lon, ll_lat))
+            ur_y, ur_x = self.find_grid_cell((ur_lon, ur_lat))
             boxes[county] = {'lon': (ll_x - 1, ur_x + 1), 'lat': (ll_y - 1, ur_y + 1)}
 
         return boxes
