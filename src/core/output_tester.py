@@ -14,6 +14,7 @@ class OutputTester(object):
         self.base_year = int(self.config['Dates']['base_year'])
         self.subareas = OutputTester.parse_subareas(self.config['Subareas']['subareas'])
         self.output_dirs = self.config['Output']['directories'].split()
+        self.testing_dir = self.config['Testing']['testing_directory']
 
     @abc.abstractmethod
     def test(self):

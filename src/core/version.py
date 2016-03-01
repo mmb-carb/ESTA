@@ -1,6 +1,6 @@
 
 __title__ = 'esta'
-__version__ = '0.1.1'
+__version__ = '0.2.0'
 __author__ = 'John Stilley'
 __license__ = 'GPLv3'
 
