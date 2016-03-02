@@ -4,7 +4,7 @@
 
 ## General Introduction
 
-TODO: Everthing
+> TODO
 
 ## How to Run
 
@@ -19,6 +19,10 @@ Or you can type:
 All of the information about your run can be found in the `default.ini` configuration file.
 
 ## Code Structure
+
+> TODO: Introduction
+
+#### On-Road Processing of EMFAC2014 Emissions
 
 > This is for a single sub-area (don't use the word "county" or "GAI").
 
@@ -38,7 +42,8 @@ All of the information about your run can be found in the `default.ini` configur
 5. Write output file (can allow more than one file type)
 6. QA Tools
 
-* Sparse-Matrix Design: Because many sub-areas will be involved in a larger grid domain
+* Sparse-Matrix Design: Because many sub-areas will be involved in a larger modeling domain (grid)
+* KD Trees Algorithm: Efficient intersection of links onto projected modeling domain
 
 ## TODO
 
@@ -47,9 +52,9 @@ All of the information about your run can be found in the `default.ini` configur
  * spatially/temporally plot final results  (imshow)
  * simple `plt.imshow(grid, interpolation=None)` plotting of spatial surrogates
 
+* Fast Parallel county run groups
 
- * Fast Parallel county run groups
-    county_groups = [[37],
+    fips_grouping = [[37],
                      [19],
                      [29],
                      [71],
@@ -61,4 +66,17 @@ All of the information about your run can be found in the `default.ini` configur
                      [107, 77, 25, 87, 95, 115, 9],
                      [67, 47, 7, 113, 101, 109, 55],
                      [31, 89, 83, 61, 45, 57, 43]]
+
+    county_groups = [[19],
+                     [10],
+                     [15],
+                     [36],
+                     [33, 49, 2, 41, 53, 46],
+                     [37, 1, 47, 18, 17, 11],
+                     [50, 20, 7, 35, 38, 3, 26],
+                     [30, 27, 9, 14, 52, 21, 6],
+                     [40, 56, 43, 12, 25, 8, 32],
+                     [54, 39, 13, 44, 48, 58, 5],
+                     [34, 24, 4, 57, 51, 55, 28],
+                     [16, 45, 42, 31, 23, 29, 22]]
 

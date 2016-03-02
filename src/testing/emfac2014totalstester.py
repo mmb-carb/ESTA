@@ -8,20 +8,21 @@ from src.core.output_tester import OutputTester
 
 class Emfac2014TotalsTester(OutputTester):
 
+    KG_2_STONS = 0.001102310995
     SUMMER_MONTHS = [4, 5, 6, 7, 8, 9]
-    POLLUTANTS = ['nox', 'co', 'pm', 'sox', 'tog']
+    POLLUTANTS = ['co', 'nox', 'sox', 'tog', 'pm']
 
     def __init__(self, config):
         super(Emfac2014TotalsTester, self).__init__(config)
-        self.dates = list(self.config['Testing']['dates'])
+        self.dates = self.config['Testing']['dates'].split()
         self.vtp2eic = eval(open(self.config['Misc']['vtp2eic'], 'r').read())
         self.county_names = eval(open(self.config['Misc']['county_names'], 'r').read())
-        self.emis_dirs = self.config['Emissions']['emissions_directories']
+        self.emis_dirs = self.config['Emissions']['emissions_directories'].split()
+        self.out_dirs = self.config['Output']['directories'].split()
+        self.qa_dir = self.config['Testing']['testing_directory']
         # TODO: Auto-find a good date, if one not provided
 
     def test(self):
-        print('TODO: INCOMPLETE')
-        return
         # loop through each date
         for date in self.dates:
             dt = datetime.strptime(date, self.date_format)
@@ -35,36 +36,160 @@ class Emfac2014TotalsTester(OutputTester):
 
                 #   sum the input LDV EMFAC 2014 emissions
                 ldv_file = self._find_emfac2014_ldv(dt, county)
+                if not ldv_file:
+                    continue
                 emis[county_num] = self._read_emfac2014_ldv(ldv_file)
 
             # sum HDV EMFAC 2014 emissions
             hdv_file = self._find_emfac2014_hdv(dt, county)
+            if not hdv_file:
+                continue
             emis = self._read_emfac2014_hdv(hdv_file, emis)
 
             # sum the final output PMEDS for the given day
+            pmeds_file = self._find_output_pmeds(dt)
+            if not pmeds_file:
+                continue
+            out_emis = self._sum_output_pmeds(pmeds_file)
 
             # write the emissions comparison to a file
+            self._write_emis_comparison(date, emis, out_emis)
+
+    def _write_emis_comparison(self, date, emis, out_emis):
+        ''' Write a quick CSV to compare the EMFAC2014 and final output PMEDS.
+            Write the difference by county, EIC, and pollutant.
+            Don't print any numbers with zero percent difference.
+        '''
+        if not os.path.exists(self.qa_dir):
+            os.mkdir(self.qa_dir)
+        file_path = os.path.join(self.qa_dir, 'pmeds_test_' + date + '.csv')
+        f = open(file_path, 'w')
+        f.write('County,EIC,Pollutant,EMFAC,PMEDS,Percent Diff\n')
+
+        total_totals = {'emfac': {'co': 0.0, 'nox': 0.0, 'sox': 0.0, 'tog': 0.0, 'pm': 0.0},
+                        'pmeds': {'co': 0.0, 'nox': 0.0, 'sox': 0.0, 'tog': 0.0, 'pm': 0.0}}
+        for county_num in self.subareas:
+            county_totals = {'emfac': {'co': 0.0, 'nox': 0.0, 'sox': 0.0, 'tog': 0.0, 'pm': 0.0},
+                             'pmeds': {'co': 0.0, 'nox': 0.0, 'sox': 0.0, 'tog': 0.0, 'pm': 0.0}}
+            c = self.county_names[county_num]
+            # write granular totals, by EIC
+            eics = set(emis[county_num].keys() + out_emis[county_num].keys())
+            for eic in eics:
+                for poll in self.POLLUTANTS:
+                    # get data
+                    emfac = emis.get(county_num, {}).get(eic, {}).get(poll, 0.0)
+                    pmeds = out_emis.get(county_num, {}).get(eic, {}).get(poll, 0.0)
+                    diff = Emfac2014TotalsTester.percent_diff(emfac, pmeds)
+                    # fill county totals
+                    county_totals['emfac'][poll] += emfac
+                    county_totals['pmeds'][poll] += pmeds
+                    # don't write the detailed line if there's no difference
+                    if abs(diff) < 1.0e-4:
+                        continue
+                    diff = '%.3f' % diff
+                    f.write(','.join([c, str(eic), poll, str(emfac), str(pmeds), diff]) + '\n')
+
+            # write county totals, without EIC
+            for poll in self.POLLUTANTS:
+                # write line
+                emfac = county_totals['emfac'][poll]
+                pmeds = county_totals['pmeds'][poll]
+                diff = Emfac2014TotalsTester.percent_diff(emfac, pmeds)
+                diff = '%.3f' % diff
+                f.write(','.join([c, 'TOTAL', poll, str(emfac), str(pmeds), diff]) + '\n')
+                # build statewide totals
+                total_totals['emfac'][poll] += emfac
+                total_totals['pmeds'][poll] += pmeds
+
+        # if more than one county, write state totals, without EIC
+        if len(self.subareas) > 1:
+            for poll in self.POLLUTANTS:
+                emfac = total_totals['emfac'][poll]
+                pmeds = total_totals['pmeds'][poll]
+                diff = Emfac2014TotalsTester.percent_diff(emfac, pmeds)
+                diff = '%.3f' % diff
+                f.write(','.join(['TOTAL', 'TOTAL', poll, str(emfac), str(pmeds), diff]) + '\n')
+
+        f.close()
+
+    def _sum_output_pmeds(self, file_path):
+        ''' Look at the final output PMEDS file and build a dictionary
+            of the emissions by county and pollutant.
+        '''
+        county_nums = dict([(name[:8], i) for (i, name) in self.county_names.iteritems()])
+        e = {}
+
+        # check that the file exists
+        if file_path.endswith('.gz'):
+            f = gzip.open(file_path, 'rb')
+        elif os.path.exists(file_path):
+            f = open(file_path, 'r')
+        else:
+            print('Emissions File Not Found: ' + file_path)
+            return e
+
+        # now that file exists, read it
+        for line in f.readlines():
+            county = county_nums[line[:8]]
+            eic = int(line[22:36])
+            vals = [float(v) if v else 0.0 for v in line[78:].rstrip().split(',')]
+
+            if county not in e:
+                e[county] = {}
+            if eic not in e[county]:
+                e[county][eic] = dict(zip(self.POLLUTANTS, [0.0]*len(self.POLLUTANTS)))
+
+            for i in xrange(5):
+                e[county][eic][self.POLLUTANTS[i]] += vals[i] * self.KG_2_STONS
+
+        f.close()
+        return e
+
+    def _find_output_pmeds(self, dt):
+        ''' Find a single output PMEDS file for a given day. '''
+        date_str = str(dt.month) + 'd' + str(dt.day).rjust(2)
+        files = []
+        for odir in self.out_dirs:
+            file_str = os.path.join(odir, 'pmeds', '*' + date_str + '*.pmed*')
+            possibles = glob(file_str)
+            if possibles:
+                files.append(possibles[0])
+
+        if not files:
+            print('\tERROR: Output PMEDS file not found', dt)
+            return []
+
+        return files[0]
+        
 
     def _find_emfac2014_ldv(self, dt, county):
         ''' Find a single county EMFAC2014 LDV emissions file for a given day. '''
         files = []
         for edir in self.emis_dirs:
-            files.append(glob(edir, str(dt.month), str(dt.day), 'emis', county + '.*'))
+            file_str = os.path.join(edir, '%02d' % dt.month, '%02d' % dt.day, 'emis', county + '.*')
+            possibles = glob(file_str)
+            if possibles:
+                files.append(possibles[0])
 
         if not files:
-            print('ERROR: EMFAC2014 LDV emissions file not found', county, dt)
+            print('\tERROR: EMFAC2014 LDV emissions file not found', county, dt)
+            return []
 
         return files[0]
 
     def _find_emfac2014_hdv(self, dt, county):
         ''' Find a single county EMFAC2014 HDV emissions file for a given day. '''
-        season = self.SUMMER_MONTHS[dt.month]
+        season = 'summer' if dt.month in self.SUMMER_MONTHS else 'winter'
         files = []
         for edir in self.emis_dirs:
-            files.append(glob(edir, 'hd_' + season, 'emfac_hd_*.csv_all'))
+            file_str = os.path.join(edir, 'hd_' + season, 'emfac_hd_*.csv_all')
+            possibles = glob(file_str)
+            if possibles:
+                files.append(possibles[0])
 
         if not files:
-            print('ERROR: EMFAC2014 HDV emissions file not found', county, dt)
+            print('\tERROR: EMFAC2014 HDV emissions file not found', county, dt)
+            return []
 
         return files[0]
 
@@ -79,12 +204,12 @@ class Emfac2014TotalsTester(OutputTester):
         e = {}
 
         # check that the file exists
-        if os.path.exists(file_path + '.gz'):
-            f = gzip.open(file_path + '.gz', 'rb')
+        if file_path.endswith('.gz'):
+            f = gzip.open(file_path, 'rb')
         elif os.path.exists(file_path):
             f = open(file_path, 'r')
         else:
-            print('Emissions File Not Found: ' + file_path)
+            print('\tERROR: LDV Emissions File Not Found: ' + file_path)
             return e
 
         # now that file exists, read it
@@ -119,19 +244,20 @@ class Emfac2014TotalsTester(OutputTester):
             2031,3,2.51918142645e-06,RUNEX,T7 POAK,SOx
         """
         # check that the file exists
-        if os.path.exists(file_path):
+        if file_path.endswith('.gz'):
+            f = gzip.open(file_path, 'rb')
+        elif os.path.exists(file_path):
             f = open(file_path, 'r')
-        elif os.path.exists(file_path + '.gz'):
-            f = gzip.open(file_path + '.gz', 'rb')
         else:
-            exit('Emissions File Not Found: ' + file_path)
+            print('\tERROR: Emissions File Not Found: ' + file_path)
+            return emis
 
         # now that file exists, read it
         f = open(file_path, 'r')
         for line in f.readlines():
             ln = line.strip().split(',')
             poll = ln[-1].lower()
-            if poll not in Emfac2014TotalsTester.VALID_POLLUTANTS:
+            if poll not in self.POLLUTANTS:
                 continue
             value = float(ln[2])
             if value == 0.0:
@@ -143,8 +269,21 @@ class Emfac2014TotalsTester(OutputTester):
             if county not in emis:
                 emis[county] = {}
             if eic not in emis[county]:
-                emis[county][eic] = dict(zip(self.VALID_POLLUTANTS, [0.0]*len(self.VALID_POLLUTANTS)))
+                emis[county][eic] = dict(zip(self.POLLUTANTS, [0.0]*len(self.POLLUTANTS)))
             emis[county][eic][poll] += value
 
         f.close()
         return emis
+
+    @staticmethod
+    def percent_diff(a, b):
+        ''' Find the percent difference of two numbers,
+            and correctly trap the zero cases.
+        '''
+        if a == 0.0:
+            if b == 0.0:
+                return 0.0
+            else:
+                return -100.00
+
+        return 100.0 * (a - b) / a
