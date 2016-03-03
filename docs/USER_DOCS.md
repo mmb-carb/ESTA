@@ -20,7 +20,7 @@ The work flow above is very general and can apply to gridding an on-road invento
 
 It might be easier to see an example. Figure 2 below shows the work flow for spatially gridding the on-road emissions from EMFAC2014. Notice that some of the steps are now repeated for different file types.
 
-![Figure 2: ESTA work flow, real-world example](resources/esta_box_diagram_on_road.png)
+![Figure 2: ESTA work flow, EMFAC example](resources/esta_box_diagram_on_road.png)
 
 As shown in Figure 2, there are two implementations of the first "read emissions" step. This is because we read monthly EMFAC files for Heavy-Duty Diesel emissions, but daily files for other emissions. Being able to support reading two different kinds of input emissions files is important. The third step is also different, because we need both diurnal temporal surrogates and day-of-week temporal surrogates in step 3, such as from California Vehicle Activity Database (CalVAD). In Step 4 only one specialized module is needed to apply the surrogates to the emissions and step 5 has only one box in this case. In step 6, the gridded, hourly emissions are summed and compare with the daily totals from EMFAC. We could also imagine wanting to write files of different formats, and wanting multiple boxes in that step as well.
 
