@@ -14,15 +14,23 @@ class Emfac2014TotalsTester(OutputTester):
 
     def __init__(self, config):
         super(Emfac2014TotalsTester, self).__init__(config)
-        self.dates = self.config['Testing']['dates'].split()
         self.vtp2eic = eval(open(self.config['Misc']['vtp2eic'], 'r').read())
         self.county_names = eval(open(self.config['Misc']['county_names'], 'r').read())
         self.emis_dirs = self.config['Emissions']['emissions_directories'].split()
         self.out_dirs = self.config['Output']['directories'].split()
         self.qa_dir = self.config['Testing']['testing_directory']
-        # TODO: Auto-find a good date, if one not provided
 
     def test(self):
+        ''' Master Testing Method. This method compares the final PMEDS output file emissions
+            (aggregated by county and date) to the original EMFAC2014 input files.
+
+            NOTE BENE: If the date tested is not a Tues/Wed/Thurs, the emissions will not be the
+                       same as the EMFAC totals, as EMFAC represents only the "typical work day".
+        '''
+        # if no testing dates are provided, test all days in run
+        if not self.dates:
+            self._find_dates_in_range()
+        
         # loop through each date
         for date in self.dates:
             dt = datetime.strptime(date, self.date_format)
