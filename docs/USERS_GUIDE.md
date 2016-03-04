@@ -30,11 +30,20 @@ There are a few features of the config files to note:
  * **Lists are spaced-separated.** You could certainly do this another way, but in ESTA, we separate list items with spaces.
 * **Comments** are lines where the first character is the pound/hashtag symbol (`#`). This is a reduced case of the Python comment notation, where you can have just part of a line be a comment.
 
-### Choose a class
+### Choosing a Class
 
-* Direct class inheritance by string, and Python will wire them together
+In order for ESTA to be useful, it has to be easy for the user to design their own run. Each step in the ESTA model chain has various options. For instance, if you are reading in some kind of emissions file, there will have to be a different `class` designed to read that file type in ESTA. In order to select that class, all you have to do is list it's name in the config file. For instance, in the default config file "default_onroad_ca_4km.ini":
 
-### Standard Sections, one-by-one
+    [Scaling]
+    scalor: Dtim4Emfac2014Scaler
+
+If you look in the source code, you will find that class:
+
+    from src.scaling.dtim4emfac2014scaler import Dtim4Emfac2014Scaler
+
+If you list more than one class, both will be run in the order you listed them. This direct reference to the class name gives the user a huge amount of flexibility in how they run ESTA. Generally, most users will only have to design their run once, and they will probably be able to do most of their work with only slight modifications to their original config file.
+
+### Standard Config Sections
 
 TODO
 
