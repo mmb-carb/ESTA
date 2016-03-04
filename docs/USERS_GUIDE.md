@@ -47,30 +47,56 @@ If you list more than one class, both will be run in the order you listed them. 
 
 There are five major steps in the emissions inventory gridding process, each of which have a dedicated section in the ESTA config files:
 
-1. Reading Emissions
-2. Reading/Creating Spatial/Temporal Surrogates
-3. Emissions Scaling
-4. Output File Creation
-5. QA/QC
+1. **Reading Emissions**
+2. **Reading/Creating Spatial/Temporal Surrogates**
+3. **Emissions Scaling**
+4. **Output File Creation**
+5. **QA/QC**
 
-In addition to those, ESTA has three other standard config sections:
+In addition to those, ESTA has four other standard config sections:
 
-1. Dates - define the the time span of the run
-2. Subareas - define the counties, states, or other regions in your run
-3. Grid Info - define your modeling domain
-4. Miscellaneous - a catch all, for shared resources or anything you want
+1. **Dates** - define the the time span of the run
+2. **Subareas** - define the counties, states, or other regions in your run
+3. **Grid Information** - define your modeling domain
+4. **Miscellaneous** - a catch all, for shared resources or anything you want
 
-## Input Files
+Next, the nine sections above will be discussed in some detail, using examples from the default config files that are provided with ESTA.
 
-The default example config files that come package with ESTA each list a great number of input files. The input files cover things like emissions, spatial distributions, temporal distributions, regional boundaries, EIC groupings, and more. It is important to understand what most of these files are, so that you can make your own choices when designing your first config file.
+#### Dates
 
-#### Input Files - Gridding
+TODO
 
-TODO: This guide is incomplete.
+#### Subareas
 
-#### Input Files - EMFAC2014 On-Road
+TODO
 
-TODO: This guide is incomplete.
+#### GridInfo
+
+TODO
+
+#### Surrogates
+
+TODO
+
+#### Emissions
+
+TODO
+
+#### Scaling
+
+TODO
+
+#### Output
+
+TODO
+
+#### Testing
+
+TODO
+
+#### Misc
+
+TODO
 
 
 [Back to Main Readme](../README.md)

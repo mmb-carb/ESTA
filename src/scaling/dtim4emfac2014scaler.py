@@ -16,7 +16,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
 
     def __init__(self, config):
         super(Dtim4Emfac2014Scaler, self).__init__(config)
-        self.eic2dtim4 = eval(open(self.config['Misc']['eic2dtim4'], 'r').read())
+        self.eic2dtim4 = eval(open(self.config['Scaling']['eic2dtim4'], 'r').read())
         self.nh3_fractions = {}
 
     def scale(self, emissions, spatial_surr, temporal_surr):
@@ -37,7 +37,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
             ScaledEmissions: data[county][date][hr][eic] = SparceEmissions
                                 SparceEmissions[(grid, cell)][pollutant] = value
         """
-        self.nh3_fractions = self._read_nh3_inventory(self.config['Misc']['nh3_inventory'])
+        self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
         e = ScaledEmissions()
 
         # loop through all the county/date combinations in the emissions

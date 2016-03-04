@@ -15,11 +15,11 @@ class Dtim4CalvadTemporalLoader(TemporalLoader):
             temporal_surrogates = {}
 
         # load DOW time profiles
-        dow_file_path = self.config['Misc']['calvad_dow']
+        dow_file_path = self.config['Surrogates']['calvad_dow']
         temporal_surrogates['dow'] = self._load_dow(dow_file_path)
 
         # load diurnal time profiles
-        diurnal_file_path = self.config['Misc']['calvad_diurnal']
+        diurnal_file_path = self.config['Surrogates']['calvad_diurnal']
         temporal_surrogates['diurnal'] = self._load_diurnal(diurnal_file_path)
 
         return temporal_surrogates

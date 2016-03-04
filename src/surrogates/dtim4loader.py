@@ -35,8 +35,8 @@ class Dtim4Loader(SpatialLoader):
         self.end_date = datetime.strptime(self.config['Dates']['end'], self.date_format)
         self.base_year = int(self.config['Dates']['base_year'])
         self.data = Dtim4SpatialData()
-        self.county_boxes = eval(open(self.config['Misc']['county_boxes'], 'r').read())
-        self.default_hour = int(self.config['Misc']['default_itn_hour'])
+        self.county_boxes = eval(open(self.config['Surrogates']['county_boxes'], 'r').read())
+        self.default_hour = int(self.config['Surrogates']['default_itn_hour'])
         self.kdtrees = {}
         self.rad_factor = pi / 180.0  # need angles in radians
         self._create_kdtrees()

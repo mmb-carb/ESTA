@@ -17,12 +17,12 @@ class Pmeds1Writer(OutputWriter):
         super(Pmeds1Writer, self).__init__(config, directory, time_units)
         by_subarea = self.config['Output']['by_subarea'].lower()
         self.by_subarea = False if by_subarea in ['false', '0', 'no'] else True
-        self.version = self.config['Misc']['inventory_version']
+        self.version = self.config['Output']['inventory_version']
         self.grid_file = self.config['GridInfo']['grid_cross_file']
         self.county_names = eval(open(self.config['Misc']['county_names'], 'r').read())
-        self.county_to_gai = eval(open(self.config['Misc']['county_to_gai'], 'r').read())
-        self.gai_basins = eval(open(self.config['Misc']['gai_basins'], 'r').read())
-        self.multi_gai_coords = eval(open(self.config['Misc']['multi_gai_coords'], 'r').read())
+        self.county_to_gai = eval(open(self.config['Output']['county_to_gai'], 'r').read())
+        self.gai_basins = eval(open(self.config['Output']['gai_basins'], 'r').read())
+        self.multi_gai_coords = eval(open(self.config['Output']['multi_gai_coords'], 'r').read())
 
     def write(self, scaled_emissions):
         """ The master method to write output files.
