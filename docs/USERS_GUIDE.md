@@ -22,11 +22,13 @@ The configuration (config) files used in ESTA are divided into sections. This ma
 
 The config files used in ESTA are a common format, defined by the Python standard library `ConfigParser`. You can find the developer's documentation on `ConfigParser` [here](https://docs.python.org/2/library/configparser.html) and some basic introductory information for everybody [here](https://wiki.python.org/moin/ConfigParserExamples).
 
-* section headers
-* config variables
-* everything is a string
- * split by space
-* hashtag comments, just like Python
+There are a few features of the config files to note:
+
+* **Section headers** are defined inside square brackets `[Dates]`.
+* **Config variables** must be on their own line, following a section header line. And the value of the config variable comes after a colon and a space.
+* **Variables have string values.** Whatever follows the colon is the string value of the variable. If you want an integer, you will have to convert from strint to integer in the code later.
+ * **Lists are spaced-separated.** You could certainly do this another way, but in ESTA, we separate list items with spaces.
+* **Comments** are lines where the first character is the pound/hashtag symbol (`#`). This is a reduced case of the Python comment notation, where you can have just part of a line be a comment.
 
 ### Choose a class
 
