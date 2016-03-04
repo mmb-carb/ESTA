@@ -45,7 +45,20 @@ If you list more than one class, both will be run in the order you listed them. 
 
 ### Standard Config Sections
 
-TODO
+There are five major steps in the emissions inventory gridding process, each of which have a dedicated section in the ESTA config files:
+
+1. Reading Emissions
+2. Reading/Creating Spatial/Temporal Surrogates
+3. Emissions Scaling
+4. Output File Creation
+5. QA/QC
+
+In addition to those, ESTA has three other standard config sections:
+
+1. Dates - define the the time span of the run
+2. Subareas - define the counties, states, or other regions in your run
+3. Grid Info - define your modeling domain
+4. Miscellaneous - a catch all, for shared resources or anything you want
 
 ## Input Files
 
