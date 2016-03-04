@@ -17,7 +17,6 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
     def __init__(self, config):
         super(Dtim4Emfac2014Scaler, self).__init__(config)
         self.eic2dtim4 = eval(open(self.config['Misc']['eic2dtim4'], 'r').read())
-        self.default_hour = int(self.config['Misc']['default_itn_hour'])
         self.nh3_fractions = {}
 
     def scale(self, emissions, spatial_surr, temporal_surr):
