@@ -20,17 +20,58 @@ What follows is a quick introduction into ESTAs basic code structure. Not every 
 
 Here is a basic diagram of ESTA's code structure:
 
-* TODO: Insert basic code structure diagram.
+    ESTA
+    │   esta.py
+    │   README.md
+    │   LICENSE
+    │
+    ├───config/
+    ├───docs/
+    ├───input/
+    ├───output/
+    └───src/
+        ├───core/emissions_loader.py
+        │        emissions_scaler.py
+        │        esta_model_builder.py
+        │        esta_model.py
+        │        output_tester.py
+        │        output_writer.py
+        │        spatial_loader.py
+        │        temporal_loader.py
+        │        version.py
+        │
+        ├───emissions/emfac2014csvloader.py
+        │             emfac2014hddslcsvloader.py
+        │             emissions_table.py
+        │             sparce_emissions.py
+        │
+        ├───output/pmeds1writer.py
+        │
+        ├───scaling/dtim4emfac2014scaler.py
+        │           scaled_emissions.py
+        │
+        ├───surrogates/dtim4calvadtemporalloader.py
+        │              dtim4loader.py
+        │              spatial_surrogate.py
+        │              temporal_surrogate.py
+        │
+        └───testing/emfac2014totalstester.py
 
 The `esta.py` script in the home folder acts as an executable so the ESTA model can be run. It's major purpose is to take a path to the config file and call the `esta_model_builder.py` script, in `src.core`. The `esta_model_builder.py` script doesn't fully parse the config file, but it parses those parts of the config file where class names are listed for each gridding step.
 
-For instance, when parsing the emissions-loading step, a small section of code parses the config file and instantiates a list of classes to do the loading:
+For instance, when parsing the scaling step, a small section of code parses the config file and instantiates a list of classes to do the scaling:
 
-[[[TODO: INSERT CODE SNIPPET]]]
+    scaler_name = self.config['Scaling']['scalor']
+    try:
+        __import__('src.scaling.' + scaler_name.lower())
+        mod = sys.modules['src.scaling.' + scaler_name.lower()]
+        scaler = getattr(mod, scaler_name)(self.config)
+    except (NameError, KeyError) as e:
+        sys.exit('ERROR: Unable to find class: ' + scaler_name + '\n' + str(e))
 
-Here you can see that the emissions-loading classes must be found under `src.emissions`, in a file name that is a lower case version of the full class name. For example, the class name [[[TODO: INSERT CLASS NAME]]] is used in the config file, and the above code tries to load that class in the following way:
+Here you can see that the emissions-scaling classes must be found under `src.scaling.`, in a file name that is a lower case version of the full class name. For example, the class name `Dtim4Emfac2014Scaler` is used in the config file, and the above code tries to load that class in the following way:
 
-    from src.emissions.xxxxx import XXXXX
+    from src.scaling.dtim4emfac2014scaler import Dtim4Emfac2014Scaler
 
 To correspond with each of the five major gridding steps, there is a section in the config file which matches to a class path in the src folder:
 
@@ -44,23 +85,23 @@ To correspond with each of the five major gridding steps, there is a section in 
 
 As seen above, the ESTA code base has modules for each of the ESTA gridding steps. But the classes in these modules are simply subclasses of those in the core. So to understand the function of ESTA, you only need to understand the core. The rest are implementation details specific to the science involved. The easiest file to understand is `version.py`, which sets the current version of ESTA, which is printed to the screen during each run. Let us go through each of the core gridding steps by referencing their abstract classes.
 
-The emissions loading step is generically defined by the abstract class [[[TODO: Name]]].
+The **emissions loading** step is generically defined by the abstract class `EmissionsLoader`.
 
-The spatial surrogate loading step is generically defined by the abstract class [[[TODO: Name]]].
+The **spatial surrogate loading** step is generically defined by the abstract class `SpatialLoader`.
 
-The temporal surrogate loading step is generically defined by the abstract class [[[TODO: Name]]].
+The **temporal surrogate loading** step is generically defined by the abstract class `TemporalLoader`.
 
-The emissions scaling step is generically defined by the abstract class [[[TODO: Name]]].
+The **emissions scaling step** is generically defined by the abstract class `EmissionsScaler`.
 
-The output writing step is generically defined by the abstract class [[[TODO: Name]]].
+The **output writing** step is generically defined by the abstract class `OutputWriter`.
 
-The QA/QC step is generically defined by the abstract class [[[TODO: Name]]].
+The **QA/QC** step is generically defined by the abstract class `OutputTester`.
 
 TODO
 
 #### ESTA Data Structures
 
-Inside the core module (`src.core`), there are [[[TODO]]] data structures defined to help organize the flow of data through ESTA. These are... [[[TODO]]]
+Inside the core module `src.core`, there are [[[TODO]]] data structures defined to help organize the flow of data through ESTA. These are... [[[TODO]]]
 
 TODO
 
