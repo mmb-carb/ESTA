@@ -101,7 +101,7 @@ TODO
 
 #### ESTA Data Structures
 
-Inside the core module `src.core`, there are [[[TODO]]] data structures defined to help organize the flow of data through ESTA. These are... [[[TODO]]]
+Inside the core module `src.core`, there are [[[TODO: untrue]]] data structures defined to help organize the flow of data through ESTA. These are... [[[TODO]]]
 
 TODO
 
@@ -144,23 +144,32 @@ It is fairly simple to implement a new modeling domain in ESTA for both on-road 
 
 The `GRIDCRO2D` file is not the only file you need to define your new domain. There is one more, the region boxes file. To speed up the process of locating which grid cell a certain lat/lon point is in on your modeling domain, your domain is split up into rectangular regions (one for each county, state, or whatever). This will give a much smaller region for Python to hunt in. You will find examples of these files for the three default cases in the input folder:
 
-[[[TODO]]] Are these correct?
-
-* input/default/california/county_boxes_ca_4km.py
-* input/default/california/county_boxes_ca_12km.py
-* input/default/california/county_boxes_scaqmd_4km.py
+    ESTA
+    └───input
+        └───defaults
+            └───california/county_boxes_ca_4km.py
+                           county_boxes_ca_12km.py
+                           county_boxes_scaqmd_4km.py
 
 These files are simple Python dictionaries that map the county a grid cell bounding box in a particular domain, e.g.:
 
-    TODO: example county_boxes file snippet
+    {1: {'lon': (130, 154), 'lat': (152, 168)},
+     2: {'lon': (177, 195), 'lat': (180, 193)},
+     3: {'lon': (158, 184), 'lat': (160, 188)},
+     ...
+    }
 
 If your domain is very small, or you want to quickly test a new domain, you could easily mock up one of these regional boxes file by defaulting every box to the entire grid. For instance, if the domain is 100 rows by 200 columns:
 
-    TODO: example default county_boxes file
+    {1: {'lon': (0, 199), 'lat': (0, 99)},
+     2: {'lon': (0, 199), 'lat': (0, 99)},
+     3: {'lon': (0, 199), 'lat': (0, 99)},
+     ...
+    }
 
 But there is a better way. Whether you are working with the counties, states, or whatever. Chances are you already know the bounding boxes of your regions in lat/lon. Or you can at least come up with some. If so, there is a script you can use to generate the regional boxes file. It is in the default EMFAC input directory next to the GRIDCRO2D input files:
 
-    TODO: enter the path to the county-boxes generating script
+    ESTA/input/defaults/emfac2014/preprocess_grid_boxes.py
 
 TODO: Build an example of this for US states
 
