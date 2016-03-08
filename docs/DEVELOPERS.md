@@ -73,7 +73,7 @@ Here you can see that the emissions-scaling classes must be found under `src.sca
 
     from src.scaling.dtim4emfac2014scaler import Dtim4Emfac2014Scaler
 
-To correspond with each of the five major gridding steps, there is a section in the config file which matches to a class path in the src folder:
+To correspond with each of the five major gridding steps, there is a section in the config file which matches to a class path in the `src` folder:
 
     [Emissions] --> src.emissions
     [Surrogates] --> src.surrogates
@@ -83,23 +83,20 @@ To correspond with each of the five major gridding steps, there is a section in 
 
 #### The Core
 
-As seen above, the ESTA code base has modules for each of the ESTA gridding steps. But the classes in these modules are simply subclasses of those in the core. So to understand the function of ESTA, you only need to understand the core. The rest are implementation details specific to the science involved. The easiest file to understand is `version.py`, which sets the current version of ESTA, which is printed to the screen during each run. Let us go through each of the core gridding steps by referencing their abstract classes.
+As seen above, the ESTA code base has modules for each of the ESTA gridding steps. But the classes in these modules are simply subclasses of those in the core. So to understand the function of ESTA, you only need to understand the core. The rest are implementation details specific to the science involved. The easiest file to understand is `version.py`, which sets the current version of ESTA, which is printed to the screen during each run. Each step in the gridding process is represented in ESTA by an abstract class in `src.core`:
 
-The **emissions loading** step is generically defined by the abstract class `EmissionsLoader`.
+    **emissions loading** --> `EmissionsLoader`
+    **spatial surrogate loading** --> `SpatialLoader`
+    **temporal surrogate loading** --> `TemporalLoader`
+    **emissions scaling step** --> `EmissionsScaler`
+    **output writing** --> `OutputWriter`
+    **QA/QC** --> `OutputTester`
 
-The **spatial surrogate loading** step is generically defined by the abstract class `SpatialLoader`.
-
-The **temporal surrogate loading** step is generically defined by the abstract class `TemporalLoader`.
-
-The **emissions scaling step** is generically defined by the abstract class `EmissionsScaler`.
-
-The **output writing** step is generically defined by the abstract class `OutputWriter`.
-
-The **QA/QC** step is generically defined by the abstract class `OutputTester`.
-
-TODO
+Notice that in the config file there is a single major section for `[Surrogates]`, but under the hood there are separate abstract classes for spatial surrogates and temporal surrogates. This was a design choice to leave open the option that a single file might represent the spatial and temporal distribution of the emissions, so they would have to be loaded by the same class.
 
 #### ESTA Data Structures
+
+It is important to note that there are no data structures defined by the abstract classes in `src.core`. We can see in the....  TODO: esta_model is data structure independent, so each emissions field can have their own...
 
 Inside the core module `src.core`, there are [[[TODO: untrue]]] data structures defined to help organize the flow of data through ESTA. These are... [[[TODO]]]
 
@@ -107,7 +104,7 @@ TODO
 
 ## Important Algorithms
 
-This section is by no means meant to be an exhaustive study of all the algorithms used in ESTA. This is more a place to outline some key points in the design.
+This section is by no means meant to be an exhaustive study of all the algorithms used in ESTA. This is meant only to highlight those algorithms that were key in the design.
 
 #### Sparce Matrix Design
 
@@ -171,7 +168,12 @@ But there is a better way. Whether you are working with the counties, states, or
 
     ESTA/input/defaults/emfac2014/preprocess_grid_boxes.py
 
-TODO: Build an example of this for US states
+This script should be fairly easy to use. For example, if you wanted to generate the grid domain boxes for the counties in California for California's 12km ARB-CalEPA modeling domain, you would simply go to the command line and do:
+
+    cd input/defaults/emfac2014/
+    python preprocess_grid_boxes.py -gridcro2d GRIDCRO2D.California_12km_97x107 -rows 97 -cols 107
+
+And this would print a nicely-formatted dictionary (JSON/Python) to the screen, which you can copy to a file for your own use.  NOTA BENE: If you enter a lat/lon bounding box outside your stated grid domain, this script will return a non-sensical bounding box.
 
 
 [Back to Main Readme](../README.md)
