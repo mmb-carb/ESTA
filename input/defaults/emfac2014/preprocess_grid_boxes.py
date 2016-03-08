@@ -5,6 +5,7 @@ from netCDF4 import Dataset
 from numpy import cos, sin
 from pprint import pprint
 from scipy.spatial import cKDTree
+import sys
 
 # CONFIGURABLES
 # CA State 4km Grid
@@ -24,11 +25,46 @@ ROWS = 102
 COLS = 156
 '''
 
+# TODO: read CSV, output file path
 
 def main():
-    pcb = PreprocessRegionBoxes(GRIDCRO2D, ROWS, COLS, CA_COUNTY_BOXES_LAT_LON)
+    # pull global config variables
+    gridcro2d = GRIDCRO2D
+    rows = ROWS
+    cols = COLS
+    region_boxes_lat_lon = CA_COUNTY_BOXES_LAT_LON
+
+    # parse command line
+    a = 1
+    while a < len(sys.argv):
+        if sys.argv[a] == '-gridcro2d':
+            gridcro2d = sys.argv[a + 1]
+        elif sys.argv[a] == '-rows':
+            rows = int(sys.argv[a + 1])
+        elif sys.argv[a] == '-cols':
+            cols = int(sys.argv[a + 1])
+        else:
+            usage()
+        a += 2
+
+    # print bounding boxes
+    pcb = PreprocessRegionBoxes(gridcro2d, rows, cols, region_boxes_lat_lon)
     boxes = pcb.find_all_region_boxes()
     pprint(boxes)
+
+
+def usage():
+    print('\n\n\t\tPREPROCESS GRIG REGIONAL BOXES\n\n')
+    print('This script can either be run using global config variables, or by setting')
+    print('the three command line flags:\n')
+    print('\t-gridcro2d - path to the CMAQ-ready GRID CROSS 2D file')
+    print('\t-rows - number of rows in the above domain')
+    print('\t-cols - number of columns in the above domain\n')
+    print('Example usages:\n')
+    print('\tpython preprocess_grid_boxes.py')
+    print('\tpython preprocess_grid_boxes.py -gridcro2d GRIDCRO2D.California_12km_97x107 ' +
+          '-rows 97 -cols 107\n\n')
+    exit()
 
 
 class PreprocessRegionBoxes(object):
