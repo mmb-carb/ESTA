@@ -28,7 +28,6 @@ COLS = 156
 REGIONS_FILE = 'california_counties_lat_lon_bounding_boxes.csv'
 '''
 
-# output file path
 
 def main():
     # pull global config variables
