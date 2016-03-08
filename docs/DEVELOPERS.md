@@ -144,9 +144,9 @@ The `GRIDCRO2D` file is not the only file you need to define your new domain. Th
     ESTA
     └───input
         └───defaults
-            └───california/county_boxes_ca_4km.py
-                           county_boxes_ca_12km.py
-                           county_boxes_scaqmd_4km.py
+            └───domains/county_boxes_ca_4km.py
+                        county_boxes_ca_12km.py
+                        county_boxes_scaqmd_4km.py
 
 These files are simple Python dictionaries that map the county a grid cell bounding box in a particular domain, e.g.:
 
