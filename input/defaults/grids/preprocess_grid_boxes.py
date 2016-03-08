@@ -35,7 +35,6 @@ def main():
     gridcro2d = GRIDCRO2D
     rows = ROWS
     cols = COLS
-    region_boxes_lat_lon = CA_COUNTY_BOXES_LAT_LON
     regions_file = REGIONS_FILE
 
     # parse command line
@@ -66,10 +65,15 @@ def usage():
     print('\t-gridcro2d - path to the CMAQ-ready GRID CROSS 2D file')
     print('\t-rows - number of rows in the above domain')
     print('\t-cols - number of columns in the above domain\n')
+    print('\t-regions - path to CSV file of lat/lon bounding boxes for your regions\n')
     print('Example usages:\n')
     print('\tpython preprocess_grid_boxes.py')
     print('\tpython preprocess_grid_boxes.py -gridcro2d GRIDCRO2D.California_12km_97x107 ' +
-          '-rows 97 -cols 107\n\n')
+          '-rows 97 -cols 107 -regions california_counties_lat_lon_bounding_boxes.csv\n')
+    print('\nThe Regions CSV file needs to have the following format:\n')
+    print('\tregion_code,region_descriptor,min_lat,min_lon,max_lat,max_lon')
+    print('\t1,Alameda,37.44,-122.38,37.91,-121.46')
+    print('\t2,Alpine,38.31,-120.18,38.94,-119.50\n\n')
     exit()
 
 

@@ -171,7 +171,7 @@ But there is a better way. Whether you are working with the counties, states, or
 This script should be fairly easy to use. For example, if you wanted to generate the grid domain boxes for the counties in California for California's 12km ARB-CalEPA modeling domain, you would simply go to the command line and do:
 
     cd input/defaults/emfac2014/
-    python preprocess_grid_boxes.py -gridcro2d GRIDCRO2D.California_12km_97x107 -rows 97 -cols 107
+    python preprocess_grid_boxes.py -gridcro2d GRIDCRO2D.California_12km_97x107 -rows 97 -cols 107  -regions california_counties_lat_lon_bounding_boxes.csv
 
 And this would print a nicely-formatted dictionary (JSON/Python) to the screen, which you can copy to a file for your own use.  NOTA BENE: If you enter a lat/lon bounding box outside your stated grid domain, this script will return a non-sensical bounding box.
 
