@@ -4,7 +4,7 @@ from collections import defaultdict
 
 class SparceEmissions(defaultdict):
     """ This is a sparce-grid representation of emissions on a grid.
-        For every n-tuple representing a spot on the grid, there is a dictionary
+        For every n-tuple representing a location on the grid, there is a dictionary
         representing the pollutant and emissions on that grid.
         This grid represents all the emissions for a single EIC during a single hour.
     """
@@ -20,7 +20,7 @@ class SparceEmissions(defaultdict):
     def __setitem__(self, key, val):
         """ Getter method for sparce-grid emissions """
         if type(val) != defaultdict:
-            raise TypeError('The sparce-grid emissions must be two levels deep: EIC and pollutant.')
+            raise TypeError('The sparce-grid emissions must be 2 levels deep: cell and pollutant.')
         for value in val.itervalues():
             if type(value) != float:
                 raise TypeError('Emissions values must be of type float.')

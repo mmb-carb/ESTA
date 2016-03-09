@@ -96,11 +96,40 @@ Notice that in the config file there is a single major section for `[Surrogates]
 
 #### ESTA Data Structures
 
-It is important to note that there are no data structures defined by the abstract classes in `src.core`. We can see in the....  TODO: esta_model is data structure independent, so each emissions field can have their own...
+The ESTA model is designed to be independent of the data structures that are passed between each modeling step.  That is, there are no data structures defined in `src.core`, and the abstract step classes in `src.core` are independent of the data structure used. However, in order for the steps to work together, the subclasses of each step will have to be designed with knowledge of the data structures used.
 
-Inside the core module `src.core`, there are [[[TODO: untrue]]] data structures defined to help organize the flow of data through ESTA. These are... [[[TODO]]]
+For instance, in the master run script `src.core.esta_model.py`, you will find the following lines in the `EstaModel` class:
 
-TODO
+    for emis_loader in self.emis_loaders:
+        self.emissions = emis_loader.load(self.emissions)
+
+    self.scaled_emissions = self.emis_scaler.scale(self.emissions, self.spatial_surrs,
+                                                   self.temporal_surrs)
+
+Here you can see that the emissions loader instance (subclassed from `EmissionsLoader`) saves the emissions in a generic `self.emissions` variable. But in order for the next step (scaling) to use that variable, it will have to understand the data structure in `self.emissions`. In the the case of on-road emissions processing with EMFAC2014 (a default case, that comes with ESTA), `self.emissions` is of type `EmissionsTable`.
+
+ESTA comes with several helpful data structures specifically designed for the emissions gridding process:
+
+ * from src.emissions.emissions_table import EmissionsTable
+  * A subclass of Python's `collections.defaultdict`
+  * Two levels of keys: EIC and pollutant
+  * final value is emissions
+ * from src.emissions.sparce_emissions import SparceEmissions
+  * A subclass of Python's `collections.defaultdict`
+  * Two levels of keys: grid cell tuple and pollutant
+  * Final value is Emissions
+ * from src.emissions.scaled_emissions import ScaledEmissions
+  * simple multi-level dictionary container
+  * the keys are, in order: subarea, date, hr, eic
+  * the values are of type `SparceEmissions`
+ * from src.surrogates.spatial_surrogate import SpatialSurrogate
+  * A subclass of Python's `collections.defaultdict`
+  * key is a grid cell location tuple
+  * value is fraction of the emissions in that grid cell
+ * from src.surrogates.temporal_surrogate import TemporalSurrogate
+  * A subclass of Python's `array.array`
+  * The array has length 24
+  * Elments of array sum to 1.0
 
 ## Important Algorithms
 
@@ -108,22 +137,66 @@ This section is by no means meant to be an exhaustive study of all the algorithm
 
 #### Sparce Matrix Design
 
-Sparce-matrix design is important to ESTA. The term "sparce-matrix" is used here to describe the design goal of describing the spatial distribution of emissions (or spatial surrogates) using a collection of key-value pairs, where the key is a two or three-dimensional tuple describing a grid cell and the value is a emission value or fraction. This is an alternative to simply defining a ROW-by-COLUMN dimensional array to store a value in every grid cell in the modeling domain. The reason a sparce matrix approach was chosen in ESTA is that it is very common for most of the grid cells in a modeling domain to have zero values. And in most scenarios, modeling will take a lot less memory if a sparce matrix approach is used
+Sparce-matrix design is important to ESTA. The term "sparce-matrix" is used here to describe the design goal of describing the spatial distribution of emissions (or spatial surrogates) using a collection of key-value pairs, where the key is a two or three-dimensional tuple describing a grid cell and the value is an emission value or fraction. This is an alternative to simply defining a ROW-by-COLUMN dimensional array to store a value in every grid cell in the modeling domain. The reason a sparce matrix approach was chosen in ESTA is that it is very common for most of the grid cells in a modeling domain to have zero values. And in most scenarios, modeling will take a lot less memory if a sparce matrix approach is used
 
-In the section above on ESTA's native data structures, the classes [[[TODO]]] and [[[TODO]]] use this sparce matrix design.
-
-
-As seen in the data structures above: TODO and TODO, the spatial surrgates and emissions passed between steps in ESTA are done so using
-
-TODO
+In the section above on ESTA's native data structures, the classes `SparceEmissions` and `SpatialSurrogate` use this sparce matrix design.
 
 #### KD Trees
 
-* KD Trees Algorithm: Efficient intersection of links onto projected modeling domain
+The [KD Trees Algorithm][KDTrees] is fundamental in the performance of the on-road and aircraft emissions modeling in ESTA. The KD Trees algorithm is a space-partitioning data structure that is used in ESTA to dramatically improve the speed of locating lat/lon coordinates on the modeling grid.
+
+The problem that needs to be solved (as quickly and accurately as possible) is this: given a lat/lon pair, determine which grid cell it is inside on the modeling domain. The problem is that the modeling grid can be arbitarily large, and searching through every grid cell is prohibitively slow. And the problem is further complicated by the fact that the modeling grid can be in any arbitrary projection. 
+
+You can find an example of the usage of KD Trees in `src.surrogates.dtim4loader`. To further help speed up the grid cell identification, a sub-grid is isolated for each region (in this case county) on the grid and a KD Tree is created for that region:
+
+    def _create_kdtrees(self):
+        """ Create a KD Tree for each county """
+        lat_vals = self.lat_dot[:] * self.rad_factor
+        lon_vals = self.lon_dot[:] * self.rad_factor
+
+        for county in self.counties:
+            # find the grid cell bounding box for the county in question
+            lat_min, lat_max = self.county_boxes[county]['lat']
+            lon_min, lon_max = self.county_boxes[county]['lon']
+
+            # slice grid down to this county
+            latvals = lat_vals[lat_min:lat_max, lon_min:lon_max]
+            lonvals = lon_vals[lat_min:lat_max, lon_min:lon_max]
+
+            # create tree
+            clat,clon = cos(latvals),cos(lonvals)
+            slat,slon = sin(latvals),sin(lonvals)
+            triples = list(zip(np.ravel(clat*clon), np.ravel(clat*slon), np.ravel(slat)))
+            self.kdtrees[county] = cKDTree(triples)
+
+This only works because we happen to know the county the lat/lon pair belongs in before we try to locate it on the grid:
+
+    def _find_grid_cell(self, p, county):
+        ''' Find the grid cell location of a single point in our 3D grid.
+            (Point given as a tuple (height in meters, lon in degrees, lat in degrees)
+        '''
+        lat_min, lat_max = self.county_boxes[county]['lat']
+        lon_min, lon_max = self.county_boxes[county]['lon']
+
+        # define parameters
+        lon0 = p[0] * self.rad_factor
+        lat0 = p[1] * self.rad_factor
+
+        # run KD Tree algorithm
+        clat0,clon0 = cos(lat0),cos(lon0)
+        slat0,slon0 = sin(lat0),sin(lon0)
+        dist_sq_min, minindex_1d = self.kdtrees[county].query([clat0*clon0, clat0*slon0, slat0])
+        y, x = np.unravel_index(minindex_1d, (lat_max - lat_min, lon_max - lon_min))
+
+        return lat_min + y + 1, lon_min + x + 1
+
+The end result of this technology is that these two methods were found to be a couple thousand times faster than the naive search of the entire grid for the default on-road-with-EMFAC2014 scenario.
 
 ## Developing for ESTA
 
-TODO
+ESTA is designed to be easily expanded by developers. The modular design means that changing the function of ESTA doesn't require touching the whole code base. Whether you want to read a different type of emissions file, add a special kind of spatial surrogate, or write a new type of output file, you should be able to do that buy writing a single class and dropping it into a `src` module.
+
+A common problem for scientists and engineers is that they spend more time wrangling the files that go into or come out of a model than they do analyzing their data. The goal of ESTA is to define a clean modeling framework so that only a single class needs to be read and your files will be handled. The goal of software should always be to help people get things done, not to be a drain on their time. For that reason, ESTA is 100% configurable and makes no demands on the structure of your input/output files or on the data structures you pass around.
 
 ## Implementing Your Own Step
 
@@ -166,14 +239,17 @@ If your domain is very small, or you want to quickly test a new domain, you coul
 
 But there is a better way. Whether you are working with the counties, states, or whatever. Chances are you already know the bounding boxes of your regions in lat/lon. Or you can at least come up with some. If so, there is a script you can use to generate the regional boxes file. It is in the default EMFAC input directory next to the GRIDCRO2D input files:
 
-    ESTA/input/defaults/emfac2014/preprocess_grid_boxes.py
+    ESTA/input/defaults/domains/preprocess_grid_boxes.py
 
 This script should be fairly easy to use. For example, if you wanted to generate the grid domain boxes for the counties in California for California's 12km ARB-CalEPA modeling domain, you would simply go to the command line and do:
 
-    cd input/defaults/emfac2014/
+    cd input/defaults/domains/
     python preprocess_grid_boxes.py -gridcro2d GRIDCRO2D.California_12km_97x107 -rows 97 -cols 107  -regions california_counties_lat_lon_bounding_boxes.csv
 
 And this would print a nicely-formatted dictionary (JSON/Python) to the screen, which you can copy to a file for your own use.  NOTA BENE: If you enter a lat/lon bounding box outside your stated grid domain, this script will return a non-sensical bounding box.
 
 
 [Back to Main Readme](../README.md)
+
+
+[KDTrees][https://en.wikipedia.org/wiki/K-d_tree]
