@@ -18,7 +18,7 @@ What follows is a quick introduction into ESTAs basic code structure. Not every 
 
 #### General Structure
 
-Here is a basic diagram of ESTA's code structure:
+Here is a basic diagram of ESTA's code structure, including some default on-road classes:
 
     ESTA
     │   esta.py
