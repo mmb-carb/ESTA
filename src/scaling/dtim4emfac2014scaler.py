@@ -5,6 +5,7 @@ from datetime import datetime as dt
 from pandas.tseries.holiday import USFederalHolidayCalendar
 from src.core.emissions_scaler import EmissionsScaler
 from scaled_emissions import ScaledEmissions
+from src.core.eic_utils import eic_reduce
 from src.emissions.sparce_emissions import SparceEmissions
 
 
@@ -16,6 +17,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
 
     def __init__(self, config):
         super(Dtim4Emfac2014Scaler, self).__init__(config)
+        self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.eic2dtim4 = eval(open(self.config['Scaling']['eic2dtim4'], 'r').read())
         self.nh3_fractions = {}
 
@@ -72,7 +74,8 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
                     sparce_emis_dict = self._apply_spatial_surrs(county, emis_table, spatial_surrs)
 
                     for eic, sparce_emis in sparce_emis_dict.iteritems():
-                        e.set(county, date, hr + 1, eic, sparce_emis)
+                        eic1 = self.eic_reduce(eic)
+                        e.set(county, date, hr + 1, eic1, sparce_emis)
 
         return e
 

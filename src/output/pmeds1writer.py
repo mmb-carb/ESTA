@@ -76,6 +76,7 @@ class Pmeds1Writer(OutputWriter):
                         for gai, frac in gais:
                             # build list of six pollutants
                             emis = ['', '', '', '', '', '']
+                            no_emissions = True
                             for poll, value in grid_data.iteritems():
                                 if poll.lower() not in Pmeds1Writer.COLUMNS:
                                     continue
@@ -83,9 +84,10 @@ class Pmeds1Writer(OutputWriter):
                                 val = '{0:.5f}'.format(value * frac * self.STONS_2_KG).rstrip('0')
                                 if val != '0.':
                                     emis[col] = val
+                                    no_emissions = False
 
                             # if there are emissions, build PMEDS line
-                            if not ''.join(emis):
+                            if no_emissions:
                                 continue
                             lines.append(self._build_pmeds1_line(county, gai, date, jul_day, hr,
                                                                  eic, cell, emis))
@@ -149,9 +151,10 @@ class Pmeds1Writer(OutputWriter):
     def _write_zipped_file(self, out_path, lines):
         """ simple helper method to write a list of strings to a file """
         f = gzip.open(out_path + '.gz', 'wb')
-        for line in lines:
-            f.write(line)
-        f.close()
+        try:
+            f.writelines(lines)
+        finally:
+            f.close()
 
     def _find_gais(self, county, grid_cell):
         """ Find the GAIs related to the given grid cell.

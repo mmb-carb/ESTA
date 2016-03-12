@@ -2,8 +2,10 @@
 from datetime import datetime
 from glob import glob
 import gzip
+import io
 import os
 from src.core.output_tester import OutputTester
+from src.core.eic_utils import eic_reduce
 
 
 class Emfac2014TotalsTester(OutputTester):
@@ -16,6 +18,7 @@ class Emfac2014TotalsTester(OutputTester):
         super(Emfac2014TotalsTester, self).__init__(config)
         self.vtp2eic = eval(open(self.config['Misc']['vtp2eic'], 'r').read())
         self.county_names = eval(open(self.config['Misc']['county_names'], 'r').read())
+        self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.emis_dirs = self.config['Emissions']['emissions_directories'].split()
         self.out_dirs = self.config['Output']['directories'].split()
         self.qa_dir = self.config['Testing']['testing_directory']
@@ -92,7 +95,7 @@ class Emfac2014TotalsTester(OutputTester):
                     county_totals['emfac'][poll] += emfac
                     county_totals['pmeds'][poll] += pmeds
                     # don't write the detailed line if there's no difference
-                    if abs(diff) < 1.0e-4:
+                    if abs(diff) < 1.0e-3:
                         continue
                     diff = '%.3f' % diff
                     f.write(','.join([c, str(eic), poll, str(emfac), str(pmeds), diff]) + '\n')
@@ -126,10 +129,9 @@ class Emfac2014TotalsTester(OutputTester):
         '''
         county_nums = dict([(name[:8], i) for (i, name) in self.county_names.iteritems()])
         e = {}
-
-        # check that the file exists
         if file_path.endswith('.gz'):
-            f = gzip.open(file_path, 'rb')
+            gz = gzip.open(file_path, 'rb')
+            f = io.BufferedReader(gz)
         elif os.path.exists(file_path):
             f = open(file_path, 'r')
         else:
@@ -150,7 +152,6 @@ class Emfac2014TotalsTester(OutputTester):
             for i in xrange(5):
                 e[county][eic][self.POLLUTANTS[i]] += vals[i] * self.KG_2_STONS
 
-        f.close()
         return e
 
     def _find_output_pmeds(self, dt):
@@ -233,7 +234,7 @@ class Emfac2014TotalsTester(OutputTester):
                 # There is no such thing as Light-Duty, Diesel School Busses.
                 continue
             p = ln[4]
-            eic = self.vtp2eic[(v, t, p)]
+            eic = self.eic_reduce(self.vtp2eic[(v, t, p)])
             value = float(ln[-1])
             if value == 0.0:
                 continue
@@ -273,7 +274,7 @@ class Emfac2014TotalsTester(OutputTester):
             county = int(ln[1])
             v = ln[4]
             p = ln[3]
-            eic = self.vtp2eic[(v, 'DSL', p)]
+            eic = self.eic_reduce(self.vtp2eic[(v, 'DSL', p)])
             if county not in emis:
                 emis[county] = {}
             if eic not in emis[county]:
