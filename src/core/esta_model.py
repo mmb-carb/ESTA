@@ -14,7 +14,6 @@ class EstaModel(object):
         self.spatial_surrs = None
         self.temporal_surrs = None
         self.emissions = None
-        self.scaled_emissions = None
 
     def process(self):
         ''' build the spatial and temporal surrogates and apply them to
@@ -40,13 +39,12 @@ class EstaModel(object):
         for emis_loader in self.emis_loaders:
             self.emissions = emis_loader.load(self.emissions)
 
-        print('  - scaling emissions')
-        self.scaled_emissions = self.emis_scaler.scale(self.emissions, self.spatial_surrs,
-                                                       self.temporal_surrs)
-
-        print('  - writing output files')
-        for writer in self.writers:
-            writer.write(self.scaled_emissions)
+        print('  - scaling emissions & writing files')
+        for scaled_emissions in self.emis_scaler.scale(self.emissions, self.spatial_surrs,
+                                                       self.temporal_surrs):
+            print('    + writing output file')
+            for writer in self.writers:
+                writer.write(scaled_emissions)
 
     def postprocess(self):
         ''' run all listed tests '''

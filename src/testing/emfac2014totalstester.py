@@ -140,7 +140,7 @@ class Emfac2014TotalsTester(OutputTester):
 
         # now that file exists, read it
         for line in f.readlines():
-            county = county_nums[line[:8]]
+            county = county_nums[line[:8].rstrip()]
             eic = int(line[22:36])
             vals = [float(v) if v else 0.0 for v in line[78:].rstrip().split(',')]
 
