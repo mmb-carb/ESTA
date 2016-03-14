@@ -42,6 +42,15 @@ class SparceEmissions(defaultdict):
                     cell_dict = defaultdict.__getitem__(self, cell)
                     cell_dict[poll] += value
 
+    def __deepcopy__(self, emis):
+        e = SparceEmissions()
+
+        for cell, cell_data in self.iteritems():
+            for poll, value in cell_data.iteritems():
+                e[cell][poll] = value
+
+        return e
+
     def __repr__(self):
         return defaultdict.__repr__(self).replace('defaultdict', self.__class__.__name__, 1)
 

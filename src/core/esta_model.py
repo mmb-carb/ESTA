@@ -24,7 +24,6 @@ class EstaModel(object):
         self.spatial_surrs = None
         self.temporal_surrs = None
         self.emissions = None
-        self.scaled_emissions = None
 
         print('  - loading spatial surrogates')
         for spatial_loader in self.spatial_loaders:
@@ -48,6 +47,7 @@ class EstaModel(object):
 
     def postprocess(self):
         ''' run all listed tests '''
-        print('  - testing output files')
+        if self.testers:
+            print('  - testing output files')
         for tester in self.testers:
             tester.test()
