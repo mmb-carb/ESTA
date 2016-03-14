@@ -22,64 +22,6 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         self.eic2dtim4 = eval(open(self.config['Scaling']['eic2dtim4'], 'r').read())
         self.nh3_fractions = {}
 
-    def scale_OLD(self, emissions, spatial_surr, temporal_surr):
-        """ Master method to scale emissions using spatial and temporal surrogates.
-            INPUT FORMATS:
-            Emissions: EMFAC2014EmissionsData
-                            emis_data[county][date string] = EmissionsTable
-                            EmissionsTable[EIC][pollutant] = value
-            Spatial Surrogates: Dtim4SpatialData
-                                    data[county][date][hr][veh][act] = SpatialSurrogate()
-                                    SpatialSurrogate[(grid, cell)] = fraction
-            Temporal Surrogates: {'diurnal': Dtim4TemporalData(),
-                                  'dow': calvad[county][dow][ld/lm/hh] = fraction}
-                                  Dtim4TemporalData
-                                        data[county][date][veh][act] = TemporalSurrogate()
-                                            TemporalSurrogate = [x]*24
-            OUTPUT FORMAT:
-            ScaledEmissions: data[county][date][hr][eic] = SparceEmissions
-                                SparceEmissions[(grid, cell)][pollutant] = value
-        """
-        self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
-        e = ScaledEmissions()
-
-        # loop through all the county/date combinations in the emissions
-        for county in self.subareas:
-            county_data = emissions.data[county]
-            for date, et in county_data.iteritems():
-                # find the DOW
-                if date[4:] in self._find_holidays():
-                    dow = 'holi'
-                else:
-                    by_date = str(self.base_year) + date[4:]
-                    dow = Dtim4Emfac2014Scaler.DOW[dt.strptime(by_date, self.date_format).weekday()]
-
-                # apply CalVad DOW factors
-                cal_factors = temporal_surr['dow'][county][dow]
-                emissions_table = deepcopy(et)
-                emissions_table = self._apply_factors(emissions_table, cal_factors)
-
-                # find diurnal factors by hour
-                factors_by_hour = temporal_surr['diurnal'][county][dow]
-
-                # pull today's spatial surrogate
-                spatial_surrs = spatial_surr.data[county][date]
-
-                # loop through each hour of the day
-                for hr in xrange(24):
-                    # apply diurnal profile to emissions
-                    emis_table = deepcopy(emissions_table)
-                    emis_table = self._apply_factors(emis_table, factors_by_hour[hr])
-
-                    # apply spatial surrogates & create sparcely-gridded emissions
-                    sparce_emis_dict = self._apply_spatial_surrs(county, emis_table, spatial_surrs)
-
-                    for eic, sparce_emis in sparce_emis_dict.iteritems():
-                        eic1 = self.eic_reduce(eic)
-                        e.set(county, date, hr + 1, eic1, sparce_emis)
-
-        return e
-
     def scale(self, emissions, spatial_surr, temporal_surr):
         """ Master method to scale emissions using spatial and temporal surrogates.
             INPUT FORMATS:
@@ -97,8 +39,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
             OUTPUT FORMAT:
             ScaledEmissions: data[county][date][hr][eic] = SparceEmissions
                                 SparceEmissions[(grid, cell)][pollutant] = value
-            NOTE: This function is a generator and will `yield` emissions on a file-by-file
-                  basis, rather than `return` them.
+            NOTE: This function is a generator and will `yield` emissions file-by-file.
         """
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
 
@@ -215,10 +156,10 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
             for poll, value in emis_table[eic].iteritems():
                 for cell, fraction in spatial_surrs[veh][act].iteritems():
                     se[cell][poll] = value * fraction
-                    if poll == 'co':
-                        # TODO: remove this `if` and add a single comprehension outside this loop?
-                        # TODO: That would mean flipping cell and poll in this dictionary
-                        se[cell]['nh3'] = se[cell]['co'] * self.nh3_fractions[county][eic]
+                if poll == 'co':
+                    for cell, fraction in spatial_surrs[veh][act].iteritems():
+                        se[cell]['nh3'] = value * fraction
+
             e[eic] = se
 
         return e
