@@ -20,7 +20,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         super(Dtim4Emfac2014Scaler, self).__init__(config)
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.eic2dtim4 = eval(open(self.config['Scaling']['eic2dtim4'], 'r').read())
-        self.nh3_fractions = {}
+        self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
 
     def scale(self, emissions, spatial_surr, temp_surr):
         """ Master method to scale emissions using spatial and temporal surrogates.
@@ -41,15 +41,13 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
                                 SparceEmissions[(grid, cell)][pollutant] = value
             NOTE: This function is a generator and will `yield` emissions file-by-file.
         """
-        from time import time
-        self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
+        today = dt(self.start_date.year, self.start_date.month, self.start_date.day)
 
         # loop through all the dates in the period
-        today = dt(self.start_date.year, self.start_date.month, self.start_date.day)
         while today <= self.end_date:
-            t1 = time()
             # find the DOW
             date = today.strftime(self.date_format)
+            today += timedelta(days=1)
             if date[4:] in self._find_holidays():
                 dow = 'holi'
             else:
@@ -60,10 +58,10 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
             for county in self.subareas:
                 if date not in emissions.data[county]:
                     continue
-                et = emissions.data[county][date]
 
-                # apply CalVad DOW factors
-                emissions_table = self._apply_factors(deepcopy(et), temp_surr['dow'][county][dow])
+                # apply CalVad DOW factors (this line is long for performance reasons)
+                emissions_table = self._apply_factors(deepcopy(emissions.data[county][date]),
+                                                      temp_surr['dow'][county][dow])
 
                 # find diurnal factors by hour
                 factors_by_hour = temp_surr['diurnal'][county][dow]
@@ -73,19 +71,13 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
 
                 # loop through each hour of the day
                 for hr in xrange(24):
-                    # apply diurnal profile to emissions, then spatial profile
-                    '''
-                        NOTE: This line is long and hard to read, but MUCH faster than the original:
-                        et = self._apply_factors(deepcopy(emissions_table), factors_by_hour[hr])
-                        sparce_ed = self._apply_spatial_surrs(self._apply_factors(et, spatial_surrs)
-                    '''
+                    # apply diurnal, then spatial profiles (this line long for performance reasons)
                     sparce_emis_dict = self._apply_spatial_surrs(self._apply_factors(deepcopy(emissions_table), factors_by_hour[hr]), spatial_surrs)
 
                     for eic, sparce_emis in sparce_emis_dict.iteritems():
                         e.set(county, date, hr + 1, self.eic_reduce(eic), sparce_emis)
-            print time() - t1
+
             yield e
-            today += timedelta(days=1)
 
     def _read_nh3_inventory(self, inv_file):
         """ read the NH3/CO values from the inventory and generate the NH3/CO fractions

@@ -17,8 +17,8 @@ class EmissionsScaler(object):
     @abc.abstractmethod
     def scale(self, emissions, spatial_surr, temporal_surr):
         """ Scale the emissions using spatial and temporal surrogates
-            NOTE: This method should be a generator that yields one gridded emisisons
-                  object for each file that you want to write.
+            NOTE: This method should be a generator of emissions objects, otherwise it must
+                  return a collection of emission objects.
         """
         while False:
             yield None
