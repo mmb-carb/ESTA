@@ -78,9 +78,11 @@ class Pmeds1Writer(OutputWriter):
                             emis = ['', '', '', '', '', '']
                             no_emissions = True
                             for poll, value in grid_data.iteritems():
-                                if poll.lower() not in Pmeds1Writer.COLUMNS:
+                                try:
+                                    col = Pmeds1Writer.COLUMNS[poll.lower()]
+                                except:
+                                    # irrelevant pollutant
                                     continue
-                                col = Pmeds1Writer.COLUMNS[poll.lower()]
                                 val = '{0:.5f}'.format(value * frac * self.STONS_2_KG).rstrip('0')
                                 if val != '0.':
                                     emis[col] = val
@@ -100,11 +102,9 @@ class Pmeds1Writer(OutputWriter):
         """
         out_path = self._build_county_file_path(county, date)
         jul_day = dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday
-        # format: data[hr][eic] = SparceEmissions (sparce_emis[(grid, cell)][pollutant] = value)
-        data = scaled_emissions.data[county][date]
         lines = []
 
-        for hr, hr_data in data.iteritems():
+        for hr, hr_data in scaled_emissions.data[county][date].iteritems():
             for eic, sparce_emis in hr_data.iteritems():
                 for cell, grid_data in sparce_emis.iteritems():
                     # calculate GAI from county and cell
@@ -113,16 +113,20 @@ class Pmeds1Writer(OutputWriter):
                     for gai, frac in gais:
                         # build list of six pollutants
                         emis = ['', '', '', '', '', '']
+                        no_emissions = True
                         for poll, value in grid_data.iteritems():
-                            if poll.lower() not in Pmeds1Writer.COLUMNS:
+                            try:
+                                col = Pmeds1Writer.COLUMNS[poll.lower()]
+                            except:
+                                # irrelevant pollutant
                                 continue
-                            col = Pmeds1Writer.COLUMNS[poll.lower()]
                             val = '{0:.5f}'.format(value * frac * self.STONS_2_KG).rstrip('0')
                             if val != '0.':
                                 emis[col] = val
+                                no_emissions = False
 
                         # if there are emissions, build PMEDS line
-                        if not ''.join(emis):
+                        if no_emissions:
                             continue
                         lines.append(self._build_pmeds1_line(county, gai, date, jul_day, hr, eic,
                                                              cell, emis))
@@ -150,6 +154,7 @@ class Pmeds1Writer(OutputWriter):
 
     def _write_zipped_file(self, out_path, lines):
         """ simple helper method to write a list of strings to a file """
+        print('    + writing: ' + out_path + '.gz')
         f = gzip.open(out_path + '.gz', 'wb')
         try:
             f.writelines(lines)

@@ -16,6 +16,9 @@ class Emfac2014TotalsTester(OutputTester):
 
     def __init__(self, config):
         super(Emfac2014TotalsTester, self).__init__(config)
+        # TODO: testing
+        by_subarea = self.config['Output']['by_subarea'].lower()
+        self.by_subarea = False if by_subarea in ['false', '0', 'no'] else True
         self.vtp2eic = eval(open(self.config['Misc']['vtp2eic'], 'r').read())
         self.county_names = eval(open(self.config['Misc']['county_names'], 'r').read())
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
@@ -58,10 +61,12 @@ class Emfac2014TotalsTester(OutputTester):
             emis = self._read_emfac2014_hdv(hdv_file, emis)
 
             # sum the final output PMEDS for the given day
-            pmeds_file = self._find_output_pmeds(dt)
-            if not pmeds_file:
+            pmeds_files = self._find_output_pmeds(dt)
+            if not pmeds_files:
                 continue
-            out_emis = self._sum_output_pmeds(pmeds_file)
+            out_emis = {}
+            for pmeds_file in pmeds_files:
+                out_emis = self._sum_output_pmeds(pmeds_file, out_emis)
 
             # write the emissions comparison to a file
             self._write_emis_comparison(date, emis, out_emis)
@@ -123,12 +128,11 @@ class Emfac2014TotalsTester(OutputTester):
 
         f.close()
 
-    def _sum_output_pmeds(self, file_path):
+    def _sum_output_pmeds(self, file_path, e):
         ''' Look at the final output PMEDS file and build a dictionary
             of the emissions by county and pollutant.
         '''
         county_nums = dict([(name[:8], i) for (i, name) in self.county_names.iteritems()])
-        e = {}
         if file_path.endswith('.gz'):
             gz = gzip.open(file_path, 'rb')
             f = io.BufferedReader(gz)
@@ -156,19 +160,26 @@ class Emfac2014TotalsTester(OutputTester):
 
     def _find_output_pmeds(self, dt):
         ''' Find a single output PMEDS file for a given day. '''
-        date_str = str(dt.month) + 'd' + str(dt.day).rjust(2)
         files = []
-        for odir in self.out_dirs:
-            file_str = os.path.join(odir, 'pmeds', '*' + date_str + '*.pmed*')
-            possibles = glob(file_str)
-            if possibles:
-                files.append(possibles[0])
+        if self.by_subarea:
+            for odir in self.out_dirs:
+                file_str = os.path.join(odir, '%02d' % dt.month, '%02d' % dt.day, '*.pmed*')
+                possibles = glob(file_str)
+                if possibles:
+                    files += possibles
+        else:
+            date_str = str(dt.month) + 'd' + '%02d' % dt.day
+            for odir in self.out_dirs:
+                file_str = os.path.join(odir, 'pmeds', '*' + date_str + '*.pmed*')
+                possibles = glob(file_str)
+                if possibles:
+                    files.append(possibles[0])
 
         if not files:
-            print('\tERROR: Output PMEDS file not found', dt)
+            print('\tERROR: Output PMEDS file not found: ' + file_str)
             return []
 
-        return files[0]
+        return files
         
 
     def _find_emfac2014_ldv(self, dt, county):
@@ -181,7 +192,8 @@ class Emfac2014TotalsTester(OutputTester):
                 files.append(possibles[0])
 
         if not files:
-            print('\tERROR: EMFAC2014 LDV emissions file not found', county, dt)
+            print('\tERROR: EMFAC2014 LDV emissions file not found for county: ' + str(county) +
+                  ', and date: ' + str(dt))
             return []
 
         return files[0]
@@ -197,7 +209,8 @@ class Emfac2014TotalsTester(OutputTester):
                 files.append(possibles[0])
 
         if not files:
-            print('\tERROR: EMFAC2014 HDV emissions file not found', county, dt)
+            print('\tERROR: EMFAC2014 HDV emissions file not found for county: ' + str(county) +
+                  ', and date: ' + str(dt))
             return []
 
         return files[0]

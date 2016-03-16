@@ -18,6 +18,9 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
 
     def __init__(self, config):
         super(Dtim4Emfac2014Scaler, self).__init__(config)
+        # TODO: testing
+        by_subarea = self.config['Output']['by_subarea'].lower()
+        self.by_subarea = False if by_subarea in ['false', '0', 'no'] else True
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.eic2dtim4 = eval(open(self.config['Scaling']['eic2dtim4'], 'r').read())
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
@@ -54,10 +57,17 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
                 by_date = str(self.base_year) + date[4:]
                 dow = Dtim4Emfac2014Scaler.DOW[dt.strptime(by_date, self.date_format).weekday()]
 
-            e = ScaledEmissions()
+            # TODO: testing
+            if not self.by_subarea:
+                e = ScaledEmissions()
+
             for county in self.subareas:
                 if date not in emissions.data[county]:
                     continue
+
+                # TODO: comment me
+                if self.by_subarea:
+                    e = ScaledEmissions()
 
                 # apply CalVad DOW factors (this line is long for performance reasons)
                 emissions_table = self._apply_factors(deepcopy(emissions.data[county][date]),
@@ -77,7 +87,13 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
                     for eic, sparce_emis in sparce_emis_dict.iteritems():
                         e.set(county, date, hr + 1, self.eic_reduce(eic), sparce_emis)
 
-            yield e
+                # TODO: testing
+                if self.by_subarea:
+                    yield e
+
+            # TODO: testing
+            if not self.by_subarea:
+                yield e
 
     def _read_nh3_inventory(self, inv_file):
         """ read the NH3/CO values from the inventory and generate the NH3/CO fractions

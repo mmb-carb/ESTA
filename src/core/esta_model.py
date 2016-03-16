@@ -41,7 +41,6 @@ class EstaModel(object):
         print('  - scaling emissions & writing files')
         for scaled_emissions in self.emis_scaler.scale(self.emissions, self.spatial_surrs,
                                                        self.temporal_surrs):
-            print('    + writing output file')
             for writer in self.writers:
                 writer.write(scaled_emissions)
 
