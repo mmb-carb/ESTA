@@ -30,9 +30,9 @@ class Dtim4CalvadTemporalLoader(TemporalLoader):
             days are 1, 2, 3, 6, 7, 8
 
             CalVad File Format:
-            CNTY,DAY,HR,LD,LM,HH
-            Alameda,1,00,0.020204,0.040504,0.060651
-            Alameda,1,01,0.012772,0.038892,0.055813
+            CNTY,DAY,HR,LD,LM,HH,SBUS
+            Alameda,1,00,0.020204,0.040504,0.060651,0.0
+            Alameda,1,01,0.012772,0.038892,0.055813,0.0
         """
         calvad = {}
         f = open(file_path, 'r')
@@ -63,9 +63,9 @@ class Dtim4CalvadTemporalLoader(TemporalLoader):
         """ generate the DOW temporal surrogates from the CalVad data
 
             CalVad File Format:
-            County_Number,FIPS,Day,DOW,LD,LM,HH
-            1,1,1,sun,0.79679,0.495819,0.324035
-            1,1,2,mon,0.948027,0.91867,0.893196
+            County_Number,FIPS,Day,DOW,LD,LM,HH,SBUS
+            1,1,1,sun,0.79679,0.495819,0.324035,0.0
+            1,1,2,mon,0.948027,0.91867,0.893196,0.0
             1,1,3,tuth,1,1,1
         """
         calvad = {}

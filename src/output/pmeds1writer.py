@@ -180,7 +180,9 @@ class Pmeds1Writer(OutputWriter):
 
     def _write_zipped_file(self, out_path, lines):
         """ simple helper method to write a list of strings to a file """
-        print('    + writing: ' + out_path + '.gz')
+        if not self.combine:
+            print('    + writing: ' + out_path + '.gz')
+
         f = gzip.open(out_path + '.gz', 'wb')
         try:
             f.writelines(lines)
@@ -228,6 +230,7 @@ class Pmeds1Writer(OutputWriter):
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
 
+        # TODO: This is not Windows-compliant. Use os.path.
         # define the grid size string
         grid_size = '4k'
         if '12km' in self.grid_file.split('/')[-1]:
