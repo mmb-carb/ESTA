@@ -175,8 +175,9 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
         return e
 
     def _find_holidays(self):
-        '''Using Pandas calendar, find all 10 US Federal Holidays,
-        plus California's Cesar Chavez day'''
+        ''' Using Pandas calendar, find all 10 US Federal Holidays,
+            plus California's Cesar Chavez Day (March 31).
+        '''
         yr = str(self.base_year)
         cal = USFederalHolidayCalendar()
         holidays = cal.holidays(start=yr + '-01-01', end=yr + '-12-31').to_pydatetime()

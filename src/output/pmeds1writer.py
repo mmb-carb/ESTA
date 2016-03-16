@@ -26,24 +26,22 @@ class Pmeds1Writer(OutputWriter):
 
     def write(self, scaled_emissions):
         """ The master method to write output files.
-            In this case, we are writing a single file for each county/date combo.
+            This can write output files by region, or for the entire day.
         """
         if self.by_subarea:
-            self.write_by_gai(scaled_emissions)
+            self.write_by_region(scaled_emissions)
         else:
             self.write_by_state(scaled_emissions)
 
-    def write_by_gai(self, scaled_emissions):
-        """ The master method to write output files.
-            In this case, we are writing a single file for each county/date combo.
+    def write_by_region(self, scaled_emissions):
+        """ Write a single file for each region/date combo
         """
         for county, county_data in scaled_emissions.data.iteritems():
             for date, date_date in county_data.iteritems():
                 self._write_pmeds1_by_county(scaled_emissions, county, date)
 
     def write_by_state(self, scaled_emissions):
-        """ The master method to write output files.
-            In this case, we are writing a single file for each county/date combo.
+        """ Write a single output file per day
         """
         # find all dates
         dates = set()
