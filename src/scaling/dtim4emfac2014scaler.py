@@ -18,7 +18,6 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
 
     def __init__(self, config):
         super(Dtim4Emfac2014Scaler, self).__init__(config)
-        # TODO: testing
         by_subarea = self.config['Output']['by_subarea'].lower()
         self.by_subarea = False if by_subarea in ['false', '0', 'no'] else True
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
@@ -57,7 +56,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
                 by_date = str(self.base_year) + date[4:]
                 dow = Dtim4Emfac2014Scaler.DOW[dt.strptime(by_date, self.date_format).weekday()]
 
-            # TODO: testing
+            # if not by sub-area, create emissions object
             if not self.by_subarea:
                 e = ScaledEmissions()
 
@@ -65,7 +64,7 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
                 if date not in emissions.data[county]:
                     continue
 
-                # TODO: comment me
+                # if by sub-area, create emissions object
                 if self.by_subarea:
                     e = ScaledEmissions()
 
@@ -87,11 +86,11 @@ class Dtim4Emfac2014Scaler(EmissionsScaler):
                     for eic, sparce_emis in sparce_emis_dict.iteritems():
                         e.set(county, date, hr + 1, self.eic_reduce(eic), sparce_emis)
 
-                # TODO: testing
+                # yield, if by sub-area
                 if self.by_subarea:
                     yield e
 
-            # TODO: testing
+            # yield, if not by sub-area
             if not self.by_subarea:
                 yield e
 

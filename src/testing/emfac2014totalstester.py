@@ -16,7 +16,6 @@ class Emfac2014TotalsTester(OutputTester):
 
     def __init__(self, config):
         super(Emfac2014TotalsTester, self).__init__(config)
-        # TODO: testing
         by_subarea = self.config['Output']['by_subarea'].lower()
         self.by_subarea = False if by_subarea in ['false', '0', 'no'] else True
         self.vtp2eic = eval(open(self.config['Misc']['vtp2eic'], 'r').read())
