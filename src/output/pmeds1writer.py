@@ -189,8 +189,12 @@ class Pmeds1Writer(OutputWriter):
         return os.path.join(out_dir, self.county_names[county] + '.pmeds')
 
     def _build_state_file_path(self, date):
-        """ build output file directory and path for PMEDS file
-            ex: st_4k.mv.v0938..2012.203107d18..e14..pmeds
+        """ Build output file directory and path for a daily, multi-region PMEDS file.
+            NOTE: This method uses an extremely detailed file naming convention.
+                  For example:
+            st_4k.mv.v0938..2012.203107d18..e14..pmeds
+            [statewide]_[4km grid].[mobile source].[version 938]..[base year 2012].
+            [model year 2031][month 7]d[day 18]..[EIC 14 categories]..[PMEDS format]
         """
         yr, month, day = date.split('-')
 
@@ -198,7 +202,7 @@ class Pmeds1Writer(OutputWriter):
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
 
-        # This is to match the MMB CMAQ-ready file naming convention.
+        # define the grid size string
         grid_size = '4k'
         if '12km' in self.grid_file.split('/')[-1]:
             grid_size = '12k'
