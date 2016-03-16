@@ -18,6 +18,8 @@ class Emfac2014TotalsTester(OutputTester):
         super(Emfac2014TotalsTester, self).__init__(config)
         by_subarea = self.config['Output']['by_subarea'].lower()
         self.by_subarea = False if by_subarea in ['false', '0', 'no'] else True
+        combine = self.config['Output']['combine_subareas'].lower()
+        self.combine = False if combine in ['false', '0', 'no'] else True
         self.vtp2eic = eval(open(self.config['Misc']['vtp2eic'], 'r').read())
         self.county_names = eval(open(self.config['Misc']['county_names'], 'r').read())
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
@@ -160,7 +162,7 @@ class Emfac2014TotalsTester(OutputTester):
     def _find_output_pmeds(self, dt):
         ''' Find a single output PMEDS file for a given day. '''
         files = []
-        if self.by_subarea:
+        if self.by_subarea and not self.combine:
             for odir in self.out_dirs:
                 file_str = os.path.join(odir, '%02d' % dt.month, '%02d' % dt.day, '*.pmed*')
                 possibles = glob(file_str)

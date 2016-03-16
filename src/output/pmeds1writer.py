@@ -1,5 +1,6 @@
 
 from datetime import datetime as dt
+from glob import glob
 import gzip
 import os
 from src.core.output_writer import OutputWriter
@@ -17,6 +18,8 @@ class Pmeds1Writer(OutputWriter):
         super(Pmeds1Writer, self).__init__(config, directory, time_units)
         by_subarea = self.config['Output']['by_subarea'].lower()
         self.by_subarea = False if by_subarea in ['false', '0', 'no'] else True
+        combine = self.config['Output']['combine_subareas'].lower()
+        self.combine = False if combine in ['false', '0', 'no'] else True
         self.version = self.config['Output']['inventory_version']
         self.grid_file = self.config['GridInfo']['grid_cross_file']
         self.county_names = eval(open(self.config['Misc']['county_names'], 'r').read())
@@ -130,6 +133,31 @@ class Pmeds1Writer(OutputWriter):
                                                              cell, emis))
 
         self._write_zipped_file(out_path, lines)
+        self._combine_subregions(date)
+
+    def _combine_subregions(self, date):
+        ''' If all the region files have been written, this will cat them all
+            together into one big file.
+        '''
+        if not self.combine:
+            return
+
+        # new output file path
+        out_file = self._build_state_file_path(date) + '.gz'
+
+        # use glob to count files in the output folder
+        yr, month, day = date.split('-')
+        region_paths = os.path.join(self.directory, month, day, '*.pmeds.gz')
+        region_files = glob(region_paths)
+
+        # if all regions are finished, zcat results together
+        if len(region_files) != len(self.subareas):
+            return
+        print('    + writing: ' + out_file)
+        os.system('zcat ' + ' '.join(region_files) + ' | gzip -9c > ' + out_file)
+        
+        # remove old region files
+        os.system('rm ' + ' '.join(region_files) + ' &')
 
     def _build_pmeds1_line(self, cnty, gai, date, jul_day, hr, eic, grid_cell, emis):
         """ Build the complicated PMEDS v1 line from available data
