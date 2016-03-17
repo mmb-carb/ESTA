@@ -9,6 +9,7 @@ Three non-standard, but common Python libraries need be installed if you wish to
 * NumPy
 * SciPy
 * pandas
+* pyproj
 
 
 [Back to Main Readme](../README.md)

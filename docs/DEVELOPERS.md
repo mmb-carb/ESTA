@@ -200,7 +200,7 @@ A common problem for scientists and engineers is that they spend more time wrang
 
 ## Implementing Your Own Step
 
-Perhaps the most important design goal in ESTA is the ability to replace a step with one of your own. To that end, let's look at an example of doing just that. In the example below, we create a special temporal surrogate: `RushHour`. In this new temporal surrogate, all onroad traffic will happen in two hours of the day (8AM to 5PM), the other 22 hours of the day will have no traffic.
+Perhaps the most important design goal in ESTA is the ability to replace a step with one of your own. To that end, let's look at an example of doing just that. In the example below, we create a special temporal surrogate: `RushHour`. In this new temporal surrogate, all onroad traffic will happen in two hours of the day (8AM and 5PM), the other 22 hours of the day will have no traffic.
 
 The first thing to do when implementing `RushHour` will be to sub-class the temporal surrogate loader `TemporalLoader` in `src.core.temporal_loader.py`:
 
