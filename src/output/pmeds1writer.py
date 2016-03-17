@@ -147,7 +147,7 @@ class Pmeds1Writer(OutputWriter):
 
         # use glob to count files in the output folder
         yr, month, day = date.split('-')
-        region_paths = os.path.join(self.directory, month, day, '*.pmeds.gz')
+        region_paths = os.path.join(self.directory, month, day, '*.pmeds')
         region_files = glob(region_paths)
 
         # if all regions are finished, zcat results together
@@ -241,16 +241,16 @@ class Pmeds1Writer(OutputWriter):
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
 
-        # TODO: This is not Windows-compliant. Use os.path.
         # define the grid size string
         grid_size = '4k'
-        if '12km' in self.grid_file.split('/')[-1]:
+        grid_name = os.path.basename(self.grid_file)
+        if '12km' in grid_name:
             grid_size = '12k'
-        elif '36km' in self.grid_file.split('/')[-1]:
+        elif '36km' in grid_name:
             grid_size = '36k'
-        elif '1km' in self.grid_file.split('/')[-1]:
+        elif '1km' in grid_name:
             grid_size = '1k'
-        elif '250m' in self.grid_file.split('/')[-1]:
+        elif '250m' in grid_name:
             grid_size = '250m'
 
         file_name = 'st_' + grid_size + '.mv.' + self.version + '..' + str(self.base_year) + '.' + \
