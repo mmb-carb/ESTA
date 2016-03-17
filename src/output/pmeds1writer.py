@@ -132,7 +132,7 @@ class Pmeds1Writer(OutputWriter):
                         lines.append(self._build_pmeds1_line(county, gai, date, jul_day, hr, eic,
                                                              cell, emis))
 
-        self._write_zipped_file(out_path, lines)
+        self._write_file(out_path, lines)
         self._combine_subregions(date)
 
     def _combine_subregions(self, date):
@@ -154,8 +154,8 @@ class Pmeds1Writer(OutputWriter):
         if len(region_files) != len(self.subareas):
             return
         print('    + writing: ' + out_file)
-        os.system('zcat ' + ' '.join(region_files) + ' | gzip -9c > ' + out_file)
-        
+        os.system('cat ' + ' '.join(region_files) + ' | gzip -9c > ' + out_file)
+
         # remove old region files
         os.system('rm ' + ' '.join(region_files) + ' &')
 
@@ -179,11 +179,22 @@ class Pmeds1Writer(OutputWriter):
                         str(gai).rjust(3), '     ', emissions, '\n'])
 
     def _write_zipped_file(self, out_path, lines):
-        """ simple helper method to write a list of strings to a file """
+        """ simple helper method to write a list of strings to a gzipped file """
         if not self.combine:
             print('    + writing: ' + out_path + '.gz')
 
         f = gzip.open(out_path + '.gz', 'wb')
+        try:
+            f.writelines(lines)
+        finally:
+            f.close()
+
+    def _write_file(self, out_path, lines):
+        """ simple helper method to write a list of strings to a file """
+        if not self.combine:
+            print('    + writing: ' + out_path)
+
+        f = open(out_path, 'w')
         try:
             f.writelines(lines)
         finally:
