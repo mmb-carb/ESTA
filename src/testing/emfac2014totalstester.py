@@ -2,7 +2,6 @@
 from datetime import datetime
 from glob import glob
 import gzip
-import io
 import os
 from src.core.output_tester import OutputTester
 from src.core.eic_utils import eic_reduce
@@ -134,8 +133,7 @@ class Emfac2014TotalsTester(OutputTester):
         '''
         county_nums = dict([(name[:8], i) for (i, name) in self.county_names.iteritems()])
         if file_path.endswith('.gz'):
-            gz = gzip.open(file_path, 'rb')
-            f = io.BufferedReader(gz)
+            f = gzip.open(file_path, 'rb')
         elif os.path.exists(file_path):
             f = open(file_path, 'r')
         else:
