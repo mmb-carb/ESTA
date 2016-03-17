@@ -25,7 +25,6 @@ class Emfac2014TotalsTester(OutputTester):
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.emis_dirs = self.config['Emissions']['emissions_directories'].split()
         self.out_dirs = self.config['Output']['directories'].split()
-        self.qa_dir = self.config['Testing']['testing_directory']
 
     def test(self):
         ''' Master Testing Method. This method compares the final PMEDS output file emissions
@@ -77,9 +76,9 @@ class Emfac2014TotalsTester(OutputTester):
             Write the difference by county, EIC, and pollutant.
             Don't print any numbers with zero percent difference.
         '''
-        if not os.path.exists(self.qa_dir):
-            os.mkdir(self.qa_dir)
-        file_path = os.path.join(self.qa_dir, 'pmeds_test_' + date + '.csv')
+        if not os.path.exists(self.testing_dir):
+            os.mkdir(self.testing_dir)
+        file_path = os.path.join(self.testing_dir, 'pmeds_test_' + date + '.csv')
         f = open(file_path, 'w')
         f.write('County,EIC,Pollutant,EMFAC,PMEDS,Percent Diff\n')
 
