@@ -204,7 +204,75 @@ Perhaps the most important design goal in ESTA is the ability to replace a step 
 
 The first thing to do when implementing `RushHour` will be to sub-class the temporal surrogate loader `TemporalLoader` in `src.core.temporal_loader.py`:
 
-TODO
+    from src.core.temporal_loader import TemporalLoader
+
+    class RushHour(TemporalLoader):
+
+        def __init__(self, config, directory):
+            super(RushHour, self).__init__(config, directory)
+
+The purpose of the `temporal_loader` subclass is to provide temporal surrogates. And in the case of on-road emissions, you will want diurnal and day-of-week surrogates. These are both created using the abstract `load` method. Because you will be default all subareas (counties) to the same information, you will need a list of subareas from the config file:
+
+    [Subareas]
+    subareas: 1..58
+
+Following the example of several other classes in ESTA, you can add a list of subareas/counties as a member variable of `RushHour` in the `__init__` method:
+
+    from src.core.temporal_loader import TemporalLoader
+
+    class RushHour(TemporalLoader):
+
+        def __init__(self, config, directory):
+            super(RushHour, self).__init__(config, directory)
+            self.subareas = RushHour.parse_subareas(self.config['Subareas']['subareas'])
+
+    @staticmethod
+    def parse_subareas(subareas_str):
+        """ Parse the string we get back from the subareas field """
+        if '..' in subareas_str:
+            subareas = subareas_str.split('..')
+            subareas = range(int(subareas[0]), int(subareas[1]) + 1)
+        else:
+            subareas = [int(c) for c in subareas_str.split()]
+
+        return subareas
+
+Note that `parse_subareas` is an abstract method, because there is no reason it can't be. Also note that if the config file has a list of subareas defined like `1..58`, this will generate a list of counties from 1 to 58, inclusive. Otherwise, it is just a space-separated list.
+
+All that is left is do the actual work of creating the temporal surrogates.
+
+    def load(self, spatial_surrogates, temporal_surrogates):
+        """ cars will only drive during rush hour """
+        if not temporal_surrogates:
+            temporal_surrogates = {'dow': {}, 'diurnal': {}}
+
+        # day-of-week strings
+        dows = ['mon', 'tuth', 'fri', 'sat', 'sun', 'holi']
+
+        # create rush hour time profiles
+        for subarea in self.subareas:
+            temporal_surrogates['dow'][subarea] = {}
+            temporal_surrogates['diurnal'][subarea] = {}
+            for dow in dows:
+                temporal_surrogates['diurnal'][subarea][dow] = [1.0, 1.0, 1.0, 1.0]
+                temporal_surrogates['dow'][subarea][dow] = [0.0]*24
+                temporal_surrogates['dow'][subarea][dow][7] = 0.5
+                temporal_surrogates['dow'][subarea][dow][16] = 0.5
+
+        return temporal_surrogates
+
+And that's it! Copy the above code into `ESTA/src/surrogates/rushhour.py`, and you can now run your (unrealistic) temporal profile by changing a single line in your config (.ini) script:
+
+    temporal_loaders: RushHour
+
+To recap the above process:
+
+ * Identify which step you want to replace.
+ * Find the abstract class for that step.
+ * Build your own subclass of that abstract class.
+ * Put your new subclass in the correct `src` module.
+ * Make sure your file name is the lower case of your class name: `MyClass` is in `myclass.py`.
+ * Point to your new class in the config file.
 
 ## Defining a New Domain
 

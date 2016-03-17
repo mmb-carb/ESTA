@@ -1,6 +1,6 @@
 # ESTA USER Documentation
 
-The purpose of this document is give a clear understanding of what ESTA is, and what it does. This is not meant as a guide to how to run ESTA, you will find that [here](USERS_GUIDE.md).
+The purpose of this document is give a clear understanding of what ESTA is, and what it does. This is not meant as a guide to how to run ESTA, you will find that in the [User Guide](USERS_GUIDE.md).
 
 ## Introduction
 
@@ -24,7 +24,7 @@ It might be easier to see an example. Figure 2 below shows the work flow for spa
 
 As shown in Figure 2, there are two implementations of the first "read emissions" step. This is because we read monthly EMFAC files for Heavy-Duty Diesel emissions, but daily files for other emissions. Being able to support reading two different kinds of input emissions files is important. The third step is also different, because we need both diurnal temporal surrogates and day-of-week temporal surrogates in step 3, such as from California Vehicle Activity Database (CalVAD). In Step 4 only one specialized module is needed to apply the surrogates to the emissions and step 5 has only one box in this case. In step 6, the gridded, hourly emissions are summed and compare with the daily totals from EMFAC. We could also imagine wanting to write files of different formats, and wanting multiple boxes in that step as well.
 
-ESTA is designed so that developers can create new versions of the steps above to fit their own unique problem.  This modularity allows developers to create new output files, read new input files, and change their work flow. ESTA will handle pulling all the data together.
+ESTA is designed so that developers can create new versions of the steps above to fit their own unique problem.  This modularity allows developers to create new output files, read new input files, and change their work flow. ESTA will handle linking all of the data together.
 
 
 [Back to Main Readme](../README.md)

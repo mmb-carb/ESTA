@@ -1,6 +1,6 @@
 # ESTA User's Guide
 
-The purpose of this document is to show new users how to run ESTA. This does not present what ESTA does, or what it exists, you will find that [here](USER_DOCS.md).
+The purpose of this document is to show new users how to run ESTA. This does not present what ESTA does, or why it exists, you can find that in the [User Documentation](USER_DOCS.md).
 
 ## How to Run a Default Case
 
