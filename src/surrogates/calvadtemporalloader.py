@@ -3,11 +3,10 @@ from dtim4loader import Dtim4Loader
 from src.core.temporal_loader import TemporalLoader
 
 
-class Dtim4CalvadTemporalLoader(TemporalLoader):
+class CalvadTemporalLoader(TemporalLoader):
 
     def __init__(self, config, directory):
-        self.config = config
-        self.directory = directory
+        super(CalvadTemporalLoader, self).__init__(config, directory)
 
     def load(self, spatial_surrogates, temporal_surrogates):
         """ master method to load both day-of-week and diurnal CALVAD time profiles """
