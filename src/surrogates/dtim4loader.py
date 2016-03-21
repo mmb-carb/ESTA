@@ -1,6 +1,5 @@
 
 from collections import defaultdict
-from datetime import datetime, timedelta
 from netCDF4 import Dataset
 import os
 from pandas.tseries.holiday import USFederalHolidayCalendar
@@ -20,6 +19,7 @@ class Dtim4Loader(SpatialLoader):
         link and TAZ files.
     """
 
+    DEFAULT_ITN_HOUR = 17
     DOW = {0: 'mon', 1: 'tuth', 2: 'tuth', 3: 'tuth', 4: 'fri', 5: 'sat', 6: 'sun', -1: 'holi'}
     MAX_STEPS = 12
 
@@ -30,13 +30,8 @@ class Dtim4Loader(SpatialLoader):
         self.ncols = int(self.config['GridInfo']['columns'])
         self.grid_file_path = self.config['GridInfo']['grid_cross_file']
         self.lat_dot, self.lon_dot = self._read_grid_corners_file()
-        self.date_format = self.config['Dates']['format']
-        self.start_date = datetime.strptime(self.config['Dates']['start'], self.date_format)
-        self.end_date = datetime.strptime(self.config['Dates']['end'], self.date_format)
-        self.base_year = int(self.config['Dates']['base_year'])
-        self.data = Dtim4SpatialData()
+        self.data = SpatialSurrogateData()
         self.county_boxes = eval(open(self.config['Surrogates']['county_boxes'], 'r').read())
-        self.default_hour = int(self.config['Surrogates']['default_itn_hour'])
         self.kdtrees = {}
         self.rad_factor = pi / 180.0  # need angles in radians
         self._create_kdtrees()
@@ -45,42 +40,37 @@ class Dtim4Loader(SpatialLoader):
         """ Overriding the abstract loader method to read DTIM4 road network files """
         # initialize surroagates, if needed
         if not spatial_surrogates:
-            spatial_surrogates = Dtim4SpatialData()
-
-        # figure out which DOWs we need to run
-        dows = self._dows_to_run()
+            spatial_surrogates = SpatialSurrogateData()
 
         # the current file format requires us to select a specific hour of the day
-        hr = self.default_hour
+        hr = Dtim4Loader.DEFAULT_ITN_HOUR
 
         # loop through all the counties
         for county in self.counties:
             fips = Dtim4Loader.county_to_fips(county)
-            # loop through each DOW
-            for dow in dows:
-                # build the file paths
-                link_file = os.path.join(self.directory, fips,
-                                         'dtim_link_' + fips + '_' + dow + '_%02d.dat' % hr)
-                index = link_file.rfind('link')
-                taz_file = link_file[:index] + 'taz' + link_file[index + 4:]
 
-                # read link file
-                if not os.path.exists(link_file):
-                    sys.exit('Link file does not exist: ' + link_file)
-                    continue
-                link_spatial_surrs, nodes = self._read_link_file(link_file, county)
-                link_temporal_surrs = Dtim4Loader.spatial_dict_to_temporal(link_spatial_surrs)
+            # build the file paths
+            link_file = os.path.join(self.directory, fips,
+                                     'dtim_link_' + fips + '_tuth_%02d.dat' % hr)
+            index = link_file.rfind('link')
+            taz_file = link_file[:index] + 'taz' + link_file[index + 4:]
 
-                # read TAZ file (TAZ file needs node definitions from link file)
-                if not os.path.exists(taz_file):
-                    sys.exit('TAZ file does not exist: ' + taz_file)
-                taz_spatial_surrs = self._read_taz_file(taz_file, nodes)
-                taz_temporal_surrs = Dtim4Loader.spatial_dict_to_temporal(taz_spatial_surrs)
+            # read link file
+            if not os.path.exists(link_file):
+                sys.exit('Link file does not exist: ' + link_file)
+                continue
+            link_spatial_surrs, nodes = self._read_link_file(link_file, county)
+            link_temporal_surrs = Dtim4Loader.spatial_dict_to_temporal(link_spatial_surrs)
 
-                # add surrogate data to the correct dates
-                for date in dows[dow]:
-                    spatial_surrogates.add_file(county, date, link_spatial_surrs)
-                    spatial_surrogates.add_file(county, date, taz_spatial_surrs)
+            # read TAZ file (TAZ file needs node definitions from link file)
+            if not os.path.exists(taz_file):
+                sys.exit('TAZ file does not exist: ' + taz_file)
+            taz_spatial_surrs = self._read_taz_file(taz_file, nodes)
+            taz_temporal_surrs = Dtim4Loader.spatial_dict_to_temporal(taz_spatial_surrs)
+
+            # add surrogate data to the correct counties
+            spatial_surrogates.add_file(county, link_spatial_surrs)
+            spatial_surrogates.add_file(county, taz_spatial_surrs)
 
         # normalize surrogates
         spatial_surrogates.surrogates()
@@ -101,33 +91,6 @@ class Dtim4Loader(SpatialLoader):
     def county_to_fips(county):
         """ This converts the county code (1 to 58) to the FIPS code. """
         return '%03d' % (2 * county - 1)
-
-    def _dows_to_run(self):
-        """ Find all the DOWs to run in the given date range """
-        dows = defaultdict(list)
-        holidays = self._find_holidays()
-        model_year = self.start_date.year
-
-        today = datetime(self.base_year, self.start_date.month, self.start_date.day)
-        end = datetime(self.base_year, self.end_date.month, self.end_date.day)
-        while today <= end:
-            dow = Dtim4Loader.DOW[today.weekday()]
-            if today.strftime('%m-%d') in holidays:
-                dows['holi'].append(str(model_year) + today.strftime(self.date_format)[4:])
-            else:
-                dows[dow].append(str(model_year) + today.strftime(self.date_format)[4:])
-            today += timedelta(days=1)
-
-        return dows
-
-    def _find_holidays(self):
-        '''Using Pandas calendar, find all 10 US Federal Holidays,
-        plus California's Cesar Chavez day'''
-        yr = str(self.base_year)
-        cal = USFederalHolidayCalendar()
-        holidays = cal.holidays(start=yr + '-01-01', end=yr + '-12-31').to_pydatetime()
-
-        return [d.strftime('%m-%d') for d in holidays] + ['03-31']
 
     def _read_link_file(self, file_path, area):
         """ Read the ITN activity data from a single Link file
@@ -284,50 +247,47 @@ class Dtim4Loader(SpatialLoader):
         return lat_min + y + 1, lon_min + x + 1
 
 
-class Dtim4SpatialData(object):
+class SpatialSurrogateData(object):
     """ This class is designed as a helper to make organizing the huge amount of spatial
         information we pull out of the DTIM4 Link/TAZ files easier.
         It is just a multiply-embedded dictionary with keys for things that we find in each file:
-        county, date, hour-of-the-day, vehicle type, and activity (VMT, Trips, etc).
+        county, vehicle type, and activity (VMT, Trips, etc).
     """
 
     def __init__(self):
         self.data = {}
 
-    def get(self, county, date, veh, act):
+    def get(self, county, veh, act):
         """ Getter method for DTIM 4 Data dictionary """
-        return self.data.get(county, {}).get(date, {}).get(veh, {}).get(act, None)
+        return self.data.get(county, {}).get(veh, {}).get(act, None)
 
-    def set(self, county, date, veh, act, surrogate):
+    def set(self, county, veh, act, surrogate):
         """ Setter method for DTIM 4 Data dictionary """
         # type validation
         if type(surrogate) != SpatialSurrogate:
-            raise TypeError('Only spatial surrogates can be used in Dtim4SpatialData.')
+            raise TypeError('Only spatial surrogates can be used in SpatialSurrogateData.')
 
         # auto-fill the mulit-level dictionary format, to hide this from the user
         if county not in self.data:
             self.data[county] = {}
-        if date not in self.data[county]:
-            self.data[county][date] = {}
-        if veh not in self.data[county][date]:
-            self.data[county][date][veh] = {}
+        if veh not in self.data[county]:
+            self.data[county][veh] = {}
 
         # add surrogate
-        self.data[county][date][veh][act] = surrogate
+        self.data[county][veh][act] = surrogate
 
-    def add_file(self, county, date, surrogate_dict):
+    def add_file(self, county, surrogate_dict):
         """ Setter method to add an entire dictionary of spatial surrogates to this object.
             The dict represents an entire DTIM Link or TAZ file. So it has two layers of keys:
             vehicle type and activity type, then it has a spatial surrogate
         """
         for veh in surrogate_dict:
             for act in surrogate_dict[veh]:
-                self.set(county, date, veh, act, surrogate_dict[veh][act])
+                self.set(county, veh, act, surrogate_dict[veh][act])
 
     def surrogates(self):
         """ Finally, normalize all the spatial surrogates, so the grid cells sum to 1.0. """
         for county in self.data:
-            for date in self.data[county]:
-                for veh in self.data[county][date]:
-                    for act in self.data[county][date][veh]:
-                        self.data[county][date][veh][act] = self.data[county][date][veh][act].surrogate()
+            for veh in self.data[county]:
+                for act in self.data[county][veh]:
+                    self.data[county][veh][act] = self.data[county][veh][act].surrogate()
