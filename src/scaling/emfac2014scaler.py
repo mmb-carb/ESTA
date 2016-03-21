@@ -80,9 +80,10 @@ class Emfac2014Scaler(EmissionsScaler):
 
                 # loop through each hour of the day
                 for hr in xrange(24):
-                    # TODO: Move "_apply_spatial_surrs" out of this loop!
                     # apply diurnal, then spatial profiles (this line long for performance reasons)
-                    sparce_emis_dict = self._apply_spatial_surrs(self._apply_factors(deepcopy(emissions_table), factors_by_hour[hr]), spatial_surrs)
+                    sparce_emis_dict = self._apply_spatial_surrs(self._apply_factors(deepcopy(emissions_table),
+                                                                                     factors_by_hour[hr]),
+                                                                 spatial_surrs)
 
                     for eic, sparce_emis in sparce_emis_dict.iteritems():
                         e.set(county, date, hr + 1, self.eic_reduce(eic), sparce_emis)
