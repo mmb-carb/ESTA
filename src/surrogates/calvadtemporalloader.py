@@ -1,4 +1,5 @@
 
+import os
 from dtim4loader import Dtim4Loader
 from src.core.temporal_loader import TemporalLoader
 
@@ -7,6 +8,9 @@ class CalvadTemporalLoader(TemporalLoader):
 
     def __init__(self, config, directory):
         super(CalvadTemporalLoader, self).__init__(config, directory)
+        self.dow_path = os.path.join(self.directory, self.config['Surrogates']['calvad_dow'])
+        diurnal_file = self.config['Surrogates']['calvad_diurnal']
+        self.diurnal_path = os.path.join(self.directory, diurnal_file)
 
     def load(self, spatial_surrogates, temporal_surrogates):
         """ master method to load both day-of-week and diurnal CALVAD time profiles """
@@ -14,12 +18,10 @@ class CalvadTemporalLoader(TemporalLoader):
             temporal_surrogates = {}
 
         # load DOW time profiles
-        dow_file_path = self.config['Surrogates']['calvad_dow']
-        temporal_surrogates['dow'] = self._load_dow(dow_file_path)
+        temporal_surrogates['dow'] = self._load_dow(self.dow_path)
 
         # load diurnal time profiles
-        diurnal_file_path = self.config['Surrogates']['calvad_diurnal']
-        temporal_surrogates['diurnal'] = self._load_diurnal(diurnal_file_path)
+        temporal_surrogates['diurnal'] = self._load_diurnal(self.diurnal_path)
 
         return temporal_surrogates
 
