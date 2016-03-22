@@ -26,11 +26,14 @@ class SpatialSurrogate(defaultdict):
         """ A simple helper method to return a version of this object
             where all the values sum to 1.0.
         """
-        s = SpatialSurrogate()
-
         total = sum(defaultdict.values(self))
+        if total == 1.0:
+            # already normalized
+            return self
+
+        s = SpatialSurrogate()
         if total:
-            # The easy solution, just normalize all the values so they sum to 1.0.
+            # The easy situation, just normalize all the values so they sum to 1.0.
             for key in defaultdict.__iter__(self):
                 s[key] = self.__getitem__(key) / total
         else:
