@@ -64,9 +64,11 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
         header = f.readline()
         for line in f.xreadlines():
             ln = line.rstrip().split(';')
-            region = int(ln[1][6:9])
-            x = int(ln[2])  # TODO: Is there a shift?
-            y = int(ln[3])  # TODO: Is there a shift?
+            if len(ln) != 5:
+                continue
+            region = int(ln[1][:9][-3:])
+            y = int(ln[2])  # TODO: Is there a shift?
+            x = int(ln[3])  # TODO: Is there a shift?
             fraction = float(ln[4])
 
             if region not in surrogates:
