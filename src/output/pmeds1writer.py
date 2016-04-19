@@ -67,7 +67,7 @@ class Pmeds1Writer(OutputWriter):
 
         # loop through the different levels of the scaled emissions dictionary
         for county, county_data in scaled_emissions.data.iteritems():
-            day_data = county_data[date]
+            day_data = county_data.get(date, {})
             for hr, hr_data in day_data.iteritems():
                 for eic, sparce_emis in hr_data.iteritems():
                     for cell, grid_data in sparce_emis.iteritems():
@@ -95,7 +95,8 @@ class Pmeds1Writer(OutputWriter):
                             lines.append(self._build_pmeds1_line(county, gai, date, jul_day, hr,
                                                                  eic, cell, emis))
 
-        self._write_zipped_file(out_path, lines)
+        if lines:
+            self._write_zipped_file(out_path, lines)
 
     def _write_pmeds1_by_county(self, scaled_emissions, county, date):
         """ Write a single 24-hour PMEDS file for a given county/date combination.
@@ -253,6 +254,7 @@ class Pmeds1Writer(OutputWriter):
         elif '250m' in grid_name:
             grid_size = '250m'
 
+        # TODO: "st" = state, "mv" = mobile, and "e14" = EIC-14 All can change
         file_name = 'st_' + grid_size + '.mv.' + self.version + '..' + str(self.base_year) + '.' + \
                     yr + month + 'd' + day + '..e14..pmeds'
 
