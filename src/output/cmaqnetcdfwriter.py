@@ -83,16 +83,18 @@ class CmaqNetcdfWriter(OutputWriter):
         for county, county_data in scaled_emissions.data.iteritems():
             for date in county_data:
                 dates.add(date)
+        dates = sorted(dates)
 
         # loop through each date
+        last_date = dates[-1]
         for date in dates:
             # Convert scaled_emissions dict to NetCDF-ready 2D numpy.arrays
             grid = self._fill_grid(scaled_emissions, date)
 
             # write NetCDF
-            self._write_netcdf(grid, date)
+            self._write_netcdf(grid, date, date == last_date)
 
-    def _write_netcdf(self, grid, date):
+    def _write_netcdf(self, grid, date, is_last_date):
         ''' A helper method to spread the work of creating a CMAQ-ready NetCDF file
             into more than one method. There is a lot of boilerplate to deal with.
         '''
@@ -102,6 +104,7 @@ class CmaqNetcdfWriter(OutputWriter):
 
         # final output file path
         out_path = self._build_state_file_path(date)
+        print('    + writing: ' + out_path)
 
         # create empty netcdf file (including file path)
         rootgrp = self._create_netcdf(out_path, date, jdate)
@@ -110,7 +113,10 @@ class CmaqNetcdfWriter(OutputWriter):
         self._write_to_netcdf(rootgrp, grid, jdate)
 
         # compress output file
-        os.system('gzip -1 ' + out_path + ' &')
+        if is_last_date:
+            os.system('gzip -1 ' + out_path)
+        else:
+            os.system('gzip -1 ' + out_path + ' &')
 
     def _write_to_netcdf(self, rootgrp, grid, jdate):
         ''' Take the object representing our CMAQ-NetCDF file and fill
@@ -236,7 +242,7 @@ class CmaqNetcdfWriter(OutputWriter):
             day_data = region_data.get(date, {})
             for hr, hr_data in day_data.iteritems():
                 for eic, sparce_emis in hr_data.iteritems():
-                    for (col, row), cell_data in sparce_emis.iteritems():
+                    for (row, col), cell_data in sparce_emis.iteritems():
                         for poll, value in cell_data.iteritems():
                             if poll in ['co', 'nh3']:
                                 grid[poll.upper()][0,hr,row,col] += value

@@ -2,16 +2,20 @@
 from datetime import datetime
 from glob import glob
 import gzip
+from netCDF4 import Dataset
 import os
+import shutil
 from src.core.output_tester import OutputTester
 from src.core.eic_utils import eic_reduce
+from src.core.spatial_loader import SpatialLoader
 
 
 class Emfac2014TotalsTester(OutputTester):
 
     KG_2_STONS = 0.001102310995
+    MOLSEC2STH = 0.003968316  # KG_2_STONS * 3600.0 / 1000.0
     SUMMER_MONTHS = [4, 5, 6, 7, 8, 9]
-    POLLUTANTS = ['co', 'nox', 'sox', 'tog', 'pm']
+    POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM']
 
     def __init__(self, config):
         super(Emfac2014TotalsTester, self).__init__(config)
@@ -24,10 +28,14 @@ class Emfac2014TotalsTester(OutputTester):
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.emis_dirs = self.config['Emissions']['emissions_directories'].split()
         self.out_dirs = self.config['Output']['directories'].split()
+        self.weight_file = self.config['Output']['weight_file']
+        self.groups = {}
 
     def test(self):
-        ''' Master Testing Method. This method compares the final PMEDS output file emissions
-            (aggregated by county and date) to the original EMFAC2014 input files.
+        ''' Master Testing Method. This method compares the final PMEDS/NetCDF output file emissions
+            to the original EMFAC2014 input files.
+            PMEDS files will by compared by county and date, but NetCDF files will only be compared
+            by date.
 
             NOTE BENE: If the date tested is not a Tues/Wed/Thurs, the emissions will not be the
                        same as the EMFAC totals, as EMFAC represents only the "typical work day".
@@ -35,12 +43,10 @@ class Emfac2014TotalsTester(OutputTester):
         # if no testing dates are provided, test all days in run
         if not self.dates:
             self._find_dates_in_range()
-        
+
         # loop through each date
         for date in self.dates:
             dt = datetime.strptime(date, self.date_format)
-            out_file = os.path.join([self.testing_dir,
-                                     self.__class__.__name__ + '_' + date + '.csv'])
             emis = {}
 
             # for each county
@@ -59,21 +65,96 @@ class Emfac2014TotalsTester(OutputTester):
                 continue
             emis = self._read_emfac2014_hdv(hdv_file, emis)
 
-            # sum the final output PMEDS for the given day
+            # test output pmeds, if any
             pmeds_files = self._find_output_pmeds(dt)
-            if not pmeds_files:
+            if pmeds_files:
+                self._read_and_compare_pmeds(pmeds_files, date, emis)
+
+            # test output netcdf, if any
+            ncf_files = self._find_output_ncf(dt)
+            if ncf_files:
+                self._read_and_compare_ncf(ncf_files, date, emis)
+
+    def _read_and_compare_ncf(self, ncf_files, date, emis):
+        ''' Read the output NetCDF files and compare the results with the
+            input EMFAC2014 emissions.
+        '''
+        if not ncf_files:
+            return
+
+        # sum up emissions in output NetCDF
+        out_emis = {}
+        
+        # load molecular weights file
+        self._load_weight_file()
+        for ncf_file in ncf_files:
+            out_emis = self._sum_output_ncf(ncf_file, out_emis)
+
+        # write the emissions comparison to a file
+        self._write_general_comparison(date, emis, out_emis)
+
+    def _read_and_compare_pmeds(self, pmeds_files, date, emis):
+        ''' Read the output PMEDS files and compare the results with the
+            input EMFAC2014 emissions.
+        '''
+        if not pmeds_files:
+            return
+
+        # sum up emissions in output PMEDS
+        out_emis = {}
+        for pmeds_file in pmeds_files:
+            out_emis = self._sum_output_pmeds(pmeds_file, out_emis)
+
+        # write the emissions comparison to a file
+        self._write_full_comparison(date, emis, out_emis)
+
+    def _write_general_comparison(self, date, emfac_emis, ncf_emis):
+        ''' Write a quick CSV to compare the EMFAC2014 and final output NetCDF.
+            The NetCDF will only allow us to write the difference by pollutant.
+            NOTE: Won't print any numbers with zero percent difference.
+        '''
+        if not os.path.exists(self.testing_dir):
+            os.mkdir(self.testing_dir)
+        file_path = os.path.join(self.testing_dir, 'ncf_test_' + date + '.csv')
+        f = open(file_path, 'w')
+        f.write('Pollutant,EMFAC,NetCDF,Percent Diff\n')
+
+        # create all-region EMFAC totals
+        emfac_totals = {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}
+        for subarea in self.subareas:
+            if subarea not in emfac_emis:
                 continue
-            out_emis = {}
-            for pmeds_file in pmeds_files:
-                out_emis = self._sum_output_pmeds(pmeds_file, out_emis)
+            county_data = emfac_emis[subarea]
+            for eic,eic_data in county_data.iteritems():
+                for poll, value in eic_data.iteritems():
+                    if poll.upper() in emfac_totals:
+                        emfac_totals[poll.upper()] += value
 
-            # write the emissions comparison to a file
-            self._write_emis_comparison(date, emis, out_emis)
+        # find diff between EMFAC and NetCDF & add to file
+        for poll in emfac_totals:
+            emfac_value = emfac_totals[poll] * self.KG_2_STONS
+            if poll not in ncf_emis:
+                ncf_value = 0.0
+                if emfac_value == 0.0:
+                    diff = 0.0
+                else:
+                    diff = 100.00
+            else:
+                ncf_value = ncf_emis[poll]
+                if emfac_value == 0.0:
+                    diff = -100.0
+                else:
+                    diff = Emfac2014TotalsTester.percent_diff(emfac_value, ncf_emis[poll])
 
-    def _write_emis_comparison(self, date, emis, out_emis):
+            line = [poll, str(emfac_value), str(ncf_value), '%.3f' % diff]
+            f.write(','.join(line) + '\n')
+
+        f.close()
+
+    def _write_full_comparison(self, date, emis, out_emis):
         ''' Write a quick CSV to compare the EMFAC2014 and final output PMEDS.
             Write the difference by county, EIC, and pollutant.
-            Don't print any numbers with zero percent difference.
+            NOTE: Won't print any numbers with zero percent difference.
         '''
         if not os.path.exists(self.testing_dir):
             os.mkdir(self.testing_dir)
@@ -81,11 +162,11 @@ class Emfac2014TotalsTester(OutputTester):
         f = open(file_path, 'w')
         f.write('County,EIC,Pollutant,EMFAC,PMEDS,Percent Diff\n')
 
-        total_totals = {'emfac': {'co': 0.0, 'nox': 0.0, 'sox': 0.0, 'tog': 0.0, 'pm': 0.0},
-                        'pmeds': {'co': 0.0, 'nox': 0.0, 'sox': 0.0, 'tog': 0.0, 'pm': 0.0}}
+        total_totals = {'emfac': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0},
+                        'pmeds': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}}
         for county_num in self.subareas:
-            county_totals = {'emfac': {'co': 0.0, 'nox': 0.0, 'sox': 0.0, 'tog': 0.0, 'pm': 0.0},
-                             'pmeds': {'co': 0.0, 'nox': 0.0, 'sox': 0.0, 'tog': 0.0, 'pm': 0.0}}
+            county_totals = {'emfac': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0},
+                             'pmeds': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}}
             c = self.county_names[county_num]
             # write granular totals, by EIC
             eics = set(emis[county_num].keys() + out_emis[county_num].keys())
@@ -156,8 +237,77 @@ class Emfac2014TotalsTester(OutputTester):
 
         return e
 
+    def _sum_output_ncf(self, file_path, e):
+        ''' Look at the output NetCDF file and build a dictionary
+            of the emissions by pollutant.
+        '''
+        # initialize emissions dictionary, if necessary
+        for species in self.groups:
+            group = self.groups[species]['group']
+            if group not in e:
+                e[group] = 0.0
+
+        # open NetCDF file (if gzip, copy to temp file)
+        if file_path.endswith('.gz'):
+            unzipped_path = file_path[:-3]
+            temp = open(unzipped_path, "wb")
+            shutil.copyfileobj(gzip.open(file_path), temp)
+            ncf = Dataset(unzipped_path, 'r')
+        else:
+            ncf = Dataset(file_path, 'r')
+
+        # loop through each variable in NetCDF file
+        sortedvar = sorted(ncf.variables)
+        for species in sortedvar:
+            if species == 'TFLAG':
+                continue
+            ems = ncf.variables[species][:24].sum() * self.MOLSEC2STH * self.groups[species]['weight']
+            group = self.groups[species]['group']
+
+            if group == 'NOX':
+                e[group] += ems * self.groups['NO2']['weight'] / self.groups[species]['weight']
+            elif group == 'SOX':
+                e[group] += ems * self.groups['SO2']['weight'] / self.groups[species]['weight']
+            else:
+                # PM, TOG, CO, & NH3
+                e[group] += ems
+
+        ncf.close()
+        if file_path.endswith('.gz'):
+            os.remove(unzipped_path)
+        return e
+
+    def _load_weight_file(self):
+        """ load molecular weight file
+            File Format:
+            NO          30.006      NOX    moles/s
+            NO2         46.006      NOX    moles/s
+            HONO        47.013      NOX    moles/s
+        """
+        # read molecular weight text file
+        fin = open(self.weight_file,'r')
+        lines = fin.read()
+        fin.close()
+
+        # read in CSV or Fortran-formatted file
+        lines = lines.replace(',', ' ')
+        lines = lines.split('\n')
+
+        self.groups = {}
+        # loop through file lines and
+        for line in lines:
+            # parse line
+            columns = line.rstrip().split()
+            if not columns:
+                continue
+            species = columns[0].upper()
+            self.groups[species] = {}
+            self.groups[species]['weight'] = float(columns[1])
+            self.groups[species]['group'] = columns[2].upper()
+            self.groups[species]['units'] = columns[3]
+
     def _find_output_pmeds(self, dt):
-        ''' Find a single output PMEDS file for a given day. '''
+        ''' Find the output PMEDS file(s) for a given day. '''
         files = []
         if self.by_subarea and not self.combine:
             for odir in self.out_dirs:
@@ -173,21 +323,24 @@ class Emfac2014TotalsTester(OutputTester):
                 if possibles:
                     files.append(possibles[0])
 
-        if not files:
-            print('\tERROR: Output PMEDS file not found: ' + file_str)
-            return []
+        return files
+
+    def _find_output_ncf(self, dt):
+        ''' Find the output NetCDF file(s) for a given day. '''
+        files = []
+        date_str = str(dt.year) + str(dt.month).zfill(2) + 'd' + str(dt.day)
+        for odir in self.out_dirs:
+            file_str = os.path.join(odir, 'ncf', '*' + date_str + '*')
+            files += glob(file_str)
 
         return files
-        
 
     def _find_emfac2014_ldv(self, dt, county):
         ''' Find a single county EMFAC2014 LDV emissions file for a given day. '''
         files = []
         for edir in self.emis_dirs:
             file_str = os.path.join(edir, '%02d' % dt.month, '%02d' % dt.day, 'emis', county + '.*')
-            possibles = glob(file_str)
-            if possibles:
-                files.append(possibles[0])
+            files += glob(file_str)
 
         if not files:
             print('\tERROR: EMFAC2014 LDV emissions file not found for county: ' + str(county) +
@@ -202,9 +355,7 @@ class Emfac2014TotalsTester(OutputTester):
         files = []
         for edir in self.emis_dirs:
             file_str = os.path.join(edir, 'hd_' + season, 'emfac_hd_*.csv_all')
-            possibles = glob(file_str)
-            if possibles:
-                files.append(possibles[0])
+            files += glob(file_str)
 
         if not files:
             print('\tERROR: EMFAC2014 HDV emissions file not found for county: ' + str(county) +
@@ -236,7 +387,7 @@ class Emfac2014TotalsTester(OutputTester):
         header = f.readline()
         for line in f.readlines():
             ln = line.strip().split(',')
-            poll = ln[6].lower()
+            poll = ln[6].upper()
             if poll not in self.POLLUTANTS:
                 continue
             v = ln[3]
@@ -276,7 +427,7 @@ class Emfac2014TotalsTester(OutputTester):
         f = open(file_path, 'r')
         for line in f.readlines():
             ln = line.strip().split(',')
-            poll = ln[-1].lower()
+            poll = ln[-1].upper()
             if poll not in self.POLLUTANTS:
                 continue
             value = float(ln[2])
