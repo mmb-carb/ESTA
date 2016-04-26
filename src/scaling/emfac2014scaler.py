@@ -83,7 +83,7 @@ class Emfac2014Scaler(EmissionsScaler):
                     # apply diurnal, then spatial profiles (this line long for performance reasons)
                     sparce_emis_dict = self._apply_spatial_surrs(self._apply_factors(deepcopy(emissions_table),
                                                                                      factors_by_hour[hr]),
-                                                                 spatial_surrs)
+                                                                 spatial_surrs, county)
 
                     for eic, sparce_emis in sparce_emis_dict.iteritems():
                         e.set(county, date, hr + 1, self.eic_reduce(eic), sparce_emis)
@@ -151,7 +151,7 @@ class Emfac2014Scaler(EmissionsScaler):
 
         return emissions_table
 
-    def _apply_spatial_surrs(self, emis_table, spatial_surrs):
+    def _apply_spatial_surrs(self, emis_table, spatial_surrs, county):
         """ Apply the spatial surrogates for each hour to this EIC and create a dictionary of
             sparely-gridded emissions (one for each eic).
             Data Types:
@@ -167,10 +167,13 @@ class Emfac2014Scaler(EmissionsScaler):
             for poll, value in emis_table[eic].iteritems():
                 for cell, fraction in spatial_surrs[veh][act].iteritems():
                     se[cell][poll] = value * fraction
-            if 'co' in emis_table[eic]:
+
+            # Add NH3, based on CO fractions
+            nh3_fraction = self.nh3_fractions.get(county, {}).get(eic, 0.0)
+            if 'co' in emis_table[eic] and nh3_fraction:
                 value = emis_table[eic]['co']
                 for cell, fraction in spatial_surrs[veh][act].iteritems():
-                    se[cell]['nh3'] = value * fraction
+                        se[cell]['nh3'] = value * fraction * nh3_fraction
 
             e[eic] = se
 
