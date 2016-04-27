@@ -26,6 +26,10 @@ class Itn4Loader(Dtim4Loader):
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
         self.grid_file_path = self.config['GridInfo']['grid_cross_file']
+        self.load_taz = False
+        if 'use_taz' in self.config['Surrogates']:
+            if self.config['Surrogates']['use_taz'].lower() == 'true':
+                self.load_taz = True
         self.lat_dot, self.lon_dot = self._read_grid_corners_file()
         self.data = SpatialSurrogateData()
         self.county_boxes = eval(open(self.config['Surrogates']['county_boxes'], 'r').read())
@@ -46,22 +50,21 @@ class Itn4Loader(Dtim4Loader):
             link_file = os.path.join(self.directory, fips,
                                      'esta_link_' + fips + '.dat')
             index = link_file.rfind('link')
-            taz_file = link_file[:index] + 'taz' + link_file[index + 4:]
 
             # read link file
             if not os.path.exists(link_file):
                 sys.exit('Link file does not exist: ' + link_file)
                 continue
             link_spatial_surrs, nodes = self._read_link_file(link_file, county)
+            spatial_surrogates.add_file(county, link_spatial_surrs)
 
             # read TAZ file (TAZ file needs node definitions from link file)
-            if not os.path.exists(taz_file):
-                sys.exit('TAZ file does not exist: ' + taz_file)
-            taz_spatial_surrs = self._read_taz_file(taz_file, nodes)
-
-            # add surrogate data for this county
-            spatial_surrogates.add_file(county, link_spatial_surrs)
-            spatial_surrogates.add_file(county, taz_spatial_surrs)
+            if self.load_taz:
+                taz_file = link_file[:index] + 'taz' + link_file[index + 4:]
+                if not os.path.exists(taz_file):
+                    sys.exit('TAZ file does not exist: ' + taz_file)
+                taz_spatial_surrs = self._read_taz_file(taz_file, nodes)
+                spatial_surrogates.add_file(county, taz_spatial_surrs)
 
         # normalize surrogates
         spatial_surrogates.surrogates()

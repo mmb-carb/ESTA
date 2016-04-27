@@ -28,7 +28,7 @@ class Emfac2014TotalsTester(OutputTester):
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.emis_dirs = self.config['Emissions']['emissions_directories'].split()
         self.out_dirs = self.config['Output']['directories'].split()
-        self.weight_file = self.config['Output']['weight_file']
+        self.weight_file = ''
         self.groups = {}
 
     def test(self):
@@ -81,6 +81,9 @@ class Emfac2014TotalsTester(OutputTester):
         '''
         if not ncf_files:
             return
+
+        # if NetCDF file exists, we need the weight file.
+        self.weight_file = self.config['Output']['weight_file']
 
         # sum up emissions in output NetCDF
         out_emis = {}
