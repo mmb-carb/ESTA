@@ -24,7 +24,7 @@ class Emfac2014TotalsTester(OutputTester):
         combine = self.config['Output']['combine_subareas'].lower()
         self.combine = False if combine in ['false', '0', 'no'] else True
         self.vtp2eic = eval(open(self.config['Misc']['vtp2eic'], 'r').read())
-        self.county_names = eval(open(self.config['Misc']['county_names'], 'r').read())
+        self.region_names = eval(open(self.config['Misc']['region_names'], 'r').read())
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.emis_dirs = self.config['Emissions']['emissions_directories'].split()
         self.out_dirs = self.config['Output']['directories'].split()
@@ -34,7 +34,7 @@ class Emfac2014TotalsTester(OutputTester):
     def test(self):
         ''' Master Testing Method. This method compares the final PMEDS/NetCDF output file emissions
             to the original EMFAC2014 input files.
-            PMEDS files will by compared by county and date, but NetCDF files will only be compared
+            PMEDS files will by compared by region and date, but NetCDF files will only be compared
             by date.
 
             NOTE BENE: If the date tested is not a Tues/Wed/Thurs, the emissions will not be the
@@ -50,17 +50,17 @@ class Emfac2014TotalsTester(OutputTester):
             emis = {}
 
             # for each county
-            for county_num in self.subareas:
-                county = self.county_names[county_num]
+            for region_num in self.subareas:
+                region = self.region_names[region_num]
 
                 #   sum the input LDV EMFAC 2014 emissions
-                ldv_file = self._find_emfac2014_ldv(dt, county)
+                ldv_file = self._find_emfac2014_ldv(dt, region)
                 if not ldv_file:
                     continue
-                emis[county_num] = self._read_emfac2014_ldv(ldv_file)
+                emis[region_num] = self._read_emfac2014_ldv(ldv_file)
 
             # sum HDV EMFAC 2014 emissions
-            hdv_file = self._find_emfac2014_hdv(dt, county)
+            hdv_file = self._find_emfac2014_hdv(dt, region)
             if not hdv_file:
                 continue
             emis = self._read_emfac2014_hdv(hdv_file, emis)
@@ -127,8 +127,8 @@ class Emfac2014TotalsTester(OutputTester):
         for subarea in self.subareas:
             if subarea not in emfac_emis:
                 continue
-            county_data = emfac_emis[subarea]
-            for eic,eic_data in county_data.iteritems():
+            region_data = emfac_emis[subarea]
+            for eic,eic_data in region_data.iteritems():
                 for poll, value in eic_data.iteritems():
                     if poll.upper() in emfac_totals:
                         emfac_totals[poll.upper()] += value
@@ -156,43 +156,43 @@ class Emfac2014TotalsTester(OutputTester):
 
     def _write_full_comparison(self, date, emis, out_emis):
         ''' Write a quick CSV to compare the EMFAC2014 and final output PMEDS.
-            Write the difference by county, EIC, and pollutant.
+            Write the difference by region, EIC, and pollutant.
             NOTE: Won't print any numbers with zero percent difference.
         '''
         if not os.path.exists(self.testing_dir):
             os.mkdir(self.testing_dir)
         file_path = os.path.join(self.testing_dir, 'pmeds_test_' + date + '.csv')
         f = open(file_path, 'w')
-        f.write('County,EIC,Pollutant,EMFAC,PMEDS,Percent Diff\n')
+        f.write('Region,EIC,Pollutant,EMFAC,PMEDS,Percent Diff\n')
 
         total_totals = {'emfac': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0},
                         'pmeds': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}}
-        for county_num in self.subareas:
-            county_totals = {'emfac': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0},
+        for region_num in self.subareas:
+            region_totals = {'emfac': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0},
                              'pmeds': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}}
-            c = self.county_names[county_num]
+            c = self.region_names[region_num]
             # write granular totals, by EIC
-            eics = set(emis[county_num].keys() + out_emis[county_num].keys())
+            eics = set(emis[region_num].keys() + out_emis[region_num].keys())
             for eic in eics:
                 for poll in self.POLLUTANTS:
                     # get data
-                    emfac = emis.get(county_num, {}).get(eic, {}).get(poll, 0.0)
-                    pmeds = out_emis.get(county_num, {}).get(eic, {}).get(poll, 0.0)
+                    emfac = emis.get(region_num, {}).get(eic, {}).get(poll, 0.0)
+                    pmeds = out_emis.get(region_num, {}).get(eic, {}).get(poll, 0.0)
                     diff = Emfac2014TotalsTester.percent_diff(emfac, pmeds)
-                    # fill county totals
-                    county_totals['emfac'][poll] += emfac
-                    county_totals['pmeds'][poll] += pmeds
+                    # fill region totals
+                    region_totals['emfac'][poll] += emfac
+                    region_totals['pmeds'][poll] += pmeds
                     # don't write the detailed line if there's no difference
                     if abs(diff) < 1.0e-3:
                         continue
                     diff = '%.3f' % diff
                     f.write(','.join([c, str(eic), poll, str(emfac), str(pmeds), diff]) + '\n')
 
-            # write county totals, without EIC
+            # write region totals, without EIC
             for poll in self.POLLUTANTS:
                 # write line
-                emfac = county_totals['emfac'][poll]
-                pmeds = county_totals['pmeds'][poll]
+                emfac = region_totals['emfac'][poll]
+                pmeds = region_totals['pmeds'][poll]
                 diff = Emfac2014TotalsTester.percent_diff(emfac, pmeds)
                 diff = '%.3f' % diff
                 f.write(','.join([c, 'TOTAL', poll, str(emfac), str(pmeds), diff]) + '\n')
@@ -200,7 +200,7 @@ class Emfac2014TotalsTester(OutputTester):
                 total_totals['emfac'][poll] += emfac
                 total_totals['pmeds'][poll] += pmeds
 
-        # if more than one county, write state totals, without EIC
+        # if more than one region, write state totals, without EIC
         if len(self.subareas) > 1:
             for poll in self.POLLUTANTS:
                 emfac = total_totals['emfac'][poll]
@@ -213,9 +213,9 @@ class Emfac2014TotalsTester(OutputTester):
 
     def _sum_output_pmeds(self, file_path, e):
         ''' Look at the final output PMEDS file and build a dictionary
-            of the emissions by county and pollutant.
+            of the emissions by region and pollutant.
         '''
-        county_nums = dict([(name[:8], i) for (i, name) in self.county_names.iteritems()])
+        region_nums = dict([(name[:8], i) for (i, name) in self.region_names.iteritems()])
         if file_path.endswith('.gz'):
             f = gzip.open(file_path, 'rb')
         elif os.path.exists(file_path):
@@ -226,17 +226,17 @@ class Emfac2014TotalsTester(OutputTester):
 
         # now that file exists, read it
         for line in f.readlines():
-            county = county_nums[line[:8].rstrip()]
+            region = region_nums[line[:8].rstrip()]
             eic = int(line[22:36])
             vals = [float(v) if v else 0.0 for v in line[78:].rstrip().split(',')]
 
-            if county not in e:
-                e[county] = {}
-            if eic not in e[county]:
-                e[county][eic] = dict(zip(self.POLLUTANTS, [0.0]*len(self.POLLUTANTS)))
+            if region not in e:
+                e[region] = {}
+            if eic not in e[region]:
+                e[region][eic] = dict(zip(self.POLLUTANTS, [0.0]*len(self.POLLUTANTS)))
 
             for i in xrange(5):
-                e[county][eic][self.POLLUTANTS[i]] += vals[i] * self.KG_2_STONS
+                e[region][eic][self.POLLUTANTS[i]] += vals[i] * self.KG_2_STONS
 
         return e
 
@@ -338,22 +338,22 @@ class Emfac2014TotalsTester(OutputTester):
 
         return files
 
-    def _find_emfac2014_ldv(self, dt, county):
-        ''' Find a single county EMFAC2014 LDV emissions file for a given day. '''
+    def _find_emfac2014_ldv(self, dt, region):
+        ''' Find a single region EMFAC2014 LDV emissions file for a given day. '''
         files = []
         for edir in self.emis_dirs:
-            file_str = os.path.join(edir, '%02d' % dt.month, '%02d' % dt.day, 'emis', county + '.*')
+            file_str = os.path.join(edir, '%02d' % dt.month, '%02d' % dt.day, 'emis', region + '.*')
             files += glob(file_str)
 
         if not files:
-            print('\tERROR: EMFAC2014 LDV emissions file not found for county: ' + str(county) +
+            print('\tERROR: EMFAC2014 LDV emissions file not found for region: ' + str(region) +
                   ', and date: ' + str(dt))
             return []
 
         return files[0]
 
-    def _find_emfac2014_hdv(self, dt, county):
-        ''' Find a single county EMFAC2014 HDV emissions file for a given day. '''
+    def _find_emfac2014_hdv(self, dt, region):
+        ''' Find a single region EMFAC2014 HDV emissions file for a given day. '''
         season = 'summer' if dt.month in self.SUMMER_MONTHS else 'winter'
         files = []
         for edir in self.emis_dirs:
@@ -361,7 +361,7 @@ class Emfac2014TotalsTester(OutputTester):
             files += glob(file_str)
 
         if not files:
-            print('\tERROR: EMFAC2014 HDV emissions file not found for county: ' + str(county) +
+            print('\tERROR: EMFAC2014 HDV emissions file not found for region: ' + str(region) +
                   ', and date: ' + str(dt))
             return []
 
@@ -436,15 +436,15 @@ class Emfac2014TotalsTester(OutputTester):
             value = float(ln[2])
             if value == 0.0:
                 continue
-            county = int(ln[1])
+            region = int(ln[1])
             v = ln[4]
             p = ln[3]
             eic = self.eic_reduce(self.vtp2eic[(v, 'DSL', p)])
-            if county not in emis:
-                emis[county] = {}
-            if eic not in emis[county]:
-                emis[county][eic] = dict(zip(self.POLLUTANTS, [0.0]*len(self.POLLUTANTS)))
-            emis[county][eic][poll] += value
+            if region not in emis:
+                emis[region] = {}
+            if eic not in emis[region]:
+                emis[region][eic] = dict(zip(self.POLLUTANTS, [0.0]*len(self.POLLUTANTS)))
+            emis[region][eic][poll] += value
 
         f.close()
         return emis

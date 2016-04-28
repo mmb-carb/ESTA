@@ -8,7 +8,7 @@ from src.core.output_writer import OutputWriter
 
 class Pmeds1Writer(OutputWriter):
     """ A class to write PMEDS v1 output files.
-        One for each county/date combination.
+        One for each region/date combination.
     """
 
     COLUMNS = {'co': 0, 'nox': 1, 'sox': 2, 'tog': 3, 'pm': 4, 'nh3': 5}
@@ -22,7 +22,7 @@ class Pmeds1Writer(OutputWriter):
         self.combine = False if combine in ['false', '0', 'no'] else True
         self.version = self.config['Output']['inventory_version']
         self.grid_file = self.config['GridInfo']['grid_cross_file']
-        self.county_names = eval(open(self.config['Misc']['county_names'], 'r').read())
+        self.region_names = eval(open(self.config['Misc']['region_names'], 'r').read())
         self.county_to_gai = eval(open(self.config['Output']['county_to_gai'], 'r').read())
         self.gai_basins = eval(open(self.config['Output']['gai_basins'], 'r').read())
         self.multi_gai_coords = eval(open(self.config['Output']['multi_gai_coords'], 'r').read())
@@ -39,17 +39,17 @@ class Pmeds1Writer(OutputWriter):
     def write_by_region(self, scaled_emissions):
         """ Write a single file for each region/date combo
         """
-        for county, county_data in scaled_emissions.data.iteritems():
-            for date, date_date in county_data.iteritems():
-                self._write_pmeds1_by_county(scaled_emissions, county, date)
+        for region, region_data in scaled_emissions.data.iteritems():
+            for date, date_date in region_data.iteritems():
+                self._write_pmeds1_by_region(scaled_emissions, region, date)
 
     def write_by_state(self, scaled_emissions):
         """ Write a single output file per day
         """
         # find all dates
         dates = set()
-        for county, county_data in scaled_emissions.data.iteritems():
-            for date in county_data:
+        for region, region_data in scaled_emissions.data.iteritems():
+            for date in region_data:
                 dates.add(date)
 
         # write a file for each date
@@ -98,19 +98,19 @@ class Pmeds1Writer(OutputWriter):
         if lines:
             self._write_zipped_file(out_path, lines)
 
-    def _write_pmeds1_by_county(self, scaled_emissions, county, date):
-        """ Write a single 24-hour PMEDS file for a given county/date combination.
-            Each county might have multiple COABDIS, so that has to be worked out.
+    def _write_pmeds1_by_region(self, scaled_emissions, region, date):
+        """ Write a single 24-hour PMEDS file for a given region/date combination.
+            Each region might have multiple COABDIS, so that has to be worked out.
         """
-        out_path = self._build_county_file_path(county, date)
+        out_path = self._build_county_file_path(region, date)
         jul_day = dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday
         lines = []
 
-        for hr, hr_data in scaled_emissions.data[county][date].iteritems():
+        for hr, hr_data in scaled_emissions.data[region][date].iteritems():
             for eic, sparce_emis in hr_data.iteritems():
                 for cell, grid_data in sparce_emis.iteritems():
-                    # calculate GAI from county and cell
-                    gais = self._find_gais(county, cell)
+                    # calculate GAI from region and cell
+                    gais = self._find_gais(region, cell)
                     # loop over GAIs
                     for gai, frac in gais:
                         # build list of six pollutants
@@ -130,7 +130,7 @@ class Pmeds1Writer(OutputWriter):
                         # if there are emissions, build PMEDS line
                         if no_emissions:
                             continue
-                        lines.append(self._build_pmeds1_line(county, gai, date, jul_day, hr, eic,
+                        lines.append(self._build_pmeds1_line(region, gai, date, jul_day, hr, eic,
                                                              cell, emis))
 
         self._write_file(out_path, lines)
@@ -160,7 +160,7 @@ class Pmeds1Writer(OutputWriter):
         # remove old region files
         os.system('rm ' + ' '.join(region_files) + ' &')
 
-    def _build_pmeds1_line(self, cnty, gai, date, jul_day, hr, eic, grid_cell, emis):
+    def _build_pmeds1_line(self, region, gai, date, jul_day, hr, eic, grid_cell, emis):
         """ Build the complicated PMEDS v1 line from available data
             Line Format:
             Amador                71074211000000162179               3122001313 MC  7     ,,,,0.024,
@@ -169,14 +169,14 @@ class Pmeds1Writer(OutputWriter):
         """
         # define parameters
         yr = date[2:4]
-        county = self.county_names[cnty][:8].ljust(8)
+        region = self.region_names[region][:8].ljust(8)
         y, x = grid_cell
         hour = '%02d%02d' % (hr - 1, hr - 1)
         basin = self.gai_basins[gai].rjust(3)
         emissions = ','.join(emis)
 
-        return ''.join([county, str(eic).rjust(28), str(x).rjust(3), str(y).rjust(3),
-                       '              ', str(cnty).rjust(2), yr, str(jul_day).rjust(3), hour, basin,
+        return ''.join([region, str(eic).rjust(28), str(x).rjust(3), str(y).rjust(3),
+                       '              ', str(region).rjust(2), yr, str(jul_day).rjust(3), hour, basin,
                         str(gai).rjust(3), '     ', emissions, '\n'])
 
     def _write_zipped_file(self, out_path, lines):
@@ -226,7 +226,7 @@ class Pmeds1Writer(OutputWriter):
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
 
-        return os.path.join(out_dir, self.county_names[county] + '.pmeds')
+        return os.path.join(out_dir, self.region_names[county] + '.pmeds')
 
     def _build_state_file_path(self, date):
         """ Build output file directory and path for a daily, multi-region PMEDS file.
