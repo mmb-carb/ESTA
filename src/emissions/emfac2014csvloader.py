@@ -16,7 +16,7 @@ class Emfac2014CsvLoader(EmissionsLoader):
     def __init__(self, config, directory, time_units):
         super(Emfac2014CsvLoader, self).__init__(config, directory)
         self.time_units = time_units
-        self.county_names = eval(open(self.config['Misc']['county_names'], 'r').read())
+        self.region_names = eval(open(self.config['Misc']['region_names'], 'r').read())
         self.vtp2eic = eval(open(self.config['Misc']['vtp2eic'], 'r').read())
         self.hd_ld = 'ld'
 
@@ -45,10 +45,10 @@ class Emfac2014CsvLoader(EmissionsLoader):
         file_paths = os.path.join(self.directory, '%02d', '%02d', 'emis', '%s.csv')
         today = deepcopy(self.start_date)
         while today <= self.end_date:
-            for cnty in self.subareas:
-                county = self.county_names[int(cnty)]
-                file_path = file_paths % (today.month, today.day, county)
-                emissions.set(cnty, today.strftime(self.date_format),
+            for subarea in self.subareas:
+                region = self.region_names[int(subarea)]
+                file_path = file_paths % (today.month, today.day, region)
+                emissions.set(subarea, today.strftime(self.date_format),
                               self.read_emfac_file(file_path))
             today += timedelta(days=1)
 
@@ -63,11 +63,11 @@ class Emfac2014CsvLoader(EmissionsLoader):
         days_by_season = self.find_days_by_season()
         for season, dates in days_by_season.iteritems():
             file_path = file_paths % (season, season)
-            emissions_by_county = self.read_emfac_file(file_path)
+            emissions_by_region = self.read_emfac_file(file_path)
             for date in dates:
-                for county in emissions_by_county:
-                    emissions.set(county, date.strftime(self.date_format),
-                                  emissions_by_county[county])
+                for region in emissions_by_region:
+                    emissions.set(region, date.strftime(self.date_format),
+                                  emissions_by_region[region])
 
         return emissions
 
@@ -88,16 +88,16 @@ class Emfac2014CsvLoader(EmissionsLoader):
             This method is independent of LD/HD CSV file type.
         """
         file_paths = os.path.join(self.directory, '%02d', 'emis', '%s.csv')
-        for cnty in self.subareas:
+        for region in self.subareas:
             today = datetime(self.start_date.year, self.start_date.month, self.start_date.day)
             month = -1
             while today <= self.end_date:
                 month = today.month
-                file_path = file_paths % (month, county)
+                file_path = file_paths % (month, region)
                 emis = self.read_emfac_file(file_path)
                 month_new = month
                 while month_new == month:
-                    emissions.set(cnty, today.strftime(self.date_format), emis)
+                    emissions.set(region, today.strftime(self.date_format), emis)
                     today += timedelta(days=1)
                     month_new = today.month
 
@@ -144,45 +144,34 @@ class Emfac2014CsvLoader(EmissionsLoader):
         f.close()
         return e
 
-    @staticmethod
-    def parse_counties(counties_str):
-        """ Parse the string we get back from the subareas field """
-        if '..' in counties_str:
-            counties = counties_str.split('..')
-            counties = range(int(counties[0]), int(counties[1]) + 1)
-        else:
-            counties = [int(c) for c in counties_str.split()]
-
-        return counties
-
 
 class EMFAC2014EmissionsData(object):
     """ This class is designed as a helper to make organizing the huge amount of emissions
         information we pull out of the EMFAC2014 database easier.
         It is just a multiply-embedded dictionary with keys for things that we find in each file:
-        county, date, and Emissions Data Tables.
+        region, date, and Emissions Data Tables.
     """
 
     def __init__(self):
         self.data = {}
 
-    def get(self, county, date):
+    def get(self, region, date):
         """ Getter method for EMFAC2014 Emissions Data dictionary """
-        return self.data.get(county, {}).get(date, None)
+        return self.data.get(region, {}).get(date, None)
 
-    def set(self, county, date, table):
+    def set(self, region, date, table):
         """ Setter method for EMFAC2014 Emissions Data dictionary """
         # type validation
         if type(table) != EmissionsTable:
             raise TypeError('Only emission tables can be used in EMFAC2014EmissionsData.')
 
         # auto-fill the mulit-level dictionary format, to hide this from the user
-        if county not in self.data:
-            self.data[county] = {}
+        if region not in self.data:
+            self.data[region] = {}
 
         # add emissions
-        if date not in self.data[county]:
-            self.data[county][date] = table
+        if date not in self.data[region]:
+            self.data[region][date] = table
         else:
-            self.data[county][date].add_table(table)
+            self.data[region][date].add_table(table)
 
