@@ -56,7 +56,7 @@ class Emfac2014Scaler(EmissionsScaler):
                 by_date = str(self.base_year) + date[4:]
                 dow = Emfac2014Scaler.DOW[dt.strptime(by_date, self.date_format).weekday()]
 
-            # if not by sub-area, create emissions object
+            # if not by sub-region, create emissions object
             if not self.by_region:
                 e = ScaledEmissions()
 
@@ -173,7 +173,7 @@ class Emfac2014Scaler(EmissionsScaler):
             if 'co' in emis_table[eic] and nh3_fraction:
                 value = emis_table[eic]['co']
                 for cell, fraction in spatial_surrs[veh][act].iteritems():
-                        se[cell]['nh3'] = value * fraction * nh3_fraction
+                    se[cell]['nh3'] = value * fraction * nh3_fraction
 
             e[eic] = se
 

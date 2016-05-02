@@ -43,6 +43,7 @@ class SparceEmissions(defaultdict):
                     cell_dict[poll] += value
 
     def __deepcopy__(self, emis):
+        """ standard Python helper to allow for deepcopy(x) functionality """
         e = SparceEmissions()
 
         for cell, cell_data in self.iteritems():
@@ -52,5 +53,6 @@ class SparceEmissions(defaultdict):
         return e
 
     def __repr__(self):
+        """ standard Python helper to allower for str(x) and print(x) """
         return defaultdict.__repr__(self).replace('defaultdict', self.__class__.__name__, 1)
 

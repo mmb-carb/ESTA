@@ -46,8 +46,8 @@ class Emfac2014CsvLoader(EmissionsLoader):
         today = deepcopy(self.start_date)
         while today <= self.end_date:
             for region in self.regions:
-                region = self.region_names[int(region)]
-                file_path = file_paths % (today.month, today.day, region)
+                region_name = self.region_names[int(region)]
+                file_path = file_paths % (today.month, today.day, region_name)
                 emissions.set(region, today.strftime(self.date_format),
                               self.read_emfac_file(file_path))
             today += timedelta(days=1)
@@ -174,4 +174,8 @@ class EMFAC2014EmissionsData(object):
             self.data[region][date] = table
         else:
             self.data[region][date].add_table(table)
+
+    def __repr__(self):
+        """ standard Python helper to allower for str(x) and print(x) """
+        return dict.__repr__(self.data).replace('dict', self.__class__.__name__, 1)
 

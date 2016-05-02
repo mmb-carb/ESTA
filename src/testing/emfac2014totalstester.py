@@ -60,7 +60,7 @@ class Emfac2014TotalsTester(OutputTester):
                 emis[region_num] = self._read_emfac2014_ldv(ldv_file)
 
             # sum HDV EMFAC 2014 emissions
-            hdv_file = self._find_emfac2014_hdv(dt, region)
+            hdv_file = self._find_emfac2014_hdv(dt)
             if not hdv_file:
                 continue
             emis = self._read_emfac2014_hdv(hdv_file, emis)
@@ -352,8 +352,8 @@ class Emfac2014TotalsTester(OutputTester):
 
         return files[0]
 
-    def _find_emfac2014_hdv(self, dt, region):
-        ''' Find a single region EMFAC2014 HDV emissions file for a given day. '''
+    def _find_emfac2014_hdv(self, dt):
+        ''' Find a single EMFAC2014 HDV emissions file for a given day. '''
         season = 'summer' if dt.month in self.SUMMER_MONTHS else 'winter'
         files = []
         for edir in self.emis_dirs:
@@ -361,8 +361,7 @@ class Emfac2014TotalsTester(OutputTester):
             files += glob(file_str)
 
         if not files:
-            print('\tERROR: EMFAC2014 HDV emissions file not found for region: ' + str(region) +
-                  ', and date: ' + str(dt))
+            print('\tERROR: EMFAC2014 HDV emissions file not found for date: ' + str(dt))
             return []
 
         return files[0]
@@ -437,6 +436,8 @@ class Emfac2014TotalsTester(OutputTester):
             if value == 0.0:
                 continue
             region = int(ln[1])
+            if region not in self.regions:
+                continue
             v = ln[4]
             p = ln[3]
             eic = self.eic_reduce(self.vtp2eic[(v, 'DSL', p)])
