@@ -18,8 +18,8 @@ class Emfac2014Scaler(EmissionsScaler):
 
     def __init__(self, config):
         super(Emfac2014Scaler, self).__init__(config)
-        by_subarea = self.config['Output']['by_subarea'].lower()
-        self.by_subarea = False if by_subarea in ['false', '0', 'no'] else True
+        by_region = self.config['Output']['by_region'].lower()
+        self.by_region = False if by_region in ['false', '0', 'no'] else True
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.eic2dtim4 = eval(open(self.config['Scaling']['eic2dtim4'], 'r').read())
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
@@ -28,18 +28,18 @@ class Emfac2014Scaler(EmissionsScaler):
         """ Master method to scale emissions using spatial and temporal surrogates.
             INPUT FORMATS:
             Emissions: EMFAC2014EmissionsData
-                            emis_data[county][date string] = EmissionsTable
+                            emis_data[region][date string] = EmissionsTable
                             EmissionsTable[EIC][pollutant] = value
             Spatial Surrogates: Dtim4SpatialData
-                                    data[county][date][hr][veh][act] = SpatialSurrogate()
+                                    data[region][date][hr][veh][act] = SpatialSurrogate()
                                     SpatialSurrogate[(grid, cell)] = fraction
             Temporal Surrogates: {'diurnal': Dtim4TemporalData(),
-                                  'dow': calvad[county][dow][ld/lm/hh] = fraction}
+                                  'dow': calvad[region][dow][ld/lm/hh] = fraction}
                                   Dtim4TemporalData
-                                        data[county][date][veh][act] = TemporalSurrogate()
+                                        data[region][date][veh][act] = TemporalSurrogate()
                                             TemporalSurrogate = [x]*24
             OUTPUT FORMAT:
-            ScaledEmissions: data[county][date][hr][eic] = SparceEmissions
+            ScaledEmissions: data[region][date][hr][eic] = SparceEmissions
                                 SparceEmissions[(grid, cell)][pollutant] = value
             NOTE: This function is a generator and will `yield` emissions file-by-file.
         """
@@ -57,43 +57,43 @@ class Emfac2014Scaler(EmissionsScaler):
                 dow = Emfac2014Scaler.DOW[dt.strptime(by_date, self.date_format).weekday()]
 
             # if not by sub-area, create emissions object
-            if not self.by_subarea:
+            if not self.by_region:
                 e = ScaledEmissions()
 
-            for county in self.subareas:
-                if date not in emissions.data[county]:
+            for region in self.regions:
+                if date not in emissions.data[region]:
                     continue
 
                 # if by sub-area, create emissions object
-                if self.by_subarea:
+                if self.by_region:
                     e = ScaledEmissions()
 
                 # apply CalVad DOW factors (this line is long for performance reasons)
-                emissions_table = self._apply_factors(deepcopy(emissions.data[county][date]),
-                                                      temp_surr['dow'][county][dow])
+                emissions_table = self._apply_factors(deepcopy(emissions.data[region][date]),
+                                                      temp_surr['dow'][region][dow])
 
                 # find diurnal factors by hour
-                factors_by_hour = temp_surr['diurnal'][county][dow]
+                factors_by_hour = temp_surr['diurnal'][region][dow]
 
                 # pull today's spatial surrogate
-                spatial_surrs = spatial_surr.data[county]
+                spatial_surrs = spatial_surr.data[region]
 
                 # loop through each hour of the day
                 for hr in xrange(24):
                     # apply diurnal, then spatial profiles (this line long for performance reasons)
                     sparce_emis_dict = self._apply_spatial_surrs(self._apply_factors(deepcopy(emissions_table),
                                                                                      factors_by_hour[hr]),
-                                                                 spatial_surrs, county)
+                                                                 spatial_surrs, region)
 
                     for eic, sparce_emis in sparce_emis_dict.iteritems():
-                        e.set(county, date, hr + 1, self.eic_reduce(eic), sparce_emis)
+                        e.set(region, date, hr + 1, self.eic_reduce(eic), sparce_emis)
 
                 # yield, if by sub-area
-                if self.by_subarea:
+                if self.by_region:
                     yield e
 
             # yield, if not by sub-area
-            if not self.by_subarea:
+            if not self.by_region:
                 yield e
 
     def _read_nh3_inventory(self, inv_file):
@@ -151,7 +151,7 @@ class Emfac2014Scaler(EmissionsScaler):
 
         return emissions_table
 
-    def _apply_spatial_surrs(self, emis_table, spatial_surrs, county):
+    def _apply_spatial_surrs(self, emis_table, spatial_surrs, region):
         """ Apply the spatial surrogates for each hour to this EIC and create a dictionary of
             sparely-gridded emissions (one for each eic).
             Data Types:
@@ -169,7 +169,7 @@ class Emfac2014Scaler(EmissionsScaler):
                     se[cell][poll] = value * fraction
 
             # Add NH3, based on CO fractions
-            nh3_fraction = self.nh3_fractions.get(county, {}).get(eic, 0.0)
+            nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0.0)
             if 'co' in emis_table[eic] and nh3_fraction:
                 value = emis_table[eic]['co']
                 for cell, fraction in spatial_surrs[veh][act].iteritems():

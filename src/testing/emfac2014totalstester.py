@@ -19,9 +19,9 @@ class Emfac2014TotalsTester(OutputTester):
 
     def __init__(self, config):
         super(Emfac2014TotalsTester, self).__init__(config)
-        by_subarea = self.config['Output']['by_subarea'].lower()
-        self.by_subarea = False if by_subarea in ['false', '0', 'no'] else True
-        combine = self.config['Output']['combine_subareas'].lower()
+        by_region = self.config['Output']['by_region'].lower()
+        self.by_region = False if by_region in ['false', '0', 'no'] else True
+        combine = self.config['Output']['combine_regions'].lower()
         self.combine = False if combine in ['false', '0', 'no'] else True
         self.vtp2eic = eval(open(self.config['Misc']['vtp2eic'], 'r').read())
         self.region_names = eval(open(self.config['Misc']['region_names'], 'r').read())
@@ -49,8 +49,8 @@ class Emfac2014TotalsTester(OutputTester):
             dt = datetime.strptime(date, self.date_format)
             emis = {}
 
-            # for each county
-            for region_num in self.subareas:
+            # for each region
+            for region_num in self.regions:
                 region = self.region_names[region_num]
 
                 #   sum the input LDV EMFAC 2014 emissions
@@ -124,10 +124,10 @@ class Emfac2014TotalsTester(OutputTester):
 
         # create all-region EMFAC totals
         emfac_totals = {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}
-        for subarea in self.subareas:
-            if subarea not in emfac_emis:
+        for region in self.regions:
+            if region not in emfac_emis:
                 continue
-            region_data = emfac_emis[subarea]
+            region_data = emfac_emis[region]
             for eic,eic_data in region_data.iteritems():
                 for poll, value in eic_data.iteritems():
                     if poll.upper() in emfac_totals:
@@ -167,7 +167,7 @@ class Emfac2014TotalsTester(OutputTester):
 
         total_totals = {'emfac': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0},
                         'pmeds': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}}
-        for region_num in self.subareas:
+        for region_num in self.regions:
             region_totals = {'emfac': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0},
                              'pmeds': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}}
             c = self.region_names[region_num]
@@ -201,7 +201,7 @@ class Emfac2014TotalsTester(OutputTester):
                 total_totals['pmeds'][poll] += pmeds
 
         # if more than one region, write state totals, without EIC
-        if len(self.subareas) > 1:
+        if len(self.regions) > 1:
             for poll in self.POLLUTANTS:
                 emfac = total_totals['emfac'][poll]
                 pmeds = total_totals['pmeds'][poll]
@@ -312,7 +312,7 @@ class Emfac2014TotalsTester(OutputTester):
     def _find_output_pmeds(self, dt):
         ''' Find the output PMEDS file(s) for a given day. '''
         files = []
-        if self.by_subarea and not self.combine:
+        if self.by_region and not self.combine:
             for odir in self.out_dirs:
                 file_str = os.path.join(odir, '%02d' % dt.month, '%02d' % dt.day, '*.pmed*')
                 possibles = glob(file_str)

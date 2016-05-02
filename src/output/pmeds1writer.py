@@ -16,9 +16,9 @@ class Pmeds1Writer(OutputWriter):
 
     def __init__(self, config, directory, time_units):
         super(Pmeds1Writer, self).__init__(config, directory, time_units)
-        by_subarea = self.config['Output']['by_subarea'].lower()
-        self.by_subarea = False if by_subarea in ['false', '0', 'no'] else True
-        combine = self.config['Output']['combine_subareas'].lower()
+        by_region = self.config['Output']['by_region'].lower()
+        self.by_region = False if by_region in ['false', '0', 'no'] else True
+        combine = self.config['Output']['combine_regions'].lower()
         self.combine = False if combine in ['false', '0', 'no'] else True
         self.version = self.config['Output']['inventory_version']
         self.grid_file = self.config['GridInfo']['grid_cross_file']
@@ -31,7 +31,7 @@ class Pmeds1Writer(OutputWriter):
         """ The master method to write output files.
             This can write output files by region, or for the entire day.
         """
-        if self.by_subarea:
+        if self.by_region:
             self.write_by_region(scaled_emissions)
         else:
             self.write_by_state(scaled_emissions)
@@ -59,22 +59,22 @@ class Pmeds1Writer(OutputWriter):
 
     def _write_pmeds1_by_state(self, scaled_emissions, date):
         """ Write a single 24-hour PMEDS file for a given date, for the entire state.
-            Each county might have multiple COABDIS, so that has to be worked out.
+            Each region might have multiple subregion, so that has to be worked out.
         """
         out_path = self._build_state_file_path(date)
         jul_day = dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday
         lines = []
 
         # loop through the different levels of the scaled emissions dictionary
-        for county, county_data in scaled_emissions.data.iteritems():
-            day_data = county_data.get(date, {})
+        for region, region_data in scaled_emissions.data.iteritems():
+            day_data = region_data.get(date, {})
             for hr, hr_data in day_data.iteritems():
                 for eic, sparce_emis in hr_data.iteritems():
                     for cell, grid_data in sparce_emis.iteritems():
-                        # calculate GAI from county and cell
-                        gais = self._find_gais(county, cell)
-                        # loop over GAIs
-                        for gai, frac in gais:
+                        # calculate sub-regions from region and cell
+                        subregions = self._find_subregion(region, cell)
+                        # loop over subregions
+                        for subregion, frac in subregions:
                             # build list of six pollutants
                             emis = ['', '', '', '', '', '']
                             no_emissions = True
@@ -92,8 +92,8 @@ class Pmeds1Writer(OutputWriter):
                             # if there are emissions, build PMEDS line
                             if no_emissions:
                                 continue
-                            lines.append(self._build_pmeds1_line(county, gai, date, jul_day, hr,
-                                                                 eic, cell, emis))
+                            lines.append(self._build_pmeds1_line(region, subregion, date, jul_day,
+                                                                 hr, eic, cell, emis))
 
         if lines:
             self._write_zipped_file(out_path, lines)
@@ -102,17 +102,17 @@ class Pmeds1Writer(OutputWriter):
         """ Write a single 24-hour PMEDS file for a given region/date combination.
             Each region might have multiple COABDIS, so that has to be worked out.
         """
-        out_path = self._build_county_file_path(region, date)
+        out_path = self._build_regional_file_path(region, date)
         jul_day = dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday
         lines = []
 
         for hr, hr_data in scaled_emissions.data[region][date].iteritems():
             for eic, sparce_emis in hr_data.iteritems():
                 for cell, grid_data in sparce_emis.iteritems():
-                    # calculate GAI from region and cell
-                    gais = self._find_gais(region, cell)
-                    # loop over GAIs
-                    for gai, frac in gais:
+                    # calculate subregion from region and cell
+                    subregions = self._find_subregion(region, cell)
+                    # loop over subregions
+                    for subregion, frac in subregions:
                         # build list of six pollutants
                         emis = ['', '', '', '', '', '']
                         no_emissions = True
@@ -130,8 +130,8 @@ class Pmeds1Writer(OutputWriter):
                         # if there are emissions, build PMEDS line
                         if no_emissions:
                             continue
-                        lines.append(self._build_pmeds1_line(region, gai, date, jul_day, hr, eic,
-                                                             cell, emis))
+                        lines.append(self._build_pmeds1_line(region, subregion, date, jul_day, hr,
+                                                             eic, cell, emis))
 
         self._write_file(out_path, lines)
         self._combine_subregions(date)
@@ -152,7 +152,7 @@ class Pmeds1Writer(OutputWriter):
         region_files = glob(region_paths)
 
         # if all regions are finished, zcat results together
-        if len(region_files) != len(self.subareas):
+        if len(region_files) != len(self.regions):
             return
         print('    + writing: ' + out_file)
         os.system('cat ' + ' '.join(region_files) + ' | gzip -9c > ' + out_file)
@@ -160,7 +160,7 @@ class Pmeds1Writer(OutputWriter):
         # remove old region files
         os.system('rm ' + ' '.join(region_files) + ' &')
 
-    def _build_pmeds1_line(self, region, gai, date, jul_day, hr, eic, grid_cell, emis):
+    def _build_pmeds1_line(self, region, subregion, date, jul_day, hr, eic, grid_cell, emis):
         """ Build the complicated PMEDS v1 line from available data
             Line Format:
             Amador                71074211000000162179               3122001313 MC  7     ,,,,0.024,
@@ -172,12 +172,12 @@ class Pmeds1Writer(OutputWriter):
         region = self.region_names[region][:8].ljust(8)
         y, x = grid_cell
         hour = '%02d%02d' % (hr - 1, hr - 1)
-        basin = self.gai_basins[gai].rjust(3)
+        basin = self.gai_basins[subregion].rjust(3)
         emissions = ','.join(emis)
 
         return ''.join([region, str(eic).rjust(28), str(x).rjust(3), str(y).rjust(3),
-                       '              ', str(region).rjust(2), yr, str(jul_day).rjust(3), hour, basin,
-                        str(gai).rjust(3), '     ', emissions, '\n'])
+                        '              ', str(subregion).rjust(2), yr, str(jul_day).rjust(3), hour,
+                        basin, str(subregion).rjust(3), '     ', emissions, '\n'])
 
     def _write_zipped_file(self, out_path, lines):
         """ simple helper method to write a list of strings to a gzipped file """
@@ -201,24 +201,24 @@ class Pmeds1Writer(OutputWriter):
         finally:
             f.close()
 
-    def _find_gais(self, county, grid_cell):
-        """ Find the GAIs related to the given grid cell.
-            Since we know the county, this is very easy for the counties that match 1-to-1 with
-            a GAI. Otherwise, we have to use a look-up table, by grid cell.
+    def _find_subregion(self, region, grid_cell):
+        """ Find the sub-regions related to the given grid cell.
+            Since we know the region, this is very easy for the regions that match 1-to-1 with
+            a sub-region. Otherwise, we have to use a look-up table, by grid cell.
         """
-        gai_list = self.county_to_gai[county]
+        subregion_list = self.county_to_gai[region]
 
-        if len(gai_list) == 1:
-            # For the easy counties
-            return [[gai_list[0], 1.0]]
-        elif grid_cell in self.multi_gai_coords[county]:
-            # for the multi-GAI counties
-            return self.multi_gai_coords[county][grid_cell]
+        if len(subregion_list) == 1:
+            # the easy regions
+            return [[subregion_list[0], 1.0]]
+        elif grid_cell in self.multi_gai_coords[region]:
+            # the multi-sub-region regions
+            return self.multi_gai_coords[region][grid_cell]
         else:
-            # multi-GAI grid cell not found, use default GAI in county
-            return [[gai_list[0], 1.0]]
+            # multi-subregion grid cell not found, use default sub-region in region
+            return [[subregion_list[0], 1.0]]
 
-    def _build_county_file_path(self, county, date):
+    def _build_regional_file_path(self, region, date):
         """ build output file directory and path for PMEDS file """
         yr, month, day = date.split('-')
 
@@ -226,7 +226,7 @@ class Pmeds1Writer(OutputWriter):
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
 
-        return os.path.join(out_dir, self.region_names[county] + '.pmeds')
+        return os.path.join(out_dir, self.region_names[region] + '.pmeds')
 
     def _build_state_file_path(self, date):
         """ Build output file directory and path for a daily, multi-region PMEDS file.

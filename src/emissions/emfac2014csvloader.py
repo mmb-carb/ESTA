@@ -45,10 +45,10 @@ class Emfac2014CsvLoader(EmissionsLoader):
         file_paths = os.path.join(self.directory, '%02d', '%02d', 'emis', '%s.csv')
         today = deepcopy(self.start_date)
         while today <= self.end_date:
-            for subarea in self.subareas:
-                region = self.region_names[int(subarea)]
+            for region in self.regions:
+                region = self.region_names[int(region)]
                 file_path = file_paths % (today.month, today.day, region)
-                emissions.set(subarea, today.strftime(self.date_format),
+                emissions.set(region, today.strftime(self.date_format),
                               self.read_emfac_file(file_path))
             today += timedelta(days=1)
 
@@ -88,7 +88,7 @@ class Emfac2014CsvLoader(EmissionsLoader):
             This method is independent of LD/HD CSV file type.
         """
         file_paths = os.path.join(self.directory, '%02d', 'emis', '%s.csv')
-        for region in self.subareas:
+        for region in self.regions:
             today = datetime(self.start_date.year, self.start_date.month, self.start_date.day)
             month = -1
             while today <= self.end_date:

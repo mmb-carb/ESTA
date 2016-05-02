@@ -42,8 +42,8 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
 
             # set the spatial surrogate above for each and every veh/act pair
             for veh,act in veh_act_pairs:
-                for county, surrogate in surrogates.iteritems():
-                    spatial_surrogates.set(county, veh, act, surrogate)
+                for region, surrogate in surrogates.iteritems():
+                    spatial_surrogates.set(region, veh, act, surrogate)
 
         # normalize surrogates
         spatial_surrogates.surrogates()

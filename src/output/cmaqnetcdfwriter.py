@@ -80,8 +80,8 @@ class CmaqNetcdfWriter(OutputWriter):
 
         # find all dates with emissions data
         dates = set()
-        for county, county_data in scaled_emissions.data.iteritems():
-            for date in county_data:
+        for region, region_data in scaled_emissions.data.iteritems():
+            for date in region_data:
                 dates.add(date)
         dates = sorted(dates)
 

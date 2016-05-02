@@ -25,13 +25,13 @@ class Dtim4Loader(SpatialLoader):
 
     def __init__(self, config, directory):
         super(Dtim4Loader, self).__init__(config, directory)
-        self.counties = SpatialLoader.parse_subareas(self.config['Subareas']['subareas'])
+        self.regions = SpatialLoader.parse_regions(self.config['Regions']['regions'])
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
         self.grid_file_path = self.config['GridInfo']['grid_cross_file']
         self.lat_dot, self.lon_dot = self._read_grid_corners_file()
         self.data = SpatialSurrogateData()
-        self.county_boxes = eval(open(self.config['Surrogates']['county_boxes'], 'r').read())
+        self.region_boxes = eval(open(self.config['Surrogates']['region_boxes'], 'r').read())
         self.kdtrees = {}
         self.rad_factor = pi / 180.0  # need angles in radians
         self._create_kdtrees()
@@ -45,9 +45,9 @@ class Dtim4Loader(SpatialLoader):
         # the current file format requires us to select a specific hour of the day
         hr = Dtim4Loader.DEFAULT_ITN_HOUR
 
-        # loop through all the counties
-        for county in self.counties:
-            fips = Dtim4Loader.county_to_fips(county)
+        # loop through all the regions
+        for region in self.regions:
+            fips = Dtim4Loader.county_to_fips(region)
 
             # build the file paths
             link_file = os.path.join(self.directory, fips,
@@ -59,7 +59,7 @@ class Dtim4Loader(SpatialLoader):
             if not os.path.exists(link_file):
                 sys.exit('Link file does not exist: ' + link_file)
                 continue
-            link_spatial_surrs, nodes = self._read_link_file(link_file, county)
+            link_spatial_surrs, nodes = self._read_link_file(link_file, region)
             link_temporal_surrs = Dtim4Loader.spatial_dict_to_temporal(link_spatial_surrs)
 
             # read TAZ file (TAZ file needs node definitions from link file)
@@ -68,9 +68,9 @@ class Dtim4Loader(SpatialLoader):
             taz_spatial_surrs = self._read_taz_file(taz_file, nodes)
             taz_temporal_surrs = Dtim4Loader.spatial_dict_to_temporal(taz_spatial_surrs)
 
-            # add surrogate data to the correct counties
-            spatial_surrogates.add_file(county, link_spatial_surrs)
-            spatial_surrogates.add_file(county, taz_spatial_surrs)
+            # add surrogate data to the correct regions
+            spatial_surrogates.add_file(region, link_spatial_surrs)
+            spatial_surrogates.add_file(region, taz_spatial_surrs)
 
         # normalize surrogates
         spatial_surrogates.surrogates()
@@ -208,16 +208,16 @@ class Dtim4Loader(SpatialLoader):
         return lat_dot, lon_dot
 
     def _create_kdtrees(self):
-        """ Create a KD Tree for each county """
+        """ Create a KD Tree for each region """
         lat_vals = self.lat_dot[:] * self.rad_factor
         lon_vals = self.lon_dot[:] * self.rad_factor
 
-        for county in self.counties:
-            # find the grid cell bounding box for the county in question
-            lat_min, lat_max = self.county_boxes[county]['lat']
-            lon_min, lon_max = self.county_boxes[county]['lon']
+        for region in self.regions:
+            # find the grid cell bounding box for the region in question
+            lat_min, lat_max = self.region_boxes[region]['lat']
+            lon_min, lon_max = self.region_boxes[region]['lon']
 
-            # slice grid down to this county
+            # slice grid down to this region
             latvals = lat_vals[lat_min:lat_max, lon_min:lon_max]
             lonvals = lon_vals[lat_min:lat_max, lon_min:lon_max]
 
@@ -225,14 +225,14 @@ class Dtim4Loader(SpatialLoader):
             clat,clon = cos(latvals),cos(lonvals)
             slat,slon = sin(latvals),sin(lonvals)
             triples = list(zip(np.ravel(clat*clon), np.ravel(clat*slon), np.ravel(slat)))
-            self.kdtrees[county] = cKDTree(triples)
+            self.kdtrees[region] = cKDTree(triples)
 
-    def _find_grid_cell(self, p, county):
+    def _find_grid_cell(self, p, region):
         ''' Find the grid cell location of a single point in our 3D grid.
             (Point given as a tuple (height in meters, lon in degrees, lat in degrees)
         '''
-        lat_min, lat_max = self.county_boxes[county]['lat']
-        lon_min, lon_max = self.county_boxes[county]['lon']
+        lat_min, lat_max = self.region_boxes[region]['lat']
+        lon_min, lon_max = self.region_boxes[region]['lon']
 
         # define parameters
         lon0 = p[0] * self.rad_factor
@@ -241,7 +241,7 @@ class Dtim4Loader(SpatialLoader):
         # run KD Tree algorithm
         clat0,clon0 = cos(lat0),cos(lon0)
         slat0,slon0 = sin(lat0),sin(lon0)
-        dist_sq_min, minindex_1d = self.kdtrees[county].query([clat0*clon0, clat0*slon0, slat0])
+        dist_sq_min, minindex_1d = self.kdtrees[region].query([clat0*clon0, clat0*slon0, slat0])
         y, x = np.unravel_index(minindex_1d, (lat_max - lat_min, lon_max - lon_min))
 
         return lat_min + y + 1, lon_min + x + 1
@@ -251,43 +251,43 @@ class SpatialSurrogateData(object):
     """ This class is designed as a helper to make organizing the huge amount of spatial
         information we pull out of the DTIM4 Link/TAZ files easier.
         It is just a multiply-embedded dictionary with keys for things that we find in each file:
-        county, vehicle type, and activity (VMT, Trips, etc).
+        region, vehicle type, and activity (VMT, Trips, etc).
     """
 
     def __init__(self):
         self.data = {}
 
-    def get(self, county, veh, act):
+    def get(self, region, veh, act):
         """ Getter method for DTIM 4 Data dictionary """
-        return self.data.get(county, {}).get(veh, {}).get(act, None)
+        return self.data.get(region, {}).get(veh, {}).get(act, None)
 
-    def set(self, county, veh, act, surrogate):
+    def set(self, region, veh, act, surrogate):
         """ Setter method for DTIM 4 Data dictionary """
         # type validation
         if type(surrogate) != SpatialSurrogate:
             raise TypeError('Only spatial surrogates can be used in SpatialSurrogateData.')
 
         # auto-fill the mulit-level dictionary format, to hide this from the user
-        if county not in self.data:
-            self.data[county] = {}
-        if veh not in self.data[county]:
-            self.data[county][veh] = {}
+        if region not in self.data:
+            self.data[region] = {}
+        if veh not in self.data[region]:
+            self.data[region][veh] = {}
 
         # add surrogate
-        self.data[county][veh][act] = surrogate
+        self.data[region][veh][act] = surrogate
 
-    def add_file(self, county, surrogate_dict):
+    def add_file(self, region, surrogate_dict):
         """ Setter method to add an entire dictionary of spatial surrogates to this object.
             The dict represents an entire DTIM Link or TAZ file. So it has two layers of keys:
             vehicle type and activity type, then it has a spatial surrogate
         """
         for veh in surrogate_dict:
             for act in surrogate_dict[veh]:
-                self.set(county, veh, act, surrogate_dict[veh][act])
+                self.set(region, veh, act, surrogate_dict[veh][act])
 
     def surrogates(self):
         """ Finally, normalize all the spatial surrogates, so the grid cells sum to 1.0. """
-        for county in self.data:
-            for veh in self.data[county]:
-                for act in self.data[county][veh]:
-                    self.data[county][veh][act] = self.data[county][veh][act].surrogate()
+        for region in self.data:
+            for veh in self.data[region]:
+                for act in self.data[region][veh]:
+                    self.data[region][veh][act] = self.data[region][veh][act].surrogate()

@@ -22,7 +22,7 @@ class Itn4Loader(Dtim4Loader):
 
     def __init__(self, config, directory):
         super(Itn4Loader, self).__init__(config, directory)
-        self.counties = SpatialLoader.parse_subareas(self.config['Subareas']['subareas'])
+        self.regions = SpatialLoader.parse_regions(self.config['Regions']['regions'])
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
         self.grid_file_path = self.config['GridInfo']['grid_cross_file']
@@ -32,7 +32,7 @@ class Itn4Loader(Dtim4Loader):
                 self.load_taz = True
         self.lat_dot, self.lon_dot = self._read_grid_corners_file()
         self.data = SpatialSurrogateData()
-        self.county_boxes = eval(open(self.config['Surrogates']['county_boxes'], 'r').read())
+        self.region_boxes = eval(open(self.config['Surrogates']['region_boxes'], 'r').read())
         self.kdtrees = {}
         self.rad_factor = pi / 180.0  # need angles in radians
         self._create_kdtrees()
@@ -43,9 +43,9 @@ class Itn4Loader(Dtim4Loader):
         if not spatial_surrogates:
             spatial_surrogates = SpatialSurrogateData()
 
-        # loop through all the counties
-        for county in self.counties:
-            fips = Itn4Loader.county_to_fips(county)
+        # loop through all the regions
+        for region in self.regions:
+            fips = Itn4Loader.county_to_fips(region)
             # build the file paths
             link_file = os.path.join(self.directory, fips,
                                      'esta_link_' + fips + '.dat')
@@ -55,8 +55,8 @@ class Itn4Loader(Dtim4Loader):
             if not os.path.exists(link_file):
                 sys.exit('Link file does not exist: ' + link_file)
                 continue
-            link_spatial_surrs, nodes = self._read_link_file(link_file, county)
-            spatial_surrogates.add_file(county, link_spatial_surrs)
+            link_spatial_surrs, nodes = self._read_link_file(link_file, region)
+            spatial_surrogates.add_file(region, link_spatial_surrs)
 
             # read TAZ file (TAZ file needs node definitions from link file)
             if self.load_taz:
@@ -64,7 +64,7 @@ class Itn4Loader(Dtim4Loader):
                 if not os.path.exists(taz_file):
                     sys.exit('TAZ file does not exist: ' + taz_file)
                 taz_spatial_surrs = self._read_taz_file(taz_file, nodes)
-                spatial_surrogates.add_file(county, taz_spatial_surrs)
+                spatial_surrogates.add_file(region, taz_spatial_surrs)
 
         # normalize surrogates
         spatial_surrogates.surrogates()

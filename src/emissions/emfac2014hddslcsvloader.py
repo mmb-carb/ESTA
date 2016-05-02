@@ -19,7 +19,7 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
             2031,3,9.39715480515e-05,PMTW,T7 NNOOS,PM10
             2031,3,2.51918142645e-06,RUNEX,T7 POAK,SOx
         """
-        emis_by_county = {}
+        emis_by_region = {}
 
         # check that the file exists
         if os.path.exists(file_path):
@@ -39,13 +39,13 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
             value = float(ln[2])
             if value == 0.0:
                 continue
-            county = int(ln[1])
+            region = int(ln[1])
             v = ln[4]
             p = ln[3]
             eic = self.vtp2eic[(v, 'DSL', p)]
-            if county not in emis_by_county:
-                emis_by_county[county] = EmissionsTable()
-            emis_by_county[county][eic][poll] += value
+            if region not in emis_by_region:
+                emis_by_region[region] = EmissionsTable()
+            emis_by_region[region][eic][poll] += value
 
         f.close()
-        return emis_by_county
+        return emis_by_region
