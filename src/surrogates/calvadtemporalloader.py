@@ -76,11 +76,11 @@ class CalvadTemporalLoader(TemporalLoader):
             # read line
             ln = line.strip().split(',')
             county = int(ln[0])
-            dow = ln[3]
-            ld = float(ln[4])
-            lm = float(ln[5])
-            hh = float(ln[6])
-            sbus = float(ln[7])
+            dow = ln[2]
+            ld = float(ln[3])
+            lm = float(ln[4])
+            hh = float(ln[5])
+            sbus = float(ln[6])
 
             # load data into surrogate
             if county not in calvad:
