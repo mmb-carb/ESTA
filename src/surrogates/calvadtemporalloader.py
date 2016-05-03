@@ -41,7 +41,7 @@ class CalvadTemporalLoader(TemporalLoader):
         for line in f.xreadlines():
             # read line
             ln = line.strip().split(',')
-            county = int(ln[0])
+            region = int(ln[0])
             dow = ln[1]
             hr = int(ln[2])
             ld = float(ln[3])
@@ -50,11 +50,11 @@ class CalvadTemporalLoader(TemporalLoader):
             sbus = float(ln[6])
 
             # load data into surrogate
-            if county not in calvad:
-                calvad[county] = {}
-            if dow not in calvad[county]:
-                calvad[county][dow] = {}
-            calvad[county][dow][hr] = [ld, lm, hh, sbus]
+            if region not in calvad:
+                calvad[region] = {}
+            if dow not in calvad[region]:
+                calvad[region][dow] = {}
+            calvad[region][dow][hr] = [ld, lm, hh, sbus]
 
         f.close()
 
@@ -75,7 +75,7 @@ class CalvadTemporalLoader(TemporalLoader):
         for line in f.xreadlines():
             # read line
             ln = line.strip().split(',')
-            county = int(ln[0])
+            region = int(ln[0])
             dow = ln[2]
             ld = float(ln[3])
             lm = float(ln[4])
@@ -83,9 +83,9 @@ class CalvadTemporalLoader(TemporalLoader):
             sbus = float(ln[6])
 
             # load data into surrogate
-            if county not in calvad:
-                calvad[county] = {}
-            calvad[county][dow] = [ld, lm, hh, sbus]
+            if region not in calvad:
+                calvad[region] = {}
+            calvad[region][dow] = [ld, lm, hh, sbus]
 
         f.close()
 
