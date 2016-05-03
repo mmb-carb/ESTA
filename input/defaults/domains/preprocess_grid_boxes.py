@@ -13,19 +13,22 @@ GRIDCRO2D = 'GRIDCRO2D.California_4km_291x321'
 ROWS = 291
 COLS = 321
 REGIONS_FILE = 'california_counties_lat_lon_bounding_boxes.csv'
+#REGIONS_FILE = 'california_gais_lat_lon_bounding_boxes.csv'
 # CA State 12km Grid
 '''
 GRIDCRO2D = 'GRIDCRO2D.California_12km_97x107'
 ROWS = 97
 COLS = 107
 REGIONS_FILE = 'california_counties_lat_lon_bounding_boxes.csv'
+#REGIONS_FILE = 'california_gais_lat_lon_bounding_boxes.csv'
 '''
 # SCAQMD 4km Grid
 '''
 GRIDCRO2D = 'GRIDCRO2D.SCAQMD_4km_102x156'
 ROWS = 102
 COLS = 156
-REGIONS_FILE = 'california_counties_lat_lon_bounding_boxes.csv'
+#REGIONS_FILE = 'california_counties_lat_lon_bounding_boxes.csv'
+REGIONS_FILE = 'california_gais_lat_lon_bounding_boxes.csv'
 '''
 
 
