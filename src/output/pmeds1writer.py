@@ -26,6 +26,8 @@ class Pmeds1Writer(OutputWriter):
         self.county_to_gai = eval(open(self.config['Output']['county_to_gai'], 'r').read())
         self.gai_basins = eval(open(self.config['Output']['gai_basins'], 'r').read())
         self.multi_gai_coords = eval(open(self.config['Output']['multi_gai_coords'], 'r').read())
+        has_subregions = self.config['Regions']['has_subregions'].lower()
+        self.has_subregions = False if has_subregions in ['false', '0', 'no'] else True
 
     def write(self, scaled_emissions):
         """ The master method to write output files.
@@ -134,9 +136,9 @@ class Pmeds1Writer(OutputWriter):
                                                              eic, cell, emis))
 
         self._write_file(out_path, lines)
-        self._combine_subregions(date)
+        self._combine_regions(date)
 
-    def _combine_subregions(self, date):
+    def _combine_regions(self, date):
         ''' If all the region files have been written, this will cat them all
             together into one big file.
         '''
@@ -160,7 +162,7 @@ class Pmeds1Writer(OutputWriter):
         # remove old region files
         os.system('rm ' + ' '.join(region_files) + ' &')
 
-    def _build_pmeds1_line(self, region, subregion, date, jul_day, hr, eic, grid_cell, emis):
+    def _build_pmeds1_line(self, region, gai, date, jul_day, hr, eic, grid_cell, emis):
         """ Build the complicated PMEDS v1 line from available data
             Line Format:
             Amador                71074211000000162179               3122001313 MC  7     ,,,,0.024,
@@ -169,15 +171,18 @@ class Pmeds1Writer(OutputWriter):
         """
         # define parameters
         yr = date[2:4]
-        region = self.region_names[region][:8].ljust(8)
+        if self.has_subregions:
+            county_name = self.region_names[region][:8].ljust(8)
+        else:
+            county_name = self.region_names[region][:8].ljust(8)
         y, x = grid_cell
         hour = '%02d%02d' % (hr - 1, hr - 1)
-        basin = self.gai_basins[subregion].rjust(3)
+        basin = self.gai_basins[gai].rjust(3)
         emissions = ','.join(emis)
 
-        return ''.join([region, str(eic).rjust(28), str(x).rjust(3), str(y).rjust(3),
-                        '              ', str(subregion).rjust(2), yr, str(jul_day).rjust(3), hour,
-                        basin, str(subregion).rjust(3), '     ', emissions, '\n'])
+        return ''.join([county_name, str(eic).rjust(28), str(x).rjust(3), str(y).rjust(3),
+                        '              ', str(gai).rjust(2), yr, str(jul_day).rjust(3), hour,
+                        basin, str(gai).rjust(3), '     ', emissions, '\n'])
 
     def _write_zipped_file(self, out_path, lines):
         """ simple helper method to write a list of strings to a gzipped file """
@@ -206,6 +211,10 @@ class Pmeds1Writer(OutputWriter):
             Since we know the region, this is very easy for the regions that match 1-to-1 with
             a sub-region. Otherwise, we have to use a look-up table, by grid cell.
         """
+        # emissions area already by GAI, not county
+        if not self.has_subregions:
+            return [[region, 1.0]]
+
         subregion_list = self.county_to_gai[region]
 
         if len(subregion_list) == 1:
@@ -226,7 +235,8 @@ class Pmeds1Writer(OutputWriter):
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
 
-        return os.path.join(out_dir, self.region_names[region] + '.pmeds')
+        nomen = self.region_names[region].replace(')', '').replace('(', '').replace(' ', '_')
+        return os.path.join(out_dir, nomen + '.pmeds')
 
     def _build_state_file_path(self, date):
         """ Build output file directory and path for a daily, multi-region PMEDS file.

@@ -19,6 +19,8 @@ class Emfac2014CsvLoader(EmissionsLoader):
         self.region_names = eval(open(self.config['Misc']['region_names'], 'r').read())
         self.vtp2eic = eval(open(self.config['Misc']['vtp2eic'], 'r').read())
         self.hd_ld = 'ld'
+        has_subregions = self.config['Regions']['has_subregions'].lower()
+        self.has_subregions = False if has_subregions in ['false', '0', 'no'] else True
 
     def load(self, emissions):
         """ This is a general method to load emissions from EMFAC2014 result table-dumps in a
@@ -46,10 +48,10 @@ class Emfac2014CsvLoader(EmissionsLoader):
         today = deepcopy(self.start_date)
         while today <= self.end_date:
             for region in self.regions:
-                region_name = self.region_names[int(region)]
+                region_name = self.region_names[int(region)].split(' (')[0].replace(' ', '_')
                 file_path = file_paths % (today.month, today.day, region_name)
                 emissions.set(region, today.strftime(self.date_format),
-                              self.read_emfac_file(file_path))
+                              self.read_emfac_file(file_path, region))
             today += timedelta(days=1)
 
         return emissions
@@ -94,7 +96,7 @@ class Emfac2014CsvLoader(EmissionsLoader):
             while today <= self.end_date:
                 month = today.month
                 file_path = file_paths % (month, region)
-                emis = self.read_emfac_file(file_path)
+                emis = self.read_emfac_file(file_path, region)
                 month_new = month
                 while month_new == month:
                     emissions.set(region, today.strftime(self.date_format), emis)
@@ -103,7 +105,7 @@ class Emfac2014CsvLoader(EmissionsLoader):
 
         return emissions
 
-    def read_emfac_file(self, file_path):
+    def read_emfac_file(self, file_path, region=0):
         """ Read an EMFAC2014 LDV CSV emissions file and colate the data into a table.
             File Format:
             year,month,sub_area,vehicle_class,process,cat_ncat,pollutant,emission_tons_day
@@ -122,12 +124,16 @@ class Emfac2014CsvLoader(EmissionsLoader):
             print('Emissions File Not Found: ' + file_path)
             return e
 
+        region_name = self.region_names[region]
+
         # now that file exists, read it
         header = f.readline()
         for line in f.readlines():
             ln = line.strip().split(',')
             poll = ln[6].lower()
             if poll not in Emfac2014CsvLoader.VALID_POLLUTANTS:
+                continue
+            if not self.has_subregions and ln[2] != region_name:
                 continue
             v = ln[3]
             t = ln[5]

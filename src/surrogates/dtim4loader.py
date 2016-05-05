@@ -32,6 +32,9 @@ class Dtim4Loader(SpatialLoader):
         self.lat_dot, self.lon_dot = self._read_grid_corners_file()
         self.data = SpatialSurrogateData()
         self.region_boxes = eval(open(self.config['Surrogates']['region_boxes'], 'r').read())
+        self.gai_to_county = eval(open(self.config['Output']['gai_to_county'], 'r').read())
+        has_subregions = self.config['Regions']['has_subregions'].lower()
+        self.has_subregions = False if has_subregions in ['false', '0', 'no'] else True
         self.kdtrees = {}
         self.rad_factor = pi / 180.0  # need angles in radians
         self._create_kdtrees()
@@ -47,7 +50,7 @@ class Dtim4Loader(SpatialLoader):
 
         # loop through all the regions
         for region in self.regions:
-            fips = Dtim4Loader.county_to_fips(region)
+            fips = self._county_to_fips(region)
 
             # build the file paths
             link_file = os.path.join(self.directory, fips,
@@ -87,10 +90,13 @@ class Dtim4Loader(SpatialLoader):
                 t[veh][act] = sum(surr.values())
         return t
 
-    @staticmethod
-    def county_to_fips(county):
+    def _county_to_fips(self, region):
         """ This converts the county code (1 to 58) to the FIPS code. """
-        return '%03d' % (2 * county - 1)
+        # TODO: ITN uses FIPS: fix that, then remove 'gai_to_county' and 'has_subregions'.
+        if self.has_subregions:
+            return '%03d' % (2 * region - 1)
+        else:
+            return '%03d' % (2 * self.gai_to_county[region] - 1)
 
     def _read_link_file(self, file_path, area):
         """ Read the ITN activity data from a single Link file

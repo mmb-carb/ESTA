@@ -28,13 +28,16 @@ class Emfac2014TotalsTester(OutputTester):
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.emis_dirs = self.config['Emissions']['emissions_directories'].split()
         self.out_dirs = self.config['Output']['directories'].split()
+        has_subregions = self.config['Regions']['has_subregions'].lower()
+        self.has_subregions = False if has_subregions in ['false', '0', 'no'] else True
+        self.reverse_region_names = dict(zip(self.region_names.values(), self.region_names.keys()))
         self.weight_file = ''
         self.groups = {}
 
     def test(self):
         ''' Master Testing Method. This method compares the final PMEDS/NetCDF output file emissions
             to the original EMFAC2014 input files.
-            PMEDS files will by compared by region and date, but NetCDF files will only be compared
+            PMEDS files will by compared by county and date, but NetCDF files will only be compared
             by date.
 
             NOTE BENE: If the date tested is not a Tues/Wed/Thurs, the emissions will not be the
@@ -51,13 +54,11 @@ class Emfac2014TotalsTester(OutputTester):
 
             # for each region
             for region_num in self.regions:
-                region = self.region_names[region_num]
-
                 #   sum the input LDV EMFAC 2014 emissions
-                ldv_file = self._find_emfac2014_ldv(dt, region)
+                ldv_file = self._find_emfac2014_ldv(dt, region_num)
                 if not ldv_file:
                     continue
-                emis[region_num] = self._read_emfac2014_ldv(ldv_file)
+                emis[region_num] = self._read_emfac2014_ldv(ldv_file, region_num)
 
             # sum HDV EMFAC 2014 emissions
             hdv_file = self._find_emfac2014_hdv(dt)
@@ -87,7 +88,7 @@ class Emfac2014TotalsTester(OutputTester):
 
         # sum up emissions in output NetCDF
         out_emis = {}
-        
+
         # load molecular weights file
         self._load_weight_file()
         for ncf_file in ncf_files:
@@ -338,9 +339,10 @@ class Emfac2014TotalsTester(OutputTester):
 
         return files
 
-    def _find_emfac2014_ldv(self, dt, region):
+    def _find_emfac2014_ldv(self, dt, region_num):
         ''' Find a single region EMFAC2014 LDV emissions file for a given day. '''
         files = []
+        region = self.region_names[region_num].split(' (')[0].replace(' ', '_')
         for edir in self.emis_dirs:
             file_str = os.path.join(edir, '%02d' % dt.month, '%02d' % dt.day, 'emis', region + '.*')
             files += glob(file_str)
@@ -366,7 +368,7 @@ class Emfac2014TotalsTester(OutputTester):
 
         return files[0]
 
-    def _read_emfac2014_ldv(self, file_path):
+    def _read_emfac2014_ldv(self, file_path, region_num):
         """ Read an EMFAC2014 LDV CSV emissions file and colate the data into a table.
             File Format:
             year,month,sub_area,vehicle_class,process,cat_ncat,pollutant,emission_tons_day
@@ -385,12 +387,17 @@ class Emfac2014TotalsTester(OutputTester):
             print('\tERROR: LDV Emissions File Not Found: ' + file_path)
             return e
 
+        region_name = self.region_names[region_num]
+
         # now that file exists, read it
         header = f.readline()
         for line in f.readlines():
             ln = line.strip().split(',')
             poll = ln[6].upper()
             if poll not in self.POLLUTANTS:
+                continue
+            # TODO: This next line is the problem!
+            if self.has_subregions and not ln[2].startswith(region_name):
                 continue
             v = ln[3]
             t = ln[5]
@@ -412,9 +419,9 @@ class Emfac2014TotalsTester(OutputTester):
     def _read_emfac2014_hdv(self, file_path, emis):
         """ Read an EMFAC2014 HD Diesel CSV emissions file and colate the data into a table
             File Format:
-            2031,3,6.27145245709e-08,IDLEX,T6 CAIRP heavy,TOG
-            2031,3,9.39715480515e-05,PMTW,T7 NNOOS,PM10
-            2031,3,2.51918142645e-06,RUNEX,T7 POAK,SOx
+            2031,Santa Barbara (SCC),6.27145245709e-08,IDLEX,T6 CAIRP heavy,TOG
+            2031,Santa Barbara (SCC),9.39715480515e-05,PMTW,T7 NNOOS,PM10
+            2031,Santa Barbara (SCC),2.51918142645e-06,RUNEX,T7 POAK,SOx
         """
         # check that the file exists
         if file_path.endswith('.gz'):
@@ -435,9 +442,10 @@ class Emfac2014TotalsTester(OutputTester):
             value = float(ln[2])
             if value == 0.0:
                 continue
-            region = int(ln[1])
-            if region not in self.regions:
-                continue
+            region_name = ln[1]
+            if self.has_subregions:
+                region_name = region_name.split(' (')[0]
+            region = self.reverse_region_names[region_name]
             v = ln[4]
             p = ln[3]
             eic = self.eic_reduce(self.vtp2eic[(v, 'DSL', p)])

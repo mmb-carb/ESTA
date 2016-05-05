@@ -11,8 +11,9 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
     def __init__(self, config, directory, time_units):
         super(Emfac2014HdDslCsvLoader, self).__init__(config, directory, time_units)
         self.hd_ld = 'hd'
+        self.reverse_region_names = dict(zip(self.region_names.values(), self.region_names.keys()))
 
-    def read_emfac_file(self, file_path):
+    def read_emfac_file(self, file_path, region=0):
         """ Read an EMFAC2014 HD Diesel CSV emissions file and colate the data into a table
             File Format:
             2031,3,6.27145245709e-08,IDLEX,T6 CAIRP heavy,TOG
@@ -33,16 +34,24 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
         f = open(file_path, 'r')
         for line in f.readlines():
             ln = line.strip().split(',')
+            # is pollutant relevant
             poll = ln[-1].lower()
             if poll not in Emfac2014CsvLoader.VALID_POLLUTANTS:
                 continue
+            # pull emissions value
             value = float(ln[2])
             if value == 0.0:
                 continue
-            region = int(ln[1])
+            # pull EIC info
             v = ln[4]
             p = ln[3]
             eic = self.vtp2eic[(v, 'DSL', p)]
+            # pull region info
+            region_name = ln[1]
+            if self.has_subregions:
+                region_name = region_name.split(' (')[0]
+            region = self.reverse_region_names[region_name]
+            # fill output dictionary
             if region not in emis_by_region:
                 emis_by_region[region] = EmissionsTable()
             emis_by_region[region][eic][poll] += value

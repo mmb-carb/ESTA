@@ -45,7 +45,7 @@ class Itn4Loader(Dtim4Loader):
 
         # loop through all the regions
         for region in self.regions:
-            fips = Itn4Loader.county_to_fips(region)
+            fips = self._county_to_fips(region)
             # build the file paths
             link_file = os.path.join(self.directory, fips,
                                      'esta_link_' + fips + '.dat')
