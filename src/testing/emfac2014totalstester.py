@@ -216,7 +216,6 @@ class Emfac2014TotalsTester(OutputTester):
         ''' Look at the final output PMEDS file and build a dictionary
             of the emissions by region and pollutant.
         '''
-        region_nums = dict([(name[:8], i) for (i, name) in self.region_names.iteritems()])
         if file_path.endswith('.gz'):
             f = gzip.open(file_path, 'rb')
         elif os.path.exists(file_path):
@@ -227,7 +226,11 @@ class Emfac2014TotalsTester(OutputTester):
 
         # now that file exists, read it
         for line in f.readlines():
-            region = region_nums[line[:8].rstrip()]
+            gai = int(line[71:73])
+            if self.has_subregions:
+                region = self.gai_to_county[gai]
+            else:
+                region = gai
             eic = int(line[22:36])
             vals = [float(v) if v else 0.0 for v in line[78:].rstrip().split(',')]
 
@@ -289,7 +292,7 @@ class Emfac2014TotalsTester(OutputTester):
             HONO        47.013      NOX    moles/s
         """
         # read molecular weight text file
-        fin = open(self.weight_file,'r')
+        fin = open(self.weight_file, 'r')
         lines = fin.read()
         fin.close()
 
@@ -396,8 +399,7 @@ class Emfac2014TotalsTester(OutputTester):
             poll = ln[6].upper()
             if poll not in self.POLLUTANTS:
                 continue
-            # TODO: This next line is the problem!
-            if self.has_subregions and not ln[2].startswith(region_name):
+            if not ln[2].startswith(region_name):
                 continue
             v = ln[3]
             t = ln[5]

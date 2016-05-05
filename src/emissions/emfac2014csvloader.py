@@ -184,4 +184,3 @@ class EMFAC2014EmissionsData(object):
     def __repr__(self):
         """ standard Python helper to allower for str(x) and print(x) """
         return dict.__repr__(self.data).replace('dict', self.__class__.__name__, 1)
-

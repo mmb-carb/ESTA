@@ -22,20 +22,10 @@ class Itn4Loader(Dtim4Loader):
 
     def __init__(self, config, directory):
         super(Itn4Loader, self).__init__(config, directory)
-        self.regions = SpatialLoader.parse_regions(self.config['Regions']['regions'])
-        self.nrows = int(self.config['GridInfo']['rows'])
-        self.ncols = int(self.config['GridInfo']['columns'])
-        self.grid_file_path = self.config['GridInfo']['grid_cross_file']
         self.load_taz = False
         if 'use_taz' in self.config['Surrogates']:
             if self.config['Surrogates']['use_taz'].lower() == 'true':
                 self.load_taz = True
-        self.lat_dot, self.lon_dot = self._read_grid_corners_file()
-        self.data = SpatialSurrogateData()
-        self.region_boxes = eval(open(self.config['Surrogates']['region_boxes'], 'r').read())
-        self.kdtrees = {}
-        self.rad_factor = pi / 180.0  # need angles in radians
-        self._create_kdtrees()
 
     def load(self, spatial_surrogates, temporal_surrogates):
         """ Overriding the abstract loader method to read ITN4 road network files """

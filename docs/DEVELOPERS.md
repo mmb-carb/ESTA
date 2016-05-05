@@ -120,7 +120,7 @@ ESTA comes with several helpful data structures specifically designed for the em
   * Final value is Emissions
  * from src.emissions.scaled_emissions import ScaledEmissions
   * simple multi-level dictionary container
-  * the keys are, in order: subarea, date, hr, eic
+  * the keys are, in order: region, date, hr, eic
   * the values are of type `SparceEmissions`
  * from src.surrogates.spatial_surrogate import SpatialSurrogate
   * A subclass of Python's `collections.defaultdict`
@@ -211,12 +211,12 @@ The first thing to do when implementing `RushHour` will be to sub-class the temp
         def __init__(self, config, directory):
             super(RushHour, self).__init__(config, directory)
 
-The purpose of the `temporal_loader` subclass is to provide temporal surrogates. And in the case of on-road emissions, you will want diurnal and day-of-week surrogates. These are both created using the abstract `load` method. Because you will be default all subareas (counties) to the same information, you will need a list of subareas from the config file:
+The purpose of the `temporal_loader` subclass is to provide temporal surrogates. And in the case of on-road emissions, you will want diurnal and day-of-week surrogates. These are both created using the abstract `load` method. Because you will be default all regions (counties) to the same information, you will need a list of regions from the config file:
 
-    [Subareas]
-    subareas: 1..58
+    [Regions]
+    regions: 1..58
 
-Following the example of several other classes in ESTA, you can add a list of subareas/counties as a member variable of `RushHour` in the `__init__` method:
+Following the example of several other classes in ESTA, you can add a list of regions/counties as a member variable of `RushHour` in the `__init__` method:
 
     from src.core.temporal_loader import TemporalLoader
 
@@ -224,20 +224,20 @@ Following the example of several other classes in ESTA, you can add a list of su
 
         def __init__(self, config, directory):
             super(RushHour, self).__init__(config, directory)
-            self.subareas = RushHour.parse_subareas(self.config['Subareas']['subareas'])
+            self.regions = RushHour.parse_regions(self.config['Regions']['regions'])
 
     @staticmethod
-    def parse_subareas(subareas_str):
-        """ Parse the string we get back from the subareas field """
-        if '..' in subareas_str:
-            subareas = subareas_str.split('..')
-            subareas = range(int(subareas[0]), int(subareas[1]) + 1)
+    def parse_regions(regions_str):
+        """ Parse the string we get back from the regions field """
+        if '..' in regions_str:
+            regions = regions_str.split('..')
+            regions = range(int(regions[0]), int(regions[1]) + 1)
         else:
-            subareas = [int(c) for c in subareas_str.split()]
+            regions = [int(c) for c in regions_str.split()]
 
-        return subareas
+        return regions
 
-Note that `parse_subareas` is an abstract method, because there is no reason it can't be. Also note that if the config file has a list of subareas defined like `1..58`, this will generate a list of counties from 1 to 58, inclusive. Otherwise, it is just a space-separated list.
+Note that `parse_regions` is an abstract method, because there is no reason it can't be. Also note that if the config file has a list of regions defined like `1..58`, this will generate a list of counties from 1 to 58, inclusive. Otherwise, it is just a space-separated list.
 
 All that is left is do the actual work of creating the temporal surrogates.
 
@@ -250,14 +250,14 @@ All that is left is do the actual work of creating the temporal surrogates.
         dows = ['mon', 'tuth', 'fri', 'sat', 'sun', 'holi']
 
         # create rush hour time profiles
-        for subarea in self.subareas:
-            temporal_surrogates['dow'][subarea] = {}
-            temporal_surrogates['diurnal'][subarea] = {}
+        for region in self.regions:
+            temporal_surrogates['dow'][region] = {}
+            temporal_surrogates['diurnal'][region] = {}
             for dow in dows:
-                temporal_surrogates['diurnal'][subarea][dow] = [1.0, 1.0, 1.0, 1.0]
-                temporal_surrogates['dow'][subarea][dow] = [0.0]*24
-                temporal_surrogates['dow'][subarea][dow][7] = 0.5
-                temporal_surrogates['dow'][subarea][dow][16] = 0.5
+                temporal_surrogates['diurnal'][region][dow] = [1.0, 1.0, 1.0, 1.0]
+                temporal_surrogates['dow'][region][dow] = [0.0]*24
+                temporal_surrogates['dow'][region][dow][7] = 0.5
+                temporal_surrogates['dow'][region][dow][16] = 0.5
 
         return temporal_surrogates
 

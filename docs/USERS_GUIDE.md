@@ -60,7 +60,7 @@ There are five major steps in the emissions inventory gridding process, each of 
 In addition to those, ESTA has four other standard config sections:
 
 1. **Dates** - define the the time span of the run
-2. **Subareas** - define the counties, states, or other regions in your run
+2. **Regions** - define the counties, states, or other regions in your run
 3. **Grid Information** - define your modeling domain
 4. **Miscellaneous** - a catch all, for shared resources or anything you want
 
@@ -77,21 +77,21 @@ All of the provided default config files are set up for the same Wednesday in th
     end: 2012-07-18
     base_year: 2012
 
-#### Subareas
+#### Regions
 
 The purpose of this section in the config areas is to allow users to define which counties, states, or other regions they are splitting their work into.
 
 For instance, if you wanted to select all 58 counties in California, you might do:
 
-    subareas: 1..58
+    regions: 1..58
 
-Of if you wanted to just select one county (say, Santa Barbara):
+Of if you wanted to just select one region (say, Santa Barbara county):
 
-    subareas: 42
+    regions: 42
 
-Or you could even list several counties (say the 10 counties in the SCAQMD region:
+Or you could even list several regions (say the 10 counties in the SCAQMD region):
 
-    subareas: 13 15 19 30 33 36 37 40 42 56
+    regions: 13 15 19 30 33 36 37 40 42 56
 
 #### GridInfo
 
@@ -155,7 +155,7 @@ The output section defines how the final output files from ESTA are created.
     directories: output/default_ca_4km_santa_barbara/
     writers: Pmeds1Writer
     time_units: hourly
-    by_subarea: False
+    by_region: False
     county_to_gai: input/defaults/california/county_to_gai.py
     gai_basins: input/defaults/california/gai_basins.py
     inventory_version: v0999
@@ -163,7 +163,7 @@ The output section defines how the final output files from ESTA are created.
 
 The primary variables in this section are: `writers` which lists the output-creating classes, and `directories` which lists where you want the output files. All the rest of the variables in the default config files are specific to the EMFAC on-road process.
 
-The `time_units` variable defines that the final on-road results will be aggregated by hour or by day. The `by_subarea` variable can be set to `True` if you want each county to have it's own output file, or `False` if you want all counties in the same file. The `version_number` variable is just a string used to uniquely identify your model run.
+The `time_units` variable defines that the final on-road results will be aggregated by hour or by day. The `by_region` variable can be set to `True` if you want each county to have it's own output file, or `False` if you want all counties in the same file. The `version_number` variable is just a string used to uniquely identify your model run.
 
 The remaining three variables list the paths to input Python files that associate California GAI codes to various other information. The `county_to_gai.py` file maps each county number to a list of the GAIs contained in that county. The `gai_basins.py` file is a simple dictionary mapping each GAI to the short string that represents which air basin that GAI is in. Finally, the `multi_gai_coords.py` file is a mapping for each grid cell that is split between more than one GAI and the fraction of area in each of those GAIs. 
 
