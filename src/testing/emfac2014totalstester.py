@@ -28,6 +28,7 @@ class Emfac2014TotalsTester(OutputTester):
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.emis_dirs = self.config['Emissions']['emissions_directories'].split()
         self.out_dirs = self.config['Output']['directories'].split()
+        self.gai_to_county = eval(open(self.config['Output']['gai_to_county'], 'r').read())
         has_subregions = self.config['Regions']['has_subregions'].lower()
         self.has_subregions = False if has_subregions in ['false', '0', 'no'] else True
         self.reverse_region_names = dict(zip(self.region_names.values(), self.region_names.keys()))

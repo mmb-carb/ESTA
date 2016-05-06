@@ -50,11 +50,11 @@ class Dtim4Loader(SpatialLoader):
 
         # loop through all the regions
         for region in self.regions:
-            fips = self._county_to_fips(region)
+            region_code = '%03d' % region
 
             # build the file paths
-            link_file = os.path.join(self.directory, fips,
-                                     'dtim_link_' + fips + '_tuth_%02d.dat' % hr)
+            link_file = os.path.join(self.directory, region_code,
+                                     'dtim_link_' + region_code + '_tuth_%02d.dat' % hr)
             index = link_file.rfind('link')
             taz_file = link_file[:index] + 'taz' + link_file[index + 4:]
 
@@ -89,14 +89,6 @@ class Dtim4Loader(SpatialLoader):
             for act, surr in veh_data.iteritems():
                 t[veh][act] = sum(surr.values())
         return t
-
-    def _county_to_fips(self, region):
-        """ This converts the county code (1 to 58) to the FIPS code. """
-        # TODO: ITN uses FIPS: fix that, then remove 'gai_to_county' and 'has_subregions'.
-        if self.has_subregions:
-            return '%03d' % (2 * region - 1)
-        else:
-            return '%03d' % (2 * self.gai_to_county[region] - 1)
 
     def _read_link_file(self, file_path, area):
         """ Read the ITN activity data from a single Link file

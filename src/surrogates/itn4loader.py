@@ -35,10 +35,11 @@ class Itn4Loader(Dtim4Loader):
 
         # loop through all the regions
         for region in self.regions:
-            fips = self._county_to_fips(region)
+            region_code = '%03d' % region
+    
             # build the file paths
-            link_file = os.path.join(self.directory, fips,
-                                     'esta_link_' + fips + '.dat')
+            link_file = os.path.join(self.directory, region_code,
+                                     'esta_link_' + region_code + '.dat')
             index = link_file.rfind('link')
 
             # read link file
@@ -78,8 +79,8 @@ class Itn4Loader(Dtim4Loader):
             if len(ln) < 30:
                 continue
             # node names
-            anode = int(ln[0])
-            bnode = int(ln[3])
+            anode = int(float(ln[0]))
+            bnode = int(float(ln[3]))
             # coordinates of nodes
             try:
                 lon1 = float(ln[1])
