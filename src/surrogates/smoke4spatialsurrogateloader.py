@@ -18,6 +18,9 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
         if len(self.smoke_surrogates) != len(self.eic_files):
             exit('ERROR: You need the same number of SMOKE surrogates as EIC list files.')
         self.eic2dtim4 = eval(open(self.config['Scaling']['eic2dtim4'], 'r').read())
+        self.gai_codes = eval(open(self.config['Scaling']['gai_codes'], 'r').read())
+        has_subregions = self.config['Regions']['has_subregions'].lower()
+        self.has_subregions = False if has_subregions in ['false', '0', 'no'] else True
 
     def load(self, spatial_surrogates, temporal_surrogates):
         """ Overriding the abstract loader method to read an EPA SMOKE v4
@@ -38,7 +41,7 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
 
             # read SMOKE v4 spatial surrogate
             surrogate_file_path = os.path.join(self.directory, surr_file_path)
-            surrogates = Smoke4SpatialSurrogateLoader.load_surrogates(surrogate_file_path)
+            surrogates = self._load_surrogates(surrogate_file_path)
 
             # set the spatial surrogate above for each and every veh/act pair
             for veh,act in veh_act_pairs:
@@ -50,14 +53,13 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
 
         return spatial_surrogates, temporal_surrogates
 
-    @staticmethod
-    def load_surrogates(file_path):
+    def _load_surrogates(self, file_path):
         ''' Load a SMOKE v4 spatial surrogate text file.
             Use it to create an ESTA spatial surrogate.
-            File format:
-            #GRID... header info
-            440;0SC006030;237;45;0.00052883
-            440;0SC006030;238;45;0.00443297
+            County-based File format:           GAI-based File format:
+            #GRID... header info                #GRID... header info
+            105;06030;238;44;0.00361888         440;0SC006030;237;45;0.00052883
+            105;06030;237;45;0.00476944         440;0SC006030;238;45;0.00443297
         '''
         surrogates = {}
         f = open(file_path, 'r')
@@ -66,9 +68,12 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
             ln = line.rstrip().split(';')
             if len(ln) != 5:
                 continue
-            region = int(ln[1][:9][-3:])
-            y = int(ln[2])  # TODO: Is there a shift?
-            x = int(ln[3])  # TODO: Is there a shift?
+            if self.has_subregions:
+                region = int(ln[1][2:])
+            else:
+                region = self.gai_codes[ln[1]]
+            y = int(ln[2])
+            x = int(ln[3])
             fraction = float(ln[4])
 
             if region not in surrogates:

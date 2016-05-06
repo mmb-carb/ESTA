@@ -22,6 +22,9 @@ class Emfac2014Scaler(EmissionsScaler):
         self.by_region = False if by_region in ['false', '0', 'no'] else True
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.eic2dtim4 = eval(open(self.config['Scaling']['eic2dtim4'], 'r').read())
+        self.county_to_gai = eval(open(self.config['Output']['county_to_gai'], 'r').read())
+        has_subregions = self.config['Regions']['has_subregions'].lower()
+        self.has_subregions = False if has_subregions in ['false', '0', 'no'] else True
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
 
     def scale(self, emissions, spatial_surr, temp_surr):
@@ -69,8 +72,8 @@ class Emfac2014Scaler(EmissionsScaler):
                     e = ScaledEmissions()
 
                 # apply CalVad DOW factors (this line is long for performance reasons)
-                emissions_table = self._apply_factors(deepcopy(emissions.data[region][date]),
-                                                      temp_surr['dow'][region][dow])
+                emis_table = self._apply_factors(deepcopy(emissions.data[region][date]),
+                                                 temp_surr['dow'][region][dow])
 
                 # find diurnal factors by hour
                 factors_by_hour = temp_surr['diurnal'][region][dow]
@@ -81,11 +84,11 @@ class Emfac2014Scaler(EmissionsScaler):
                 # loop through each hour of the day
                 for hr in xrange(24):
                     # apply diurnal, then spatial profiles (this line long for performance reasons)
-                    sparce_emis_dict = self._apply_spatial_surrs(self._apply_factors(deepcopy(emissions_table),
-                                                                                     factors_by_hour[hr]),
-                                                                 spatial_surrs, region)
+                    emis_dict = self._apply_spatial_surrs(self._apply_factors(deepcopy(emis_table),
+                                                                              factors_by_hour[hr]),
+                                                          spatial_surrs, region)
 
-                    for eic, sparce_emis in sparce_emis_dict.iteritems():
+                    for eic, sparce_emis in emis_dict.iteritems():
                         e.set(region, date, hr + 1, self.eic_reduce(eic), sparce_emis)
 
                 # yield, if by sub-area
@@ -114,28 +117,32 @@ class Emfac2014Scaler(EmissionsScaler):
             poll = int(ln[-2])
             if poll not in [co_id, nh3_id]:
                 continue
-            county = int(ln[1])
             eic = int(ln[-3])
             val = float(ln[-1])
-
-            # fill data structure
-            if county not in inv:
-                inv[county] = defaultdict(float)
-            if eic not in inv[county]:
-                inv[county][eic] = {co_id: 0.0, nh3_id: 0.0}
-            # fill in emissions values
-            inv[county][eic][poll] += val
+            county = int(ln[1])
+            if self.has_subregions:
+                regions = [county]
+            else:
+                regions = self.county_to_gai[county]
+            for region in regions:
+                # fill data structure
+                if region not in inv:
+                    inv[region] = defaultdict(float)
+                if eic not in inv[region]:
+                    inv[region][eic] = {co_id: 0.0, nh3_id: 0.0}
+                # fill in emissions values
+                inv[region][eic][poll] += val
         f.close()
 
         # create fractions
-        for county in inv:
-            for eic in inv[county]:
-                co = inv[county][eic][co_id]
+        for region in inv:
+            for eic in inv[region]:
+                co = inv[region][eic][co_id]
                 if co == 0.0:
-                    inv[county][eic] = 0.0
+                    inv[region][eic] = 0.0
                 else:
-                    nh3 = inv[county][eic][nh3_id]
-                    inv[county][eic] = nh3 / co
+                    nh3 = inv[region][eic][nh3_id]
+                    inv[region][eic] = nh3 / co
 
         return inv
 
@@ -165,6 +172,8 @@ class Emfac2014Scaler(EmissionsScaler):
             se = SparceEmissions()
             veh, act = self.eic2dtim4[eic]
             for poll, value in emis_table[eic].iteritems():
+                if act not in spatial_surrs[veh]:
+                    continue
                 for cell, fraction in spatial_surrs[veh][act].iteritems():
                     se[cell][poll] = value * fraction
 
