@@ -18,13 +18,11 @@ class Emfac2014Scaler(EmissionsScaler):
 
     def __init__(self, config):
         super(Emfac2014Scaler, self).__init__(config)
-        by_region = self.config['Output']['by_region'].lower()
-        self.by_region = False if by_region in ['false', '0', 'no'] else True
+        self.by_region = self.config.getboolean('Output', 'by_region')
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
-        self.eic2dtim4 = eval(open(self.config['Scaling']['eic2dtim4'], 'r').read())
-        self.county_to_gai = eval(open(self.config['Output']['county_to_gai'], 'r').read())
-        has_subregions = self.config['Regions']['has_subregions'].lower()
-        self.has_subregions = False if has_subregions in ['false', '0', 'no'] else True
+        self.eic2dtim4 = self.config.eval_file('Scaling', 'eic2dtim4')
+        self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
+        self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
 
     def scale(self, emissions, spatial_surr, temp_surr):

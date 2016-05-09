@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
-import ConfigParser
 import sys
+from src.core.custom_parser import CustomParser
 from src.core.esta_model_builder import EstaModelBuilder
 from src.core.esta_model import EstaModel
 
@@ -17,14 +17,12 @@ def main():
         usage()
 
     # config file parsing
-    config = ConfigParser.ConfigParser()
-    config.read(config_file_path)
-    config_dict = config_to_dict(config)
+    config = CustomParser(config_file_path)
 
     # ESTA processing
-    model = esta_preprocess(config_dict)
-    esta_process(config_dict, model)
-    esta_postprocess(config_dict, model)
+    model = esta_preprocess(config)
+    esta_process(config, model)
+    esta_postprocess(config, model)
 
 
 def esta_preprocess(config_dict):
@@ -52,22 +50,6 @@ def usage():
 '''
     print(help_text)
     sys.exit()
-
-
-def config_to_dict(config):
-    '''Quickly convert config options into a dictionary'''
-    config_dict = {}
-    for section in config.sections():
-        config_dict[section] = {}
-        options = config.options(section)
-        for option in options:
-            try:
-                config_dict[section][option] = config.get(section, option)
-            except:
-                print("Exception parsing config file for section/option: %s/%s" % (section, option))
-                config_dict[section][option] = None
-
-    return config_dict
 
 
 if __name__ == '__main__':

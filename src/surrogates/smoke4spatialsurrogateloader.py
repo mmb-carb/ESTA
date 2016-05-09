@@ -13,14 +13,13 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
 
     def __init__(self, config, directory):
         super(Smoke4SpatialSurrogateLoader, self).__init__(config, directory)
-        self.smoke_surrogates = self.config['Surrogates']['smoke4_surrogates'].split()
-        self.eic_files = self.config['Surrogates']['eic_files'].split()
+        self.smoke_surrogates = self.config.getlist('Surrogates', 'smoke4_surrogates')
+        self.eic_files = self.config.getlist('Surrogates', 'eic_files')
         if len(self.smoke_surrogates) != len(self.eic_files):
             exit('ERROR: You need the same number of SMOKE surrogates as EIC list files.')
-        self.eic2dtim4 = eval(open(self.config['Scaling']['eic2dtim4'], 'r').read())
-        self.gai_codes = eval(open(self.config['Scaling']['gai_codes'], 'r').read())
-        has_subregions = self.config['Regions']['has_subregions'].lower()
-        self.has_subregions = False if has_subregions in ['false', '0', 'no'] else True
+        self.eic2dtim4 = self.config.eval_file('Scaling', 'eic2dtim4')
+        self.gai_codes = self.config.eval_file('Scaling', 'gai_codes')
+        self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
 
     def load(self, spatial_surrogates, temporal_surrogates):
         """ Overriding the abstract loader method to read an EPA SMOKE v4

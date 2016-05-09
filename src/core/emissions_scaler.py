@@ -11,8 +11,8 @@ class EmissionsScaler(object):
         self.date_format = self.config['Dates']['format']
         self.start_date = dt.strptime(self.config['Dates']['start'], self.date_format)
         self.end_date = dt.strptime(self.config['Dates']['end'], self.date_format)
-        self.base_year = int(self.config['Dates']['base_year'])
-        self.regions = EmissionsScaler.parse_regions(self.config['Regions']['regions'])
+        self.base_year = self.config.getint('Dates', 'base_year')
+        self.regions = self.config.parse_regions('Regions', 'regions')
 
     @abc.abstractmethod
     def scale(self, emissions, spatial_surr, temporal_surr):
@@ -22,17 +22,6 @@ class EmissionsScaler(object):
         """
         while False:
             yield None
-
-    @staticmethod
-    def parse_regions(regions_str):
-        """ Parse the string we get back from the regions field """
-        if '..' in regions_str:
-            regions = regions_str.split('..')
-            regions = range(int(regions[0]), int(regions[1]) + 1)
-        else:
-            regions = [int(c) for c in regions_str.split()]
-
-        return regions
 
     @staticmethod
     def normalize(lst):

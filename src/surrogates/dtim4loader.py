@@ -22,21 +22,19 @@ class Dtim4Loader(SpatialLoader):
     DEFAULT_ITN_HOUR = 17
     DOW = {0: 'mon', 1: 'tuth', 2: 'tuth', 3: 'tuth', 4: 'fri', 5: 'sat', 6: 'sun', -1: 'holi'}
     MAX_STEPS = 12
+    RAD_FACTOR = pi / 180.0  # need angles in radians
 
     def __init__(self, config, directory):
         super(Dtim4Loader, self).__init__(config, directory)
-        self.regions = SpatialLoader.parse_regions(self.config['Regions']['regions'])
-        self.nrows = int(self.config['GridInfo']['rows'])
-        self.ncols = int(self.config['GridInfo']['columns'])
+        self.nrows = self.config.getint('GridInfo', 'rows')
+        self.ncols = self.config.getint('GridInfo', 'columns')
         self.grid_file_path = self.config['GridInfo']['grid_cross_file']
         self.lat_dot, self.lon_dot = self._read_grid_corners_file()
         self.data = SpatialSurrogateData()
-        self.region_boxes = eval(open(self.config['Surrogates']['region_boxes'], 'r').read())
-        self.gai_to_county = eval(open(self.config['Output']['gai_to_county'], 'r').read())
-        has_subregions = self.config['Regions']['has_subregions'].lower()
-        self.has_subregions = False if has_subregions in ['false', '0', 'no'] else True
+        self.region_boxes = self.config.eval_file('Surrogates', 'region_boxes')
+        self.gai_to_county = self.config.eval_file('Output', 'gai_to_county')
+        self.regions = self.config.parse_regions('Regions', 'regions')
         self.kdtrees = {}
-        self.rad_factor = pi / 180.0  # need angles in radians
         self._create_kdtrees()
 
     def load(self, spatial_surrogates, temporal_surrogates):
@@ -207,8 +205,8 @@ class Dtim4Loader(SpatialLoader):
 
     def _create_kdtrees(self):
         """ Create a KD Tree for each region """
-        lat_vals = self.lat_dot[:] * self.rad_factor
-        lon_vals = self.lon_dot[:] * self.rad_factor
+        lat_vals = self.lat_dot[:] * self.RAD_FACTOR
+        lon_vals = self.lon_dot[:] * self.RAD_FACTOR
 
         for region in self.regions:
             # find the grid cell bounding box for the region in question
@@ -233,8 +231,8 @@ class Dtim4Loader(SpatialLoader):
         lon_min, lon_max = self.region_boxes[region]['lon']
 
         # define parameters
-        lon0 = p[0] * self.rad_factor
-        lat0 = p[1] * self.rad_factor
+        lon0 = p[0] * self.RAD_FACTOR
+        lat0 = p[1] * self.RAD_FACTOR
 
         # run KD Tree algorithm
         clat0,clon0 = cos(lat0),cos(lon0)

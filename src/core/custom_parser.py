@@ -5,24 +5,18 @@ from re import split
 
 class CustomParser(ConfigParser):
 
-    def __init__(self):
-        super(CustomParser, self).__init__()
+    def __init__(self, file_path):
+        ConfigParser.__init__(self)
         self.data = {}
-
-    def __getitem__(self, section):
-        ''' Allow the config options to be accessed as a 2-deep dictionary.
-        '''
-        return self.data.get(section, {})
-
-    def parse(self, file_path):
-        ''' A helper method to read the standard ConfigParser file,
-            and also allow the options to be accessed as a dictionary.
-        '''
         self.read(file_path)
         self._config_to_dict()
 
+    def __getitem__(self, section):
+        ''' Allow the config options to be accessed as a 2-deep dictionary. '''
+        return self.data.get(section, {})
+
     def _config_to_dict(self):
-        '''Quickly convert config options into a dictionary'''
+        ''' Quickly convert config options into a dictionary '''
         self.data = {}
         for section in self.sections():
             self.data[section] = {}
@@ -35,14 +29,18 @@ class CustomParser(ConfigParser):
                     self.data[section][option] = None
 
     def eval(self, key, value):
-        ''' Evaluate Python code that is written directly into the config file.
-        '''
-        return eval(self.data[key][value])
+        ''' Evaluate Python code that is written directly into the config file. '''
+        try:
+            return eval(self.data[key][value])
+        except:
+            exit('Exception parsing Python code for section/option: %s/%s' % (section, option))
 
     def eval_file(self, key, value):
-        ''' Read in a Python file and return the evaluated contents.
-        '''
-        return eval(open(self.data[key][value], 'r').read())
+        ''' Read in a Python file and return the evaluated contents. '''
+        try:
+            return eval(open(self.data[key][value], 'r').read())
+        except:
+            exit('Exception parsing Python file for section/option: %s/%s' % (section, option))
 
     def getlist(self, section, option, typ=str, sep=r'\s+'):
         ''' Read in a config value as a list.

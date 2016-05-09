@@ -16,11 +16,10 @@ class Emfac2014CsvLoader(EmissionsLoader):
     def __init__(self, config, directory, time_units):
         super(Emfac2014CsvLoader, self).__init__(config, directory)
         self.time_units = time_units
-        self.region_names = eval(open(self.config['Misc']['region_names'], 'r').read())
-        self.vtp2eic = eval(open(self.config['Misc']['vtp2eic'], 'r').read())
+        self.region_names = self.config.eval_file('Misc', 'region_names')
+        self.vtp2eic = self.config.eval_file('Misc', 'vtp2eic')
         self.hd_ld = 'ld'
-        has_subregions = self.config['Regions']['has_subregions'].lower()
-        self.has_subregions = False if has_subregions in ['false', '0', 'no'] else True
+        self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
 
     def load(self, emissions):
         """ This is a general method to load emissions from EMFAC2014 result table-dumps in a

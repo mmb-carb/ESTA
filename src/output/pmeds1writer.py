@@ -16,18 +16,15 @@ class Pmeds1Writer(OutputWriter):
 
     def __init__(self, config, directory, time_units):
         super(Pmeds1Writer, self).__init__(config, directory, time_units)
-        by_region = self.config['Output']['by_region'].lower()
-        self.by_region = False if by_region in ['false', '0', 'no'] else True
-        combine = self.config['Output']['combine_regions'].lower()
-        self.combine = False if combine in ['false', '0', 'no'] else True
+        self.by_region = self.config.getboolean('Output', 'by_region')
+        self.combine = self.config.getboolean('Output', 'combine_regions')
         self.version = self.config['Output']['inventory_version']
         self.grid_file = self.config['GridInfo']['grid_cross_file']
-        self.region_names = eval(open(self.config['Misc']['region_names'], 'r').read())
-        self.county_to_gai = eval(open(self.config['Output']['county_to_gai'], 'r').read())
-        self.gai_basins = eval(open(self.config['Output']['gai_basins'], 'r').read())
-        self.multi_gai_coords = eval(open(self.config['Output']['multi_gai_coords'], 'r').read())
-        has_subregions = self.config['Regions']['has_subregions'].lower()
-        self.has_subregions = False if has_subregions in ['false', '0', 'no'] else True
+        self.region_names = self.config.eval_file('Misc', 'region_names')
+        self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
+        self.gai_basins = self.config.eval_file('Output', 'gai_basins')
+        self.multi_gai_coords = self.config.eval_file('Output', 'multi_gai_coords')
+        self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
 
     def write(self, scaled_emissions):
         """ The master method to write output files.

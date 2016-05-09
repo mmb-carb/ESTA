@@ -14,8 +14,8 @@ class OutputTester(object):
         self.end_date = dt.strptime(self.config['Dates']['end'], self.date_format)
         self.base_year = int(self.config['Dates']['base_year'])
         self.dates = self.config['Testing']['dates'].split()
-        self.regions = OutputTester.parse_regions(self.config['Regions']['regions'])
-        self.output_dirs = self.config['Output']['directories'].split()
+        self.regions = self.config.parse_regions('Regions', 'regions')
+        self.output_dirs = self.config.getlist('Output', 'directories')
         self.testing_dir = self.config['Testing']['testing_directory']
 
     def _find_dates_in_range(self):
@@ -32,14 +32,3 @@ class OutputTester(object):
     @abc.abstractmethod
     def test(self):
         return
-
-    @staticmethod
-    def parse_regions(regions_str):
-        """ Parse the string we get back from the regions field """
-        if '..' in regions_str:
-            regions = regions_str.split('..')
-            regions = range(int(regions[0]), int(regions[1]) + 1)
-        else:
-            regions = [int(c) for c in regions_str.split()]
-
-        return regions

@@ -22,10 +22,7 @@ class Itn4Loader(Dtim4Loader):
 
     def __init__(self, config, directory):
         super(Itn4Loader, self).__init__(config, directory)
-        self.load_taz = False
-        if 'use_taz' in self.config['Surrogates']:
-            if self.config['Surrogates']['use_taz'].lower() == 'true':
-                self.load_taz = True
+        self.load_taz = self.config.getboolean('Surrogates', 'use_taz')
 
     def load(self, spatial_surrogates, temporal_surrogates):
         """ Overriding the abstract loader method to read ITN4 road network files """

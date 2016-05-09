@@ -19,18 +19,15 @@ class Emfac2014TotalsTester(OutputTester):
 
     def __init__(self, config):
         super(Emfac2014TotalsTester, self).__init__(config)
-        by_region = self.config['Output']['by_region'].lower()
-        self.by_region = False if by_region in ['false', '0', 'no'] else True
-        combine = self.config['Output']['combine_regions'].lower()
-        self.combine = False if combine in ['false', '0', 'no'] else True
-        self.vtp2eic = eval(open(self.config['Misc']['vtp2eic'], 'r').read())
-        self.region_names = eval(open(self.config['Misc']['region_names'], 'r').read())
+        self.by_region = self.config.getboolean('Output', 'by_region')
+        self.combine = self.config.getboolean('Output', 'combine_regions')
+        self.vtp2eic = self.config.eval_file('Misc', 'vtp2eic')
+        self.region_names = self.config.eval_file('Misc', 'region_names')
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
-        self.emis_dirs = self.config['Emissions']['emissions_directories'].split()
-        self.out_dirs = self.config['Output']['directories'].split()
-        self.gai_to_county = eval(open(self.config['Output']['gai_to_county'], 'r').read())
-        has_subregions = self.config['Regions']['has_subregions'].lower()
-        self.has_subregions = False if has_subregions in ['false', '0', 'no'] else True
+        self.emis_dirs = self.config.getlist('Emissions', 'emissions_directories')
+        self.out_dirs = self.config.getlist('Output', 'directories')
+        self.gai_to_county = self.config.eval_file('Output', 'gai_to_county')
+        self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
         self.reverse_region_names = dict(zip(self.region_names.values(), self.region_names.keys()))
         self.weight_file = ''
         self.groups = {}
