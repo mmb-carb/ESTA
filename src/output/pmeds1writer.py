@@ -22,6 +22,7 @@ class Pmeds1Writer(OutputWriter):
         self.grid_file = self.config['GridInfo']['grid_cross_file']
         self.region_names = self.config.eval_file('Misc', 'region_names')
         self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
+        self.gai_to_county = self.config.eval_file('Output', 'gai_to_county')
         self.gai_basins = self.config.eval_file('Output', 'gai_basins')
         self.multi_gai_coords = self.config.eval_file('Output', 'multi_gai_coords')
         self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
@@ -176,9 +177,10 @@ class Pmeds1Writer(OutputWriter):
         hour = '%02d%02d' % (hr - 1, hr - 1)
         basin = self.gai_basins[gai].rjust(3)
         emissions = ','.join(emis)
+        county = self.gai_to_county[gai]
 
         return ''.join([county_name, str(eic).rjust(28), str(x).rjust(3), str(y).rjust(3),
-                        '              ', str(gai).rjust(2), yr, str(jul_day).rjust(3), hour,
+                        '              ', str(county).rjust(2), yr, str(jul_day).rjust(3), hour,
                         basin, str(gai).rjust(3), '     ', emissions, '\n'])
 
     def _write_zipped_file(self, out_path, lines):
