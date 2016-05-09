@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 
+import os
 import sys
 from src.core.custom_parser import CustomParser
 from src.core.esta_model_builder import EstaModelBuilder
@@ -8,13 +9,16 @@ from src.core.esta_model import EstaModel
 
 def main():
     # command line parsing
-    config_file_path = 'default.ini'
+    config_file_path = ''
     if len(sys.argv) == 2 and sys.argv[1] in ['-h', '--h', '-help', '--help']:
         usage()
     elif len(sys.argv) == 2:
         config_file_path = sys.argv[1]
-    elif len(sys.argv) > 2:
+    else:
         usage()
+
+    if not os.path.exists(config_file_path):
+        sys.exit('\nERROR: Config file not found: %s\n' % config_file_path)
 
     # config file parsing
     config = CustomParser(config_file_path)
@@ -42,11 +46,10 @@ def esta_postprocess(config_dict, model):
 
 
 def usage():
-    help_text = '''\nESTA Model Usage Notes:
+    help_text = '''\nESTA Model Usage:
 \tGive a path to a config file, or default.ini will be used:
-\tpython gate.py
-\tpython gate.py default.ini
-\tpython gate.py user-defined.ini
+\t./esta.py config/default.ini
+\tpython esta.py /path/to/user-defined.ini
 '''
     print(help_text)
     sys.exit()

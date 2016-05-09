@@ -1,6 +1,7 @@
 
 from ConfigParser import ConfigParser
 from re import split
+import sys
 
 
 class CustomParser(ConfigParser):
@@ -33,14 +34,14 @@ class CustomParser(ConfigParser):
         try:
             return eval(self.data[key][value])
         except:
-            exit('Exception parsing Python code for section/option: %s/%s' % (section, option))
+            sys.exit('Exception parsing Python code for section/option: %s/%s' % (section, option))
 
     def eval_file(self, key, value):
         ''' Read in a Python file and return the evaluated contents. '''
         try:
             return eval(open(self.data[key][value], 'r').read())
         except:
-            exit('Exception parsing Python file for section/option: %s/%s' % (section, option))
+            sys.exit('Exception parsing Python file for section/option: %s/%s' % (section, option))
 
     def getlist(self, section, option, typ=str, sep=r'\s+'):
         ''' Read in a config value as a list.
@@ -51,7 +52,7 @@ class CustomParser(ConfigParser):
         try:
             return [typ(s) for s in split(sep, self.data[section][option].rstrip())]
         except:
-            exit('Exception parsing list for section/option: %s/%s' % (section, option))
+            sys.exit('Exception parsing list for section/option: %s/%s' % (section, option))
 
     def parse_regions(self, key, value):
         """ Parse the string we get back from the regions field """

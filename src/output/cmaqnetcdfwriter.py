@@ -5,6 +5,7 @@ import gzip
 import os
 from netCDF4 import Dataset
 import numpy as np
+import sys
 import time
 from src.core.output_writer import OutputWriter
 
@@ -348,7 +349,7 @@ class CmaqNetcdfWriter(OutputWriter):
             profile = ln[0]
             group = ln[1].upper()
             if group not in self.groups:
-                exit('ERROR: Group ' + group + ' not found in molecular weights file.')
+                sys.exit('ERROR: Group ' + group + ' not found in molecular weights file.')
             pollutant = ln[2].upper()
             try:
                 poll_index = list(self.groups[group]['species']).index(pollutant)

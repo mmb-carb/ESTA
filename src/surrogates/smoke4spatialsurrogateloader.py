@@ -1,5 +1,6 @@
 
 import os
+import sys
 from spatial_surrogate import SpatialSurrogate
 from src.core.spatial_loader import SpatialLoader
 from dtim4loader import SpatialSurrogateData
@@ -16,7 +17,7 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
         self.smoke_surrogates = self.config.getlist('Surrogates', 'smoke4_surrogates')
         self.eic_files = self.config.getlist('Surrogates', 'eic_files')
         if len(self.smoke_surrogates) != len(self.eic_files):
-            exit('ERROR: You need the same number of SMOKE surrogates as EIC list files.')
+            sys.exit('ERROR: You need the same number of SMOKE surrogates as EIC list files.')
         self.eic2dtim4 = self.config.eval_file('Scaling', 'eic2dtim4')
         self.gai_codes = self.config.eval_file('Scaling', 'gai_codes')
         self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
