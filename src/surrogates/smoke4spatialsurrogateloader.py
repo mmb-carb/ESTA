@@ -14,11 +14,11 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
 
     def __init__(self, config, directory):
         super(Smoke4SpatialSurrogateLoader, self).__init__(config, directory)
+        self.eic2dtim4 = self.config.eval_file('Surrogates', 'eic2dtim4')
         self.smoke_surrogates = self.config.getlist('Surrogates', 'smoke4_surrogates')
-        self.eic_files = self.config.getlist('Surrogates', 'eic_files')
-        if len(self.smoke_surrogates) != len(self.eic_files):
-            sys.exit('ERROR: You need the same number of SMOKE surrogates as EIC list files.')
-        self.eic2dtim4 = self.config.eval_file('Scaling', 'eic2dtim4')
+        self.eic_labels = self.config.getlist('Surrogates', 'smoke_eic_labels')
+        if len(self.smoke_surrogates) != len(self.eic_labels):
+            sys.exit('ERROR: You need the same number of SMOKE surrogates as EIC labels.')
         self.gai_codes = self.config.eval_file('Scaling', 'gai_codes')
         self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
 
@@ -33,8 +33,7 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
         # loop through each SMOKE 4 surrogate file, and related list of EICs
         for i,surr_file_path in enumerate(self.smoke_surrogates):
             # read list of EICs from file
-            eic_path = os.path.join(self.directory, self.eic_files[i])
-            eics = Smoke4SpatialSurrogateLoader.load_eics(eic_path)
+            eics = self._select_eics(self.eic_labels[i])
 
             # create list of veh/act pairs
             veh_act_pairs = [self.eic2dtim4[eic] for eic in eics]
@@ -83,13 +82,9 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
         f.close()
         return surrogates
 
-    @staticmethod
-    def load_eics(file_path):
-        ''' Load a simple text file: just a list of EICs that will use the
-            new SMOKE v4 spatial surrogate.
-            File Format:
-            71070111000000
-            74676854107026
+    def _select_eics(self, label):
+        ''' From the EIC-to-DTIM4 vehicle category mapping, extract just those EICs
+            that have the given label.
+            This is used to match spatial surrogates with a group of EICs.
         '''
-        text = open(file_path, 'r').read()
-        return [int(eic) for eic in text.split()]
+        return sorted([eic for eic in self.eic2dtim4 if self.eic2dtim4[eic][1] == label])

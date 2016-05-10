@@ -20,7 +20,7 @@ class Emfac2014Scaler(EmissionsScaler):
         super(Emfac2014Scaler, self).__init__(config)
         self.by_region = self.config.getboolean('Output', 'by_region')
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
-        self.eic2dtim4 = self.config.eval_file('Scaling', 'eic2dtim4')
+        self.eic2dtim4 = self.config.eval_file('Surrogates', 'eic2dtim4')
         self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
         self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])

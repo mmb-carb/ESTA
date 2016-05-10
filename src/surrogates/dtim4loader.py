@@ -34,6 +34,7 @@ class Dtim4Loader(SpatialLoader):
         self.region_boxes = self.config.eval_file('Surrogates', 'region_boxes')
         self.gai_to_county = self.config.eval_file('Output', 'gai_to_county')
         self.regions = self.config.parse_regions('Regions', 'regions')
+        self.eic_labels = self.config.getlist('Surrogates', 'dtim_eic_labels')
         self.kdtrees = {}
         self._create_kdtrees()
 
@@ -98,7 +99,7 @@ class Dtim4Loader(SpatialLoader):
                    ellps='sphere')
 
         # create dictionary of surrogates and TAZ centroid locations
-        surrs = dict([(i, {'vmt': SpatialSurrogate()}) for i in range(26)])
+        surrs = dict([(i, {self.eic_labels[0]: SpatialSurrogate()}) for i in range(26)])
         nodes = {}
 
         # read ITN link file
@@ -152,7 +153,7 @@ class Dtim4Loader(SpatialLoader):
                 net_vol = vol / num_cells
                 net_vmt = net_vol * distance
                 for gc in grid_cells:
-                    surrs[c]['vmt'][gc] += net_vmt
+                    surrs[c][self.eic_labels[0]][gc] += net_vmt
 
         f.close()
         return surrs, nodes
@@ -164,7 +165,7 @@ class Dtim4Loader(SpatialLoader):
         354067         6    640525      3665    0.00000  375.45021  375.17667 ... (vol,orig,dest)*3*26
         """
         # create dictionary of surrogates
-        surrs = dict([(i, {'trips': SpatialSurrogate()}) for i in range(26)])
+        surrs = dict([(i, {self.eic_labels[1]: SpatialSurrogate()}) for i in range(26)])
 
         # read ITN taz file
         f = open(file_path, 'r')
@@ -179,7 +180,7 @@ class Dtim4Loader(SpatialLoader):
             for c in xrange(26):
                 col = 40 + c * 33
                 trips = float(line[col: col + 11].strip())
-                surrs[c]['trips'][grid_cell] += trips
+                surrs[c][self.eic_labels[1]][grid_cell] += trips
 
         f.close()
         return surrs

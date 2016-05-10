@@ -22,7 +22,7 @@ class Itn4Loader(Dtim4Loader):
 
     def __init__(self, config, directory):
         super(Itn4Loader, self).__init__(config, directory)
-        self.load_taz = self.config.getboolean('Surrogates', 'use_taz')
+        self.load_taz = len(self.eic_labels) > 1
 
     def load(self, spatial_surrogates, temporal_surrogates):
         """ Overriding the abstract loader method to read ITN4 road network files """
@@ -66,7 +66,7 @@ class Itn4Loader(Dtim4Loader):
         3131,-122.191,37.784,3115,-122.188,37.783,313.648,29004425.98  ...
         """
         # create dictionary of surrogates and TAZ centroid locations
-        surrs = dict([(i, {'vmt': SpatialSurrogate()}) for i in range(26)])
+        surrs = dict([(i, {self.eic_labels[0]: SpatialSurrogate()}) for i in range(26)])
         nodes = {}
 
         # read ITN link file
@@ -117,7 +117,7 @@ class Itn4Loader(Dtim4Loader):
                     continue
                 net_vmt = (vol / num_cells) * distance
                 for gc in grid_cells:
-                    surrs[col]['vmt'][gc] += net_vmt
+                    surrs[col][self.eic_labels[0]][gc] += net_vmt
 
         f.close()
         return surrs, nodes
@@ -129,7 +129,7 @@ class Itn4Loader(Dtim4Loader):
         354067,6,640525,3665.09,0.00000,375.45021,375.17667,... (vol,orig,dest)*3*26
         """
         # create dictionary of surrogates
-        surrs = dict([(i, {'trips': SpatialSurrogate()}) for i in range(26)])
+        surrs = dict([(i, {self.eic_labels[1]: SpatialSurrogate()}) for i in range(26)])
 
         # read ITN taz file
         f = open(file_path, 'r')
@@ -144,7 +144,7 @@ class Itn4Loader(Dtim4Loader):
             # speed = float(ln[3])
             for i in xrange(26):
                 trips = float(ln[4 + 3 * i])
-                surrs[i]['trips'][grid_cell] += trips
+                surrs[i][self.eic_labels[1]][grid_cell] += trips
 
         f.close()
         return surrs
