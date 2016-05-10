@@ -108,7 +108,7 @@ class Itn4Loader(Dtim4Loader):
 
             # distance (cm)
             distance = float(ln[6])  # units currently don't matter
-            # speed (miles/hour * 100)
+            # speed [miles/hour * 100]
             # speed = float(ln[7])
             # volumes
             for col in xrange(26):
