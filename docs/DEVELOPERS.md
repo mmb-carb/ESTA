@@ -62,7 +62,7 @@ Here is a basic diagram of ESTA's code structure, including some default on-road
         │
         └───testing/emfac2014totalstester.py
 
-The `esta.py` script in the home folder acts as an executable so the ESTA model can be run. It's major purpose is to take a path to the config file and call the `src.core.esta_model_builder.py` script. The `esta_model_builder.py` script breaks the config file into sections and options using the `CustomParser` class in `src.core.custom_parser.py`.
+The `esta.py` run script in the home folder acts like an executable so the ESTA model can be run. It's major purpose is to take a path to the config file and call the `src.core.esta_model_builder.py` script. The `esta_model_builder.py` script breaks the config file into sections and options using the `CustomParser` class in `src.core.custom_parser.py`.
 
 For instance, when parsing the scaling step, a small section of code parses the config file and instantiates a list of classes to do the scaling:
 
@@ -77,6 +77,8 @@ For instance, when parsing the scaling step, a small section of code parses the 
 Here you can see that the emissions-scaling classes must be found under `src.scaling.`, in a file name that is a lower case version of the full class name. For example, the class name `Dtim4Emfac2014Scaler` is used in the config file, and the above code tries to load that class in the following way:
 
     from src.scaling.dtim4emfac2014scaler import Dtim4Emfac2014Scaler
+
+This approach offers a lot of flexibility. The developer only has to add a reference to their new class in a config file to wire into the model. If a new class is added to a file with the wrong name, the developer will see an error message clearly printing the desired file path
 
 To correspond with each of the five major gridding steps, there is a section in the config file which matches to a class path in the `src` folder:
 
