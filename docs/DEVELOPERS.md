@@ -30,10 +30,12 @@ Here is a basic diagram of ESTA's code structure, including some default on-road
     ├───input/
     ├───output/
     └───src/
-        ├───core/emissions_loader.py
+        ├───core/custom_parser.py
+        │        eic_utils.py
+        │        emissions_loader.py
         │        emissions_scaler.py
-        │        esta_model_builder.py
         │        esta_model.py
+        │        esta_model_builder.py
         │        output_tester.py
         │        output_writer.py
         │        spatial_loader.py
@@ -45,19 +47,22 @@ Here is a basic diagram of ESTA's code structure, including some default on-road
         │             emissions_table.py
         │             sparce_emissions.py
         │
-        ├───output/pmeds1writer.py
+        ├───output/cmaqnetcdfwriter.py
+        │          pmeds1writer.py
         │
         ├───scaling/dtim4emfac2014scaler.py
         │           scaled_emissions.py
         │
-        ├───surrogates/dtim4calvadtemporalloader.py
+        ├───surrogates/calvadtemporalloader.py
         │              dtim4loader.py
+        │              itn4loader.py
+        │              smoke4spatialsurrogateloader.py
         │              spatial_surrogate.py
         │              temporal_surrogate.py
         │
         └───testing/emfac2014totalstester.py
 
-The `esta.py` script in the home folder acts as an executable so the ESTA model can be run. It's major purpose is to take a path to the config file and call the `esta_model_builder.py` script, in `src.core`. The `esta_model_builder.py` script doesn't fully parse the config file, but it parses those parts of the config file where class names are listed for each gridding step.
+The `esta.py` script in the home folder acts as an executable so the ESTA model can be run. It's major purpose is to take a path to the config file and call the `src.core.esta_model_builder.py` script. The `esta_model_builder.py` script breaks the config file into sections and options using the `CustomParser` class in `src.core.custom_parser.py`.
 
 For instance, when parsing the scaling step, a small section of code parses the config file and instantiates a list of classes to do the scaling:
 
@@ -224,20 +229,9 @@ Following the example of several other classes in ESTA, you can add a list of re
 
         def __init__(self, config, directory):
             super(RushHour, self).__init__(config, directory)
-            self.regions = RushHour.parse_regions(self.config['Regions']['regions'])
+            self.regions = self.config.parse_regions('Regions', 'regions')
 
-    @staticmethod
-    def parse_regions(regions_str):
-        """ Parse the string we get back from the regions field """
-        if '..' in regions_str:
-            regions = regions_str.split('..')
-            regions = range(int(regions[0]), int(regions[1]) + 1)
-        else:
-            regions = [int(c) for c in regions_str.split()]
-
-        return regions
-
-Note that `parse_regions` is an abstract method, because there is no reason it can't be. Also note that if the config file has a list of regions defined like `1..58`, this will generate a list of counties from 1 to 58, inclusive. Otherwise, it is just a space-separated list.
+Note that `parse_regions` is a custome ESTA method built into the `CustomParser` class in `src.core.custom_parser.py`. Also note that if the config file has a list of regions defined like `1..58`, this will generate a list of counties from 1 to 58, inclusive. Otherwise, it is just a space-separated list.
 
 All that is left is do the actual work of creating the temporal surrogates.
 
@@ -267,12 +261,12 @@ And that's it! Copy the above code into `ESTA/src/surrogates/rushhour.py`, and y
 
 To recap the above process:
 
- * Identify which step you want to replace.
- * Find the abstract class for that step.
- * Build your own subclass of that abstract class.
- * Put your new subclass in the correct `src` module.
- * Make sure your file name is the lower case of your class name: `MyClass` is in `myclass.py`.
- * Point to your new class in the config file.
+1. Identify which step you want to replace.
+2. Find the abstract class for that step.
+3. Build your own subclass of that abstract class.
+4. Put your new subclass in the correct `src` module.
+5. Make sure your file name is the lower case of your class name: `MyClass` is in `myclass.py`.
+6. Point to your new class in the config file.
 
 ## Defining a New Domain
 
@@ -282,9 +276,9 @@ It is fairly simple to implement a new modeling domain in ESTA for both on-road 
 2. People who need gridded emissions inventories will frequently already have this file for their domain.
 3. It is an extremely detailed format.
 4. It is lat-lon based (and thus projection-free).
-5. It is unamiguous.
+5. It is unambiguous.
 
-The `GRIDCRO2D` file is not the only file you need to define your new domain. There is one more, the region boxes file. To speed up the process of locating which grid cell a certain lat/lon point is in on your modeling domain, your domain is split up into rectangular regions (one for each county, state, or whatever). This will give a much smaller region for Python to hunt in. You will find examples of these files for the three default cases in the input folder:
+The `GRIDCRO2D` file is not the only file you need to define your new domain. There is one more, the region boxes file. To speed up the process of locating which grid cell a certain lat/lon point is in on your modeling domain, your domain is split up into rectangular regions (one for each county, state, or whatever). This will give a much smaller region for Python to hunt in. You will find examples of these files for five default cases in the input folder:
 
     ESTA
     └───input
@@ -292,8 +286,10 @@ The `GRIDCRO2D` file is not the only file you need to define your new domain. Th
             └───domains/county_boxes_ca_4km.py
                         county_boxes_ca_12km.py
                         county_boxes_scaqmd_4km.py
+                        gai_boxes_ca_4km.py
+                        gai_boxes_scaqmd_4km.py
 
-These files are simple Python dictionaries that map the county a grid cell bounding box in a particular domain, e.g.:
+These files are simply Python dictionaries that provide the grid cell bounding box for a given county/GAI, e.g.:
 
     {1: {'lon': (130, 154), 'lat': (152, 168)},
      2: {'lon': (177, 195), 'lat': (180, 193)},
@@ -309,16 +305,16 @@ If your domain is very small, or you want to quickly test a new domain, you coul
      ...
     }
 
-But there is a better way. Whether you are working with the counties, states, or whatever. Chances are you already know the bounding boxes of your regions in lat/lon. Or you can at least come up with some. If so, there is a script you can use to generate the regional boxes file. It is in the default EMFAC input directory next to the GRIDCRO2D input files:
+But there is a better way. Whether you are working with the counties, GAIs, states, or whatever. Chances are you already know the bounding boxes of your regions in lat/lon. Or you can at least come up with some. If so, there is a script you can use to generate the regional boxes file. It is in the default EMFAC input directory next to the GRIDCRO2D input files:
 
     ESTA/input/defaults/domains/preprocess_grid_boxes.py
 
-This script should be fairly easy to use. For example, if you wanted to generate the grid domain boxes for the counties in California for California's 12km ARB-CalEPA modeling domain, you would simply go to the command line and do:
+This script is easy to use. For example, if you wanted to generate the grid domain boxes for the counties in California for California's 12km ARB-CalEPA modeling domain, you would simply go to the command line and do:
 
     cd input/defaults/domains/
     python preprocess_grid_boxes.py -gridcro2d GRIDCRO2D.California_12km_97x107 -rows 97 -cols 107  -regions california_counties_lat_lon_bounding_boxes.csv
 
-And this would print a nicely-formatted dictionary (JSON/Python) to the screen, which you can copy to a file for your own use.  NOTA BENE: If you enter a lat/lon bounding box outside your stated grid domain, this script will return a non-sensical bounding box.
+And this would print a nicely-formatted dictionary (JSON/Python) to the screen, which you can copy to a file called `county_boxes_ca_12km.py`.  NOTA BENE: If you enter a lat/lon bounding box outside your stated grid domain, this script will return a non-sensical bounding box.
 
 
 [Back to Main Readme](../README.md)

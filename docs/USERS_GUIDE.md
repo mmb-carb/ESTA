@@ -89,9 +89,19 @@ Of if you wanted to just select one region (say, Santa Barbara county):
 
     regions: 42
 
+Or the Santa Barbara GAI:
+
+    regions: 57
+
 Or you could even list several regions (say the 10 counties in the SCAQMD region):
 
     regions: 13 15 19 30 33 36 37 40 42 56
+
+The second option in this section is:
+
+    has_subregions: True
+
+This describes whether or not your regions (say counties) have sub-regions that you have defined (sub-county air basins). In EMFAC-based on-road modeling, this variable is `True` if you are modeling by county and `False` if you are modeling by CoABDis.
 
 #### GridInfo
 
@@ -105,24 +115,50 @@ It should also be noted that the `grid_cross_file` shown here is a standard "gri
 
 #### Surrogates
 
-This section covers the information needed to generate spatial and temporal surrogates.
+This section covers the information needed to generate spatial and temporal surrogates. In the `default_onroad_ca_4km.ini` file you will find this section looks something like:
 
-    spatial_directories: input/examples/onroad_emfac2014_santa_barbara/dtim4_2012/
-    spatial_loaders: Dtim4Loader
-    temporal_directories: input/examples/onroad_emfac2014_santa_barbara/dtim4_2012/
-    temporal_loaders: Dtim4CalvadTemporalLoader
-    calvad_dow: input/defaults/emfac2014/calvad_dow_factors_2012.csv
-    calvad_diurnal: input/defaults/emfac2014/calvad_diurnal_factors_2012.csv
-    county_boxes: input/defaults/california/county_boxes_ca_4km.py
-    default_itn_hour: 17
+    temporal_directories: input/defaults/surrogates/temporal/
+    temporal_loaders: CalvadTemporalLoader
+    calvad_dow: calvad_dow_factors_2012.csv
+    calvad_diurnal: calvad_diurnal_factors_2012.csv
+    spatial_directories: input/examples/onroad_emfac2014_santa_barbara/esta1_county_2012/
+    spatial_loaders: Itn4Loader
+    dtim_eic_labels: vmt trips
+    eic2dtim4: input/defaults/emfac2014/eic2dtim4.py
+    region_boxes: input/defaults/domains/county_boxes_ca_4km.py
+
+Where as in the `default_onroad_ca_4km_surrogates.ini` file you will find it looks something like:
+
+    temporal_directories: input/defaults/surrogates/temporal/
+    temporal_loaders: CalvadTemporalLoader
+    calvad_dow: calvad_dow_factors_2012.csv
+    calvad_diurnal: calvad_diurnal_factors_2012.csv
+    spatial_directories: input/examples/onroad_emfac2014_santa_barbara/esta1_county_2012/
+                         input/defaults/surrogates/spatial/ca/4km/county/
+    spatial_loaders: Itn4Loader Smoke4SpatialSurrogateLoader
+    dtim_eic_labels: vmt
+    smoke4_surrogates: ON_ROAD_CA_100_4km_2010.txt
+                       ON_ROAD_CA_110_4km_2013.txt
+                       ON_ROAD_CA_133_4km_2012.txt
+                       ON_ROAD_CA_139_4km_2012.txt
+    smoke_eic_labels: linehaul
+                      pop
+                      30idle_70dist
+                      90idle_10dist
+    eic2dtim4: input/defaults/surrogates/spatial/ca/4km/county/eic2dtim4.py
+    region_boxes: input/defaults/domains/county_boxes_ca_4km.py
+
+The difference between these two default runs is that the `default_onroad_ca_4km.ini` config file defines a run where all spatial allocation comes from DTIM4-ready road network files, and the `default_onroad_ca_4km_surrogates.ini` file defines a run which also uses SMOKE-ready spatial surrogates for some EICs.
 
 The `spatial_loaders` variable is a space-separated list of class names used to generate spatial surrogates. Likewise, `temporal_loaders` is a list of class names to generate spatial surrogates.  The `spatial_directories` and `temporal_directories` are where the input information for these classes is found. The length of the `spatial_loaders` list and the length of the `spatial_directories` must be the same, and likewise for the temporal surrogates.
 
 The remaining four variables in the default config files are specific to on-road processing with EMFAC. The `calvad_dow` file is a simple CSV relating the total emissions for different vehicle classes and counties by day-of-week, relative to the typical weekday emissions output by EMFAC. The `calvad_diurnal` is a similar file for the diurnal patterns of various vehicle classes. Both of these files were taken from the CALVAD vehicle activity database.
 
-The `county_boxes` file is a simply Python dictionary expressing the bounding boxes of each California county, in the reference of the current modeling grid. This information is used to speed up the calculation of which grid cells are intersected by each road link.
+The `region_boxes` file is a simply Python dictionary expressing the bounding boxes of each county or GAI, in the reference of the current modeling grid. This information is used to speed up the calculation of which grid cells are intersected by each road link.
 
-Finally, the `default_itn_hour` is a relic variable, used to identify which hour of the DTIM4-formatted ITN Road Network files to use as the reference. This variable will be removed once the ITN version 2 files are released.
+The `eic2dtim4` variable is used to assign each EIC in the raw emissions to one of the 26 vehicle DTIM classes, for spatial distribution. Each EIC is also mapped to a "label" which describes which spatial surrogate is relevant.
+
+Finally, when `Smoke4SpatialSurrogateLoader` is given as a class for the `spatial_loaders` option, a list of SMOKE-ready spatial surrogates, `smoke4_surrogates`, needs to be provided along with the `eic2dtim4` label to map EICs to each of these surrogates.
 
 #### Emissions
 
@@ -141,24 +177,28 @@ In the case of the default config files, there are two types of EMFAC2014 input 
 The scaling section defines the classes used to scale the raw inventories using the calculated spatial and temporal surrogates.
 
     scalor: Dtim4Emfac2014Scaler
-    eic2dtim4: input/defaults/emfac2014/eic2dtim4.py
+gai_codes: input/defaults/california/gai_codes.py
     nh3_inventory: input/defaults/emfac2014/nh3/rf2082_b_2012_20160212_onroadnh3.csv
 
 The `scalor` class listed is the heart of your ESTA run, performing an arbitrary amount of math to apply the surrgates to your emissions.
 
-In the default config files, the `eic2dtim4` variable is used to assign each EIC in the raw emissions to one of the 26 vehicle DTIM classes, for spatial distribution. The `nh3_inventory` is a file that lists the CO and NH3 emissions for a number of vehicle classes and processes, by California county. This is used to generate NH3 emissions by EIC from the EMFAC CO emissions, since EMFAC2014 does not calculate NH3 directly.
+The `gai_codes` option maps one of the long SMOKE v4 region strings to a simple numerical region. For instance, it maps the long string 'GBV006002GBU' to the GAI code 1.
+
+In the default config files,tThe `nh3_inventory` is a file that lists the CO and NH3 emissions for a number of vehicle classes and processes, by California county. This is used to generate NH3 emissions by EIC from the EMFAC CO emissions, since EMFAC2014 does not calculate NH3 directly.
 
 #### Output
 
 The output section defines how the final output files from ESTA are created.
 
-    directories: output/default_ca_4km_santa_barbara/
+    directories: output/default_onroad_ca_4km/
     writers: Pmeds1Writer
     time_units: hourly
-    by_region: False
+    by_region: True
+    combine_regions: False
     county_to_gai: input/defaults/california/county_to_gai.py
+    eic_precision: 3
     gai_basins: input/defaults/california/gai_basins.py
-    inventory_version: v0999
+    inventory_version: v0100
     multi_gai_coords: input/defaults/california/multi_gai_coords.py
 
 The primary variables in this section are: `writers` which lists the output-creating classes, and `directories` which lists where you want the output files. All the rest of the variables in the default config files are specific to the EMFAC on-road process.
@@ -166,6 +206,8 @@ The primary variables in this section are: `writers` which lists the output-crea
 The `time_units` variable defines that the final on-road results will be aggregated by hour or by day. The `by_region` variable can be set to `True` if you want each county to have it's own output file, or `False` if you want all counties in the same file. The `version_number` variable is just a string used to uniquely identify your model run.
 
 The remaining three variables list the paths to input Python files that associate California GAI codes to various other information. The `county_to_gai.py` file maps each county number to a list of the GAIs contained in that county. The `gai_basins.py` file is a simple dictionary mapping each GAI to the short string that represents which air basin that GAI is in. Finally, the `multi_gai_coords.py` file is a mapping for each grid cell that is split between more than one GAI and the fraction of area in each of those GAIs. 
+
+The `eic_precision` option is used to define how detailed you want your output emissions. For instance, the outputs can be written using full EIC-14 categories by setting this option to `14`. But if the outputs are written using only EIC-3 (`eic_precision: 3`), the output files might be 100 times shorter. It should be noted that this option does not affect the content of output files that are in NetCDF format.
 
 #### Testing
 
@@ -181,7 +223,7 @@ Defining which test classes are run is handled by the `tests` variable, and the 
 
 The miscellaneous section is just what is sounds like. In the case of the default config files, the miscellaneous section is used for input files that are shared between different processing steps.
 
-    county_names: input/defaults/california/county_names.py
+    region_names: input/defaults/california/county_names.py
     vtp2eic: input/defaults/emfac2014/vtp2eic.py
 
 The `county_names.py` file is a simple dictionary mapping a California county integer to the count name. The `vtp2eic.py` is another dictionary mapping a tuple `(vehicle type, technology, process)` to a 14-digit EIC number.
