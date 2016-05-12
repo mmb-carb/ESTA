@@ -26,7 +26,6 @@ There are a few features of the config files to note:
 
 * **Section headers** are defined inside square brackets `[Dates]`.
 * **Config variables** must be on their own line, following a section header line. And the value of the config variable comes after a colon and a space.
-* **Variables have string values.** Whatever follows the colon is the string value of the variable. If you want an integer, you will have to convert from strint to integer in the code later.
  * **Lists are spaced-separated.** You could certainly do this another way, but in ESTA, we separate list items with spaces.
 * **Comments** are lines where the first character is the pound/hashtag symbol (`#`). This is a reduced case of the Python comment notation, where you can have just part of a line be a comment.
 
@@ -79,7 +78,7 @@ All of the provided default config files are set up for the same Wednesday in th
 
 #### Regions
 
-The purpose of this section in the config areas is to allow users to define which counties, states, or other regions they are splitting their work into.
+The purpose of this config section is to allow users to define which counties, states, or other regions they are modeling.
 
 For instance, if you wanted to select all 58 counties in California, you might do:
 
@@ -205,7 +204,7 @@ The primary variables in this section are: `writers` which lists the output-crea
 
 The `time_units` variable defines that the final on-road results will be aggregated by hour or by day. The `by_region` variable can be set to `True` if you want each county to have it's own output file, or `False` if you want all counties in the same file. The `version_number` variable is just a string used to uniquely identify your model run.
 
-The remaining three variables list the paths to input Python files that associate California GAI codes to various other information. The `county_to_gai.py` file maps each county number to a list of the GAIs contained in that county. The `gai_basins.py` file is a simple dictionary mapping each GAI to the short string that represents which air basin that GAI is in. Finally, the `multi_gai_coords.py` file is a mapping for each grid cell that is split between more than one GAI and the fraction of area in each of those GAIs. 
+The remaining three variables list the paths to input Python files that associate California GAI codes to various other information. The `county_to_gai.py` file maps each county number to a list of the GAIs contained in that county. The `gai_basins.py` file is a simple dictionary mapping each GAI to the short string that represents which air basin that GAI is in. Finally, the `multi_gai_coords.py` file is a mapping for each grid cell that is split between more than one GAI and the fraction of area in each of those GAIs.
 
 The `eic_precision` option is used to define how detailed you want your output emissions. For instance, the outputs can be written using full EIC-14 categories by setting this option to `14`. But if the outputs are written using only EIC-3 (`eic_precision: 3`), the output files might be 100 times shorter. It should be noted that this option does not affect the content of output files that are in NetCDF format.
 
@@ -213,7 +212,7 @@ The `eic_precision` option is used to define how detailed you want your output e
 
 The testing section exists to allow for automated QA/QC of the output ESTA results. If these fields are left blank, no tests will be run.
 
-    testing_directory: output/default_ca_4km_santa_barbara/qa/
+    testing_directory: output/default_onroad_ca_4km/qa/
     tests: Emfac2014TotalsTester
     dates: 2012-07-18
 

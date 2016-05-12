@@ -150,7 +150,7 @@ In the section above on ESTA's native data structures, the classes `SparceEmissi
 
 The [KD Trees Algorithm][KDTrees] is fundamental in the performance of the on-road and aircraft emissions modeling in ESTA. The KD Trees algorithm is a space-partitioning data structure that is used in ESTA to dramatically improve the speed of locating lat/lon coordinates on the modeling grid.
 
-The problem that needs to be solved (as quickly and accurately as possible) is this: given a lat/lon pair, determine which grid cell it is inside on the modeling domain. The problem is that the modeling grid can be arbitarily large, and searching through every grid cell is prohibitively slow. And the problem is further complicated by the fact that the modeling grid can be in any arbitrary projection. 
+The problem that needs to be solved (as quickly and accurately as possible) is this: given a lat/lon pair, determine which grid cell it is inside on the modeling domain. The problem is that the modeling grid can be arbitarily large, and searching through every grid cell is prohibitively slow. And the problem is further complicated by the fact that the modeling grid can be in any arbitrary projection.
 
 You can find an example of the usage of KD Trees in `src.surrogates.dtim4loader`. To further help speed up the grid cell identification, a sub-grid is isolated for each region (in this case county) on the grid and a KD Tree is created for that region:
 
@@ -201,7 +201,7 @@ The end result of this technology is that these two methods were found to be a c
 
 ESTA is designed to be easily expanded by developers. The modular design means that changing the function of ESTA doesn't require touching the whole code base. Whether you want to read a different type of emissions file, add a special kind of spatial surrogate, or write a new type of output file, you should be able to do that buy writing a single class and dropping it into a `src` module.
 
-A common problem for scientists and engineers is that they spend more time wrangling the files that go into or come out of a model than they do analyzing their data. The goal of ESTA is to define a clean modeling framework so that only a single class needs to be read and your files will be handled. The goal of software should always be to help people get things done, not to be a drain on their time. For that reason, ESTA is 100% configurable and makes no demands on the structure of your input/output files or on the data structures you pass around.
+A common problem for scientists and engineers is that they spend more time wrangling files than analyzing their data. In ESTA, you can write a single class to read or write any file type. And once this class is placed correctly into ESTA, you never need to worry about file wrangling again. The goal of software should always be to help people get things done, not to be a drain on their time. For that reason, ESTA is 100% configurable and makes no demands on the structure of your input/output files or on the data structures you pass around.
 
 ## Implementing Your Own Step
 
@@ -270,7 +270,7 @@ To recap the above process:
 
 ## Defining a New Domain
 
-It is fairly simple to implement a new modeling domain in ESTA for both on-road and aircraft emissions gridding. They both depend on finding (or creating) a CMAQ-ready `GRIDCRO2D` file. This is a CMAQ-standard file, with a long history, that defines the lat/lon bounding boxes of each grid cell in a modeling domain. The decision was made to use these files as the best way to define the grid because:
+It is fairly simple to implement a new modeling domain in ESTA. It all depends on finding (or creating) a CMAQ-ready `GRIDCRO2D` file. This is a CMAQ-standard file, with a long history, that defines the lat/lon bounding boxes of each grid cell in a modeling domain. The decision was made to use these files as the best way to define the grid because:
 
 1. It is a well-established file format.
 2. People who need gridded emissions inventories will frequently already have this file for their domain.
