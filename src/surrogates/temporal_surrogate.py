@@ -12,9 +12,7 @@ class TemporalSurrogate(array):
         return array.__new__(cls, 'f', [0.0]*24)
 
     def surrogate(self):
-        """ A simple helper method to return a version of this object
-            where all the values sum to 1.0.
-        """
+        """ Return a version of this object where all the values sum to 1.0. """
         t = TemporalSurrogate()
 
         total = sum(array.__iter__(self))
@@ -25,4 +23,3 @@ class TemporalSurrogate(array):
 
     def __repr__(self):
         return array.__repr__(self).replace('array', self.__class__.__name__, 1)
-

@@ -46,5 +46,5 @@ class SpatialSurrogate(defaultdict):
         return s
 
     def __repr__(self):
-        return defaultdict.__repr__(self).replace('defaultdict', self.__class__.__name__, 1)
+        return self.__class__.__name__ + '(' + str(dict(self))[1: -1] + ')'
 

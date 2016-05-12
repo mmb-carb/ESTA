@@ -36,3 +36,6 @@ class ScaledEmissions(object):
             self.data[region][date][hr][eic] = grid
         else:
             self.data[region][date][hr][eic].add_grid(grid)
+
+    def __repr__(self):
+        return self.__class__.__name__ + '(' + dict.__repr__(self.data)[1: -1] + ')'

@@ -43,7 +43,7 @@ class EmissionsTable(defaultdict):
                 e[eic][poll] = value
 
         return e
-    
-    def __repr__(self):
-        return defaultdict.__repr__(self).replace('defaultdict', self.__class__.__name__, 1)
 
+    def __repr__(self):
+        return self.__class__.__name__ + '(' + \
+            str(dict((k, dict(v)) for k,v in self.iteritems()))[1: -1] + ')'

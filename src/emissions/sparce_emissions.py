@@ -54,5 +54,5 @@ class SparceEmissions(defaultdict):
 
     def __repr__(self):
         """ standard Python helper to allower for str(x) and print(x) """
-        return defaultdict.__repr__(self).replace('defaultdict', self.__class__.__name__, 1)
-
+        return self.__class__.__name__ + '(' + \
+            str(dict((k, dict(v)) for k, v in self.iteritems()))[1: -1] + ')'
