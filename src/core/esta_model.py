@@ -16,9 +16,7 @@ class EstaModel(object):
         self.emissions = None
 
     def process(self):
-        ''' build the spatial and temporal surrogates and apply them to
-            the emissions
-        '''
+        ''' build the spatial and temporal surrogates and apply them to the emissions '''
         print('\nExecuting ESTA model v' + __version__)
         # reset all data
         self.spatial_surrs = None
@@ -48,5 +46,6 @@ class EstaModel(object):
         ''' run all listed tests '''
         if self.testers:
             print('  - testing output files')
+
         for tester in self.testers:
             tester.test()

@@ -22,7 +22,7 @@ class EstaModelBuilder(object):
                          testers)
 
     def build_surrogate_loaders(self):
-        ''' The spatial and temporal surrogates are built from '''
+        ''' the classes used to load spatial and temporal surrogates '''
         # read config file options
         spatial_directories = self.config['Surrogates']['spatial_directories'].split()
         spatial_loader_strs = self.config['Surrogates']['spatial_loaders'].split()
@@ -72,7 +72,7 @@ class EstaModelBuilder(object):
         return spatial_loaders, temporal_loaders
 
     def build_emissions_loaders(self):
-        """ The classes used to load your various emissions files """
+        ''' the classes used to load emissions files '''
         directories = self.config['Emissions']['emissions_directories'].split()
         loader_strs = self.config['Emissions']['emissions_loaders'].split()
         time_units = self.config['Emissions']['time_units'].split()
@@ -95,7 +95,7 @@ class EstaModelBuilder(object):
         return loaders
 
     def build_emissions_scaler(self):
-        """ Load the single class used to scale emissions into gridded, hourly results """
+        ''' Load the single class used to scale emissions into gridded, hourly results '''
         # build the scaler object
         scaler_name = self.config['Scaling']['scalor']
         try:
@@ -108,7 +108,7 @@ class EstaModelBuilder(object):
         return scaler
 
     def build_output_writers(self):
-        """ The classes used to load your various emissions files """
+        ''' The classes used to load your various emissions files '''
         directories = self.config['Output']['directories'].split()
         writer_strs = self.config['Output']['writers'].split()
         time_units = self.config['Output']['time_units'].split()
@@ -131,7 +131,7 @@ class EstaModelBuilder(object):
         return loaders
 
     def build_output_testers(self):
-        """ The classes used to test your various output files """
+        ''' The classes used to test your various output files '''
         tester_strs = self.config['Testing']['tests'].split()
 
         # build list of output tester objects
