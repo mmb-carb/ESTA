@@ -14,9 +14,9 @@ For more information about how to use ESTA, please see:
 
 * [The User's Guide](docs/USERS_GUIDE.md)
 
-For more information about how to install ESTA, please see:
+ESTA does not require any installation, per se, but you will need to have the correct python libraries installed:
 
-* [The Installation Guide](docs/INSTALL.md)
+* [The Requirements List](requirements.txt)
 
 If you are a developer, looking to understand or improve ESTA, please see:
 
