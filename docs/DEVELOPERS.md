@@ -120,11 +120,11 @@ ESTA comes with several helpful data structures specifically designed for the em
  * from src.emissions.emissions_table import EmissionsTable
   * A subclass of Python's `collections.defaultdict`
   * Two levels of keys: EIC and pollutant
-  * final value is emissions
+  * final value is emissions (a float)
  * from src.emissions.sparce_emissions import SparceEmissions
   * A subclass of Python's `collections.defaultdict`
   * Two levels of keys: grid cell tuple and pollutant
-  * Final value is Emissions
+  * final value is emissions (a float)
  * from src.emissions.scaled_emissions import ScaledEmissions
   * simple multi-level dictionary container
   * the keys are, in order: region, date, hr, eic
@@ -150,7 +150,7 @@ In the section above on ESTA's native data structures, the classes `SparceEmissi
 
 #### KD Trees
 
-The [KD Trees Algorithm][KDTrees] is fundamental in the performance of the on-road and aircraft emissions modeling in ESTA. The KD Trees algorithm is a space-partitioning data structure that is used in ESTA to dramatically improve the speed of locating lat/lon coordinates on the modeling grid.
+The [KD Trees Algorithm][KDTrees] is fundamental in the performance of the on-road and aircraft emissions modeling in ESTA. The KD Trees algorithm is a space-partitioning algorithm that is used in ESTA to dramatically improve the speed of locating lat/lon coordinates on the modeling grid.
 
 The problem that needs to be solved (as quickly and accurately as possible) is this: given a lat/lon pair, determine which grid cell it is inside on the modeling domain. The problem is that the modeling grid can be arbitarily large, and searching through every grid cell is prohibitively slow. And the problem is further complicated by the fact that the modeling grid can be in any arbitrary projection.
 
