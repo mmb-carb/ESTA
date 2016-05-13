@@ -8,7 +8,7 @@ Modularity is a primary design goal for ESTA. Applying spatial surrogates and gr
 
 The term modularity here is used to describe a model whose operation can be changed greatly by the non-programming end-user through a simple config file. The process of gridding an inventory is broken into six steps, each of which is defined by a piece of code that is independent and replacable. In this way, the end-user can simply ask for different choices for each step, and gain great power over their ESTA model run.
 
-ESTA needs to be able to run easily from the command line in Linux. Though would be beneficial if it ran under the Mac OS and Windows as well. ESTA was also developed for Python 2.7, though it should not be hard to support Python 2.6 and 3.x as well. This would be ideal.
+ESTA needs to be able to run easily from the command line in Linux. It should also run under Windows and the Mac OS, though these are not tested as often. ESTA was also developed for Python 2.7.x, though it should also support Python 2.6.x.
 
 ## Architecture and Code Structure
 
@@ -233,7 +233,7 @@ Following the example of several other classes in ESTA, you can add a list of re
             super(RushHour, self).__init__(config, directory)
             self.regions = self.config.parse_regions('Regions', 'regions')
 
-Note that `parse_regions` is a custome ESTA method built into the `CustomParser` class in `src.core.custom_parser.py`. Also note that if the config file has a list of regions defined like `1..58`, this will generate a list of counties from 1 to 58, inclusive. Otherwise, it is just a space-separated list.
+Note that `parse_regions` is a custom method built into the `CustomParser` class in `src.core.custom_parser.py`. This method also allows for a region list like `1..58` to generate a list of numbers from 1 to 58, inclusive. Otherwise, it is just a space-separated list.
 
 All that is left is do the actual work of creating the temporal surrogates.
 

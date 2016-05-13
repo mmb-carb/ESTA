@@ -1,5 +1,4 @@
 
-from collections import defaultdict
 from netCDF4 import Dataset
 import os
 from pandas.tseries.holiday import USFederalHolidayCalendar
@@ -11,7 +10,6 @@ from numpy import cos, sin
 from scipy.spatial import cKDTree
 from src.core.spatial_loader import SpatialLoader
 from spatial_surrogate import SpatialSurrogate
-from temporal_surrogate import TemporalSurrogate
 
 
 class Dtim4Loader(SpatialLoader):
@@ -63,13 +61,11 @@ class Dtim4Loader(SpatialLoader):
                 sys.exit('Link file does not exist: ' + link_file)
                 continue
             link_spatial_surrs, nodes = self._read_link_file(link_file, region)
-            link_temporal_surrs = Dtim4Loader.spatial_dict_to_temporal(link_spatial_surrs)
 
             # read TAZ file (TAZ file needs node definitions from link file)
             if not os.path.exists(taz_file):
                 sys.exit('TAZ file does not exist: ' + taz_file)
             taz_spatial_surrs = self._read_taz_file(taz_file, nodes)
-            taz_temporal_surrs = Dtim4Loader.spatial_dict_to_temporal(taz_spatial_surrs)
 
             # add surrogate data to the correct regions
             spatial_surrogates.add_file(region, link_spatial_surrs)
@@ -79,16 +75,6 @@ class Dtim4Loader(SpatialLoader):
         spatial_surrogates.surrogates()
 
         return spatial_surrogates, temporal_surrogates
-
-    @staticmethod
-    def spatial_dict_to_temporal(spatial_dict):
-        """ convert a dictionary of spatial surrogtes to a dictionary of temporal surrogates """
-        t = {}
-        for veh, veh_data in spatial_dict.iteritems():
-            t[veh] = {}
-            for act, surr in veh_data.iteritems():
-                t[veh][act] = sum(surr.values())
-        return t
 
     def _read_link_file(self, file_path, area):
         """ Read the ITN activity data from a single Link file

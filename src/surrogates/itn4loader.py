@@ -1,16 +1,8 @@
 
-from collections import defaultdict
-from netCDF4 import Dataset
 import os
 import sys
-import numpy as np
-from math import pi
-from numpy import cos, sin
-from scipy.spatial import cKDTree
-from src.core.spatial_loader import SpatialLoader
 from dtim4loader import Dtim4Loader, SpatialSurrogateData
 from spatial_surrogate import SpatialSurrogate
-from temporal_surrogate import TemporalSurrogate
 
 
 class Itn4Loader(Dtim4Loader):

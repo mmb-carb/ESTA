@@ -1,7 +1,5 @@
 
 from datetime import datetime as dt
-from glob import glob
-import gzip
 import os
 from netCDF4 import Dataset
 import numpy as np

@@ -1,6 +1,5 @@
 
 import os
-from dtim4loader import Dtim4Loader
 from src.core.temporal_loader import TemporalLoader
 
 

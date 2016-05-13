@@ -34,14 +34,14 @@ class CustomParser(ConfigParser):
         try:
             return eval(self.data[key][value])
         except:
-            sys.exit('Exception parsing Python code for section/option: %s/%s' % (section, option))
+            sys.exit('Exception parsing Python code for section/option: %s/%s' % (key, value))
 
     def eval_file(self, key, value):
         ''' Read in a Python file and return the evaluated contents. '''
         try:
             return eval(open(self.data[key][value], 'r').read())
         except:
-            sys.exit('Exception parsing Python file for section/option: %s/%s' % (section, option))
+            sys.exit('Exception parsing Python file for section/option: %s/%s' % (key, value))
 
     def getlist(self, section, option, typ=str, sep=r'\s+'):
         ''' Read in a config value as a list.

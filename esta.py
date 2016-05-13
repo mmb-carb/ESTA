@@ -4,7 +4,6 @@ import os
 import sys
 from src.core.custom_parser import CustomParser
 from src.core.esta_model_builder import EstaModelBuilder
-from src.core.esta_model import EstaModel
 
 
 def main():
@@ -30,18 +29,18 @@ def main():
 
 
 def esta_preprocess(config_dict):
-    '''Pre-process ESTA Model'''
+    ''' build ESTA model chain, based on config file '''
     builder = EstaModelBuilder(config_dict)
     return builder.build()
 
 
 def esta_process(config_dict, model):
-    '''Process ESTA Model'''
+    ''' Run the ESTA Model '''
     model.process()
 
 
 def esta_postprocess(config_dict, model):
-    '''Perform various post-processing steps, if necessary'''
+    ''' Perform various post-processing or QA steps, if necessary '''
     model.postprocess()
 
 

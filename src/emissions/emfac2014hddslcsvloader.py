@@ -1,5 +1,4 @@
 
-from collections import defaultdict
 import gzip
 import os
 import sys

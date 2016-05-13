@@ -7,7 +7,6 @@ import os
 import shutil
 from src.core.output_tester import OutputTester
 from src.core.eic_utils import eic_reduce
-from src.core.spatial_loader import SpatialLoader
 
 
 class Emfac2014TotalsTester(OutputTester):
