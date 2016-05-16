@@ -1,7 +1,6 @@
 
 from netCDF4 import Dataset
 import os
-from pandas.tseries.holiday import USFederalHolidayCalendar
 from pyproj import Proj
 import sys
 import numpy as np
@@ -18,7 +17,6 @@ class Dtim4Loader(SpatialLoader):
     """
 
     DEFAULT_ITN_HOUR = 17
-    DOW = {0: 'mon', 1: 'tuth', 2: 'tuth', 3: 'tuth', 4: 'fri', 5: 'sat', 6: 'sun', -1: 'holi'}
     MAX_STEPS = 12
     RAD_FACTOR = pi / 180.0  # need angles in radians
 
