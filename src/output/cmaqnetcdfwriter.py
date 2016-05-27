@@ -1,5 +1,6 @@
 
 from datetime import datetime as dt
+import gc
 import os
 from netCDF4 import Dataset
 import numpy as np
@@ -155,6 +156,7 @@ class CmaqNetcdfWriter(OutputWriter):
                 pos += 1
 
         rootgrp.close()
+        grid = {}
 
     def _create_netcdf(self, out_path, date, jdate):
         ''' Creates a blank CMAQ-ready NetCDF file, including all the important
@@ -265,8 +267,8 @@ class CmaqNetcdfWriter(OutputWriter):
             File Format: eic,profile,group
             0,CO,CO
             0,NH3,NH3
-            0,SOX,SOX
-            0,DEFNOX,NOX
+            0,SOx,SOX
+            0,DEFNOx,NOX
             0,900,PM
         '''
         self.gsref = {}
@@ -277,9 +279,7 @@ class CmaqNetcdfWriter(OutputWriter):
             if len(ln) != 3:
                 continue
             eic = int(ln[0])
-            if eic <= 0:
-                continue
-            profile = ln[1]
+            profile = ln[1].upper()
             group = ln[2].upper()
             if eic not in self.gsref:
                 self.gsref[eic] = {}
@@ -310,9 +310,9 @@ class CmaqNetcdfWriter(OutputWriter):
             columns = line.rstrip().split()
             if not columns:
                 continue
-            species = columns[0]
+            species = columns[0].upper()
             weight = float(columns[1])
-            group = columns[2]
+            group = columns[2].upper()
 
             # file output dict
             if group not in self.groups:
@@ -344,7 +344,7 @@ class CmaqNetcdfWriter(OutputWriter):
         for line in f.xreadlines():
             # parse line
             ln = line.rstrip().split(',')
-            profile = ln[0]
+            profile = ln[0].upper()
             group = ln[1].upper()
             if group not in self.groups:
                 sys.exit('ERROR: Group ' + group + ' not found in molecular weights file.')
