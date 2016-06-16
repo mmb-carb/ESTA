@@ -233,16 +233,28 @@ class CmaqNetcdfWriter(OutputWriter):
             Fill the emissions values in each grid cell, for each polluant.
             Create a separate grid set for each date.
         '''
+        species = {}  # for pre-speciated emissions
         grid = {}
         for group in self.groups:
             num_specs = len(np.atleast_1d(self.groups[group]['species']))
             grid[group] = np.zeros((num_specs, 25, self.nrows, self.ncols), dtype=np.float32)
+            for i in xrange(num_specs):
+                species[self.groups[group]['species'][i]] = {'group': group, 'index': i}
 
         # loop through the different levels of the scaled emissions dictionary
         for region_data in scaled_emissions.data.itervalues():
             day_data = region_data.get(date, {})
             for hr, hr_data in day_data.iteritems():
                 for eic, sparce_emis in hr_data.iteritems():
+                    # This is only for pre-speciated cases
+                    if eic == -999:
+                        for (row, col), cell_data in sparce_emis.iteritems():
+                            for poll, value in cell_data.iteritems():
+                                grp = species[poll]['group']
+                                ind = species[poll]['index']
+                                grid[grp][ind,hr,row,col] += value
+                        continue
+                    # This is for the usual un-speciated case
                     for (row, col), cell_data in sparce_emis.iteritems():
                         for poll, value in cell_data.iteritems():
                             if poll in ['co', 'nh3']:
