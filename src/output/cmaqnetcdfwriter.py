@@ -257,16 +257,16 @@ class CmaqNetcdfWriter(OutputWriter):
                     # This is for the usual un-speciated case
                     for (row, col), cell_data in sparce_emis.iteritems():
                         for poll, value in cell_data.iteritems():
-                            if poll in ['co', 'nh3']:
-                                grid[poll.upper()][0,hr,row,col] += value
+                            if poll == 'tog':
+                                grid['TOG'][:,hr,row,col] += value * self.gspro[self.gsref[int(eic)]['TOG']]['TOG']
+                            elif poll == 'pm':
+                                grid['PM'][:,hr,row,col] += value * self.gspro[self.gsref[int(eic)]['PM']]['PM']
                             elif poll == 'nox':
                                 grid['NOX'][:,hr,row,col] += value * self.gspro['DEFNOX']['NOX']
                             elif poll == 'sox':
                                 grid['SOX'][:,hr,row,col] += value * self.gspro['SOX']['SOX']
-                            elif poll == 'tog':
-                                grid['TOG'][:,hr,row,col] += value * self.gspro[self.gsref[int(eic)]['TOG']]['TOG']
-                            elif poll == 'pm':
-                                grid['PM'][:,hr,row,col] += value * self.gspro[self.gsref[int(eic)]['PM']]['PM']
+                            else:
+                                grid[poll.upper()][0,hr,row,col] += value
 
         # setup diurnal boundary condition
         for group in grid:

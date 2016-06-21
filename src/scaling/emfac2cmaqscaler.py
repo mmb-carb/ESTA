@@ -150,9 +150,18 @@ class Emfac2CmaqScaler(EmissionsScaler):
             EmissionsTable[EIC][pollutant] = value
             factors = [ld, lm, hh, sbus]
         """
+        zeros = []
+        # scale emissions table for diurnal factors
         for eic in emissions_table:
             factor = factors[self.CALVAD_TYPE[self.eic2dtim4[eic][0]]]
-            emissions_table[eic].update((x, y * factor) for x, y in emissions_table[eic].items())
+            if factor == 0.0:
+                zeros.append(eic)
+            else:
+                emissions_table[eic].update((x, y * factor) for x, y in emissions_table[eic].items())
+
+        # remove zero-emissions EICs
+        for eic in zeros:
+            del emissions_table[eic]
 
         return emissions_table
 
@@ -166,44 +175,38 @@ class Emfac2CmaqScaler(EmissionsScaler):
             output: {EIC: SparceEmissions[(grid, cell)][pollutant] = value}
         """
         se = SparceEmissions()
+
+        # grid emissions, by EIC
         for eic in emis_table:
             veh, act = self.eic2dtim4[eic]
+
+            # speciate by pollutant, while gridding
             for poll, value in emis_table[eic].iteritems():
                 POLL = poll.upper()
-                if act not in spatial_surrs[veh]:
-                    continue
-                for cell, fraction in spatial_surrs[veh][act].iteritems():
-                    new_val = value * fraction
-                    # add speciated emissions to each grid cell
-                    if POLL == 'CO':
-                        se[cell][POLL] += new_val
-                    elif POLL == 'NOX':
-                        nox_groups = self.groups['NOX']['species']
-                        for index in xrange(len(nox_groups)):
-                            species = nox_groups[index]
-                            se[cell][species] += new_val * self.gspro['DEFNOX']['NOX'][index]
-                    elif POLL == 'SOX':
-                        sox_groups = self.groups['SOX']['species']
-                        for index in xrange(len(sox_groups)):
-                            species = sox_groups[index]
-                            se[cell][species] += new_val * self.gspro['SOX']['SOX'][index]
-                    elif POLL == 'TOG':
-                        tog_groups = self.groups['TOG']['species']
-                        for index in xrange(len(tog_groups)):
-                            species = tog_groups[index]
-                            se[cell][species] += new_val * self.gspro[self.gsref[int(eic)]['TOG']]['TOG'][index]
-                    elif POLL == 'PM':
-                        pm_groups = self.groups['PM']['species']
-                        for index in xrange(len(pm_groups)):
-                            species = pm_groups[index]
-                            se[cell][species] += new_val * self.gspro[self.gsref[int(eic)]['PM']]['PM'][index]
+                if POLL == 'PM':
+                    label = self.gsref[int(eic)]['PM']
+                elif POLL == 'TOG':
+                    label = self.gsref[int(eic)]['TOG']
+                elif POLL == 'NOX':
+                    label = 'DEFNOX'
+                else:
+                    label = POLL
 
-            # Add NH3, based on CO fractions
+                gspro_label = self.gspro[label][POLL]
+                groups = self.groups[POLL]['species']
+
+                # loop through each grid cell
+                for index,species in enumerate(groups):
+                    speciated_value = value * gspro_label[index]
+                    for cell, cell_fraction in spatial_surrs[veh][act].iteritems():
+                        se[cell][species] += speciated_value * cell_fraction
+
+            # add NH3, based on NH3/CO fractions
             nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0.0)
             if 'co' in emis_table[eic] and nh3_fraction:
-                value = emis_table[eic]['co']
-                for cell, fraction in spatial_surrs[veh][act].iteritems():
-                    se[cell]['NH3'] += value * fraction * nh3_fraction
+                nh3_value = emis_table[eic]['co'] * nh3_fraction
+                for cell, cell_fraction in spatial_surrs[veh][act].iteritems():
+                    se[cell]['NH3'] += nh3_value * cell_fraction
 
         return se
 
