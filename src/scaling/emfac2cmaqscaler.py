@@ -274,15 +274,12 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
             # file output dict
             if group not in self.groups:
-                units = columns[3]
-                self.groups[group] = {'species': [], 'weights': [], 'units': units}
+                self.groups[group] = {'species': []}
             self.groups[group]['species'].append(species)
-            self.groups[group]['weights'].append(weight)
 
         # convert weight list to numpy.array
         for grp in self.groups:
             self.groups[grp]['species'] = np.array(self.groups[grp]['species'], dtype=np.dtype('a8'))
-            self.groups[grp]['weights'] = np.array(self.groups[grp]['weights'], dtype=np.float32)
 
         # calculate the number of species total
         self.num_species = 0

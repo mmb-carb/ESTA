@@ -12,7 +12,7 @@ from src.core.eic_utils import eic_reduce
 class Emfac2014TotalsTester(OutputTester):
 
     KG_2_STONS = 0.001102310995
-    MOLSEC2STH = 0.003968316  # KG_2_STONS * 3600.0 / 1000.0
+    MOLESEC2KG = 3600.0 * KG_2_STONS
     SUMMER_MONTHS = [4, 5, 6, 7, 8, 9]
     POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM']
 
@@ -134,7 +134,7 @@ class Emfac2014TotalsTester(OutputTester):
 
         # find diff between EMFAC and NetCDF & add to file
         for poll in emfac_totals:
-            emfac_value = emfac_totals[poll] * self.KG_2_STONS
+            emfac_value = emfac_totals[poll]
             if poll not in ncf_emis:
                 ncf_value = 0.0
                 if emfac_value == 0.0:
@@ -266,7 +266,7 @@ class Emfac2014TotalsTester(OutputTester):
         for species in sortedvar:
             if species == 'TFLAG':
                 continue
-            ems = ncf.variables[species][:24].sum() * self.MOLSEC2STH * self.groups[species]['weight']
+            ems = ncf.variables[species][:24].sum() * self.MOLESEC2KG * self.groups[species]['weight']
             group = self.groups[species]['group']
 
             if group == 'NOX':
@@ -307,7 +307,7 @@ class Emfac2014TotalsTester(OutputTester):
                 continue
             species = columns[0].upper()
             self.groups[species] = {}
-            self.groups[species]['weight'] = float(columns[1])
+            self.groups[species]['weight'] = float(columns[1]) / 1000.0
             self.groups[species]['group'] = columns[2].upper()
             self.groups[species]['units'] = columns[3]
 

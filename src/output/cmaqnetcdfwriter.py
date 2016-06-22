@@ -14,6 +14,8 @@ class CmaqNetcdfWriter(OutputWriter):
         NOTE: This class currently only supports 2D emissions.
     """
 
+    STONS_HR_2_G_SEC = 251.99583333333334
+
     def __init__(self, config, directory, time_units):
         super(CmaqNetcdfWriter, self).__init__(config, directory, time_units)
         self.nrows = int(self.config['GridInfo']['rows'])
@@ -152,7 +154,7 @@ class CmaqNetcdfWriter(OutputWriter):
             pos = 0
             while pos < self.groups[grp]['species'].size:
                 spec = self.groups[grp]['species'][pos]
-                rootgrp.variables[str(spec)][:,0,:,:] = grid[grp][pos,:,:,:] * 1000. / 3600. / self.groups[grp]['weights'][pos]
+                rootgrp.variables[str(spec)][:,0,:,:] = grid[grp][pos,:,:,:] * self.STONS_HR_2_G_SEC / self.groups[grp]['weights'][pos]
                 pos += 1
 
         rootgrp.close()
@@ -190,7 +192,6 @@ class CmaqNetcdfWriter(OutputWriter):
                 rootgrp.variables[species].units = self.groups[group]['units']
                 rootgrp.variables[species].var_desc = 'emissions'
                 varl += species.ljust(16)
-        rootgrp.setncattr('VAR-LIST', varl)  # use this command b/c of python not liking hyphen '-'
 
         # global attributes
         rootgrp.IOAPI_VERSION = self.header['IOAPI_VERSION']
@@ -225,6 +226,7 @@ class CmaqNetcdfWriter(OutputWriter):
         rootgrp.UPNAM = self.header['UPNAM']
         rootgrp.FILEDESC = self.header['FILEDESC']
         rootgrp.HISTORY = self.header['HISTORY']
+        rootgrp.setncattr('VAR-LIST', varl)     # use this command b/c of python not liking hyphen '-'
 
         return rootgrp
 
