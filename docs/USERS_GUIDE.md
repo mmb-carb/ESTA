@@ -191,7 +191,6 @@ The output section defines how the final output files from ESTA are created.
 
     directories: output/default_onroad_ca_4km/
     writers: Pmeds1Writer
-    time_units: hourly
     by_region: True
     combine_regions: False
     county_to_gai: input/defaults/california/county_to_gai.py
@@ -202,7 +201,7 @@ The output section defines how the final output files from ESTA are created.
 
 The primary variables in this section are: `writers` which lists the output-creating classes, and `directories` which lists where you want the output files. All the rest of the variables in the default config files are specific to the EMFAC on-road process.
 
-The `time_units` variable defines that the final on-road results will be aggregated by hour or by day. The `by_region` variable can be set to `True` if you want each county to have it's own output file, or `False` if you want all counties in the same file. The `version_number` variable is just a string used to uniquely identify your model run.
+The `by_region` variable can be set to `True` if you want each county to have it's own output file, or `False` if you want all counties in the same file. The `version_number` variable is just a string used to uniquely identify your model run.
 
 The remaining three variables list the paths to input Python files that associate California GAI codes to various other information. The `county_to_gai.py` file maps each county number to a list of the GAIs contained in that county. The `gai_basins.py` file is a simple dictionary mapping each GAI to the short string that represents which air basin that GAI is in. Finally, the `multi_gai_coords.py` file is a mapping for each grid cell that is split between more than one GAI and the fraction of area in each of those GAIs.
 
@@ -212,11 +211,10 @@ The `eic_precision` option is used to define how detailed you want your output e
 
 The testing section exists to allow for automated QA/QC of the output ESTA results. If these fields are left blank, no tests will be run.
 
-    testing_directory: output/default_onroad_ca_4km/qa/
     tests: Emfac2014TotalsTester
     dates: 2012-07-18
 
-Defining which test classes are run is handled by the `tests` variable, and the test results can be written to a directory defined in the `testing_directory` variable. The `dates` variable gives you the option of spot-checking just certain dates in your time range.
+Defining which test classes are run is handled by the `tests` variable, and the test results can be written to the output directory defined above. The `dates` variable gives you the option of spot-checking just certain dates in your time range.
 
 #### Misc
 

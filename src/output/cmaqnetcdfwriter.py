@@ -16,8 +16,8 @@ class CmaqNetcdfWriter(OutputWriter):
 
     STONS_HR_2_G_SEC = 251.99583333333334
 
-    def __init__(self, config, directory):
-        super(CmaqNetcdfWriter, self).__init__(config, directory)
+    def __init__(self, config):
+        super(CmaqNetcdfWriter, self).__init__(config)
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
         self.version = self.config['Output']['inventory_version']

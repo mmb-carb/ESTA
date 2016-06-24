@@ -109,12 +109,7 @@ class EstaModelBuilder(object):
 
     def build_output_writers(self):
         ''' The classes used to load your various emissions files '''
-        directories = self.config['Output']['directories'].split()
         writer_strs = self.config['Output']['writers'].split()
-
-        # validate that we have the same number of loaders and directories
-        if len(directories) != len(writer_strs):
-            sys.exit('ERROR: Different number of output writers and directories')
 
         # build list of output writer objects
         loaders = []
@@ -123,7 +118,7 @@ class EstaModelBuilder(object):
             try:
                 __import__('src.output.' + ow.lower())
                 mod = sys.modules['src.output.' + ow.lower()]
-                loaders.append(getattr(mod, ow)(self.config, directories[i]))
+                loaders.append(getattr(mod, ow)(self.config))
             except (NameError, KeyError) as e:
                 sys.exit('ERROR: Unable to find class: ' + ow + '\n' + str(e))
 

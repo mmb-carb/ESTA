@@ -24,7 +24,6 @@ class Emfac2014TotalsTester(OutputTester):
         self.region_names = self.config.eval_file('Misc', 'region_names')
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.emis_dirs = self.config.getlist('Emissions', 'emissions_directories')
-        self.out_dirs = self.config.getlist('Output', 'directories')
         self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
         self.gai_to_county = {g: c for c in self.county_to_gai for g in self.county_to_gai[c]}
         self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
@@ -315,18 +314,16 @@ class Emfac2014TotalsTester(OutputTester):
         ''' Find the output PMEDS file(s) for a given day. '''
         files = []
         if self.by_region and not self.combine:
-            for odir in self.out_dirs:
-                file_str = os.path.join(odir, '%02d' % dt.month, '%02d' % dt.day, '*.pmed*')
-                possibles = glob(file_str)
-                if possibles:
-                    files += possibles
+            file_str = os.path.join(self.out_dir, '%02d' % dt.month, '%02d' % dt.day, '*.pmed*')
+            possibles = glob(file_str)
+            if possibles:
+                files += possibles
         else:
             date_str = str(dt.month) + 'd' + '%02d' % dt.day
-            for odir in self.out_dirs:
-                file_str = os.path.join(odir, 'pmeds', '*' + date_str + '*.pmed*')
-                possibles = glob(file_str)
-                if possibles:
-                    files.append(possibles[0])
+            file_str = os.path.join(self.out_dir, 'pmeds', '*' + date_str + '*.pmed*')
+            possibles = glob(file_str)
+            if possibles:
+                files.append(possibles[0])
 
         return files
 
@@ -334,9 +331,8 @@ class Emfac2014TotalsTester(OutputTester):
         ''' Find the output NetCDF file(s) for a given day. '''
         files = []
         date_str = str(dt.year) + str(dt.month).zfill(2) + 'd' + str(dt.day)
-        for odir in self.out_dirs:
-            file_str = os.path.join(odir, 'ncf', '*' + date_str + '*')
-            files += glob(file_str)
+        file_str = os.path.join(self.out_dir, 'ncf', '*' + date_str + '*')
+        files += glob(file_str)
 
         return files
 

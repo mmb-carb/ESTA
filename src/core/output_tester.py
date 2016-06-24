@@ -1,5 +1,6 @@
 
 import abc
+import os
 from datetime import datetime as dt
 from datetime import timedelta
 
@@ -15,8 +16,8 @@ class OutputTester(object):
         self.base_year = int(self.config['Dates']['base_year'])
         self.dates = self.config['Testing']['dates'].split()
         self.regions = self.config.parse_regions('Regions', 'regions')
-        self.output_dirs = self.config.getlist('Output', 'directories')
-        self.testing_dir = self.config['Testing']['testing_directory']
+        self.out_dir = self.config['Output']['directory']
+        self.testing_dir = os.path.join(self.out_dir, 'qa')
 
     def _find_dates_in_range(self):
         ''' Find all the dates in the modeling range,
