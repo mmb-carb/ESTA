@@ -14,8 +14,8 @@ class Pmeds1Writer(OutputWriter):
     COLUMNS = {'co': 0, 'nox': 1, 'sox': 2, 'tog': 3, 'pm': 4, 'nh3': 5}
     STONS_2_KG = 907.185
 
-    def __init__(self, config, directory, time_units):
-        super(Pmeds1Writer, self).__init__(config, directory, time_units)
+    def __init__(self, config, directory):
+        super(Pmeds1Writer, self).__init__(config, directory)
         self.by_region = self.config.getboolean('Output', 'by_region')
         self.combine = self.config.getboolean('Output', 'combine_regions')
         self.version = self.config['Output']['inventory_version']
