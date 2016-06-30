@@ -123,7 +123,7 @@ class Emfac2014TotalsTester(OutputTester):
             if region not in emfac_emis:
                 continue
             region_data = emfac_emis[region]
-            for eic,eic_data in region_data.iteritems():
+            for eic_data in region_data.itervalues():
                 for poll, value in eic_data.iteritems():
                     if poll.upper() in emfac_totals:
                         emfac_totals[poll.upper()] += value

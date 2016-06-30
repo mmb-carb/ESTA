@@ -5,6 +5,7 @@ from datetime import datetime as dt
 from datetime import timedelta
 import numpy as np
 from pandas.tseries.holiday import USFederalHolidayCalendar
+import sys
 from src.core.emissions_scaler import EmissionsScaler
 from scaled_emissions import ScaledEmissions
 from src.core.eic_utils import eic_reduce
