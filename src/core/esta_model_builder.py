@@ -96,16 +96,7 @@ class EstaModelBuilder(object):
 
     def build_emissions_scaler(self):
         ''' Load the single class used to scale emissions into gridded, hourly results '''
-        # build the scaler object
-        scaler_name = self.config['Scaling']['scalor']
-        try:
-            __import__('src.scaling.' + scaler_name.lower())
-            mod = sys.modules['src.scaling.' + scaler_name.lower()]
-            scaler = getattr(mod, scaler_name)(self.config)
-        except (NameError, KeyError) as e:
-            sys.exit('ERROR: Unable to find class: ' + scaler_name + '\n' + str(e))
-
-        return scaler
+        return self._init_basic_class(self.config['Scaling']['scalor'], 'scaling')
 
     def build_output_writers(self):
         ''' The classes used to load your various emissions files '''
@@ -113,14 +104,8 @@ class EstaModelBuilder(object):
 
         # build list of output writer objects
         loaders = []
-        for i in xrange(len(writer_strs)):
-            ow = writer_strs[i]
-            try:
-                __import__('src.output.' + ow.lower())
-                mod = sys.modules['src.output.' + ow.lower()]
-                loaders.append(getattr(mod, ow)(self.config))
-            except (NameError, KeyError) as e:
-                sys.exit('ERROR: Unable to find class: ' + ow + '\n' + str(e))
+        for writer_string in writer_strs:
+            loaders.append(self._init_basic_class(writer_string, 'output'))
 
         return loaders
 
@@ -130,13 +115,19 @@ class EstaModelBuilder(object):
 
         # build list of output tester objects
         testers = []
-        for i in xrange(len(tester_strs)):
-            ot = tester_strs[i]
-            try:
-                __import__('src.testing.' + ot.lower())
-                mod = sys.modules['src.testing.' + ot.lower()]
-                testers.append(getattr(mod, ot)(self.config))
-            except (NameError, KeyError) as e:
-                sys.exit('ERROR: Unable to find class: ' + ot + '\n' + str(e))
+        for tester_string in tester_strs:
+            testers.append(self._init_basic_class(tester_string, 'testing'))
 
         return testers
+
+    def _init_basic_class(self, class_string, step_string):
+        ''' Find a class in a given step of the ESTA source code,
+            and initialize it.
+            (Only works for classes that only take the config object to initialize.)
+        '''
+        try:
+            __import__('src.' + step_string + '.' + class_string.lower())
+            mod = sys.modules['src.' + step_string + '.' + class_string.lower()]
+            return getattr(mod, class_string)(self.config)
+        except (NameError, KeyError) as e:
+            sys.exit('ERROR: Unable to find class: ' + class_string + '\n' + str(e))
