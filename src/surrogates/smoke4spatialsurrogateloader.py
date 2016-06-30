@@ -51,10 +51,10 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
     def _load_surrogates(self, file_path):
         ''' Load a SMOKE v4 spatial surrogate text file.
             Use it to create an ESTA spatial surrogate.
-            County-based File format:           GAI-based File format:
-            #GRID... header info                #GRID... header info
-            105;06030;238;44;0.00361888         440;0SC006030;237;45;0.00052883
-            105;06030;237;45;0.00476944         440;0SC006030;238;45;0.00443297
+            GAI-based File format:
+            #GRID... header info
+            440;0SC006030;237;45;0.00052883
+            440;0SC006030;238;45;0.00443297
         '''
         surrogates = {}
         f = open(file_path, 'r')
