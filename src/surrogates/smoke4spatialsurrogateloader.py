@@ -32,11 +32,8 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
 
         # loop through each SMOKE 4 surrogate file, and related list of EICs
         for i,surr_file_path in enumerate(self.smoke_surrogates):
-            # read list of EICs from file
-            eics = self._select_eics(self.eic_labels[i])
-
             # create list of veh/act pairs
-            veh_act_pairs = [self.eic2dtim4[eic] for eic in eics]
+            veh_act_pairs = self._create_veh_act_pairs(i)
 
             # read SMOKE v4 spatial surrogate
             surrogate_file_path = os.path.join(self.directory, surr_file_path)
@@ -82,9 +79,12 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
         f.close()
         return surrogates
 
-    def _select_eics(self, label):
-        ''' From the EIC-to-DTIM4 vehicle category mapping, extract just those EICs
-            that have the given label.
-            This is used to match spatial surrogates with a group of EICs.
-        '''
-        return sorted([eic for eic in self.eic2dtim4 if self.eic2dtim4[eic][1] == label])
+    def _create_veh_act_pairs(self, i):
+        ''' create list of veh/act pairs for a given set of EICs '''
+        # read list of EICs from file
+        label = self.eic_labels[i]
+
+        eics = sorted([eic for eic in self.eic2dtim4 if self.eic2dtim4[eic][1] == label])
+        veh_act_pairs = [self.eic2dtim4[eic] for eic in eics]
+
+        return veh_act_pairs
