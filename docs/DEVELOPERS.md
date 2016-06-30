@@ -157,16 +157,16 @@ The problem that needs to be solved (as quickly and accurately as possible) is t
 You can find an example of the usage of KD Trees in `src.surrogates.dtim4loader`. To further help speed up the grid cell identification, a sub-grid is isolated for each region (in this case county) on the grid and a KD Tree is created for that region:
 
     def _create_kdtrees(self):
-        """ Create a KD Tree for each county """
+        """ Create a KD Tree for each county / GAI / region """
         lat_vals = self.lat_dot[:] * self.rad_factor
         lon_vals = self.lon_dot[:] * self.rad_factor
 
-        for county in self.counties:
-            # find the grid cell bounding box for the county in question
-            lat_min, lat_max = self.county_boxes[county]['lat']
-            lon_min, lon_max = self.county_boxes[county]['lon']
+        for region in self.counties:
+            # find the grid cell bounding box for the region in question
+            lat_min, lat_max = self.region_boxes[region]['lat']
+            lon_min, lon_max = self.region_boxes[region]['lon']
 
-            # slice grid down to this county
+            # slice grid down to this region
             latvals = lat_vals[lat_min:lat_max, lon_min:lon_max]
             lonvals = lon_vals[lat_min:lat_max, lon_min:lon_max]
 
@@ -174,16 +174,16 @@ You can find an example of the usage of KD Trees in `src.surrogates.dtim4loader`
             clat,clon = cos(latvals),cos(lonvals)
             slat,slon = sin(latvals),sin(lonvals)
             triples = list(zip(np.ravel(clat*clon), np.ravel(clat*slon), np.ravel(slat)))
-            self.kdtrees[county] = cKDTree(triples)
+            self.kdtrees[region] = cKDTree(triples)
 
-This only works because we happen to know the county the lat/lon pair belongs in before we try to locate it on the grid:
+This only works because we happen to know the region the lat/lon pair belongs in before we try to locate it on the grid:
 
-    def _find_grid_cell(self, p, county):
+    def _find_grid_cell(self, p, region):
         ''' Find the grid cell location of a single point in our 3D grid.
             (Point given as a tuple (height in meters, lon in degrees, lat in degrees)
         '''
-        lat_min, lat_max = self.county_boxes[county]['lat']
-        lon_min, lon_max = self.county_boxes[county]['lon']
+        lat_min, lat_max = self.region_boxes[region]['lat']
+        lon_min, lon_max = self.region_boxes[region]['lon']
 
         # define parameters
         lon0 = p[0] * self.rad_factor
@@ -192,7 +192,7 @@ This only works because we happen to know the county the lat/lon pair belongs in
         # run KD Tree algorithm
         clat0,clon0 = cos(lat0),cos(lon0)
         slat0,slon0 = sin(lat0),sin(lon0)
-        dist_sq_min, minindex_1d = self.kdtrees[county].query([clat0*clon0, clat0*slon0, slat0])
+        dist_sq_min, minindex_1d = self.kdtrees[region].query([clat0*clon0, clat0*slon0, slat0])
         y, x = np.unravel_index(minindex_1d, (lat_max - lat_min, lon_max - lon_min))
 
         return lat_min + y + 1, lon_min + x + 1
@@ -285,9 +285,7 @@ The `GRIDCRO2D` file is not the only file you need to define your new domain. Th
     ESTA
     └───input
         └───defaults
-            └───domains/county_boxes_ca_4km.py
-                        county_boxes_ca_12km.py
-                        county_boxes_scaqmd_4km.py
+            └───domains/gai_boxes_ca_12km.py
                         gai_boxes_ca_4km.py
                         gai_boxes_scaqmd_4km.py
 

@@ -112,13 +112,13 @@ This section covers the information needed to generate spatial and temporal surr
 
     temporal_directories: input/defaults/surrogates/temporal/
     temporal_loaders: CalvadTemporalLoader
-    calvad_dow: calvad_dow_factors_2012.csv
-    calvad_diurnal: calvad_diurnal_factors_2012.csv
-    spatial_directories: input/examples/onroad_emfac2014_santa_barbara/esta1_county_2012/
+    calvad_dow: calvad_gai_dow_factors_2012.csv
+    calvad_diurnal: calvad_gai_diurnal_factors_2012.csv
+    spatial_directories: input/examples/onroad_emfac2014_santa_barbara/esta1_gai_2012/
     spatial_loaders: Itn4Loader
     dtim_eic_labels: vmt trips
     eic2dtim4: input/defaults/emfac2014/eic2dtim4.py
-    region_boxes: input/defaults/domains/county_boxes_ca_4km.py
+    region_boxes: input/defaults/domains/gai_boxes_ca_4km.py
 
 Where as in the `default_onroad_ca_4km_surrogates.ini` file you will find it looks something like:
 
@@ -126,8 +126,8 @@ Where as in the `default_onroad_ca_4km_surrogates.ini` file you will find it loo
     temporal_loaders: CalvadTemporalLoader
     calvad_dow: calvad_dow_factors_2012.csv
     calvad_diurnal: calvad_diurnal_factors_2012.csv
-    spatial_directories: input/examples/onroad_emfac2014_santa_barbara/esta1_county_2012/
-                         input/defaults/surrogates/spatial/ca/4km/county/
+    spatial_directories: input/examples/onroad_emfac2014_santa_barbara/esta1_gai_2012/
+                         input/defaults/surrogates/spatial/ca/4km/gai/
     spatial_loaders: Itn4Loader Smoke4SpatialSurrogateLoader
     dtim_eic_labels: vmt
     smoke4_surrogates: ON_ROAD_CA_100_4km_2010.txt
@@ -138,8 +138,8 @@ Where as in the `default_onroad_ca_4km_surrogates.ini` file you will find it loo
                       pop
                       30idle_70dist
                       90idle_10dist
-    eic2dtim4: input/defaults/surrogates/spatial/ca/4km/county/eic2dtim4.py
-    region_boxes: input/defaults/domains/county_boxes_ca_4km.py
+    eic2dtim4: input/defaults/surrogates/spatial/ca/4km/gai/eic2dtim4.py
+    region_boxes: input/defaults/domains/gai_boxes_ca_4km.py
 
 The difference between these two default runs is that the `default_onroad_ca_4km.ini` config file defines a run where all spatial allocation comes from DTIM4-ready road network files, and the `default_onroad_ca_4km_surrogates.ini` file defines a run which also uses SMOKE-ready spatial surrogates for some EICs.
 
@@ -214,10 +214,10 @@ Defining which test classes are run is handled by the `tests` variable, and the 
 
 The miscellaneous section is just what is sounds like. In the case of the default config files, the miscellaneous section is used for input files that are shared between different processing steps.
 
-    region_names: input/defaults/california/county_names.py
+    region_names: input/defaults/california/gai_names.py
     vtp2eic: input/defaults/emfac2014/vtp2eic.py
 
-The `county_names.py` file is a simple dictionary mapping a California county integer to the count name. The `vtp2eic.py` is another dictionary mapping a tuple `(vehicle type, technology, process)` to a 14-digit EIC number.
+The `gai_names.py` file is a simple dictionary mapping a California GAI integer to the GAI name. The `vtp2eic.py` is another dictionary mapping a tuple `(vehicle type, technology, process)` to a 14-digit EIC number.
 
 
 [Back to Main Readme](../README.md)
