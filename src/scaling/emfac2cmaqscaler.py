@@ -22,7 +22,6 @@ class Emfac2CmaqScaler(EmissionsScaler):
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.eic2dtim4 = self.config.eval_file('Surrogates', 'eic2dtim4')
         self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
-        self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
         self.gspro_file = self.config['Output']['gspro_file']
         self.gsref_file = self.config['Output']['gsref_file']
@@ -118,10 +117,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
             eic = int(ln[-3])
             val = float(ln[-1])
             county = int(ln[1])
-            if self.has_subregions:
-                regions = [county]
-            else:
-                regions = self.county_to_gai[county]
+            regions = self.county_to_gai[county]
             for region in regions:
                 # fill data structure
                 if region not in inv:

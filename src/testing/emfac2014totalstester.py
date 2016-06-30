@@ -24,9 +24,6 @@ class Emfac2014TotalsTester(OutputTester):
         self.region_names = self.config.eval_file('Misc', 'region_names')
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.emis_dirs = self.config.getlist('Emissions', 'emissions_directories')
-        self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
-        self.gai_to_county = {g: c for c in self.county_to_gai for g in self.county_to_gai[c]}
-        self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
         self.reverse_region_names = dict(zip(self.region_names.values(), self.region_names.keys()))
         self.weight_file = ''
         self.groups = {}
@@ -223,11 +220,7 @@ class Emfac2014TotalsTester(OutputTester):
 
         # now that file exists, read it
         for line in f.readlines():
-            gai = int(line[71:73])
-            if self.has_subregions:
-                region = self.gai_to_county[gai]
-            else:
-                region = gai
+            region = int(line[71:73])
             eic = int(line[22:36])
             vals = [float(v) if v else 0.0 for v in line[78:].rstrip().split(',')]
 
@@ -438,10 +431,7 @@ class Emfac2014TotalsTester(OutputTester):
             value = float(ln[2])
             if value == 0.0:
                 continue
-            region_name = ln[1]
-            if self.has_subregions:
-                region_name = region_name.split(' (')[0]
-            region = self.reverse_region_names[region_name]
+            region = self.reverse_region_names[ln[1]]
             v = ln[4]
             p = ln[3]
             eic = self.eic_reduce(self.vtp2eic[(v, 'DSL', p)])

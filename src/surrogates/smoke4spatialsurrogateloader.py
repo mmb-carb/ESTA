@@ -20,7 +20,6 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
         if len(self.smoke_surrogates) != len(self.eic_labels):
             sys.exit('ERROR: You need the same number of SMOKE surrogates as EIC labels.')
         self.gai_codes = self.config.eval_file('Scaling', 'gai_codes')
-        self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
 
     def load(self, spatial_surrogates, temporal_surrogates):
         """ Overriding the abstract loader method to read an EPA SMOKE v4
@@ -64,10 +63,7 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
             ln = line.rstrip().split(';')
             if len(ln) != 5:
                 continue
-            if self.has_subregions:
-                region = int(ln[1][2:])
-            else:
-                region = self.gai_codes[ln[1]]
+            region = self.gai_codes[ln[1]]
             y = int(ln[2])
             x = int(ln[3])
             fraction = float(ln[4])

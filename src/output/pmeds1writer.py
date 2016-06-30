@@ -25,7 +25,6 @@ class Pmeds1Writer(OutputWriter):
         self.gai_to_county = {g: c for c in self.county_to_gai for g in self.county_to_gai[c]}
         self.gai_basins = self.config.eval_file('Output', 'gai_basins')
         self.multi_gai_coords = self.config.eval_file('Output', 'multi_gai_coords')
-        self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
 
     def write(self, scaled_emissions):
         """ The master method to write output files.
@@ -59,7 +58,6 @@ class Pmeds1Writer(OutputWriter):
 
     def _write_pmeds1_by_state(self, scaled_emissions, date):
         """ Write a single 24-hour PMEDS file for a given date, for the entire state.
-            Each region might have multiple subregion, so that has to be worked out.
         """
         out_path = self._build_state_file_path(date)
         jul_day = dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday
@@ -71,29 +69,25 @@ class Pmeds1Writer(OutputWriter):
             for hr, hr_data in day_data.iteritems():
                 for eic, sparce_emis in hr_data.iteritems():
                     for cell, grid_data in sparce_emis.iteritems():
-                        # calculate sub-regions from region and cell
-                        subregions = self._find_subregion(region, cell)
-                        # loop over subregions
-                        for subregion, frac in subregions:
-                            # build list of six pollutants
-                            emis = ['', '', '', '', '', '']
-                            no_emissions = True
-                            for poll, value in grid_data.iteritems():
-                                try:
-                                    col = Pmeds1Writer.COLUMNS[poll.lower()]
-                                except:
-                                    # irrelevant pollutant
-                                    continue
-                                val = '{0:.5f}'.format(value * frac * self.STONS_2_KG).rstrip('0')
-                                if val != '0.':
-                                    emis[col] = val
-                                    no_emissions = False
-
-                            # if there are emissions, build PMEDS line
-                            if no_emissions:
+                        # build list of six pollutants
+                        emis = ['', '', '', '', '', '']
+                        no_emissions = True
+                        for poll, value in grid_data.iteritems():
+                            try:
+                                col = Pmeds1Writer.COLUMNS[poll.lower()]
+                            except:
+                                # irrelevant pollutant
                                 continue
-                            lines.append(self._build_pmeds1_line(region, subregion, date, jul_day,
-                                                                 hr, eic, cell, emis))
+                            val = '{0:.5f}'.format(value * self.STONS_2_KG).rstrip('0')
+                            if val != '0.':
+                                emis[col] = val
+                                no_emissions = False
+
+                        # if there are emissions, build PMEDS line
+                        if no_emissions:
+                            continue
+                        lines.append(self._build_pmeds1_line(region, date, jul_day, hr, eic,
+                                                             cell, emis))
 
         if lines:
             self._write_zipped_file(out_path, lines)
@@ -109,29 +103,25 @@ class Pmeds1Writer(OutputWriter):
         for hr, hr_data in scaled_emissions.data[region][date].iteritems():
             for eic, sparce_emis in hr_data.iteritems():
                 for cell, grid_data in sparce_emis.iteritems():
-                    # calculate subregion from region and cell
-                    subregions = self._find_subregion(region, cell)
-                    # loop over subregions
-                    for subregion, frac in subregions:
-                        # build list of six pollutants
-                        emis = ['', '', '', '', '', '']
-                        no_emissions = True
-                        for poll, value in grid_data.iteritems():
-                            try:
-                                col = Pmeds1Writer.COLUMNS[poll.lower()]
-                            except:
-                                # irrelevant pollutant
-                                continue
-                            val = '{0:.5f}'.format(value * frac * self.STONS_2_KG).rstrip('0')
-                            if val != '0.':
-                                emis[col] = val
-                                no_emissions = False
-
-                        # if there are emissions, build PMEDS line
-                        if no_emissions:
+                    # build list of six pollutants
+                    emis = ['', '', '', '', '', '']
+                    no_emissions = True
+                    for poll, value in grid_data.iteritems():
+                        try:
+                            col = Pmeds1Writer.COLUMNS[poll.lower()]
+                        except:
+                            # irrelevant pollutant
                             continue
-                        lines.append(self._build_pmeds1_line(region, subregion, date, jul_day, hr,
-                                                             eic, cell, emis))
+                        val = '{0:.5f}'.format(value * self.STONS_2_KG).rstrip('0')
+                        if val != '0.':
+                            emis[col] = val
+                            no_emissions = False
+
+                    # if there are emissions, build PMEDS line
+                    if no_emissions:
+                        continue
+                    lines.append(self._build_pmeds1_line(region, date, jul_day, hr, eic,
+                                                         cell, emis))
 
         self._write_file(out_path, lines)
         self._combine_regions(date)
@@ -160,7 +150,7 @@ class Pmeds1Writer(OutputWriter):
         # remove old region files
         os.system('rm ' + ' '.join(region_files) + ' &')
 
-    def _build_pmeds1_line(self, region, gai, date, jul_day, hr, eic, grid_cell, emis):
+    def _build_pmeds1_line(self, region, date, jul_day, hr, eic, grid_cell, emis):
         """ Build the complicated PMEDS v1 line from available data
             Line Format:
             Amador                71074211000000162179               3122001313 MC  7     ,,,,0.024,
@@ -169,19 +159,16 @@ class Pmeds1Writer(OutputWriter):
         """
         # define parameters
         yr = date[2:4]
-        if self.has_subregions:
-            county_name = self.region_names[region][:8].ljust(8)
-        else:
-            county_name = self.region_names[region][:8].ljust(8)
+        county_name = self.region_names[region][:8].ljust(8)
         y, x = grid_cell
         hour = '%02d%02d' % (hr - 1, hr - 1)
-        basin = self.gai_basins[gai].rjust(3)
+        basin = self.gai_basins[region].rjust(3)
         emissions = ','.join(emis)
-        county = self.gai_to_county[gai]
+        county = self.gai_to_county[region]
 
         return ''.join([county_name, str(eic).rjust(28), str(x).rjust(3), str(y).rjust(3),
                         '              ', str(county).rjust(2), yr, str(jul_day).rjust(3), hour,
-                        basin, str(gai).rjust(3), '     ', emissions, '\n'])
+                        basin, str(region).rjust(3), '     ', emissions, '\n'])
 
     def _write_zipped_file(self, out_path, lines):
         """ simple helper method to write a list of strings to a gzipped file """
@@ -204,27 +191,6 @@ class Pmeds1Writer(OutputWriter):
             f.writelines(lines)
         finally:
             f.close()
-
-    def _find_subregion(self, region, grid_cell):
-        """ Find the sub-regions related to the given grid cell.
-            Since we know the region, this is very easy for the regions that match 1-to-1 with
-            a sub-region. Otherwise, we have to use a look-up table, by grid cell.
-        """
-        # emissions area already by GAI, not county
-        if not self.has_subregions:
-            return [[region, 1.0]]
-
-        subregion_list = self.county_to_gai[region]
-
-        if len(subregion_list) == 1:
-            # the easy regions
-            return [[subregion_list[0], 1.0]]
-        elif grid_cell in self.multi_gai_coords[region]:
-            # the multi-sub-region regions
-            return self.multi_gai_coords[region][grid_cell]
-        else:
-            # multi-subregion grid cell not found, use default sub-region in region
-            return [[subregion_list[0], 1.0]]
 
     def _build_regional_file_path(self, region, date):
         """ build output file directory and path for PMEDS file """

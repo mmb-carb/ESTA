@@ -19,7 +19,6 @@ class Emfac2014CsvLoader(EmissionsLoader):
         self.region_names = self.config.eval_file('Misc', 'region_names')
         self.vtp2eic = self.config.eval_file('Misc', 'vtp2eic')
         self.hd_ld = 'ld'
-        self.has_subregions = self.config.getboolean('Regions', 'has_subregions')
 
     def load(self, emissions):
         """ This is a general method to load emissions from EMFAC2014 result table-dumps in a
@@ -132,7 +131,7 @@ class Emfac2014CsvLoader(EmissionsLoader):
             poll = ln[6].lower()
             if poll not in Emfac2014CsvLoader.VALID_POLLUTANTS:
                 continue
-            if not self.has_subregions and ln[2] != region_name:
+            if ln[2] != region_name:
                 continue
             v = ln[3]
             t = ln[5]

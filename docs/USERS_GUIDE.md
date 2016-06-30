@@ -80,9 +80,9 @@ All of the provided default config files are set up for the same Wednesday in th
 
 The purpose of this config section is to allow users to define which counties, states, or other regions they are modeling.
 
-For instance, if you wanted to select all 58 counties in California, you might do:
+For instance, if you wanted to select all 69 GAIs in California, you might do:
 
-    regions: 1..58
+    regions: 1..69
 
 Of if you wanted to just select one region (say, Santa Barbara county):
 
@@ -95,12 +95,6 @@ Or the Santa Barbara GAI:
 Or you could even list several regions (say the 10 counties in the SCAQMD region):
 
     regions: 13 15 19 30 33 36 37 40 42 56
-
-The second option in this section is:
-
-    has_subregions: True
-
-This describes whether or not your regions (say counties) have sub-regions that you have defined (sub-county air basins). In EMFAC-based on-road modeling, this variable is `True` if you are modeling by county and `False` if you are modeling by CoABDis.
 
 #### GridInfo
 

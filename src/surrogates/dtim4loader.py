@@ -28,8 +28,6 @@ class Dtim4Loader(SpatialLoader):
         self.lat_dot, self.lon_dot = self._read_grid_corners_file()
         self.data = SpatialSurrogateData()
         self.region_boxes = self.config.eval_file('Surrogates', 'region_boxes')
-        self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
-        self.gai_to_county = {g: c for c in self.county_to_gai for g in self.county_to_gai[c]}
         self.regions = self.config.parse_regions('Regions', 'regions')
         self.eic_labels = self.config.getlist('Surrogates', 'dtim_eic_labels')
         self.kdtrees = {}
