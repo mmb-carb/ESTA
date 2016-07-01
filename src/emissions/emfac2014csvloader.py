@@ -13,9 +13,12 @@ class Emfac2014CsvLoader(EmissionsLoader):
     SUMMER_MONTHS = [4, 5, 6, 7, 8, 9]
     VALID_POLLUTANTS = ['nox', 'co', 'pm', 'sox', 'tog']
 
-    def __init__(self, config, directory, time_units):
-        super(Emfac2014CsvLoader, self).__init__(config, directory)
-        self.time_units = time_units
+    def __init__(self, config, position):
+        super(Emfac2014CsvLoader, self).__init__(config, position)
+        time_units_list = self.config.getlist('Emissions', 'time_units')
+        if position >= len(time_units_list):
+            raise IndexError('Different number of emission loaders and time units.')
+        self.time_units = time_units_list[position]
         self.region_names = self.config.eval_file('Misc', 'region_names')
         self.vtp2eic = self.config.eval_file('Misc', 'vtp2eic')
         self.hd_ld = 'ld'

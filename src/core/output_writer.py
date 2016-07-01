@@ -6,7 +6,7 @@ from datetime import datetime as dt
 class OutputWriter(object):
     __metaclass__ = abc.ABCMeta
 
-    def __init__(self, config):
+    def __init__(self, config, position):
         self.config = config
         self.directory = self.config['Output']['directory']
         self.date_format = self.config['Dates']['format']

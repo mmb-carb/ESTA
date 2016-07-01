@@ -16,8 +16,8 @@ class Emfac2014TotalsTester(OutputTester):
     SUMMER_MONTHS = [4, 5, 6, 7, 8, 9]
     POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM']
 
-    def __init__(self, config):
-        super(Emfac2014TotalsTester, self).__init__(config)
+    def __init__(self, config, position):
+        super(Emfac2014TotalsTester, self).__init__(config, position)
         self.by_region = self.config.getboolean('Output', 'by_region')
         self.combine = self.config.getboolean('Output', 'combine_regions')
         self.vtp2eic = self.config.eval_file('Misc', 'vtp2eic')

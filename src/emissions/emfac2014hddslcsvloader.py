@@ -8,8 +8,8 @@ from emissions_table import EmissionsTable
 
 class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
 
-    def __init__(self, config, directory, time_units):
-        super(Emfac2014HdDslCsvLoader, self).__init__(config, directory, time_units)
+    def __init__(self, config, position):
+        super(Emfac2014HdDslCsvLoader, self).__init__(config, position)
         self.hd_ld = 'hd'
         self.reverse_region_names = dict(zip(self.region_names.values(), self.region_names.keys()))
 

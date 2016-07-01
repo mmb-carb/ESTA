@@ -12,8 +12,8 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
         The SMOKE spatial surrogate format is well-documented and widely used.
     '''
 
-    def __init__(self, config, directory):
-        super(Smoke4SpatialSurrogateLoader, self).__init__(config, directory)
+    def __init__(self, config, position):
+        super(Smoke4SpatialSurrogateLoader, self).__init__(config, position)
         self.eic2dtim4 = self.config.eval_file('Surrogates', 'eic2dtim4')
         self.smoke_surrogates = self.config.getlist('Surrogates', 'smoke4_surrogates')
         self.eic_labels = self.config.getlist('Surrogates', 'smoke_eic_labels')

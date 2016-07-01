@@ -16,8 +16,8 @@ class Emfac2014Scaler(EmissionsScaler):
                    1, 1, 1, 1, 0, 0, 0, 2, 0, 1, 1, 3, 1]
     DOW = {0: 'mon', 1: 'tuth', 2: 'tuth', 3: 'tuth', 4: 'fri', 5: 'sat', 6: 'sun', -1: 'holi'}
 
-    def __init__(self, config):
-        super(Emfac2014Scaler, self).__init__(config)
+    def __init__(self, config, position):
+        super(Emfac2014Scaler, self).__init__(config, position)
         self.by_region = self.config.getboolean('Output', 'by_region')
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.eic2dtim4 = self.config.eval_file('Surrogates', 'eic2dtim4')

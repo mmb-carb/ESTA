@@ -8,7 +8,7 @@ from datetime import timedelta
 class OutputTester(object):
     __metaclass__ = abc.ABCMeta
 
-    def __init__(self, config):
+    def __init__(self, config, position):
         self.config = config
         self.date_format = self.config['Dates']['format']
         self.start_date = dt.strptime(self.config['Dates']['start'], self.date_format)

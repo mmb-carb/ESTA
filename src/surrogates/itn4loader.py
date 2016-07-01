@@ -12,8 +12,8 @@ class Itn4Loader(Dtim4Loader):
 
     MAX_STEPS = 12
 
-    def __init__(self, config, directory):
-        super(Itn4Loader, self).__init__(config, directory)
+    def __init__(self, config, position):
+        super(Itn4Loader, self).__init__(config, position)
         self.load_taz = len(self.eic_labels) > 1
 
     def load(self, spatial_surrogates, temporal_surrogates):

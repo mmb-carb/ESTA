@@ -5,8 +5,8 @@ from src.core.temporal_loader import TemporalLoader
 
 class CalvadTemporalLoader(TemporalLoader):
 
-    def __init__(self, config, directory):
-        super(CalvadTemporalLoader, self).__init__(config, directory)
+    def __init__(self, config, position):
+        super(CalvadTemporalLoader, self).__init__(config, position)
         self.dow_path = os.path.join(self.directory, self.config['Surrogates']['calvad_dow'])
         diurnal_file = self.config['Surrogates']['calvad_diurnal']
         self.diurnal_path = os.path.join(self.directory, diurnal_file)

@@ -20,8 +20,8 @@ class Dtim4Loader(SpatialLoader):
     MAX_STEPS = 12
     RAD_FACTOR = pi / 180.0  # need angles in radians
 
-    def __init__(self, config, directory):
-        super(Dtim4Loader, self).__init__(config, directory)
+    def __init__(self, config, position):
+        super(Dtim4Loader, self).__init__(config, position)
         self.nrows = self.config.getint('GridInfo', 'rows')
         self.ncols = self.config.getint('GridInfo', 'columns')
         self.grid_file_path = self.config['GridInfo']['grid_cross_file']
