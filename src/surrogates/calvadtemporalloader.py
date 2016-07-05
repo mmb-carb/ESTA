@@ -17,14 +17,15 @@ class CalvadTemporalLoader(TemporalLoader):
             temporal_surrogates = {}
 
         # load DOW time profiles
-        temporal_surrogates['dow'] = self._load_dow(self.dow_path)
+        temporal_surrogates['dow'] = CalvadTemporalLoader._load_dow(self.dow_path)
 
         # load diurnal time profiles
-        temporal_surrogates['diurnal'] = self._load_diurnal(self.diurnal_path)
+        temporal_surrogates['diurnal'] = CalvadTemporalLoader._load_diurnal(self.diurnal_path)
 
         return temporal_surrogates
 
-    def _load_diurnal(self, file_path):
+    @staticmethod
+    def _load_diurnal(file_path):
         """ generate the diurnal temporal surrogates from the CalVad data
             hours range from 0 to 23
             days are 1, 2, 3, 6, 7, 8
@@ -59,7 +60,8 @@ class CalvadTemporalLoader(TemporalLoader):
 
         return calvad
 
-    def _load_dow(self, file_path):
+    @staticmethod
+    def _load_dow(file_path):
         """ generate the DOW temporal surrogates from the CalVad data
 
             CalVad File Format:
