@@ -16,11 +16,11 @@ class EstaModelBuilder(object):
         spatial_loaders = self._init_classes('Surrogates', 'spatial_loaders')
         temporal_loaders = self._init_classes('Surrogates', 'temporal_loaders')
         emis_loaders = self._init_classes('Emissions', 'emissions_loaders')
-        scaler = self._init_classes('Scaling', 'scalor')[0]
+        scalers = self._init_classes('Scaling', 'scalor')
         writers = self._init_classes('Output', 'writers')
         testers = self._init_classes('Testing', 'tests')
 
-        return EstaModel(spatial_loaders, temporal_loaders, emis_loaders, scaler, writers, testers)
+        return EstaModel(spatial_loaders, temporal_loaders, emis_loaders, scalers, writers, testers)
 
     def _init_classes(self, section, option):
         ''' Given a list of class names, instantiate a list of primary step
