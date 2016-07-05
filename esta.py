@@ -19,36 +19,32 @@ def main():
     if not os.path.exists(config_file_path):
         sys.exit('\nERROR: Config file not found: %s\n' % config_file_path)
 
+    process_esta(config_file_path)
+
+
+def process_esta(config_file_path):
+    ''' Parse config file, then
+        initialize and run ESTA model
+    '''
     # config file parsing
     config = CustomParser(config_file_path)
 
-    # ESTA processing
-    model = esta_preprocess(config)
-    esta_process(config, model)
-    esta_postprocess(config, model)
-
-
-def esta_preprocess(config_dict):
-    ''' build ESTA model chain, based on config file '''
+    # build ESTA model chain, based on config file
     builder = EstaModelBuilder(config_dict)
-    return builder.build()
+    model = builder.build()
 
-
-def esta_process(config_dict, model):
-    ''' Run the ESTA Model '''
+    # Run the ESTA Model
     model.process()
 
-
-def esta_postprocess(config_dict, model):
-    ''' Perform various post-processing or QA steps, if necessary '''
+    # Perform various post-processing or QA steps, if necessary
     model.postprocess()
 
 
 def usage():
-    help_text = '''\nESTA Model Usage:
-\tGive a path to a config file, or default.ini will be used:
-\t./esta.py config/default.ini
-\tpython esta.py /path/to/user-defined.ini
+    help_text = '''\n\nESTA Model Usage
+\nSimply provide the path to a config file:\n
+\t python esta.py config/default_onroad_ca_4km.ini
+\t./esta.py /path/to/user_defined_config.ini\n
 '''
     print(help_text)
     sys.exit()
