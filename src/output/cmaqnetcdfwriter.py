@@ -246,7 +246,8 @@ class CmaqNetcdfWriter(OutputWriter):
         # loop through the different levels of the scaled emissions dictionary
         for region_data in scaled_emissions.data.itervalues():
             day_data = region_data.get(date, {})
-            for hr, hr_data in day_data.iteritems():
+            for hour, hr_data in day_data.iteritems():
+                hr = hour - 1
                 for eic, sparce_emis in hr_data.iteritems():
                     # This is only for pre-speciated cases
                     if eic == -999:
