@@ -30,7 +30,7 @@ def process_esta(config_file_path):
     config = CustomParser(config_file_path)
 
     # build ESTA model chain, based on config file
-    builder = EstaModelBuilder(config_dict)
+    builder = EstaModelBuilder(config)
     model = builder.build()
 
     # Run the ESTA Model
