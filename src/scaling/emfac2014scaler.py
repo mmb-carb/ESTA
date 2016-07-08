@@ -54,7 +54,7 @@ class Emfac2014Scaler(EmissionsScaler):
                 dow = 'holi'
             else:
                 by_date = str(self.base_year) + date[4:]
-                dow = Emfac2014Scaler.DOW[dt.strptime(by_date, self.date_format).weekday()]
+                dow = self.DOW[dt.strptime(by_date, self.date_format).weekday()]
 
             # if not by sub-region, create emissions object
             if not self.by_region:
@@ -68,7 +68,7 @@ class Emfac2014Scaler(EmissionsScaler):
                 if self.by_region:
                     e = ScaledEmissions()
 
-                # apply CalVad DOW factors (this line is long for performance reasons)
+                # apply Calvad DOW factors (this line is long for performance reasons)
                 emis_table = self._apply_factors(deepcopy(emissions.data[region][date]),
                                                  temp_surr['dow'][region][dow])
 
@@ -83,7 +83,7 @@ class Emfac2014Scaler(EmissionsScaler):
                     # apply diurnal, then spatial profiles (this line long for performance reasons)
                     emis_dict = self._apply_spatial_surrs(self._apply_factors(deepcopy(emis_table),
                                                                               factors_by_hour[hr]),
-                                                          spatial_surrs, region)
+                                                          spatial_surrs, region, hr)
 
                     for eic, sparce_emis in emis_dict.iteritems():
                         e.set(region, date, hr + 1, self.eic_reduce(eic), sparce_emis)
@@ -152,13 +152,13 @@ class Emfac2014Scaler(EmissionsScaler):
 
         return emissions_table
 
-    def _apply_spatial_surrs(self, emis_table, spatial_surrs, region):
+    def _apply_spatial_surrs(self, emis_table, spatial_surrs, region, hr):
         """ Apply the spatial surrogates for each hour to this EIC and create a dictionary of
             sparely-gridded emissions (one for each eic).
             Data Types:
             EmissionsTable[EIC][pollutant] = value
-            spatil_surrs[veh][act] = SpatialSurrogate()
-                                    SpatialSurrogate[(grid, cell)] = fraction
+            spatial_surrs[veh][act] = SpatialSurrogate()
+                                      SpatialSurrogate[(grid, cell)] = fraction
             output: {EIC: SparceEmissions[(grid, cell)][pollutant] = value}
         """
         e = {}
@@ -171,7 +171,7 @@ class Emfac2014Scaler(EmissionsScaler):
                 for cell, fraction in spatial_surrs[veh][act].iteritems():
                     se[cell][poll] = value * fraction
 
-            # Add NH3, based on CO fractions
+            # add NH3, based on CO fractions
             nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0.0)
             if 'co' in emis_table[eic] and nh3_fraction:
                 value = emis_table[eic]['co']
