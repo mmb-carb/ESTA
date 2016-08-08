@@ -251,14 +251,18 @@ class CmaqNetcdfWriter(OutputWriter):
                 for eic, sparce_emis in hr_data.iteritems():
                     # This is only for pre-speciated cases
                     if eic == -999:
-                        for (row, col), cell_data in sparce_emis.iteritems():
+                        for (r, c), cell_data in sparce_emis.iteritems():
+                            row = r - 1
+                            col = c - 1
                             for poll, value in cell_data.iteritems():
                                 grp = species[poll]['group']
                                 ind = species[poll]['index']
                                 grid[grp][ind,hr,row,col] += value
                         continue
                     # This is for the usual un-speciated case
-                    for (row, col), cell_data in sparce_emis.iteritems():
+                    for (r, c), cell_data in sparce_emis.iteritems():
+                        row = r - 1
+                        col = c - 1
                         for poll, value in cell_data.iteritems():
                             if poll == 'tog':
                                 grid['TOG'][:,hr,row,col] += value * self.gspro[self.gsref[int(eic)]['TOG']]['TOG']
