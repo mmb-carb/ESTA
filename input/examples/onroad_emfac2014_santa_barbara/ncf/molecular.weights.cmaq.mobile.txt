@@ -3,7 +3,7 @@ NO2         46.006      NOX     moles/s
 HONO        47.013      NOX     moles/s
 SO2         64.059      SOX     moles/s
 SULF        80.058      SOX     moles/s
-CH4         16.000      CH3     moles/s
+CH4         16.000      TOG     moles/s
 ALK1        31.380      TOG     moles/s
 ALK2        45.430      TOG     moles/s
 ALK3        71.330      TOG     moles/s
