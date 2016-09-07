@@ -7,7 +7,7 @@ class CalvadSmoke4SpatialSurrogateLoader(Smoke4SpatialSurrogateLoader):
         and creates an ESTA spatial surrogate.
         The SMOKE spatial surrogate format is well-documented and widely used.
     '''
-    
+
     DOWS = ['_monday_', '_tuesday_', '_wednesday_', '_thursday_', '_friday_',
             '_saturday_', '_sunday_', '_holiday_']
     PERIODS = ['off', 'am', 'mid', 'pm']

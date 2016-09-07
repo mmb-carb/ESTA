@@ -18,7 +18,11 @@ class EstaModelBuilder(object):
         emis_loaders = self._init_classes('Emissions', 'emissions_loaders')
         scalers = self._init_classes('Scaling', 'scalor')
         writers = self._init_classes('Output', 'writers')
-        testers = self._init_classes('Testing', 'tests')
+
+        try:
+            testers = self._init_classes('Testing', 'tests')
+        except:
+            testers = []
 
         return EstaModel(spatial_loaders, temporal_loaders, emis_loaders, scalers, writers, testers)
 
@@ -36,9 +40,6 @@ class EstaModelBuilder(object):
                 mod = sys.modules['src.' + step + '.' + class_string.lower()]
                 classes.append(getattr(mod, class_string)(self.config, i))
             except (NameError, KeyError) as e:
-                if class_string:
-                    sys.exit('ERROR: Unable to find class: ' + class_string + '\n' + str(e))
-                else:
-                    print('WARNING: no class provided for step/option: ' + step + ' / ' + option)
+                sys.exit('ERROR: Unable to find class: ' + class_string + '\n' + str(e))
 
         return classes
