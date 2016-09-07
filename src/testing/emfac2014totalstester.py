@@ -337,6 +337,8 @@ class Emfac2014TotalsTester(OutputTester):
             file_str = os.path.join(edir, '%02d' % dt.month, '%02d' % dt.day, 'emis', region + '.*')
             files += glob(file_str)
 
+        files = filter(lambda f: 'pmeds' not in f[-16:], files)
+
         if not files:
             print('\tERROR: EMFAC2014 LDV emissions file not found for region: ' + str(region) +
                   ', and date: ' + str(dt))

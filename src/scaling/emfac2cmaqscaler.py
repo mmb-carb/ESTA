@@ -304,7 +304,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
             try:
                 poll_index = list(self.groups[group]['species']).index(pollutant)
             except ValueError:
-                # we don't care about that pollutant
+                # we don't care about CH4
                 pass
             # start filling output dict
             if profile not in self.gspro:

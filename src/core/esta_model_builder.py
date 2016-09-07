@@ -36,6 +36,9 @@ class EstaModelBuilder(object):
                 mod = sys.modules['src.' + step + '.' + class_string.lower()]
                 classes.append(getattr(mod, class_string)(self.config, i))
             except (NameError, KeyError) as e:
-                sys.exit('ERROR: Unable to find class: ' + class_string + '\n' + str(e))
+                if class_string:
+                    sys.exit('ERROR: Unable to find class: ' + class_string + '\n' + str(e))
+                else:
+                    print('WARNING: no class provided for step/option: ' + step + ' / ' + option)
 
         return classes

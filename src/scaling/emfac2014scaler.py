@@ -51,9 +51,11 @@ class Emfac2014Scaler(EmissionsScaler):
             date = today.strftime(self.date_format)
             today += timedelta(days=1)
             if date[4:] in self._find_holidays():
+                dow_num = 7
                 dow = 'holi'
             else:
                 by_date = str(self.base_year) + date[4:]
+                dow_num = dt.strptime(by_date, self.date_format).weekday()
                 dow = self.DOW[dt.strptime(by_date, self.date_format).weekday()]
 
             # if not by sub-region, create emissions object
@@ -83,7 +85,7 @@ class Emfac2014Scaler(EmissionsScaler):
                     # apply diurnal, then spatial profiles (this line long for performance reasons)
                     emis_dict = self._apply_spatial_surrs(self._apply_factors(deepcopy(emis_table),
                                                                               factors_by_hour[hr]),
-                                                          spatial_surrs, region, hr)
+                                                          spatial_surrs, region, dow_num, hr)
 
                     for eic, sparce_emis in emis_dict.iteritems():
                         e.set(region, date, hr + 1, self.eic_reduce(eic), sparce_emis)
@@ -152,7 +154,7 @@ class Emfac2014Scaler(EmissionsScaler):
 
         return emissions_table
 
-    def _apply_spatial_surrs(self, emis_table, spatial_surrs, region, hr):
+    def _apply_spatial_surrs(self, emis_table, spatial_surrs, region, dow=2, hr=0):
         """ Apply the spatial surrogates for each hour to this EIC and create a dictionary of
             sparely-gridded emissions (one for each eic).
             Data Types:
