@@ -18,11 +18,6 @@ class SparceEmissions(defaultdict):
 
     def __setitem__(self, key, val):
         """ Getter method for sparce-grid emissions """
-        if type(val) != defaultdict:
-            raise TypeError('The sparce-grid emissions must be 2 levels deep: cell and pollutant.')
-        for value in val.itervalues():
-            if type(value) != float:
-                raise TypeError('Emissions values must be of type float.')
         defaultdict.__setitem__(self, key, val)
 
     def scale(self, factor):

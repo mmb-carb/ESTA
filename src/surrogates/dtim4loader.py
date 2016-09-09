@@ -250,7 +250,8 @@ class SpatialSurrogateData(object):
         # auto-fill the mulit-level dictionary format, to hide this from the user
         if region not in self.data:
             self.data[region] = {}
-        if veh not in self.data[region]:
+            self.data[region][veh] = {}
+        elif veh not in self.data[region]:
             self.data[region][veh] = {}
 
         # add surrogate

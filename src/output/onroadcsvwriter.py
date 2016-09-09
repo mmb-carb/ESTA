@@ -140,7 +140,7 @@ class OnRoadCsvWriter(OutputWriter):
         if len(region_files) != len(self.regions):
             return
         print('    + writing: ' + out_file)
-        os.system('cat ' + ' '.join(region_files) + ' | gzip -9c > ' + out_file)
+        os.system('cat ' + ' '.join(region_files) + ' | gzip -1c > ' + out_file)
 
         # remove old region files
         os.system('rm ' + ' '.join(region_files) + ' &')
