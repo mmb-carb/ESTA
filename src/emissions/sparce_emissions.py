@@ -14,8 +14,7 @@ class SparceEmissions(defaultdict):
 
     def __getitem__(self, key):
         """ Setter method for sparce-grid emissions """
-        val = defaultdict.__getitem__(self, key)
-        return val
+        return defaultdict.__getitem__(self, key)
 
     def __setitem__(self, key, val):
         """ Getter method for sparce-grid emissions """
@@ -38,8 +37,8 @@ class SparceEmissions(defaultdict):
             if not defaultdict.__contains__(self, cell):
                 defaultdict.__setitem__(self, cell, cell_data)
             else:
+                cell_dict = defaultdict.__getitem__(self, cell)
                 for poll, value in cell_data.iteritems():
-                    cell_dict = defaultdict.__getitem__(self, cell)
                     cell_dict[poll] += value
 
     def __deepcopy__(self, emis):
