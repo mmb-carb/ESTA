@@ -1,6 +1,7 @@
 
+import numpy as np
 from src.scaling.emfac2014scaler import Emfac2014Scaler
-from src.emissions.sparce_emissions import SparceEmissions
+from src.emissions.sparse_emissions import SparseEmissions
 
 
 class EmfacCalvadScaler(Emfac2014Scaler):
@@ -20,6 +21,8 @@ class EmfacCalvadScaler(Emfac2014Scaler):
 
     def __init__(self, config, position):
         super(EmfacCalvadScaler, self).__init__(config, position)
+        self.nrows = int(self.config['GridInfo']['rows'])
+        self.ncols = int(self.config['GridInfo']['columns'])
 
     def _apply_spatial_surrs(self, emis_table, spatial_surrs, region, dow=2, hr=0):
         """ Apply the spatial surrogates for each hour to this EIC and create a dictionary of
@@ -28,32 +31,32 @@ class EmfacCalvadScaler(Emfac2014Scaler):
             EmissionsTable[EIC][pollutant] = value
             spatial_surrs[veh][act] = SpatialSurrogate()
                                       SpatialSurrogate[(grid, cell)] = fraction
-            output: {EIC: SparceEmissions[(grid, cell)][pollutant] = value}
+            output: {EIC: SparseEmissions[pollutant][(grid, cell)] = value}
         """
         e = {}
 
         # loop through each on-road EIC
         for eic in emis_table:
-            se = SparceEmissions()
+            se = SparseEmissions(self.nrows, self.ncols)
             veh, act = self.eic2dtim4[eic]
 
             # fix VMT activity according to CSTDM periods
             if act[:3] in ['vmt', 'vht']:
                 act += self.DOWS[dow] + self.CALVAD_HOURS[hr]
 
-            # add emissions to sparce grid
+            # add emissions to sparse grid
             for poll, value in emis_table[eic].iteritems():
                 if act not in spatial_surrs[veh]:
                     continue
                 for cell, fraction in spatial_surrs[veh][act].iteritems():
-                    se[cell][poll] = value * fraction
+                    se.add(poll, cell, value * fraction)
 
             # add NH3, based on CO fractions
-            nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0.0)
+            nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, np.float32(0.0))
             if 'co' in emis_table[eic] and nh3_fraction:
                 value = emis_table[eic]['co']
                 for cell, fraction in spatial_surrs[veh][act].iteritems():
-                    se[cell]['nh3'] = value * fraction * nh3_fraction
+                    se.add('nh3', cell, value * fraction * nh3_fraction)
 
             e[eic] = se
 

@@ -18,7 +18,7 @@ class Dtim4Loader(SpatialLoader):
 
     DEFAULT_ITN_HOUR = 17
     MAX_STEPS = 12
-    RAD_FACTOR = pi / 180.0  # need angles in radians
+    RAD_FACTOR = np.float32(pi / 180.0)  # need angles in radians
 
     def __init__(self, config, position):
         super(Dtim4Loader, self).__init__(config, position)
@@ -130,11 +130,11 @@ class Dtim4Loader(SpatialLoader):
             # volumes
             for c in xrange(26):
                 col = 80 + c * 11
-                vol = float(line[col: col + 11].strip())
+                vol = np.float32(line[col: col + 11].strip())
                 if vol <= 0.0:
                     continue
                 net_vol = vol / num_cells
-                net_vmt = net_vol * distance
+                net_vmt = np.float32(net_vol * distance)
                 for gc in grid_cells:
                     surrs[c][self.eic_labels[0]][gc] += net_vmt
 
@@ -162,7 +162,7 @@ class Dtim4Loader(SpatialLoader):
             # speed = int(line[30:40])
             for c in xrange(26):
                 col = 40 + c * 33
-                trips = float(line[col: col + 11].strip())
+                trips = np.float32(line[col: col + 11].strip())
                 surrs[c][self.eic_labels[1]][grid_cell] += trips
 
         f.close()

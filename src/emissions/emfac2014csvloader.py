@@ -3,6 +3,7 @@ from collections import defaultdict
 from copy import deepcopy
 from datetime import datetime, timedelta
 import gzip
+import numpy as np
 import os
 from src.core.emissions_loader import EmissionsLoader
 from emissions_table import EmissionsTable
@@ -143,10 +144,9 @@ class Emfac2014CsvLoader(EmissionsLoader):
                 continue
             p = ln[4]
             eic = self.vtp2eic[(v, t, p)]
-            value = float(ln[-1])
-            if value == 0.0:
-                continue
-            e[eic][poll] += value
+            value = np.float32(ln[-1])
+            if value > 0.0:
+                e[eic][poll] += value
 
         f.close()
         return e

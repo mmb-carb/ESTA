@@ -1,4 +1,5 @@
 
+import numpy as np
 from collections import defaultdict
 
 
@@ -9,7 +10,7 @@ class SpatialSurrogate(defaultdict):
         new version of the object where all the values sum to 1.0.
     """
     def __init__(self):
-        defaultdict.__init__(self, float)
+        defaultdict.__init__(self, np.float32)
 
     def __getitem__(self, key):
         """ Setter method for spatial surrogate dictionary """
@@ -26,7 +27,7 @@ class SpatialSurrogate(defaultdict):
         """ A simple helper method to return a version of this object
             where all the values sum to 1.0.
         """
-        total = sum(defaultdict.values(self))
+        total = np.sum(defaultdict.values(self))
         if total == 1.0:
             # already normalized
             return self
@@ -41,7 +42,7 @@ class SpatialSurrogate(defaultdict):
             number_keys = len(list(defaultdict.values(self)))
             if number_keys:
                 # This only works for non-zero number of keys.
-                s = dict(zip(defaultdict.__iter__(self), [1.0 / number_keys]*number_keys))
+                s = dict(zip(defaultdict.__iter__(self), np.float32([1.0 / number_keys]*number_keys)))
 
         return s
 

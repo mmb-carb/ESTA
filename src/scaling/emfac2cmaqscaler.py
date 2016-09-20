@@ -9,7 +9,7 @@ import sys
 from src.core.emissions_scaler import EmissionsScaler
 from scaled_emissions import ScaledEmissions
 from src.core.eic_utils import eic_reduce
-from src.emissions.sparce_emissions import SparceEmissions
+from src.emissions.sparse_emissions import SparseEmissions
 
 
 class Emfac2CmaqScaler(EmissionsScaler):
@@ -17,6 +17,12 @@ class Emfac2CmaqScaler(EmissionsScaler):
     CALVAD_TYPE = [1, 1, 1, 1, 0, 0, 0, 2, 0, 1, 1, 3, 1,
                    1, 1, 1, 1, 0, 0, 0, 2, 0, 1, 1, 3, 1]
     DOW = {0: 'mon', 1: 'tuth', 2: 'tuth', 3: 'tuth', 4: 'fri', 5: 'sat', 6: 'sun', -1: 'holi'}
+    CALVAD_HOURS = ['off', 'off', 'off', 'off', 'off', 'off',
+                    'am',  'am',  'am',  'am',  'mid', 'mid',
+                    'mid', 'mid', 'mid', 'pm',  'pm',  'pm',
+                    'pm',  'off', 'off', 'off', 'off', 'off']
+    DOWS = ['_monday_', '_tuesday_', '_wednesday_', '_thursday_', '_friday_',
+            '_saturday_', '_sunday_', '_holiday_']
 
     def __init__(self, config, position):
         super(Emfac2CmaqScaler, self).__init__(config, position)
@@ -31,6 +37,8 @@ class Emfac2CmaqScaler(EmissionsScaler):
         self.gsref = {}
         self.groups = {}
         self.num_species = 0
+        self.nrows = int(self.config['GridInfo']['rows'])
+        self.ncols = int(self.config['GridInfo']['columns'])
 
     def scale(self, emissions, spatial_surr, temp_surr):
         """ Master method to scale emissions using spatial and temporal surrogates.
@@ -47,8 +55,8 @@ class Emfac2CmaqScaler(EmissionsScaler):
                                         data[region][date][veh][act] = TemporalSurrogate()
                                             TemporalSurrogate = [x]*24
             OUTPUT FORMAT:
-            ScaledEmissions: data[region][date][hr][eic] = SparceEmissions
-                                SparceEmissions[(grid, cell)][pollutant] = value
+            ScaledEmissions: data[region][date][hr][eic] = SparseEmissions
+                                SparseEmissions[pollutant][(grid, cell)] = value
             NOTE: This function is a generator and will `yield` emissions file-by-file.
         """
         # Read speciation profiles & molecular weight files
@@ -65,9 +73,11 @@ class Emfac2CmaqScaler(EmissionsScaler):
             date = today.strftime(self.date_format)
             today += timedelta(days=1)
             if date[4:] in self._find_holidays():
+                dow_num = 7
                 dow = 'holi'
             else:
                 by_date = str(self.base_year) + date[4:]
+                dow_num = dt.strptime(by_date, self.date_format).weekday()
                 dow = Emfac2CmaqScaler.DOW[dt.strptime(by_date, self.date_format).weekday()]
 
             # create a statewide emissions object
@@ -90,10 +100,10 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 # loop through each hour of the day
                 for hr in xrange(24):
                     # apply diurnal, then spatial profiles (this line long for performance reasons)
-                    sparce_emis = self._apply_spatial_surrs(self._apply_factors(deepcopy(emis_table),
+                    sparse_emis = self._apply_spatial_surrs(self._apply_factors(deepcopy(emis_table),
                                                                                 factors_by_hour[hr]),
-                                                            spatial_surrs, region)
-                    e.set(-999, date, hr + 1, -999, sparce_emis)
+                                                            spatial_surrs, region, dow_num, hr)
+                    e.set(-999, date, hr + 1, -999, sparse_emis)
 
             yield e
 
@@ -116,15 +126,15 @@ class Emfac2CmaqScaler(EmissionsScaler):
             if poll not in [co_id, nh3_id]:
                 continue
             eic = int(ln[-3])
-            val = float(ln[-1])
+            val = np.float32(ln[-1])
             county = int(ln[1])
             regions = self.county_to_gai[county]
             for region in regions:
                 # fill data structure
                 if region not in inv:
-                    inv[region] = defaultdict(float)
+                    inv[region] = defaultdict(np.float32)
                 if eic not in inv[region]:
-                    inv[region][eic] = {co_id: 0.0, nh3_id: 0.0}
+                    inv[region][eic] = {co_id: np.float32(0.0), nh3_id: np.float32(0.0)}
                 # fill in emissions values
                 inv[region][eic][poll] += val
         f.close()
@@ -134,7 +144,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
             for eic in inv[region]:
                 co = inv[region][eic][co_id]
                 if co == 0.0:
-                    inv[region][eic] = 0.0
+                    inv[region][eic] = np.float32(0.0)
                 else:
                     nh3 = inv[region][eic][nh3_id]
                     inv[region][eic] = nh3 / co
@@ -162,20 +172,24 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
         return emissions_table
 
-    def _apply_spatial_surrs(self, emis_table, spatial_surrs, region):
+    def _apply_spatial_surrs(self, emis_table, spatial_surrs, region, dow=2, hr=0):
         """ Apply the spatial surrogates for each hour to this EIC and create a dictionary of
             sparely-gridded emissions (one for each eic).
             Data Types:
             EmissionsTable[EIC][pollutant] = value
             spatil_surrs[veh][act] = SpatialSurrogate()
                                     SpatialSurrogate[(grid, cell)] = fraction
-            output: {EIC: SparceEmissions[(grid, cell)][pollutant] = value}
+            output: {EIC: SparseEmissions[pollutant][(grid, cell)] = value}
         """
-        se = SparceEmissions()
+        se = SparseEmissions(self.nrows, self.ncols)
 
         # grid emissions, by EIC
         for eic in emis_table:
             veh, act = self.eic2dtim4[eic]
+
+            # fix VMT activity according to Calvad periods
+            if act[:3] in ['vmt', 'vht']:
+                act += self.DOWS[dow] + self.CALVAD_HOURS[hr]
 
             # speciate by pollutant, while gridding
             for poll, value in emis_table[eic].iteritems():
@@ -196,14 +210,15 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 for index,species in enumerate(groups):
                     speciated_value = value * gspro_label[index]
                     for cell, cell_fraction in spatial_surrs[veh][act].iteritems():
-                        se[cell][species] += speciated_value * cell_fraction
+                        se.add(species, cell, speciated_value * cell_fraction)
 
             # add NH3, based on NH3/CO fractions
-            nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0.0)
-            if 'co' in emis_table[eic] and nh3_fraction:
-                nh3_value = emis_table[eic]['co'] * nh3_fraction
-                for cell, cell_fraction in spatial_surrs[veh][act].iteritems():
-                    se[cell]['NH3'] += nh3_value * cell_fraction
+            if 'co' in emis_table[eic]:
+                nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0)
+                if nh3_fraction:
+                    nh3_value = emis_table[eic]['co'] * nh3_fraction
+                    for cell, cell_fraction in spatial_surrs[veh][act].iteritems():
+                        se.add('nh3', cell, nh3_value * cell_fraction)
 
         return se
 
@@ -266,7 +281,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
             if not columns:
                 continue
             species = columns[0].upper()
-            weight = float(columns[1])
+            weight = np.float32(columns[1])
             group = columns[2].upper()
 
             # file output dict
@@ -312,6 +327,6 @@ class Emfac2CmaqScaler(EmissionsScaler):
             if group not in self.gspro[profile]:
                 self.gspro[profile][group] = np.zeros(len(self.groups[group]['species']),
                                                       dtype=np.float32)
-            self.gspro[profile][group][poll_index] = float(ln[5])
+            self.gspro[profile][group][poll_index] = np.float32(ln[5])
 
         f.close()

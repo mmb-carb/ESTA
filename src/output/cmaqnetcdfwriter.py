@@ -90,13 +90,9 @@ class CmaqNetcdfWriter(OutputWriter):
         # loop through each date
         last_date = dates[-1]
         for date in dates:
-            # Convert scaled_emissions dict to NetCDF-ready 2D numpy.arrays
-            grid = self._fill_grid(scaled_emissions, date)
+            self._write_netcdf(scaled_emissions, date, date == last_date)
 
-            # write NetCDF
-            self._write_netcdf(grid, date, date == last_date)
-
-    def _write_netcdf(self, grid, date, is_last_date):
+    def _write_netcdf(self, scaled_emissions, date, is_last_date):
         ''' A helper method to spread the work of creating a CMAQ-ready NetCDF file
             into more than one method. There is a lot of boilerplate to deal with.
         '''
@@ -109,56 +105,16 @@ class CmaqNetcdfWriter(OutputWriter):
         print('    + writing: ' + out_path)
 
         # create empty netcdf file (including file path)
-        rootgrp = self._create_netcdf(out_path, date, jdate)
+        rootgrp, gmt_shift = self._create_netcdf(out_path, date, jdate)
 
         # fill netcdf file with data
-        self._write_to_netcdf(rootgrp, grid, jdate)
+        self._fill_grid(scaled_emissions, date, rootgrp, gmt_shift)
 
         # compress output file
         if is_last_date:
             os.system('gzip -1 ' + out_path)
         else:
             os.system('gzip -1 ' + out_path + ' &')
-
-    def _write_to_netcdf(self, rootgrp, grid, jdate):
-        ''' Take the object representing our CMAQ-NetCDF file and fill
-            in all of the emissions values.
-            When finished, zip the file.
-        '''
-        # seconds since epoch
-        secs = time.mktime(time.strptime("%s 12" % jdate, "%Y%j %H"))
-        gmt_shift = time.strftime("%H", time.gmtime(secs))
-        secs -= (int(gmt_shift) - 8) * 60 * 60
-
-        # build TFLAG variable
-        tflag = np.ones((25, self.num_species, 2), dtype=np.int32)
-        for hr in xrange(25):
-            gdh = time.strftime("%Y%j %H0000", time.gmtime(secs + hr * 60 * 60))
-            a_date,ghr = map(int, gdh.split())
-            tflag[hr,:,0] = tflag[hr,:,0] * a_date
-            tflag[hr,:,1] = tflag[hr,:,1] * ghr
-        rootgrp.variables['TFLAG'][:] = tflag
-
-        # Is it daylight savings time in California?
-        if gmt_shift == '19':
-            # shift all hours by one
-            for hr in xrange(24):
-                for grp in grid:
-                    grid[grp][:,hr,:,:] = grid[grp][:,hr + 1,:,:]
-            # default boundary condition: set 25th hour = first hour
-            for grp in grid:
-                grid[grp][:,24,:,:] = grid[grp][:,0,:,:]
-
-        # writing all species but time
-        for grp in self.groups:
-            pos = 0
-            while pos < self.groups[grp]['species'].size:
-                spec = self.groups[grp]['species'][pos]
-                rootgrp.variables[str(spec)][:,0,:,:] = grid[grp][pos,:,:,:] * self.STONS_HR_2_G_SEC / self.groups[grp]['weights'][pos]
-                pos += 1
-
-        rootgrp.close()
-        grid = {}
 
     def _create_netcdf(self, out_path, date, jdate):
         ''' Creates a blank CMAQ-ready NetCDF file, including all the important
@@ -228,58 +184,94 @@ class CmaqNetcdfWriter(OutputWriter):
         rootgrp.HISTORY = self.header['HISTORY']
         rootgrp.setncattr('VAR-LIST', varl)     # use this command b/c of python not liking hyphen '-'
 
-        return rootgrp
+        # seconds since epoch
+        secs = time.mktime(time.strptime("%s 12" % jdate, "%Y%j %H"))
+        gmt_shift = time.strftime("%H", time.gmtime(secs))
+        secs -= (int(gmt_shift) - 8) * 60 * 60
 
-    def _fill_grid(self, scaled_emissions, date):
+        # build TFLAG variable
+        tflag = np.ones((25, self.num_species, 2), dtype=np.int32)
+        for hr in xrange(25):
+            gdh = time.strftime("%Y%j %H0000", time.gmtime(secs + hr * 60 * 60))
+            a_date,ghr = map(int, gdh.split())
+            tflag[hr,:,0] = tflag[hr,:,0] * a_date
+            tflag[hr,:,1] = tflag[hr,:,1] * ghr
+        rootgrp.variables['TFLAG'][:] = tflag
+
+        return rootgrp, gmt_shift
+
+    def _fill_grid(self, scaled_emissions, date, rootgrp, gmt_shift):
         ''' Fill the entire modeling domain with a 3D grid for each pollutant.
             Fill the emissions values in each grid cell, for each polluant.
             Create a separate grid set for each date.
         '''
         species = {}  # for pre-speciated emissions
-        grid = {}
         for group in self.groups:
-            num_specs = len(np.atleast_1d(self.groups[group]['species']))
-            grid[group] = np.zeros((num_specs, 25, self.nrows, self.ncols), dtype=np.float32)
-            for i in xrange(num_specs):
+            for i in xrange(len(np.atleast_1d(self.groups[group]['species']))):
                 species[self.groups[group]['species'][i]] = {'group': group, 'index': i}
+
+        # some mass fractions are not EIC dependent
+        nox_fraction = self.gspro['DEFNOX']['NOX']
+        sox_fraction = self.gspro['SOX']['SOX']
 
         # loop through the different levels of the scaled emissions dictionary
         for region_data in scaled_emissions.data.itervalues():
             day_data = region_data.get(date, {})
             for hour, hr_data in day_data.iteritems():
+                # hr should start with 0, not 1
                 hr = hour - 1
-                for eic, sparce_emis in hr_data.iteritems():
-                    # This is only for pre-speciated cases
+                # adjust hr for DST
+                if gmt_shift == '19':
+                    hr = (hr + 1) % 24
+
+                for eic, sparse_emis in hr_data.iteritems():
+                    # EIC = -999 for the pre-speciated case.
                     if eic == -999:
-                        for (r, c), cell_data in sparce_emis.iteritems():
-                            row = r - 1
-                            col = c - 1
-                            for poll, value in cell_data.iteritems():
-                                grp = species[poll]['group']
-                                ind = species[poll]['index']
-                                grid[grp][ind,hr,row,col] += value
-                        continue
-                    # This is for the usual un-speciated case
-                    for (r, c), cell_data in sparce_emis.iteritems():
-                        row = r - 1
-                        col = c - 1
-                        for poll, value in cell_data.iteritems():
-                            if poll == 'tog':
-                                grid['TOG'][:,hr,row,col] += value * self.gspro[self.gsref[int(eic)]['TOG']]['TOG']
-                            elif poll == 'pm':
-                                grid['PM'][:,hr,row,col] += value * self.gspro[self.gsref[int(eic)]['PM']]['PM']
-                            elif poll == 'nox':
-                                grid['NOX'][:,hr,row,col] += value * self.gspro['DEFNOX']['NOX']
-                            elif poll == 'sox':
-                                grid['SOX'][:,hr,row,col] += value * self.gspro['SOX']['SOX']
-                            else:
-                                grid[poll.upper()][0,hr,row,col] += value
+                        for poll in sparse_emis.pollutants:
+                            if poll.upper() not in rootgrp.variables:
+                                continue
+                            grid = sparse_emis.get_grid(poll)
+                            rootgrp.variables[poll.upper()][hr,0,:,:] = grid
 
-        # setup diurnal boundary condition
-        for group in grid:
-            grid[group][:,24,:,:] = grid[group][:,0,:,:]
+                            if hr == 0:
+                                rootgrp.variables[poll.upper()][24,0,:,:] = grid
+                    else:
+                        # TOG and PM fractions are EIC-dependent
+                        if int(eic) in self.gsref:
+                            tog_fraction = self.gspro[self.gsref[int(eic)]['TOG']]['TOG']
+                            pm_fraction = self.gspro[self.gsref[int(eic)]['PM']]['PM']
+                        else:
+                            tog_fraction = []
+                            pm_fraction = []
 
-        return grid
+                        for poll in sparse_emis.pollutants:
+                            if poll in ['tog', 'pm'] and not np.any(sparse_emis._data[poll]):
+                                continue
+
+                            grp = poll.upper()
+                            for spec in self.groups[grp]['species']:
+                                # get species information
+                                ind = species[spec]['index']
+                                fraction = (self.STONS_HR_2_G_SEC / self.groups[grp]['weights'][ind])
+
+                                # species fractions
+                                if poll == 'tog' and len(tog_fraction):
+                                    fraction *= tog_fraction[ind]
+                                elif poll == 'pm' and len(pm_fraction):
+                                    fraction *= pm_fraction[ind]
+                                elif poll == 'nox':
+                                    fraction *= nox_fraction[ind]
+                                elif poll == 'sox':
+                                    fraction *= sox_fraction[ind]
+
+                                grid = sparse_emis.get_grid(poll)
+                                grid *= fraction
+                                rootgrp.variables[spec][hr,0,:,:] = grid
+
+                                if hr == 0:
+                                    rootgrp.variables[spec][24,0,:,:] = grid
+
+        rootgrp.close()
 
     def _load_gsref(self):
         ''' load the gsref file
@@ -330,7 +322,7 @@ class CmaqNetcdfWriter(OutputWriter):
             if not columns:
                 continue
             species = columns[0].upper()
-            weight = float(columns[1])
+            weight = np.float32(columns[1])
             group = columns[2].upper()
 
             # file output dict
@@ -379,7 +371,7 @@ class CmaqNetcdfWriter(OutputWriter):
             if group not in self.gspro[profile]:
                 self.gspro[profile][group] = np.zeros(len(self.groups[group]['species']),
                                                       dtype=np.float32)
-            self.gspro[profile][group][poll_index] = float(ln[5])
+            self.gspro[profile][group][poll_index] = np.float32(ln[5])
 
         f.close()
 

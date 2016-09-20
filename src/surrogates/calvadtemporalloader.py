@@ -1,5 +1,6 @@
 
 import os
+import numpy as np
 from src.core.temporal_loader import TemporalLoader
 
 
@@ -44,10 +45,10 @@ class CalvadTemporalLoader(TemporalLoader):
             region = int(ln[0])
             dow = ln[1]
             hr = int(ln[2])
-            ld = float(ln[3])
-            lm = float(ln[4])
-            hh = float(ln[5])
-            sbus = float(ln[6])
+            ld = np.float32(ln[3])
+            lm = np.float32(ln[4])
+            hh = np.float32(ln[5])
+            sbus = np.float32(ln[6])
 
             # load data into surrogate
             if region not in calvad:
@@ -78,10 +79,10 @@ class CalvadTemporalLoader(TemporalLoader):
             ln = line.strip().split(',')
             region = int(ln[0])
             dow = ln[2]
-            ld = float(ln[3])
-            lm = float(ln[4])
-            hh = float(ln[5])
-            sbus = float(ln[6])
+            ld = np.float32(ln[3])
+            lm = np.float32(ln[4])
+            hh = np.float32(ln[5])
+            sbus = np.float32(ln[6])
 
             # load data into surrogate
             if region not in calvad:

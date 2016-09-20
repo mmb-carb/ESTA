@@ -1,4 +1,5 @@
 
+import numpy as np
 from collections import defaultdict
 
 
@@ -10,7 +11,7 @@ class EmissionsTable(defaultdict):
     """
 
     def __init__(self):
-        defaultdict.__init__(self, lambda: defaultdict(float))
+        defaultdict.__init__(self, lambda: defaultdict(np.float32))
 
     def __getitem__(self, key):
         """ Setter method for emissions table """
@@ -22,8 +23,8 @@ class EmissionsTable(defaultdict):
         if type(val) != defaultdict:
             raise TypeError('The emissions table must be two levels deep: EIC and pollutant.')
         for value in val.values():
-            if type(value) != float:
-                raise TypeError('Emissions values must be of type float.')
+            if type(value) != np.float32:
+                raise TypeError('Emissions values must be of type np.float32.')
         defaultdict.__setitem__(self, key, val)
 
     def add_table(self, table):

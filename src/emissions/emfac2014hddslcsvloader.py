@@ -1,5 +1,6 @@
 
 import gzip
+import numpy as np
 import os
 import sys
 from emfac2014csvloader import Emfac2014CsvLoader
@@ -39,7 +40,7 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
             if poll not in Emfac2014CsvLoader.VALID_POLLUTANTS:
                 continue
             # pull emissions value
-            value = float(ln[2])
+            value = np.float32(ln[2])
             if value == 0.0:
                 continue
             # pull EIC info

@@ -1,4 +1,5 @@
 
+import numpy as np
 import os
 import sys
 from spatial_surrogate import SpatialSurrogate
@@ -66,7 +67,7 @@ class Smoke4SpatialSurrogateLoader(SpatialLoader):
             region = self.gai_codes[ln[1]]
             y = int(ln[2])
             x = int(ln[3])
-            fraction = float(ln[4])
+            fraction = np.float32(ln[4])
 
             if region not in surrogates:
                 surrogates[region] = SpatialSurrogate()

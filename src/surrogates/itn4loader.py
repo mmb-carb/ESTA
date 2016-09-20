@@ -1,4 +1,5 @@
 
+import numpy as np
 import os
 import sys
 from dtim4loader import Dtim4Loader, SpatialSurrogateData
@@ -99,7 +100,7 @@ class Itn4Loader(Dtim4Loader):
                     grid_cells.append(grid_cell)
 
             # distance (cm)
-            distance = float(ln[6])  # units currently don't matter
+            distance = np.float32(ln[6])  # units currently don't matter
             # speed [miles/hour * 100]
             # speed = float(ln[7])
             # volumes
@@ -107,7 +108,7 @@ class Itn4Loader(Dtim4Loader):
                 vol = float(ln[8 + col])
                 if vol <= 0.0:
                     continue
-                net_vmt = (vol / num_cells) * distance
+                net_vmt = np.float32(vol / num_cells) * distance
                 for gc in grid_cells:
                     surrs[col][self.eic_labels[0]][gc] += net_vmt
 
@@ -135,7 +136,7 @@ class Itn4Loader(Dtim4Loader):
             # distance = int(ln[2])
             # speed = float(ln[3])
             for i in xrange(26):
-                trips = float(ln[4 + 3 * i])
+                trips = np.float32(ln[4 + 3 * i])
                 surrs[i][self.eic_labels[1]][grid_cell] += trips
 
         f.close()

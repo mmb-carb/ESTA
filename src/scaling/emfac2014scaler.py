@@ -3,11 +3,12 @@ from collections import defaultdict
 from copy import deepcopy
 from datetime import datetime as dt
 from datetime import timedelta
+import numpy as np
 from pandas.tseries.holiday import USFederalHolidayCalendar
 from src.core.emissions_scaler import EmissionsScaler
 from scaled_emissions import ScaledEmissions
 from src.core.eic_utils import eic_reduce
-from src.emissions.sparce_emissions import SparceEmissions
+from src.emissions.sparse_emissions import SparseEmissions
 
 
 class Emfac2014Scaler(EmissionsScaler):
@@ -23,6 +24,8 @@ class Emfac2014Scaler(EmissionsScaler):
         self.eic2dtim4 = self.config.eval_file('Surrogates', 'eic2dtim4')
         self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
+        self.nrows = int(self.config['GridInfo']['rows'])
+        self.ncols = int(self.config['GridInfo']['columns'])
 
     def scale(self, emissions, spatial_surr, temp_surr):
         """ Master method to scale emissions using spatial and temporal surrogates.
@@ -39,8 +42,8 @@ class Emfac2014Scaler(EmissionsScaler):
                                         data[region][date][veh][act] = TemporalSurrogate()
                                             TemporalSurrogate = [x]*24
             OUTPUT FORMAT:
-            ScaledEmissions: data[region][date][hr][eic] = SparceEmissions
-                                SparceEmissions[(grid, cell)][pollutant] = value
+            ScaledEmissions: data[region][date][hr][eic] = SparseEmissions
+                                SparseEmissions[pollutant][(grid, cell)] = value
             NOTE: This function is a generator and will `yield` emissions file-by-file.
         """
         today = dt(self.start_date.year, self.start_date.month, self.start_date.day)
@@ -87,8 +90,8 @@ class Emfac2014Scaler(EmissionsScaler):
                                                                               factors_by_hour[hr]),
                                                           spatial_surrs, region, dow_num, hr)
 
-                    for eic, sparce_emis in emis_dict.iteritems():
-                        e.set(region, date, hr + 1, self.eic_reduce(eic), sparce_emis)
+                    for eic, sparse_emis in emis_dict.iteritems():
+                        e.set(region, date, hr + 1, self.eic_reduce(eic), sparse_emis)
 
                 # yield, if by sub-area
                 if self.by_region:
@@ -117,15 +120,15 @@ class Emfac2014Scaler(EmissionsScaler):
             if poll not in [co_id, nh3_id]:
                 continue
             eic = int(ln[-3])
-            val = float(ln[-1])
+            val = np.float32(ln[-1])
             county = int(ln[1])
             regions = self.county_to_gai[county]
             for region in regions:
                 # fill data structure
                 if region not in inv:
-                    inv[region] = defaultdict(float)
+                    inv[region] = defaultdict(np.float32)
                 if eic not in inv[region]:
-                    inv[region][eic] = {co_id: 0.0, nh3_id: 0.0}
+                    inv[region][eic] = {co_id: np.float32(0.0), nh3_id: np.float32(0.0)}
                 # fill in emissions values
                 inv[region][eic][poll] += val
         f.close()
@@ -135,7 +138,7 @@ class Emfac2014Scaler(EmissionsScaler):
             for eic in inv[region]:
                 co = inv[region][eic][co_id]
                 if co == 0.0:
-                    inv[region][eic] = 0.0
+                    inv[region][eic] = np.float32(0.0)
                 else:
                     nh3 = inv[region][eic][nh3_id]
                     inv[region][eic] = nh3 / co
@@ -161,24 +164,24 @@ class Emfac2014Scaler(EmissionsScaler):
             EmissionsTable[EIC][pollutant] = value
             spatial_surrs[veh][act] = SpatialSurrogate()
                                       SpatialSurrogate[(grid, cell)] = fraction
-            output: {EIC: SparceEmissions[(grid, cell)][pollutant] = value}
+            output: {EIC: SparseEmissions[pollutant][(grid, cell)] = value}
         """
         e = {}
         for eic in emis_table:
-            se = SparceEmissions()
+            se = SparseEmissions(self.nrows, self.ncols)
             veh, act = self.eic2dtim4[eic]
             for poll, value in emis_table[eic].iteritems():
                 if act not in spatial_surrs[veh]:
                     continue
                 for cell, fraction in spatial_surrs[veh][act].iteritems():
-                    se[cell][poll] = value * fraction
+                    se.add(poll, cell, value * fraction)
 
             # add NH3, based on CO fractions
             nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0.0)
             if 'co' in emis_table[eic] and nh3_fraction:
                 value = emis_table[eic]['co']
                 for cell, fraction in spatial_surrs[veh][act].iteritems():
-                    se[cell]['nh3'] = value * fraction * nh3_fraction
+                    se.add('nh3', cell, value * fraction * nh3_fraction)
 
             e[eic] = se
 
