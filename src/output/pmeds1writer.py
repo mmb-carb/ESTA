@@ -2,6 +2,7 @@
 from datetime import datetime as dt
 from glob import glob
 import gzip
+import numpy as np
 import os
 from src.core.output_writer import OutputWriter
 
@@ -12,7 +13,8 @@ class Pmeds1Writer(OutputWriter):
     """
 
     COLUMNS = {'co': 0, 'nox': 1, 'sox': 2, 'tog': 3, 'pm': 4, 'nh3': 5}
-    STONS_2_KG = 907.185
+    STONS_2_KG = np.float32(907.185)
+    MIN_EMIS = np.float32(5e-6) / STONS_2_KG
 
     def __init__(self, config, position):
         super(Pmeds1Writer, self).__init__(config, position)
@@ -67,27 +69,19 @@ class Pmeds1Writer(OutputWriter):
         for region, region_data in scaled_emissions.data.iteritems():
             day_data = region_data.get(date, {})
             for hr, hr_data in day_data.iteritems():
-                for eic, sparce_emis in hr_data.iteritems():
-                    for cell, grid_data in sparce_emis.iteritems():
-                        # build list of six pollutants
+                for eic, sparse_emis in hr_data.iteritems():
+                    polls = [(p, self.COLUMNS[p]) for p in sparse_emis.pollutants if p in self.COLUMNS]
+                    for (i, j) in sparse_emis.mask:
                         emis = ['', '', '', '', '', '']
-                        no_emissions = True
-                        for poll, value in grid_data.iteritems():
-                            try:
-                                col = Pmeds1Writer.COLUMNS[poll.lower()]
-                            except:
-                                # irrelevant pollutant
+                        for poll, col in polls:
+                            value = sparse_emis.get(poll, (i, j))
+                            if value < self.MIN_EMIS:
                                 continue
-                            val = '{0:.5f}'.format(value * self.STONS_2_KG).rstrip('0')
-                            if val != '0.':
-                                emis[col] = val
-                                no_emissions = False
+                            emis[col] = '%.5f' % (value * self.STONS_2_KG)
 
-                        # if there are emissions, build PMEDS line
-                        if no_emissions:
-                            continue
+                        # build PMEDS line
                         lines.append(self._build_pmeds1_line(region, date, jul_day, hr, eic,
-                                                             cell, emis))
+                                                             (i, j), emis))
 
         if lines:
             self._write_zipped_file(out_path, lines)
@@ -101,27 +95,23 @@ class Pmeds1Writer(OutputWriter):
         lines = []
 
         for hr, hr_data in scaled_emissions.data[region][date].iteritems():
-            for eic, sparce_emis in hr_data.iteritems():
-                for cell, grid_data in sparce_emis.iteritems():
-                    # build list of six pollutants
+            for eic, sparse_emis in hr_data.iteritems():
+                polls = [(p, self.COLUMNS[p]) for p in sparse_emis.pollutants if p in self.COLUMNS]
+                for (i, j) in sparse_emis.mask:
                     emis = ['', '', '', '', '', '']
-                    no_emissions = True
-                    for poll, value in grid_data.iteritems():
+                    for poll, col in polls:
                         try:
-                            col = Pmeds1Writer.COLUMNS[poll.lower()]
-                        except:
-                            # irrelevant pollutant
-                            continue
-                        val = '{0:.5f}'.format(value * self.STONS_2_KG).rstrip('0')
-                        if val != '0.':
-                            emis[col] = val
-                            no_emissions = False
+                            value = sparse_emis.get(poll, (i, j))
+                            if value < self.MIN_EMIS:
+                                continue
+                            emis[col] = '%.5f' % (value * self.STONS_2_KG)
+                        except KeyError:
+                            # pollutant not in this grid cell
+                            pass
 
-                    # if there are emissions, build PMEDS line
-                    if no_emissions:
-                        continue
+                    # build PMEDS line
                     lines.append(self._build_pmeds1_line(region, date, jul_day, hr, eic,
-                                                         cell, emis))
+                                                         (i, j), emis))
 
         self._write_file(out_path, lines)
         self._combine_regions(date)

@@ -63,7 +63,12 @@ class Emfac2014TotalsTester(OutputTester):
             # test output pmeds, if any
             pmeds_files = self._find_output_pmeds(dt)
             if pmeds_files:
-                self._read_and_compare_pmeds(pmeds_files, date, emis)
+                self._read_and_compare_txt(pmeds_files, date, emis, 'pmeds')
+
+            # test output ocsvs, if any
+            ocsv_files = self._find_output_ocsvs(dt)
+            if ocsv_files:
+                self._read_and_compare_txt(ocsv_files, date, emis, 'ocsv')
 
             # test output netcdf, if any
             ncf_files = self._find_output_ncf(dt)
@@ -91,20 +96,23 @@ class Emfac2014TotalsTester(OutputTester):
         # write the emissions comparison to a file
         self._write_general_comparison(date, emis, out_emis)
 
-    def _read_and_compare_pmeds(self, pmeds_files, date, emis):
-        ''' Read the output PMEDS files and compare the results with the
+    def _read_and_compare_txt(self, files, date, emis, file_type):
+        ''' Read the output PMEDS/OCSV files and compare the results with the
             input EMFAC2014 emissions.
         '''
-        if not pmeds_files:
+        if not files:
             return
 
         # sum up emissions in output PMEDS
         out_emis = {}
-        for pmeds_file in pmeds_files:
-            out_emis = self._sum_output_pmeds(pmeds_file, out_emis)
+        for f in files:
+            if file_type == 'pmeds':
+                out_emis = self._sum_output_pmeds(f, out_emis)
+            elif file_type == 'ocsv':
+                out_emis = self._sum_output_ocsv(f, out_emis)
 
         # write the emissions comparison to a file
-        self._write_full_comparison(date, emis, out_emis)
+        self._write_full_comparison(date, emis, out_emis, file_type)
 
     def _write_general_comparison(self, date, emfac_emis, ncf_emis):
         ''' Write a quick CSV to compare the EMFAC2014 and final output NetCDF.
@@ -149,22 +157,22 @@ class Emfac2014TotalsTester(OutputTester):
 
         f.close()
 
-    def _write_full_comparison(self, date, emis, out_emis):
-        ''' Write a quick CSV to compare the EMFAC2014 and final output PMEDS.
+    def _write_full_comparison(self, date, emis, out_emis, file_type):
+        ''' Write a quick CSV to compare the EMFAC2014 and final output PMEDS/OCSV.
             Write the difference by region, EIC, and pollutant.
             NOTE: Won't print any numbers with zero percent difference.
         '''
         if not os.path.exists(self.testing_dir):
             os.mkdir(self.testing_dir)
-        file_path = os.path.join(self.testing_dir, 'pmeds_test_' + date + '.csv')
+        file_path = os.path.join(self.testing_dir, file_type + '_test_' + date + '.csv')
         f = open(file_path, 'w')
-        f.write('Region,EIC,Pollutant,EMFAC,PMEDS,Percent Diff\n')
+        f.write('Region,EIC,Pollutant,EMFAC,' + file_type.upper() + ',Percent Diff\n')
 
         total_totals = {'emfac': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0},
-                        'pmeds': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}}
+                        'final': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}}
         for region_num in self.regions:
             region_totals = {'emfac': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0},
-                             'pmeds': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}}
+                             'final': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}}
             c = self.region_names[region_num]
             # write granular totals, by EIC
             eics = set(emis[region_num].keys() + out_emis[region_num].keys())
@@ -172,37 +180,37 @@ class Emfac2014TotalsTester(OutputTester):
                 for poll in self.POLLUTANTS:
                     # get data
                     emfac = emis.get(region_num, {}).get(eic, {}).get(poll, 0.0)
-                    pmeds = out_emis.get(region_num, {}).get(eic, {}).get(poll, 0.0)
-                    diff = Emfac2014TotalsTester.percent_diff(emfac, pmeds)
+                    final = out_emis.get(region_num, {}).get(eic, {}).get(poll, 0.0)
+                    diff = Emfac2014TotalsTester.percent_diff(emfac, final)
                     # fill region totals
                     region_totals['emfac'][poll] += emfac
-                    region_totals['pmeds'][poll] += pmeds
+                    region_totals['final'][poll] += final
                     # don't write the detailed line if there's no difference
                     if abs(diff) < 1.0e-3:
                         continue
                     diff = '%.3f' % diff
-                    f.write(','.join([c, str(eic), poll, str(emfac), str(pmeds), diff]) + '\n')
+                    f.write(','.join([c, str(eic), poll, str(emfac), str(final), diff]) + '\n')
 
             # write region totals, without EIC
             for poll in self.POLLUTANTS:
                 # write line
                 emfac = region_totals['emfac'][poll]
-                pmeds = region_totals['pmeds'][poll]
-                diff = Emfac2014TotalsTester.percent_diff(emfac, pmeds)
+                final = region_totals['final'][poll]
+                diff = Emfac2014TotalsTester.percent_diff(emfac, final)
                 diff = '%.3f' % diff
-                f.write(','.join([c, 'TOTAL', poll, str(emfac), str(pmeds), diff]) + '\n')
+                f.write(','.join([c, 'TOTAL', poll, str(emfac), str(final), diff]) + '\n')
                 # build statewide totals
                 total_totals['emfac'][poll] += emfac
-                total_totals['pmeds'][poll] += pmeds
+                total_totals['final'][poll] += final
 
         # if more than one region, write state totals, without EIC
         if len(self.regions) > 1:
             for poll in self.POLLUTANTS:
                 emfac = total_totals['emfac'][poll]
-                pmeds = total_totals['pmeds'][poll]
-                diff = Emfac2014TotalsTester.percent_diff(emfac, pmeds)
+                final = total_totals['final'][poll]
+                diff = Emfac2014TotalsTester.percent_diff(emfac, final)
                 diff = '%.3f' % diff
-                f.write(','.join(['TOTAL', 'TOTAL', poll, str(emfac), str(pmeds), diff]) + '\n')
+                f.write(','.join(['TOTAL', 'TOTAL', poll, str(emfac), str(final), diff]) + '\n')
 
         f.close()
 
@@ -223,6 +231,35 @@ class Emfac2014TotalsTester(OutputTester):
             region = int(line[71:73])
             eic = int(line[22:36])
             vals = [float(v) if v else 0.0 for v in line[78:].rstrip().split(',')]
+
+            if region not in e:
+                e[region] = {}
+            if eic not in e[region]:
+                e[region][eic] = dict(zip(self.POLLUTANTS, [0.0]*len(self.POLLUTANTS)))
+
+            for i in xrange(5):
+                e[region][eic][self.POLLUTANTS[i]] += vals[i] * self.KG_2_STONS
+
+        return e
+
+    def _sum_output_ocsv(self, file_path, e):
+        ''' Look at the final output OCSV file and build a dictionary
+            of the emissions by region and pollutant.
+        '''
+        if file_path.endswith('.gz'):
+            f = gzip.open(file_path, 'rb')
+        elif os.path.exists(file_path):
+            f = open(file_path, 'r')
+        else:
+            print('Emissions File Not Found: ' + file_path)
+            return e
+
+        # now that file exists, read it
+        for line in f.readlines():
+            ln = line.rstrip().split(',')
+            region = int(ln[0])
+            eic = int(ln[1])
+            vals = [float(v) if v else 0.0 for v in ln[5:11]]
 
             if region not in e:
                 e[region] = {}
@@ -302,6 +339,23 @@ class Emfac2014TotalsTester(OutputTester):
             self.groups[species]['weight'] = float(columns[1]) / 1000.0
             self.groups[species]['group'] = columns[2].upper()
             self.groups[species]['units'] = columns[3]
+
+    def _find_output_ocsvs(self, dt):
+        ''' Find the output OCSV file(s) for a given day. '''
+        files = []
+        if self.by_region and not self.combine:
+            file_str = os.path.join(self.out_dir, '%02d' % dt.month, '%02d' % dt.day, '*.ocs*')
+            possibles = glob(file_str)
+            if possibles:
+                files += possibles
+        else:
+            date_str = str(dt.month) + 'd' + '%02d' % dt.day
+            file_str = os.path.join(self.out_dir, 'ocsv', '*' + date_str + '*.ocs*')
+            possibles = glob(file_str)
+            if possibles:
+                files.append(possibles[0])
+
+        return files
 
     def _find_output_pmeds(self, dt):
         ''' Find the output PMEDS file(s) for a given day. '''
@@ -433,7 +487,10 @@ class Emfac2014TotalsTester(OutputTester):
             value = float(ln[2])
             if value == 0.0:
                 continue
-            region = self.reverse_region_names[ln[1]]
+            try:
+                region = self.reverse_region_names[ln[1]]
+            except:
+                region = int(ln[1])
             v = ln[4]
             p = ln[3]
             eic = self.eic_reduce(self.vtp2eic[(v, 'DSL', p)])

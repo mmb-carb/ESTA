@@ -27,7 +27,6 @@ class OnRoadCsvWriter(OutputWriter):
         self.gai_to_county = dict((g, c) for c in self.county_to_gai for g in self.county_to_gai[c])
         self.gai_basins = self.config.eval_file('Output', 'gai_basins')
         self.multi_gai_coords = self.config.eval_file('Output', 'multi_gai_coords')
-        self.pollutants = self.config.getlist('Emissions', 'input_pollutants')
 
     def write(self, scaled_emissions):
         """ The master method to write output files.
@@ -70,8 +69,6 @@ class OnRoadCsvWriter(OutputWriter):
         out_path = self._build_state_file_path(date)
         lines = []
 
-        polls = [(p, self.COLUMNS[p]) for p in self.pollutants if p in self.COLUMNS]
-
         # loop through the different levels of the scaled emissions dictionary
         for region, region_data in scaled_emissions.data.iteritems():
             region_str = str(region)
@@ -79,6 +76,7 @@ class OnRoadCsvWriter(OutputWriter):
             for hr, hr_data in day_data.iteritems():
                 hr_str = str(hr)
                 for eic, sparse_emis in hr_data.iteritems():
+                    polls = [(p, self.COLUMNS[p]) for p in sparse_emis.pollutants if p in self.COLUMNS]
                     eic_str = str(eic)
                     for (i, j) in sparse_emis.mask:
                         emis = ['', '', '', '', '', '']
@@ -100,12 +98,11 @@ class OnRoadCsvWriter(OutputWriter):
         out_path = self._build_regional_file_path(region, date)
         f = open(out_path, 'w')
 
-        polls = [(p, self.COLUMNS[p] + 5) for p in self.pollutants if p in self.COLUMNS]
-
         region_str = str(region)
         for hr, hr_data in scaled_emissions.data[region][date].iteritems():
             hr_str = str(hr)
             for eic, sparse_emis in hr_data.iteritems():
+                polls = [(p, self.COLUMNS[p] + 5) for p in sparse_emis.pollutants if p in self.COLUMNS]
                 eic_str = str(eic)
                 for (i, j) in sparse_emis.mask:
                     emis = [region_str, eic_str, str(i), str(j), hr_str, '', '', '', '', '', '']

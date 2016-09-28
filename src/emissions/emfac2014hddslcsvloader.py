@@ -49,7 +49,10 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
             eic = self.vtp2eic[(v, 'DSL', p)]
             # pull region info
             region_name = ln[1]
-            region = self.reverse_region_names[region_name]
+            try:
+                region = self.reverse_region_names[region_name]
+            except:
+                region = int(region_name)
             # fill output dictionary
             if region not in emis_by_region:
                 emis_by_region[region] = EmissionsTable()
