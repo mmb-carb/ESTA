@@ -50,8 +50,8 @@ class CmaqNetcdfWriter(OutputWriter):
                        'XCELL': 4000.0,          # Domain: x cell width in meters
                        'YCELL': 4000.0,          # Domain: y cell width in meters
                        'VGTYP': 2,               # Domain: grid type ID (lat-lon, UTM, RADM, etc...)
-                       'VGTOP': 10000,           # Domain: Top Vertical layer at 10km
-                       'VGLVLS': [1.0, 0.9958],  # Domain: Vertical layer locations
+                       'VGTOP': np.float32(10000.0),           # Domain: Top Vertical layer at 10km
+                       'VGLVLS': np.float32([1.0, 0.9958]),  # Domain: Vertical layer locations
                        'GDNAM': "CMAQ Emissions  ",
                        'UPNAM': "combineEmis_wdwe",
                        'FILEDESC': "",
@@ -266,6 +266,7 @@ class CmaqNetcdfWriter(OutputWriter):
 
                                 grid = sparse_emis.get_grid(poll)
                                 grid *= fraction
+                                # TODO: I think this is wrong for the not-pre-speciated case.
                                 rootgrp.variables[spec][hr,0,:,:] = grid
 
                                 if hr == 0:
