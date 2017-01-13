@@ -47,7 +47,6 @@ ACRO        56.060      TOG     moles/s
 MACR        70.090      TOG     moles/s
 MVK         70.090      TOG     moles/s
 IPRD       100.120      TOG     moles/s
-RNO3       147.180      RNO3    moles/s
 CO          28.010      CO      moles/s
 NH3         17.030      NH3     moles/s
 PSO4         1.000      PM      g/s
