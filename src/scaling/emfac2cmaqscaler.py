@@ -23,6 +23,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                     'pm',  'off', 'off', 'off', 'off', 'off']
     DOWS = ['_monday_', '_tuesday_', '_wednesday_', '_thursday_', '_friday_',
             '_saturday_', '_sunday_', '_holiday_']
+    STONS_HR_2_G_SEC = 251.99583333333334
 
     def __init__(self, config, position):
         super(Emfac2CmaqScaler, self).__init__(config, position)
@@ -81,7 +82,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 dow = Emfac2CmaqScaler.DOW[dt.strptime(by_date, self.date_format).weekday()]
 
             # create a statewide emissions object
-            e = ScaledEmissions()
+            e = ScaledEmissions()  # TODO: Maybe just initialize -999 right now?
 
             for region in self.regions:
                 if date not in emissions.data[region]:
@@ -103,7 +104,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                     sparse_emis = self._apply_spatial_surrs(self._apply_factors(deepcopy(emis_table),
                                                                                 factors_by_hour[hr]),
                                                             spatial_surrs, region, dow_num, hr)
-                    e.set(-999, date, hr + 1, -999, sparse_emis)
+                    e.set(-999, date, hr + 1, -999, sparse_emis)  # TODO: SHOULD THIS BE ADD, NOT SET??????????????????????????????????/
 
             yield e
 
@@ -183,41 +184,65 @@ class Emfac2CmaqScaler(EmissionsScaler):
         """
         se = SparseEmissions(self.nrows, self.ncols)
 
+        species = {}
+        for group in self.groups:
+            for i in xrange(len(np.atleast_1d(self.groups[group]['species']))):
+                species[self.groups[group]['species'][i]] = {'group': group, 'index': i}
+
+        # some mass fractions are not EIC dependent
+        nox_fraction = self.gspro['DEFNOX']['NOX']
+        sox_fraction = self.gspro['SOX']['SOX']
+
         # grid emissions, by EIC
         for eic in emis_table:
-            veh, act = self.eic2dtim4[eic]
+            # TOG and PM fractions are EIC-dependent
+            if int(eic) in self.gsref:
+                tog_fraction = self.gspro[self.gsref[int(eic)]['TOG']]['TOG']
+                pm_fraction = self.gspro[self.gsref[int(eic)]['PM']]['PM']
+            else:
+                tog_fraction = []
+                pm_fraction = []
 
             # fix VMT activity according to Calvad periods
+            veh, act = self.eic2dtim4[eic]
             if act[:3] in ['vmt', 'vht']:
                 act += self.DOWS[dow] + self.CALVAD_HOURS[hr]
+            spat_surr = spatial_surrs[veh][act]
 
             # speciate by pollutant, while gridding
             for poll, value in emis_table[eic].iteritems():
-                POLL = poll.upper()
-                if POLL == 'PM':
-                    label = self.gsref[int(eic)]['PM']
-                elif POLL == 'TOG':
-                    label = self.gsref[int(eic)]['TOG']
-                elif POLL == 'NOX':
-                    label = 'DEFNOX'
-                else:
-                    label = POLL
+                if value == 0.0:
+                    continue
 
-                gspro_label = self.gspro[label][POLL]
-                groups = self.groups[POLL]['species']
+                groups = self.groups[poll.upper()]
 
                 # loop through each grid cell
-                for index,species in enumerate(groups):
-                    speciated_value = value * gspro_label[index]
-                    for cell, cell_fraction in spatial_surrs[veh][act].iteritems():
-                        se.add(species, cell, speciated_value * cell_fraction)
+                for index,spec in enumerate(groups['species']):
+                    # get species information
+                    ind = species[spec]['index']
+                    mass_fraction = (self.STONS_HR_2_G_SEC / groups['weights'][ind])
 
+                    # species fractions
+                    if poll == 'tog' and len(tog_fraction):
+                        mass_fraction *= tog_fraction[ind]
+                    elif poll == 'pm' and len(pm_fraction):
+                        mass_fraction *= pm_fraction[ind]
+                    elif poll == 'nox':
+                        mass_fraction *= nox_fraction[ind]
+                    elif poll == 'sox':
+                        mass_fraction *= sox_fraction[ind]
+
+                    speciated_value = value * mass_fraction
+                    for cell, cell_fraction in spat_surr.iteritems():
+                        se.add(spec, cell, speciated_value * cell_fraction)
+
+            # TODO: Add mass fraction information
             # add NH3, based on NH3/CO fractions
             if 'co' in emis_table[eic]:
                 nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0)
                 if nh3_fraction:
                     nh3_value = emis_table[eic]['co'] * nh3_fraction
-                    for cell, cell_fraction in spatial_surrs[veh][act].iteritems():
+                    for cell, cell_fraction in spat_surr.iteritems():
                         se.add('nh3', cell, nh3_value * cell_fraction)
 
         return se
@@ -258,6 +283,50 @@ class Emfac2CmaqScaler(EmissionsScaler):
         f.close()
 
     def _load_weight_file(self):
+        """ load molecular weight file
+            File Format:
+            NO          30.006      NOX    moles/s
+            NO2         46.006      NOX    moles/s
+            HONO        47.013      NOX    moles/s
+        """
+        # read molecular weight text file
+        fin = open(self.weight_file,'r')
+        lines = fin.read()
+        fin.close()
+
+        # read in CSV or Fortran-formatted file
+        lines = lines.replace(',', ' ')
+        lines = lines.split('\n')
+
+        self.groups = {}
+        # loop through file lines and
+        for line in lines:
+            # parse line
+            columns = line.rstrip().split()
+            if not columns:
+                continue
+            species = columns[0].upper()
+            weight = np.float32(columns[1])
+            group = columns[2].upper()
+
+            # file output dict
+            if group not in self.groups:
+                units = columns[3]
+                self.groups[group] = {'species': [], 'weights': [], 'units': units}
+            self.groups[group]['species'].append(species)
+            self.groups[group]['weights'].append(weight)
+
+        # convert weight list to numpy.array
+        for grp in self.groups:
+            self.groups[grp]['species'] = np.array(self.groups[grp]['species'], dtype=np.dtype('a8'))
+            self.groups[grp]['weights'] = np.array(self.groups[grp]['weights'], dtype=np.float32)
+
+        # calculate the number of species total
+        self.num_species = 0
+        for group in self.groups:
+            self.num_species += len(self.groups[group]['species'])
+
+    def _load_weight_file_OLD(self):
         """ load molecular weight file
             File Format:
             NO          30.006      NOX    moles/s

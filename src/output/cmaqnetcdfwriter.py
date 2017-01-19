@@ -50,7 +50,7 @@ class CmaqNetcdfWriter(OutputWriter):
                        'XCELL': 4000.0,          # Domain: x cell width in meters
                        'YCELL': 4000.0,          # Domain: y cell width in meters
                        'VGTYP': 2,               # Domain: grid type ID (lat-lon, UTM, RADM, etc...)
-                       'VGTOP': np.float32(10000.0),           # Domain: Top Vertical layer at 10km
+                       'VGTOP': np.float32(10000.0),         # Domain: Top Vertical layer at 10km
                        'VGLVLS': np.float32([1.0, 0.9958]),  # Domain: Vertical layer locations
                        'GDNAM': "CMAQ Emissions  ",
                        'UPNAM': "combineEmis_wdwe",
@@ -225,52 +225,18 @@ class CmaqNetcdfWriter(OutputWriter):
                     hr = (hr + 1) % 24
 
                 for eic, sparse_emis in hr_data.iteritems():
-                    # EIC = -999 for the pre-speciated case.
-                    if eic == -999:
-                        for poll in sparse_emis.pollutants:
-                            if poll.upper() not in rootgrp.variables:
-                                continue
-                            grid = sparse_emis.get_grid(poll)
-                            rootgrp.variables[poll.upper()][hr,0,:,:] = grid
+                    # EIC = -999 for the pre-speciated case
+                    if eic != -999:
+                        raise ValueError('CMAQ-ready NetCDF files require pre-speciated emissions.')
 
-                            if hr == 0:
-                                rootgrp.variables[poll.upper()][24,0,:,:] = grid
-                    else:
-                        # TOG and PM fractions are EIC-dependent
-                        if int(eic) in self.gsref:
-                            tog_fraction = self.gspro[self.gsref[int(eic)]['TOG']]['TOG']
-                            pm_fraction = self.gspro[self.gsref[int(eic)]['PM']]['PM']
-                        else:
-                            tog_fraction = []
-                            pm_fraction = []
+                    for poll in sparse_emis.pollutants:
+                        if poll.upper() not in rootgrp.variables:
+                            continue
+                        grid = sparse_emis.get_grid(poll)
+                        rootgrp.variables[poll.upper()][hr,0,:,:] = grid  # TODO: This looks wrong... is it not over-writing data?
 
-                        for poll in sparse_emis.pollutants:
-                            if poll in ['tog', 'pm'] and not np.any(sparse_emis._data[poll]):
-                                continue
-
-                            grp = poll.upper()
-                            for spec in self.groups[grp]['species']:
-                                # get species information
-                                ind = species[spec]['index']
-                                fraction = (self.STONS_HR_2_G_SEC / self.groups[grp]['weights'][ind])
-
-                                # species fractions
-                                if poll == 'tog' and len(tog_fraction):
-                                    fraction *= tog_fraction[ind]
-                                elif poll == 'pm' and len(pm_fraction):
-                                    fraction *= pm_fraction[ind]
-                                elif poll == 'nox':
-                                    fraction *= nox_fraction[ind]
-                                elif poll == 'sox':
-                                    fraction *= sox_fraction[ind]
-
-                                grid = sparse_emis.get_grid(poll)
-                                grid *= fraction
-                                # TODO: I think this is wrong for the not-pre-speciated case.
-                                rootgrp.variables[spec][hr,0,:,:] = grid
-
-                                if hr == 0:
-                                    rootgrp.variables[spec][24,0,:,:] = grid
+                        if hr == 0:
+                            rootgrp.variables[poll.upper()][24,0,:,:] = grid
 
         rootgrp.close()
 
