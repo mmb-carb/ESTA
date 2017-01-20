@@ -82,7 +82,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 dow = Emfac2CmaqScaler.DOW[dt.strptime(by_date, self.date_format).weekday()]
 
             # create a statewide emissions object
-            e = ScaledEmissions()  # TODO: Maybe just initialize -999 right now?
+            e = ScaledEmissions()
 
             for region in self.regions:
                 if date not in emissions.data[region]:
@@ -104,7 +104,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                     sparse_emis = self._apply_spatial_surrs(self._apply_factors(deepcopy(emis_table),
                                                                                 factors_by_hour[hr]),
                                                             spatial_surrs, region, dow_num, hr)
-                    e.set(-999, date, hr + 1, -999, sparse_emis)  # TODO: SHOULD THIS BE ADD, NOT SET??????????????????????????????????/
+                    e.set(-999, date, hr + 1, -999, sparse_emis)
 
             yield e
 

@@ -23,7 +23,7 @@ class ScaledEmissions(object):
         if type(poll_grid) != SparseEmissions:
             raise TypeError('Only sparse-grid emissions can be in the scaled emissions inventory.')
 
-        # auto-fill the mulit-level dictionary format, to hide this from the user
+        # auto-fill the multi-level dictionary format, to hide this from the user
         if region not in self.data:
             self.data[region] = {}
         if date not in self.data[region]:
