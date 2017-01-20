@@ -1,6 +1,5 @@
 
 from datetime import datetime as dt
-import gc
 import os
 from netCDF4 import Dataset
 import numpy as np
@@ -105,7 +104,8 @@ class CmaqNetcdfWriter(OutputWriter):
         print('    + writing: ' + out_path)
 
         # create empty netcdf file (including file path)
-        rootgrp, gmt_shift = self._create_netcdf(out_path, date, jdate)
+        rootgrp, gmt_shift = self._create_netcdf(out_path, date, jdate, scaled_emissions)
+        # TODO: ScaledEmissions come in with TOO MANY POllutants.
 
         # fill netcdf file with data
         self._fill_grid(scaled_emissions, date, rootgrp, gmt_shift)
@@ -116,10 +116,15 @@ class CmaqNetcdfWriter(OutputWriter):
         else:
             os.system('gzip -1 ' + out_path + ' &')
 
-    def _create_netcdf(self, out_path, date, jdate):
+    def _create_netcdf(self, out_path, date, jdate, scaled_emissions):
         ''' Creates a blank CMAQ-ready NetCDF file, including all the important
             boilerplate and header information. But does not fill in any emissions data.
         '''
+        # find all pollutants
+        valid_polls = set(['NH3'])
+        for hr in xrange(1, 25):
+            valid_polls.update(scaled_emissions.data[-999].get(date, {})[hr][-999].pollutants)
+
         # define some header variables
         current_date = int(time.strftime("%Y%j"))
         current_time = int(time.strftime("%H%M%S"))
@@ -142,12 +147,14 @@ class CmaqNetcdfWriter(OutputWriter):
         # define variables and attribute definitions
         varl = ''
         for group in self.groups:
-            for species in self.groups[group]['species']:
-                rootgrp.createVariable(species, 'f4', ('TSTEP', 'LAY', 'ROW', 'COL'), zlib=False)
-                rootgrp.variables[species].long_name = species
-                rootgrp.variables[species].units = self.groups[group]['units']
-                rootgrp.variables[species].var_desc = 'emissions'
-                varl += species.ljust(16)
+            for spec in self.groups[group]['species']:
+                if spec not in valid_polls:
+                    continue
+                rootgrp.createVariable(spec, 'f4', ('TSTEP', 'LAY', 'ROW', 'COL'), zlib=False)
+                rootgrp.variables[spec].long_name = spec
+                rootgrp.variables[spec].units = self.groups[group]['units']
+                rootgrp.variables[spec].var_desc = 'emissions'
+                varl += spec.ljust(16)
 
         # global attributes
         rootgrp.IOAPI_VERSION = self.header['IOAPI_VERSION']
@@ -215,28 +222,28 @@ class CmaqNetcdfWriter(OutputWriter):
         sox_fraction = self.gspro['SOX']['SOX']
 
         # loop through the different levels of the scaled emissions dictionary
-        for region_data in scaled_emissions.data.itervalues():
-            day_data = region_data.get(date, {})
-            for hour, hr_data in day_data.iteritems():
-                # hr should start with 0, not 1
-                hr = hour - 1
-                # adjust hr for DST
-                if gmt_shift == '19':
-                    hr = (hr + 1) % 24
+        region_data = scaled_emissions.data[-999]
+        day_data = region_data.get(date, {})
+        for hour, hr_data in day_data.iteritems():
+            # hr should start with 0, not 1
+            hr = hour - 1
+            # adjust hr for DST
+            if gmt_shift == '19':
+                hr = (hr + 1) % 24
 
-                for eic, sparse_emis in hr_data.iteritems():
-                    # EIC = -999 for the pre-speciated case
-                    if eic != -999:
-                        raise ValueError('CMAQ-ready NetCDF files require pre-speciated emissions.')
+            #for eic, sparse_emis in hr_data.iteritems():
+            sparse_emis = hr_data[-999]
 
-                    for poll in sparse_emis.pollutants:
-                        if poll.upper() not in rootgrp.variables:
-                            continue
-                        grid = sparse_emis.get_grid(poll)
-                        rootgrp.variables[poll.upper()][hr,0,:,:] = grid  # TODO: This looks wrong... is it not over-writing data?
+            for poll in sparse_emis.pollutants:
+                if poll.upper() not in rootgrp.variables:
+                    print('No variable for: ' + poll.upper())
+                    continue
 
-                        if hr == 0:
-                            rootgrp.variables[poll.upper()][24,0,:,:] = grid
+                grid = sparse_emis.get_grid(poll)
+                rootgrp.variables[poll.upper()][hr,0,:,:] = grid
+
+                if hr == 0:
+                    rootgrp.variables[poll.upper()][24,0,:,:] = grid
 
         rootgrp.close()
 
