@@ -24,12 +24,29 @@ class SparseEmissions(object):
         """ Get a copy of an entire pollutant grid """
         return self._data[poll].copy()
 
+    def add_poll(self, poll):
+        """ Add a single pollutant
+            This is used to help speed up the processing.
+        """
+        if poll not in self.pollutants:
+            self.pollutants.add(poll)
+            self._data[poll] = np.zeros((self.nrows, self.ncols), dtype=np.float32)
+
     def add(self, poll, cell, value):
         """ Setter method for sparse grid emissions """
         if poll not in self.pollutants:
             self.pollutants.add(poll)
             self._data[poll] = np.zeros((self.nrows, self.ncols), dtype=np.float32)
 
+        self._data[poll][cell] += value
+        self.mask.add(cell)
+
+    def add_naive(self, poll, cell, value):
+        """ Setter method for sparse grid emissions
+            This makes the naive assumption that the pollutant is already part of this object.
+            This method can fail hard, and is meant to be used in conjunction with pre-processing
+            to aid in performance.
+        """
         self._data[poll][cell] += value
         self.mask.add(cell)
 

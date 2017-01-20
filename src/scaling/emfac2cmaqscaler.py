@@ -23,7 +23,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                     'pm',  'off', 'off', 'off', 'off', 'off']
     DOWS = ['_monday_', '_tuesday_', '_wednesday_', '_thursday_', '_friday_',
             '_saturday_', '_sunday_', '_holiday_']
-    STONS_HR_2_G_SEC = 251.99583333333334
+    STONS_HR_2_G_SEC = np.float32(251.99583333333334)
 
     def __init__(self, config, position):
         super(Emfac2CmaqScaler, self).__init__(config, position)
@@ -182,7 +182,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                                     SpatialSurrogate[(grid, cell)] = fraction
             output: {EIC: SparseEmissions[pollutant][(grid, cell)] = value}
         """
-        se = SparseEmissions(self.nrows, self.ncols)
+        se = self._prebuild_sparce_emissions(emis_table)
 
         species = {}
         for group in self.groups:
@@ -211,7 +211,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
             # speciate by pollutant, while gridding
             for poll, value in emis_table[eic].iteritems():
-                if value == 0.0:
+                if value <= 0.0:
                     continue
 
                 groups = self.groups[poll.upper()]
@@ -234,16 +234,27 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
                     speciated_value = value * mass_fraction
                     for cell, cell_fraction in spat_surr.iteritems():
-                        se.add(spec, cell, speciated_value * cell_fraction)
+                        se.add_naive(spec, cell, speciated_value * cell_fraction)
 
-            # TODO: Add mass fraction information
             # add NH3, based on NH3/CO fractions
             if 'co' in emis_table[eic]:
                 nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0)
-                if nh3_fraction:
-                    nh3_value = emis_table[eic]['co'] * nh3_fraction
-                    for cell, cell_fraction in spat_surr.iteritems():
-                        se.add('nh3', cell, nh3_value * cell_fraction)
+                if nh3_fraction <= 0.0: continue
+
+                nh3_value = emis_table[eic]['co'] * nh3_fraction
+                for cell, cell_fraction in spat_surr.iteritems():
+                    se.add_naive('nh3', cell, nh3_value * cell_fraction)
+
+        return se
+
+    def _prebuild_sparce_emissions(self, emis_table):
+        ''' pre-process to add all relevant species to SE object '''
+        se = SparseEmissions(self.nrows, self.ncols)
+        se.add_poll('nh3')
+        for eic in emis_table:
+            for poll in emis_table[eic]:
+                for spec in self.groups[poll.upper()]['species']:
+                    se.add_poll(spec)
 
         return se
 
@@ -320,47 +331,6 @@ class Emfac2CmaqScaler(EmissionsScaler):
         for grp in self.groups:
             self.groups[grp]['species'] = np.array(self.groups[grp]['species'], dtype=np.dtype('a8'))
             self.groups[grp]['weights'] = np.array(self.groups[grp]['weights'], dtype=np.float32)
-
-        # calculate the number of species total
-        self.num_species = 0
-        for group in self.groups:
-            self.num_species += len(self.groups[group]['species'])
-
-    def _load_weight_file_OLD(self):
-        """ load molecular weight file
-            File Format:
-            NO          30.006      NOX    moles/s
-            NO2         46.006      NOX    moles/s
-            HONO        47.013      NOX    moles/s
-        """
-        # read molecular weight text file
-        fin = open(self.weight_file,'r')
-        lines = fin.read()
-        fin.close()
-
-        # read in CSV or Fortran-formatted file
-        lines = lines.replace(',', ' ')
-        lines = lines.split('\n')
-
-        self.groups = {}
-        # loop through file lines and
-        for line in lines:
-            # parse line
-            columns = line.rstrip().split()
-            if not columns:
-                continue
-            species = columns[0].upper()
-            weight = np.float32(columns[1])
-            group = columns[2].upper()
-
-            # file output dict
-            if group not in self.groups:
-                self.groups[group] = {'species': []}
-            self.groups[group]['species'].append(species)
-
-        # convert weight list to numpy.array
-        for grp in self.groups:
-            self.groups[grp]['species'] = np.array(self.groups[grp]['species'], dtype=np.dtype('a8'))
 
         # calculate the number of species total
         self.num_species = 0
