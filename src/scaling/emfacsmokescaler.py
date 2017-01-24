@@ -11,8 +11,7 @@ from src.core.eic_utils import eic_reduce
 from src.emissions.sparse_emissions import SparseEmissions
 
 
-# TODO: Change name to EmfacSmokeScaler
-class EmfacCalvadScaler(EmissionsScaler):
+class EmfacSmokeScaler(EmissionsScaler):
 
     ''' Temporal periods defined in CSTDM
         AM Peak   6 AM  to 10 AM
@@ -32,7 +31,7 @@ class EmfacCalvadScaler(EmissionsScaler):
             '_saturday_', '_sunday_', '_holiday_']
 
     def __init__(self, config, position):
-        super(EmfacCalvadScaler, self).__init__(config, position)
+        super(EmfacSmokeScaler, self).__init__(config, position)
         self.by_region = self.config.getboolean('Output', 'by_region')
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.eic2dtim4 = self.config.eval_file('Surrogates', 'eic2dtim4')
