@@ -79,7 +79,7 @@ class Emfac2014TotalsTester(OutputTester):
         ''' Read the output NetCDF files and compare the results with the
             input EMFAC2014 emissions.
         '''
-        if not ncf_files:
+        if not ncf_files or 'weight_file' not in self.config['Output']:
             return
 
         # if NetCDF file exists, we need the weight file.
