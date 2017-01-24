@@ -80,8 +80,9 @@ class Pmeds1Writer(OutputWriter):
                             emis[col] = '%.5f' % (value * self.STONS_2_KG)
 
                         # build PMEDS line
-                        lines.append(self._build_pmeds1_line(region, date, jul_day, hr, eic,
-                                                             (i, j), emis))
+                        if ''.join(emis):
+                            lines.append(self._build_pmeds1_line(region, date, jul_day, hr, eic,
+                                                                 (i, j), emis))
 
         if lines:
             self._write_zipped_file(out_path, lines)
@@ -110,8 +111,9 @@ class Pmeds1Writer(OutputWriter):
                             pass
 
                     # build PMEDS line
-                    lines.append(self._build_pmeds1_line(region, date, jul_day, hr, eic,
-                                                         (i, j), emis))
+                    if ''.join(emis):
+                        lines.append(self._build_pmeds1_line(region, date, jul_day, hr, eic,
+                                                             (i, j), emis))
 
         self._write_file(out_path, lines)
         self._combine_regions(date)
