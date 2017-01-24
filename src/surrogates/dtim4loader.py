@@ -29,7 +29,7 @@ class Dtim4Loader(SpatialLoader):
         self.data = SpatialSurrogateData()
         self.region_boxes = self.config.eval_file('Surrogates', 'region_boxes')
         self.regions = self.config.parse_regions('Regions', 'regions')
-        self.eic_labels = self.config.getlist('Surrogates', 'dtim_eic_labels')
+        self.eic_labels = ['vmt', 'trips']
         self.kdtrees = {}
         self._create_kdtrees()
 
@@ -148,7 +148,7 @@ class Dtim4Loader(SpatialLoader):
         354067         6    640525      3665    0.00000  375.45021  375.17667 ... (vol,orig,dest)*3*26
         """
         # create dictionary of surrogates
-        surrs = dict([(i, {self.eic_labels[1]: SpatialSurrogate()}) for i in range(26)])
+        surrs = dict([(i, {self.eic_labels[1]: SpatialSurrogate()}) for i in xrange(26)])
 
         # read ITN taz file
         f = open(file_path, 'r')

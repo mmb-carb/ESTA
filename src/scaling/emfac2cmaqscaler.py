@@ -40,6 +40,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
         self.num_species = 0
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
+        self.is_smoke4 = 'smoke4' in self.config['Surrogates']['spatial_loaders'].lower()
 
     def scale(self, emissions, spatial_surr, temp_surr):
         """ Master method to scale emissions using spatial and temporal surrogates.
@@ -205,7 +206,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
             # fix VMT activity according to Calvad periods
             veh, act = self.eic2dtim4[eic]
-            if act[:3] in ['vmt', 'vht']:
+            if self.is_smoke4 and act[:3] in ['vmt', 'vht']:
                 act += self.DOWS[dow] + self.CALVAD_HOURS[hr]
             spat_surr = spatial_surrs[veh][act]
 
