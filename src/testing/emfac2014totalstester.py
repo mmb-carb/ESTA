@@ -69,11 +69,6 @@ class Emfac2014TotalsTester(OutputTester):
             if pmeds_files:
                 self._read_and_compare_txt(pmeds_files, date, emis, 'pmeds')
 
-            # test output ocsvs, if any
-            ocsv_files = self._find_output_ocsvs(dt)
-            if ocsv_files:
-                self._read_and_compare_txt(ocsv_files, date, emis, 'ocsv')
-
             # test output netcdf, if any
             ncf_files = self._find_output_ncf(dt)
             if ncf_files:
@@ -101,7 +96,7 @@ class Emfac2014TotalsTester(OutputTester):
         self._write_general_comparison(date, emis, out_emis)
 
     def _read_and_compare_txt(self, files, date, emis, file_type):
-        ''' Read the output PMEDS/OCSV files and compare the results with the
+        ''' Read the output PMEDS files and compare the results with the
             input EMFAC2014 emissions.
         '''
         if not files:
@@ -112,8 +107,8 @@ class Emfac2014TotalsTester(OutputTester):
         for f in files:
             if file_type == 'pmeds':
                 out_emis = self._sum_output_pmeds(f, out_emis)
-            elif file_type == 'ocsv':
-                out_emis = self._sum_output_ocsv(f, out_emis)
+            else:
+                print('\t\tFile Type Not Found: ' + file_type)
 
         # write the emissions comparison to a file
         self._write_full_comparison(date, emis, out_emis, file_type)
@@ -162,7 +157,7 @@ class Emfac2014TotalsTester(OutputTester):
         f.close()
 
     def _write_full_comparison(self, date, emis, out_emis, file_type):
-        ''' Write a quick CSV to compare the EMFAC2014 and final output PMEDS/OCSV.
+        ''' Write a quick CSV to compare the EMFAC2014 and final output PMEDS.
             Write the difference by region, EIC, and pollutant.
             NOTE: Won't print any numbers with zero percent difference.
         '''
@@ -246,35 +241,6 @@ class Emfac2014TotalsTester(OutputTester):
 
         return e
 
-    def _sum_output_ocsv(self, file_path, e):
-        ''' Look at the final output OCSV file and build a dictionary
-            of the emissions by region and pollutant.
-        '''
-        if file_path.endswith('.gz'):
-            f = gzip.open(file_path, 'rb')
-        elif os.path.exists(file_path):
-            f = open(file_path, 'r')
-        else:
-            print('Emissions File Not Found: ' + file_path)
-            return e
-
-        # now that file exists, read it
-        for line in f.readlines():
-            ln = line.rstrip().split(',')
-            region = int(ln[0])
-            eic = int(ln[1])
-            vals = [float(v) if v else 0.0 for v in ln[5:11]]
-
-            if region not in e:
-                e[region] = {}
-            if eic not in e[region]:
-                e[region][eic] = dict(zip(self.POLLUTANTS, [0.0]*len(self.POLLUTANTS)))
-
-            for i in xrange(5):
-                e[region][eic][self.POLLUTANTS[i]] += vals[i] * self.KG_2_STONS
-
-        return e
-
     def _sum_output_ncf(self, file_path, e):
         ''' Look at the output NetCDF file and build a dictionary
             of the emissions by pollutant.
@@ -343,40 +309,6 @@ class Emfac2014TotalsTester(OutputTester):
             self.groups[species]['weight'] = float(columns[1]) / 1000.0
             self.groups[species]['group'] = columns[2].upper()
             self.groups[species]['units'] = columns[3]
-
-    def _find_output_ocsvs(self, dt):
-        ''' Find the output OCSV file(s) for a given day. '''
-        files = []
-        if self.by_region and not self.combine:
-            file_str = os.path.join(self.out_dir, '%02d' % dt.month, '%02d' % dt.day, '*.ocs*')
-            possibles = glob(file_str)
-            if possibles:
-                files += possibles
-        else:
-            date_str = str(dt.month) + 'd' + '%02d' % dt.day
-            file_str = os.path.join(self.out_dir, 'ocsv', '*' + date_str + '*.ocs*')
-            possibles = glob(file_str)
-            if possibles:
-                files.append(possibles[0])
-
-        return files
-
-    def _find_output_pmeds(self, dt):
-        ''' Find the output PMEDS file(s) for a given day. '''
-        files = []
-        if self.by_region and not self.combine:
-            file_str = os.path.join(self.out_dir, '%02d' % dt.month, '%02d' % dt.day, '*.pmed*')
-            possibles = glob(file_str)
-            if possibles:
-                files += possibles
-        else:
-            date_str = str(dt.month) + 'd' + '%02d' % dt.day
-            file_str = os.path.join(self.out_dir, 'pmeds', '*' + date_str + '*.pmed*')
-            possibles = glob(file_str)
-            if possibles:
-                files.append(possibles[0])
-
-        return files
 
     def _find_output_ncf(self, dt):
         ''' Find the output NetCDF file(s) for a given day. '''
