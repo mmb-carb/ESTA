@@ -26,7 +26,6 @@ class Pmeds1Writer(OutputWriter):
         self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
         self.gai_to_county = dict((g, c) for c in self.county_to_gai for g in self.county_to_gai[c])
         self.gai_basins = self.config.eval_file('Output', 'gai_basins')
-        self.multi_gai_coords = self.config.eval_file('Output', 'multi_gai_coords')
 
     def write(self, scaled_emissions):
         """ The master method to write output files.

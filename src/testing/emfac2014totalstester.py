@@ -108,7 +108,7 @@ class Emfac2014TotalsTester(OutputTester):
             if file_type == 'pmeds':
                 out_emis = self._sum_output_pmeds(f, out_emis)
             else:
-                print('\t\tFile Type Not Found: ' + file_type)
+                print('    + File Type Not Found: ' + file_type)
 
         # write the emissions comparison to a file
         self._write_full_comparison(date, emis, out_emis, file_type)

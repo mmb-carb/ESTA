@@ -105,7 +105,6 @@ class CmaqNetcdfWriter(OutputWriter):
 
         # create empty netcdf file (including file path)
         rootgrp, gmt_shift = self._create_netcdf(out_path, date, jdate, scaled_emissions)
-        # TODO: ScaledEmissions come in with TOO MANY POllutants.
 
         # fill netcdf file with data
         self._fill_grid(scaled_emissions, date, rootgrp, gmt_shift)
@@ -131,12 +130,12 @@ class CmaqNetcdfWriter(OutputWriter):
 
         # create and outline NetCDF file
         rootgrp = Dataset(out_path, 'w', format='NETCDF3_CLASSIC')
-        TSTEP = rootgrp.createDimension('TSTEP', None)
-        DATE_TIME = rootgrp.createDimension('DATE-TIME', 2)
-        LAY = rootgrp.createDimension('LAY', 1)
-        VAR = rootgrp.createDimension('VAR', self.num_species)  # number of variables/species
-        ROW = rootgrp.createDimension('ROW', self.nrows)        # Domain: number of rows
-        COL = rootgrp.createDimension('COL', self.ncols)        # Domain: number of columns
+        _ = rootgrp.createDimension('TSTEP', None)
+        _ = rootgrp.createDimension('DATE-TIME', 2)
+        _ = rootgrp.createDimension('LAY', 1)
+        _ = rootgrp.createDimension('VAR', self.num_species)  # number of variables/species
+        _ = rootgrp.createDimension('ROW', self.nrows)        # Domain: number of rows
+        _ = rootgrp.createDimension('COL', self.ncols)        # Domain: number of columns
 
         # define TFLAG Variable
         TFLAG = rootgrp.createVariable('TFLAG', 'i4', ('TSTEP', 'VAR', 'DATE-TIME',), zlib=False)

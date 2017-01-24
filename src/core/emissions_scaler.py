@@ -22,9 +22,3 @@ class EmissionsScaler(object):
         """
         while False:
             yield None
-
-    @staticmethod
-    def normalize(lst):
-        """ Normalize a flat list of floats, so that their sum equals 1.0. """
-        total = sum(lst)
-        return [val / total for val in lst]
