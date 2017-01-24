@@ -19,7 +19,7 @@ class Pmeds1Writer(OutputWriter):
     def __init__(self, config, position):
         super(Pmeds1Writer, self).__init__(config, position)
         self.by_region = self.config.getboolean('Output', 'by_region')
-        self.combine = self.config.getboolean('Output', 'combine_regions')
+        self.combine = self.config.getboolean('Output', 'combine_regions') if self.by_region else False
         self.version = self.config['Output']['inventory_version']
         self.grid_file = self.config['GridInfo']['grid_cross_file']
         self.region_names = self.config.eval_file('Misc', 'region_names')

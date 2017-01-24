@@ -26,7 +26,7 @@ class CalvadSmoke4SpatialSurrogateLoader(SpatialLoader):
         self.eic_labels = self.config.getlist('Surrogates', 'smoke_eic_labels')
         if len(self.smoke_surrogates) != len(self.eic_labels):
             sys.exit('ERROR: You need the same number of SMOKE surrogates as EIC labels.')
-        self.gai_codes = self.config.eval_file('Scaling', 'gai_codes')
+        self.gai_codes = self.config.eval_file('Surrogates', 'region_codes')
 
     def load(self, spatial_surrogates, temporal_surrogates):
         """ Overriding the abstract loader method to read an EPA SMOKE v4

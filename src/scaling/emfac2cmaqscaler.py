@@ -8,7 +8,6 @@ from pandas.tseries.holiday import USFederalHolidayCalendar
 import sys
 from src.core.emissions_scaler import EmissionsScaler
 from scaled_emissions import ScaledEmissions
-from src.core.eic_utils import eic_reduce
 from src.emissions.sparse_emissions import SparseEmissions
 
 
@@ -27,7 +26,6 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
     def __init__(self, config, position):
         super(Emfac2CmaqScaler, self).__init__(config, position)
-        self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.eic2dtim4 = self.config.eval_file('Surrogates', 'eic2dtim4')
         self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
@@ -218,7 +216,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 groups = self.groups[poll.upper()]
 
                 # loop through each grid cell
-                for index,spec in enumerate(groups['species']):
+                for index, spec in enumerate(groups['species']):
                     # get species information
                     ind = species[spec]['index']
                     mass_fraction = (self.STONS_HR_2_G_SEC / groups['weights'][ind])

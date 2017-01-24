@@ -19,14 +19,18 @@ class Emfac2014TotalsTester(OutputTester):
     def __init__(self, config, position):
         super(Emfac2014TotalsTester, self).__init__(config, position)
         self.by_region = self.config.getboolean('Output', 'by_region')
-        self.combine = self.config.getboolean('Output', 'combine_regions')
+        self.combine = self.config.getboolean('Output', 'combine_regions') if self.by_region else False
         self.vtp2eic = self.config.eval_file('Misc', 'vtp2eic')
         self.region_names = self.config.eval_file('Misc', 'region_names')
-        self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.emis_dirs = self.config.getlist('Emissions', 'emissions_directories')
         self.reverse_region_names = dict(zip(self.region_names.values(), self.region_names.keys()))
         self.weight_file = ''
         self.groups = {}
+        # default to EIC3 (particularly for NetCDF)
+        if 'eic_precision' in self.config['Output']:
+            self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
+        else:
+            self.eic_reduce = eic_reduce('3')
 
     def test(self):
         ''' Master Testing Method. This method compares the final PMEDS/NetCDF output file emissions
