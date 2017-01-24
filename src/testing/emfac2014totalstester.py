@@ -310,6 +310,23 @@ class Emfac2014TotalsTester(OutputTester):
             self.groups[species]['group'] = columns[2].upper()
             self.groups[species]['units'] = columns[3]
 
+    def _find_output_pmeds(self, dt):
+        ''' Find the output PMEDS file(s) for a given day. '''
+        files = []
+        if self.by_region and not self.combine:
+            file_str = os.path.join(self.out_dir, '%02d' % dt.month, '%02d' % dt.day, '*.pmed*')
+            possibles = glob(file_str)
+            if possibles:
+                files += possibles
+        else:
+            date_str = str(dt.month) + 'd' + '%02d' % dt.day
+            file_str = os.path.join(self.out_dir, 'pmeds', '*' + date_str + '*.pmed*')
+            possibles = glob(file_str)
+            if possibles:
+                files.append(possibles[0])
+
+        return files
+
     def _find_output_ncf(self, dt):
         ''' Find the output NetCDF file(s) for a given day. '''
         files = []
