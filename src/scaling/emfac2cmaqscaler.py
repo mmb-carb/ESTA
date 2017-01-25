@@ -32,37 +32,57 @@ class Emfac2CmaqScaler(EmissionsScaler):
         self.gspro_file = self.config['Output']['gspro_file']
         self.gsref_file = self.config['Output']['gsref_file']
         self.weight_file = self.config['Output']['weight_file']
-        self.gspro = {}
-        self.gsref = {}
-        self.groups = {}
-        self.num_species = 0
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
         self.is_smoke4 = 'smoke4' in self.config['Surrogates']['spatial_loaders'].lower()
+        self.gspro = {}
+        self.gsref = {}
+        self.groups = {}
+        self.species = set()
+        self._load_weight_file()
+        self._load_gsref()
+        self._load_gspro()
+
+    def _load_species(self, emissions):
+        """ find all the pollutant species that will matter for this simulation """
+        # first, find all the EICs in the input emissions
+        eics = set()
+        for region in emissions.data:
+            for date in emissions.data[region]:
+                eics.update(set(emissions.data[region][date].keys()))
+
+        # now find all the species we care about for this run
+        self.species = set(['CO', 'HONO', 'NH3', 'NO', 'NO2', 'SO2', 'SULF'])
+        for eic in eics:
+            if eic not in self.gsref:
+                print('ERROR: EIC MISSING FROM GSREF: ' + str(eic))
+                continue
+            for group, profile in self.gsref[eic].iteritems():
+                has_species_list = self.gspro[profile][group] > 0
+                for i, has_species in enumerate(has_species_list):
+                    if has_species:
+                        self.species.add(self.groups[group]['species'][i])
 
     def scale(self, emissions, spatial_surr, temp_surr):
         """ Master method to scale emissions using spatial and temporal surrogates.
             INPUT FORMATS:
             Emissions: EMFAC2014EmissionsData
-                            emis_data[region][date string] = EmissionsTable
-                            EmissionsTable[EIC][pollutant] = value
+                           emis_data[region][date string] = EmissionsTable
+                           EmissionsTable[EIC][pollutant] = value
             Spatial Surrogates: Dtim4SpatialData
                                     data[region][date][hr][veh][act] = SpatialSurrogate()
                                     SpatialSurrogate[(grid, cell)] = fraction
             Temporal Surrogates: {'diurnal': Dtim4TemporalData(),
                                   'dow': calvad[region][dow][ld/lm/hh] = fraction}
-                                  Dtim4TemporalData
-                                        data[region][date][veh][act] = TemporalSurrogate()
-                                            TemporalSurrogate = [x]*24
+                                      Dtim4TemporalData
+                                          data[region][date][veh][act] = TemporalSurrogate()
+                                              TemporalSurrogate = [x]*24
             OUTPUT FORMAT:
             ScaledEmissions: data[region][date][hr][eic] = SparseEmissions
-                                SparseEmissions[pollutant][(grid, cell)] = value
+                             SparseEmissions[pollutant][(grid, cell)] = value
             NOTE: This function is a generator and will `yield` emissions file-by-file.
         """
-        # Read speciation profiles & molecular weight files
-        self._load_weight_file()
-        self._load_gsref()
-        self._load_gspro()
+        self._load_species(emissions)
 
         # find start date
         today = dt(self.start_date.year, self.start_date.month, self.start_date.day)
@@ -206,6 +226,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
             veh, act = self.eic2dtim4[eic]
             if self.is_smoke4 and act[:3] in ['vmt', 'vht']:
                 act += self.DOWS[dow] + self.CALVAD_HOURS[hr]
+            # TODO: This looks an awful lot like we can pre-build the mask in the SparceEmissions
             spat_surr = spatial_surrs[veh][act]
 
             # speciate by pollutant, while gridding
@@ -231,6 +252,9 @@ class Emfac2CmaqScaler(EmissionsScaler):
                     elif poll == 'sox':
                         mass_fraction *= sox_fraction[ind]
 
+                    if mass_fraction <= 0.0:
+                        continue
+                    
                     speciated_value = value * mass_fraction
                     for cell, cell_fraction in spat_surr.iteritems():
                         se.add_naive(spec, cell, speciated_value * cell_fraction)
@@ -242,18 +266,15 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
                 nh3_value = emis_table[eic]['co'] * nh3_fraction
                 for cell, cell_fraction in spat_surr.iteritems():
-                    se.add_naive('nh3', cell, nh3_value * cell_fraction)
+                    se.add_naive('NH3', cell, nh3_value * cell_fraction)
 
         return se
 
     def _prebuild_sparce_emissions(self, emis_table):
         ''' pre-process to add all relevant species to SE object '''
         se = SparseEmissions(self.nrows, self.ncols)
-        se.add_poll('nh3')
-        for eic in emis_table:
-            for poll in emis_table[eic]:
-                for spec in self.groups[poll.upper()]['species']:
-                    se.add_poll(spec)
+        for spec in self.species:
+            se.add_poll(spec)
 
         return se
 
@@ -338,7 +359,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
     def _load_gspro(self):
         ''' load the gspro file
-            File Format:  group, pollutant, species, mole fraction, molecular weight=1, mass fraction
+            File Format:  profile, group, species, mole fraction, molecular weight=1, mass fraction
             1,TOG,CH4,3.1168E-03,1,0.0500000
             1,TOG,ALK3,9.4629E-03,1,0.5500000
             1,TOG,ETOH,5.4268E-03,1,0.2500000

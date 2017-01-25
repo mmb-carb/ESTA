@@ -37,5 +37,18 @@ class ScaledEmissions(object):
         else:
             self.data[region][date][hr][eic].join(poll_grid)
 
+    def pollutants(self):
+        """ return a set of all the pullants in all the Sparce-Grid Emissions object
+            contained within this object
+        """
+        polls = set()
+        for region_data in self.data.itervalues():
+            for date_data in region_data.itervalues():
+                for hr_data in date_data.itervalues():
+                    for poll_grid in hr_data.itervalues():
+                        polls.update(poll_grid.pollutants)
+
+        return polls
+
     def __repr__(self):
         return self.__class__.__name__ + '(' + dict.__repr__(self.data)[1: -1] + ')'

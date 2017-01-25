@@ -11,6 +11,8 @@ class SparseEmissions(object):
 
     def __init__(self, nrows, ncols):
         self._data = {}
+        # TODO: This stupid mask is only for Pmeds1Writer?  Then I think we should ditch it. 
+        # TODO: Or do we use "join" below a lot for the NetCDF?
         self.mask = set()
         self.pollutants = set()
         self.nrows = nrows

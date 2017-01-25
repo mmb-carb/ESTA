@@ -27,7 +27,10 @@ class CmaqNetcdfWriter(OutputWriter):
         self.gspro = {}
         self.gsref = {}
         self.groups = {}
-        self.num_species = 0
+        self.species = set()
+        self._load_weight_file()
+        self._load_gsref()
+        self._load_gspro()
         # default NetCDF header for on-road emissions on California's 4km modeling domain
         self.header = {'IOAPI_VERSION': "$Id: @(#) ioapi library version 3.1 $" + " "*43,
                        'EXEC_ID': "????????????????" + " "*64,
@@ -74,11 +77,6 @@ class CmaqNetcdfWriter(OutputWriter):
     def write(self, scaled_emissions):
         """ Master write method to turn the gridded emissions into NetCDF files.
         """
-        # Read speciation profiles & molecular weight files
-        self._load_weight_file()
-        self._load_gsref()
-        self._load_gspro()
-
         # find all dates with emissions data
         dates = set()
         for region_data in scaled_emissions.data.itervalues():
@@ -188,17 +186,17 @@ class CmaqNetcdfWriter(OutputWriter):
         rootgrp.UPNAM = self.header['UPNAM']
         rootgrp.FILEDESC = self.header['FILEDESC']
         rootgrp.HISTORY = self.header['HISTORY']
-        rootgrp.setncattr('VAR-LIST', varl)     # use this command b/c of python not liking hyphen '-'
+        rootgrp.setncattr('VAR-LIST', varl)     # use this b/c the library does not like hyphens
 
         # seconds since epoch
         secs = time.mktime(time.strptime("%s 12" % jdate, "%Y%j %H"))
         gmt_shift = time.strftime("%H", time.gmtime(secs))
-        secs -= (int(gmt_shift) - 8) * 60 * 60
+        secs -= (int(gmt_shift) - 8) * 3600
 
         # build TFLAG variable
         tflag = np.ones((25, self.num_species, 2), dtype=np.int32)
         for hr in xrange(25):
-            gdh = time.strftime("%Y%j %H0000", time.gmtime(secs + hr * 60 * 60))
+            gdh = time.strftime("%Y%j %H0000", time.gmtime(secs + hr * 3600))
             a_date,ghr = map(int, gdh.split())
             tflag[hr,:,0] = tflag[hr,:,0] * a_date
             tflag[hr,:,1] = tflag[hr,:,1] * ghr
@@ -221,7 +219,7 @@ class CmaqNetcdfWriter(OutputWriter):
         sox_fraction = self.gspro['SOX']['SOX']
 
         # loop through the different levels of the scaled emissions dictionary
-        region_data = scaled_emissions.data[-999]
+        region_data = scaled_emissions.data[-999]  # -999 is default EIC for pre-speciated emissions
         day_data = region_data.get(date, {})
         for hour, hr_data in day_data.iteritems():
             # hr should start with 0, not 1
