@@ -77,6 +77,9 @@ class CmaqNetcdfWriter(OutputWriter):
     def write(self, scaled_emissions):
         """ Master write method to turn the gridded emissions into NetCDF files.
         """
+        # find all the input pollutants
+        self.species = scaled_emissions.pollutants()
+
         # find all dates with emissions data
         dates = set()
         for region_data in scaled_emissions.data.itervalues():
@@ -117,11 +120,6 @@ class CmaqNetcdfWriter(OutputWriter):
         ''' Creates a blank CMAQ-ready NetCDF file, including all the important
             boilerplate and header information. But does not fill in any emissions data.
         '''
-        # find all pollutants
-        valid_polls = set(['NH3'])
-        for hr in xrange(1, 25):
-            valid_polls.update(scaled_emissions.data[-999].get(date, {})[hr][-999].pollutants)
-
         # define some header variables
         current_date = int(time.strftime("%Y%j"))
         current_time = int(time.strftime("%H%M%S"))
@@ -145,7 +143,7 @@ class CmaqNetcdfWriter(OutputWriter):
         varl = ''
         for group in self.groups:
             for spec in self.groups[group]['species']:
-                if spec not in valid_polls:
+                if spec not in self.species:
                     continue
                 rootgrp.createVariable(spec, 'f4', ('TSTEP', 'LAY', 'ROW', 'COL'), zlib=False)
                 rootgrp.variables[spec].long_name = spec

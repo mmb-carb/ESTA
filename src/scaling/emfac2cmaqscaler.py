@@ -203,6 +203,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
         """
         se = self._prebuild_sparce_emissions(emis_table)
 
+        # TODO: Do we really still need this?
         species = {}
         for group in self.groups:
             for i in xrange(len(np.atleast_1d(self.groups[group]['species']))):
