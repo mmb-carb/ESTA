@@ -70,18 +70,22 @@ class Pmeds1Writer(OutputWriter):
             for hr, hr_data in day_data.iteritems():
                 for eic, sparse_emis in hr_data.iteritems():
                     polls = [(p, self.COLUMNS[p]) for p in sparse_emis.pollutants if p in self.COLUMNS]
-                    for (i, j) in sparse_emis.mask:
-                        emis = ['', '', '', '', '', '']
-                        for poll, col in polls:
-                            value = sparse_emis.get(poll, (i, j))
-                            if value < self.MIN_EMIS:
+                    mask = sparse_emis.mask(self.MIN_EMIS)
+                    i_range, j_range = mask.shape
+                    for i in xrange(i_range):
+                        for j in xrange(j_range):
+                            if not mask[(i, j)]:
                                 continue
-                            emis[col] = '%.5f' % (value * self.STONS_2_KG)
+                            emis = ['', '', '', '', '', '']
+                            for poll, col in polls:
+                                value = sparse_emis.get(poll, (i, j))
+                                if value >= self.MIN_EMIS:
+                                    emis[col] = '%.5f' % (value * self.STONS_2_KG)
 
-                        # build PMEDS line
-                        if ''.join(emis):
-                            lines.append(self._build_pmeds1_line(region, date, jul_day, hr, eic,
-                                                                 (i, j), emis))
+                            # build PMEDS line
+                            if ''.join(emis):
+                                lines.append(self._build_pmeds1_line(region, date, jul_day, hr, eic,
+                                                                     (i, j), emis))
 
         if lines:
             self._write_zipped_file(out_path, lines)
@@ -97,21 +101,26 @@ class Pmeds1Writer(OutputWriter):
         for hr, hr_data in scaled_emissions.data[region][date].iteritems():
             for eic, sparse_emis in hr_data.iteritems():
                 polls = [(p, self.COLUMNS[p]) for p in sparse_emis.pollutants if p in self.COLUMNS]
-                for (i, j) in sparse_emis.mask:
-                    emis = ['', '', '', '', '', '']
-                    for poll, col in polls:
-                        try:
-                            value = sparse_emis.get(poll, (i, j))
-                            if value < self.MIN_EMIS:
-                                continue
-                            emis[col] = '%.5f' % (value * self.STONS_2_KG)
-                        except KeyError:
-                            # pollutant not in this grid cell
-                            pass
+                mask = sparse_emis.mask(self.MIN_EMIS)
+                i_range, j_range = mask.shape
+                for i in xrange(i_range):
+                    for j in xrange(j_range):
+                        if not mask[(i, j)]:
+                            continue
+                        emis = ['', '', '', '', '', '']
+                        for poll, col in polls:
+                            try:
+                                value = sparse_emis.get(poll, (i, j))
+                                if value < self.MIN_EMIS:
+                                    continue
+                                emis[col] = '%.5f' % (value * self.STONS_2_KG)
+                            except KeyError:
+                                # pollutant not in this grid cell
+                                pass
 
-                    # build PMEDS line
-                    if ''.join(emis):
-                        lines.append(self._build_pmeds1_line(region, date, jul_day, hr, eic,
+                        # build PMEDS line
+                        if ''.join(emis):
+                            lines.append(self._build_pmeds1_line(region, date, jul_day, hr, eic,
                                                              (i, j), emis))
 
         self._write_file(out_path, lines)

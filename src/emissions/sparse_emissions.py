@@ -11,9 +11,6 @@ class SparseEmissions(object):
 
     def __init__(self, nrows, ncols):
         self._data = {}
-        # TODO: This stupid mask is only for Pmeds1Writer?  Then I think we should ditch it. 
-        # TODO: Or do we use "join" below a lot for the NetCDF?
-        self.mask = set()
         self.pollutants = set()
         self.nrows = nrows
         self.ncols = ncols
@@ -25,6 +22,18 @@ class SparseEmissions(object):
     def get_grid(self, poll):
         """ Get a copy of an entire pollutant grid """
         return self._data[poll].copy()
+
+    def mask(self, min_val=0.0):
+        """ Build a mask of all the grid cells with non-zero emissions
+            for any pollutant.
+            Note: This method gives no performance gaurantees.
+        """
+        polls = list(self.pollutants)
+        mask = self._data[polls[0]] > min_val
+        for poll in polls[1:]:
+            mask += self._data[poll] > min_val
+
+        return mask
 
     def add_poll(self, poll):
         """ Add a single pollutant
@@ -41,7 +50,6 @@ class SparseEmissions(object):
             self._data[poll] = np.zeros((self.nrows, self.ncols), dtype=np.float32)
 
         self._data[poll][cell] += value
-        self.mask.add(cell)
 
     def add_naive(self, poll, cell, value):
         """ Setter method for sparse grid emissions
@@ -50,12 +58,9 @@ class SparseEmissions(object):
             to aid in performance.
         """
         self._data[poll][cell] += value
-        self.mask.add(cell)
 
     def join(self, se):
         """ add another sparse emissions object to this one """
-        self.mask = self.mask.union(se.mask)
-
         for poll in self.pollutants.intersection(se.pollutants):
             self._data[poll] += se._data[poll]
 

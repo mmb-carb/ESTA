@@ -1,12 +1,12 @@
 2012,Santa Barbara (SCC),1.278e-06,IDLEX,T6 CAIRP heavy,TOG
-2012,Santa Barbara (SCC),0.349,RUNEX,T6 instate heavy,NOx
-2012,Santa Barbara (SCC),0.000142,IDLEX,T7 NOOS,PM
-2012,Santa Barbara (SCC),0.000129,IDLEX,T6 instate heavy,PM
+2012,Santa Barbara (SCC),0.35,RUNEX,T6 instate heavy,NOx
+2012,Santa Barbara (SCC),0.00014,IDLEX,T7 NOOS,PM
+2012,Santa Barbara (SCC),0.00013,IDLEX,T6 instate heavy,PM
 2012,Santa Barbara (SCC),6.562e-05,RUNEX,T6 CAIRP heavy,PM
-2012,Santa Barbara (SCC),0.00106,RUNEX,T6 instate construction heavy,PM
+2012,Santa Barbara (SCC),0.001,RUNEX,T6 instate construction heavy,PM
 2012,Santa Barbara (SCC),1.329,RUNEX,SBUS,NOx
-2012,Santa Barbara (SCC),0.000411,RUNEX,T7 SWCV,SOx
-2012,Santa Barbara (SCC),0.00488,RUNEX,T7 Public,TOG
+2012,Santa Barbara (SCC),0.0004,RUNEX,T7 SWCV,SOx
+2012,Santa Barbara (SCC),0.005,RUNEX,T7 Public,TOG
 2012,Santa Barbara (SCC),0.115,RUNEX,T7 Single,CO
 2012,Santa Barbara (SCC),4.237e-06,RUNEX,T6 OOS small,SOx
 2012,Santa Barbara (SCC),0.000311,PMBW,T7 single construction,PM
@@ -19,10 +19,10 @@
 2012,Santa Barbara (SCC),0.00789,IDLEX,SBUS,TOG
 2012,Santa Barbara (SCC),1.159e-06,IDLEX,T6 Ag,SOx
 2012,Santa Barbara (SCC),0.0254,RUNEX,T6 instate construction heavy,NOx
-2012,Santa Barbara (SCC),5.404e-06,STREX,T7 Ag,NOx
-2012,Santa Barbara (SCC),0.0928,PMBW,SBUS,PM
+2012,Santa Barbara (SCC),5.4e-06,STREX,T7 Ag,NOx
+2012,Santa Barbara (SCC),0.09,PMBW,SBUS,PM
 2012,Santa Barbara (SCC),6.755e-05,IDLEX,T7 tractor,PM
-2012,Santa Barbara (SCC),1.644e-05,IDLEX,T7 SWCV,SOx
+2012,Santa Barbara (SCC),1.64e-05,IDLEX,T7 SWCV,SOx
 2012,Santa Barbara (SCC),0.000755,PMTW,T7 CAIRP,PM
 2012,Santa Barbara (SCC),4.713e-05,RUNEX,T7 utility,PM
 2012,Santa Barbara (SCC),0.000194,IDLEX,T6 Ag,TOG
@@ -30,9 +30,9 @@
 2012,Santa Barbara (SCC),0.000429,IDLEX,T7 tractor construction,CO
 2012,Santa Barbara (SCC),0.0555,RUNEX,T7 NNOOS,CO
 2012,Santa Barbara (SCC),0.00652,IDLEX,T7 tractor,NOx
-2012,Santa Barbara (SCC),0.000229,STREX,T6 utility,NOx
+2012,Santa Barbara (SCC),0.00023,STREX,T6 utility,NOx
 2012,Santa Barbara (SCC),3.772e-07,IDLEX,T6 instate construction heavy,SOx
-2012,Santa Barbara (SCC),0.00311,RUNEX,T6 instate construction small,PM
+2012,Santa Barbara (SCC),0.003,RUNEX,T6 instate construction small,PM
 2012,Santa Barbara (SCC),0.00468,PMBW,T6 instate heavy,PM
 2012,Santa Barbara (SCC),0.0267,IDLEX,T7 SWCV,NOx
 2012,Santa Barbara (SCC),0.0335,RUNEX,T7 Single,TOG
@@ -42,7 +42,7 @@
 2012,Santa Barbara (SCC),0.000322,RUNEX,T7 CAIRP,SOx
 2012,Santa Barbara (SCC),0.00179,STREX,SBUS,NOx
 2012,Santa Barbara (SCC),6.889e-07,IDLEX,T6 CAIRP small,PM
-2012,Santa Barbara (SCC),0.000426,RUNEX,T7 NNOOS,SOx
+2012,Santa Barbara (SCC),0.0004,RUNEX,T7 NNOOS,SOx
 2012,Santa Barbara (SCC),0.0068,RUNEX,T6 instate construction small,TOG
 2012,Santa Barbara (SCC),1.858e-06,IDLEX,T7 single construction,SOx
 2012,Santa Barbara (SCC),0.00181,IDLEX,All Other Buses,NOx
@@ -53,21 +53,21 @@
 2012,Santa Barbara (SCC),0.000165,RUNEX,T6 OOS heavy,CO
 2012,Santa Barbara (SCC),0.000993,IDLEX,Motor Coach,CO
 2012,Santa Barbara (SCC),0.000567,IDLEX,T7 Ag,TOG
-2012,Santa Barbara (SCC),1.659e-05,STREX,T6 OOS small,NOx
+2012,Santa Barbara (SCC),1.66e-05,STREX,T6 OOS small,NOx
 2012,Santa Barbara (SCC),0.000158,RUNEX,T7 SWCV,PM
-2012,Santa Barbara (SCC),0.00206,IDLEX,SBUS,PM
-2012,Santa Barbara (SCC),0.00251,IDLEX,T7 Ag,NOx
+2012,Santa Barbara (SCC),0.002,IDLEX,SBUS,PM
+2012,Santa Barbara (SCC),0.0025,IDLEX,T7 Ag,NOx
 2012,Santa Barbara (SCC),1.679e-06,IDLEX,T6 Public,SOx
-2012,Santa Barbara (SCC),0.00304,RUNEX,All Other Buses,PM
+2012,Santa Barbara (SCC),0.003,RUNEX,All Other Buses,PM
 2012,Santa Barbara (SCC),0.0182,RUNEX,T7 Single,PM
-2012,Santa Barbara (SCC),0.000889,RUNEX,T6 OOS heavy,NOx
+2012,Santa Barbara (SCC),0.00089,RUNEX,T6 OOS heavy,NOx
 2012,Santa Barbara (SCC),0.000266,RUNEX,T7 utility,CO
 2012,Santa Barbara (SCC),0.0635,RUNEX,T7 single construction,NOx
 2012,Santa Barbara (SCC),1.946e-06,IDLEX,T7 Ag,SOx
 2012,Santa Barbara (SCC),0.00494,RUNEX,SBUS,PM
 2012,Santa Barbara (SCC),0.000158,IDLEX,T7 tractor construction,TOG
-2012,Santa Barbara (SCC),0.000191,PMTW,T7 other port,PM
-2012,Santa Barbara (SCC),1.911e-05,STREX,T7 other port,NOx
+2012,Santa Barbara (SCC),0.00019,PMTW,T7 other port,PM
+2012,Santa Barbara (SCC),1.9e-05,STREX,T7 other port,NOx
 2012,Santa Barbara (SCC),0.0923,RUNEX,PTO,NOx
 2012,Santa Barbara (SCC),1.382e-06,RUNEX,T6 OOS heavy,SOx
 2012,Santa Barbara (SCC),9.664e-06,RUNEX,T6 utility,SOx
@@ -76,40 +76,40 @@
 2012,Santa Barbara (SCC),0.00256,RUNEX,T6 OOS small,NOx
 2012,Santa Barbara (SCC),8.898e-06,IDLEX,T7 NOOS,SOx
 2012,Santa Barbara (SCC),1.604e-08,IDLEX,T6 OOS heavy,SOx
-2012,Santa Barbara (SCC),0.00120,RUNEX,Motor Coach,PM
+2012,Santa Barbara (SCC),0.0012,RUNEX,Motor Coach,PM
 2012,Santa Barbara (SCC),0.00152,IDLEX,T7 tractor,CO
 2012,Santa Barbara (SCC),0.00153,IDLEX,T7 NOOS,CO
 2012,Santa Barbara (SCC),0.000180,STREX,T7 NOOS,NOx
 2012,Santa Barbara (SCC),7.531e-06,IDLEX,T7 other port,PM
 2012,Santa Barbara (SCC),0.0207,IDLEX,SBUS,NOx
-2012,Santa Barbara (SCC),0.000119,PMBW,T7 CAIRP construction,PM
+2012,Santa Barbara (SCC),0.00012,PMBW,T7 CAIRP construction,PM
 2012,Santa Barbara (SCC),4.948e-05,IDLEX,T6 Ag,PM
 2012,Santa Barbara (SCC),4.383e-05,IDLEX,T6 CAIRP heavy,NOx
 2012,Santa Barbara (SCC),0.0134,IDLEX,T7 CAIRP,NOx
 2012,Santa Barbara (SCC),0.00227,IDLEX,T7 single construction,NOx
-2012,Santa Barbara (SCC),0.0620,RUNEX,T7 CAIRP,CO
+2012,Santa Barbara (SCC),0.062,RUNEX,T7 CAIRP,CO
 2012,Santa Barbara (SCC),0.00683,IDLEX,T7 NOOS,NOx
 2012,Santa Barbara (SCC),0.000435,IDLEX,T7 POLA,NOx
-2012,Santa Barbara (SCC),0.000479,RUNEX,T6 OOS small,CO
+2012,Santa Barbara (SCC),0.00048,RUNEX,T6 OOS small,CO
 2012,Santa Barbara (SCC),3.567e-05,IDLEX,Motor Coach,PM
 2012,Santa Barbara (SCC),0.00166,IDLEX,T7 tractor construction,NOx
 2012,Santa Barbara (SCC),4.877e-05,IDLEX,T6 instate construction small,TOG
 2012,Santa Barbara (SCC),6.778e-05,STREX,T7 POLA,NOx
-2012,Santa Barbara (SCC),0.00199,RUNEX,T7 CAIRP construction,TOG
+2012,Santa Barbara (SCC),0.002,RUNEX,T7 CAIRP construction,TOG
 2012,Santa Barbara (SCC),0.000266,IDLEX,T7 CAIRP construction,CO
 2012,Santa Barbara (SCC),0.00133,PMBW,All Other Buses,PM
-2012,Santa Barbara (SCC),0.00591,RUNEX,T7 CAIRP construction,CO
+2012,Santa Barbara (SCC),0.006,RUNEX,T7 CAIRP construction,CO
 2012,Santa Barbara (SCC),0.000184,RUNEX,T6 CAIRP small,PM
-2012,Santa Barbara (SCC),4.309e-05,IDLEX,T6 Public,PM
+2012,Santa Barbara (SCC),4.3e-05,IDLEX,T6 Public,PM
 2012,Santa Barbara (SCC),9.258e-05,RUNEX,T6 utility,PM
 2012,Santa Barbara (SCC),1.065e-05,IDLEX,T7 Single,SOx
-2012,Santa Barbara (SCC),1.827e-06,IDLEX,T7 other port,SOx
+2012,Santa Barbara (SCC),1.8e-06,IDLEX,T7 other port,SOx
 2012,Santa Barbara (SCC),0.00179,IDLEX,T7 Single,TOG
-2012,Santa Barbara (SCC),7.396e-06,RUNEX,T6 CAIRP small,SOx
-2012,Santa Barbara (SCC),0.0291,RUNEX,T6 instate small,PM
+2012,Santa Barbara (SCC),7.4e-06,RUNEX,T6 CAIRP small,SOx
+2012,Santa Barbara (SCC),0.03,RUNEX,T6 instate small,PM
 2012,Santa Barbara (SCC),0.000486,IDLEX,T7 SWCV,TOG
 2012,Santa Barbara (SCC),9.414e-05,RUNEX,T7 Public,SOx
-2012,Santa Barbara (SCC),0.0189,RUNEX,T7 NNOOS,TOG
+2012,Santa Barbara (SCC),0.019,RUNEX,T7 NNOOS,TOG
 2012,Santa Barbara (SCC),0.00163,PMBW,T7 tractor,PM
 2012,Santa Barbara (SCC),6.218e-05,RUNEX,Motor Coach,SOx
 2012,Santa Barbara (SCC),0.000105,RUNEX,T6 OOS small,PM
@@ -127,7 +127,7 @@
 2012,Santa Barbara (SCC),0.00325,RUNEX,T7 Public,PM
 2012,Santa Barbara (SCC),0.000168,IDLEX,T6 Public,TOG
 2012,Santa Barbara (SCC),6.625e-06,IDLEX,T6 utility,TOG
-2012,Santa Barbara (SCC),4.419e-06,PMTW,T6 OOS small,PM
+2012,Santa Barbara (SCC),4.42e-06,PMTW,T6 OOS small,PM
 2012,Santa Barbara (SCC),0.0115,RUNEX,T7 tractor,PM
 2012,Santa Barbara (SCC),0.00201,IDLEX,T6 instate construction small,NOx
 2012,Santa Barbara (SCC),0.000697,IDLEX,T6 Public,CO
@@ -141,12 +141,12 @@
 2012,Santa Barbara (SCC),0.0158,RUNEX,All Other Buses,CO
 2012,Santa Barbara (SCC),0.00146,PMTW,SBUS,PM
 2012,Santa Barbara (SCC),0.00402,IDLEX,T6 utility,NOx
-2012,Santa Barbara (SCC),2.519e-06,PMTW,T6 CAIRP heavy,PM
-2012,Santa Barbara (SCC),0.00131,RUNEX,T6 Public,PM
-2012,Santa Barbara (SCC),2.521e-05,IDLEX,T7 single construction,PM
-2012,Santa Barbara (SCC),9.631e-06,IDLEX,T6 OOS small,CO
+2012,Santa Barbara (SCC),2.52e-06,PMTW,T6 CAIRP heavy,PM
+2012,Santa Barbara (SCC),0.0013,RUNEX,T6 Public,PM
+2012,Santa Barbara (SCC),2.52e-05,IDLEX,T7 single construction,PM
+2012,Santa Barbara (SCC),9.63e-06,IDLEX,T6 OOS small,CO
 2012,Santa Barbara (SCC),0.165,RUNEX,T7 SWCV,NOx
-2012,Santa Barbara (SCC),0.000405,RUNEX,T6 instate heavy,SOx
+2012,Santa Barbara (SCC),0.0004,RUNEX,T6 instate heavy,SOx
 2012,Santa Barbara (SCC),0.000963,PMTW,T6 instate small,PM
 2012,Santa Barbara (SCC),0.000346,PMBW,T7 Public,PM
 2012,Santa Barbara (SCC),0.01,IDLEX,T7 Public,CO
@@ -161,15 +161,15 @@
 2012,Santa Barbara (SCC),0.00049,STREX,T6 instate construction small,NOx
 2012,Santa Barbara (SCC),4.458e-05,IDLEX,T6 utility,CO
 2012,Santa Barbara (SCC),0.0117,RUNEX,T7 Ag,CO
-2012,Santa Barbara (SCC),0.0797,RUNEX,T6 instate heavy,CO
-2012,Santa Barbara (SCC),1.0499e-05,RUNEX,T7 POLA,SOx
-2012,Santa Barbara (SCC),0.00408,RUNEX,T7 single construction,TOG
+2012,Santa Barbara (SCC),0.08,RUNEX,T6 instate heavy,CO
+2012,Santa Barbara (SCC),1.05e-05,RUNEX,T7 POLA,SOx
+2012,Santa Barbara (SCC),0.004,RUNEX,T7 single construction,TOG
 2012,Santa Barbara (SCC),7.451e-07,IDLEX,T7 POLA,PM
 2012,Santa Barbara (SCC),0.0371,RUNEX,T6 Public,NOx
 2012,Santa Barbara (SCC),0.0124,RUNEX,PTO,TOG
 2012,Santa Barbara (SCC),0.000907,IDLEX,T7 NOOS,TOG
 2012,Santa Barbara (SCC),2.614e-05,IDLEX,T7 NNOOS,SOx
-2012,Santa Barbara (SCC),6.969e-07,IDLEX,T6 OOS heavy,TOG
+2012,Santa Barbara (SCC),6.97e-07,IDLEX,T6 OOS heavy,TOG
 2012,Santa Barbara (SCC),4.0565e-05,PMTW,T6 Ag,PM
 2012,Santa Barbara (SCC),1.681e-05,IDLEX,T6 CAIRP small,CO
 2012,Santa Barbara (SCC),0.000118,RUNEX,PTO,SOx
@@ -180,13 +180,13 @@
 2012,Santa Barbara (SCC),1.324e-06,IDLEX,T6 instate construction small,SOx
 2012,Santa Barbara (SCC),0.0124,RUNEX,T7 single construction,CO
 2012,Santa Barbara (SCC),0.000359,PMBW,T6 instate construction heavy,PM
-2012,Santa Barbara (SCC),0.0249,RUNEX,SBUS,CO
+2012,Santa Barbara (SCC),0.025,RUNEX,SBUS,CO
 2012,Santa Barbara (SCC),0.000123,PMTW,All Other Buses,PM
 2012,Santa Barbara (SCC),0.000118,IDLEX,T6 CAIRP small,NOx
 2012,Santa Barbara (SCC),0.000524,PMBW,T7 NOOS,PM
 2012,Santa Barbara (SCC),6.788e-05,IDLEX,T6 OOS small,NOx
 2012,Santa Barbara (SCC),0.000314,RUNEX,T6 CAIRP heavy,CO
-2012,Santa Barbara (SCC),2.498e-05,IDLEX,T6 OOS heavy,NOx
+2012,Santa Barbara (SCC),2.5e-05,IDLEX,T6 OOS heavy,NOx
 2012,Santa Barbara (SCC),0.0168,IDLEX,T6 instate small,NOx
 2012,Santa Barbara (SCC),1.288e-05,IDLEX,SBUS,SOx
 2012,Santa Barbara (SCC),0.000913,PMTW,T7 NNOOS,PM
@@ -199,11 +199,11 @@
 2012,Santa Barbara (SCC),0.00179,RUNEX,T7 Ag,PM
 2012,Santa Barbara (SCC),0.000105,STREX,T7 utility,NOx
 2012,Santa Barbara (SCC),1.696e-05,IDLEX,T7 POLA,TOG
-2012,Santa Barbara (SCC),0.0796,RUNEX,T6 instate construction small,NOx
+2012,Santa Barbara (SCC),0.08,RUNEX,T6 instate construction small,NOx
 2012,Santa Barbara (SCC),5.415e-06,IDLEX,T6 instate heavy,SOx
 2012,Santa Barbara (SCC),0.00317,IDLEX,T7 CAIRP,CO
-2012,Santa Barbara (SCC),0.000151,IDLEX,T6 instate small,PM
-2012,Santa Barbara (SCC),0.000100,IDLEX,All Other Buses,TOG
+2012,Santa Barbara (SCC),0.00015,IDLEX,T6 instate small,PM
+2012,Santa Barbara (SCC),0.0001,IDLEX,All Other Buses,TOG
 2012,Santa Barbara (SCC),0.000578,IDLEX,T7 single construction,CO
 2012,Santa Barbara (SCC),0.00834,RUNEX,T7 CAIRP,PM
 2012,Santa Barbara (SCC),0.00055,RUNEX,T7 POLA,CO
@@ -215,15 +215,15 @@
 2012,Santa Barbara (SCC),3.388e-07,IDLEX,T6 CAIRP heavy,PM
 2012,Santa Barbara (SCC),0.000575,RUNEX,T6 CAIRP heavy,TOG
 2012,Santa Barbara (SCC),0.0385,RUNEX,T6 instate heavy,TOG
-2012,Santa Barbara (SCC),2.221e-05,PMTW,T7 POLA,PM
-2012,Santa Barbara (SCC),0.000307,IDLEX,T7 NNOOS,PM
+2012,Santa Barbara (SCC),2.22e-05,PMTW,T7 POLA,PM
+2012,Santa Barbara (SCC),0.0003,IDLEX,T7 NNOOS,PM
 2012,Santa Barbara (SCC),0.000458,STREX,T7 CAIRP,NOx
 2012,Santa Barbara (SCC),1.269e-06,IDLEX,All Other Buses,SOx
-2012,Santa Barbara (SCC),0.000396,RUNEX,T6 utility,CO
+2012,Santa Barbara (SCC),0.0004,RUNEX,T6 utility,CO
 2012,Santa Barbara (SCC),0.00093,PMTW,T7 tractor,PM
 2012,Santa Barbara (SCC),0.0149,RUNEX,T6 instate construction small,CO
 2012,Santa Barbara (SCC),0.00103,IDLEX,T7 CAIRP construction,NOx
-2012,Santa Barbara (SCC),1.549e-06,IDLEX,T6 utility,PM
+2012,Santa Barbara (SCC),1.55e-06,IDLEX,T6 utility,PM
 2012,Santa Barbara (SCC),0.000534,PMBW,T6 Public,PM
 2012,Santa Barbara (SCC),0.0018,IDLEX,T6 Ag,NOx
 2012,Santa Barbara (SCC),0.00537,RUNEX,T6 instate construction heavy,CO
@@ -233,14 +233,14 @@
 2012,Santa Barbara (SCC),0.00399,RUNEX,T6 utility,NOx
 2012,Santa Barbara (SCC),0.00811,RUNEX,T7 other port,CO
 2012,Santa Barbara (SCC),4.711e-06,RUNEX,T7 utility,SOx
-2012,Santa Barbara (SCC),0.00206,IDLEX,T7 NNOOS,TOG
-2012,Santa Barbara (SCC),0.000106,PMBW,T7 Ag,PM
+2012,Santa Barbara (SCC),0.002,IDLEX,T7 NNOOS,TOG
+2012,Santa Barbara (SCC),0.0001,PMBW,T7 Ag,PM
 2012,Santa Barbara (SCC),0.096,RUNEX,T7 NOOS,NOx
 2012,Santa Barbara (SCC),0.00172,PMBW,T7 Single,PM
 2012,Santa Barbara (SCC),2.555e-05,IDLEX,T7 CAIRP construction,PM
-2012,Santa Barbara (SCC),0.0161,RUNEX,T7 SWCV,CO
-2012,Santa Barbara (SCC),0.0219,RUNEX,T7 CAIRP,TOG
-2012,Santa Barbara (SCC),4.621e-05,RUNEX,T6 Public,SOx
+2012,Santa Barbara (SCC),0.016,RUNEX,T7 SWCV,CO
+2012,Santa Barbara (SCC),0.022,RUNEX,T7 CAIRP,TOG
+2012,Santa Barbara (SCC),4.62e-05,RUNEX,T6 Public,SOx
 2012,Santa Barbara (SCC),1.953e-05,IDLEX,T7 Public,SOx
 2012,Santa Barbara (SCC),3.947e-07,IDLEX,T6 OOS small,PM
 2012,Santa Barbara (SCC),0.000609,STREX,T7 tractor,NOx
@@ -259,16 +259,16 @@
 2012,Santa Barbara (SCC),0.00274,STREX,T6 instate small,NOx
 2012,Santa Barbara (SCC),0.00823,RUNEX,T7 NOOS,TOG
 2012,Santa Barbara (SCC),8.144e-05,STREX,T6 instate construction heavy,NOx
-2012,Santa Barbara (SCC),0.001459,STREX,T7 Single,NOx
+2012,Santa Barbara (SCC),0.00146,STREX,T7 Single,NOx
 2012,Santa Barbara (SCC),0.000158,IDLEX,T7 CAIRP construction,TOG
 2012,Santa Barbara (SCC),0.008680,IDLEX,T6 instate heavy,NOx
 2012,Santa Barbara (SCC),0.000464,RUNEX,T7 Single,SOx
 2012,Santa Barbara (SCC),0.000115,PMBW,T6 utility,PM
 2012,Santa Barbara (SCC),2.502e-05,IDLEX,All Other Buses,PM
 2012,Santa Barbara (SCC),0.000198,PMTW,T7 Public,PM
-2012,Santa Barbara (SCC),0.000211,IDLEX,T7 single construction,TOG
+2012,Santa Barbara (SCC),0.0002,IDLEX,T7 single construction,TOG
 2012,Santa Barbara (SCC),0.000879,RUNEX,T7 CAIRP construction,PM
-2012,Santa Barbara (SCC),2.52e-06,IDLEX,T6 CAIRP small,TOG
+2012,Santa Barbara (SCC),2.5e-06,IDLEX,T6 CAIRP small,TOG
 2012,Santa Barbara (SCC),0.00135,IDLEX,T7 utility,NOx
 2012,Santa Barbara (SCC),0.00257,RUNEX,T7 tractor construction,PM
 2012,Santa Barbara (SCC),0.344,RUNEX,T7 tractor,NOx
@@ -299,35 +299,35 @@
 2012,Santa Barbara (SCC),1.0429e-05,IDLEX,T6 instate small,SOx
 2012,Santa Barbara (SCC),0.000588,IDLEX,T7 tractor,TOG
 2012,Santa Barbara (SCC),1.925e-05,IDLEX,T7 tractor construction,PM
-2012,Santa Barbara (SCC),0.0851,RUNEX,All Other Buses,NOx
-2012,Santa Barbara (SCC),0.390,RUNEX,T7 Single,NOx
+2012,Santa Barbara (SCC),0.085,RUNEX,All Other Buses,NOx
+2012,Santa Barbara (SCC),0.39,RUNEX,T7 Single,NOx
 2012,Santa Barbara (SCC),1.816e-07,IDLEX,T6 OOS heavy,PM
 2012,Santa Barbara (SCC),0.00447,RUNEX,T6 CAIRP small,NOx
-2012,Santa Barbara (SCC),0.000230,STREX,T6 Public,NOx
+2012,Santa Barbara (SCC),0.00023,STREX,T6 Public,NOx
 2012,Santa Barbara (SCC),0.000137,RUNEX,T7 NOOS,SOx
 2012,Santa Barbara (SCC),0.0147,RUNEX,T7 tractor construction,CO
 2012,Santa Barbara (SCC),8.549e-05,PMBW,T6 CAIRP small,PM
 2012,Santa Barbara (SCC),0.000364,PMTW,T7 SWCV,PM
-2012,Santa Barbara (SCC),0.00521,RUNEX,T6 Ag,TOG
+2012,Santa Barbara (SCC),0.0052,RUNEX,T6 Ag,TOG
 2012,Santa Barbara (SCC),0.000264,IDLEX,T7 other port,CO
 2012,Santa Barbara (SCC),9.925e-06,PMTW,T6 utility,PM
-2012,Santa Barbara (SCC),0.00111,IDLEX,T7 Ag,CO
-2012,Santa Barbara (SCC),3.105e-05,RUNEX,T6 instate construction heavy,SOx
+2012,Santa Barbara (SCC),0.001,IDLEX,T7 Ag,CO
+2012,Santa Barbara (SCC),3.1e-05,RUNEX,T6 instate construction heavy,SOx
 2012,Santa Barbara (SCC),0.00534,RUNEX,PTO,PM
 2012,Santa Barbara (SCC),0.000335,PMBW,T7 other port,PM
 2012,Santa Barbara (SCC),8.963e-05,RUNEX,T7 other port,SOx
-2012,Santa Barbara (SCC),0.00307,IDLEX,T6 instate small,CO
+2012,Santa Barbara (SCC),0.003,IDLEX,T6 instate small,CO
 2012,Santa Barbara (SCC),0.0114,RUNEX,SBUS,TOG
-2012,Santa Barbara (SCC),0.000704,IDLEX,T6 Ag,CO
-2012,Santa Barbara (SCC),0.000606,IDLEX,T7 Public,PM
+2012,Santa Barbara (SCC),0.0007,IDLEX,T6 Ag,CO
+2012,Santa Barbara (SCC),0.0006,IDLEX,T7 Public,PM
 2012,Santa Barbara (SCC),3.352e-06,IDLEX,Motor Coach,SOx
 2012,Santa Barbara (SCC),0.000923,RUNEX,T6 instate small,SOx
 2012,Santa Barbara (SCC),0.00163,RUNEX,T6 CAIRP heavy,NOx
-2012,Santa Barbara (SCC),1.31e-05,IDLEX,T6 instate construction small,PM
+2012,Santa Barbara (SCC),1.3e-05,IDLEX,T6 instate construction small,PM
 2012,Santa Barbara (SCC),7.522e-06,IDLEX,T7 utility,PM
-2012,Santa Barbara (SCC),0.000209,STREX,T7 single construction,NOx
-2012,Santa Barbara (SCC),0.0106,RUNEX,T6 Ag,CO
-2012,Santa Barbara (SCC),0.00159,PMBW,T7 NNOOS,PM
+2012,Santa Barbara (SCC),0.0002,STREX,T7 single construction,NOx
+2012,Santa Barbara (SCC),0.01,RUNEX,T6 Ag,CO
+2012,Santa Barbara (SCC),0.0016,PMBW,T7 NNOOS,PM
 2012,Santa Barbara (SCC),0.000172,PMTW,T7 single construction,PM
 2012,Santa Barbara (SCC),0.00181,RUNEX,T7 single construction,PM
 2012,Santa Barbara (SCC),0.000134,PMTW,T7 tractor construction,PM
@@ -335,12 +335,12 @@
 2012,Santa Barbara (SCC),0.000987,PMTW,T7 Single,PM
 2012,Santa Barbara (SCC),0.000125,RUNEX,T6 instate construction small,SOx
 2012,Santa Barbara (SCC),7.156e-06,STREX,T6 Ag,NOx
-2012,Santa Barbara (SCC),7.179e-05,IDLEX,T7 other port,TOG
-2012,Santa Barbara (SCC),0.669,RUNEX,T6 instate small,NOx
+2012,Santa Barbara (SCC),7.18e-05,IDLEX,T7 other port,TOG
+2012,Santa Barbara (SCC),0.67,RUNEX,T6 instate small,NOx
 2012,Santa Barbara (SCC),1.443e-06,PMTW,T6 OOS heavy,PM
 2012,Santa Barbara (SCC),9.123e-05,RUNEX,T7 utility,TOG
 2012,Santa Barbara (SCC),8.272e-05,RUNEX,T7 single construction,SOx
-2012,Santa Barbara (SCC),0.000299,PMTW,T7 NOOS,PM
+2012,Santa Barbara (SCC),0.0003,PMTW,T7 NOOS,PM
 2012,Santa Barbara (SCC),7.884e-05,STREX,T7 SWCV,NOx
 2012,Santa Barbara (SCC),2.776e-08,IDLEX,T6 CAIRP heavy,SOx
 2012,Santa Barbara (SCC),0.000243,IDLEX,T7 Single,PM
@@ -349,7 +349,7 @@
 2012,Santa Barbara (SCC),0.000122,IDLEX,T6 instate construction heavy,CO
 2012,Santa Barbara (SCC),3.913e-05,RUNEX,T6 Ag,SOx
 2012,Santa Barbara (SCC),5.303e-05,IDLEX,T7 POLA,CO
-2012,Santa Barbara (SCC),0.0271,IDLEX,T7 Public,NOx
+2012,Santa Barbara (SCC),0.027,IDLEX,T7 Public,NOx
 2012,Santa Barbara (SCC),7.239e-06,STREX,T6 CAIRP heavy,NOx
 2012,Santa Barbara (SCC),0.0837,RUNEX,T7 Public,NOx
 2012,Santa Barbara (SCC),0.000215,RUNEX,T6 OOS small,TOG
@@ -357,12 +357,12 @@
 2012,Santa Barbara (SCC),1.37e-06,IDLEX,T7 CAIRP construction,SOx
 2012,Santa Barbara (SCC),3.474e-05,RUNEX,T6 OOS heavy,PM
 2012,Santa Barbara (SCC),0.0927,RUNEX,T7 tractor,CO
-2012,Santa Barbara (SCC),1.443e-06,IDLEX,T6 OOS small,TOG
+2012,Santa Barbara (SCC),1.44e-06,IDLEX,T6 OOS small,TOG
 2012,Santa Barbara (SCC),0.000565,IDLEX,T6 instate small,TOG
 2012,Santa Barbara (SCC),0.00337,RUNEX,T7 Ag,TOG
-2012,Santa Barbara (SCC),0.00319,RUNEX,T7 NOOS,PM
+2012,Santa Barbara (SCC),0.0032,RUNEX,T7 NOOS,PM
 2012,Santa Barbara (SCC),5.7e-06,IDLEX,T7 tractor,SOx
 2012,Santa Barbara (SCC),0.000687,STREX,T6 instate heavy,NOx
 2012,Santa Barbara (SCC),0.043,RUNEX,Motor Coach,NOx
 2012,Santa Barbara (SCC),4.942e-07,IDLEX,T7 POLA,SOx
-2012,Santa Barbara (SCC),0.0121,IDLEX,T7 Single,NOx
+2012,Santa Barbara (SCC),0.012,IDLEX,T7 Single,NOx

@@ -227,7 +227,6 @@ class Emfac2CmaqScaler(EmissionsScaler):
             veh, act = self.eic2dtim4[eic]
             if self.is_smoke4 and act[:3] in ['vmt', 'vht']:
                 act += self.DOWS[dow] + self.CALVAD_HOURS[hr]
-            # TODO: This looks an awful lot like we can pre-build the mask in the SparceEmissions
             spat_surr = spatial_surrs[veh][act]
 
             # speciate by pollutant, while gridding
@@ -255,7 +254,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
                     if mass_fraction <= 0.0:
                         continue
-                    
+
                     speciated_value = value * mass_fraction
                     for cell, cell_fraction in spat_surr.iteritems():
                         se.add_naive(spec, cell, speciated_value * cell_fraction)
