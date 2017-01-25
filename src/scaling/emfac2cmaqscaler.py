@@ -203,12 +203,6 @@ class Emfac2CmaqScaler(EmissionsScaler):
         """
         se = self._prebuild_sparce_emissions(emis_table)
 
-        # TODO: Do we really still need this?
-        species = {}
-        for group in self.groups:
-            for i in xrange(len(np.atleast_1d(self.groups[group]['species']))):
-                species[self.groups[group]['species'][i]] = {'group': group, 'index': i}
-
         # some mass fractions are not EIC dependent
         nox_fraction = self.gspro['DEFNOX']['NOX']
         sox_fraction = self.gspro['SOX']['SOX']
@@ -236,10 +230,9 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
                 groups = self.groups[poll.upper()]
 
-                # loop through each grid cell
-                for index, spec in enumerate(groups['species']):
+                # loop through each species in this pollutant group
+                for ind, spec in enumerate(groups['species']):
                     # get species information
-                    ind = species[spec]['index']
                     mass_fraction = (self.STONS_HR_2_G_SEC / groups['weights'][ind])
 
                     # species fractions
@@ -256,6 +249,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                         continue
 
                     speciated_value = value * mass_fraction
+                    # loop through each grid cell
                     for cell, cell_fraction in spat_surr.iteritems():
                         se.add_naive(spec, cell, speciated_value * cell_fraction)
 
