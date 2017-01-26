@@ -222,6 +222,9 @@ class Emfac2CmaqScaler(EmissionsScaler):
             if self.is_smoke4 and act[:3] in ['vmt', 'vht']:
                 act += self.DOWS[dow] + self.CALVAD_HOURS[hr]
             spat_surr = spatial_surrs[veh][act]
+            ss = np.zeros((self.nrows, self.ncols), dtype=np.float32)
+            for cell, cell_fraction in spat_surr.iteritems():
+                ss[cell] = cell_fraction
 
             # speciate by pollutant, while gridding
             for poll, value in emis_table[eic].iteritems():
@@ -250,17 +253,16 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
                     speciated_value = value * mass_fraction
                     # loop through each grid cell
-                    for cell, cell_fraction in spat_surr.iteritems():
-                        se.add_naive(spec, cell, speciated_value * cell_fraction)
+                    se.set_poll_grid(spec, ss * speciated_value)
 
             # add NH3, based on NH3/CO fractions
             if 'co' in emis_table[eic]:
                 nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0)
-                if nh3_fraction <= 0.0: continue
+                if nh3_fraction <= 0.0:
+                    continue
 
                 nh3_value = emis_table[eic]['co'] * nh3_fraction
-                for cell, cell_fraction in spat_surr.iteritems():
-                    se.add_naive('NH3', cell, nh3_value * cell_fraction)
+                se.set_poll_grid('NH3', ss * nh3_value)
 
         return se
 

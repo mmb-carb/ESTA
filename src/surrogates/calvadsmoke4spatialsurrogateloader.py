@@ -37,7 +37,7 @@ class CalvadSmoke4SpatialSurrogateLoader(SpatialLoader):
             spatial_surrogates = SpatialSurrogateData()
 
         # loop through each SMOKE 4 surrogate file, and related list of EICs
-        for i,surr_file_path in enumerate(self.smoke_surrogates):
+        for i, surr_file_path in enumerate(self.smoke_surrogates):
             # create list of veh/act pairs
             veh_act_pairs = self._create_veh_act_pairs(i)
 

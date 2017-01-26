@@ -58,6 +58,12 @@ class SparseEmissions(object):
             to aid in performance.
         """
         self._data[poll][cell] += value
+    
+    def set_poll_grid(self, poll, grid):
+        """
+        """
+        # TODO: if grid.shape != (self.nrows, self.ncols): Booooooom!
+        self._data[poll] = grid
 
     def join(self, se):
         """ add another sparse emissions object to this one """
