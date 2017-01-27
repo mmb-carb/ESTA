@@ -2,6 +2,9 @@
 from src.emissions.sparse_emissions import SparseEmissions
 
 
+# TODO: WHY IS THERE A REGION HERE?????????????????????????!!!!!!!!!!!111111111111111@
+
+
 class ScaledEmissions(object):
     """ This class is designed as a helper to organize the emissions by pollutant and EIC
         after they are gridded and scaled.
@@ -36,6 +39,30 @@ class ScaledEmissions(object):
             self.data[region][date][hr][eic] = poll_grid
         else:
             self.data[region][date][hr][eic].join(poll_grid)
+
+    def add_subgrid(self, region, date, hr, eic, poll_grid, box):
+        """ TODO: Mention how naive this is...
+            box: {'lat': (51, 92), 'lon': (156, 207)}
+        """
+        min_row = box['lat'][0]
+        max_row = box['lat'][1] + 1
+        min_col = box['lon'][0]
+        max_col = box['lon'][1] + 1
+        
+        for poll, subgrid in poll_grid._data.iteritems():  # TODO: Should probably have a class method in SparceEmis for this...
+            self.data[region][date][hr][eic]._data[poll][min_row:max_row, min_col:max_col] += subgrid
+
+    def add_subgrid_nocheck(self, region, date, hr, eic, poll_grid, box):
+        """ TODO: Mention how naive this is...
+            box: {'lat': (51, 92), 'lon': (156, 207)}
+        """
+        min_row = box['lat'][0]
+        max_row = box['lat'][1] + 1
+        min_col = box['lon'][0]
+        max_col = box['lon'][1] + 1
+        
+        for poll, subgrid in poll_grid._data.iteritems():  # TODO: Should probably have a class method in SparceEmis for this...
+            self.data[region][date][hr][eic]._data[poll][min_row:max_row, min_col:max_col] += subgrid  # TODO: This should definitley be a SparceEmis method...
 
     def pollutants(self):
         """ return a set of all the pullants in all the Sparce-Grid Emissions object
