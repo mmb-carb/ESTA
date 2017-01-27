@@ -99,7 +99,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 factors_by_hour = temp_surr['diurnal'][region][dow]
 
                 # pull today's spatial surrogate
-                spatial_surrs = spatial_surr.data[region]  # TODO: Necessary? Just do in _apply_surrs method?
+                spatial_surrs = spatial_surr.data[region]
 
                 # loop through each hour of the day
                 for hr in xrange(24):

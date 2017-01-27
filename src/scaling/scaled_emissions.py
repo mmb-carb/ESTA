@@ -2,9 +2,6 @@
 from src.emissions.sparse_emissions import SparseEmissions
 
 
-# TODO: WHY IS THERE A REGION HERE?????????????????????????!!!!!!!!!!!111111111111111@
-
-
 class ScaledEmissions(object):
     """ This class is designed as a helper to organize the emissions by pollutant and EIC
         after they are gridded and scaled.

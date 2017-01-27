@@ -53,21 +53,28 @@ class SparseEmissions(object):
 
     def add_nocheck(self, poll, cell, value):
         """ Setter method for sparse grid emissions
-            This makes the naive assumption that the pollutant is already part of this object.
-            This method can fail hard, and is meant to be used in conjunction with pre-processing
-            to aid in performance.
+            NOTE: This method is naive in that it does no checking to see if the pollutant
+                  already exists or is the correct dimensions. This is a faster version of
+                  the method, but more dangerous if you are not doing these checks elsewhere.
         """
         self._data[poll][cell] += value
-    
+
     def add_poll_grid(self, poll, grid):
-        """ TODO
+        """ Add an entire grid of pollutant emissions to an existing pollutant.
         """
+        if poll not in self.pollutants:
+            self.pollutants.add(poll)
+            self._data[poll] = np.zeros((self.nrows, self.ncols), dtype=np.float32)
+
         if grid.shape != (self.nrows, self.ncols):
             raise ValueError('Arrays has the wrong dimensions: ' + str(grid.shape))
         self._data[poll] += grid
-    
+
     def add_poll_grid_nocheck(self, poll, grid):
-        """ TODO
+        """ Add an entire grid of pollutant emissions to an existing pollutant.
+            NOTE: This method is naive in that it does no checking to see if the pollutant
+                  already exists or is the correct dimensions. This is a faster version of
+                  the method, but more dangerous if you are not doing these checks elsewhere.
         """
         self._data[poll] += grid
 
