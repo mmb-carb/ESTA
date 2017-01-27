@@ -38,28 +38,30 @@ class ScaledEmissions(object):
             self.data[region][date][hr][eic].join(poll_grid)
 
     def add_subgrid(self, region, date, hr, eic, poll_grid, box):
-        """ TODO: Mention how naive this is...
-            box: {'lat': (51, 92), 'lon': (156, 207)}
+        """ This is much like the default `set` method, except it only adds a small subgrid
+            to the master grid of emissions for a particular pollutant.
         """
         min_row = box['lat'][0]
         max_row = box['lat'][1] + 1
         min_col = box['lon'][0]
         max_col = box['lon'][1] + 1
-        
-        for poll, subgrid in poll_grid._data.iteritems():  # TODO: Should probably have a class method in SparceEmis for this...
-            self.data[region][date][hr][eic]._data[poll][min_row:max_row, min_col:max_col] += subgrid
+
+        for poll, subgrid in poll_grid.iteritems():
+            self.data[region][date][hr][eic].add_subgrid(poll, subgrid, min_row, max_row, min_col, max_col)
 
     def add_subgrid_nocheck(self, region, date, hr, eic, poll_grid, box):
-        """ TODO: Mention how naive this is...
-            box: {'lat': (51, 92), 'lon': (156, 207)}
+        """ This is much like the default `set` method, except it only adds a small subgrid
+            to the master grid of emissions for a particular pollutant.
+            NOTE: This method is designed to be fast, at the expensive of doing any error checking.
+                  If the proper error/bounds checking is not done outside this method, it can fail.
         """
         min_row = box['lat'][0]
         max_row = box['lat'][1] + 1
         min_col = box['lon'][0]
         max_col = box['lon'][1] + 1
-        
-        for poll, subgrid in poll_grid._data.iteritems():  # TODO: Should probably have a class method in SparceEmis for this...
-            self.data[region][date][hr][eic]._data[poll][min_row:max_row, min_col:max_col] += subgrid  # TODO: This should definitley be a SparceEmis method...
+
+        for poll, subgrid in poll_grid.iteritems():
+            self.data[region][date][hr][eic].add_subgrid_nocheck(poll, subgrid, min_row, max_row, min_col, max_col)
 
     def pollutants(self):
         """ return a set of all the pullants in all the Sparce-Grid Emissions object

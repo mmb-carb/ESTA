@@ -261,7 +261,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                     speciated_value = value * mass_fraction
 
                     # loop through each grid cell
-                    se.add_poll_grid_nocheck(spec, ss * speciated_value)
+                    se.add_grid_nocheck(spec, ss * speciated_value)
 
             # add NH3, based on NH3/CO fractions
             if 'co' in emis_table[eic]:
@@ -270,7 +270,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                     continue
 
                 nh3_value = emis_table[eic]['co'] * nh3_fraction
-                se.add_poll_grid_nocheck('NH3', ss * nh3_value)
+                se.add_grid_nocheck('NH3', ss * nh3_value)
 
         return se
 

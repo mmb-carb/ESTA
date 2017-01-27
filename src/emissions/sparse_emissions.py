@@ -59,7 +59,7 @@ class SparseEmissions(object):
         """
         self._data[poll][cell] += value
 
-    def add_poll_grid(self, poll, grid):
+    def add_grid(self, poll, grid):
         """ Add an entire grid of pollutant emissions to an existing pollutant.
         """
         if poll not in self.pollutants:
@@ -70,13 +70,30 @@ class SparseEmissions(object):
             raise ValueError('Arrays has the wrong dimensions: ' + str(grid.shape))
         self._data[poll] += grid
 
-    def add_poll_grid_nocheck(self, poll, grid):
+    def add_grid_nocheck(self, poll, grid):
         """ Add an entire grid of pollutant emissions to an existing pollutant.
             NOTE: This method is naive in that it does no checking to see if the pollutant
                   already exists or is the correct dimensions. This is a faster version of
                   the method, but more dangerous if you are not doing these checks elsewhere.
         """
         self._data[poll] += grid
+
+    def add_subgrid(self, poll, subgrid, min_row, max_row, min_col, max_col):
+        """ Add a subgrid of emissions to a particular pollutant.
+        """
+        if poll not in self.pollutants:
+            self.pollutants.add(poll)
+            self._data[poll] = np.zeros((self.nrows, self.ncols), dtype=np.float32)
+
+        self._data[poll][min_row:max_row, min_col:max_col] += subgrid
+
+    def add_subgrid_nocheck(self, poll, subgrid, min_row, max_row, min_col, max_col):
+        """ Add a subgrid of emissions to a particular pollutant.
+            NOTE: This method is naive in that it does no checking to see if the pollutant
+                  already exists or is the correct dimensions. This is a faster version of
+                  the method, but more dangerous if you are not doing these checks elsewhere.
+        """
+        self._data[poll][min_row:max_row, min_col:max_col] += subgrid
 
     def join(self, se):
         """ add another sparse emissions object to this one """
@@ -101,6 +118,11 @@ class SparseEmissions(object):
             e._data[poll] = self._data[poll].copy()
 
         return e
+
+    def iteritems(self):
+        """ Returning the iterator object for the data, without exposing the dictionary
+        """
+        return self._data.iteritems()
 
     def __repr__(self):
         """ standard Python helper to allower for str(x) and print(x) """
