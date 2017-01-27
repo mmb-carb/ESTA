@@ -209,8 +209,8 @@ class CmaqNetcdfWriter(OutputWriter):
         '''
         species = {}  # for pre-speciated emissions
         for group in self.groups:
-            for i in xrange(len(np.atleast_1d(self.groups[group]['species']))):
-                species[self.groups[group]['species'][i]] = {'group': group, 'index': i}
+            for i, spec in enumerate(self.groups[group]['species']):
+                species[spec] = {'group': group, 'index': i}
 
         # some mass fractions are not EIC dependent
         nox_fraction = self.gspro['DEFNOX']['NOX']
