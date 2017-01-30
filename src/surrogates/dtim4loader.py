@@ -78,6 +78,8 @@ class Dtim4Loader(SpatialLoader):
          ANODE         X         Y     BNODE         X         Y  DISTANCE     SPEED    volumes * 26
             19     60729    200387      7010     60671    200259     13992      5000    9.91898  ...
         """
+        zero = np.float32(0.0)
+        one = np.float32(1.0)
         lcc = Proj(proj='lcc', lat_1=30.0, lat_2=60, lat_0=37, lon_0=-120.5, rsphere=6370000.00,
                    ellps='sphere')
 
@@ -109,15 +111,15 @@ class Dtim4Loader(SpatialLoader):
             nodes[bnode] = (gridx2, gridy2)
             # determine how to split amoung different grid cells
             grid_cells = [(gridx1, gridy1)]  # lon / lat
-            num_cells = 1.0
+            num_cells = one
             if gridx1 != gridx2 or gridy1 != gridy2:
                 num_cells = abs(gridx1 - gridx2) + abs(gridy1 - gridy2)
                 if num_cells > Dtim4Loader.MAX_STEPS:
                     num_cells = Dtim4Loader.MAX_STEPS
                 elif num_cells == 1:
                     num_cells = 2
-                step_lat = (lat2 - lat1) / (num_cells - 1.0)
-                step_lon = (lon2 - lon1) / (num_cells - 1.0)
+                step_lat = (lat2 - lat1) / (num_cells - one)
+                step_lon = (lon2 - lon1) / (num_cells - one)
                 for step in xrange(1, num_cells):
                     grid_cell = self._find_grid_cell((lon1 + step * step_lon,
                                                       lat1 + step * step_lat), area)
@@ -131,7 +133,7 @@ class Dtim4Loader(SpatialLoader):
             for c in xrange(26):
                 col = 80 + c * 11
                 vol = np.float32(line[col: col + 11].strip())
-                if vol <= 0.0:
+                if vol <= zero:
                     continue
                 net_vol = vol / num_cells
                 net_vmt = np.float32(net_vol * distance)
