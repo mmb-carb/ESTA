@@ -121,6 +121,8 @@ class Emfac2CmaqScaler(EmissionsScaler):
             region_box: {'lat': (51, 92), 'lon': (156, 207)}
             output: {EIC: SparseEmissions[pollutant][(grid, cell)] = value}
         """
+        zero = np.float32(0.0)
+
         # examine bounding box
         min_lat = box['lat'][0]
         min_lon = box['lon'][0]
@@ -158,7 +160,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
             # speciate by pollutant, while gridding
             for poll, value in emis_table[eic].iteritems():
-                if value == 0.0:
+                if value == zero:
                     continue
 
                 groups = self.groups[poll.upper()]
@@ -167,7 +169,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 for ind, spec in enumerate(groups['species']):
                     # calculate mass fraction for this species, as part of its pollutant group
                     mass_fraction = mass_fracts[poll][ind]
-                    if mass_fraction == 0.0:
+                    if mass_fraction == zero:
                         continue
                     mass_fraction *= (self.STONS_HR_2_G_SEC / groups['weights'][ind])
                     speciated_value = value * mass_fraction
@@ -177,8 +179,8 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
             # add NH3, based on NH3/CO fractions
             if 'co' in emis_table[eic]:
-                nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0)
-                if nh3_fraction == 0.0:
+                nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, zero)
+                if nh3_fraction == zero:
                     continue
 
                 se.add_grid_nocheck('NH3', ss * (emis_table[eic]['co'] * nh3_fraction))
