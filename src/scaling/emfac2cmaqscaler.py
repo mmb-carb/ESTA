@@ -131,7 +131,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
         se = self._prebuild_sparse_emissions(num_rows, num_cols)
 
         # some mass fractions are not EIC dependent
-        mass_fracts = defaultdict(lambda: defaultdict(lambda: 1.0))
+        mass_fracts = defaultdict(lambda: defaultdict(lambda: np.float32(1.0)))
         mass_fracts['nox'] = self.gspro['DEFNOX']['NOX']
         mass_fracts['sox'] = self.gspro['SOX']['SOX']
 
