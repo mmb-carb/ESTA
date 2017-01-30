@@ -111,6 +111,113 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
             yield e
 
+    def _apply_spatial_surrs(self, emis_table, spatial_surrs, region, box, dow=2, hr=0):
+        """ Apply the spatial surrogates for each hour to this EIC and create a dictionary of
+            sparely-gridded emissions (one for each eic).
+            Data Types:
+            EmissionsTable[EIC][pollutant] = value
+            spatial_surrs[veh][act] = SpatialSurrogate()
+                                      SpatialSurrogate[(grid, cell)] = fraction
+            region_box: {'lat': (51, 92), 'lon': (156, 207)}
+            output: {EIC: SparseEmissions[pollutant][(grid, cell)] = value}
+        """
+        # examine bounding box
+        min_lat = box['lat'][0]
+        min_lon = box['lon'][0]
+        num_rows = box['lat'][1] - box['lat'][0] + 1
+        num_cols = box['lon'][1] - box['lon'][0] + 1
+
+        # pre-build emissions object
+        se = self._prebuild_sparce_emissions(num_rows, num_cols)
+
+        # some mass fractions are not EIC dependent
+        mass_fracts = defaultdict(lambda: defaultdict(lambda: 1.0))
+        mass_fracts['nox'] = self.gspro['DEFNOX']['NOX']
+        mass_fracts['sox'] = self.gspro['SOX']['SOX']
+
+        # grid emissions, by EIC
+        for eic in emis_table:
+            # TOG and PM fractions are EIC-dependent
+            mass_fracts['tog'] = self.gspro[self.gsref[int(eic)]['TOG']]['TOG']
+            mass_fracts['pm'] = self.gspro[self.gsref[int(eic)]['PM']]['PM']
+
+            # fix VMT activity according to Calvad periods
+            veh, act = self.eic2dtim4[eic]
+            if self.is_smoke4 and act[:3] in ['vmt', 'vht']:
+                act += self.DOWS[dow] + self.CALVAD_HOURS[hr]
+
+            # build default spatial surrogate for this EIC
+            ss = np.zeros((num_rows, num_cols), dtype=np.float32)
+            try:
+                for cell, cell_fraction in spatial_surrs[veh][act].iteritems():
+                    ss[(cell[0] - min_lat, cell[1] - min_lon)] = cell_fraction
+            except KeyError:
+                err = ('Spatial Surrogate grid cell (%d, %d) found outside of bounding box' + \
+                       ' %s in region %d.') % (cell[0], cell[1], box, region)
+                raise KeyError(err)
+
+            # speciate by pollutant, while gridding
+            for poll, value in emis_table[eic].iteritems():
+                if value == 0.0:
+                    continue
+
+                groups = self.groups[poll.upper()]
+
+                # loop through each species in this pollutant group
+                for ind, spec in enumerate(groups['species']):
+                    # calculate mass fraction for this species, as part of its pollutant group
+                    mass_fraction = mass_fracts[poll][ind]
+                    if mass_fraction == 0.0:
+                        continue
+                    mass_fraction *= (self.STONS_HR_2_G_SEC / groups['weights'][ind])
+                    speciated_value = value * mass_fraction
+
+                    # loop through each grid cell
+                    se.add_grid_nocheck(spec, ss * speciated_value)
+
+            # add NH3, based on NH3/CO fractions
+            if 'co' in emis_table[eic]:
+                nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0)
+                if nh3_fraction == 0.0:
+                    continue
+
+                se.add_grid_nocheck('NH3', ss * (emis_table[eic]['co'] * nh3_fraction))
+
+        return se
+
+    def _apply_factors(self, emissions_table, factors):
+        """ Apply CalVad DOW or diurnal factors to an emissions table, altering the table.
+            Date Types:
+            EmissionsTable[EIC][pollutant] = value
+            factors = [ld, lm, hh, sbus]
+        """
+        zeros = []
+        # scale emissions table for diurnal factors
+        for eic in emissions_table:
+            factor = factors[self.CALVAD_TYPE[self.eic2dtim4[eic][0]]]
+            if factor == 0.0:
+                zeros.append(eic)
+            else:
+                emissions_table[eic].update((x, y * factor) for x, y in emissions_table[eic].items())
+
+        # remove zero-emissions EICs
+        for eic in zeros:
+            del emissions_table[eic]
+
+        return emissions_table
+
+    def _prebuild_scaled_emissions(self, date):
+        """ Pre-Build a ScaledEmissions object, for the On-Road NetCDF case, where:
+            region = -999
+            EIC = -999
+            And each pollutant grid is pre-built in the SparceEmissions object.
+        """
+        e = ScaledEmissions()
+        for hr in xrange(1, 25):
+            e.set(-999, date, hr, -999, self._prebuild_sparce_emissions(self.nrows, self.ncols))
+
+        return e
+
     def _load_species(self, emissions):
         """ find all the pollutant species that will matter for this simulation """
         # first, find all the EICs in the input emissions
@@ -174,117 +281,6 @@ class Emfac2CmaqScaler(EmissionsScaler):
                     inv[region][eic] = nh3 / co
 
         return inv
-
-    def _apply_factors(self, emissions_table, factors):
-        """ Apply CalVad DOW or diurnal factors to an emissions table, altering the table.
-            Date Types:
-            EmissionsTable[EIC][pollutant] = value
-            factors = [ld, lm, hh, sbus]
-        """
-        zeros = []
-        # scale emissions table for diurnal factors
-        for eic in emissions_table:
-            factor = factors[self.CALVAD_TYPE[self.eic2dtim4[eic][0]]]
-            if factor == 0.0:
-                zeros.append(eic)
-            else:
-                emissions_table[eic].update((x, y * factor) for x, y in emissions_table[eic].items())
-
-        # remove zero-emissions EICs
-        for eic in zeros:
-            del emissions_table[eic]
-
-        return emissions_table
-
-    def _apply_spatial_surrs(self, emis_table, spatial_surrs, region, box, dow=2, hr=0):
-        """ Apply the spatial surrogates for each hour to this EIC and create a dictionary of
-            sparely-gridded emissions (one for each eic).
-            Data Types:
-            EmissionsTable[EIC][pollutant] = value
-            spatial_surrs[veh][act] = SpatialSurrogate()
-                                      SpatialSurrogate[(grid, cell)] = fraction
-            region_box: {'lat': (51, 92), 'lon': (156, 207)}
-            output: {EIC: SparseEmissions[pollutant][(grid, cell)] = value}
-        """
-        # examine bounding box
-        min_lat = box['lat'][0]
-        min_lon = box['lon'][0]
-        num_rows = box['lat'][1] - box['lat'][0] + 1
-        num_cols = box['lon'][1] - box['lon'][0] + 1
-
-        # pre-build emissions object
-        se = self._prebuild_sparce_emissions(num_rows, num_cols)
-
-        # some mass fractions are not EIC dependent
-        mass_fracts = defaultdict(lambda: defaultdict(lambda: 1.0))
-        mass_fracts['nox'] = self.gspro['DEFNOX']['NOX']
-        mass_fracts['sox'] = self.gspro['SOX']['SOX']
-
-        # grid emissions, by EIC
-        for eic in emis_table:
-            # TOG and PM fractions are EIC-dependent
-            if int(eic) in self.gsref:
-                mass_fracts['tog'] = self.gspro[self.gsref[int(eic)]['TOG']]['TOG']
-                mass_fracts['pm'] = self.gspro[self.gsref[int(eic)]['PM']]['PM']
-            else:
-                mass_fracts['tog'] = []
-                mass_fracts['pm'] = []
-
-            # fix VMT activity according to Calvad periods
-            veh, act = self.eic2dtim4[eic]
-            if self.is_smoke4 and act[:3] in ['vmt', 'vht']:
-                act += self.DOWS[dow] + self.CALVAD_HOURS[hr]
-            spat_surr = spatial_surrs[veh][act]
-            ss = np.zeros((num_rows, num_cols), dtype=np.float32)
-            for cell, cell_fraction in spat_surr.iteritems():
-                try:
-                    ss[(cell[0] - min_lat, cell[1] - min_lon)] = cell_fraction
-                except:
-                    err = ('Spatial Surrogate grid cell (%d, %d) found outside of bounding box' + \
-                           ' %s in region %d.') % (cell[0], cell[1], box, region)
-                    raise ValueError(err)
-
-            # speciate by pollutant, while gridding
-            for poll, value in emis_table[eic].iteritems():
-                if value <= 0.0:
-                    continue
-
-                groups = self.groups[poll.upper()]
-
-                # loop through each species in this pollutant group
-                for ind, spec in enumerate(groups['species']):
-                    # get species information
-                    mass_fraction = mass_fracts[poll][ind]
-                    if mass_fraction <= 0.0:
-                        continue
-                    mass_fraction *= (self.STONS_HR_2_G_SEC / groups['weights'][ind])
-                    speciated_value = value * mass_fraction
-
-                    # loop through each grid cell
-                    se.add_grid_nocheck(spec, ss * speciated_value)
-
-            # add NH3, based on NH3/CO fractions
-            if 'co' in emis_table[eic]:
-                nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0)
-                if nh3_fraction <= 0.0:
-                    continue
-
-                nh3_value = emis_table[eic]['co'] * nh3_fraction
-                se.add_grid_nocheck('NH3', ss * nh3_value)
-
-        return se
-
-    def _prebuild_scaled_emissions(self, date):
-        """ Pre-Build a ScaledEmissions object, for the On-Road NetCDF case, where:
-            region = -999
-            EIC = -999
-            And each pollutant grid is pre-built in the SparceEmissions object.
-        """
-        e = ScaledEmissions()
-        for hr in xrange(1, 25):
-            e.set(-999, date, hr, -999, self._prebuild_sparce_emissions(self.nrows, self.ncols))
-
-        return e
 
     def _prebuild_sparce_emissions(self, nrows, ncols):
         ''' pre-process to add all relevant species to SparceEmissions object '''

@@ -237,6 +237,12 @@ class SpatialSurrogateData(object):
     def __init__(self):
         self.data = {}
 
+    def init_regions(self, regions):
+        """ Helper post-init method, to flush out the dictionary some """
+        for region in regions:
+            if region not in self.data:
+                self.data[region] = {}
+
     def get(self, region, veh, act):
         """ Getter method for DTIM 4 Data dictionary """
         return self.data.get(region, {}).get(veh, {}).get(act, None)
@@ -252,6 +258,18 @@ class SpatialSurrogateData(object):
             self.data[region] = {}
             self.data[region][veh] = {}
         elif veh not in self.data[region]:
+            self.data[region][veh] = {}
+
+        # add surrogate
+        self.data[region][veh][act] = surrogate
+
+    def set_nocheck(self, region, veh, act, surrogate):
+        """ Setter method for DTIM 4 Data dictionary
+            NOTE: This version of the method skips certain safety and type checking. It is faster,
+                  but care must be taken to do these checks earlier in the code.
+        """
+        # auto-fill the mulit-level dictionary format, to hide this from the user
+        if veh not in self.data[region]:
             self.data[region][veh] = {}
 
         # add surrogate
