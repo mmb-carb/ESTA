@@ -64,7 +64,7 @@ class ScaledEmissions(object):
             self.data[region][date][hr][eic].add_subgrid_nocheck(poll, subgrid, min_row, max_row, min_col, max_col)
 
     def pollutants(self):
-        """ return a set of all the pullants in all the Sparce-Grid Emissions object
+        """ return a set of all the pullants in all the Sparse-Grid Emissions object
             contained within this object
         """
         polls = set()

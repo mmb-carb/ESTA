@@ -128,7 +128,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
         num_cols = box['lon'][1] - box['lon'][0] + 1
 
         # pre-build emissions object
-        se = self._prebuild_sparce_emissions(num_rows, num_cols)
+        se = self._prebuild_sparse_emissions(num_rows, num_cols)
 
         # some mass fractions are not EIC dependent
         mass_fracts = defaultdict(lambda: defaultdict(lambda: 1.0))
@@ -210,13 +210,21 @@ class Emfac2CmaqScaler(EmissionsScaler):
         """ Pre-Build a ScaledEmissions object, for the On-Road NetCDF case, where:
             region = -999
             EIC = -999
-            And each pollutant grid is pre-built in the SparceEmissions object.
+            And each pollutant grid is pre-built in the SparseEmissions object.
         """
         e = ScaledEmissions()
         for hr in xrange(1, 25):
-            e.set(-999, date, hr, -999, self._prebuild_sparce_emissions(self.nrows, self.ncols))
+            e.set(-999, date, hr, -999, self._prebuild_sparse_emissions(self.nrows, self.ncols))
 
         return e
+
+    def _prebuild_sparse_emissions(self, nrows, ncols):
+        ''' pre-process to add all relevant species to SparseEmissions object '''
+        se = SparseEmissions(nrows, ncols)
+        for spec in self.species:
+            se.add_poll(spec)
+
+        return se
 
     def _load_species(self, emissions):
         """ find all the pollutant species that will matter for this simulation """
@@ -281,14 +289,6 @@ class Emfac2CmaqScaler(EmissionsScaler):
                     inv[region][eic] = nh3 / co
 
         return inv
-
-    def _prebuild_sparce_emissions(self, nrows, ncols):
-        ''' pre-process to add all relevant species to SparceEmissions object '''
-        se = SparseEmissions(nrows, ncols)
-        for spec in self.species:
-            se.add_poll(spec)
-
-        return se
 
     def _find_holidays(self):
         ''' Using Pandas calendar, find all 10 US Federal Holidays,

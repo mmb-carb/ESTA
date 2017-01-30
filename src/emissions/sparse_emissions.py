@@ -3,7 +3,7 @@ import numpy as np
 
 
 class SparseEmissions(object):
-    """ This is a sparce-grid representation of emissions on a grid.
+    """ This is a sparse-grid representation of emissions on a grid.
         For every pollutant there is a NumPy array representing the
         emissions in each cell of the grid.
         This grid represents all the emissions for a single EIC during a single hour.
