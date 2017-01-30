@@ -13,8 +13,6 @@ class CmaqNetcdfWriter(OutputWriter):
         NOTE: This class currently only supports 2D emissions.
     """
 
-    STONS_HR_2_G_SEC = 251.99583333333334
-
     def __init__(self, config, position):
         super(CmaqNetcdfWriter, self).__init__(config, position)
         self.nrows = int(self.config['GridInfo']['rows'])
