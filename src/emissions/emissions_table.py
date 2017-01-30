@@ -15,8 +15,7 @@ class EmissionsTable(defaultdict):
 
     def __getitem__(self, key):
         """ Setter method for emissions table """
-        val = defaultdict.__getitem__(self, key)
-        return val
+        return defaultdict.__getitem__(self, key)
 
     def __setitem__(self, key, val):
         """ Getter method for emissions table """

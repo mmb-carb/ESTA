@@ -9,6 +9,7 @@ class SpatialSurrogate(defaultdict):
         You must first fill this object with data, then use the `.surrogate()` method to return a
         new version of the object where all the values sum to 1.0.
     """
+
     def __init__(self):
         defaultdict.__init__(self, np.float32)
 
@@ -28,23 +29,20 @@ class SpatialSurrogate(defaultdict):
             where all the values sum to 1.0.
         """
         total = np.sum(defaultdict.values(self))
-        if total == 1.0:
-            # already normalized
-            return self
 
-        s = SpatialSurrogate()
-        if total:
-            # The easy situation, just normalize all the values so they sum to 1.0.
-            for key in defaultdict.__iter__(self):
-                s[key] = self.__getitem__(key) / total
+        if total == 1.0:
+            return self
+        elif total:
+            # The easy situation: just normalize all the values so they sum to 1.0
+            for key, value in self.iteritems():
+                self.__setitem__(key, value / total)
         else:
             # What if the total is zero?
-            number_keys = len(list(defaultdict.values(self)))
+            number_keys = defaultdict.__len__(self)
             if number_keys:
-                # This only works for non-zero number of keys.
-                s = dict(zip(defaultdict.__iter__(self), np.float32([1.0 / number_keys]*number_keys)))
+                return defaultdict(lambda: np.float32(1.0 / number_keys))
 
-        return s
+        return self
 
     def __repr__(self):
         return self.__class__.__name__ + '(' + str(dict(self))[1: -1] + ')'
