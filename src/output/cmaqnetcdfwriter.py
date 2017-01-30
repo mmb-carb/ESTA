@@ -235,7 +235,7 @@ class CmaqNetcdfWriter(OutputWriter):
                 grid = sparse_emis.get_grid(poll)
                 rootgrp.variables[poll.upper()][hr,0,:,:] = grid
 
-                if hr == 0:
+                if not hr:  # hr == 0
                     rootgrp.variables[poll.upper()][24,0,:,:] = grid
 
         rootgrp.close()

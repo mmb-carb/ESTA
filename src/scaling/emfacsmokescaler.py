@@ -151,7 +151,7 @@ class EmfacSmokeScaler(EmissionsScaler):
         for region in inv:
             for eic in inv[region]:
                 co = inv[region][eic][co_id]
-                if co == 0.0:
+                if not co:
                     inv[region][eic] = np.float32(0.0)
                 else:
                     nh3 = inv[region][eic][nh3_id]

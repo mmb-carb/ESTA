@@ -160,19 +160,17 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
             # speciate by pollutant, while gridding
             for poll, value in emis_table[eic].iteritems():
-                if value == zero:
+                if not value:
                     continue
 
                 groups = self.groups[poll.upper()]
 
                 # loop through each species in this pollutant group
                 for ind, spec in enumerate(groups['species']):
-                    # calculate mass fraction for this species, as part of its pollutant group
-                    mass_fraction = mass_fracts[poll][ind]
-                    if mass_fraction == zero:
+                    speciated_value = mass_fracts[poll][ind]
+                    if not speciated_value:
                         continue
-                    mass_fraction *= (self.STONS_HR_2_G_SEC / groups['weights'][ind])
-                    speciated_value = value * mass_fraction
+                    speciated_value *= value * self.STONS_HR_2_G_SEC / groups['weights'][ind]
 
                     # loop through each grid cell
                     se.add_grid_nocheck(spec, ss * speciated_value)
@@ -180,7 +178,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
             # add NH3, based on NH3/CO fractions
             if 'co' in emis_table[eic]:
                 nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, zero)
-                if nh3_fraction == zero:
+                if not nh3_fraction:
                     continue
 
                 se.add_grid_nocheck('NH3', ss * (emis_table[eic]['co'] * nh3_fraction))
@@ -197,7 +195,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
         # scale emissions table for diurnal factors
         for eic in emissions_table:
             factor = factors[self.CALVAD_TYPE[self.eic2dtim4[eic][0]]]
-            if factor == 0.0:
+            if not factor:
                 zeros.append(eic)
             else:
                 emissions_table[eic].update((x, y * factor) for x, y in emissions_table[eic].items())
@@ -215,8 +213,9 @@ class Emfac2CmaqScaler(EmissionsScaler):
             And each pollutant grid is pre-built in the SparseEmissions object.
         """
         e = ScaledEmissions()
+        se = self._prebuild_sparse_emissions(self.nrows, self.ncols)
         for hr in xrange(1, 25):
-            e.set(-999, date, hr, -999, self._prebuild_sparse_emissions(self.nrows, self.ncols))
+            e.set(-999, date, hr, -999, se.copy())
 
         return e
 
@@ -284,7 +283,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
         for region in inv:
             for eic in inv[region]:
                 co = inv[region][eic][co_id]
-                if co == 0.0:
+                if not co:
                     inv[region][eic] = np.float32(0.0)
                 else:
                     nh3 = inv[region][eic][nh3_id]

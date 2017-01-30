@@ -140,13 +140,13 @@ class Emfac2014TotalsTester(OutputTester):
             emfac_value = emfac_totals[poll]
             if poll not in ncf_emis:
                 ncf_value = 0.0
-                if emfac_value == 0.0:
+                if not emfac_value:
                     diff = 0.0
                 else:
                     diff = 100.00
             else:
                 ncf_value = ncf_emis[poll]
-                if emfac_value == 0.0:
+                if not emfac_value:
                     diff = -100.0
                 else:
                     diff = Emfac2014TotalsTester.percent_diff(emfac_value, ncf_emis[poll])
@@ -405,7 +405,7 @@ class Emfac2014TotalsTester(OutputTester):
             p = ln[4]
             eic = self.eic_reduce(self.vtp2eic[(v, t, p)])
             value = float(ln[-1])
-            if value == 0.0:
+            if not value:
                 continue
             if eic not in e:
                 e[eic] = dict(zip(self.POLLUTANTS, [0.0]*len(self.POLLUTANTS)))
@@ -438,7 +438,7 @@ class Emfac2014TotalsTester(OutputTester):
             if poll not in self.POLLUTANTS:
                 continue
             value = float(ln[2])
-            if value == 0.0:
+            if not value:
                 continue
             try:
                 region = self.reverse_region_names[ln[1]]
@@ -461,8 +461,8 @@ class Emfac2014TotalsTester(OutputTester):
         ''' Find the percent difference of two numbers,
             and correctly trap the zero cases.
         '''
-        if a == 0.0:
-            if b == 0.0:
+        if not a:
+            if not b:
                 return 0.0
             else:
                 return -100.00

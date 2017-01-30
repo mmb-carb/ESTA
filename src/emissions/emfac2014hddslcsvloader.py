@@ -41,7 +41,7 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
                 continue
             # pull emissions value
             value = np.float32(ln[2])
-            if value == 0.0:
+            if not value:
                 continue
             # pull EIC info
             v = ln[4]
