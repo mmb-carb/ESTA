@@ -34,7 +34,7 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
         # now that file exists, read it
         f = open(file_path, 'r')
         for line in f.readlines():
-            ln = line.strip().split(',')
+            ln = line.rstrip().split(',')
             # is pollutant relevant
             poll = ln[-1].lower()
             if poll not in Emfac2014CsvLoader.VALID_POLLUTANTS:
@@ -51,7 +51,7 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
             region_name = ln[1]
             try:
                 region = self.reverse_region_names[region_name]
-            except:
+            except KeyError:
                 region = int(region_name)
             # fill output dictionary
             if region not in emis_by_region:

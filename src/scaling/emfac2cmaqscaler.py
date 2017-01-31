@@ -334,7 +334,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
             HONO        47.013      NOX    moles/s
         """
         # read molecular weight text file
-        fin = open(self.weight_file,'r')
+        fin = open(self.weight_file, 'r')
         lines = fin.read()
         fin.close()
 
@@ -364,11 +364,6 @@ class Emfac2CmaqScaler(EmissionsScaler):
         for grp in self.groups:
             self.groups[grp]['species'] = np.array(self.groups[grp]['species'], dtype=np.dtype('a8'))
             self.groups[grp]['weights'] = np.array(self.groups[grp]['weights'], dtype=np.float32)
-
-        # calculate the number of species total
-        self.num_species = 0
-        for group in self.groups:
-            self.num_species += len(self.groups[group]['species'])
 
     def _load_gspro(self):
         ''' load the gspro file

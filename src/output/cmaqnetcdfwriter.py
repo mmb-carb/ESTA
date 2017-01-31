@@ -26,6 +26,7 @@ class CmaqNetcdfWriter(OutputWriter):
         self.gsref = {}
         self.groups = {}
         self.species = set()
+        self.num_species = -1
         self._load_weight_file()
         self._load_gsref()
         self._load_gspro()
@@ -77,6 +78,7 @@ class CmaqNetcdfWriter(OutputWriter):
         """
         # find all the input pollutants
         self.species = scaled_emissions.pollutants()
+        self.num_species = len(self.species)
 
         # find all dates with emissions data
         dates = set()
@@ -103,7 +105,7 @@ class CmaqNetcdfWriter(OutputWriter):
         print('    + writing: ' + out_path)
 
         # create empty netcdf file (including file path)
-        rootgrp, gmt_shift = self._create_netcdf(out_path, date, jdate, scaled_emissions)
+        rootgrp, gmt_shift = self._create_netcdf(out_path, jdate)
 
         # fill netcdf file with data
         self._fill_grid(scaled_emissions, date, rootgrp, gmt_shift)
@@ -114,7 +116,7 @@ class CmaqNetcdfWriter(OutputWriter):
         else:
             os.system('gzip -1 ' + out_path + ' &')
 
-    def _create_netcdf(self, out_path, date, jdate, scaled_emissions):
+    def _create_netcdf(self, out_path, jdate):
         ''' Creates a blank CMAQ-ready NetCDF file, including all the important
             boilerplate and header information. But does not fill in any emissions data.
         '''
@@ -193,7 +195,7 @@ class CmaqNetcdfWriter(OutputWriter):
         tflag = np.ones((25, self.num_species, 2), dtype=np.int32)
         for hr in xrange(25):
             gdh = time.strftime("%Y%j %H0000", time.gmtime(secs + hr * 3600))
-            a_date,ghr = map(int, gdh.split())
+            a_date, ghr = map(int, gdh.split())
             tflag[hr,:,0] = tflag[hr,:,0] * a_date
             tflag[hr,:,1] = tflag[hr,:,1] * ghr
         rootgrp.variables['TFLAG'][:] = tflag
@@ -209,10 +211,6 @@ class CmaqNetcdfWriter(OutputWriter):
         for group in self.groups:
             for i, spec in enumerate(self.groups[group]['species']):
                 species[spec] = {'group': group, 'index': i}
-
-        # some mass fractions are not EIC dependent
-        nox_fraction = self.gspro['DEFNOX']['NOX']
-        sox_fraction = self.gspro['SOX']['SOX']
 
         # loop through the different levels of the scaled emissions dictionary
         region_data = scaled_emissions.data[-999]  # -999 is default EIC for pre-speciated emissions
@@ -303,11 +301,6 @@ class CmaqNetcdfWriter(OutputWriter):
         for grp in self.groups:
             self.groups[grp]['species'] = np.array(self.groups[grp]['species'], dtype=np.dtype('a8'))
             self.groups[grp]['weights'] = np.array(self.groups[grp]['weights'], dtype=np.float32)
-
-        # calculate the number of species total
-        self.num_species = 0
-        for group in self.groups:
-            self.num_species += len(self.groups[group]['species'])
 
     def _load_gspro(self):
         ''' load the gspro file

@@ -125,7 +125,7 @@ class EmfacSmokeScaler(EmissionsScaler):
         nh3_id = 7664417
         inv = {}
         f = open(inv_file, 'r')
-        header = f.readline()
+        _ = f.readline()
 
         for line in f.xreadlines():
             # parse line

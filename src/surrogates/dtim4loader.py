@@ -16,7 +16,7 @@ class Dtim4Loader(SpatialLoader):
         link and TAZ files.
     """
 
-    DEFAULT_ITN_HOUR = 17
+    DEFAULT_DTIM_HOUR = 17
     MAX_STEPS = 12
     RAD_FACTOR = np.float32(pi / 180.0)  # need angles in radians
 
@@ -40,7 +40,7 @@ class Dtim4Loader(SpatialLoader):
             spatial_surrogates = SpatialSurrogateData()
 
         # the current file format requires us to select a specific hour of the day
-        hr = Dtim4Loader.DEFAULT_ITN_HOUR
+        hr = Dtim4Loader.DEFAULT_DTIM_HOUR
 
         # loop through all the regions
         for region in self.regions:
@@ -73,7 +73,7 @@ class Dtim4Loader(SpatialLoader):
         return spatial_surrogates, temporal_surrogates
 
     def _read_link_file(self, file_path, area):
-        """ Read the ITN activity data from a single Link file
+        """ Read the DTIM activity data from a single Link file
         File format:
          ANODE         X         Y     BNODE         X         Y  DISTANCE     SPEED    volumes * 26
             19     60729    200387      7010     60671    200259     13992      5000    9.91898  ...
@@ -87,7 +87,7 @@ class Dtim4Loader(SpatialLoader):
         surrs = dict([(i, {self.eic_labels[0]: SpatialSurrogate()}) for i in range(26)])
         nodes = {}
 
-        # read ITN link file
+        # read DTIM link file
         f = open(file_path, 'r')
         for line in f.xreadlines():
             if len(line) < 2:
@@ -107,6 +107,7 @@ class Dtim4Loader(SpatialLoader):
                 lon2, lat2 = lcc(x2, y2, inverse=True)
                 gridx2, gridy2 = self._find_grid_cell((lon2, lat2), area)
             except:
+                # NOTE: This is a bare exception because QAing DTIM link files is a complex task
                 continue
             nodes[bnode] = (gridx2, gridy2)
             # determine how to split amoung different grid cells
@@ -144,7 +145,7 @@ class Dtim4Loader(SpatialLoader):
         return surrs, nodes
 
     def _read_taz_file(self, file_path, nodes):
-        """ Read the ITN activity data from a single TAZ file
+        """ Read the DTIM activity data from a single TAZ file
         File format:
           NODE      TIME  DISTANCE     SPEED      IZVOL       ORIG       DEST ... (vol,orig,dest)*3*26
         354067         6    640525      3665    0.00000  375.45021  375.17667 ... (vol,orig,dest)*3*26
@@ -152,7 +153,7 @@ class Dtim4Loader(SpatialLoader):
         # create dictionary of surrogates
         surrs = dict([(i, {self.eic_labels[1]: SpatialSurrogate()}) for i in xrange(26)])
 
-        # read ITN taz file
+        # read DTIM taz file
         f = open(file_path, 'r')
         for line in f.xreadlines():
             if len(line) < 2:

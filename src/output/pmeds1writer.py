@@ -48,7 +48,7 @@ class Pmeds1Writer(OutputWriter):
         """
         # find all dates
         dates = set()
-        for region, region_data in scaled_emissions.data.iteritems():
+        for region_data in scaled_emissions.data.itervalues():
             for date in region_data:
                 dates.add(date)
 
