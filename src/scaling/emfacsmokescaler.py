@@ -13,19 +13,12 @@ from src.emissions.sparse_emissions import SparseEmissions
 
 class EmfacSmokeScaler(EmissionsScaler):
 
-    ''' Temporal periods defined in CSTDM
-        AM Peak   6 AM  to 10 AM
-        Midday    10 AM to 3 PM
-        PM Peak   3 PM  to 7 PM
-        Off-Peak  7 PM  to 6 AM
-    '''
-
-    CALVAD_HOURS = ['off', 'off', 'off', 'off', 'off', 'off',
-                    'am',  'am',  'am',  'am',  'mid', 'mid',
-                    'mid', 'mid', 'mid', 'pm',  'pm',  'pm',
-                    'pm',  'off', 'off', 'off', 'off', 'off']
-    CALVAD_TYPE = [1, 1, 1, 1, 0, 0, 0, 2, 0, 1, 1, 3, 1,
-                   1, 1, 1, 1, 0, 0, 0, 2, 0, 1, 1, 3, 1]
+    CSTDM_HOURS = ['off', 'off', 'off', 'off', 'off', 'off',   # off peak: 6 AM to 10 AM
+                    'am',  'am',  'am',  'am',  'mid', 'mid',  # midday:   10 AM to 3 PM
+                    'mid', 'mid', 'mid', 'pm',  'pm',  'pm',   # pm peak:  3 PM to 7 PM
+                    'pm',  'off', 'off', 'off', 'off', 'off']  # off peak: 7 PM to 6 AM
+    CALVAD_TYPE = [0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0,
+                   0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0]
     DOW = {0: 'mon', 1: 'tuth', 2: 'tuth', 3: 'tuth', 4: 'fri', 5: 'sat', 6: 'sun', -1: 'holi'}
     DOWS = ['_monday_', '_tuesday_', '_wednesday_', '_thursday_', '_friday_',
             '_saturday_', '_sunday_', '_holiday_']
@@ -189,7 +182,7 @@ class EmfacSmokeScaler(EmissionsScaler):
 
             # fix VMT activity according to CSTDM periods
             if self.is_smoke4 and act[:3] in ['vmt', 'vht']:
-                act += self.DOWS[dow] + self.CALVAD_HOURS[hr]
+                act += self.DOWS[dow] + self.CSTDM_HOURS[hr]
 
             # add emissions to sparse grid
             for poll, value in emis_table[eic].iteritems():

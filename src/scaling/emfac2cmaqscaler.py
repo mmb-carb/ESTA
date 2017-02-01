@@ -13,13 +13,13 @@ from src.emissions.sparse_emissions import SparseEmissions
 
 class Emfac2CmaqScaler(EmissionsScaler):
 
-    CALVAD_TYPE = [1, 1, 1, 1, 0, 0, 0, 2, 0, 1, 1, 3, 1,
-                   1, 1, 1, 1, 0, 0, 0, 2, 0, 1, 1, 3, 1]
+    CSTDM_HOURS = ['off', 'off', 'off', 'off', 'off', 'off',   # off peak: 6 AM to 10 AM
+                    'am',  'am',  'am',  'am',  'mid', 'mid',  # midday:   10 AM to 3 PM
+                    'mid', 'mid', 'mid', 'pm',  'pm',  'pm',   # pm peak:  3 PM to 7 PM
+                    'pm',  'off', 'off', 'off', 'off', 'off']  # off peak: 7 PM to 6 AM
+    CALVAD_TYPE = [0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0,
+                   0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0]
     DOW = {0: 'mon', 1: 'tuth', 2: 'tuth', 3: 'tuth', 4: 'fri', 5: 'sat', 6: 'sun', -1: 'holi'}
-    CALVAD_HOURS = ['off', 'off', 'off', 'off', 'off', 'off',
-                    'am',  'am',  'am',  'am',  'mid', 'mid',
-                    'mid', 'mid', 'mid', 'pm',  'pm',  'pm',
-                    'pm',  'off', 'off', 'off', 'off', 'off']
     DOWS = ['_monday_', '_tuesday_', '_wednesday_', '_thursday_', '_friday_',
             '_saturday_', '_sunday_', '_holiday_']
     STONS_HR_2_G_SEC = np.float32(251.99583333333334)
@@ -146,7 +146,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
             # fix VMT activity according to Calvad periods
             veh, act = self.eic2dtim4[eic]
             if self.is_smoke4 and act[:3] in ['vmt', 'vht']:
-                act += self.DOWS[dow] + self.CALVAD_HOURS[hr]
+                act += self.DOWS[dow] + self.CSTDM_HOURS[hr]
 
             # build default spatial surrogate for this EIC
             ss = np.zeros((num_rows, num_cols), dtype=np.float32)
