@@ -26,6 +26,7 @@ class Pmeds1Writer(OutputWriter):
         self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
         self.gai_to_county = dict((g, c) for c in self.county_to_gai for g in self.county_to_gai[c])
         self.gai_basins = self.config.eval_file('Output', 'gai_basins')
+        self.region_boxes = self.config.eval_file('Surrogates', 'region_boxes')  # bounds are inclusive
 
     def write(self, scaled_emissions):
         """ The master method to write output files.
@@ -40,8 +41,8 @@ class Pmeds1Writer(OutputWriter):
         """ Write a single file for each region/date combo
         """
         for region, region_data in scaled_emissions.data.iteritems():
-            for date, date_date in region_data.iteritems():
-                self._write_pmeds1_by_region(scaled_emissions, region, date)
+            for date, hourly_emis in region_data.iteritems():
+                self._write_pmeds1_by_region(hourly_emis, region, date)
 
     def write_by_state(self, scaled_emissions):
         """ Write a single output file per day
@@ -62,51 +63,65 @@ class Pmeds1Writer(OutputWriter):
         """
         out_path = self._build_state_file_path(date)
         jul_day = dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday
-        lines = []
+
+        f = gzip.open(out_path, 'wb')
 
         # loop through the different levels of the scaled emissions dictionary
         for region, region_data in scaled_emissions.data.iteritems():
+            # pull bounding box for region
+            box = self.region_boxes[region]  # {'lat': (51, 92), 'lon': (156, 207)}
+            x_min, x_max = box['lon']
+            y_min, y_max = box['lat']
+            x_max += 1
+            y_max += 1
             day_data = region_data.get(date, {})
             for hr, hr_data in day_data.iteritems():
                 for eic, sparse_emis in hr_data.iteritems():
                     polls = [(p, self.COLUMNS[p]) for p in sparse_emis.pollutants if p in self.COLUMNS]
-                    mask = sparse_emis.mask(self.MIN_EMIS)
-                    i_range, j_range = mask.shape
-                    for i in xrange(i_range):
-                        for j in xrange(j_range):
-                            if not mask[(i, j)]:
-                                continue
+                    for i in xrange(y_min, y_max):
+                        for j in xrange(x_min, x_max):
+                            emis_found = False
                             emis = ['', '', '', '', '', '']
                             for poll, col in polls:
-                                value = sparse_emis.get(poll, (i, j))
-                                if value >= self.MIN_EMIS:
-                                    emis[col] = '%.5f' % (value * self.STONS_2_KG)
+                                try:
+                                    value = sparse_emis.get(poll, (i, j))
+                                    if value >= self.MIN_EMIS:
+                                        emis[col] = '%.5f' % (value * self.STONS_2_KG)
+                                        emis_found = True
+                                except KeyError:
+                                    # pollutant not in this grid cell
+                                    pass
 
                             # build PMEDS line
-                            if ''.join(emis):
-                                lines.append(self._build_pmeds1_line(region, date, jul_day, hr, eic,
+                            if emis_found:
+                                f.write(self._build_pmeds1_line(region, date, jul_day, hr, eic,
                                                                      (i, j), emis))
 
-        if lines:
-            self._write_zipped_file(out_path, lines)
+        f.close()
 
-    def _write_pmeds1_by_region(self, scaled_emissions, region, date):
+    def _write_pmeds1_by_region(self, hourly_emis, region, date):
         """ Write a single 24-hour PMEDS file for a given region/date combination.
             Each region might have multiple COABDIS, so that has to be worked out.
         """
+        # pull bounding box for region
+        box = self.region_boxes[region]  # {'lat': (51, 92), 'lon': (156, 207)}
+        x_min, x_max = box['lon']
+        y_min, y_max = box['lat']
+        x_max += 1
+        y_max += 1
+
+        # build date strings
         out_path = self._build_regional_file_path(region, date)
         jul_day = dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday
-        lines = []
 
-        for hr, hr_data in scaled_emissions.data[region][date].iteritems():
+        f = open(out_path, 'w')
+
+        for hr, hr_data in hourly_emis.iteritems():
             for eic, sparse_emis in hr_data.iteritems():
                 polls = [(p, self.COLUMNS[p]) for p in sparse_emis.pollutants if p in self.COLUMNS]
-                mask = sparse_emis.mask(self.MIN_EMIS)
-                i_range, j_range = mask.shape
-                for i in xrange(i_range):
-                    for j in xrange(j_range):
-                        if not mask[(i, j)]:
-                            continue
+                for i in xrange(y_min, y_max):
+                    for j in xrange(x_min, x_max):
+                        emis_found = False
                         emis = ['', '', '', '', '', '']
                         for poll, col in polls:
                             try:
@@ -114,16 +129,17 @@ class Pmeds1Writer(OutputWriter):
                                 if value < self.MIN_EMIS:
                                     continue
                                 emis[col] = '%.5f' % (value * self.STONS_2_KG)
+                                emis_found = True
                             except KeyError:
                                 # pollutant not in this grid cell
                                 pass
 
                         # build PMEDS line
-                        if ''.join(emis):
-                            lines.append(self._build_pmeds1_line(region, date, jul_day, hr, eic,
-                                                             (i, j), emis))
+                        if emis_found:
+                            f.write(self._build_pmeds1_line(region, date, jul_day, hr, eic,
+                                                            (i, j), emis))
 
-        self._write_file(out_path, lines)
+        f.close()
         self._combine_regions(date)
 
     def _combine_regions(self, date):
