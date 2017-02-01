@@ -23,10 +23,14 @@ class Pmeds1Writer(OutputWriter):
         self.version = self.config['Output']['inventory_version']
         self.grid_file = self.config['GridInfo']['grid_cross_file']
         self.region_names = self.config.eval_file('Misc', 'region_names')
+        self.short_region_names = self._build_short_region_names()
         self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
         self.gai_to_county = dict((g, c) for c in self.county_to_gai for g in self.county_to_gai[c])
         self.gai_basins = self.config.eval_file('Output', 'gai_basins')
         self.region_boxes = self.config.eval_file('Surrogates', 'region_boxes')  # bounds are inclusive
+        self.short_regions = self._build_short_regions()
+        self._shorten_gai_basins()
+        self._shorten_county_names()
 
     def write(self, scaled_emissions):
         """ The master method to write output files.
@@ -62,7 +66,7 @@ class Pmeds1Writer(OutputWriter):
         """ Write a single 24-hour PMEDS file for a given date, for the entire state.
         """
         out_path = self._build_state_file_path(date)
-        jul_day = dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday
+        jul_day = str(dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday).rjust(3)
 
         f = gzip.open(out_path, 'wb')
 
@@ -85,7 +89,7 @@ class Pmeds1Writer(OutputWriter):
                             for poll, col in polls:
                                 try:
                                     value = sparse_emis.get(poll, (i, j))
-                                    if value >= self.MIN_EMIS:
+                                    if value > self.MIN_EMIS:
                                         emis[col] = '%.5f' % (value * self.STONS_2_KG)
                                         emis_found = True
                                 except KeyError:
@@ -112,7 +116,7 @@ class Pmeds1Writer(OutputWriter):
 
         # build date strings
         out_path = self._build_regional_file_path(region, date)
-        jul_day = dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday
+        jul_day = str(dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday).rjust(3)
 
         f = open(out_path, 'w')
 
@@ -124,15 +128,10 @@ class Pmeds1Writer(OutputWriter):
                         emis_found = False
                         emis = ['', '', '', '', '', '']
                         for poll, col in polls:
-                            try:
-                                value = sparse_emis.get(poll, (i, j))
-                                if value < self.MIN_EMIS:
-                                    continue
+                            value = sparse_emis.get(poll, (i, j))
+                            if value > self.MIN_EMIS:
                                 emis[col] = '%.5f' % (value * self.STONS_2_KG)
                                 emis_found = True
-                            except KeyError:
-                                # pollutant not in this grid cell
-                                pass
 
                         # build PMEDS line
                         if emis_found:
@@ -174,39 +173,14 @@ class Pmeds1Writer(OutputWriter):
             Alpine                71074211000000183190               2122001414GBV  1     0.015,,,,,
         """
         # define parameters
-        yr = date[2:4]
-        county_name = self.region_names[region][:8].ljust(8)
         y, x = grid_cell
-        hour = '%02d%02d' % (hr - 1, hr - 1)
-        basin = self.gai_basins[region].rjust(3)
+        hour = '%02d' % (hr - 1)
         emissions = ','.join(emis)
-        county = self.gai_to_county[region]
 
-        return ''.join([county_name, str(eic).rjust(28), str(x).rjust(3), str(y).rjust(3),
-                        '              ', str(county).rjust(2), yr, str(jul_day).rjust(3), hour,
-                        basin, str(region).rjust(3), '     ', emissions, '\n'])
-
-    def _write_zipped_file(self, out_path, lines):
-        """ simple helper method to write a list of strings to a gzipped file """
-        if not self.combine:
-            print('    + writing: ' + out_path + '.gz')
-
-        f = gzip.open(out_path + '.gz', 'wb')
-        try:
-            f.writelines(lines)
-        finally:
-            f.close()
-
-    def _write_file(self, out_path, lines):
-        """ simple helper method to write a list of strings to a file """
-        if not self.combine:
-            print('    + writing: ' + out_path)
-
-        f = open(out_path, 'w')
-        try:
-            f.writelines(lines)
-        finally:
-            f.close()
+        return ''.join([self.short_region_names[region], str(eic).rjust(28), str(x).rjust(3),
+                        str(y).rjust(3), '              ', self.gai_to_county[region], date[2:4],
+                        jul_day, hour, hour, self.gai_basins[region], self.short_regions[region],
+                        '     ', emissions, '\n'])
 
     def _build_regional_file_path(self, region, date):
         """ build output file directory and path for PMEDS file """
@@ -218,6 +192,40 @@ class Pmeds1Writer(OutputWriter):
 
         nomen = self.region_names[region].replace(')', '').replace('(', '').replace(' ', '_')
         return os.path.join(out_dir, nomen + '.pmeds')
+
+    def _build_short_region_names(self):
+        """ Building a dictionary of region names in a shortened form to be used in the PMEDS.
+            NOTE: This is purely to speed-up writing the PMEDS lines.
+        """
+        d = {}
+        for region, nomen in self.region_names.iteritems():
+            d[region] = nomen[:8].ljust(8)
+
+        return d
+
+    def _shorten_gai_basins(self):
+        """ Altering the dictionary of basin names to a shortened form to be used in the PMEDS.
+            NOTE: This is purely to speed-up writing the PMEDS lines.
+        """
+        for region in self.gai_basins:
+            self.gai_basins[region] = self.gai_basins[region].rjust(3)
+
+    def _shorten_county_names(self):
+        """ Altering the dictionary of county names to a shortened form.
+            NOTE: This is purely to speed-up writing the PMEDS lines.
+        """
+        for region in self.gai_to_county:
+            self.gai_to_county[region] = str(self.gai_to_county[region]).rjust(2)
+
+    def _build_short_regions(self):
+        """ Building a dictionary of shorter region numbers.
+            NOTE: This is purely to speed-up writing the PMEDS lines.
+        """
+        sr = {}
+        for r in self.regions:
+            sr[r] = str(r).rjust(3)
+
+        return sr
 
     def _build_state_file_path(self, date):
         """ Build output file directory and path for a daily, multi-region PMEDS file.

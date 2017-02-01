@@ -158,9 +158,17 @@ class EmfacSmokeScaler(EmissionsScaler):
             EmissionsTable[EIC][pollutant] = value
             factors = [ld, lm, hh, sbus]
         """
+        eics2delete = []
         for eic in emissions_table:
             factor = factors[self.CALVAD_TYPE[self.eic2dtim4[eic][0]]]
-            emissions_table[eic].update((x, y * factor) for x, y in emissions_table[eic].items())
+            if factor:
+                emissions_table[eic].update((x, y * factor) for x, y in emissions_table[eic].items())
+            else:
+                eics2delete.append(eic)
+
+        # don't bother with EICs if they have no emissions
+        for eic in eics2delete:
+            del emissions_table[eic]
 
         return emissions_table
 
@@ -184,10 +192,12 @@ class EmfacSmokeScaler(EmissionsScaler):
             if self.is_smoke4 and act[:3] in ['vmt', 'vht']:
                 act += self.DOWS[dow] + self.CSTDM_HOURS[hr]
 
+            # if not value or act not in spatial_surrs[veh]:
+            if act not in spatial_surrs[veh]:
+                continue
+
             # add emissions to sparse grid
             for poll, value in emis_table[eic].iteritems():
-                if act not in spatial_surrs[veh]:
-                    continue
                 for cell, fraction in spatial_surrs[veh][act].iteritems():
                     se.add(poll, cell, value * fraction)
 
