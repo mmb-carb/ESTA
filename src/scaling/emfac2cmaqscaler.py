@@ -26,7 +26,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
     def __init__(self, config, position):
         super(Emfac2CmaqScaler, self).__init__(config, position)
-        self.eic2dtim4 = self.config.eval_file('Surrogates', 'eic2dtim4')
+        self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
         self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
         self.gspro_file = self.config['Output']['gspro_file']
@@ -144,7 +144,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
             mass_fracts['pm'] = self.gspro[self.gsref[int(eic)]['PM']]['PM']
 
             # fix VMT activity according to Calvad periods
-            veh, act = self.eic2dtim4[eic]
+            veh, act, _ = self.eic_info[eic]
             if self.is_smoke4 and act[:3] in ['vmt', 'vht']:
                 act += self.DOWS[dow] + self.CSTDM_HOURS[hr]
 
@@ -194,7 +194,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
         zeros = []
         # scale emissions table for diurnal factors
         for eic in emissions_table:
-            factor = factors[self.CALVAD_TYPE[self.eic2dtim4[eic][0]]]
+            factor = factors[self.CALVAD_TYPE[self.eic_info[eic][0]]]
             if not factor:
                 zeros.append(eic)
             else:

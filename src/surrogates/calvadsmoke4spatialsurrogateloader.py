@@ -21,7 +21,7 @@ class CalvadSmoke4SpatialSurrogateLoader(SpatialLoader):
 
     def __init__(self, config, position):
         super(CalvadSmoke4SpatialSurrogateLoader, self).__init__(config, position)
-        self.eic2dtim4 = self.config.eval_file('Surrogates', 'eic2dtim4')
+        self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
         self.smoke_surrogates = self.config.getlist('Surrogates', 'smoke4_surrogates')
         self.eic_labels = self.config.getlist('Surrogates', 'smoke_eic_labels')
         if len(self.smoke_surrogates) != len(self.eic_labels):
@@ -96,11 +96,11 @@ class CalvadSmoke4SpatialSurrogateLoader(SpatialLoader):
 
         if label[:3] in ['vmt', 'vht']:
             # adjust VMT and VHT-based surrogates
-            eics = [eic for eic in self.eic2dtim4 if self.eic2dtim4[eic][1][:3] in ['vmt', 'vht']]
+            eics = [eic for eic in self.eic_info if self.eic_info[eic][1][:3] in ['vmt', 'vht']]
         else:
-            eics = [eic for eic in self.eic2dtim4 if self.eic2dtim4[eic][1] == label]
+            eics = [eic for eic in self.eic_info if self.eic_info[eic][1] == label]
 
-        veh_act_pairs = [self.eic2dtim4[eic] for eic in eics]
+        veh_act_pairs = [self.eic_info[eic][:2] for eic in eics]
 
         # split VMT and VHT-based surrogates into 4 CSTDM time periods
         vmt_pairs = filter(lambda v: v[1][:3] in ['vmt', 'vht'], veh_act_pairs)

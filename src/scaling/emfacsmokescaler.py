@@ -27,7 +27,7 @@ class EmfacSmokeScaler(EmissionsScaler):
         super(EmfacSmokeScaler, self).__init__(config, position)
         self.by_region = self.config.getboolean('Output', 'by_region')
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
-        self.eic2dtim4 = self.config.eval_file('Surrogates', 'eic2dtim4')
+        self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
         self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
         self.nrows = int(self.config['GridInfo']['rows'])
@@ -160,7 +160,7 @@ class EmfacSmokeScaler(EmissionsScaler):
         """
         eics2delete = []
         for eic in emissions_table:
-            factor = factors[self.CALVAD_TYPE[self.eic2dtim4[eic][0]]]
+            factor = factors[self.CALVAD_TYPE[self.eic_info[eic][0]]]
             if factor:
                 emissions_table[eic].update((x, y * factor) for x, y in emissions_table[eic].items())
             else:
@@ -186,7 +186,7 @@ class EmfacSmokeScaler(EmissionsScaler):
         # loop through each on-road EIC
         for eic in emis_table:
             se = SparseEmissions(self.nrows, self.ncols)
-            veh, act = self.eic2dtim4[eic]
+            veh, act, _ = self.eic_info[eic]
 
             # fix VMT activity according to CSTDM periods
             if self.is_smoke4 and act[:3] in ['vmt', 'vht']:
