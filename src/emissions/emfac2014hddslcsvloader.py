@@ -2,7 +2,7 @@
 import gzip
 import numpy as np
 import os
-import sys
+#import sys
 from emfac2014csvloader import Emfac2014CsvLoader
 from emissions_table import EmissionsTable
 
@@ -29,7 +29,8 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
         elif os.path.exists(file_path + '.gz'):
             f = gzip.open(file_path + '.gz', 'rb')
         else:
-            sys.exit('Emissions File Not Found: ' + file_path)
+            print('    + Emissions File Not Found: ' + file_path)
+            return emis_by_region
 
         # now that file exists, read it
         f = open(file_path, 'r')

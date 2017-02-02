@@ -123,7 +123,7 @@ class Emfac2014CsvLoader(EmissionsLoader):
         elif os.path.exists(file_path):
             f = open(file_path, 'r')
         else:
-            print('Emissions File Not Found: ' + file_path)
+            print('    + Emissions File Not Found: ' + file_path)
             return e
 
         region_name = self.region_names[region]
