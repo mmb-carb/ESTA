@@ -40,14 +40,14 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
             poll = ln[-1].lower()
             if poll not in Emfac2014CsvLoader.VALID_POLLUTANTS:
                 continue
-            # pull emissions value
-            value = np.float32(ln[2])
-            if not value:
-                continue
             # pull EIC info
             v = ln[4]
             p = ln[3]
             eic = self.vtp2eic[(v, 'DSL', p)]
+            # pull emissions value
+            value = np.float32(ln[2]) * np.float32(self.eic_info[eic][2])
+            if not value:
+                continue
             # pull region info
             region_name = ln[1]
             try:

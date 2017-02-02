@@ -3,6 +3,7 @@ from datetime import datetime
 from glob import glob
 import gzip
 from netCDF4 import Dataset
+import numpy as np
 import os
 import shutil
 from src.core.output_tester import OutputTester
@@ -11,8 +12,8 @@ from src.core.eic_utils import eic_reduce
 
 class Emfac2014TotalsTester(OutputTester):
 
-    KG_2_STONS = 0.001102310995
-    MOLESEC2KG = 3600.0 * KG_2_STONS
+    KG_2_STONS = np.float32(0.001102310995)
+    MOLESEC2KG = np.float32(3600.0) * KG_2_STONS
     SUMMER_MONTHS = [4, 5, 6, 7, 8, 9]
     POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM']
 
@@ -21,6 +22,7 @@ class Emfac2014TotalsTester(OutputTester):
         self.by_region = self.config.getboolean('Output', 'by_region')
         self.combine = self.config.getboolean('Output', 'combine_regions') if self.by_region else False
         self.vtp2eic = self.config.eval_file('Misc', 'vtp2eic')
+        self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
         self.region_names = self.config.eval_file('Misc', 'region_names')
         self.emis_dirs = self.config.getlist('Emissions', 'emissions_directories')
         self.reverse_region_names = dict(zip(self.region_names.values(), self.region_names.keys()))
@@ -118,6 +120,7 @@ class Emfac2014TotalsTester(OutputTester):
             The NetCDF will only allow us to write the difference by pollutant.
             NOTE: Won't print any numbers with zero percent difference.
         '''
+        zero = np.float32(0.0)
         if not os.path.exists(self.testing_dir):
             os.mkdir(self.testing_dir)
         file_path = os.path.join(self.testing_dir, 'ncf_test_' + date + '.csv')
@@ -125,7 +128,7 @@ class Emfac2014TotalsTester(OutputTester):
         f.write('Pollutant,EMFAC,NetCDF,Percent Diff\n')
 
         # create all-region EMFAC totals
-        emfac_totals = {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}
+        emfac_totals = {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero}
         for region in self.regions:
             if region not in emfac_emis:
                 continue
@@ -139,15 +142,15 @@ class Emfac2014TotalsTester(OutputTester):
         for poll in emfac_totals:
             emfac_value = emfac_totals[poll]
             if poll not in ncf_emis:
-                ncf_value = 0.0
+                ncf_value = zero
                 if not emfac_value:
-                    diff = 0.0
+                    diff = zero
                 else:
-                    diff = 100.00
+                    diff = np.float32(100.00)
             else:
                 ncf_value = ncf_emis[poll]
                 if not emfac_value:
-                    diff = -100.0
+                    diff = np.float32(-100.0)
                 else:
                     diff = Emfac2014TotalsTester.percent_diff(emfac_value, ncf_emis[poll])
 
@@ -161,25 +164,26 @@ class Emfac2014TotalsTester(OutputTester):
             Write the difference by region, EIC, and pollutant.
             NOTE: Won't print any numbers with zero percent difference.
         '''
+        zero = np.float32(0.0)
         if not os.path.exists(self.testing_dir):
             os.mkdir(self.testing_dir)
         file_path = os.path.join(self.testing_dir, file_type + '_test_' + date + '.csv')
         f = open(file_path, 'w')
         f.write('Region,EIC,Pollutant,EMFAC,' + file_type.upper() + ',Percent Diff\n')
 
-        total_totals = {'emfac': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0},
-                        'final': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}}
+        total_totals = {'emfac': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero},
+                        'final': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero}}
         for region_num in self.regions:
-            region_totals = {'emfac': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0},
-                             'final': {'CO': 0.0, 'NOX': 0.0, 'SOX': 0.0, 'TOG': 0.0, 'PM': 0.0}}
+            region_totals = {'emfac': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero},
+                             'final': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero}}
             c = self.region_names[region_num]
             # write granular totals, by EIC
             eics = set(emis[region_num].keys() + out_emis[region_num].keys())
             for eic in eics:
                 for poll in self.POLLUTANTS:
                     # get data
-                    emfac = emis.get(region_num, {}).get(eic, {}).get(poll, 0.0)
-                    final = out_emis.get(region_num, {}).get(eic, {}).get(poll, 0.0)
+                    emfac = emis.get(region_num, {}).get(eic, {}).get(poll, zero)
+                    final = out_emis.get(region_num, {}).get(eic, {}).get(poll, zero)
                     diff = Emfac2014TotalsTester.percent_diff(emfac, final)
                     # fill region totals
                     region_totals['emfac'][poll] += emfac
@@ -219,17 +223,19 @@ class Emfac2014TotalsTester(OutputTester):
         '''
         if file_path.endswith('.gz'):
             f = gzip.open(file_path, 'rb')
+            lines = f.readlines()
         elif os.path.exists(file_path):
             f = open(file_path, 'r')
+            lines = f.xreadlines()
         else:
             print('Emissions File Not Found: ' + file_path)
             return e
 
         # now that file exists, read it
-        for line in f.readlines():
+        for line in lines:
             region = int(line[71:73])
             eic = int(line[22:36])
-            vals = [float(v) if v else 0.0 for v in line[78:].rstrip().split(',')]
+            vals = [np.float32(v) if v else 0.0 for v in line[78:].rstrip().split(',')]
 
             if region not in e:
                 e[region] = {}
@@ -306,7 +312,7 @@ class Emfac2014TotalsTester(OutputTester):
                 continue
             species = columns[0].upper()
             self.groups[species] = {}
-            self.groups[species]['weight'] = float(columns[1]) / 1000.0
+            self.groups[species]['weight'] = np.float32(columns[1]) / np.float32(1000.0)
             self.groups[species]['group'] = columns[2].upper()
             self.groups[species]['units'] = columns[3]
 
@@ -380,8 +386,12 @@ class Emfac2014TotalsTester(OutputTester):
         # check that the file exists
         if file_path.endswith('.gz'):
             f = gzip.open(file_path, 'rb')
+            _ = f.readline()
+            lines = f.readlines()
         elif os.path.exists(file_path):
             f = open(file_path, 'r')
+            _ = f.readline()
+            lines = f.xreadlines()
         else:
             print('\tERROR: LDV Emissions File Not Found: ' + file_path)
             return e
@@ -389,9 +399,8 @@ class Emfac2014TotalsTester(OutputTester):
         region_name = self.region_names[region_num]
 
         # now that file exists, read it
-        header = f.readline()
-        for line in f.readlines():
-            ln = line.strip().split(',')
+        for line in lines:
+            ln = line.rstrip().split(',')
             poll = ln[6].upper()
             if poll not in self.POLLUTANTS:
                 continue
@@ -404,7 +413,7 @@ class Emfac2014TotalsTester(OutputTester):
                 continue
             p = ln[4]
             eic = self.eic_reduce(self.vtp2eic[(v, t, p)])
-            value = float(ln[-1])
+            value = np.float32(ln[-1]) * np.float32(self.eic_info.get(eic, (0,0,1.0))[2])
             if not value:
                 continue
             if eic not in e:
@@ -424,21 +433,19 @@ class Emfac2014TotalsTester(OutputTester):
         # check that the file exists
         if file_path.endswith('.gz'):
             f = gzip.open(file_path, 'rb')
+            lines = f.readlines()
         elif os.path.exists(file_path):
             f = open(file_path, 'r')
+            lines = f.xreadlines()
         else:
             print('\tERROR: Emissions File Not Found: ' + file_path)
             return emis
 
         # now that file exists, read it
-        f = open(file_path, 'r')
-        for line in f.readlines():
-            ln = line.strip().split(',')
+        for line in lines:
+            ln = line.rstrip().split(',')
             poll = ln[-1].upper()
             if poll not in self.POLLUTANTS:
-                continue
-            value = float(ln[2])
-            if not value:
                 continue
             try:
                 region = self.reverse_region_names[ln[1]]
@@ -447,6 +454,9 @@ class Emfac2014TotalsTester(OutputTester):
             v = ln[4]
             p = ln[3]
             eic = self.eic_reduce(self.vtp2eic[(v, 'DSL', p)])
+            value = np.float32(ln[2]) * np.float32(self.eic_info.get(eic, (0,0,1.0))[2])
+            if not value:
+                continue
             if region not in emis:
                 emis[region] = {}
             if eic not in emis[region]:

@@ -16,6 +16,7 @@ class EmissionsLoader(object):
         self.start_date = datetime.strptime(self.config['Dates']['start'], self.date_format)
         self.end_date = datetime.strptime(self.config['Dates']['end'], self.date_format)
         self.regions = self.config.parse_regions('Regions', 'regions')
+        self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
 
     @abc.abstractmethod
     def load(self, emissions):
