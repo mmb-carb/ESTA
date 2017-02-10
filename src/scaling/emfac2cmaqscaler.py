@@ -170,7 +170,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                     speciated_value = mass_fracts[poll][ind]
                     if not speciated_value:
                         continue
-                    speciated_value *= value * self.STONS_HR_2_G_SEC / groups['weights'][ind]
+                    speciated_value *= value * self.STONS_HR_2_G_SEC / groups['weights'][ind]  # TODO: Would be faster to change the units in self.groups right from the start
 
                     # loop through each grid cell
                     se.add_grid_nocheck(spec, ss * speciated_value)
@@ -180,6 +180,8 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, zero)
                 if not nh3_fraction:
                     continue
+
+                nh3_fraction *= self.STONS_HR_2_G_SEC / self.groups['CO']['weights'][0]
 
                 se.add_grid_nocheck('NH3', ss * (emis_table[eic]['co'] * nh3_fraction))
 
