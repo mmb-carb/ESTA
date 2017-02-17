@@ -33,11 +33,8 @@ def process_esta(config_file_path):
     builder = EstaModelBuilder(config)
     model = builder.build()
 
-    # Run the ESTA Model
-    model.process()
-
-    # Perform various post-processing or QA steps, if necessary
-    model.postprocess()
+    # run the ESTA Model
+    model.run()
 
 
 def usage():
