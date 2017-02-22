@@ -37,16 +37,19 @@ class Pmeds1Writer(OutputWriter):
             This can write output files by region, or for the entire day.
         """
         if self.by_region:
-            self.write_by_region(scaled_emissions)
+            return self.write_by_region(scaled_emissions)
         else:
-            self.write_by_state(scaled_emissions)
+            return self.write_by_state(scaled_emissions)
 
     def write_by_region(self, scaled_emissions):
         """ Write a single file for each region/date combo
         """
+        out_paths = []
         for region, region_data in scaled_emissions.data.iteritems():
             for date, hourly_emis in region_data.iteritems():
-                self._write_pmeds1_by_region(hourly_emis, region, date)
+                out_paths.append(self._write_pmeds1_by_region(hourly_emis, region, date))
+
+        return out_paths
 
     def write_by_state(self, scaled_emissions):
         """ Write a single output file per day
@@ -59,8 +62,11 @@ class Pmeds1Writer(OutputWriter):
 
         # write a file for each date
         dates = sorted(dates)
+        out_paths = []
         for date in dates:
-            self._write_pmeds1_by_state(scaled_emissions, date)
+            out_paths.append(self._write_pmeds1_by_state(scaled_emissions, date))
+
+        return out_paths
 
     def _write_pmeds1_by_state(self, scaled_emissions, date):
         """ Write a single 24-hour PMEDS file for a given date, for the entire state.
@@ -102,6 +108,7 @@ class Pmeds1Writer(OutputWriter):
                                                                      (i, j), emis))
 
         f.close()
+        return out_path
 
     def _write_pmeds1_by_region(self, hourly_emis, region, date):
         """ Write a single 24-hour PMEDS file for a given region/date combination.
@@ -139,14 +146,14 @@ class Pmeds1Writer(OutputWriter):
                                                             (i, j), emis))
 
         f.close()
-        self._combine_regions(date)
+        return self._combine_regions(date, out_path)
 
-    def _combine_regions(self, date):
+    def _combine_regions(self, date, out_path):
         ''' If all the region files have been written, this will cat them all
             together into one big file.
         '''
         if not self.combine:
-            return
+            return out_path
 
         # new output file path
         out_file = self._build_state_file_path(date) + '.gz'
@@ -164,6 +171,7 @@ class Pmeds1Writer(OutputWriter):
 
         # remove old region files
         os.system('rm ' + ' '.join(region_files) + ' &')
+        return out_file
 
     def _build_pmeds1_line(self, region, date, jul_day, hr, eic, grid_cell, emis):
         """ Build the complicated PMEDS v1 line from available data

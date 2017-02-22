@@ -31,5 +31,5 @@ class OutputTester(object):
             self.dates.append(dt.strftime(d, self.date_format))
 
     @abc.abstractmethod
-    def test(self):
+    def test(self, emissions, output_paths):
         return

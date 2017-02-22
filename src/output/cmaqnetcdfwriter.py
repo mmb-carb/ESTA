@@ -89,8 +89,11 @@ class CmaqNetcdfWriter(OutputWriter):
 
         # loop through each date
         last_date = dates[-1]
+        out_paths = []
         for date in dates:
-            self._write_netcdf(scaled_emissions, date, date == last_date)
+            out_paths.append(self._write_netcdf(scaled_emissions, date, date == last_date))
+
+        return out_paths
 
     def _write_netcdf(self, scaled_emissions, date, is_last_date):
         ''' A helper method to spread the work of creating a CMAQ-ready NetCDF file
@@ -115,6 +118,8 @@ class CmaqNetcdfWriter(OutputWriter):
             os.system('gzip -1 ' + out_path)
         else:
             os.system('gzip -1 ' + out_path + ' &')
+        
+        return out_path + '.gz'
 
     def _create_netcdf(self, out_path, jdate):
         ''' Creates a blank CMAQ-ready NetCDF file, including all the important

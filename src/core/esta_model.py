@@ -38,12 +38,13 @@ class EstaModel(object):
             self.emissions = emis_loader.load(self.emissions)
 
         print('  - scaling emissions & writing files')
+        out_paths = []
         for scaler in self.emis_scalers:
             for scaled_emissions in scaler.scale(self.emissions, self.spat_surrs, self.temp_surrs):
                 for writer in self.writers:
-                    writer.write(scaled_emissions)
+                    out_paths += writer.write(scaled_emissions)
 
         if self.testers:
             print('  - testing output files')
             for tester in self.testers:
-                tester.test()
+                tester.test(self.emissions, out_paths)
