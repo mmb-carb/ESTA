@@ -153,6 +153,7 @@ class Pmeds1Writer(OutputWriter):
             together into one big file.
         '''
         if not self.combine:
+            print('    + writing: ' + out_path)
             return out_path
 
         # new output file path
