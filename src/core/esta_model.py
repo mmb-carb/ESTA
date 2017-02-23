@@ -1,5 +1,6 @@
 
-from version import __version__
+from src.core.output_files import OutputFiles
+from src.core.version import __version__
 
 
 class EstaModel(object):
@@ -14,6 +15,7 @@ class EstaModel(object):
         self.spat_surrs = None
         self.temp_surrs = None
         self.emissions = None
+        self.output_files = {}
 
     def run(self):
         ''' build the spatial and temporal surrogates and apply them to the emissions,
@@ -38,13 +40,13 @@ class EstaModel(object):
             self.emissions = emis_loader.load(self.emissions)
 
         print('  - scaling emissions & writing files')
-        out_paths = []
+        output_files = OutputFiles()
         for scaler in self.emis_scalers:
             for scaled_emissions in scaler.scale(self.emissions, self.spat_surrs, self.temp_surrs):
                 for writer in self.writers:
-                    out_paths += writer.write(scaled_emissions)
+                    output_files.union(writer.write(scaled_emissions))
 
         if self.testers:
             print('  - testing output files')
-            for tester in self.testers:
-                tester.test(self.emissions, out_paths)
+        for tester in self.testers:
+            tester.test(self.emissions, self.output_files)

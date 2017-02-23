@@ -14,11 +14,11 @@ class EmissionsTable(defaultdict):
         defaultdict.__init__(self, lambda: defaultdict(np.float32))
 
     def __getitem__(self, key):
-        """ Setter method for emissions table """
+        """ Getter method for emissions table """
         return defaultdict.__getitem__(self, key)
 
     def __setitem__(self, key, val):
-        """ Getter method for emissions table """
+        """ Setter method for emissions table """
         if type(val) != defaultdict:
             raise TypeError('The emissions table must be two levels deep: EIC and pollutant.')
         for value in val.values():

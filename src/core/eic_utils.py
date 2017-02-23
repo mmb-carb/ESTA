@@ -1,4 +1,7 @@
 
+# There is talk about CARB changing this, but not for a while.
+MAX_EIC_PRECISION = 14
+
 
 def eic_reduce(config_str):
     ''' This function exists to help the user potentially reduce the level

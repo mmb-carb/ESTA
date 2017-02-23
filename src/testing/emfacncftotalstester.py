@@ -18,7 +18,7 @@ class EmfacNcfTotalsTester(OutputTester):
         self.weight_file = ''
         self.groups = {}
 
-    def test(self, emis, out_paths):
+    def test(self, emis, out_paths):  # TODO: Deal with this being a new OutputFiles object
         ''' Master Testing Method.
             Compare the final NetCDF output emissions to the original EMFAC2014 input files.
             NetCDF files can only be compared by date, not by region.
@@ -31,7 +31,7 @@ class EmfacNcfTotalsTester(OutputTester):
             self._find_dates_in_range()
 
         # loop through each date, and test any output NetCDF
-        for date in self.dates:
+        for date in self.dates:  # TODO: Is this *really* picking the right date(s)?
             ncf_files = [f for f in out_paths if f.rstrip('.gz').endswith('.ncf')]
             if ncf_files:
                 self._read_and_compare_ncf(ncf_files, date, emis)
@@ -74,7 +74,7 @@ class EmfacNcfTotalsTester(OutputTester):
         for region in self.regions:
             if region not in emfac_emis.data:
                 continue
-            region_data = emfac_emis.get(region, date)
+            region_data = emfac_emis.get(region, date)  # TODO: Is this *really* picking the right date(s)?
             for eic_data in region_data.itervalues():
                 for poll, value in eic_data.iteritems():
                     if poll.upper() in emfac_totals:

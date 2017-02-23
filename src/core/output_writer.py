@@ -17,4 +17,5 @@ class OutputWriter(object):
 
     @abc.abstractmethod
     def write(self):
+        """ writes files and returns an OutputFiles object """
         return

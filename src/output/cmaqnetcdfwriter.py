@@ -5,6 +5,7 @@ from netCDF4 import Dataset
 import numpy as np
 import sys
 import time
+from src.core.output_files import OutputFiles
 from src.core.output_writer import OutputWriter
 
 
@@ -89,9 +90,9 @@ class CmaqNetcdfWriter(OutputWriter):
 
         # loop through each date
         last_date = dates[-1]
-        out_paths = []
+        out_paths = OutputFiles()
         for date in dates:
-            out_paths.append(self._write_netcdf(scaled_emissions, date, date == last_date))
+            out_paths[date] += self._write_netcdf(scaled_emissions, date, date == last_date)
 
         return out_paths
 

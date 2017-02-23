@@ -4,6 +4,7 @@ from glob import glob
 import gzip
 import numpy as np
 import os
+from src.core.output_files import OutputFiles
 from src.core.output_writer import OutputWriter
 
 
@@ -44,10 +45,10 @@ class Pmeds1Writer(OutputWriter):
     def write_by_region(self, scaled_emissions):
         """ Write a single file for each region/date combo
         """
-        out_paths = []
+        out_paths = OutputFiles()
         for region, region_data in scaled_emissions.data.iteritems():
             for date, hourly_emis in region_data.iteritems():
-                out_paths.append(self._write_pmeds1_by_region(hourly_emis, region, date))
+                out_paths[date] += self._write_pmeds1_by_region(hourly_emis, region, date)
 
         return out_paths
 
@@ -62,9 +63,9 @@ class Pmeds1Writer(OutputWriter):
 
         # write a file for each date
         dates = sorted(dates)
-        out_paths = []
+        out_paths = OutputFiles()
         for date in dates:
-            out_paths.append(self._write_pmeds1_by_state(scaled_emissions, date))
+            out_paths[date] += self._write_pmeds1_by_state(scaled_emissions, date)
 
         return out_paths
 
