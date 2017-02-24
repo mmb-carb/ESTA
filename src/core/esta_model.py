@@ -15,7 +15,6 @@ class EstaModel(object):
         self.spat_surrs = None
         self.temp_surrs = None
         self.emissions = None
-        self.output_files = {}
 
     def run(self):
         ''' build the spatial and temporal surrogates and apply them to the emissions,
@@ -49,4 +48,4 @@ class EstaModel(object):
         if self.testers:
             print('  - testing output files')
         for tester in self.testers:
-            tester.test(self.emissions, self.output_files)
+            tester.test(self.emissions, output_files)

@@ -22,7 +22,7 @@ class EmfacPmedsTotalsTester(OutputTester):
         else:
             self.eic_reduce = eic_reduce(MAX_EIC_PRECISION)
 
-    def test(self, emis, out_paths):  # TODO: Deal with this being a new OutputFiles object
+    def test(self, emis, out_paths):
         ''' Master Testing Method.
             Compare the final NetCDF output file emissions to the original EMFAC2014 input files.
             PMEDS files will by compared by county, date, and EIC.
@@ -33,14 +33,12 @@ class EmfacPmedsTotalsTester(OutputTester):
         # reduce input EIC precision, if necessary
         self._reduce_emissions_eics(emis)
 
-        # if no testing dates are provided, test all days in run
-        if not self.dates:
-            self._find_dates_in_range()
-
         # loop through each date
-        for date in self.dates:  # TODO: Is this *really* picking the right date(s)?
+        for date in self.dates:
+            if date not in out_paths:
+                return
             # test output pmeds, if any
-            pmeds_files = [f for f in out_paths if f.rstrip('.gz').endswith('.pmeds')]
+            pmeds_files = [f for f in out_paths[date] if f.rstrip('.gz').endswith('.pmeds')]
             if pmeds_files:
                 self._read_and_compare_txt(pmeds_files, date, emis)
 

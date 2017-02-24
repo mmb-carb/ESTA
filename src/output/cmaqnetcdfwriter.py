@@ -119,8 +119,8 @@ class CmaqNetcdfWriter(OutputWriter):
             os.system('gzip -1 ' + out_path)
         else:
             os.system('gzip -1 ' + out_path + ' &')
-        
-        return out_path + '.gz'
+
+        return [out_path + '.gz']
 
     def _create_netcdf(self, out_path, jdate):
         ''' Creates a blank CMAQ-ready NetCDF file, including all the important

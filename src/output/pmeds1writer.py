@@ -109,7 +109,7 @@ class Pmeds1Writer(OutputWriter):
                                                                      (i, j), emis))
 
         f.close()
-        return out_path
+        return [out_path]
 
     def _write_pmeds1_by_region(self, hourly_emis, region, date):
         """ Write a single 24-hour PMEDS file for a given region/date combination.
@@ -155,7 +155,7 @@ class Pmeds1Writer(OutputWriter):
         '''
         if not self.combine:
             print('    + writing: ' + out_path)
-            return out_path
+            return [out_path]
 
         # new output file path
         out_file = self._build_state_file_path(date) + '.gz'
@@ -173,7 +173,7 @@ class Pmeds1Writer(OutputWriter):
 
         # remove old region files
         os.system('rm ' + ' '.join(region_files) + ' &')
-        return out_file
+        return [out_file]
 
     def _build_pmeds1_line(self, region, date, jul_day, hr, eic, grid_cell, emis):
         """ Build the complicated PMEDS v1 line from available data
