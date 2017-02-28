@@ -61,10 +61,10 @@ class EmfacNcfTotalsTester(OutputTester):
         zero = np.float32(0.0)
         if not os.path.exists(self.testing_dir):
             os.mkdir(self.testing_dir)
-        file_path = os.path.join(self.testing_dir, 'ncf_test_' + date + '.txt')
+        file_path = os.path.join(self.testing_dir, 'ncf_daliy_totals_' + date + '.txt')
         f = open(file_path, 'w')
-        f.write('NOTE: The EMFAC totals shown are not adjusted for day-of-week or diurnal ')
-        f.write('profiles.\nAs such, they are most comparable for weekdays in Summer.\n\n')
+        f.write('NOTE: The EMFAC totals shown are not adjusted for temporal profiles.')
+        f.write('      As such, they are most comparable for weekdays in Summer.\n\n')
         f.write('Pollutant,EMFAC,NetCDF,Percent Diff\n')
 
         # create all-region EMFAC totals

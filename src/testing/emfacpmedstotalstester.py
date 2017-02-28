@@ -1,22 +1,31 @@
 
 from collections import defaultdict
+from datetime import datetime as dt
 import gzip
 import numpy as np
 import os
+from pandas.tseries.holiday import USFederalHolidayCalendar  # TODO: Put in core?
 from src.core.eic_utils import eic_reduce, MAX_EIC_PRECISION
 from src.core.output_tester import OutputTester
 from src.emissions.emissions_table import EmissionsTable
+from src.surrogates.calvadtemporalloader import CalvadTemporalLoader
 
 
 class EmfacPmedsTotalsTester(OutputTester):
 
+    CALVAD_TYPE = [0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0,
+                   0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0]
+    DOW = {0: 'mon', 1: 'tuth', 2: 'tuth', 3: 'tuth', 4: 'fri', 5: 'sat', 6: 'sun', -1: 'holi'}  # TODO: Put in core?
     KG_2_STONS = np.float32(0.001102310995)
     POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM']
 
     def __init__(self, config, position):
         super(EmfacPmedsTotalsTester, self).__init__(config, position)
+        self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
         self.by_region = self.config.getboolean('Output', 'by_region')
         self.region_names = self.config.eval_file('Misc', 'region_names')
+        self.original_profs = self._load_calvad_dow_profiles()
+        # How many digits of EIC were preserved in the output files?
         if 'eic_precision' in self.config['Output']:
             self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         else:
@@ -36,11 +45,40 @@ class EmfacPmedsTotalsTester(OutputTester):
         # loop through each date
         for date in self.dates:
             if date not in out_paths:
-                return
+                print('    + No output PMEDS files found for testing on date: ' + str(date))
+                continue
+
+            # find the day-of-week
+            if date[4:] in self._find_holidays():
+                dow = 'holi'
+            else:
+                by_date = str(self.base_year) + date[4:]
+                dow = EmfacPmedsTotalsTester.DOW[dt.strptime(by_date, self.date_format).weekday()]
+
             # test output pmeds, if any
             pmeds_files = [f for f in out_paths[date] if f.rstrip('.gz').endswith('.pmeds')]
             if pmeds_files:
-                self._read_and_compare_txt(pmeds_files, date, emis)
+                self._read_and_compare_txt(pmeds_files, date, emis, dow)
+
+    def _load_calvad_dow_profiles(self):
+        """ read the original Calvad Day-of-Week temporal profiles
+            and convert them to a by-EIC and by-DOW format for easier use
+        """
+        # read the Calvad DOW temporal profiles file
+        ind = self.config.getlist('Surrogates', 'temporal_loaders').index('CalvadTemporalLoader')
+        ctl = CalvadTemporalLoader(self.config, ind)
+        orig_profs = ctl.load_dow(ctl.dow_path)
+
+        # reorganize the data into something more useful for our individual EICs
+        profs = {}
+        for dow in set(self.DOW.values()):
+            profs[dow] = {}
+            for region in self.regions:
+                profs[dow][region] = {}
+                for eic in self.eic_info:
+                    profs[dow][region][eic] = orig_profs[region][dow][self.CALVAD_TYPE[self.eic_info[eic][0]]]
+
+        return profs
 
     def _reduce_emissions_eics(self, emis):
         """ Sometimes the user will want to run ESTA in a reduced-EIC precision mode.
@@ -65,7 +103,7 @@ class EmfacPmedsTotalsTester(OutputTester):
                         e[new_eic][poll] += value
                 emis.data[region][date] = e
 
-    def _read_and_compare_txt(self, files, date, emis):
+    def _read_and_compare_txt(self, files, date, emis, dow):
         ''' Read the output PMEDS files and compare the results with the
             input EMFAC2014 emissions.
         '''
@@ -76,22 +114,23 @@ class EmfacPmedsTotalsTester(OutputTester):
 
         # write the emissions comparison to a file
         if files:
-            self._write_full_comparison(date, emis, out_emis)
+            self._write_full_comparison(emis, out_emis, date, dow)
 
-    def _write_full_comparison(self, date, emfac_emis, out_emis):
+    def _write_full_comparison(self, emfac_emis, out_emis, date, dow):
         ''' Write a quick CSV to compare the EMFAC2014 and final output PMEDS.
             Write the difference by region, EIC, and pollutant.
             NOTE: Won't print any numbers with zero percent difference.
         '''
         zero = np.float32(0.0)
+
+        # init output file
         if not os.path.exists(self.testing_dir):
             os.mkdir(self.testing_dir)
-        file_path = os.path.join(self.testing_dir, 'pmeds_test_' + date + '.txt')
+        file_path = os.path.join(self.testing_dir, 'pmeds_daily_totals_' + date + '.txt')
         f = open(file_path, 'w')
-        f.write('NOTE: The EMFAC totals shown are not adjusted for day-of-week or diurnal ')
-        f.write('profiles.\nAs such, they are most comparable for weekdays in Summer.\n\n')
         f.write('Region,EIC,Pollutant,EMFAC,PMEDS,Percent Diff\n')
 
+        # compare DOW profiles by: Region, EIC, and pollutant
         total_totals = {'emfac': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero},
                         'final': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero}}
         for region_num in self.regions:
@@ -103,13 +142,14 @@ class EmfacPmedsTotalsTester(OutputTester):
             for eic in eics:
                 for poll in self.POLLUTANTS:
                     emfac = emfac_emis.get(region_num, date).get(eic, {}).get(poll.lower(), zero)
+                    emfac *= self.original_profs[dow][region_num][eic]
                     final = out_emis.get(region_num, {}).get(eic, {}).get(poll, zero)
                     diff = EmfacPmedsTotalsTester.percent_diff(emfac, final)
                     # fill region totals
                     region_totals['emfac'][poll] += emfac
                     region_totals['final'][poll] += final
                     # don't write the detailed line if there's no difference
-                    if abs(diff) > 1.0e-3:
+                    if abs(diff) > 0.009999:
                         f.write(','.join([c, str(eic), poll, '%.5f' % emfac, '%.5f' % final, '%.2f' % diff]) + '\n')
 
             # write region totals, without EIC
@@ -165,6 +205,16 @@ class EmfacPmedsTotalsTester(OutputTester):
                 e[region][eic][self.POLLUTANTS[i]] += vals[i] * self.KG_2_STONS
 
         return e
+
+    def _find_holidays(self):  # TODO: Put in core?
+        ''' Using Pandas calendar, find all 10 US Federal Holidays,
+            plus California's Cesar Chavez Day (March 31).
+        '''
+        yr = str(self.base_year)
+        cal = USFederalHolidayCalendar()
+        holidays = cal.holidays(start=yr + '-01-01', end=yr + '-12-31').to_pydatetime()
+
+        return [d.strftime('%m-%d') for d in holidays] + ['03-31']
 
     @staticmethod
     def percent_diff(a, b):

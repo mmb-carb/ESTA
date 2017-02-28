@@ -19,10 +19,11 @@ class EstaModelBuilder(object):
         scalers = self._init_classes('Scaling', 'scalor')
         writers = self._init_classes('Output', 'writers')
 
-        try:
-            testers = self._init_classes('Testing', 'tests')
-        except:
-            testers = []
+        #try:
+        testers = self._init_classes('Testing', 'tests')
+        #except Exception as e:
+        #    print 'TODO', e
+        #    testers = []
 
         return EstaModel(spatial_loaders, temporal_loaders, emis_loaders, scalers, writers, testers)
 
