@@ -77,12 +77,12 @@ class EmfacPmedsTotalsTester(OutputTester):
         for dow in set(DOW.values()):
             profs[dow] = {}
             for region in self.regions:
-                profs[dow][region] = {}
-                for eic in self.eic_info:
-                    if is_max_precision:
+                if is_max_precision:
+                    profs[dow][region] = {}
+                    for eic in self.eic_info:
                         profs[dow][region][eic] = orig_profs[region][dow][self.CALVAD_TYPE[self.eic_info[eic][0]]]
-                    else:
-                        profs[dow][region][eic] = np.float32(1.0)
+                else:
+                    profs[dow][region] = defaultdict(lambda: np.float32(1.0))
 
         return profs
 
