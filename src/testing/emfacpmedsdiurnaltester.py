@@ -190,6 +190,7 @@ class EmfacPmedsDiurnalTester(OutputTester):
             for eic, poll_data in eic_data.iteritems():
                 # write a section for a single Region / EIC combination
                 max_diff = 0.000001
+                min_total = 9.9e9    # arbitary large number
                 in_prof = self.original_profs[dow][region][eic]
                 body = ''
 
@@ -204,13 +205,15 @@ class EmfacPmedsDiurnalTester(OutputTester):
                     diff = max([abs(in_prof[i] - prof[i]) for i in xrange(24)])
                     if diff > max_diff:
                         max_diff = diff
+                    if total < min_total:
+                        min_total = total
                     body += 'OUTPUT_' + poll.ljust(4)[:4]  + ',profile,' + ','.join(['%.5f' % v for v in prof]) + '\n'
                 # build input diurnal profile lines
                 body += 'INPUT      ,profile,' + ','.join(['%.5f' % v for v in in_prof]) + '\n'
 
                 # build a header line, with a QA flag
                 header = '\n\n' + self.region_names[region] + ' - ' + str(eic) + ' - '
-                if max_diff > 0.1:
+                if max_diff > 0.1 and min_total > 0.001:
                     header += 'QUESTIONABLE\n'
                 elif max_diff > 0.01:
                     header += 'PROBABLY STILL OKAY\n'

@@ -48,7 +48,9 @@ class Pmeds1Writer(OutputWriter):
         out_paths = OutputFiles()
         for region, region_data in scaled_emissions.data.iteritems():
             for date, hourly_emis in region_data.iteritems():
-                out_paths[date] += self._write_pmeds1_by_region(hourly_emis, region, date)
+                new_files = self._write_pmeds1_by_region(hourly_emis, region, date)
+                if new_files:
+                    out_paths[date] += new_files
 
         return out_paths
 
@@ -167,7 +169,7 @@ class Pmeds1Writer(OutputWriter):
 
         # if all regions are finished, zcat results together
         if len(region_files) != len(self.regions):
-            return
+            return []
         print('    + writing: ' + out_file)
         os.system('cat ' + ' '.join(region_files) + ' | gzip -9c > ' + out_file)
 
