@@ -6,13 +6,14 @@ The purpose of this document is to show new users how to run ESTA. This does not
 
 ESTA comes with some default configuration and input files, so you can test the model and learn how to use it. The first test is to generate on-road emissions on the 4km California modeling domain. Go to the command line and type:
 
-    ./esta.py config/default_onroad_ca_4km.ini
+    ./esta.py config/example_onroad_ca_4km_dtim_pmeds.ini
 
 Or you can type:
 
-    python esta.py config/default_onroad_ca_4km.ini
+    python esta.py config/example_onroad_ca_4km_dtim_pmeds.ini
 
 The default examples included with ESTA are designed to be fast, and should finish in well under a minute on a modern computer.
+
 
 ## Config Files
 
@@ -34,17 +35,17 @@ There are a few features of the config files to note:
 In order for ESTA to be useful, it has to be easy for the user to design their own run. Each step in the ESTA model chain has various options. For instance, if you are reading in some kind of emissions file, there will have to be a different `class` designed to read that file type in ESTA. In order to select that class, all you have to do is list it's name in the config file. For instance, in the default config file "default_onroad_ca_4km.ini":
 
     [Scaling]
-    scalor: Dtim4Emfac2014Scaler
+    scalor: EmfacSmokeScaler
 
 If you look in the source code, you will find that class:
 
-    src/scaling/dtim4emfac2014scaler.py
+    src/scaling/emfacsmokescaler.py
 
 Or, from inside Python:
 
-    from src.scaling.dtim4emfac2014scaler import Dtim4Emfac2014Scaler
+    from src.scaling.emfacsmokescaler import EmfacSmokeScaler
 
-If you list more than one class, both will be run in the order you listed them. This direct reference to the class name gives the user a huge amount of flexibility in how they run ESTA. Generally, most users will only have to design their run once, and they will probably be able to do most of their work with only slight modifications to their original config file.
+If you list more than one class, both will be run in the order you listed them. This direct reference to the class name gives the user a huge amount of flexibility in how they run ESTA. Generally, most users will only have to design their run once, and they will be able to do most of their work with only slight modifications to their original config file.
 
 ### Standard Config Sections
 
@@ -61,7 +62,7 @@ In addition to those, ESTA has four other standard config sections:
 1. **Dates** - define the the time span of the run
 2. **Regions** - define the counties, states, or other regions in your run
 3. **Grid Information** - define your modeling domain
-4. **Miscellaneous** - a catch all, for shared resources or anything you want
+4. **Miscellaneous** - a catch-all, for shared resources or anything you want
 
 Next, the nine sections above will be discussed in some detail, using examples from the default config files that are provided with ESTA.
 
@@ -96,6 +97,10 @@ Or you could even list several regions (say the 10 counties in the SCAQMD region
 
     regions: 13 15 19 30 33 36 37 40 42 56
 
+And if you want to list a range of values use the `..` notation:
+
+    regions: 7..17
+
 #### GridInfo
 
 In most gridded inventory processing the number of rows, columns, and possibly layers will need to be defined. This section fills the need for those constant vaues.
@@ -104,44 +109,44 @@ In most gridded inventory processing the number of rows, columns, and possibly l
     columns: 321
     grid_cross_file: input/defaults/emfac2014/GRIDCRO2D.California_4km_291x321
 
-It should also be noted that the `grid_cross_file` shown here is a standard "grid cross" file needed to run the CMAQ photochemical model. For more information on the CMAQ file format, see the [official CMAQ documentation][CMAQ].
+It should also be noted that the `grid_cross_file` shown here is a standard "grid cross" NetCDF file needed to run the CMAQ photochemical model. For more information on the CMAQ file format, see the [official CMAQ documentation][CMAQ].
 
 #### Surrogates
 
-This section covers the information needed to generate spatial and temporal surrogates. In the `default_onroad_ca_4km.ini` file you will find this section looks something like:
+This section covers the information needed to generate spatial and temporal surrogates. In the `example_onroad_ca_4km_dtim_pmeds.ini` file you will find this section looks something like:
 
+    [Surrogates]
     temporal_directories: input/defaults/surrogates/temporal/
     temporal_loaders: CalvadTemporalLoader
     calvad_dow: calvad_gai_dow_factors_2012.csv
     calvad_diurnal: calvad_gai_diurnal_factors_2012.csv
-    spatial_directories: input/examples/onroad_emfac2014_santa_barbara/esta1_gai_2012/
-    spatial_loaders: Itn4Loader
-    dtim_eic_labels: vmt trips
-    eic2dtim4: input/defaults/emfac2014/eic2dtim4.py
+    spatial_directories: input/examples/onroad_emfac2014_santa_barbara/dtim4_gai_2012/
+    spatial_loaders: Dtim4Loader
+    eic_info: input/defaults/emfac2014/eic_info.py
     region_boxes: input/defaults/domains/gai_boxes_ca_4km.py
 
-Where as in the `default_onroad_ca_4km_surrogates.ini` file you will find it looks something like:
+Where as in the `example_onroad_ca_4km_arb_pmeds.ini` file you will find it looks something like:
 
-    temporal_directories: input/defaults/surrogates/temporal/
-    temporal_loaders: CalvadTemporalLoader
-    calvad_dow: calvad_dow_factors_2012.csv
-    calvad_diurnal: calvad_diurnal_factors_2012.csv
-    spatial_directories: input/examples/onroad_emfac2014_santa_barbara/esta1_gai_2012/
-                         input/defaults/surrogates/spatial/ca/4km/gai/
-    spatial_loaders: Itn4Loader Smoke4SpatialSurrogateLoader
-    dtim_eic_labels: vmt
+    [Surrogates]
+    spatial_directories: input/examples/onroad_emfac2014_santa_barbara/spatial_surrogates/
+    spatial_loaders: CalvadSmoke4SpatialSurrogateLoader
     smoke4_surrogates: ON_ROAD_CA_100_4km_2010.txt
                        ON_ROAD_CA_110_4km_2013.txt
-                       ON_ROAD_CA_133_4km_2012.txt
-                       ON_ROAD_CA_139_4km_2012.txt
+                      ...
+                       ON_ROAD_CA_332_4km_2012.txt
     smoke_eic_labels: linehaul
                       pop
-                      30idle_70dist
-                      90idle_10dist
-    eic2dtim4: input/defaults/surrogates/spatial/ca/4km/gai/eic2dtim4.py
+                      ...
+                      vmt_holiday_pm
+    temporal_directories: input/defaults/surrogates/temporal/
+    temporal_loaders: CalvadTemporalLoader
+    calvad_dow: calvad_gai_dow_factors_2012.csv
+    calvad_diurnal: calvad_gai_diurnal_factors_2012.csv
     region_boxes: input/defaults/domains/gai_boxes_ca_4km.py
+    eic_info: input/examples/onroad_emfac2014_santa_barbara/spatial_surrogates/eic_info.py
+    region_codes: input/defaults/california/gai_codes.py
 
-The difference between these two default runs is that the `default_onroad_ca_4km.ini` config file defines a run where all spatial allocation comes from DTIM4-ready road network files, and the `default_onroad_ca_4km_surrogates.ini` file defines a run which also uses SMOKE-ready spatial surrogates for some EICs.
+The difference between these two default runs is that the `example_onroad_ca_4km_dtim_pmeds.ini` config file defines a run where all spatial allocation comes from DTIM4-ready road network files and match DTIM4 outputs. And the `example_onroad_ca_4km_arb_pmeds.ini` file defines a run which also uses SMOKE-ready spatial surrogates and supports ARB's modern on-road modeling.
 
 The `spatial_loaders` variable is a space-separated list of class names used to generate spatial surrogates. Likewise, `temporal_loaders` is a list of class names to generate spatial surrogates.  The `spatial_directories` and `temporal_directories` are where the input information for these classes is found. The length of the `spatial_loaders` list and the length of the `spatial_directories` must be the same, and likewise for the temporal surrogates.
 
@@ -149,7 +154,7 @@ The remaining four variables in the default config files are specific to on-road
 
 The `region_boxes` file is a simply Python dictionary expressing the bounding boxes of each county or GAI, in the reference of the current modeling grid. This information is used to speed up the calculation of which grid cells are intersected by each road link.
 
-The `eic2dtim4` variable is used to assign each EIC in the raw emissions to one of the 26 vehicle DTIM classes, for spatial distribution. Each EIC is also mapped to a "label" which describes which spatial surrogate is relevant.
+The `eic_info` variable is used to assign each EIC in the raw emissions to one of the 26 vehicle DTIM classes, for spatial distribution. Each EIC is also mapped to a "label" which describes which spatial surrogate is relevant.
 
 Finally, when `Smoke4SpatialSurrogateLoader` is given as a class for the `spatial_loaders` option, a list of SMOKE-ready spatial surrogates, `smoke4_surrogates`, needs to be provided along with the `eic2dtim4` label to map EICs to each of these surrogates.
 
@@ -157,6 +162,7 @@ Finally, when `Smoke4SpatialSurrogateLoader` is given as a class for the `spatia
 
 This section is used to define the location of the raw emission input files, and the classes used to read them.
 
+    [Emissions]
     emissions_directories: input/examples/onroad_emfac2014_santa_barbara/emfac2014_2012/ldv/
                            input/examples/onroad_emfac2014_santa_barbara/emfac2014_2012/hdv/
     emissions_loaders: Emfac2014CsvLoader
@@ -203,7 +209,7 @@ The `eic_precision` option is used to define how detailed you want your output e
 
 #### Testing
 
-The testing section exists to allow for automated QA/QC of the output ESTA results. If these fields are left blank, no tests will be run.
+The testing section exists to allow for automated QA/QC of the output ESTA results. If these fields are left blank, no tests will be run but nothing will break. Testing is optional.
 
     tests: Emfac2014TotalsTester
     dates: 2012-07-18
