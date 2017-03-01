@@ -4,9 +4,9 @@ from copy import deepcopy
 from datetime import datetime as dt
 from datetime import timedelta
 import numpy as np
-from pandas.tseries.holiday import USFederalHolidayCalendar
-from src.core.emissions_scaler import EmissionsScaler
 from scaled_emissions import ScaledEmissions
+from src.core.date_utils import DOW, find_holidays
+from src.core.emissions_scaler import EmissionsScaler
 from src.core.eic_utils import eic_reduce
 from src.emissions.sparse_emissions import SparseEmissions
 
@@ -19,7 +19,6 @@ class EmfacSmokeScaler(EmissionsScaler):
                     'pm',  'off', 'off', 'off', 'off', 'off']  # off peak: 7 PM to 6 AM
     CALVAD_TYPE = [0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0,
                    0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0]
-    DOW = {0: 'mon', 1: 'tuth', 2: 'tuth', 3: 'tuth', 4: 'fri', 5: 'sat', 6: 'sun', -1: 'holi'}
     DOWS = ['_monday_', '_tuesday_', '_wednesday_', '_thursday_', '_friday_',
             '_saturday_', '_sunday_', '_holiday_']
 
@@ -60,13 +59,13 @@ class EmfacSmokeScaler(EmissionsScaler):
             # find the DOW
             date = today.strftime(self.date_format)
             today += timedelta(days=1)
-            if date[4:] in self._find_holidays():
+            if date[4:] in find_holidays(self.base_year):
                 dow_num = 7
                 dow = 'holi'
             else:
                 by_date = str(self.base_year) + date[4:]
                 dow_num = dt.strptime(by_date, self.date_format).weekday()
-                dow = self.DOW[dt.strptime(by_date, self.date_format).weekday()]
+                dow = DOW[dt.strptime(by_date, self.date_format).weekday()]
 
             # if not by sub-region, create emissions object
             if not self.by_region:
@@ -211,13 +210,3 @@ class EmfacSmokeScaler(EmissionsScaler):
             e[eic] = se
 
         return e
-
-    def _find_holidays(self):
-        ''' Using Pandas calendar, find all 10 US Federal Holidays,
-            plus California's Cesar Chavez Day (March 31).
-        '''
-        yr = str(self.base_year)
-        cal = USFederalHolidayCalendar()
-        holidays = cal.holidays(start=yr + '-01-01', end=yr + '-12-31').to_pydatetime()
-
-        return [d.strftime('%m-%d') for d in holidays] + ['03-31']

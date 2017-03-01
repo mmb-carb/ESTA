@@ -12,9 +12,9 @@ def eic_reduce(config_str):
             + first 3 digits of EIC
             + "EIC7" is first 3 digits of EIC plus EICMAT (fuel type)
     '''
-    if config_str.lower() in [3, '3', 'three', 'eic3']:
+    if config_str.lower() in ['3', 'three', 'eic3']:
         return eic14_to_eic3
-    elif config_str.lower() in [7, '7', 'seven', 'eic7']:
+    elif config_str.lower() in ['7', 'seven', 'eic7']:
         return eic14_to_eic7
     else:
         return nochange

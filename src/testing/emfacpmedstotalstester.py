@@ -4,7 +4,7 @@ from datetime import datetime as dt
 import gzip
 import numpy as np
 import os
-from pandas.tseries.holiday import USFederalHolidayCalendar  # TODO: Put in core?
+from src.core.date_utils import DOW, find_holidays
 from src.core.eic_utils import eic_reduce, MAX_EIC_PRECISION
 from src.core.output_tester import OutputTester
 from src.emissions.emissions_table import EmissionsTable
@@ -15,7 +15,6 @@ class EmfacPmedsTotalsTester(OutputTester):
 
     CALVAD_TYPE = [0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0,
                    0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0]
-    DOW = {0: 'mon', 1: 'tuth', 2: 'tuth', 3: 'tuth', 4: 'fri', 5: 'sat', 6: 'sun', -1: 'holi'}  # TODO: Put in core?
     KG_2_STONS = np.float32(0.001102310995)
     POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM']
 
@@ -24,12 +23,13 @@ class EmfacPmedsTotalsTester(OutputTester):
         self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
         self.by_region = self.config.getboolean('Output', 'by_region')
         self.region_names = self.config.eval_file('Misc', 'region_names')
-        self.original_profs = self._load_calvad_dow_profiles()
         # How many digits of EIC were preserved in the output files?
+        self.precision = MAX_EIC_PRECISION
         if 'eic_precision' in self.config['Output']:
-            self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
-        else:
-            self.eic_reduce = eic_reduce(MAX_EIC_PRECISION)
+            self.precision = int(self.config['Output']['eic_precision'])
+        self.eic_reduce = eic_reduce(str(self.precision))
+        # read input day-of-week temporal profiles
+        self.original_profs = self._load_calvad_dow_profiles()
 
     def test(self, emis, out_paths):
         ''' Master Testing Method.
@@ -49,11 +49,11 @@ class EmfacPmedsTotalsTester(OutputTester):
                 continue
 
             # find the day-of-week
-            if date[4:] in self._find_holidays():
+            if date[4:] in find_holidays(self.base_year):
                 dow = 'holi'
             else:
                 by_date = str(self.base_year) + date[4:]
-                dow = EmfacPmedsTotalsTester.DOW[dt.strptime(by_date, self.date_format).weekday()]
+                dow = DOW[dt.strptime(by_date, self.date_format).weekday()]
 
             # test output pmeds, if any
             pmeds_files = [f for f in out_paths[date] if f.rstrip('.gz').endswith('.pmeds')]
@@ -69,14 +69,20 @@ class EmfacPmedsTotalsTester(OutputTester):
         ctl = CalvadTemporalLoader(self.config, ind)
         orig_profs = ctl.load_dow(ctl.dow_path)
 
+        # if the run is not by 14-digit EIC, we cannot test the day-of-week profiles
+        is_max_precision = True if self.precision == MAX_EIC_PRECISION else False
+
         # reorganize the data into something more useful for our individual EICs
         profs = {}
-        for dow in set(self.DOW.values()):
+        for dow in set(DOW.values()):
             profs[dow] = {}
             for region in self.regions:
                 profs[dow][region] = {}
                 for eic in self.eic_info:
-                    profs[dow][region][eic] = orig_profs[region][dow][self.CALVAD_TYPE[self.eic_info[eic][0]]]
+                    if is_max_precision:
+                        profs[dow][region][eic] = orig_profs[region][dow][self.CALVAD_TYPE[self.eic_info[eic][0]]]
+                    else:
+                        profs[dow][region][eic] = np.float32(1.0)
 
         return profs
 
@@ -128,6 +134,9 @@ class EmfacPmedsTotalsTester(OutputTester):
             os.mkdir(self.testing_dir)
         file_path = os.path.join(self.testing_dir, 'pmeds_daily_totals_' + date + '.txt')
         f = open(file_path, 'w')
+        if self.precision != MAX_EIC_PRECISION:
+            f.write('Since your run is not by ' + str(MAX_EIC_PRECISION) + '-digit EIC, ' +
+                    'your test results will not be adjust for day-of-week.\n\n')
         f.write('Region,EIC,Pollutant,EMFAC,PMEDS,Percent Diff\n')
 
         # compare DOW profiles by: Region, EIC, and pollutant
@@ -205,16 +214,6 @@ class EmfacPmedsTotalsTester(OutputTester):
                 e[region][eic][self.POLLUTANTS[i]] += vals[i] * self.KG_2_STONS
 
         return e
-
-    def _find_holidays(self):  # TODO: Put in core?
-        ''' Using Pandas calendar, find all 10 US Federal Holidays,
-            plus California's Cesar Chavez Day (March 31).
-        '''
-        yr = str(self.base_year)
-        cal = USFederalHolidayCalendar()
-        holidays = cal.holidays(start=yr + '-01-01', end=yr + '-12-31').to_pydatetime()
-
-        return [d.strftime('%m-%d') for d in holidays] + ['03-31']
 
     @staticmethod
     def percent_diff(a, b):

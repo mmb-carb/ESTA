@@ -5,7 +5,7 @@ import gzip
 import numpy as np
 import operator
 import os
-from pandas.tseries.holiday import USFederalHolidayCalendar
+from src.core.date_utils import DOW, find_holidays
 from src.core.eic_utils import eic_reduce, MAX_EIC_PRECISION
 from src.core.output_tester import OutputTester
 from src.emissions.emissions_table import EmissionsTable
@@ -16,7 +16,6 @@ class EmfacPmedsDiurnalTester(OutputTester):
 
     CALVAD_TYPE = [0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0,
                    0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0]
-    DOW = {0: 'mon', 1: 'tuth', 2: 'tuth', 3: 'tuth', 4: 'fri', 5: 'sat', 6: 'sun', -1: 'holi'}
     KG_2_STONS = np.float32(0.001102310995)
     NUM_TESTED = 5
     POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM']
@@ -64,11 +63,11 @@ class EmfacPmedsDiurnalTester(OutputTester):
                 continue
 
             # find the day-of-week
-            if date[4:] in self._find_holidays():
+            if date[4:] in find_holidays(self.base_year):
                 dow = 'holi'
             else:
                 by_date = str(self.base_year) + date[4:]
-                dow = EmfacPmedsDiurnalTester.DOW[dt.strptime(by_date, self.date_format).weekday()]
+                dow = DOW[dt.strptime(by_date, self.date_format).weekday()]
 
             for file_path in pmeds_files:
                 output_profs = self._output_pmeds_profiles(file_path, eics)
@@ -91,7 +90,7 @@ class EmfacPmedsDiurnalTester(OutputTester):
 
         # reorganize the data into something more useful for our individual EICs
         profs = {}
-        for dow in set(self.DOW.values()):
+        for dow in set(DOW.values()):
             profs[dow] = {}
             for region in self.regions:
                 profs[dow][region] = {}
@@ -131,16 +130,6 @@ class EmfacPmedsDiurnalTester(OutputTester):
                                     reverse=True)[:EmfacPmedsDiurnalTester.NUM_TESTED]).keys())
 
         return eics
-
-    def _find_holidays(self):
-        ''' Using Pandas calendar, find all 10 US Federal Holidays,
-            plus California's Cesar Chavez Day (March 31).
-        '''
-        yr = str(self.base_year)
-        cal = USFederalHolidayCalendar()
-        holidays = cal.holidays(start=yr + '-01-01', end=yr + '-12-31').to_pydatetime()
-
-        return [d.strftime('%m-%d') for d in holidays] + ['03-31']
 
     def _output_pmeds_profiles(self, file_path, eics):
         ''' Look at the final output PMEDS file and build a dictionary of temporal profiles,

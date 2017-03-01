@@ -18,12 +18,7 @@ class EstaModelBuilder(object):
         emis_loaders = self._init_classes('Emissions', 'emissions_loaders')
         scalers = self._init_classes('Scaling', 'scalor')
         writers = self._init_classes('Output', 'writers')
-
-        #try:
         testers = self._init_classes('Testing', 'tests')
-        #except Exception as e:
-        #    print 'TODO', e
-        #    testers = []
 
         return EstaModel(spatial_loaders, temporal_loaders, emis_loaders, scalers, writers, testers)
 
@@ -31,6 +26,11 @@ class EstaModelBuilder(object):
         ''' Given a list of class names, instantiate a list of primary step
             ESTA classes.
         '''
+        # allow for a run with no tests
+        if section == 'Testing':
+            if 'tests' not in self.config['Testing'] or not self.config['Testing']['tests']:
+                return []
+
         class_strings = self.config.getlist(section, option)
         step = section.lower()
 
