@@ -155,7 +155,7 @@ In the section above on ESTA's native data structures, the classes `SparceEmissi
 
 #### KD Trees
 
-The [KD Trees Algorithm][KDTrees] is fundamental in the performance of the on-road and aircraft emissions modeling in ESTA. The KD Trees algorithm is a space-partitioning algorithm that is used in ESTA to dramatically improve the speed of locating lat/lon coordinates on the modeling grid.
+The [KD Trees Algorithm][KDTrees] is fundamental to the performance of the on-road modeling in ESTA. The KD Trees algorithm is a space-partitioning algorithm that is used in ESTA to dramatically improve the speed of locating lat/lon coordinates on the modeling grid.
 
 The problem that needs to be solved (as quickly and accurately as possible) is this: given a lat/lon pair, determine which grid cell it is inside on the modeling domain. The problem is that the modeling grid can be arbitarily large, and searching through every grid cell is prohibitively slow. And the problem is further complicated by the fact that the modeling grid can be in any arbitrary projection.
 
@@ -210,7 +210,7 @@ ESTA is designed to be easily expanded by developers. The modular design means t
 
 A common problem for scientists and engineers is that they spend more time wrangling files than analyzing their data. In ESTA, you can write a single class to read or write any file type. And once this class is placed correctly into ESTA, you never need to worry about file wrangling again. The goal of software should always be to help people get things done, not to be a drain on their time. For that reason, ESTA is 100% configurable and makes no demands on the structure of your input/output files or on the data structures you pass around.
 
-## Implementing Your Own Step
+#### Implementing Your Own Step
 
 Perhaps the most important design goal in ESTA is the ability to replace a step with one of your own. To that end, let's look at an example of doing just that. In the example below, we create a special temporal surrogate: `RushHour`. In this new temporal surrogate, all onroad traffic will happen in two hours of the day (8AM and 5PM), the other 22 hours of the day will have no traffic.
 
@@ -226,7 +226,7 @@ The first thing to do when implementing `RushHour` will be to sub-class the temp
 The purpose of the `temporal_loader` subclass is to provide temporal surrogates. And in the case of on-road emissions, you will want diurnal and day-of-week surrogates. These are both created using the abstract `load` method. Because you will be default all regions (counties) to the same information, you will need a list of regions from the config file:
 
     [Regions]
-    regions: 1..58
+    regions: 1..69
 
 Following the example of several other classes in ESTA, you can add a list of regions/counties as a member variable of `RushHour` in the `__init__` method:
 
@@ -238,7 +238,7 @@ Following the example of several other classes in ESTA, you can add a list of re
             super(RushHour, self).__init__(config, directory)
             self.regions = self.config.parse_regions('Regions', 'regions')
 
-Note that `parse_regions` is a custom method built into the `CustomParser` class in `src.core.custom_parser.py`. This method also allows for a region list like `1..58` to generate a list of numbers from 1 to 58, inclusive. Otherwise, it is just a space-separated list.
+Note that `parse_regions` is a custom method built into the `CustomParser` class in `src.core.custom_parser.py`. This method also allows for a region list like `1..69` to generate a list of numbers from 1 to 69, inclusive. Otherwise, it is just a space-separated list.
 
 All that is left is do the actual work of creating the temporal surrogates.
 
@@ -275,7 +275,7 @@ To recap the above process:
 5. Make sure your file name is the lower case of your class name: `MyClass` is in `myclass.py`.
 6. Point to your new class in the config file.
 
-## Defining a New Domain
+#### Defining a New Domain
 
 It is fairly simple to implement a new modeling domain in ESTA. It all depends on finding (or creating) a CMAQ-ready `GRIDCRO2D` file. This is a CMAQ-standard file, with a long history, that defines the lat/lon bounding boxes of each grid cell in a modeling domain. The decision was made to use these files as the best way to define the grid because:
 
@@ -326,3 +326,4 @@ And this would print a nicely-formatted dictionary (JSON/Python) to the screen, 
 
 
 [KDTrees][https://en.wikipedia.org/wiki/K-d_tree]
+

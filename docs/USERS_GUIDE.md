@@ -211,7 +211,7 @@ The `eic_precision` option is used to define how detailed you want your output e
 
 The testing section exists to allow for automated QA/QC of the output ESTA results. If these fields are left blank, no tests will be run but nothing will break. Testing is optional.
 
-    tests: Emfac2014TotalsTester
+    tests: EmfacPmedsTotalsTester
     dates: 2012-07-18
 
 Defining which test classes are run is handled by the `tests` variable, and the test results can be written to the output directory defined above. The `dates` variable gives you the option of spot-checking just certain dates in your time range.
@@ -230,3 +230,4 @@ The `gai_names.py` file is a simple dictionary mapping a California GAI integer 
 
 
 [CMAQ]: http://www.airqualitymodeling.org/cmaqwiki/index.php?title=CMAQ_version_5.0_%28February_2010_release%29_OGD
+
