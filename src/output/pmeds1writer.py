@@ -4,7 +4,7 @@ from glob import glob
 import gzip
 import numpy as np
 import os
-from src.core.output_files import OutputFiles
+from src.core.output_files import OutputFiles, build_arb_file_path
 from src.core.output_writer import OutputWriter
 
 
@@ -74,7 +74,8 @@ class Pmeds1Writer(OutputWriter):
     def _write_pmeds1_by_state(self, scaled_emissions, date):
         """ Write a single 24-hour PMEDS file for a given date, for the entire state.
         """
-        out_path = self._build_state_file_path(date)
+        out_path = build_arb_file_path(dt.strptime(date, self.date_format), self.grid_file,
+                                       'pmeds', self.directory, self.base_year, self.version)
         jul_day = str(dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday).rjust(3)
 
         f = gzip.open(out_path, 'wb')
@@ -160,7 +161,8 @@ class Pmeds1Writer(OutputWriter):
             return [out_path]
 
         # new output file path
-        out_file = self._build_state_file_path(date) + '.gz'
+        out_file = build_arb_file_path(dt.strptime(date, self.date_format), self.grid_file,
+                                       'pmeds', self.directory, self.base_year, self.version)
 
         # use glob to count files in the output folder
         yr, month, day = date.split('-')
@@ -171,6 +173,7 @@ class Pmeds1Writer(OutputWriter):
         if len(region_files) != len(self.regions):
             return []
         print('    + writing: ' + out_file)
+        out_file += '.gz'
         os.system('cat ' + ' '.join(region_files) + ' | gzip -9c > ' + out_file)
 
         # remove old region files
@@ -238,35 +241,3 @@ class Pmeds1Writer(OutputWriter):
             sr[r] = str(r).rjust(3)
 
         return sr
-
-    def _build_state_file_path(self, date):
-        """ Build output file directory and path for a daily, multi-region PMEDS file.
-            NOTE: This method uses an extremely detailed file naming convention.
-                  For example:
-            st_4k.mv.v0938..2012.203107d18..e14..pmeds
-            [statewide]_[4km grid].[mobile source].[version 938]..[base year 2012].
-            [model year 2031][month 7]d[day 18]..[EIC 14 categories]..[PMEDS format]
-        """
-        yr, month, day = date.split('-')
-
-        out_dir = os.path.join(self.directory, 'pmeds')
-        if not os.path.exists(out_dir):
-            os.makedirs(out_dir)
-
-        # define the grid size string
-        grid_size = '4k'
-        grid_name = os.path.basename(self.grid_file)
-        if '12km' in grid_name:
-            grid_size = '12k'
-        elif '36km' in grid_name:
-            grid_size = '36k'
-        elif '1km' in grid_name:
-            grid_size = '1k'
-        elif '250m' in grid_name:
-            grid_size = '250m'
-
-        # TODO: "st" = state, "mv" = mobile, and "e14" = EIC-14 All can change
-        file_name = 'st_' + grid_size + '.mv.' + self.version + '..' + str(self.base_year) + '.' + \
-                    yr + month + 'd' + day + '..e14..pmeds'
-
-        return os.path.join(out_dir, file_name)

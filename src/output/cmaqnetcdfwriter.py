@@ -5,7 +5,7 @@ from netCDF4 import Dataset
 import numpy as np
 import sys
 import time
-from src.core.output_files import OutputFiles
+from src.core.output_files import OutputFiles, build_arb_file_path
 from src.core.output_writer import OutputWriter
 
 
@@ -105,7 +105,8 @@ class CmaqNetcdfWriter(OutputWriter):
         jdate = int(str(d.year) + dt(self.base_year, d.month, d.day).strftime('%j'))
 
         # final output file path
-        out_path = self._build_state_file_path(date)
+        out_path = build_arb_file_path(dt.strptime(date, self.date_format), self.grid_file,
+                                       'ncf', self.directory, self.base_year, self.version)
         print('    + writing: ' + out_path)
 
         # create empty netcdf file (including file path)
@@ -340,35 +341,3 @@ class CmaqNetcdfWriter(OutputWriter):
             self.gspro[profile][group][poll_index] = np.float32(ln[5])
 
         f.close()
-
-    def _build_state_file_path(self, date):
-        """ Build output file directory and path for a daily, multi-region NetCDF file.
-            NOTE: This method uses an extremely detailed file naming convention.
-                  For example:
-            st_4k.mv.v0938..2012.203107d18..e14..ncf
-            [statewide]_[4km grid].[mobile source].[version 938]..[base year 2012].
-            [model year 2031][month 7]d[day 18]..[EIC 14 categories]..ncf
-        """
-        yr, month, day = date.split('-')
-
-        out_dir = os.path.join(self.directory, 'ncf')
-        if not os.path.exists(out_dir):
-            os.makedirs(out_dir)
-
-        # define the grid size string
-        grid_size = '4k'
-        grid_name = os.path.basename(self.grid_file)
-        if '12km' in grid_name:
-            grid_size = '12k'
-        elif '36km' in grid_name:
-            grid_size = '36k'
-        elif '1km' in grid_name:
-            grid_size = '1k'
-        elif '250m' in grid_name:
-            grid_size = '250m'
-
-        # TODO: "st" = state, "mv" = mobile, and "e14" = EIC-14 All can change
-        file_name = 'st_' + grid_size + '.mv.' + self.version + '..' + str(self.base_year) + '.' + \
-                    yr + month + 'd' + day + '..e14..ncf'
-
-        return os.path.join(out_dir, file_name)
