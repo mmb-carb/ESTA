@@ -20,17 +20,11 @@ class CmaqNetcdfWriter(OutputWriter):
         self.ncols = int(self.config['GridInfo']['columns'])
         self.version = self.config['Output']['inventory_version']
         self.grid_file = self.config['GridInfo']['grid_cross_file']
-        self.gspro_file = self.config['Output']['gspro_file']
-        self.gsref_file = self.config['Output']['gsref_file']
-        self.weight_file = self.config['Output']['weight_file']
-        self.gspro = {}
-        self.gsref = {}
         self.groups = {}
         self.species = set()
         self.num_species = -1
+        self.weight_file = self.config['Output']['weight_file']
         self._load_weight_file()
-        self._load_gsref()
-        self._load_gspro()
         # default NetCDF header for on-road emissions on California's 4km modeling domain
         self.header = {'IOAPI_VERSION': "$Id: @(#) ioapi library version 3.1 $" + " "*43,
                        'EXEC_ID': "????????????????" + " "*64,
@@ -245,31 +239,6 @@ class CmaqNetcdfWriter(OutputWriter):
 
         rootgrp.close()
 
-    def _load_gsref(self):
-        ''' load the gsref file
-            File Format: eic,profile,group
-            0,CO,CO
-            0,NH3,NH3
-            0,SOx,SOX
-            0,DEFNOx,NOX
-            0,900,PM
-        '''
-        self.gsref = {}
-
-        f = open(self.gsref_file, 'r')
-        for line in f.xreadlines():
-            ln = line.rstrip().split(',')
-            if len(ln) != 3:
-                continue
-            eic = int(ln[0])
-            profile = ln[1].upper()
-            group = ln[2].upper()
-            if eic not in self.gsref:
-                self.gsref[eic] = {}
-            self.gsref[eic][group] = profile
-
-        f.close()
-
     def _load_weight_file(self):
         """ load molecular weight file
             File Format:
@@ -308,36 +277,3 @@ class CmaqNetcdfWriter(OutputWriter):
         for grp in self.groups:
             self.groups[grp]['species'] = np.array(self.groups[grp]['species'], dtype=np.dtype('a8'))
             self.groups[grp]['weights'] = np.array(self.groups[grp]['weights'], dtype=np.float32)
-
-    def _load_gspro(self):
-        ''' load the gspro file
-            File Format:  group, pollutant, species, mole fraction, molecular weight=1, mass fraction
-            1,TOG,CH4,3.1168E-03,1,0.0500000
-            1,TOG,ALK3,9.4629E-03,1,0.5500000
-            1,TOG,ETOH,5.4268E-03,1,0.2500000
-        '''
-        self.gspro = {}
-
-        f = open(self.gspro_file, 'r')
-        for line in f.xreadlines():
-            # parse line
-            ln = line.rstrip().split(',')
-            profile = ln[0].upper()
-            group = ln[1].upper()
-            if group not in self.groups:
-                sys.exit('ERROR: Group ' + group + ' not found in molecular weights file.')
-            pollutant = ln[2].upper()
-            try:
-                poll_index = list(self.groups[group]['species']).index(pollutant)
-            except ValueError:
-                # we don't care about that pollutant
-                pass
-            # start filling output dict
-            if profile not in self.gspro:
-                self.gspro[profile] = {}
-            if group not in self.gspro[profile]:
-                self.gspro[profile][group] = np.zeros(len(self.groups[group]['species']),
-                                                      dtype=np.float32)
-            self.gspro[profile][group][poll_index] = np.float32(ln[5])
-
-        f.close()

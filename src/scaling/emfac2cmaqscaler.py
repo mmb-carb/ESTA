@@ -5,7 +5,7 @@ from datetime import datetime as dt
 from datetime import timedelta
 import numpy as np
 import sys
-from src.core.date_utils import DOW, find_holidays
+from src.core.date_utils import DOW, find_holidays, find_season
 from src.core.emissions_scaler import EmissionsScaler
 from scaled_emissions import ScaledEmissions
 from src.emissions.sparse_emissions import SparseEmissions
@@ -29,18 +29,18 @@ class Emfac2CmaqScaler(EmissionsScaler):
         self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
         self.gspro_file = self.config['Output']['gspro_file']
-        self.gsref_file = self.config['Output']['gsref_file']
         self.weight_file = self.config['Output']['weight_file']
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
         self.is_smoke4 = 'smoke4' in self.config['Surrogates']['spatial_loaders'].lower()
         self.region_boxes = self.config.eval_file('Surrogates', 'region_boxes')  # bounds are inclusive
         self.gspro = {}
-        self.gsref = {}
+        self.summer_gsref = Emfac2CmaqScaler.load_gsref(self.config['Output']['summer_gsref_file'])
+        self.winter_gsref = Emfac2CmaqScaler.load_gsref(self.config['Output']['winter_gsref_file'])
+        self.gsref = self.summer_gsref  # to be used, during the run, to point to the right file
         self.groups = {}
         self.species = set()
         self._load_weight_file()
-        self._load_gsref()
         self._load_gspro()
 
     def scale(self, emissions, spatial_surr, temp_surr):
@@ -69,6 +69,11 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
         # loop through all the dates in the period
         while today <= self.end_date:
+            # use the speciation from the correct season
+            if find_season(today).lower() == 's':
+                self.gsref = self.summer_gsref
+            else:
+                self.gsref = self.winter_gsref
             # find the DOW
             date = today.strftime(self.date_format)
             today += timedelta(days=1)
@@ -292,7 +297,8 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
         return inv
 
-    def _load_gsref(self):
+    @staticmethod
+    def load_gsref(file_path):
         ''' load the gsref file
             File Format: eic,profile,group
             0,CO,CO
@@ -301,9 +307,9 @@ class Emfac2CmaqScaler(EmissionsScaler):
             0,DEFNOx,NOX
             0,900,PM
         '''
-        self.gsref = {}
+        gsref = {}
 
-        f = open(self.gsref_file, 'r')
+        f = open(file_path, 'r')
         for line in f.xreadlines():
             ln = line.rstrip().split(',')
             if len(ln) != 3:
@@ -311,11 +317,12 @@ class Emfac2CmaqScaler(EmissionsScaler):
             eic = int(ln[0])
             profile = ln[1].upper()
             group = ln[2].upper()
-            if eic not in self.gsref:
-                self.gsref[eic] = {}
-            self.gsref[eic][group] = profile
+            if eic not in gsref:
+                gsref[eic] = {}
+            gsref[eic][group] = profile
 
         f.close()
+        return gsref
 
     def _load_weight_file(self):
         """ load molecular weight file

@@ -63,7 +63,7 @@ class EmfacNcfTotalsTester(OutputTester):
             os.mkdir(self.testing_dir)
         file_path = os.path.join(self.testing_dir, 'ncf_daliy_totals_' + date + '.txt')
         f = open(file_path, 'w')
-        f.write('NOTE: The EMFAC totals shown are not adjusted for temporal profiles.')
+        f.write('NOTE: The EMFAC totals shown are not adjusted for temporal profiles.\n')
         f.write('      As such, they are most comparable for weekdays in Summer.\n\n')
         f.write('Pollutant,EMFAC,NetCDF,Percent Diff\n')
 
