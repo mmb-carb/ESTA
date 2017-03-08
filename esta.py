@@ -7,7 +7,9 @@ from src.core.esta_model_builder import EstaModelBuilder
 
 
 def main():
-    # command line parsing
+    ''' Parse the command line arguments provided,
+        and run ESTA if the arguments are valid.
+    '''
     config_file_path = ''
     if len(sys.argv) == 2 and sys.argv[1] in ['-h', '--h', '-help', '--help']:
         usage()
@@ -38,9 +40,12 @@ def process_esta(config_file_path):
 
 
 def usage():
+    ''' In the event that the command line arguments to this script are invalid,
+        print a very brief help menu, describing how to run ESTA from the command line.
+    '''
     help_text = '''\n\nESTA Model Usage
 \nSimply provide the path to a config file:\n
-\t python esta.py config/default_onroad_ca_4km.ini
+\t python esta.py config/example_onroad_ca_4km_dtim_pmeds.ini
 \t./esta.py /path/to/user_defined_config.ini\n
 '''
     print(help_text)

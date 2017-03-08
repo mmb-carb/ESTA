@@ -12,13 +12,15 @@ ESTA is written in Python, using only free, open-source technology. It has a mod
 
 ![Figure 1: ESTA work flow, generic version](resources/esta_box_diagram_1.png)
 
-As shown in Figure 1, the ESTA work flow is straight forward. In the first step, emissions files are read into memory. In the second step, input files are read and spatial surrogates are created. In the third step, more input files are read and the temporal surrogates are created. In the fourth step, the spatial and temporal surrogates are applied to the emissions and a gridded inventory is created in memory. In the fifth step, custom-formatted output files are created from the inventory. There is an optional sixth step, where quality assurance tests are run on the output files.
+As shown in Figure 1, the ESTA work flow is straight forward. In the first step, emissions files are read into memory. In the second step, spatial distribution files are read and spatial surrogates are created. In the third step, temporal distribution files are read and the temporal surrogates are created. In the fourth step, the spatial and temporal surrogates are applied to the emissions and a gridded inventory is created in memory. In the fifth step, custom-formatted output files are created from the inventory. There is an optional sixth step, where quality assurance tests are run on the output files.
 
-The work flow above is very general and can apply to gridding an on-road inventory, or any other kind of inventory. However, in practice, your work flow might be more complex. For instance, what if you want to read in multiple different kinds of temporal surrogates: diurnal and day-of-week? Or what if you want to read in several different types of emissions files? ESTA's modular design helps support this common type of work flow by allowing each box in Figure 1 to be replaced by a list of boxes/steps.
+The above work flow is very general and can apply to gridding an on-road inventory, or any other kind of inventory. However, in practice, your work flow might be more complex. For instance, what if you want to read in multiple different kinds of temporal surrogates: diurnal and day-of-week? Or what if you want to read in several different types of emissions files? ESTA's modular design helps support these common types of work flow by allowing each box in Figure 1 to be replaced by a list of boxes / steps.
 
 ## Detailed Example - On-Road with EMFAC2014
 
-It might be easier to see an example. Figure 2 below shows the work flow for spatially gridding the on-road emissions from EMFAC2014. Notice that some of the steps are now repeated for different file types.
+To understand the ESTA structure and workflow better it might be helpful to look at an example simulation.
+
+Figure 2 below shows the work flow for spatially gridding the on-road emissions from EMFAC2014. Notice that some of the steps are now repeated for different file types.
 
 ![Figure 2: ESTA work flow, EMFAC example](resources/esta_box_diagram_on_road.png)
 
