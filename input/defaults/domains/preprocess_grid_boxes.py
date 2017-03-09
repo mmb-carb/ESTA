@@ -49,7 +49,7 @@ def main():
         elif sys.argv[a] == '-cols':
             cols = int(sys.argv[a + 1])
         elif sys.argv[a] == '-regions':
-            regions_file = int(sys.argv[a + 1])
+            regions_file = sys.argv[a + 1]
         else:
             usage()
         a += 2
@@ -85,6 +85,7 @@ class PreprocessRegionBoxes(object):
         self.grid_file_path = grid_file_path
         self.nrows = nrows
         self.ncols = ncols
+        self.max_index = (self.nrows * self.ncols) - 1
         self.regions_file = regions_file
         self.region_lat_lon_boxes = None
         self.lat_dot, self.lon_dot = self._read_grid_corners_file()
@@ -162,8 +163,13 @@ class PreprocessRegionBoxes(object):
         clat0,clon0 = cos(lat0),cos(lon0)
         slat0,slon0 = sin(lat0),sin(lon0)
         dist_sq_min, minindex_1d = self.kdtree.query([clat0 * clon0, clat0 * slon0, slat0])
-        y, x = np.unravel_index(minindex_1d, (self.nrows, self.ncols))
 
+        # try to validate the lat/lon lies within the searchable boundaries
+        if dist_sq_min > 0.01:
+            if minindex_1d <= 0 or minindex_1d >= self.max_index:
+                return -999, -999
+
+        y, x = np.unravel_index(minindex_1d, (self.nrows, self.ncols))
         return y + 1, x + 1
 
     def find_all_region_boxes(self):
@@ -176,7 +182,11 @@ class PreprocessRegionBoxes(object):
             ll_lat, ll_lon, ur_lat, ur_lon = self.region_lat_lon_boxes[region]
             ll_y, ll_x = self.find_grid_cell((ll_lon, ll_lat))
             ur_y, ur_x = self.find_grid_cell((ur_lon, ur_lat))
-            boxes[region] = {'lon': (ll_x - 1, ur_x + 1), 'lat': (ll_y - 1, ur_y + 1)}
+            if -999 in [ll_y, ll_x, ur_y, ur_x]:
+                print('WARNING: The lat/lon box provided for region ' + str(region) +
+                      ' appears to be out of bounds.')
+            else:
+                boxes[region] = {'lon': (ll_x - 1, ur_x + 1), 'lat': (ll_y - 1, ur_y + 1)}
 
         return boxes
 
