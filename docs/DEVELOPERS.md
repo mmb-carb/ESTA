@@ -1,14 +1,14 @@
 # ESTA Developers Guide
 
-ESTA is a Python-based model. As such, it is designed as a stand-alone program inside a working environment, and not as an installable Python library. The purpose of this document is to aquaint a potential developer with the ESTA code base so they can add new components and make updates to the model. A solid understanding of object-oriented programming in Python is assumed.
+ESTA is a Python-based model. It is designed as a stand-alone program inside a working environment, not as an installable Python library. The purpose of this document is to aquaint a potential developer with the ESTA code base so they can add new components and make updates to the model. An understanding of object-oriented programming in Python is assumed.
 
 ## Design Goals
 
-Modularity is a primary design goal for ESTA. Applying spatial surrogates and gridding an inventory is not, generally, a hard problem. The hard work it typically: (1) file wrangling, and (2) the need for continuous updating. The goal is that ESTA should be sufficiently generic to allow for the gridding of any emission inventory, not just on-road inventories (where were the first, primary use of the model).
+Modularity is a primary design goal for ESTA. Applying spatial surrogates and gridding an inventory is not, generally, a hard problem. The hard work is typically: (1) file wrangling, and (2) the need for continuous updating. The goal is that ESTA should be sufficiently generic to allow for the gridding of any emission inventory, not just on-road inventories (which were the first, primary use of the model).
 
 The term modularity here is used to describe a model whose operation can be changed greatly by the non-programming end-user through a simple config file. The process of gridding an inventory is broken into six steps, each of which is defined by a piece of code that is independent and replacable. In this way, the end-user can simply ask for different choices for each step, and gain great power over their ESTA model run.
 
-ESTA needs to be able to run easily from the command line in Linux. It should also run under Windows and the Mac OS, though these are not tested as often. ESTA was also developed for Python 2.7.x, though it should also support Python 2.6.x.
+ESTA was developed for Python 2.7.x, and needs to be able to run from the command line in a Linux environment. It should also run under Windows and the Mac OS, though these are not tested as often.
 
 ## Architecture and Code Structure
 
@@ -67,7 +67,7 @@ Here is a basic diagram of ESTA's code structure, including some default on-road
          │            emfacpmedsdiurnaltester.py
          │            emfacpmedstotaltester.py
 
-The `esta.py` run script in the home folder acts like an executable so the ESTA model can be run. It's major purpose is to take a path to the config file and call the `src.core.esta_model_builder.py` script. The `esta_model_builder.py` script breaks the config file into sections and options using the `CustomParser` class in `src.core.custom_parser.py`.
+The `esta.py` run script in the home folder acts like an executable so the ESTA model can be run. Its major purpose is to take a path to the config file and call the `src.core.esta_model_builder.py` script. The `esta_model_builder.py` script breaks the config file into sections and options using the `CustomParser` class in `src.core.custom_parser.py`.
 
 For instance, when parsing the scaling step, a small section of code parses the config file and instantiates a list of classes to do the scaling:
 
@@ -79,13 +79,13 @@ For instance, when parsing the scaling step, a small section of code parses the 
     except (NameError, KeyError) as e:
         sys.exit('ERROR: Unable to find class: ' + scaler_name + '\n' + str(e))
 
-Here you can see that the emissions-scaling classes must be found under `src.scaling.`, in a file name that is a lower case version of the full class name. For example, the class name `Dtim4Emfac2014Scaler` is used in the config file, and the above code tries to load that class in the following way:
+Here you can see that the emissions-scaling classes must be found under `src.scaling.`, in a file name that is a lower case version of the full class name. For example, the class name `EmfacSmokeScaler` is used in the config file, and the above code tries to load that class in the following way:
 
-    from src.scaling.dtim4emfac2014scaler import Dtim4Emfac2014Scaler
+    from src.scaling.emfacsmokescaler import EmfacSmokeScaler
 
 This approach offers a lot of flexibility. The developer only has to add a reference to their new class in a config file to wire into the model. If a new class is added to a file with the wrong name, the developer will see an error message clearly printing the desired file path
 
-To correspond with each of the five major gridding steps, there is a section in the config file which matches to a class path in the `src` folder:
+Corresponding to each of the five major gridding steps, there is a section in the config file which matches to a class path in the `src` folder:
 
     [Emissions] --> src.emissions
     [Surrogates] --> src.surrogates
@@ -95,7 +95,7 @@ To correspond with each of the five major gridding steps, there is a section in 
 
 #### The Core
 
-As seen above, the ESTA code base has modules for each of the ESTA gridding steps. But the classes in these modules are simply subclasses of those in the core. So to understand the function of ESTA, you only need to understand the core. The rest are implementation details specific to the science involved. The easiest file to understand is `version.py`, which sets the current version of ESTA, which is printed to the screen during each run. Each step in the gridding process is represented in ESTA by an abstract class in `src.core`:
+As seen above, the ESTA code base has modules for each of the ESTA gridding steps. But the classes in these modules are simply subclasses of those in the core. So to understand the function of ESTA, you only need to understand the core. The rest are implementation details specific to the science involved. The easiest file to understand is `version.py`, which sets the current version of ESTA, which is printed to the screen at the beggining of each run. Each step in the gridding process is represented in ESTA by an abstract class in `src.core`:
 
     **emissions loading** --> `EmissionsLoader`
     **spatial surrogate loading** --> `SpatialLoader`
@@ -108,7 +108,7 @@ Notice that in the config file there is a single major section for `[Surrogates]
 
 #### ESTA Data Structures
 
-The ESTA model is designed to be independent of the data structures that are passed between each modeling step.  That is, there are no data structures defined in `src.core`, and the abstract step classes in `src.core` are independent of the data structure used. However, in order for the steps to work together, the subclasses of each step will have to be designed with knowledge of the data structures used.
+The ESTA model is designed to be independent of the data structures that are passed between each modeling step.  That is, there are no data structures defined in `src.core`, and the abstract step classes in `src.core` are independent of the data structure used. However, in order for the steps to work together, the subclasses of each step will have to be designed with knowledge some data structures to pass data around.
 
 For instance, in the master run script `src.core.esta_model.py`, you will find the following lines in the `EstaModel` class:
 
@@ -122,26 +122,26 @@ Here you can see that the emissions loader instance (subclassed from `EmissionsL
 
 ESTA comes with several helpful data structures specifically designed for the emissions gridding process:
 
- * from src.emissions.emissions_table import EmissionsTable
-  * A subclass of Python's `collections.defaultdict`
-  * Two levels of keys: EIC and pollutant
-  * final value is emissions (a float)
- * from src.emissions.sparce_emissions import SparceEmissions
-  * A subclass of Python's `collections.defaultdict`
-  * Two levels of keys: grid cell tuple and pollutant
-  * final value is emissions (a float)
- * from src.emissions.scaled_emissions import ScaledEmissions
-  * simple multi-level dictionary container
-  * the keys are, in order: region, date, hr, eic
-  * the values are of type `SparceEmissions`
- * from src.surrogates.spatial_surrogate import SpatialSurrogate
-  * A subclass of Python's `collections.defaultdict`
-  * key is a grid cell location tuple
-  * value is fraction of the emissions in that grid cell
- * from src.surrogates.temporal_surrogate import TemporalSurrogate
-  * A subclass of Python's `array.array`
-  * The array has length 24
-  * Elments of array sum to 1.0
+* from src.emissions.emissions_table import EmissionsTable
+ * A subclass of Python's `collections.defaultdict`
+ * Two levels of keys: EIC and pollutant
+ * final value is emissions (a float)
+* from src.emissions.sparce_emissions import SparceEmissions
+ * A subclass of Python's `collections.defaultdict`
+ * Two levels of keys: grid cell tuple and pollutant
+ * final value is emissions (a float)
+* from src.emissions.scaled_emissions import ScaledEmissions
+ * simple multi-level dictionary container
+ * the keys are, in order: region, date, hr, eic
+ * the values are of type `SparceEmissions`
+* from src.surrogates.spatial_surrogate import SpatialSurrogate
+ * A subclass of Python's `collections.defaultdict`
+ * key is a grid cell location tuple
+ * value is fraction of the emissions in that grid cell
+* from src.surrogates.temporal_surrogate import TemporalSurrogate
+ * A subclass of Python's `array.array`
+ * The array has length 24
+ * Elments of array sum to 1.0
 
 ## Important Algorithms
 
@@ -202,7 +202,7 @@ This only works because we happen to know the region the lat/lon pair belongs in
 
         return lat_min + y + 1, lon_min + x + 1
 
-The end result of this technology is that these two methods were found to be a couple thousand times faster than the naive search of the entire grid for the default on-road-with-EMFAC2014 scenario.
+The end result of this technology is that these two methods were found to be a couple thousand times faster than the naive search of the entire grid for the default on-road-with-EMFAC simulations.
 
 ## Developing for ESTA
 
@@ -212,7 +212,7 @@ A common problem for scientists and engineers is that they spend more time wrang
 
 #### Implementing Your Own Step
 
-Perhaps the most important design goal in ESTA is the ability to replace a step with one of your own. To that end, let's look at an example of doing just that. In the example below, we create a special temporal surrogate: `RushHour`. In this new temporal surrogate, all onroad traffic will happen in two hours of the day (8AM and 5PM), the other 22 hours of the day will have no traffic.
+Perhaps the most important design goal in ESTA is the ability to replace a step with one of your own. Let's look at an example of doing just that. In the example below, we create a special temporal surrogate: `RushHour`. In this new temporal surrogate, all onroad traffic will happen in two hours of the day (8AM and 5PM), the other 22 hours of the day will have no traffic.
 
 The first thing to do when implementing `RushHour` will be to sub-class the temporal surrogate loader `TemporalLoader` in `src.core.temporal_loader.py`:
 
@@ -238,7 +238,7 @@ Following the example of several other classes in ESTA, you can add a list of re
             super(RushHour, self).__init__(config, directory)
             self.regions = self.config.parse_regions('Regions', 'regions')
 
-Note that `parse_regions` is a custom method built into the `CustomParser` class in `src.core.custom_parser.py`. This method also allows for a region list like `1..69` to generate a list of numbers from 1 to 69, inclusive. Otherwise, it is just a space-separated list.
+Note that `parse_regions` is a custom method built into the `CustomParser` class in `src.core.custom_parser.py`. This method allows for a region list like `1..69` to generate a list of numbers from 1 to 69, inclusive. Otherwise, it is just a space-separated list.
 
 All that is left is do the actual work of creating the temporal surrogates.
 
@@ -255,10 +255,10 @@ All that is left is do the actual work of creating the temporal surrogates.
             temporal_surrogates['dow'][region] = {}
             temporal_surrogates['diurnal'][region] = {}
             for dow in dows:
-                temporal_surrogates['diurnal'][region][dow] = [1.0, 1.0, 1.0, 1.0]
-                temporal_surrogates['dow'][region][dow] = [0.0]*24
-                temporal_surrogates['dow'][region][dow][7] = 0.5
-                temporal_surrogates['dow'][region][dow][16] = 0.5
+                temporal_surrogates['dow'][region][dow] = [1.0, 1.0, 1.0, 1.0]
+                temporal_surrogates['diurnal'][region][dow] = [[0.0, 0.0, 0.0, 0.0] for i in xrange(24)]
+                temporal_surrogates['diurnal'][region][dow][7] = [0.5, 0.5, 0.5, 0.5]
+                temporal_surrogates['diurnal'][region][dow][16] = [0.5, 0.5, 0.5, 0.5]
 
         return temporal_surrogates
 
@@ -285,7 +285,7 @@ It is fairly simple to implement a new modeling domain in ESTA. It all depends o
 4. It is lat-lon based (and thus projection-free).
 5. It is unambiguous.
 
-The `GRIDCRO2D` file is not the only file you need to define your new domain. There is one more, the region boxes file. To speed up the process of locating which grid cell a certain lat/lon point is in on your modeling domain, your domain is split up into rectangular regions (one for each county, state, or whatever). This will give a much smaller region for Python to hunt in. You will find examples of these files for five default cases in the input folder:
+The `GRIDCRO2D` file is not the only file you need to define your new domain. There is one more, the region boxes file. To speed up the process of locating which grid cell a certain lat/lon point is in, your domain is split up into rectangular regions (one for each county, state, or whatever). This will give a much smaller region for Python to hunt in. You will find examples of these files for five default cases in the input folder:
 
     ESTA
     └───input
@@ -319,7 +319,7 @@ This script is easy to use. For example, if you wanted to generate the grid doma
     cd input/defaults/domains/
     python preprocess_grid_boxes.py -gridcro2d GRIDCRO2D.California_12km_97x107 -rows 97 -cols 107  -regions california_counties_lat_lon_bounding_boxes.csv
 
-And this would print a nicely-formatted dictionary (JSON/Python) to the screen, which you can copy to a file called `county_boxes_ca_12km.py`.  NOTA BENE: If you enter a lat/lon bounding box outside your stated grid domain, this script will return a non-sensical bounding box.
+And this would print a nicely-formatted dictionary (JSON/Python) to the screen, which you can copy to a file called `county_boxes_ca_12km.py`.  NOTE: If you enter a lat/lon bounding box outside your stated grid domain, this script will return a non-sensical bounding box.
 
 
 [Back to Main Readme](../README.md)
