@@ -319,7 +319,7 @@ This script is easy to use. For example, if you wanted to generate the grid doma
     cd input/defaults/domains/
     python preprocess_grid_boxes.py -gridcro2d GRIDCRO2D.California_12km_97x107 -rows 97 -cols 107  -regions california_counties_lat_lon_bounding_boxes.csv
 
-And this would print a nicely-formatted dictionary (JSON/Python) to the screen, which you can copy to a file called `county_boxes_ca_12km.py`.  NOTE: If you enter a lat/lon bounding box outside your stated grid domain, this script will return a non-sensical bounding box.
+And this would print a nicely-formatted dictionary (JSON/Python) to the screen, which you can copy to a file called `county_boxes_ca_12km.py`.
 
 
 [Back to Main Readme](../README.md)
