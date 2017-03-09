@@ -27,6 +27,7 @@ class EmfacPmedsTotalsTester(OutputTester):
         self.precision = MAX_EIC_PRECISION
         if 'eic_precision' in self.config['Output']:
             self.precision = int(self.config['Output']['eic_precision'])
+        self.can_test_dow = True if self.precision == MAX_EIC_PRECISION else False
         self.eic_reduce = eic_reduce(str(self.precision))
         # read input day-of-week temporal profiles
         self.original_profs = self._load_calvad_dow_profiles()
@@ -69,19 +70,16 @@ class EmfacPmedsTotalsTester(OutputTester):
             ind = self.config.getlist('Surrogates', 'temporal_loaders').index('CalvadTemporalLoader')
             ctl = CalvadTemporalLoader(self.config, ind)
             orig_profs = ctl.load_dow(ctl.dow_path)
-
-            # if the run is not by 14-digit EIC, we cannot test the day-of-week profiles
-            can_test_dow = True if self.precision == MAX_EIC_PRECISION else False
         except ValueError:
             # some other temporal profiles were used, so we can't test thouse
-            can_test_dow = False
+            self.can_test_dow = False
 
         # reorganize the data into something more useful for our individual EICs
         profs = {}
         for dow in set(DOW.values()):
             profs[dow] = {}
             for region in self.regions:
-                if can_test_dow:
+                if self.can_test_dow:
                     profs[dow][region] = {}
                     for eic in self.eic_info:
                         profs[dow][region][eic] = orig_profs[region][dow][self.CALVAD_TYPE[self.eic_info[eic][0]]]
@@ -139,7 +137,7 @@ class EmfacPmedsTotalsTester(OutputTester):
             os.mkdir(self.testing_dir)
         file_path = os.path.join(self.testing_dir, 'pmeds_daily_totals_' + date + '.txt')
         f = open(file_path, 'w')
-        if self.precision != MAX_EIC_PRECISION:  # TODO: also, if not Calvad
+        if not self.can_test_dow:
             f.write('Since your run is not by ' + str(MAX_EIC_PRECISION) + '-digit EIC, ' +
                     'your test results will not be adjust for day-of-week.\n\n')
         f.write('Region,EIC,Pollutant,EMFAC,PMEDS,Percent Diff\n')
