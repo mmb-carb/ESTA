@@ -80,13 +80,14 @@ All of the provided example config files are set up for the same Wednesday in th
 
 #### Regions
 
-The purpose of this config section is to allow users to define which counties, states, or other regions they are modeling.
+The purpose of this config section is to allow users to define which counties, states, or other regions they are modeling.  And supply extra information about the region definitions.
 
 For instance, if you wanted to select all 69 GAIs in California, you might do:
 
     regions: 1..69
+    region_info: input/defaults/california/gai_info.py
 
-Of if you wanted to just select one region (say, the Santa Barbara GAI):
+Of if you wanted to just select one region (say, the Santa Barbara GAI) you could change the available list of regions:
 
     regions: 57
 
@@ -97,6 +98,14 @@ Or you can list an arbitrary set of regions (say the 10 counties in the SCAQMD r
 If you want to list a range of values use the `..` notation (inclusive):
 
     regions: 7..17
+
+The `gai_info.py` file lists various kinds of information about each of the given regions (which are California GAIs for the purposes of the exmaple runs):
+
+* county
+* air basin
+* district
+* GAI name
+
 
 #### GridInfo
 
@@ -142,7 +151,6 @@ Where as in the `example_onroad_ca_4km_arb_pmeds.ini` file you will find it look
     calvad_diurnal: calvad_gai_diurnal_factors_2012.csv
     region_boxes: input/defaults/domains/gai_boxes_ca_4km.py
     eic_info: input/examples/onroad_emfac2014_santa_barbara/spatial_surrogates/eic_info.py
-    region_codes: input/defaults/california/gai_codes.py
 
 The difference between these two default runs is that the `example_onroad_ca_4km_dtim_pmeds.ini` config file defines a run where all spatial allocation comes from DTIM4-ready road network files and match DTIM4 outputs. And the `example_onroad_ca_4km_arb_pmeds.ini` file defines a run which also uses SMOKE-ready spatial surrogates and supports ARB's modern on-road modeling.
 
@@ -194,14 +202,10 @@ The output section defines how the final output files from ESTA are created. In 
     combine_regions: False
     eic_precision: 3
     inventory_version: v0100
-    county_to_gai: input/defaults/california/county_to_gai.py
-    gai_basins: input/defaults/california/gai_basins.py
 
 The primary variables in this section are: `writers` which lists the output-creating classes, and `directories` which lists where you want the output files. All the rest of the variables in the default config files are specific to the EMFAC on-road process.
 
 The `by_region` variable can be set to `True` if you want each county to have it's own output file, or `False` if you want all counties in the same file. The `inventory_version` variable is just a string used to uniquely identify your model run.
-
-The remaining two variables list the paths to input Python files that associate California GAI codes to various other information. The `county_to_gai.py` file maps each county number to a list of the GAIs contained in that county. The `gai_basins.py` file is a simple dictionary mapping each GAI to the short string that represents which air basin that GAI is in.
 
 The `eic_precision` option is used to define how detailed you want to output your emissions. For instance, the outputs can be written using full EIC-14 categories by setting this option to `14`. But if the outputs are written using only EIC-3 (`eic_precision: 3`), the output files might be about 100 times smaller.
 
@@ -211,7 +215,6 @@ By contrast, in the input file example_onroad_ca_4km_dtim_ncf.ini you will see s
     directory: output/example_onroad_ca_4km_dtim/
     writers: CmaqNetcdfWriter
     by_region: False
-    county_to_gai: input/defaults/california/county_to_gai.py
     inventory_version: v0102
     gspro_file: input/examples/onroad_emfac2014_santa_barbara/ncf/gspro.cmaq.saprc.example.csv
     summer_gsref_file: input/examples/onroad_emfac2014_santa_barbara/ncf/gsref.cmaq.saprc.example.summer.csv
@@ -240,10 +243,10 @@ Please note that there are tests available in ESTA for PMEDS and NetCDF output f
 
 The miscellaneous section is just what is sounds like. In the case of the default config files, the miscellaneous section is used for input files that are shared between different processing steps.
 
-    region_names: input/defaults/california/gai_names.py
+    [Misc]
     vtp2eic: input/defaults/emfac2014/vtp2eic.py
 
-The `gai_names.py` file is a simple dictionary mapping a California GAI integer to the GAI name. The `vtp2eic.py` is another dictionary mapping a tuple `(vehicle type, technology, process)` to a 14-digit EIC number.
+The `vtp2eic.py` is another dictionary mapping a tuple `(vehicle type, technology, process)` to a 14-digit EIC number.
 
 
 [Back to Main Readme](../README.md)
