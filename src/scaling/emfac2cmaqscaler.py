@@ -26,7 +26,8 @@ class Emfac2CmaqScaler(EmissionsScaler):
     def __init__(self, config, position):
         super(Emfac2CmaqScaler, self).__init__(config, position)
         self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
-        self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
+        self.region_info = self.config.eval_file('Regions', 'region_info')
+        self.reverse_regions = dict(((d['air_basin'], d['county'], d['district']), g) for g,d in self.region_info.iteritems())
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
         self.gspro_file = self.config['Output']['gspro_file']
         self.weight_file = self.config['Output']['weight_file']
@@ -257,7 +258,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
         """ read the NH3/CO values from the inventory and generate the NH3/CO fractions
             File format:
             fyear,co,ab,dis,facid,dev,proid,scc,sic,eic,pol,ems
-            2012,33,SC,SC,17953,1,11,39000602,3251,5007001100000,42101,5.418156170044^M
+            2012,33,SC,SC,17953,1,11,39000602,3251,5007001100000,42101,5.418156170044
         """
         co_id = 42101
         nh3_id = 7664417
@@ -268,21 +269,25 @@ class Emfac2CmaqScaler(EmissionsScaler):
         for line in f.xreadlines():
             # parse line
             ln = line.strip().split(',')
-            poll = int(ln[-2])
+            poll = int(ln[10])
             if poll not in [co_id, nh3_id]:
                 continue
-            eic = int(ln[-3])
-            val = np.float32(ln[-1])
+            eic = int(ln[9])
+            val = np.float32(ln[11])
+            ab = ln[2]
             county = int(ln[1])
-            regions = self.county_to_gai[county]
-            for region in regions:
-                # fill data structure
-                if region not in inv:
-                    inv[region] = defaultdict(np.float32)
-                if eic not in inv[region]:
-                    inv[region][eic] = {co_id: np.float32(0.0), nh3_id: np.float32(0.0)}
-                # fill in emissions values
-                inv[region][eic][poll] += val
+            district = ln[3]
+            if (ab, county, district) not in self.reverse_regions:
+                continue
+            region = self.reverse_regions[(ab, county, district)]
+
+            # fill data structure
+            if region not in inv:
+                inv[region] = defaultdict(np.float32)
+            if eic not in inv[region]:
+                inv[region][eic] = {co_id: np.float32(0.0), nh3_id: np.float32(0.0)}
+            # fill in emissions values
+            inv[region][eic][poll] += val
         f.close()
 
         # create fractions

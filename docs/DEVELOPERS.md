@@ -204,6 +204,86 @@ This only works because we happen to know the region the lat/lon pair belongs in
 
 The end result of this technology is that these two methods were found to be a couple thousand times faster than the naive search of the entire grid for the default on-road-with-EMFAC simulations.
 
+## Unique File Formats
+
+The modular design of ESTA allows a developer to easily read or write files of different formats at every stage of processing. However, the default version of ESTA comes with several types of input files unique to the ESTA processing of on-road emissions. The most unique are outlined below.
+
+
+#### eic_info.py
+
+The `eic_info.py` file is used to help connect various data to each on-road Emission Inventory Codes (EICs) that we want to model.  The file contains a single Python dictionary mapping every EIC to a tuple containing the data we want associated with it.  The file will look something like:
+
+    {71070111000000: (0, 'trips', 1.0),
+     71070611000000: (0, 'vmt', 1.0),
+     ...
+     78076854100000: (25, 'vmt', 1.0)}
+
+In particular, each EIC maps to a tuple with three elements:
+
+1. The DTIM Column: The column (0-25) in the DTIM Link file that covers this EIC.
+2. Spatial Surrogate Code: A string representing which SMOKE v4 spatial surrogate that is used to cover this EIC.
+3. Scaling Fraction: This fraction is used to scale the emissions from this EIC. If the fraction is 1.0, the emissions are left unchanged. If the fraction is 0.5, you reduce the emissions by 50%. If the fraction is 3, you triple the emissions.
+
+By default, there are two `eic_info.py` files that come with the standard ESTA distribution at:
+
+    input/defaults/emfac2014/eic_info.py
+    input/examples/onroad_emfac2014_santa_barbara/spatial_surrogates/eic_info.py
+
+The first one is used for the default DTIM case, where the second column only points to "vmt" or "trips". But the second file is part of the Santa Barbara example, and the second tuple column points to SMOKE spatial surrogates for spatial disaggregation.
+
+#### vtp2eic.py
+
+The `vtp2eic.py` file is used to map the EMFAC outputs to the EIC categories used by CARB.  EMFAC outputs emissions by vehicle categories such as:
+
+    LDA, CAT, RUNEX
+
+This is meant to represent "Light Duty Auto", "Catalytic Converter", and "Running Exhaust".  That is a great description, but CARB represents that using the EIC 71073411000000.  The `vtp2eic.py` file contains a singly Python dictionary mapping these EMFAC codes to EIC, for example:
+
+    {('All Other Buses', 'DSL', 'IDLEX'): 77976512100000,
+     ('All Other Buses', 'DSL', 'PMBW'): 77976854100000,
+     ...
+     ('UBUS', 'NCAT', 'STREX'): 76270111000000}
+
+#### NH3/CO CSV
+
+The NH3/CO inventory CSV file contains the NH3 and CO emissions from all on-road EICs, for all regions in California. This file is necessary because EMFAC2014 does not output NH3 emissions from on-road sources, but the NH3 is important in photochemical modeling.  This file is used ad-hoc to calculate NH3 emissions from the CO emissions given by EMFAC.
+
+An example NH3/CO CSV file is given at:
+
+    input/defaults/emfac2014/nh3/rf2082_b_2012_20160212_onroadnh3.csv
+
+The file format is used elsewhere at CARB, so several of the columns are unused:
+
+* FYEAR - Unused
+* CO - County [number]
+* AB - Air Basin [2 or 3-letter code]
+* DIS - District [2 or 3-letter code]
+* FACID - Unused
+* DEV - Unused
+* PROID - Unused
+* SCC - Unused
+* SIC - Unused
+* EIC - EIC [14-digit code]
+* POL - Pollutant Code [CEIDARS numerical code]
+* EMS - Emissions [decimal number in tons]
+
+#### Calvad Diurnal Factors CSV
+
+TODO
+
+#### Calvad DOW Factors CSV
+
+TODO
+
+#### County and GAI Information
+
+TODO
+
+#### gai_info.py
+
+TODO
+
+
 ## Developing for ESTA
 
 ESTA is designed to be easily expanded by developers. The modular design means that changing the function of ESTA doesn't require touching the whole code base. Whether you want to read a different type of emissions file, add a special kind of spatial surrogate, or write a new type of output file, you should be able to do that buy writing a single class and dropping it into a `src` module.

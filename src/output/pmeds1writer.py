@@ -19,19 +19,18 @@ class Pmeds1Writer(OutputWriter):
 
     def __init__(self, config, position):
         super(Pmeds1Writer, self).__init__(config, position)
-        self.by_region = self.config.getboolean('Output', 'by_region')
-        self.combine = self.config.getboolean('Output', 'combine_regions') if self.by_region else False
         self.version = self.config['Output']['inventory_version']
         self.grid_file = self.config['GridInfo']['grid_cross_file']
-        self.region_names = self.config.eval_file('Misc', 'region_names')
-        self.short_region_names = self._build_short_region_names()
-        self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
-        self.gai_to_county = dict((g, c) for c in self.county_to_gai for g in self.county_to_gai[c])
-        self.gai_basins = self.config.eval_file('Output', 'gai_basins')
         self.region_boxes = self.config.eval_file('Surrogates', 'region_boxes')  # bounds are inclusive
-        self.short_regions = self._build_short_regions()
-        self._shorten_gai_basins()
-        self._shorten_county_names()
+        self.by_region = self.config.getboolean('Output', 'by_region')
+        self.combine = self.config.getboolean('Output', 'combine_regions') if self.by_region else False
+        # parse and format specialized region info for PMEDS files
+        self.region_info = self.config.eval_file('Regions', 'region_info')
+        self.gai_to_county = dict((g, str(d['county']).rjust(2)) for g,d in self.region_info.iteritems())
+        self.gai_basins = dict((g, d['air_basin'].rjust(3)) for g,d in self.region_info.iteritems())
+        self.region_names = dict((g, d['name'][:8]) for g,d in self.region_info.iteritems())
+        self.short_region_names = dict((g, d['name'][:8].ljust(8)) for g,d in self.region_info.iteritems())
+        self.short_regions = dict((g, str(g).rjust(3)) for g in self.region_info)
 
     def write(self, scaled_emissions):
         """ The master method to write output files.
@@ -207,37 +206,3 @@ class Pmeds1Writer(OutputWriter):
 
         nomen = self.region_names[region].replace(')', '').replace('(', '').replace(' ', '_')
         return os.path.join(out_dir, nomen + '.pmeds')
-
-    def _build_short_region_names(self):
-        """ Building a dictionary of region names in a shortened form to be used in the PMEDS.
-            NOTE: This is purely to speed-up writing the PMEDS lines.
-        """
-        d = {}
-        for region, nomen in self.region_names.iteritems():
-            d[region] = nomen[:8].ljust(8)
-
-        return d
-
-    def _shorten_gai_basins(self):
-        """ Altering the dictionary of basin names to a shortened form to be used in the PMEDS.
-            NOTE: This is purely to speed-up writing the PMEDS lines.
-        """
-        for region in self.gai_basins:
-            self.gai_basins[region] = self.gai_basins[region].rjust(3)
-
-    def _shorten_county_names(self):
-        """ Altering the dictionary of county names to a shortened form.
-            NOTE: This is purely to speed-up writing the PMEDS lines.
-        """
-        for region in self.gai_to_county:
-            self.gai_to_county[region] = str(self.gai_to_county[region]).rjust(2)
-
-    def _build_short_regions(self):
-        """ Building a dictionary of shorter region numbers.
-            NOTE: This is purely to speed-up writing the PMEDS lines.
-        """
-        sr = {}
-        for r in self.regions:
-            sr[r] = str(r).rjust(3)
-
-        return sr

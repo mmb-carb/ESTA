@@ -25,9 +25,10 @@ class EmfacSmokeScaler(EmissionsScaler):
     def __init__(self, config, position):
         super(EmfacSmokeScaler, self).__init__(config, position)
         self.by_region = self.config.getboolean('Output', 'by_region')
+        self.region_info = self.config.eval_file('Regions', 'region_info')
+        self.reverse_regions = dict(((d['air_basin'], d['county'], d['district']), g) for g,d in self.region_info.iteritems())
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
-        self.county_to_gai = self.config.eval_file('Output', 'county_to_gai')
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
@@ -122,21 +123,25 @@ class EmfacSmokeScaler(EmissionsScaler):
         for line in f.xreadlines():
             # parse line
             ln = line.strip().split(',')
-            poll = int(ln[-2])
+            poll = int(ln[10])
             if poll not in [co_id, nh3_id]:
                 continue
-            eic = int(ln[-3])
-            val = np.float32(ln[-1])
+            eic = int(ln[9])
+            val = np.float32(ln[11])
+            ab = ln[2]
             county = int(ln[1])
-            regions = self.county_to_gai[county]
-            for region in regions:
-                # fill data structure
-                if region not in inv:
-                    inv[region] = defaultdict(np.float32)
-                if eic not in inv[region]:
-                    inv[region][eic] = {co_id: np.float32(0.0), nh3_id: np.float32(0.0)}
-                # fill in emissions values
-                inv[region][eic][poll] += val
+            district = ln[3]
+            if (ab, county, district) not in self.reverse_regions:
+                continue
+            region = self.reverse_regions[(ab, county, district)]
+
+            # fill data structure
+            if region not in inv:
+                inv[region] = defaultdict(np.float32)
+            if eic not in inv[region]:
+                inv[region][eic] = {co_id: np.float32(0.0), nh3_id: np.float32(0.0)}
+            # fill in emissions values
+            inv[region][eic][poll] += val
         f.close()
 
         # create fractions
