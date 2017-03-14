@@ -20,7 +20,8 @@ class Emfac2014CsvLoader(EmissionsLoader):
         if position >= len(time_units_list):
             raise IndexError('Different number of emission loaders and time units.')
         self.time_units = time_units_list[position]
-        self.region_names = self.config.eval_file('Misc', 'region_names')
+        self.region_info = self.config.eval_file('Regions', 'region_info')
+        self.region_names = dict((g, d['name']) for g,d in self.region_info.iteritems())
         self.vtp2eic = self.config.eval_file('Misc', 'vtp2eic')
         self.hd_ld = 'ld'
 

@@ -24,7 +24,8 @@ class EmfacPmedsDiurnalTester(OutputTester):
         super(EmfacPmedsDiurnalTester, self).__init__(config, position)
         self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
         self.by_region = self.config.getboolean('Output', 'by_region')
-        self.region_names = self.config.eval_file('Misc', 'region_names')
+        self.region_info = self.config.eval_file('Regions', 'region_info')
+        self.region_names = dict((g, d['name']) for g,d in self.region_info.iteritems())
         self.original_profs = self._load_calvad_diurnal_profiles()
         # How many digits of EIC were preserved in the output files?
         self.precision = MAX_EIC_PRECISION

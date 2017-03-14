@@ -26,7 +26,9 @@ class CalvadSmoke4SpatialSurrogateLoader(SpatialLoader):
         self.eic_labels = self.config.getlist('Surrogates', 'smoke_eic_labels')
         if len(self.smoke_surrogates) != len(self.eic_labels):
             sys.exit('ERROR: You need the same number of SMOKE surrogates as EIC labels.')
-        self.gai_codes = self.config.eval_file('Surrogates', 'region_codes')
+        self.region_info = self.config.eval_file('Regions', 'region_info')
+        self.gai_codes = dict((d['air_basin'].rjust(3, '0') + '006' + str(d['county']).rjust(3, '0') + d['district'].rjust(3, '0'), g)
+                              for g,d in self.region_info.iteritems())
         self.regions = self.config.parse_regions('Regions', 'regions')
 
     def load(self, spatial_surrogates, temporal_surrogates):
