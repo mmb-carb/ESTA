@@ -16,7 +16,7 @@ class EmfacPmedsTotalsTester(OutputTester):
     CALVAD_TYPE = [0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0,
                    0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0]
     KG_2_STONS = np.float32(0.001102310995)
-    POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM']
+    POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM', 'NH3']
 
     def __init__(self, config, position):
         super(EmfacPmedsTotalsTester, self).__init__(config, position)
@@ -51,7 +51,7 @@ class EmfacPmedsTotalsTester(OutputTester):
                 continue
 
             # find the day-of-week
-            if date[4:] in find_holidays(self.base_year):
+            if date[5:] in find_holidays(self.base_year):
                 dow = 'holi'
             else:
                 by_date = str(self.base_year) + date[4:]
@@ -144,11 +144,11 @@ class EmfacPmedsTotalsTester(OutputTester):
         f.write('Region,EIC,Pollutant,EMFAC,PMEDS,Percent Diff\n')
 
         # compare DOW profiles by: Region, EIC, and pollutant
-        total_totals = {'emfac': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero},
-                        'final': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero}}
+        total_totals = {'emfac': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero},
+                        'final': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero}}
         for region_num in self.regions:
-            region_totals = {'emfac': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero},
-                             'final': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero}}
+            region_totals = {'emfac': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero},
+                             'final': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero}}
             c = self.region_names[region_num]
             # write granular totals, by EIC
             eics = set(emfac_emis.get(region_num, date).keys() + out_emis[region_num].keys())
@@ -162,7 +162,7 @@ class EmfacPmedsTotalsTester(OutputTester):
                     region_totals['emfac'][poll] += emfac
                     region_totals['final'][poll] += final
                     # don't write the detailed line if there's no difference
-                    if abs(diff) > 0.009999:
+                    if poll != 'NH3' and abs(diff) > 0.009999:
                         f.write(','.join([c, str(eic), poll, '%.5f' % emfac, '%.5f' % final, '%.2f' % diff]) + '\n')
 
             # write region totals, without EIC
@@ -214,7 +214,7 @@ class EmfacPmedsTotalsTester(OutputTester):
             if eic not in e[region]:
                 e[region][eic] = dict(zip(self.POLLUTANTS, [0.0]*len(self.POLLUTANTS)))
 
-            for i in xrange(5):
+            for i in xrange(6):
                 e[region][eic][self.POLLUTANTS[i]] += vals[i] * self.KG_2_STONS
 
         return e

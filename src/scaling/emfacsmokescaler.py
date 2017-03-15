@@ -60,7 +60,7 @@ class EmfacSmokeScaler(EmissionsScaler):
             # find the DOW
             date = today.strftime(self.date_format)
             today += timedelta(days=1)
-            if date[4:] in find_holidays(self.base_year):
+            if date[5:] in find_holidays(self.base_year):
                 dow_num = 7
                 dow = 'holi'
             else:

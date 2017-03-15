@@ -78,7 +78,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
             # find the DOW
             date = today.strftime(self.date_format)
             today += timedelta(days=1)
-            if date[4:] in find_holidays(self.base_year):
+            if date[5:] in find_holidays(self.base_year):
                 dow_num = 7
                 dow = 'holi'
             else:
@@ -186,7 +186,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 if not nh3_fraction:
                     continue
 
-                nh3_fraction *= self.STONS_HR_2_G_SEC / self.groups['CO']['weights'][0]
+                nh3_fraction *= (self.STONS_HR_2_G_SEC / self.groups['NH3']['weights'][0])
 
                 se.add_grid_nocheck('NH3', ss * (emis_table[eic]['co'] * nh3_fraction))
 

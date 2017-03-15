@@ -11,7 +11,6 @@ class EmfacNcfTotalsTester(OutputTester):
 
     KG_2_STONS = np.float32(0.001102310995)
     MOLESEC2KG = np.float32(3600.0) * KG_2_STONS
-    POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM']
 
     def __init__(self, config, position):
         super(EmfacNcfTotalsTester, self).__init__(config, position)
@@ -68,7 +67,7 @@ class EmfacNcfTotalsTester(OutputTester):
         f.write('Pollutant,EMFAC,NetCDF,Percent Diff\n')
 
         # create all-region EMFAC totals
-        emfac_totals = {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero}
+        emfac_totals = {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero}
         for region in self.regions:
             if region not in emfac_emis.data:
                 continue
@@ -79,7 +78,7 @@ class EmfacNcfTotalsTester(OutputTester):
                         emfac_totals[poll.upper()] += value
 
         # find diff between EMFAC and NetCDF & add to file
-        for poll in sorted(emfac_totals.keys()):
+        for poll in ['CO', 'NOX', 'SOX', 'TOG', 'PM', 'NH3']:
             emfac_val = emfac_totals[poll]
             ncf_val = ncf_emis.get(poll, 0.0)
             diff = EmfacNcfTotalsTester.percent_diff(emfac_val, ncf_val)

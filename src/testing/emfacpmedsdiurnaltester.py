@@ -64,7 +64,7 @@ class EmfacPmedsDiurnalTester(OutputTester):
                 continue
 
             # find the day-of-week
-            if date[4:] in find_holidays(self.base_year):
+            if date[5:] in find_holidays(self.base_year):
                 dow = 'holi'
             else:
                 by_date = str(self.base_year) + date[4:]
