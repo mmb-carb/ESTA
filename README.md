@@ -4,6 +4,7 @@
 
 ESTA is a command-line tool for processing raw emissions data into spatially and temporally-allocated emissions inventories, suitable for photochemicaly modeling or other analysis. ESTA a open-source, Python-based tool designed by the AQPSD branch of the [California EPA][CalEPA]'s [CalEPA][ARB].
 
+
 ## ESTA Documentation
 
 For more information about what ESTA is and what it does, please see:
@@ -18,9 +19,14 @@ To run ESTA, you will need to have some common third-party libraries installed:
 
 * [requirements.txt](requirements.txt)
 
+To learn more about the input files to ESTA, and their formats, please see:
+
+* [The Input File Guide](docs/INPUT_FILES.md)
+
 If you are a developer, looking to understand or improve ESTA, please see:
 
 * [The Developer's Guide](docs/DEVELOPERS.md)
+
 
 ## Open-Source Licence
 
