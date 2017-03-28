@@ -16,7 +16,7 @@ class EstaModelBuilder(object):
         spatial_loaders = self._init_classes('Surrogates', 'spatial_loaders')
         temporal_loaders = self._init_classes('Surrogates', 'temporal_loaders')
         emis_loaders = self._init_classes('Emissions', 'emissions_loaders')
-        scalers = self._init_classes('Scaling', 'scalor')
+        scalers = self._init_classes('Scaling', 'scalar')
         writers = self._init_classes('Output', 'writers')
         testers = self._init_classes('Testing', 'tests')
 
