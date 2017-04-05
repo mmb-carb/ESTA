@@ -176,7 +176,18 @@ class Pmeds1Writer(OutputWriter):
         os.system('cat ' + ' '.join(region_files) + ' | gzip -9c > ' + out_file)
 
         # remove old region files
-        os.system('rm ' + ' '.join(region_files) + ' &')
+        os.system('rm ' + ' '.join(region_files))
+
+        # if the directory is empty, feel free to delete it
+        day_dir = os.path.dirname(region_files[0])
+        if not os.listdir(day_dir):
+            os.system('rm -rf ' + day_dir)
+
+            # if the directory above THAT is empty, try deleting it
+            month_dir = os.path.dirname(day_dir)
+            if not os.listdir(month_dir):
+                os.system('rm -rf ' + month_dir)
+
         return [out_file]
 
     def _build_pmeds1_line(self, region, date, jul_day, hr, eic, grid_cell, emis):
