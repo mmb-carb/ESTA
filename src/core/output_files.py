@@ -72,7 +72,7 @@ def build_arb_file_path(date, grid_file, file_type, directory='output/', base_ye
     day = date.day
     if not base_year:
         base_year = str(yr)
-    julian_day = str(date.timetuple().tm_yday)
+    julian_day = '%03d' % date.timetuple().tm_yday
 
     # ensure output directory exists
     out_dir = os.path.join(directory, file_type)
