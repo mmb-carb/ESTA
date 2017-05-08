@@ -223,7 +223,6 @@ class CmaqNetcdfWriter(OutputWriter):
             if gmt_shift == '19':
                 hr = (hr + 1) % 24
 
-            #for eic, sparse_emis in hr_data.iteritems():
             sparse_emis = hr_data[-999]
 
             for poll in sparse_emis.pollutants:
@@ -234,7 +233,7 @@ class CmaqNetcdfWriter(OutputWriter):
                 grid = sparse_emis.get_grid(poll)
                 rootgrp.variables[poll.upper()][hr,0,:,:] = grid
 
-                if not hr:  # hr == 0
+                if not hr:
                     rootgrp.variables[poll.upper()][24,0,:,:] = grid
 
         rootgrp.close()
