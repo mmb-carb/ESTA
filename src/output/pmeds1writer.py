@@ -28,7 +28,7 @@ class Pmeds1Writer(OutputWriter):
         self.region_info = self.config.eval_file('Regions', 'region_info')
         self.gai_to_county = dict((g, str(d['county']).rjust(2)) for g,d in self.region_info.iteritems())
         self.gai_basins = dict((g, d['air_basin'].rjust(3)) for g,d in self.region_info.iteritems())
-        self.region_names = dict((g, d['name'][:8]) for g,d in self.region_info.iteritems())
+        self.region_names = dict((g, d['name']) for g,d in self.region_info.iteritems())
         self.short_region_names = dict((g, d['name'][:8].ljust(8)) for g,d in self.region_info.iteritems())
         self.short_regions = dict((g, str(g).rjust(3)) for g in self.region_info)
 
