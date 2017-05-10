@@ -161,6 +161,8 @@ class EmfacPmedsTotalsTester(OutputTester):
                     # fill region totals
                     region_totals['emfac'][poll] += emfac
                     region_totals['final'][poll] += final
+                    if emfac < 0.00001 and final < 0.00001:
+                        continue
                     # don't write the detailed line if there's no difference
                     if poll != 'NH3' and abs(diff) > 0.009999:
                         f.write(','.join([c, str(eic), poll, '%.5f' % emfac, '%.5f' % final, '%.2f' % diff]) + '\n')
@@ -182,6 +184,8 @@ class EmfacPmedsTotalsTester(OutputTester):
                 emfac = total_totals['emfac'][poll]
                 final = total_totals['final'][poll]
                 diff = EmfacPmedsTotalsTester.percent_diff(emfac, final)
+                if emfac < 0.00001 and final < 0.00001:
+                    continue
                 f.write(','.join(['TOTAL', 'TOTAL', poll, '%.5f' % emfac, '%.5f' % final, '%.2f' % diff]) + '\n')
 
         f.close()
