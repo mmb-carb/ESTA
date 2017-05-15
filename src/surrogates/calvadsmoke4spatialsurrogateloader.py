@@ -84,9 +84,9 @@ class CalvadSmoke4SpatialSurrogateLoader(SpatialLoader):
                 continue
 
             # re-wrote for speed
-            #cell = (int(ln[3]), int(ln[2]))  # (x, y)
+            #cell = (int(ln[3]) - 1, int(ln[2]) - 1)  # (x, y)
             #fraction = np.float32(ln[4])
-            surrogates[region][(int(ln[3]), int(ln[2]))] = np.float32(ln[4])
+            surrogates[region][(int(ln[3]) - 1, int(ln[2]) - 1)] = np.float32(ln[4])
 
         f.close()
         return surrogates
