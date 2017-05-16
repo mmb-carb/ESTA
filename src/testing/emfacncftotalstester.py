@@ -9,13 +9,10 @@ from src.core.output_tester import OutputTester
 
 class EmfacNcfTotalsTester(OutputTester):
 
-    KG_2_STONS = np.float32(0.001102310995)
-    MOLESEC2KG = np.float32(3600.0) * KG_2_STONS
+    MOLESEC2KG = np.float32(3600.0) * np.float32(0.000001102310995)
 
     def __init__(self, config, position):
         super(EmfacNcfTotalsTester, self).__init__(config, position)
-        self.weight_file = ''
-        self.groups = {}
 
     def test(self, emis, out_paths):
         ''' Master Testing Method.
@@ -37,15 +34,11 @@ class EmfacNcfTotalsTester(OutputTester):
         ''' Read the output NetCDF files and compare the results with the
             input EMFAC2014 emissions.
         '''
-        if not ncf_files or 'weight_file' not in self.config['Output']:
+        if not ncf_files:
             return
-
-        # if NetCDF file exists, we need the weight file.
-        self.weight_file = self.config['Output']['weight_file']
 
         # sum up emissions in output NetCDF
         out_emis = {}
-        self.groups = self.load_weight_file(self.weight_file)
         for ncf_file in ncf_files:
             out_emis = self._sum_output_ncf(ncf_file, out_emis)
 
@@ -90,11 +83,8 @@ class EmfacNcfTotalsTester(OutputTester):
         ''' Look at the output NetCDF file and build a dictionary
             of the emissions by pollutant.
         '''
-        # initialize emissions dictionary, if necessary
-        for species in self.groups:
-            group = self.groups[species]['group']
-            if group not in e:
-                e[group] = 0.0
+        # initialize emissions dictionary
+        e = {'CO': 0.0, 'NH3': 0.0, 'NOX': 0.0, 'PM': 0.0, 'SOX': 0.0, 'TOG': 0.0}
 
         # open NetCDF file (if gzip, copy to temp file)
         if file_path.endswith('.gz'):
@@ -110,13 +100,13 @@ class EmfacNcfTotalsTester(OutputTester):
         for species in sortedvar:
             if species == 'TFLAG':
                 continue
-            ems = ncf.variables[species][:24].sum() * self.MOLESEC2KG * self.groups[species]['weight']
-            group = self.groups[species]['group']
+            ems = ncf.variables[species][:24].sum() * self.MOLESEC2KG * self.EMFAC_WEIGHTS[species]['weight']
+            group = self.EMFAC_WEIGHTS[species]['group']
 
             if group == 'NOX':
-                e[group] += ems * self.groups['NO2']['weight'] / self.groups[species]['weight']
+                e[group] += ems * self.EMFAC_WEIGHTS['NO2']['weight'] / self.EMFAC_WEIGHTS[species]['weight']
             elif group == 'SOX':
-                e[group] += ems * self.groups['SO2']['weight'] / self.groups[species]['weight']
+                e[group] += ems * self.EMFAC_WEIGHTS['SO2']['weight'] / self.EMFAC_WEIGHTS[species]['weight']
             else:
                 # PM, TOG, CO, & NH3
                 e[group] += ems
@@ -125,38 +115,6 @@ class EmfacNcfTotalsTester(OutputTester):
         if file_path.endswith('.gz'):
             os.remove(unzipped_path)
         return e
-
-    @staticmethod
-    def load_weight_file(file_path):
-        """ load molecular weight file
-            File Format:
-            NO          30.006      NOX    moles/s
-            NO2         46.006      NOX    moles/s
-            HONO        47.013      NOX    moles/s
-        """
-        # read molecular weight text file
-        fin = open(file_path, 'r')
-        lines = fin.read()
-        fin.close()
-
-        # read in CSV or Fortran-formatted file
-        lines = lines.replace(',', ' ')
-        lines = lines.split('\n')
-
-        groups = {}
-        # loop through file lines and
-        for line in lines:
-            # parse line
-            columns = line.rstrip().split()
-            if not columns:
-                continue
-            species = columns[0].upper()
-            groups[species] = {}
-            groups[species]['weight'] = np.float32(columns[1]) / np.float32(1000.0)
-            groups[species]['group'] = columns[2].upper()
-            groups[species]['units'] = columns[3]
-
-        return groups
 
     @staticmethod
     def percent_diff(a, b):
@@ -170,3 +128,71 @@ class EmfacNcfTotalsTester(OutputTester):
                 return -100.00
 
         return 100.0 * (a - b) / a
+
+    # average species weight for EMFAC2014-type mobile-source species
+    EMFAC_WEIGHTS = {'ACET': {'group': 'TOG', 'weight': 58.080294794111111},
+                     'ACRO': {'group': 'TOG', 'weight': 56.065095857809517},
+                     'ACYE': {'group': 'TOG', 'weight': 26.037175414675758},
+                     'ALK1': {'group': 'TOG', 'weight': 30.069301786261089},
+                     'ALK2': {'group': 'TOG', 'weight': 44.691406967680336},
+                     'ALK3': {'group': 'TOG', 'weight': 71.35067688928892},
+                     'ALK4': {'group': 'TOG', 'weight': 81.92575114621954},
+                     'ALK5': {'group': 'TOG', 'weight': 119.87010167008739},
+                     'APIN': {'group': 'TOG', 'weight': 136.23716650542266},
+                     'ARO1': {'group': 'TOG', 'weight': 147.59053097679501},
+                     'ARO2': {'group': 'TOG', 'weight': 125.26830693199521},
+                     'B124': {'group': 'TOG', 'weight': 120.19247334798177},
+                     'BALD': {'group': 'TOG', 'weight': 108.58968871387083},
+                     'BDE13': {'group': 'TOG', 'weight': 54.104630365537083},
+                     'BENZ': {'group': 'TOG', 'weight': 78.111907995314823},
+                     'CCHO': {'group': 'TOG', 'weight': 44.053353836287314},
+                     'CH4':  {'group': 'TOG', 'weight': 16.042013808472515},
+                     'CO':   {'group': 'CO', 'weight': 28.01},
+                     'CRES': {'group': 'TOG', 'weight': 148.19331323315282},
+                     'ETHE': {'group': 'TOG', 'weight': 28.052612918918417},
+                     'ETOH': {'group': 'TOG', 'weight': 46.068238797395125},
+                     'GLY':  {'group': 'TOG', 'weight': 58.035858154296875},
+                     'HCHO': {'group': 'TOG', 'weight': 30.025968928835287},
+                     'HONO': {'group': 'NOX', 'weight': 47.013},
+                     'IPRD': {'group': 'TOG', 'weight': 70.089276786978914},
+                     'ISOP': {'group': 'TOG', 'weight': 68.194723934903479},
+                     'MACR': {'group': 'TOG', 'weight': 70.092470649544524},
+                     'MEK':  {'group': 'TOG', 'weight': 72.105521427766064},
+                     'MEOH': {'group': 'TOG', 'weight': 32.042054730369934},
+                     'MGLY': {'group': 'TOG', 'weight': 72.062141418457031},
+                     'MVK':  {'group': 'TOG', 'weight': 80.856086967894754},
+                     'MXYL': {'group': 'TOG', 'weight': 106.16479348682222},
+                     'NH3':  {'group': 'NH3', 'weight': 17.03},
+                     'NO':   {'group': 'NOX', 'weight': 30.006},
+                     'NO2':  {'group': 'NOX', 'weight': 46.006},
+                     'NROG': {'group': 'TOG', 'weight': 1.0},
+                     'OLE1': {'group': 'TOG', 'weight': 69.9995},
+                     'OLE2': {'group': 'TOG', 'weight': 69.12001900445847},
+                     'OXYL': {'group': 'TOG', 'weight': 106.16406429835729},
+                     'PACD': {'group': 'TOG', 'weight': 146.13996479674157},
+                     'PAL':  {'group': 'PM', 'weight': 1.0},
+                     'PCA':  {'group': 'PM', 'weight': 1.0},
+                     'PCL':  {'group': 'PM', 'weight': 1.0},
+                     'PEC':  {'group': 'PM', 'weight': 1.0},
+                     'PFE':  {'group': 'PM', 'weight': 1.0},
+                     'PK':   {'group': 'PM', 'weight': 1.0},
+                     'PMC':  {'group': 'PM', 'weight': 1.0},
+                     'PMG':  {'group': 'PM', 'weight': 1.0},
+                     'PMN':  {'group': 'PM', 'weight': 1.0},
+                     'PMOTHR': {'group': 'PM', 'weight': 1.0},
+                     'PNA':    {'group': 'PM', 'weight': 1.0},
+                     'PNCOM':  {'group': 'PM', 'weight': 1.0},
+                     'PNH4': {'group': 'PM', 'weight': 1.0},
+                     'PNO3': {'group': 'PM', 'weight': 1.0},
+                     'POC':  {'group': 'PM', 'weight': 1.0},
+                     'PRD2': {'group': 'TOG', 'weight': 105.70041936080648},
+                     'PRPE': {'group': 'TOG', 'weight': 42.081045450483053},
+                     'PSI':  {'group': 'PM', 'weight': 1.0},
+                     'PSO4': {'group': 'PM', 'weight': 1.0},
+                     'PTI':  {'group': 'PM', 'weight': 1.0},
+                     'PXYL': {'group': 'TOG', 'weight': 106.16531054501606},
+                     'RCHO': {'group': 'TOG', 'weight': 78.604},
+                     'SO2':  {'group': 'SOX', 'weight': 64.059},
+                     'SULF': {'group': 'SOX', 'weight': 80.058},
+                     'TERP': {'group': 'TOG', 'weight': 136.23454891228528},
+                     'TOLU': {'group': 'TOG', 'weight': 92.1377400026483}}
