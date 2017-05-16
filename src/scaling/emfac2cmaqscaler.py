@@ -29,20 +29,16 @@ class Emfac2CmaqScaler(EmissionsScaler):
         self.region_info = self.config.eval_file('Regions', 'region_info')
         self.reverse_regions = dict(((d['air_basin'], d['county'], d['district']), g) for g,d in self.region_info.iteritems())
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
-        self.gspro_file = self.config['Output']['gspro_file']
         self.weight_file = self.config['Output']['weight_file']
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
         self.is_smoke4 = 'smoke4' in self.config['Surrogates']['spatial_loaders'].lower()
         self.region_boxes = self.config.eval_file('Surrogates', 'region_boxes')  # bounds are inclusive
-        self.gspro = {}
         self.summer_gsref = Emfac2CmaqScaler.load_gsref(self.config['Output']['summer_gsref_file'])
         self.winter_gsref = Emfac2CmaqScaler.load_gsref(self.config['Output']['winter_gsref_file'])
         self.gsref = self.summer_gsref  # to be used, during the run, to point to the right file
-        self.groups = {}
         self.species = set()
-        self._load_weight_file()
-        self._load_gspro()
+        self.gspro = self.load_gspro(self.config['Output']['gspro_file'])
 
     def scale(self, emissions, spatial_surr, temp_surr):
         """ Master method to scale emissions using spatial and temporal surrogates.
@@ -137,17 +133,8 @@ class Emfac2CmaqScaler(EmissionsScaler):
         # pre-build emissions object
         se = self._prebuild_sparse_emissions(num_rows, num_cols)
 
-        # some mass fractions are not EIC dependent
-        mass_fracts = defaultdict(lambda: defaultdict(lambda: np.float32(1.0)))
-        mass_fracts['nox'] = self.gspro['DEFNOX']['NOX']
-        mass_fracts['sox'] = self.gspro['SOX']['SOX']
-
         # grid emissions, by EIC
         for eic in emis_table:
-            # TOG and PM fractions are EIC-dependent
-            mass_fracts['tog'] = self.gspro[self.gsref[int(eic)]['TOG']]['TOG']
-            mass_fracts['pm'] = self.gspro[self.gsref[int(eic)]['PM']]['PM']
-
             # fix VMT activity according to Calvad periods
             veh, act, _ = self.eic_info[eic]
             if self.is_smoke4 and act[:3] in ['vmt', 'vht']:
@@ -163,22 +150,22 @@ class Emfac2CmaqScaler(EmissionsScaler):
                        ' %s in region %d.') % (cell[0], cell[1], box, region)
                 raise KeyError(err)
 
+            # find all relevant species and molecular weights for this EIC
+            species_data = self.gspro['default'].copy()
+            for group, profile in self.gsref[eic].iteritems():
+                species_data[group] = self.gspro[profile][group]
+
             # speciate by pollutant, while gridding
             for poll, value in emis_table[eic].iteritems():
                 if not value:
                     continue
 
-                groups = self.groups[poll.upper()]
-
                 # loop through each species in this pollutant group
-                for ind, spec in enumerate(groups['species']):
-                    speciated_value = mass_fracts[poll][ind]
-                    if not speciated_value:
-                        continue
-                    speciated_value *= value * self.STONS_HR_2_G_SEC / groups['weights'][ind]  # TODO: Would be faster to change the units in self.groups right from the start
+                for spec in species_data[poll.upper()]:  # TODO: Make all species names uppercase everywhere in ESTA
+                    spec_value = value * species_data[poll.upper()][spec]['mass_fract'] * self.STONS_HR_2_G_SEC / species_data[poll.upper()][spec]['weight']
 
                     # loop through each grid cell
-                    se.add_grid_nocheck(spec, ss * speciated_value)
+                    se.add_grid_nocheck(spec, ss * spec_value)
 
             # add NH3, based on NH3/CO fractions
             if 'co' in emis_table[eic]:
@@ -186,8 +173,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 if not nh3_fraction:
                     continue
 
-                nh3_fraction *= (self.STONS_HR_2_G_SEC / self.groups['NH3']['weights'][0])
-
+                nh3_fraction *= (self.STONS_HR_2_G_SEC / self.gspro['default']['NH3']['NH3']['weight'])
                 se.add_grid_nocheck('NH3', ss * (emis_table[eic]['co'] * nh3_fraction))
 
         return se
@@ -249,10 +235,8 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 print('ERROR: EIC MISSING FROM GSREF: ' + str(eic))
                 continue
             for group, profile in self.gsref[eic].iteritems():
-                has_species_list = self.gspro[profile][group] > 0
-                for i, has_species in enumerate(has_species_list):
-                    if has_species:
-                        self.species.add(self.groups[group]['species'][i])
+                for species in self.gspro[profile][group]:
+                    self.species.add(species)
 
     def _read_nh3_inventory(self, inv_file):
         """ read the NH3/CO values from the inventory and generate the NH3/CO fractions
@@ -329,74 +313,41 @@ class Emfac2CmaqScaler(EmissionsScaler):
         f.close()
         return gsref
 
-    def _load_weight_file(self):
-        """ load molecular weight file
-            File Format:
-            NO          30.006      NOX    moles/s
-            NO2         46.006      NOX    moles/s
-            HONO        47.013      NOX    moles/s
-        """
-        # read molecular weight text file
-        fin = open(self.weight_file, 'r')
-        lines = fin.read()
-        fin.close()
-
-        # read in CSV or Fortran-formatted file
-        lines = lines.replace(',', ' ')
-        lines = lines.split('\n')
-
-        self.groups = {}
-        # loop through file lines and
-        for line in lines:
-            # parse line
-            columns = line.rstrip().split()
-            if not columns:
-                continue
-            species = columns[0].upper()
-            weight = np.float32(columns[1])
-            group = columns[2].upper()
-
-            # file output dict
-            if group not in self.groups:
-                units = columns[3]
-                self.groups[group] = {'species': [], 'weights': [], 'units': units}
-            self.groups[group]['species'].append(species)
-            self.groups[group]['weights'].append(weight)
-
-        # convert weight list to numpy.array
-        for grp in self.groups:
-            self.groups[grp]['species'] = np.array(self.groups[grp]['species'], dtype=np.dtype('a8'))
-            self.groups[grp]['weights'] = np.array(self.groups[grp]['weights'], dtype=np.float32)
-
-    def _load_gspro(self):
+    @staticmethod
+    def load_gspro(file_path):
         ''' load the gspro file
             File Format:  profile, group, species, mole fraction, molecular weight=1, mass fraction
             1,TOG,CH4,3.1168E-03,1,0.0500000
             1,TOG,ALK3,9.4629E-03,1,0.5500000
             1,TOG,ETOH,5.4268E-03,1,0.2500000
         '''
-        self.gspro = {}
+        special_profile = ['CO', 'DEFNOX', 'NH3', 'SOX']
+        gspro = {}
 
-        f = open(self.gspro_file, 'r')
+        f = open(file_path, 'r')
         for line in f.xreadlines():
             # parse line
             ln = line.rstrip().split(',')
             profile = ln[0].upper()
             group = ln[1].upper()
-            if group not in self.groups:
-                sys.exit('ERROR: Group ' + group + ' not found in molecular weights file.')
-            pollutant = ln[2].upper()
-            try:
-                poll_index = list(self.groups[group]['species']).index(pollutant)
-            except ValueError:
-                # we don't care about CH4
-                pass
+            species = ln[2].upper()
+
+            # handle PM and TOG profiles differently
+            if profile in special_profile:
+                profile = 'default'
+
             # start filling output dict
-            if profile not in self.gspro:
-                self.gspro[profile] = {}
-            if group not in self.gspro[profile]:
-                self.gspro[profile][group] = np.zeros(len(self.groups[group]['species']),
-                                                      dtype=np.float32)
-            self.gspro[profile][group][poll_index] = np.float32(ln[5])
+            if profile not in gspro:
+                gspro[profile] = {}
+            if group not in gspro[profile]:
+                gspro[profile][group] = {}
+
+            if profile == 'default':
+                gspro[profile][group][species] = {'mass_fract': np.float32(ln[5]),
+                                                  'weight': np.float32(ln[4])}
+            else:
+                gspro[profile][group][species] = {'mass_fract': np.float32(ln[5]),
+                                                  'weight': np.float32(ln[5]) / np.float32(ln[3])}
 
         f.close()
+        return gspro

@@ -20,11 +20,9 @@ class CmaqNetcdfWriter(OutputWriter):
         self.ncols = int(self.config['GridInfo']['columns'])
         self.version = self.config['Output']['inventory_version']
         self.grid_file = self.config['GridInfo']['grid_cross_file']
-        self.groups = {}
         self.species = set()
         self.num_species = -1
-        self.weight_file = self.config['Output']['weight_file']
-        self._load_weight_file()
+        self.units = self.load_gspro(self.config['Output']['gspro_file'])
         # default NetCDF header for on-road emissions on California's 4km modeling domain
         self.header = {'IOAPI_VERSION': "$Id: @(#) ioapi library version 3.1 $" + " "*43,
                        'EXEC_ID': "????????????????" + " "*64,
@@ -142,15 +140,13 @@ class CmaqNetcdfWriter(OutputWriter):
 
         # define variables and attribute definitions
         varl = ''
-        for group in self.groups:
-            for spec in self.groups[group]['species']:
-                if spec not in self.species:
-                    continue
-                rootgrp.createVariable(spec, 'f4', ('TSTEP', 'LAY', 'ROW', 'COL'), zlib=False)
-                rootgrp.variables[spec].long_name = spec
-                rootgrp.variables[spec].units = self.groups[group]['units']
-                rootgrp.variables[spec].var_desc = 'emissions'
-                varl += spec.ljust(16)
+        for spec in self.species:
+            units = self.units[spec]
+            rootgrp.createVariable(spec, 'f4', ('TSTEP', 'LAY', 'ROW', 'COL'), zlib=False)
+            rootgrp.variables[spec].long_name = spec
+            rootgrp.variables[spec].units = units
+            rootgrp.variables[spec].var_desc = 'emissions'
+            varl += spec.ljust(16)
 
         # global attributes
         rootgrp.IOAPI_VERSION = self.header['IOAPI_VERSION']
@@ -208,11 +204,6 @@ class CmaqNetcdfWriter(OutputWriter):
             Fill the emissions values in each grid cell, for each polluant.
             Create a separate grid set for each date.
         '''
-        species = {}  # for pre-speciated emissions
-        for group in self.groups:
-            for i, spec in enumerate(self.groups[group]['species']):
-                species[spec] = {'group': group, 'index': i}
-
         # loop through the different levels of the scaled emissions dictionary
         region_data = scaled_emissions.data[-999]  # -999 is default EIC for pre-speciated emissions
         day_data = region_data.get(date, {})
@@ -238,41 +229,27 @@ class CmaqNetcdfWriter(OutputWriter):
 
         rootgrp.close()
 
-    def _load_weight_file(self):
-        """ load molecular weight file
-            File Format:
-            NO          30.006      NOX    moles/s
-            NO2         46.006      NOX    moles/s
-            HONO        47.013      NOX    moles/s
-        """
-        # read molecular weight text file
-        fin = open(self.weight_file,'r')
-        lines = fin.read()
-        fin.close()
+    @staticmethod
+    def load_gspro(file_path):
+        ''' Grab the units for each species from the GSPRO file
+            File Format:  profile, group, species, mole fraction, molecular weight=1, mass fraction
+            1,TOG,CH4,3.1168E-03,1,0.0500000
+            1,TOG,ALK3,9.4629E-03,1,0.5500000
+            1,TOG,ETOH,5.4268E-03,1,0.2500000
+        '''
+        units = {}
 
-        # read in CSV or Fortran-formatted file
-        lines = lines.replace(',', ' ')
-        lines = lines.split('\n')
-
-        self.groups = {}
-        # loop through file lines and
-        for line in lines:
+        f = open(file_path, 'r')
+        for line in f.xreadlines():
             # parse line
-            columns = line.rstrip().split()
-            if not columns:
-                continue
-            species = columns[0].upper()
-            weight = np.float32(columns[1])
-            group = columns[2].upper()
+            ln = line.rstrip().split(',')
+            group = ln[1].upper()
+            species = ln[2].upper()
 
-            # file output dict
-            if group not in self.groups:
-                units = columns[3]
-                self.groups[group] = {'species': [], 'weights': [], 'units': units}
-            self.groups[group]['species'].append(species)
-            self.groups[group]['weights'].append(weight)
+            if group == 'PM':
+                units[species] = 'g/s'
+            else:
+                units[species] = 'moles/s'
 
-        # convert weight list to numpy.array
-        for grp in self.groups:
-            self.groups[grp]['species'] = np.array(self.groups[grp]['species'], dtype=np.dtype('a8'))
-            self.groups[grp]['weights'] = np.array(self.groups[grp]['weights'], dtype=np.float32)
+        f.close()
+        return units
