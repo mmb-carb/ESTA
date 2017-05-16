@@ -29,7 +29,6 @@ class Emfac2CmaqScaler(EmissionsScaler):
         self.region_info = self.config.eval_file('Regions', 'region_info')
         self.reverse_regions = dict(((d['air_basin'], d['county'], d['district']), g) for g,d in self.region_info.iteritems())
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
-        self.weight_file = self.config['Output']['weight_file']
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
         self.is_smoke4 = 'smoke4' in self.config['Surrogates']['spatial_loaders'].lower()
