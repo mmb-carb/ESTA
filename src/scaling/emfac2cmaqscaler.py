@@ -38,6 +38,8 @@ class Emfac2CmaqScaler(EmissionsScaler):
         self.gsref = self.summer_gsref  # to be used, during the run, to point to the right file
         self.species = set()
         self.gspro = self.load_gspro(self.config['Output']['gspro_file'])
+        self.diesel_nox = self.load_nox_file(self.config['Output']['nox_file'])
+        self.region_info = self.config.eval_file('Regions', 'region_info')
 
     def scale(self, emissions, spatial_surr, temp_surr):
         """ Master method to scale emissions using spatial and temporal surrogates.
@@ -123,6 +125,15 @@ class Emfac2CmaqScaler(EmissionsScaler):
         """
         zero = np.float32(0.0)
 
+        # find HD diesel NOx fractions for this air basin and year
+        ab = 'default'
+        yr = 'default'
+        if self.region_info[region]['air_basin'] in self.diesel_nox:
+            ab = self.region_info[region]['air_basin']
+        if self.start_date.year in self.diesel_nox[ab]:
+            yr = self.start_date.year
+        hono_fract, no_fract, no2_fract = self.diesel_nox[ab][yr]
+
         # examine bounding box
         min_lat = box['lat'][0]
         min_lon = box['lon'][0]
@@ -153,6 +164,12 @@ class Emfac2CmaqScaler(EmissionsScaler):
             species_data = self.gspro['default'].copy()
             for group, profile in self.gsref[eic].iteritems():
                 species_data[group] = self.gspro[profile][group]
+
+            # adjust NOx for HD diesel vehicles
+            if eic in self.HD_DSL_CATS:
+                species_data['NOX'] = {'HONO': {'mass_fract': hono_fract, 'weight': np.float32(47.013)},
+                                       'NO':   {'mass_fract': no_fract,   'weight': np.float32(30.006)},
+                                       'NO2':  {'mass_fract': no2_fract,  'weight': np.float32(46.006)}}
 
             # speciate by pollutant, while gridding
             for poll, value in emis_table[eic].iteritems():
@@ -350,3 +367,53 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
         f.close()
         return gspro
+
+    @staticmethod
+    def load_nox_file(file_path):
+        """ Read a NOx-speciation file that contains the mass fractions of NO, NO2, and HONO
+            for different airbasins and years.  The first line is for default values.
+            The file format is:
+            Air_Basin,Year,NO,NO2,HONO
+            default,default,0.574,0.1,0.0203640715
+            SC,2005,0.573913,0.1,0.0205003819
+        """
+        # open file and dump header
+        f = open(file_path, 'r')
+        _ = f.readline()
+
+        # read off the default line
+        no, no2, hono = [float(v) for v in f.readline().rstrip().split(',')[2:5]]
+        diesel_nox = defaultdict(lambda: defaultdict(lambda: np.array([hono, no, no2], dtype=np.float32)))
+
+        # parse each line in the rest of the file, with no defaults
+        for line in f.xreadlines():
+            ln = line.rstrip().split(',')
+            ab = ln[0]
+            yr = int(ln[1])
+            no = float(ln[2])
+            no2 = float(ln[3])
+            hono = float(ln[4])
+            diesel_nox[ab][yr] = np.array([hono, no, no2], dtype=np.float32)
+
+        f.close()
+        return diesel_nox
+
+    # Heavy-Duty Diesel vehicle categories
+    HD_DSL_CATS = set([217, 220, 408, 420, 508, 520, 617, 620, 717, 720, 74076412100000, 74476112100000,
+         74476112107000, 74476112107001, 74476112107004, 74476112107005, 74476112107006, 74476112107007,
+         74476112107008, 74476112107009, 74476112107010, 74476112107011, 74476112107012, 74476412100000,
+         74476412107000, 74476412107001, 74476412107004, 74476412107005, 74476412107006, 74476412107007,
+         74476412107008, 74476412107009, 74476412107010, 74476412107011, 74476412107012, 74476512100000,
+         74476512107000, 74476512107001, 74476512107004, 74476512107005, 74476512107006, 74476512107007,
+         74476512107008, 74476512107009, 74476512107010, 74476512107011, 74476512107012, 74676112100000,
+         74676112107013, 74676112107016, 74676112107017, 74676112107018, 74676112107019, 74676112107020,
+         74676112107021, 74676112107024, 74676112107025, 74676112107026, 74676112107027, 74676112107028,
+         74676112107029, 74676112107030, 74676112107031, 74676112107032, 74676412100000, 74676412107013,
+         74676412107016, 74676412107017, 74676412107018, 74676412107019, 74676412107020, 74676412107021,
+         74676412107024, 74676412107025, 74676412107026, 74676412107027, 74676412107028, 74676412107029,
+         74676412107030, 74676412107031, 74676412107032, 74676512100000, 74676512107013, 74676512107016,
+         74676512107017, 74676512107018, 74676512107019, 74676512107020, 74676512107021, 74676512107024,
+         74676512107025, 74676512107026, 74676512107027, 74676512107028, 74676512107029, 74676512107030,
+         74676512107031, 74676512107032, 76076112100000, 76076412100000, 77276112100000, 77276412100000,
+         77276512100000, 77876112100000, 77876412100000, 77876512100000, 77976112100000, 77976412100000,
+         77976512100000])
