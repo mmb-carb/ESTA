@@ -202,10 +202,10 @@ class Pmeds1Writer(OutputWriter):
         hour = '%02d' % (hr - 1)
         emissions = ','.join(emis)
 
-        return ''.join([self.short_region_names[region], str(eic).rjust(28), str(x).rjust(3),
-                        str(y).rjust(3), '              ', self.gai_to_county[region], date[2:4],
-                        jul_day, hour, hour, self.gai_basins[region], self.short_regions[region],
-                        '     ', emissions, '\n'])
+        return ''.join([self.short_region_names[region], str(eic).rjust(28), str(x + 1).rjust(3),
+                        str(y + 1).rjust(3), '              ', self.gai_to_county[region],
+                        date[2:4], jul_day, hour, hour, self.gai_basins[region],
+                        self.short_regions[region], '     ', emissions, '\n'])
 
     def _build_regional_file_path(self, region, date):
         """ build output file directory and path for PMEDS file """

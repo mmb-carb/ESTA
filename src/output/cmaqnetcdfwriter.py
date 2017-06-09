@@ -212,7 +212,7 @@ class CmaqNetcdfWriter(OutputWriter):
             hr = hour - 1
             # adjust hr for DST
             if gmt_shift == '19':
-                hr = (hr + 1) % 24
+                hr = (hr - 1) % 24
 
             sparse_emis = hr_data[-999]
 
