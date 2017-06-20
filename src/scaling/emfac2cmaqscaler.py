@@ -17,8 +17,8 @@ class Emfac2CmaqScaler(EmissionsScaler):
                     'am',  'am',  'am',  'am',  'mid', 'mid',  # midday:   10 AM to 3 PM
                     'mid', 'mid', 'mid', 'pm',  'pm',  'pm',   # pm peak:  3 PM to 7 PM
                     'pm',  'off', 'off', 'off', 'off', 'off']  # off peak: 7 PM to 6 AM
-    CALVAD_TYPE = [0, 1, 1, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0,
-                   0, 1, 1, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0]
+    CALVAD_TYPE = [0, 1, 1, 0, 0, 0, 1, 2, 1, 2, 0, 3, 0,
+                   0, 1, 1, 0, 0, 0, 1, 2, 1, 2, 0, 3, 0]
     DOWS = ['_monday_', '_tuesday_', '_wednesday_', '_thursday_', '_friday_',
             '_saturday_', '_sunday_', '_holiday_']
     STONS_HR_2_G_SEC = np.float32(251.99583333333334)
