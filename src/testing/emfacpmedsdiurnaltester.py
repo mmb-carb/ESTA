@@ -14,8 +14,8 @@ from src.surrogates.calvadtemporalloader import CalvadTemporalLoader
 
 class EmfacPmedsDiurnalTester(OutputTester):
 
-    CALVAD_TYPE = [0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0,
-                   0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 3, 0]
+    CALVAD_TYPE = [0, 1, 1, 0, 0, 0, 1, 2, 1, 2, 0, 3, 0,
+                   0, 1, 1, 0, 0, 0, 1, 2, 1, 2, 0, 3, 0]
     KG_2_STONS = np.float32(0.001102310995)
     NUM_TESTED = 5
     POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM']
