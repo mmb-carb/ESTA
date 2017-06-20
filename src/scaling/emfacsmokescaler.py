@@ -9,6 +9,7 @@ from src.core.date_utils import DOW, find_holidays
 from src.core.emissions_scaler import EmissionsScaler
 from src.core.eic_utils import eic_reduce
 from src.emissions.sparse_emissions import SparseEmissions
+from src.surrogates.calvadtemporalloader import CALVAD_TYPE
 
 
 class EmfacSmokeScaler(EmissionsScaler):
@@ -17,8 +18,6 @@ class EmfacSmokeScaler(EmissionsScaler):
                     'am',  'am',  'am',  'am',  'mid', 'mid',  # midday:   10 AM to 3 PM
                     'mid', 'mid', 'mid', 'pm',  'pm',  'pm',   # pm peak:  3 PM to 7 PM
                     'pm',  'off', 'off', 'off', 'off', 'off']  # off peak: 7 PM to 6 AM
-    CALVAD_TYPE = [0, 1, 1, 0, 0, 0, 1, 2, 1, 2, 0, 3, 0,
-                   0, 1, 1, 0, 0, 0, 1, 2, 1, 2, 0, 3, 0]
     DOWS = ['_monday_', '_tuesday_', '_wednesday_', '_thursday_', '_friday_',
             '_saturday_', '_sunday_', '_holiday_']
 
@@ -164,7 +163,7 @@ class EmfacSmokeScaler(EmissionsScaler):
         """
         eics2delete = []
         for eic in emissions_table:
-            factor = factors[self.CALVAD_TYPE[self.eic_info[eic][0]]]
+            factor = factors[CALVAD_TYPE[self.eic_info[eic][0]]]
             if factor:
                 emissions_table[eic].update((x, y * factor) for x, y in emissions_table[eic].items())
             else:

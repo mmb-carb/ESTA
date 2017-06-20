@@ -9,13 +9,11 @@ from src.core.date_utils import DOW, find_holidays
 from src.core.eic_utils import eic_reduce, MAX_EIC_PRECISION
 from src.core.output_tester import OutputTester
 from src.emissions.emissions_table import EmissionsTable
-from src.surrogates.calvadtemporalloader import CalvadTemporalLoader
+from src.surrogates.calvadtemporalloader import CalvadTemporalLoader, CALVAD_TYPE
 
 
 class EmfacPmedsDiurnalTester(OutputTester):
 
-    CALVAD_TYPE = [0, 1, 1, 0, 0, 0, 1, 2, 1, 2, 0, 3, 0,
-                   0, 1, 1, 0, 0, 0, 1, 2, 1, 2, 0, 3, 0]
     KG_2_STONS = np.float32(0.001102310995)
     NUM_TESTED = 5
     POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM']
@@ -98,7 +96,7 @@ class EmfacPmedsDiurnalTester(OutputTester):
                 for eic in self.eic_info:
                     profs[dow][region][eic] = np.zeros(24, dtype=np.float32)
                     for hr in xrange(24):
-                        profs[dow][region][eic][hr] = orig_profs[region][dow][hr][self.CALVAD_TYPE[self.eic_info[eic][0]]]
+                        profs[dow][region][eic][hr] = orig_profs[region][dow][hr][CALVAD_TYPE[self.eic_info[eic][0]]]
 
         return profs
 
