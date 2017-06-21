@@ -5,8 +5,8 @@ from src.core.temporal_loader import TemporalLoader
 
 # Calvad vehicle type mapping, used for DOW temporal profiles
 #     0 = LD, 1 = LM, 2 = HH, 3 = SBUS
-CALVAD_TYPE = [0, 1, 1, 0, 0, 0, 1, 2, 1, 2, 0, 3, 0,
-               0, 1, 1, 0, 0, 0, 1, 2, 1, 2, 0, 3, 0]
+CALVAD_TYPE = [0, 0, 0, 0, 1, 1, 1, 2, 1, 2, 0, 3, 0,
+               0, 0, 0, 0, 1, 1, 1, 2, 1, 2, 0, 3, 0]
 
 
 class CalvadTemporalLoader(TemporalLoader):
