@@ -218,6 +218,12 @@ In particular, each EIC maps to a tuple with three elements:
 
 The first one is used for the default DTIM case, where the second column only points to "vmt" or "trips". But the second file is part of the Santa Barbara example, and the second tuple column points to SMOKE spatial surrogates for spatial disaggregation.
 
+There are 26 columns (labeled 0-25).  The first 13 are gasoline, and the second 13 are diesel.  The 13 vehicle types in both groups are, in order:
+
+LDA, LDT1, LDT2, MDV, LHDT1, LHDT2, MHDT, HHDT, OBUS, UBUS, MCY, SBUS, MH
+
+
+
 #### region_boxes
 
 Example Locations:
