@@ -49,7 +49,7 @@ class Pmeds1Writer(OutputWriter):
             for date, hourly_emis in region_data.iteritems():
                 new_files = self._write_pmeds1_by_region(hourly_emis, region, date)
                 if new_files:
-                    out_paths[date] += new_files
+                    out_paths[date[5:]] += new_files
 
         return out_paths
 
@@ -66,15 +66,16 @@ class Pmeds1Writer(OutputWriter):
         dates = sorted(dates)
         out_paths = OutputFiles()
         for date in dates:
-            out_paths[date] += self._write_pmeds1_by_state(scaled_emissions, date)
+            out_paths[date[5:]] += self._write_pmeds1_by_state(scaled_emissions, date)
 
         return out_paths
 
     def _write_pmeds1_by_state(self, scaled_emissions, date):
         """ Write a single 24-hour PMEDS file for a given date, for the entire state.
         """
-        out_path = build_arb_file_path(dt.strptime(date, self.date_format), self.grid_file,
-                                       'pmeds', self.directory, self.base_year, self.version)
+        out_path = build_arb_file_path(dt.strptime(date, self.date_format), self.grid_file, 'pmeds',
+                                       self.directory, self.base_year, self.start_date.year,
+                                       self.version)
         jul_day = str(dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday).rjust(3)
 
         f = gzip.open(out_path, 'wb')
@@ -108,7 +109,7 @@ class Pmeds1Writer(OutputWriter):
                             # build PMEDS line
                             if emis_found:
                                 f.write(self._build_pmeds1_line(region, date, jul_day, hr, eic,
-                                                                     (i, j), emis))
+                                                                (i, j), emis))
 
         f.close()
         return [out_path]
@@ -161,7 +162,8 @@ class Pmeds1Writer(OutputWriter):
 
         # new output file path
         out_file = build_arb_file_path(dt.strptime(date, self.date_format), self.grid_file,
-                                       'pmeds', self.directory, self.base_year, self.version)
+                                       'pmeds', self.directory, self.base_year,
+                                       self.start_date.year, self.version)
 
         # use glob to count files in the output folder
         yr, month, day = date.split('-')
@@ -201,11 +203,12 @@ class Pmeds1Writer(OutputWriter):
         y, x = grid_cell
         hour = '%02d' % (hr - 1)
         emissions = ','.join(emis)
+        yr = str(self.start_date.year)[2:4]
 
         return ''.join([self.short_region_names[region], str(eic).rjust(28), str(x + 1).rjust(3),
-                        str(y + 1).rjust(3), '              ', self.gai_to_county[region],
-                        date[2:4], jul_day, hour, hour, self.gai_basins[region],
-                        self.short_regions[region], '     ', emissions, '\n'])
+                        str(y + 1).rjust(3), '              ', self.gai_to_county[region], yr,
+                        jul_day, hour, hour, self.gai_basins[region], self.short_regions[region],
+                        '     ', emissions, '\n'])
 
     def _build_regional_file_path(self, region, date):
         """ build output file directory and path for PMEDS file """

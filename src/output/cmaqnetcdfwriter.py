@@ -84,7 +84,7 @@ class CmaqNetcdfWriter(OutputWriter):
         last_date = dates[-1]
         out_paths = OutputFiles()
         for date in dates:
-            out_paths[date] += self._write_netcdf(scaled_emissions, date, date == last_date)
+            out_paths[date[5:]] += self._write_netcdf(scaled_emissions, date, date == last_date)
 
         return out_paths
 
@@ -97,8 +97,9 @@ class CmaqNetcdfWriter(OutputWriter):
         jdate = int(str(d.year) + dt(self.base_year, d.month, d.day).strftime('%j'))
 
         # final output file path
-        out_path = build_arb_file_path(dt.strptime(date, self.date_format), self.grid_file,
-                                       'ncf', self.directory, self.base_year, self.version)
+        out_path = build_arb_file_path(dt.strptime(date, self.date_format), self.grid_file, 'ncf',
+                                       self.directory, self.base_year, self.start_date.year,
+                                       self.version)
         print('    + writing: ' + out_path)
 
         # create empty netcdf file (including file path)

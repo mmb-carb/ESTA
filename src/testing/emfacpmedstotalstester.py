@@ -43,16 +43,17 @@ class EmfacPmedsTotalsTester(OutputTester):
         self._reduce_emissions_eics(emis)
 
         # loop through each date
-        for date in self.dates:
+        for d in self.dates:
+            date = d[5:]
             if date not in out_paths:
-                print('    + No output PMEDS files found for testing on date: ' + str(date))
+                print('    + TODO DIURN -- No output PMEDS files found for testing on date: ' + str(date))
                 continue
 
             # find the day-of-week
-            if date[5:] in find_holidays(self.base_year):
+            if date in find_holidays(self.base_year):
                 dow = 'holi'
             else:
-                by_date = str(self.base_year) + date[4:]
+                by_date = str(self.base_year) + '-' + date
                 dow = DOW[dt.strptime(by_date, self.date_format).weekday()]
 
             # test output pmeds, if any
@@ -124,17 +125,19 @@ class EmfacPmedsTotalsTester(OutputTester):
         if files:
             self._write_full_comparison(emis, out_emis, date, dow)
 
-    def _write_full_comparison(self, emfac_emis, out_emis, date, dow):
+    def _write_full_comparison(self, emfac_emis, out_emis, d, dow):
         ''' Write a quick CSV to compare the EMFAC2014 and final output PMEDS.
             Write the difference by region, EIC, and pollutant.
             NOTE: Won't print any numbers with zero percent difference.
         '''
+        date = str(self.base_year) + '-' + d
         zero = np.float32(0.0)
 
         # init output file
         if not os.path.exists(self.testing_dir):
             os.mkdir(self.testing_dir)
-        file_path = os.path.join(self.testing_dir, 'pmeds_daily_totals_' + date + '.txt')
+        file_path = os.path.join(self.testing_dir, 'pmeds_daily_totals_' + str(self.start_date.year)
+                                 + '-' + d + '.txt')
         f = open(file_path, 'w')
         if not self.can_test_dow:
             f.write('Since your run is not by ' + str(MAX_EIC_PRECISION) + '-digit EIC, ' +

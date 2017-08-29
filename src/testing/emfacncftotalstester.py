@@ -23,8 +23,10 @@ class EmfacNcfTotalsTester(OutputTester):
                             EmissionsTable[eic][poll] = value
         '''
         # loop through each date, and test any output NetCDF
-        for date in self.dates:
+        for d in self.dates:
+            date = d[5:]
             if date not in out_paths:
+                print('    + No output NetCDF files found for testing on date: ' + str(date))
                 continue
             ncf_files = [f for f in out_paths[date] if f.rstrip('.gz').endswith('.ncf')]
             if ncf_files:
@@ -45,15 +47,17 @@ class EmfacNcfTotalsTester(OutputTester):
         # write the emissions comparison to a file
         self._write_general_comparison(date, emis, out_emis)
 
-    def _write_general_comparison(self, date, emfac_emis, ncf_emis):
+    def _write_general_comparison(self, d, emfac_emis, ncf_emis):
         ''' Write a quick CSV to compare the EMFAC2014 and final output NetCDF.
             The NetCDF will only allow us to write the difference by pollutant.
             NOTE: Won't print any numbers with zero percent difference.
         '''
+        date = str(self.base_start_date.year) + '-' + d
         zero = np.float32(0.0)
         if not os.path.exists(self.testing_dir):
             os.mkdir(self.testing_dir)
-        file_path = os.path.join(self.testing_dir, 'ncf_daliy_totals_' + date + '.txt')
+        file_path = os.path.join(self.testing_dir, 'ncf_daliy_totals_' + str(self.start_date.year) +
+                                 '-' + d + '.txt')
         f = open(file_path, 'w')
         f.write('NOTE: The EMFAC totals shown are not adjusted for temporal profiles.\n')
         f.write('      As such, they are most comparable for weekdays in Summer.\n\n')

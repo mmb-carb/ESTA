@@ -32,7 +32,7 @@ class OutputFiles(defaultdict):
 
 
 def build_arb_file_path(date, grid_file, file_type, directory='output/', base_year=False,
-                        version='v0100', inv_type='mv', region='st', cats='e14'):
+                        model_year=False, version='v0100', inv_type='mv', region='st', cats='e14'):
     """ Build the final output file name and directory for a single day ESTA output file,
         using the extremely detailed ARB file name convention.
 
@@ -67,7 +67,10 @@ def build_arb_file_path(date, grid_file, file_type, directory='output/', base_ye
             [model year 2031][Julian Day 200]..[EIC 14 categories]..[PMEDS format]
     """
     # parse date information
-    yr = date.year
+    if model_year:
+        yr = model_year
+    else:
+        yr = date.year
     month = date.month
     day = date.day
     if not base_year:

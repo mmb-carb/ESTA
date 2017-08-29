@@ -53,24 +53,25 @@ class EmfacPmedsDiurnalTester(OutputTester):
 
         # test outputs for each date
         for date in self.dates:
-            if date not in out_paths:
-                print('    + No output PMEDS files found for testing on date: ' + str(date))
+            d = date[5:]
+            if d not in out_paths:
+                print('    + No output PMEDS files found for testing on date: ' + d)
                 continue
-            pmeds_files = [f for f in out_paths[date] if f.rstrip('.gz').endswith('.pmeds')]
+            pmeds_files = [f for f in out_paths[d] if f.rstrip('.gz').endswith('.pmeds')]
             if not pmeds_files:
-                print('    + No output PMEDS files found for testing on date: ' + str(date))
+                print('    + No output PMEDS files found for testing on date: ' + d)
                 continue
 
             # find the day-of-week
-            if date[5:] in find_holidays(self.base_year):
+            if date in find_holidays(self.base_year):
                 dow = 'holi'
             else:
-                by_date = str(self.base_year) + date[4:]
+                by_date = str(self.base_year) + '-' + d
                 dow = DOW[dt.strptime(by_date, self.date_format).weekday()]
 
             for file_path in pmeds_files:
                 output_profs = self._output_pmeds_profiles(file_path, eics)
-                self._write_profile_comparision(output_profs, date, dow)
+                self._write_profile_comparision(output_profs, date, dow)  # TODO: date???
 
     def _load_calvad_diurnal_profiles(self):
         """ Read the Calvad diurnal profiles file, and parse it into a collection, based on the

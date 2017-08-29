@@ -62,10 +62,10 @@ class Emfac2CmaqScaler(EmissionsScaler):
         self._load_species(emissions)
 
         # find start date
-        today = dt(self.start_date.year, self.start_date.month, self.start_date.day)
+        today = dt(self.base_year, self.start_date.month, self.start_date.day)
 
         # loop through all the dates in the period
-        while today <= self.end_date:
+        while today <= self.base_end_date:
             # use the speciation from the correct season
             if find_season(today).lower() == 's':
                 self.gsref = self.summer_gsref
@@ -131,6 +131,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
             ab = self.region_info[region]['air_basin']
         if self.start_date.year in self.diesel_nox[ab]:
             yr = self.start_date.year
+
         hono_fract, no_fract, no2_fract = self.diesel_nox[ab][yr]
 
         # examine bounding box

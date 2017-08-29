@@ -48,8 +48,8 @@ class Emfac2014CsvLoader(EmissionsLoader):
             This method is independent of LD/HD CSV file type.
         """
         file_paths = os.path.join(self.directory, '%02d', '%02d', 'emis', '%s.csv')
-        today = deepcopy(self.start_date)
-        while today <= self.end_date:
+        today = deepcopy(self.base_start_date)
+        while today <= self.base_end_date:
             for region in self.regions:
                 region_name = self.region_names[int(region)].split(' (')[0].replace(' ', '_')
                 file_path = file_paths % (today.month, today.day, region_name)
@@ -80,8 +80,8 @@ class Emfac2014CsvLoader(EmissionsLoader):
         """ A simple helper method to find all the days of interest in each season """
         days_by_season = defaultdict(list)
 
-        today = deepcopy(self.start_date)
-        while today <= self.end_date:
+        today = deepcopy(self.base_start_date)
+        while today <= self.base_end_date:
             season = 'summer' if today.month in Emfac2014CsvLoader.SUMMER_MONTHS else 'winter'
             days_by_season[season].append(deepcopy(today))
             today += timedelta(days=1)
@@ -93,10 +93,11 @@ class Emfac2014CsvLoader(EmissionsLoader):
             This method is independent of LD/HD CSV file type.
         """
         file_paths = os.path.join(self.directory, '%02d', 'emis', '%s.csv')
+
         for region in self.regions:
-            today = datetime(self.start_date.year, self.start_date.month, self.start_date.day)
+            today = deepcopy(self.base_start_date)
             month = -1
-            while today <= self.end_date:
+            while today <= self.base_end_date:
                 month = today.month
                 file_path = file_paths % (month, region)
                 emis = self.read_emfac_file(file_path, region)
@@ -158,6 +159,7 @@ class EMFAC2014EmissionsData(object):
         information we pull out of the EMFAC2014 database easier.
         It is just a multiply-embedded dictionary with keys for things that we find in each file:
         region, date, and Emissions Data Tables.
+        The date here should use the base year.
     """
 
     def __init__(self):

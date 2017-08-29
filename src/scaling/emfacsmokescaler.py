@@ -52,10 +52,10 @@ class EmfacSmokeScaler(EmissionsScaler):
                                 SparseEmissions[pollutant][(grid, cell)] = value
             NOTE: This function is a generator and will `yield` emissions file-by-file.
         """
-        today = dt(self.start_date.year, self.start_date.month, self.start_date.day)
+        today = deepcopy(self.base_start_date)
 
         # loop through all the dates in the period
-        while today <= self.end_date:
+        while today <= self.base_end_date:
             # find the DOW
             date = today.strftime(self.date_format)
             today += timedelta(days=1)
