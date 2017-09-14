@@ -8,21 +8,13 @@ ESTA is a command-line tool for processing raw emissions data into spatially and
 
 ## ESTA Documentation
 
-For more information about what ESTA is and what it does, please see:
+For a short information into what ESTA is and what it does, please see:
 
-* [The User Documentation](docs/USER_DOCS.md)
+* [The Basic Introduction](docs/USER_DOCS.md)
 
 For more information about how to use ESTA, please see:
 
 * [The User's Guide](docs/USERS_GUIDE.md)
-
-To run ESTA, you will need to have some common third-party libraries installed:
-
-* [requirements.txt](requirements.txt)
-
-If you are a developer, looking to understand or improve ESTA, please see:
-
-* [The Developer's Guide](docs/DEVELOPERS.md)
 
 
 ## Open-Source Licence
