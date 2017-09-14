@@ -8,13 +8,17 @@ ESTA is a command-line tool for processing raw emissions data into spatially and
 
 ## ESTA Documentation
 
-For a short information into what ESTA is and what it does, please see:
+For a short introduction into what ESTA is and what it does, please see:
 
 * [The Basic Introduction](docs/USER_DOCS.md)
 
 For more information about how to use ESTA, please see:
 
 * [The User's Guide](docs/USERS_GUIDE.md)
+
+For the complete ESTA documentation, please see:
+
+* [The ESTA Documentation on GitHub](https://github.com/mmb-carb/ESTA_Documentation)
 
 
 ## Open-Source Licence
