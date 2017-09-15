@@ -1,12 +1,15 @@
 
 from datetime import datetime as dt
 import os
+from os.path import basename
 from netCDF4 import Dataset
 import numpy as np
 import sys
 import time
+from src.core.date_utils import find_season
 from src.core.output_files import OutputFiles, build_arb_file_path
 from src.core.output_writer import OutputWriter
+from src.core.version import __version__ as version
 
 
 class CmaqNetcdfWriter(OutputWriter):
@@ -23,6 +26,15 @@ class CmaqNetcdfWriter(OutputWriter):
         self.species = set()
         self.num_species = -1
         self.units = self.load_gspro(self.config['Output']['gspro_file'])
+
+        # build some custom text to put in the NetCDF header
+        season = 'summer' if find_season(self.start_date).lower() == 's' else 'winter'
+        file_desc = "gspro: " + basename(self.config['Output']['gspro_file']) + \
+                    "  gsref: " + basename(self.config['Output'][season + '_gsref_file']) + \
+                    "  HD diesel NOx fraction file: " + basename(self.config['Output']['nox_file'])
+        history = "gridded on-road emissions, created by the ESTA model v" + \
+                  version + " on " + dt.strftime(dt.now(), '%Y-%m-%d')
+
         # default NetCDF header for on-road emissions on California's 4km modeling domain
         self.header = {'IOAPI_VERSION': "$Id: @(#) ioapi library version 3.1 $" + " "*43,
                        'EXEC_ID': "????????????????" + " "*64,
@@ -47,9 +59,9 @@ class CmaqNetcdfWriter(OutputWriter):
                        'VGTOP': np.float32(10000.0),         # Domain: Top Vertical layer at 10km
                        'VGLVLS': np.float32([1.0, 0.9958]),  # Domain: Vertical layer locations
                        'GDNAM': "CMAQ Emissions  ",
-                       'UPNAM': "combineEmis_wdwe",
-                       'FILEDESC': "",
-                       'HISTORY': ""}
+                       'UPNAM': "ESTA            ",
+                       'FILEDESC': file_desc,
+                       'HISTORY': history}
         self._config_header()
 
     def _config_header(self):
