@@ -38,7 +38,6 @@ class Emfac2CmaqScaler(EmissionsScaler):
         self.species = set()
         self.gspro = self.load_gspro(self.config['Output']['gspro_file'])
         self.diesel_nox = self.load_nox_file(self.config['Output']['nox_file'])
-        self.region_info = self.config.eval_file('Regions', 'region_info')
 
     def scale(self, emissions, spatial_surr, temp_surr):
         """ Master method to scale emissions using spatial and temporal surrogates.
@@ -124,15 +123,16 @@ class Emfac2CmaqScaler(EmissionsScaler):
         """
         zero = np.float32(0.0)
 
-        # find HD diesel NOx fractions for this air basin and year
-        ab = 'default'
-        yr = 'default'
-        if self.region_info[region]['air_basin'] in self.diesel_nox:
-            ab = self.region_info[region]['air_basin']
-        if self.start_date.year in self.diesel_nox[ab]:
-            yr = self.start_date.year
+        # determine the region for HD diesel NOx
+        r = 'default'
+        if str(region) in self.diesel_nox:
+            r = str(region)
+        # determine the year for HD diesel NOx
+        yr = self.start_date.year
+        if self.start_date.year not in self.diesel_nox[r]:
+            yr = min(self.diesel_nox[r].keys(), key=lambda y: abs(y - self.start_date.year))
 
-        hono_fract, no_fract, no2_fract = self.diesel_nox[ab][yr]
+        hono_fract, no_fract, no2_fract = self.diesel_nox[r][yr]
 
         # examine bounding box
         min_lat = box['lat'][0]
@@ -388,15 +388,16 @@ class Emfac2CmaqScaler(EmissionsScaler):
         # parse each line in the rest of the file, with no defaults
         for line in f.xreadlines():
             ln = line.rstrip().split(',')
-            ab = ln[0]
+            region = ln[0]
             yr = int(ln[1])
             no = float(ln[2])
             no2 = float(ln[3])
             hono = float(ln[4])
-            diesel_nox[ab][yr] = np.array([hono, no, no2], dtype=np.float32)
+            diesel_nox[region][yr] = np.array([hono, no, no2], dtype=np.float32)
 
         f.close()
         return diesel_nox
+
 
     # Heavy-Duty Diesel vehicle categories
     HD_DSL_CATS = set([217, 220, 408, 420, 508, 520, 617, 620, 717, 720, 74076412100000, 74476112100000,
