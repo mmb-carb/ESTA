@@ -5,7 +5,7 @@ from datetime import datetime as dt
 from datetime import timedelta
 import numpy as np
 import sys
-from src.core.date_utils import DOW, find_holidays, find_season
+from src.core.date_utils import DOW, find_holidays
 from src.core.emissions_scaler import EmissionsScaler
 from scaled_emissions import ScaledEmissions
 from src.emissions.sparse_emissions import SparseEmissions
@@ -38,6 +38,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
         self.species = set()
         self.gspro = self.load_gspro(self.config['Output']['gspro_file'])
         self.diesel_nox = self.load_nox_file(self.config['Output']['nox_file'])
+        self.month2season = self.read_month_to_season()
 
     def scale(self, emissions, spatial_surr, temp_surr):
         """ Master method to scale emissions using spatial and temporal surrogates.
@@ -65,11 +66,6 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
         # loop through all the dates in the period
         while today <= self.base_end_date:
-            # use the speciation from the correct season
-            if find_season(today).lower() == 's':
-                self.gsref = self.summer_gsref
-            else:
-                self.gsref = self.winter_gsref
             # find the DOW
             date = today.strftime(self.date_format)
             today += timedelta(days=1)
@@ -87,6 +83,12 @@ class Emfac2CmaqScaler(EmissionsScaler):
             for region in self.regions:
                 if date not in emissions.data[region]:
                     continue
+
+                # use the speciation from the correct season
+                if self.month2season[region][today.month] == 's':
+                    self.gsref = self.summer_gsref
+                else:
+                    self.gsref = self.winter_gsref
 
                 # handle region bounding box (limits are inclusive: {'lat': (51, 92), 'lon': (156, 207)})
                 box = self.region_boxes[region]
@@ -301,6 +303,29 @@ class Emfac2CmaqScaler(EmissionsScaler):
                     inv[region][eic] = nh3 / co
 
         return inv
+
+    def read_month_to_season(self):
+        ''' create a region-specific month-to-season mapping,
+            from a given CSV file
+        '''
+        # if not file is provided, use a default month-to-season mapping
+        if 'month_to_season' not in self.config['Scaling']:
+            by_month = ['w', 'w', 'w', 's', 's', 's', 's', 's', 's', 'w', 'w', 'w']
+            return defaultdict(lambda: dict((i + 1, l) for i, l in enumerate(by_month)))
+
+        # read month-to-season CSV
+        file_path = self.config['Scaling']['month_to_season']
+        lines = open(file_path, 'r').readlines()
+
+        # create output month-to-season dictionary, using the first line as default
+        m2s = defaultdict(lambda: dict((i + 1, l) for i, l in enumerate(lines[1].rstrip().lower().split(',')[1:])))
+
+        # add a month-to-season mapping for each region
+        for i in xrange(2, len(lines)):
+            ln = lines[i].rstrip().lower().split(',')
+            m2s[int(ln[0])] = dict((i + 1, l) for i, l in enumerate(ln[1:]))
+
+        return m2s
 
     @staticmethod
     def load_gsref(file_path):
