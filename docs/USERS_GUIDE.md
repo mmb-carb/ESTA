@@ -52,18 +52,18 @@ If you list more than one class, both will be run in the order you listed them. 
 
 There are five major steps in the emissions inventory gridding process, each of which have a dedicated section in the ESTA config files:
 
-1. **Emissions** - where the emissions files are and how to read them
-2. **Surrogates** - where the spatial and temporal surrogate files are and how to read them
-3. **Scaling** - how to scale emissions using the spatial and temporal surrogates
-4. **Output** - writing final output files
-5. **Testing** - QA/QC of output files
+1. **[Emissions](#emissions)** - where the emissions files are and how to read them
+2. **[Surrogates](#surrogates)** - where the spatial and temporal surrogate files are and how to read them
+3. **[Scaling](#scaling)** - how to scale emissions using the spatial and temporal surrogates
+4. **[Output](#output)** - writing final output files
+5. **[Testing](#testing)** - QA/QC of output files
 
 In addition to those, ESTA has four other standard config sections:
 
-1. **Dates** - define the the time span of the run
-2. **Regions** - define the counties, GAIs, states, or other regions in your run
-3. **GridInfo** - define your modeling domain
-4. **Miscellaneous** - a catch-all, for shared resources or anything you want
+1. **[Dates](#dates)** - define the the time span of the run
+2. **[Regions](#regions)** - define the counties, GAIs, states, or other regions in your run
+3. **[GridInfo](#gridinfo)** - define your modeling domain
+4. **[Miscellaneous](#misc)** - a catch-all, for shared resources or anything you want
 
 Next, the nine sections above will be discussed in some detail, using examples from the default config files that are provided with ESTA.
 
@@ -393,8 +393,9 @@ The scaling section defines the classes used to scale the raw inventories using 
     [Scaling]
     scalor: EmfacSmokeScaler
     nh3_inventory: input/defaults/emfac2014/nh3/rf2082_b_2012_20160212_onroadnh3.csv
+    month_to_season: input/examples/onroad_emfac2014_santa_barbara/ncf/california_seasons_by_gai.csv
 
-The `scalor` class listed is the heart of your ESTA run, performing an arbitrary amount of math to apply the surrgates to your emissions.
+The `scalor` class listed is the heart of your ESTA run, performing an arbitrary amount of math to apply the surrgates to your emissions.  
 
 #### nh3_inventory
 
@@ -419,6 +420,24 @@ The file format is used elsewhere at CARB, so several of the columns are unused:
 * POL - Pollutant Code [CEIDARS numerical code]
 * EMS - Emissions [decimal number in tons]
 
+#### month_to_season
+
+> This file is only needed for NetCDF file outputs.
+
+Example Location:
+
+    input/examples/onroad_emfac2014_santa_barbara/ncf/california_seasons_by_gai.csv
+
+The seasons CSV files is designed to map each month to a different season (Summer vs Winter) for the purposes of speciation in NetCDF file outputs. Because the speciation can vary region to region, this file allows for the possibility of different seasonal mappings for each and every region (county or GAI). This is particularly useful for California's on-road modeling, as the fuels dispenses for heavy-duty diesel vehicles vary throughout the year in California's various air basins. This file allows the user to track those differences.
+
+The CSV file format is pretty simple:
+
+    Region,Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+    default,w,w,w,s,s,s,s,s,s,w,w,w
+    58,s,s,s,s,s,s,s,s,s,s,s,s
+
+Here, the first column is the region code, and each column has a single letter; s for Summer and w for Winter. The first row is always considered the default, regaurdless of what is in the Region column. So, in the example (ficticious) CSV file above, the default for the whole run is that Summer is April through September. But in region 58 (Los Angeles), it is Summer all your long.
+
 
 ### Output
 
@@ -430,11 +449,10 @@ The output section defines how the final output files from ESTA are created. In 
     by_region: True
     combine_regions: False
     eic_precision: 3
-    inventory_version: v0100
 
 The primary variables in this section are: `writers` which lists the output-creating classes, and `directories` which lists where you want the output files. All the rest of the variables in the default config files are specific to the EMFAC on-road process.
 
-The `by_region` variable can be set to `True` if you want each county to have it's own output file, or `False` if you want all counties in the same file. The `inventory_version` variable is just a string used to uniquely identify your model run.
+The `by_region` variable can be set to `True` if you want each county to have it's own output file, or `False` if you want all counties in the same file.
 
 The `eic_precision` option is used to define how detailed you want to output your emissions. For instance, the outputs can be written using full EIC-14 categories by setting this option to `14`. But if the outputs are written using only EIC-3 (`eic_precision: 3`), the output files might be about 100 times smaller.
 
@@ -444,16 +462,18 @@ By contrast, in the input file example_onroad_ca_4km_dtim_ncf.ini you will see s
     directory: output/example_onroad_ca_4km_dtim/
     writers: CmaqNetcdfWriter
     by_region: False
-    inventory_version: v0102
     gspro_file: input/examples/onroad_emfac2014_santa_barbara/ncf/gspro.cmaq.saprc.example.csv
     summer_gsref_file: input/examples/onroad_emfac2014_santa_barbara/ncf/gsref.cmaq.saprc.example.summer.csv
     winter_gsref_file: input/examples/onroad_emfac2014_santa_barbara/ncf/gsref.cmaq.saprc.example.winter.csv
-    weight_file: input/examples/onroad_emfac2014_santa_barbara/ncf/molecular.weights.cmaq.mobile.txt
+    nox_file: input/examples/onroad_emfac2014_santa_barbara/ncf/heavy_duty_diesel_nox_fractions.csv
+    inventory_version: v0100
+    month_to_season: input/examples/onroad_emfac2014_santa_barbara/ncf/california_seasons_by_gai.csv
 
 This file generates output files that are in the CMAQ-ready NetCDF format. Notice that since NetCDF files do not contain EIC information the `eic_precision` variable is missing.
 
-The four new variables here all have to do with speciating EMFAC emissions. It turns out tha EMFAC only outputs criteria pollutants, but CMAQ needs speciated emissions. To help make this process transparent, we have decided to use the `GSPRO` and `GSREF` file formats from SMOKE as our input files for speciation. Please note that this config process allows for two different `GSREF` files, one for Summer and one for Winter. There will be no problem if you decide to list the same `GSREF` file twice for these two seasons. Finally, there is one `weight_file` variable that points to a SMOKE-formatted file that lists the molecular weights of each model species.
+The four new variables here all have to do with speciating EMFAC emissions. It turns out tha EMFAC only outputs criteria pollutants, but CMAQ needs speciated emissions. To help make this process transparent, we have decided to use the `GSPRO` and `GSREF` file formats from SMOKE as our input files for speciation. Please note that this config process allows for two different `GSREF` files, one for Summer and one for Winter. There will be no problem if you decide to list the same `GSREF` file twice for these two seasons.  The `nox_file` listed includes the speciation fractions for NOx speciation, based on year and region, for a range of years.
 
+The last two are totally optional. The `inventory_version` variable is just a string used to uniquely identify your model run. And `speciation_version` variable is just to allow the user to identify what version of speciation they use, if they are running NetCDF files. Again, these are optional.
 
 #### GSPRO / GSREF
 
