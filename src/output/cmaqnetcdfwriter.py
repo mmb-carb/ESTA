@@ -20,15 +20,20 @@ class CmaqNetcdfWriter(OutputWriter):
         super(CmaqNetcdfWriter, self).__init__(config, position)
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
-        self.version = self.config['Output']['inventory_version']
+        self.version = self.config['Output'].get('inventory_version', '')
+        self.spec_version = self.config['Output'].get('speciation_version', '')
         self.grid_file = self.config['GridInfo']['grid_cross_file']
         self.species = set()
         self.num_species = -1
         self.units = self.load_gspro(self.config['Output']['gspro_file'])
 
         # build some custom text to put in the NetCDF header
-        file_desc = "gspro: " + basename(self.config['Output']['gspro_file']) + \
-                    "  HD diesel NOx fraction file: " + basename(self.config['Output']['nox_file'])
+        file_desc = "regions: " + ' '.join([str(r) for r in self.regions]) + \
+                    ", gspro: " + basename(self.config['Output']['gspro_file'])
+        if self.spec_version:
+            file_desc += ", speciation version: " + self.spec_version
+        if self.version:
+            file_desc += ", inventory version: " + self.version
         history = "gridded on-road emissions, created by the ESTA model v" + \
                   version + " on " + dt.strftime(dt.now(), '%Y-%m-%d')
 
