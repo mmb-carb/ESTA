@@ -2,9 +2,9 @@
 
 > Emissions Spatial and Temporal Allocator
 
-ESTA is a command-line tool for processing raw emissions data into spatially and temporally-allocated emissions inventories, suitable for photochemicaly modeling or other analysis. ESTA a open-source, Python-based tool designed by the AQPSD branch of the [California EPA][CalEPA]'s [CalEPA][ARB].  Though it is a general-purpose model, it is currently only used for processing on-road inventories.
+ESTA is a command-line tool for processing raw emissions data into spatially and temporally-allocated emissions inventories, suitable for photochemicaly modeling or other analysis. ESTA is an open-source, Python-based tool designed by the AQPSD branch of the [California EPA][CalEPA]'s [Air Resources Board][ARB].  Though it is a general-purpose model, it is currently only used for processing on-road inventories.
 
-> This is a pre-release Beta version of the ESTA Model.
+> This is a pre-release Beta version of the ESTA model.
 
 ## ESTA Documentation
 
