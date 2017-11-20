@@ -22,7 +22,7 @@ class CmaqNetcdfWriter(OutputWriter):
         self.ncols = int(self.config['GridInfo']['columns'])
         self.version = self.config['Output'].get('inventory_version', '')
         self.spec_version = self.config['Output'].get('speciation_version', '')
-        self.grid_file = self.config['GridInfo']['grid_cross_file']
+        self.grid_size = int(self.config['GridInfo']['grid_size'])
         self.species = set()
         self.num_species = -1
         self.units = self.load_gspro(self.config['Output']['gspro_file'])
@@ -55,9 +55,9 @@ class CmaqNetcdfWriter(OutputWriter):
                        'YCENT': 37.0,            # Projection: y centroid latitude
                        'XORIG': -684000.0,       # Domain: -684000 for CA_4k, -84000 for SC_4k
                        'YORIG': -564000.0,       # Domain: -564000 for CA_4k, -552000 for SC_4k
-                       'XCELL': 4000.0,          # Domain: x cell width in meters
-                       'YCELL': 4000.0,          # Domain: y cell width in meters
-                       'VGTYP': 2,               # Domain: grid type ID (lat-lon, UTM, RADM, etc...)
+                       'XCELL': float(self.grid_size),  # Domain: x cell width in meters
+                       'YCELL': float(self.grid_size),  # Domain: y cell width in meters
+                       'VGTYP': 2,                      # Domain: grid type ID (lat-lon, UTM, RADM, etc...)
                        'VGTOP': np.float32(10000.0),         # Domain: Top Vertical layer at 10km
                        'VGLVLS': np.float32([1.0, 0.9958]),  # Domain: Vertical layer locations
                        'GDNAM': "CMAQ Emissions  ",
@@ -111,7 +111,7 @@ class CmaqNetcdfWriter(OutputWriter):
         jdate = int(str(d.year) + dt(self.base_year, d.month, d.day).strftime('%j'))
 
         # final output file path
-        out_path = build_arb_file_path(dt.strptime(date, self.date_format), self.grid_file, 'ncf',
+        out_path = build_arb_file_path(dt.strptime(date, self.date_format), 'ncf', self.grid_size,
                                        self.directory, self.base_year, self.start_date.year,
                                        self.version)
         print('    + writing: ' + out_path)

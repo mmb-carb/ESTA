@@ -20,7 +20,7 @@ class Pmeds1Writer(OutputWriter):
     def __init__(self, config, position):
         super(Pmeds1Writer, self).__init__(config, position)
         self.version = self.config['Output'].get('inventory_version', '')
-        self.grid_file = self.config['GridInfo']['grid_cross_file']
+        self.grid_size = int(self.config['GridInfo']['grid_size'])
         self.region_boxes = self.config.eval_file('Surrogates', 'region_boxes')  # bounds are inclusive
         self.by_region = self.config.getboolean('Output', 'by_region')
         self.combine = self.config.getboolean('Output', 'combine_regions') if self.by_region else False
@@ -73,7 +73,7 @@ class Pmeds1Writer(OutputWriter):
     def _write_pmeds1_by_state(self, scaled_emissions, date):
         """ Write a single 24-hour PMEDS file for a given date, for the entire state.
         """
-        out_path = build_arb_file_path(dt.strptime(date, self.date_format), self.grid_file, 'pmeds',
+        out_path = build_arb_file_path(dt.strptime(date, self.date_format), 'pmeds', self.grid_size,
                                        self.directory, self.base_year, self.start_date.year,
                                        self.version)
         jul_day = str(dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday).rjust(3)
@@ -161,9 +161,9 @@ class Pmeds1Writer(OutputWriter):
             return [out_path]
 
         # new output file path
-        out_file = build_arb_file_path(dt.strptime(date, self.date_format), self.grid_file,
-                                       'pmeds', self.directory, self.base_year,
-                                       self.start_date.year, self.version)
+        out_file = build_arb_file_path(dt.strptime(date, self.date_format), 'pmeds', self.grid_size,
+                                       self.directory, self.base_year, self.start_date.year,
+                                       self.version)
 
         # use glob to count files in the output folder
         yr, month, day = date.split('-')

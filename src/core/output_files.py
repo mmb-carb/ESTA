@@ -31,16 +31,15 @@ class OutputFiles(defaultdict):
                 defaultdict.__setitem__(self, date, defaultdict.__getitem__(self, date) + [file_path])
 
 
-def build_arb_file_path(date, grid_file, file_type, directory='output/', base_year=False,
+def build_arb_file_path(date, file_type, grid_size=4000, directory='output/', base_year=False,
                         model_year=False, version='v0100', inv_type='mv', region='st', cats='e14'):
     """ Build the final output file name and directory for a single day ESTA output file,
         using the extremely detailed ARB file name convention.
 
         Inputs:
             date: requires a Datetime object
-            grid_file: requires a ARB-name CMAQ grid description file, e.g.
-                        GRIDCRO2D.California_4km_291x321
             file_type: this is just the file extension, e.g. pmeds, ncf, txt
+            grid_size: the size of each grid cell (in meters)
             directory: local or absolute path to the desired output directory
                        (If this directory doesn't exist, it will be created.)
             base_year: a 4-digit string representing the year of the inventory
@@ -82,20 +81,14 @@ def build_arb_file_path(date, grid_file, file_type, directory='output/', base_ye
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
 
-    # define the grid size string
-    grid_size = '4k'
-    grid_name = os.path.basename(grid_file)
-    if '12km' in grid_name:
-        grid_size = '12k'
-    elif '36km' in grid_name:
-        grid_size = '36k'
-    elif '1km' in grid_name:
-        grid_size = '1k'
-    elif '250m' in grid_name:
-        grid_size = '250m'
+    # standardize grid cell size string
+    if grid_size >= 1000:
+        size = str(grid_size // 1000) + 'km'
+    else:
+        size = str(grid_size) + 'm'
 
     # build final file name
-    file_name = ''.join([region, '_', grid_size, '.', inv_type, '.', version, '..', str(base_year),
+    file_name = ''.join([region, '_', size, '.', inv_type, '.', version, '..', str(base_year),
                          '.', str(yr), julian_day, '..', cats, '..', file_type])
 
     return os.path.join(out_dir, file_name)
