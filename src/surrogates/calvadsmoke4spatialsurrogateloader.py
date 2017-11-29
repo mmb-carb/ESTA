@@ -4,7 +4,7 @@ import os
 import sys
 from spatial_surrogate import SpatialSurrogate
 from src.core.spatial_loader import SpatialLoader
-from dtim4loader import SpatialSurrogateData
+from spatial_surrogate_data import SpatialSurrogateData
 
 
 class CalvadSmoke4SpatialSurrogateLoader(SpatialLoader):
