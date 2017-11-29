@@ -15,7 +15,7 @@ The ESTA documentation is provided as its own repository:
 
 ## Open-Source Licence
 
-As ESTA was developed by the California State Government for use in air quality modeling, the model and its documenation are part of the public domain. They are openly licensed under the GNU GPLv3 license, and free for all to use.
+As ESTA was developed by the California State government, the model and its documenation are part of the public domain. They are openly licensed under the GNU GPLv3 license, and free for all.
 
 * [GNU GPLv3 License](LICENSE)
 

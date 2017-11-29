@@ -1,5 +1,4 @@
-# Python libraries required to run ESTA
-# (Python 2.7.x)
+# Python (v2.7.x) libraries required to run ESTA
 h5py >= 2.5.0
 netCDF4 >= 1.2.0
 numpy >= 1.10.0
