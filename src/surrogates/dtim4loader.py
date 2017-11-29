@@ -232,7 +232,7 @@ class Dtim4Loader(SpatialLoader):
 
 class SpatialSurrogateData(object):
     """ This class is designed as a helper to make organizing the huge amount of spatial
-        information we pull out of the DTIM4 Link/TAZ files easier.
+        information we pull out of the spatial surrogate files easier.
         It is just a multiply-embedded dictionary with keys for things that we find in each file:
         region, vehicle type, and activity (VMT, Trips, etc).
     """
@@ -247,11 +247,11 @@ class SpatialSurrogateData(object):
                 self.data[region] = {}
 
     def get(self, region, veh, act):
-        """ Getter method for DTIM 4 Data dictionary """
+        """ Getter method """
         return self.data.get(region, {}).get(veh, {}).get(act, None)
 
     def set(self, region, veh, act, surrogate):
-        """ Setter method for DTIM 4 Data dictionary """
+        """ Setter method """
         # type validation
         if type(surrogate) != SpatialSurrogate:
             raise TypeError('Only spatial surrogates can be used in SpatialSurrogateData.')
@@ -267,7 +267,7 @@ class SpatialSurrogateData(object):
         self.data[region][veh][act] = surrogate
 
     def set_nocheck(self, region, veh, act, surrogate):
-        """ Setter method for DTIM 4 Data dictionary
+        """ Setter method - no safety checking
             NOTE: This version of the method skips certain safety and type checking. It is faster,
                   but care must be taken to do these checks earlier in the code.
         """
@@ -280,7 +280,7 @@ class SpatialSurrogateData(object):
 
     def add_file(self, region, surrogate_dict):
         """ Setter method to add an entire dictionary of spatial surrogates to this object.
-            The dict represents an entire DTIM Link or TAZ file. So it has two layers of keys:
+            The dict represents an entire input text file. So it has two layers of keys:
             vehicle type and activity type, then it has a spatial surrogate
         """
         for veh in surrogate_dict:

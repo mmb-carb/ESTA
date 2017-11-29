@@ -39,14 +39,8 @@ class EmfacSmokeScaler(EmissionsScaler):
             Emissions: EMFAC2014EmissionsData
                             emis_data[region][date string] = EmissionsTable
                             EmissionsTable[EIC][pollutant] = value
-            Spatial Surrogates: Dtim4SpatialData
-                                    data[region][date][hr][veh][act] = SpatialSurrogate()
-                                    SpatialSurrogate[(grid, cell)] = fraction
-            Temporal Surrogates: {'diurnal': Dtim4TemporalData(),
-                                  'dow': calvad[region][dow][ld/lm/hh] = fraction}
-                                  Dtim4TemporalData
-                                        data[region][date][veh][act] = TemporalSurrogate()
-                                            TemporalSurrogate = [x]*24
+            Spatial Surrogates: SpatialSurrogateData[region][veh][act] = SpatialSurrogate()
+            Temporal Surrogates: {'diurnal': {}, 'dow': {}}
             OUTPUT FORMAT:
             ScaledEmissions: data[region][date][hr][eic] = SparseEmissions
                                 SparseEmissions[pollutant][(grid, cell)] = value
