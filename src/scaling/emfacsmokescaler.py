@@ -14,12 +14,10 @@ from src.surrogates.calvadtemporalloader import CALVAD_TYPE
 
 class EmfacSmokeScaler(EmissionsScaler):
 
-    CSTDM_HOURS = ['off', 'off', 'off', 'off', 'off', 'off',   # off peak: 6 AM to 10 AM
-                    'am',  'am',  'am',  'am',  'mid', 'mid',  # midday:   10 AM to 3 PM
-                    'mid', 'mid', 'mid', 'pm',  'pm',  'pm',   # pm peak:  3 PM to 7 PM
-                    'pm',  'off', 'off', 'off', 'off', 'off']  # off peak: 7 PM to 6 AM
-    DOWS = ['_monday_', '_tuesday_', '_wednesday_', '_thursday_', '_friday_',
-            '_saturday_', '_sunday_', '_holiday_']
+    PERIODS_BY_HR = ['off', 'off', 'off', 'off', 'off', 'off',  # off peak: 6 AM to 10 AM
+                     'am',  'am',  'am',  'am',  'mid', 'mid',  # midday:   10 AM to 3 PM
+                     'mid', 'mid', 'mid', 'pm',  'pm',  'pm',   # pm peak:  3 PM to 7 PM
+                     'pm',  'off', 'off', 'off', 'off', 'off']  # off peak: 7 PM to 6 AM
 
     def __init__(self, config, position):
         super(EmfacSmokeScaler, self).__init__(config, position)
@@ -185,9 +183,9 @@ class EmfacSmokeScaler(EmissionsScaler):
             se = SparseEmissions(self.nrows, self.ncols)
             veh, act, _ = self.eic_info[eic]
 
-            # fix VMT activity according to CSTDM periods
-            if self.is_smoke4 and act[:3] in ['vmt', 'vht']:
-                act += self.DOWS[dow] + self.CSTDM_HOURS[hr]
+            # check if the surrogate is by period
+            if act not in spatial_surrs[veh]:
+                act += '_' + self.PERIODS_BY_HR[hr]
 
             # if not value or act not in spatial_surrs[veh]:
             if act not in spatial_surrs[veh]:

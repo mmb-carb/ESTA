@@ -15,9 +15,7 @@ class CalvadSmoke4SpatialSurrogateLoader(SpatialLoader):
         daily periods defined by Calvad.
     '''
 
-    DOWS = ['_monday_', '_tuesday_', '_wednesday_', '_thursday_', '_friday_',
-            '_saturday_', '_sunday_', '_holiday_']
-    PERIODS = ['off', 'am', 'mid', 'pm']
+    PERIODS = ['am', 'mid', 'pm', 'off']
 
     def __init__(self, config, position):
         super(CalvadSmoke4SpatialSurrogateLoader, self).__init__(config, position)
@@ -38,9 +36,9 @@ class CalvadSmoke4SpatialSurrogateLoader(SpatialLoader):
             spatial_surrogates = SpatialSurrogateData()
         spatial_surrogates.init_regions(self.regions)
 
-        # loop through each SMOKE 4 surrogate file, and related list of EICs
+        # loop through each SMOKE surrogate file, and related list of EICs
         for i, surr_file_path in enumerate(self.smoke_surrogates):
-            # read SMOKE v4 spatial surrogate
+            # read SMOKE spatial surrogate
             file_path = os.path.join(self.directory, surr_file_path)
             region_surrogates = self._load_surrogate_file(file_path)
 
@@ -91,22 +89,27 @@ class CalvadSmoke4SpatialSurrogateLoader(SpatialLoader):
 
     def _create_veh_act_pairs(self, i):
         ''' create list of veh/act pairs for a given set of EICs '''
-        # read list of EICs from file
+        # read list of EICs from config.ini file
         label = self.eic_labels[i]
+        period = label.split('_')[-1]
+        if period not in ['am', 'mid', 'pm', 'off']:
+            period = ''
 
-        if label[:3] in ['vmt', 'vht']:
-            # adjust VMT and VHT-based surrogates
-            eics = [eic for eic in self.eic_info if self.eic_info[eic][1][:3] in ['vmt', 'vht']]
+        # select all EICs whose label in the config.ini file matches a label in the eic_info.py file
+        if period:
+            short_label = label[:-1 - len(period)]
+            eics = [eic for eic in self.eic_info if self.eic_info[eic][1] == short_label]
         else:
             eics = [eic for eic in self.eic_info if self.eic_info[eic][1] == label]
 
-        veh_act_pairs = [self.eic_info[eic][:2] for eic in eics]
-
-        # split VMT and VHT-based surrogates into 4 CSTDM time periods
-        vmt_pairs = filter(lambda v: v[1][:3] in ['vmt', 'vht'], veh_act_pairs)
-        for veh, act in vmt_pairs:
-            for dow in self.DOWS:
-                for period in self.PERIODS:
-                    veh_act_pairs.append((veh, act + dow + period))
+        # collect all vehicle / activity pairs that are relevant to this surrogate
+        if period:
+            veh_act_pairs = []
+            for eic in eics:
+                veh, act = self.eic_info[eic][:2]
+                for per in self.PERIODS:
+                    veh_act_pairs.append((veh, act + '_' + per))
+        else:
+            veh_act_pairs = [self.eic_info[eic][:2] for eic in eics]
 
         return veh_act_pairs

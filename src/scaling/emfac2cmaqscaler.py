@@ -14,12 +14,10 @@ from src.surrogates.calvadtemporalloader import CALVAD_TYPE
 
 class Emfac2CmaqScaler(EmissionsScaler):
 
-    CSTDM_HOURS = ['off', 'off', 'off', 'off', 'off', 'off',   # off peak: 6 AM to 10 AM
-                    'am',  'am',  'am',  'am',  'mid', 'mid',  # midday:   10 AM to 3 PM
-                    'mid', 'mid', 'mid', 'pm',  'pm',  'pm',   # pm peak:  3 PM to 7 PM
-                    'pm',  'off', 'off', 'off', 'off', 'off']  # off peak: 7 PM to 6 AM
-    DOWS = ['_monday_', '_tuesday_', '_wednesday_', '_thursday_', '_friday_',
-            '_saturday_', '_sunday_', '_holiday_']
+    PERIODS_BY_HR = ['off', 'off', 'off', 'off', 'off', 'off',  # off peak: 6 AM to 10 AM
+                     'am',  'am',  'am',  'am',  'mid', 'mid',  # midday:   10 AM to 3 PM
+                     'mid', 'mid', 'mid', 'pm',  'pm',  'pm',   # pm peak:  3 PM to 7 PM
+                     'pm',  'off', 'off', 'off', 'off', 'off']  # off peak: 7 PM to 6 AM
     STONS_HR_2_G_SEC = np.float32(251.99583333333334)
 
     def __init__(self, config, position):
@@ -30,7 +28,6 @@ class Emfac2CmaqScaler(EmissionsScaler):
         self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
-        self.is_smoke4 = 'smoke4' in self.config['Surrogates']['spatial_loaders'].lower()
         self.region_boxes = self.config.eval_file('Surrogates', 'region_boxes')  # bounds are inclusive
         self.summer_gsref = Emfac2CmaqScaler.load_gsref(self.config['Output']['summer_gsref_file'])
         self.winter_gsref = Emfac2CmaqScaler.load_gsref(self.config['Output']['winter_gsref_file'])
@@ -141,10 +138,11 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
         # grid emissions, by EIC
         for eic in emis_table:
-            # fix VMT activity according to Calvad periods
             veh, act, _ = self.eic_info[eic]
-            if self.is_smoke4 and act[:3] in ['vmt', 'vht']:
-                act += self.DOWS[dow] + self.CSTDM_HOURS[hr]
+
+            # check if the surrogate is by period
+            if act not in spatial_surrs[veh]:
+                act += '_' + self.PERIODS_BY_HR[hr]
 
             # build default spatial surrogate for this EIC
             ss = np.zeros((num_rows, num_cols), dtype=np.float32)
