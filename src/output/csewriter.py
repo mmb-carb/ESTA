@@ -8,8 +8,8 @@ from src.core.output_files import OutputFiles, build_arb_file_path
 from src.core.output_writer import OutputWriter
 
 
-class Pmeds1Writer(OutputWriter):
-    """ A class to write PMEDS v1 output files.
+class CseWriter(OutputWriter):
+    """ A class to write CSE output files.
         One for each region/date combination.
     """
 
@@ -18,13 +18,13 @@ class Pmeds1Writer(OutputWriter):
     MIN_EMIS = np.float32(5e-6) / STONS_2_KG
 
     def __init__(self, config, position):
-        super(Pmeds1Writer, self).__init__(config, position)
+        super(CseWriter, self).__init__(config, position)
         self.version = self.config['Output'].get('inventory_version', '')
         self.grid_size = int(self.config['GridInfo']['grid_size'])
         self.region_boxes = self.config.eval_file('Surrogates', 'region_boxes')  # bounds are inclusive
         self.by_region = self.config.getboolean('Output', 'by_region')
         self.combine = self.config.getboolean('Output', 'combine_regions') if self.by_region else False
-        # parse and format specialized region info for PMEDS files
+        # parse and format specialized region info for CSE files
         self.region_info = self.config.eval_file('Regions', 'region_info')
         self.gai_to_county = dict((g, str(d['county']).rjust(2)) for g,d in self.region_info.iteritems())
         self.gai_basins = dict((g, d['air_basin'].rjust(3)) for g,d in self.region_info.iteritems())
@@ -47,7 +47,7 @@ class Pmeds1Writer(OutputWriter):
         out_paths = OutputFiles()
         for region, region_data in scaled_emissions.data.iteritems():
             for date, hourly_emis in region_data.iteritems():
-                new_files = self._write_pmeds1_by_region(hourly_emis, region, date)
+                new_files = self._write_cse_by_region(hourly_emis, region, date)
                 if new_files:
                     out_paths[date[5:]] += new_files
 
@@ -66,14 +66,14 @@ class Pmeds1Writer(OutputWriter):
         dates = sorted(dates)
         out_paths = OutputFiles()
         for date in dates:
-            out_paths[date[5:]] += self._write_pmeds1_by_state(scaled_emissions, date)
+            out_paths[date[5:]] += self._write_cse_by_state(scaled_emissions, date)
 
         return out_paths
 
-    def _write_pmeds1_by_state(self, scaled_emissions, date):
-        """ Write a single 24-hour PMEDS file for a given date, for the entire state.
+    def _write_cse_by_state(self, scaled_emissions, date):
+        """ Write a single 24-hour CSE file for a given date, for the entire state.
         """
-        out_path = build_arb_file_path(dt.strptime(date, self.date_format), 'pmeds', self.grid_size,
+        out_path = build_arb_file_path(dt.strptime(date, self.date_format), 'cse', self.grid_size,
                                        self.directory, self.base_year, self.start_date.year,
                                        self.version)
         jul_day = str(dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday).rjust(3)
@@ -106,15 +106,15 @@ class Pmeds1Writer(OutputWriter):
                                     # pollutant not in this grid cell
                                     pass
 
-                            # build PMEDS line
+                            # build CSE line
                             if emis_found:
-                                f.write(self._build_pmeds1_line(region, date, jul_day, hr, eic, (i, j), emis))
+                                f.write(self._build_cse_line(region, date, jul_day, hr, eic, (i, j), emis))
 
         f.close()
         return [out_path]
 
-    def _write_pmeds1_by_region(self, hourly_emis, region, date):
-        """ Write a single 24-hour PMEDS file for a given region/date combination.
+    def _write_cse_by_region(self, hourly_emis, region, date):
+        """ Write a single 24-hour CSE file for a given region/date combination.
             Each region might have multiple COABDIS, so that has to be worked out.
         """
         # pull bounding box for region
@@ -143,9 +143,9 @@ class Pmeds1Writer(OutputWriter):
                                 emis[col] = '%.5f' % (value * self.STONS_2_KG)
                                 emis_found = True
 
-                        # build PMEDS line
+                        # build CSE line
                         if emis_found:
-                            f.write(self._build_pmeds1_line(region, date, jul_day, hr, eic, (i, j), emis))
+                            f.write(self._build_cse_line(region, date, jul_day, hr, eic, (i, j), emis))
 
         f.close()
         return self._combine_regions(date, out_path)
@@ -159,13 +159,13 @@ class Pmeds1Writer(OutputWriter):
             return [out_path]
 
         # new output file path
-        out_file = build_arb_file_path(dt.strptime(date, self.date_format), 'pmeds', self.grid_size,
+        out_file = build_arb_file_path(dt.strptime(date, self.date_format), 'cse', self.grid_size,
                                        self.directory, self.base_year, self.start_date.year,
                                        self.version)
 
         # use glob to count files in the output folder
         yr, month, day = date.split('-')
-        region_paths = os.path.join(self.directory, month, day, '*.pmeds')
+        region_paths = os.path.join(self.directory, month, day, '*.cse')
         region_files = glob(region_paths)
 
         # if all regions are finished, zcat results together
@@ -190,25 +190,22 @@ class Pmeds1Writer(OutputWriter):
 
         return [out_file]
 
-    def _build_pmeds1_line(self, region, date, jul_day, hr, eic, grid_cell, emis):
-        """ Build the complicated PMEDS v1 line from available data
-            Line Format:
-            Amador                71074211000000162179               3122001313 MC  7     ,,,,0.024,
-            Los Ange              71074211000000165180               3122000707 MC  7     ,,,0.008,,
-            Alpine                71074211000000183190               2122001414GBV  1     0.015,,,,,
+    def _build_cse_line(self, region, date, jul_day, hr, eic, grid_cell, emis):
+        """ Build the complicated CSE line from available data
+            Line Format: SIC,EIC/SCC,I,J,REGION,YEAR,JUL_DAY,START_HR,END_HR,CO,NOX,SOX,TOG,PM,NH3
+            ,71074211000000,62,79,3,12,200,13,13,,,,,0.024,
+            ,71074211000000,165,180,3,12,200,07,07,,,,0.008,,
+            ,71074211000000,183,190,2,12,200,14,14,0.000000005,,,,,
         """
         y, x = grid_cell
-        hour = '%02d' % (hr - 1)
+        hour = str(hr - 1)
         emissions = ','.join(emis)
         yr = str(self.start_date.year)[2:4]
 
-        return ''.join([self.short_region_names[region], str(eic).rjust(28), str(x + 1).rjust(3),
-                        str(y + 1).rjust(3), '              ', self.gai_to_county[region], yr,
-                        jul_day, hour, hour, self.gai_basins[region], self.short_regions[region],
-                        '     ', emissions, '\n'])
+        return ','.join(['', str(eic), str(x + 1), str(y + 1), str(region), yr, jul_day, hour, hour, emissions]) + '\n'
 
     def _build_regional_file_path(self, region, date):
-        """ build output file directory and path for PMEDS file """
+        """ build output file directory and path for CSE file """
         yr, month, day = date.split('-')
 
         out_dir = os.path.join(self.directory, month, day)
@@ -216,4 +213,4 @@ class Pmeds1Writer(OutputWriter):
             os.makedirs(out_dir)
 
         nomen = self.region_names[region].replace(')', '').replace('(', '').replace(' ', '_')
-        return os.path.join(out_dir, nomen + '.pmeds')
+        return os.path.join(out_dir, nomen + '.cse')
