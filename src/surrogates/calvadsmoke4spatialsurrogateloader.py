@@ -7,18 +7,18 @@ from src.core.spatial_loader import SpatialLoader
 from spatial_surrogate_data import SpatialSurrogateData
 
 
-class CalvadSmoke4SpatialSurrogateLoader(SpatialLoader):
+class SmokeSpatialSurrogateLoader(SpatialLoader):
     ''' This class takes a simple list of EICs and a SMOKE v4 spatial surrogate file
         and creates an ESTA spatial surrogate.
         The SMOKE spatial surrogate format is well-documented and widely used.
         These SMOKE surrogates have a naming convention to allow us to use the four
-        daily periods defined by Calvad.
+        daily periods.
     '''
 
     PERIODS = ['am', 'mid', 'pm', 'off']
 
     def __init__(self, config, position):
-        super(CalvadSmoke4SpatialSurrogateLoader, self).__init__(config, position)
+        super(SmokeSpatialSurrogateLoader, self).__init__(config, position)
         self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
         self.smoke_surrogates = self.config.getlist('Surrogates', 'smoke4_surrogates')
         self.eic_labels = self.config.getlist('Surrogates', 'smoke_eic_labels')
