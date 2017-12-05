@@ -12,7 +12,7 @@ from src.emissions.emissions_table import EmissionsTable
 from src.surrogates.calvadtemporalloader import CalvadTemporalLoader, CALVAD_TYPE
 
 
-class EmfacPmedsDiurnalTester(OutputTester):
+class EmfacPmedsDiurnalTester(OutputTester):  # TODO: Need to change this name now...
 
     KG_2_STONS = np.float32(0.001102310995)
     NUM_TESTED = 5
@@ -38,7 +38,7 @@ class EmfacPmedsDiurnalTester(OutputTester):
         ''' Master Testing Method.
 
             Compare the final NetCDF output file emissions to the original EMFAC2014 input files.
-            PMEDS files will by compared by county, date, and EIC.
+            PMEDS or CSE files will by compared by county, date, and EIC.
 
             emis format: emis.data[region][date string] = EmissionsTable
                              EmissionsTable[eic][poll] = value
@@ -51,15 +51,16 @@ class EmfacPmedsDiurnalTester(OutputTester):
         # Build top-emitting EIC list for all pollutants
         eics = EmfacPmedsDiurnalTester.find_top_eics(emis)
 
-        # test outputs for each date
+        # test outputs for each dates
         for date in self.dates:
             d = date[5:]
             if d not in out_paths:
-                print('    + No output PMEDS files found for testing on date: ' + d)
+                print('    + No output text files found for testing on date: ' + d)
                 continue
+            cse_files = [f for f in out_paths[d] if f.rstrip('.gz').endswith('.pmeds')]
             pmeds_files = [f for f in out_paths[d] if f.rstrip('.gz').endswith('.pmeds')]
-            if not pmeds_files:
-                print('    + No output PMEDS files found for testing on date: ' + d)
+            if not pmeds_files and not cse_files:
+                print('    + No output text files found for testing on date: ' + d)
                 continue
 
             # find the day-of-week
@@ -71,7 +72,11 @@ class EmfacPmedsDiurnalTester(OutputTester):
 
             for file_path in pmeds_files:
                 output_profs = self._output_pmeds_profiles(file_path, eics)
-                self._write_profile_comparision(output_profs, date, dow)  # TODO: date???
+                self._write_profile_comparision(output_profs, date, dow)
+
+            for file_path in cse_files:
+                output_profs = self._output_cse_profiles(file_path, eics)
+                self._write_profile_comparision(output_profs, date, dow)
 
     def _load_calvad_diurnal_profiles(self):
         """ Read the Calvad diurnal profiles file, and parse it into a collection, based on the
@@ -154,6 +159,47 @@ class EmfacPmedsDiurnalTester(OutputTester):
             region = int(line[71:73])
             hr = int(line[65:67]) % 24
             vals = [np.float32(v) if v else 0.0 for v in line[78:].rstrip().split(',')][:5]
+
+            if region not in e:
+                e[region] = {}
+            if eic not in e[region]:
+                e[region][eic] = {}
+
+            for i, val in enumerate(vals):
+                if not val:
+                    continue
+                poll = self.POLLUTANTS[i]
+                if poll not in e[region][eic]:
+                    e[region][eic][poll] = np.zeros(24, dtype=np.float32)
+                e[region][eic][poll][hr] += val
+
+        return e
+
+    def _output_cse_profiles(self, file_path, eics):
+        ''' Look at the final output CSE file and build a dictionary of temporal profiles,
+            by region, EIC, and pollutant.
+            Line Format: SIC,EIC/SCC,I,J,REGION,YEAR,JUL_DAY,START_HR,END_HR,CO,NOX,SOX,TOG,PM,NH3
+        '''
+        if file_path.endswith('.gz'):
+            f = gzip.open(file_path, 'rb')
+            lines = f.readlines()
+        elif os.path.exists(file_path):
+            f = open(file_path, 'r')
+            lines = f.xreadlines()
+        else:
+            print('Emissions File Not Found: ' + file_path)
+            return e
+
+        # now that file exists, read it
+        e = {}
+        for line in lines:
+            ln = line.rstrip().split(',')
+            eic = int(ln[1])
+            if eic not in eics:
+                continue
+            region = int(ln[4])
+            hr = int(ln[7]) % 24
+            vals = [np.float32(v) if v else 0.0 for v in ln[9:15]]
 
             if region not in e:
                 e[region] = {}

@@ -11,7 +11,7 @@ from src.emissions.emissions_table import EmissionsTable
 from src.surrogates.calvadtemporalloader import CalvadTemporalLoader, CALVAD_TYPE
 
 
-class EmfacPmedsTotalsTester(OutputTester):
+class EmfacPmedsTotalsTester(OutputTester):  # TODO: Need to change this name now...
 
     KG_2_STONS = np.float32(0.001102310995)
     POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM', 'NH3']
@@ -34,7 +34,7 @@ class EmfacPmedsTotalsTester(OutputTester):
     def test(self, emis, out_paths):
         ''' Master Testing Method.
             Compare the final NetCDF output file emissions to the original EMFAC2014 input files.
-            PMEDS files will by compared by county, date, and EIC.
+            PMEDS or CSE files will by compared by county, date, and EIC.
 
             emis format: emis.data[region][date string] = EmissionsTable
                             EmissionsTable[eic][poll] = value
@@ -46,7 +46,7 @@ class EmfacPmedsTotalsTester(OutputTester):
         for d in self.dates:
             date = d[5:]
             if date not in out_paths:
-                print('    + TODO DIURN -- No output PMEDS files found for testing on date: ' + str(date))
+                print('    + TODO DIURN -- No output text files found for testing on date: ' + str(date))
                 continue
 
             # find the day-of-week
@@ -57,9 +57,10 @@ class EmfacPmedsTotalsTester(OutputTester):
                 dow = DOW[dt.strptime(by_date, self.date_format).weekday()]
 
             # test output pmeds, if any
+            cse_files = [f for f in out_paths[date] if f.rstrip('.gz').endswith('.cse')]
             pmeds_files = [f for f in out_paths[date] if f.rstrip('.gz').endswith('.pmeds')]
-            if pmeds_files:
-                self._read_and_compare_txt(pmeds_files, date, emis, dow)
+            if pmeds_files or cse_files:
+                self._read_and_compare_txt(pmeds_files, cse_files, date, emis, dow)
 
     def _load_calvad_dow_profiles(self):
         """ read the original Calvad Day-of-Week temporal profiles
@@ -112,17 +113,19 @@ class EmfacPmedsTotalsTester(OutputTester):
                         e[new_eic][poll] += value
                 emis.data[region][date] = e
 
-    def _read_and_compare_txt(self, files, date, emis, dow):
+    def _read_and_compare_txt(self, pmeds, cse, date, emis, dow):
         ''' Read the output PMEDS files and compare the results with the
             input EMFAC2014 emissions.
         '''
         # sum up emissions in output PMEDS
         out_emis = {}
-        for f in files:
+        for f in pmeds:
             out_emis = self._sum_output_pmeds(f, out_emis)
+        for f in cse:
+            out_emis = self._sum_output_cse(f, out_emis)
 
         # write the emissions comparison to a file
-        if files:
+        if pmeds or cse:
             self._write_full_comparison(emis, out_emis, date, dow)
 
     def _write_full_comparison(self, emfac_emis, out_emis, d, dow):
@@ -142,7 +145,7 @@ class EmfacPmedsTotalsTester(OutputTester):
         if not self.can_test_dow:
             f.write('Since your run is not by ' + str(MAX_EIC_PRECISION) + '-digit EIC, ' +
                     'your test results will not be adjust for day-of-week.\n\n')
-        f.write('Region,EIC,Pollutant,EMFAC,PMEDS,Percent Diff\n')
+        f.write('Region,EIC,Pollutant,EMFAC,OUTPUT,Percent Diff\n')
 
         # compare DOW profiles by: Region, EIC, and pollutant
         total_totals = {'emfac': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero},
@@ -212,12 +215,47 @@ class EmfacPmedsTotalsTester(OutputTester):
             eic = int(line[22:36])
             if eic > eic_limit:
                 eic = self.eic_reduce(eic)
-            vals = [np.float32(v) if v else 0.0 for v in line[78:].rstrip().split(',')]
+            vals = [np.float32(v) if v else np.float32(0.0) for v in line[78:].rstrip().split(',')]
 
             if region not in e:
                 e[region] = {}
             if eic not in e[region]:
-                e[region][eic] = dict(zip(self.POLLUTANTS, [0.0]*len(self.POLLUTANTS)))
+                e[region][eic] = dict(zip(self.POLLUTANTS, [np.float32(0.0)]*len(self.POLLUTANTS)))
+
+            for i in xrange(6):
+                e[region][eic][self.POLLUTANTS[i]] += vals[i] * self.KG_2_STONS
+
+        return e
+
+    def _sum_output_cse(self, file_path, e):
+        ''' Look at the final output CSE file and build a dictionary
+            of the emissions by region and pollutant.
+            Format: SIC,EIC/SCC,I,J,REGION,YEAR,JUL_DAY,START_HR,END_HR,CO,NOX,SOX,TOG,PM,NH3
+        '''
+        if file_path.endswith('.gz'):
+            f = gzip.open(file_path, 'rb')
+            lines = f.readlines()
+        elif os.path.exists(file_path):
+            f = open(file_path, 'r')
+            lines = f.xreadlines()
+        else:
+            print('Emissions File Not Found: ' + file_path)
+            return e
+
+        # now that file exists, read it
+        eic_limit = 1e13
+        for line in lines:
+            ln = line.rstrip().split(',')
+            eic = int(ln[1])
+            region = int(ln[4])
+            if eic > eic_limit:
+                eic = self.eic_reduce(eic)
+            vals = [np.float32(v) if v else np.float32(0.0) for v in ln[9:15]]
+
+            if region not in e:
+                e[region] = {}
+            if eic not in e[region]:
+                e[region][eic] = dict(zip(self.POLLUTANTS, [np.float32(0.0)]*len(self.POLLUTANTS)))
 
             for i in xrange(6):
                 e[region][eic][self.POLLUTANTS[i]] += vals[i] * self.KG_2_STONS
