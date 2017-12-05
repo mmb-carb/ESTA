@@ -44,6 +44,8 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
             v = ln[4]
             p = ln[3]
             eic = self.vtp2eic[(v, 'DSL', p)]
+            if eic not in self.eic_info:
+                raise KeyError('eic_info file does not include the EIC: ' + str(eic))
             # pull emissions value
             value = np.float32(ln[2]) * np.float32(self.eic_info[eic][2])
             if not value:

@@ -146,6 +146,8 @@ class Emfac2014CsvLoader(EmissionsLoader):
                 continue
             p = ln[4]
             eic = self.vtp2eic[(v, t, p)]
+            if eic not in self.eic_info:
+                raise KeyError('eic_info file does not include the EIC: ' + str(eic))
             value = np.float32(ln[-1]) * np.float32(self.eic_info[eic][2])
             if value > 0.0:
                 e[eic][poll] += value
