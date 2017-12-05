@@ -10,23 +10,25 @@ def main():
     ''' Parse the command line arguments provided,
         and run ESTA if the arguments are valid.
     '''
-    config_file_path = ''
-    if len(sys.argv) == 2 and sys.argv[1] in ['-h', '--h', '-help', '--help']:
-        usage()
-    elif len(sys.argv) == 2:
-        config_file_path = sys.argv[1]
-    else:
+    # if no input files are given, show help menu
+    if len(sys.argv) < 2:
         usage()
 
-    if not os.path.exists(config_file_path):
-        sys.exit('\nERROR: Config file not found: %s\n' % config_file_path)
+    # if help flag is given, show help menu
+    for arg in sys.argv[1:]:
+        if arg.lower() in ['-h', '--h', '-help', '--help']:
+            usage()
 
-    process_esta(config_file_path)
+    # process input INI file(s)
+    for config_file_path in sys.argv[1:]:
+        if not os.path.exists(config_file_path):
+            sys.exit('\nERROR: Config file not found: %s\n' % config_file_path)
+
+        process_esta(config_file_path)
 
 
 def process_esta(config_file_path):
-    ''' Parse config file, then
-        initialize and run ESTA model
+    ''' Parse config file, then initialize and run ESTA model
     '''
     # config file parsing
     config = CustomParser(config_file_path)
@@ -45,7 +47,7 @@ def usage():
     '''
     help_text = '''\n\nESTA Model Usage
 \nSimply provide the path to a config file:\n
-\t python esta.py config/example_onroad_ca_4km_dtim_pmeds.ini
+\t python esta.py config/example_onroad_ca_4km_txt_simple.ini
 \t./esta.py /path/to/user_defined_config.ini\n
 '''
     print(help_text)
