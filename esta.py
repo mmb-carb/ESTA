@@ -22,7 +22,8 @@ def main():
     # process input INI file(s)
     for config_file_path in sys.argv[1:]:
         if not os.path.exists(config_file_path):
-            sys.exit('\nERROR: Config file not found: %s\n' % config_file_path)
+            print('\n\nERROR: Config file not found: %s\n\n' % config_file_path)
+            continue
 
         process_esta(config_file_path)
 
