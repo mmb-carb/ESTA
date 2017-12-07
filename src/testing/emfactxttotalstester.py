@@ -8,7 +8,7 @@ from src.core.date_utils import DOW, find_holidays
 from src.core.eic_utils import eic_reduce, MAX_EIC_PRECISION
 from src.core.output_tester import OutputTester
 from src.emissions.emissions_table import EmissionsTable
-from src.surrogates.calvadtemporalloader import CalvadTemporalLoader, CALVAD_TYPE
+from src.surrogates.calvadtemporalloader import CalvadTemporalLoader
 
 
 class EmfacTxtTotalsTester(OutputTester):
@@ -83,7 +83,7 @@ class EmfacTxtTotalsTester(OutputTester):
                 if self.can_test_dow:
                     profs[dow][region] = {}
                     for eic in self.eic_info:
-                        profs[dow][region][eic] = orig_profs[region][dow][CALVAD_TYPE[self.eic_info[eic][0]]]
+                        profs[dow][region][eic] = orig_profs[region][dow][self.eic_info[eic][0]]
                 else:
                     # unless it is EIC14, we can't apply day-of-week profiles to the outputs
                     profs[dow][region] = defaultdict(lambda: np.float32(1.0))

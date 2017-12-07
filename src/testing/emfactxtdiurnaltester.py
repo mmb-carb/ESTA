@@ -9,7 +9,7 @@ from src.core.date_utils import DOW, find_holidays
 from src.core.eic_utils import eic_reduce, MAX_EIC_PRECISION
 from src.core.output_tester import OutputTester
 from src.emissions.emissions_table import EmissionsTable
-from src.surrogates.calvadtemporalloader import CalvadTemporalLoader, CALVAD_TYPE
+from src.surrogates.calvadtemporalloader import CalvadTemporalLoader
 
 
 class EmfacTxtDiurnalTester(OutputTester):
@@ -102,7 +102,7 @@ class EmfacTxtDiurnalTester(OutputTester):
                 for eic in self.eic_info:
                     profs[dow][region][eic] = np.zeros(24, dtype=np.float32)
                     for hr in xrange(24):
-                        profs[dow][region][eic][hr] = orig_profs[region][dow][hr][CALVAD_TYPE[self.eic_info[eic][0]]]
+                        profs[dow][region][eic][hr] = orig_profs[region][dow][hr][self.eic_info[eic][0]]
 
         return profs
 
