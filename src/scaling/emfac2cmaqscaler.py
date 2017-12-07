@@ -9,15 +9,14 @@ from src.core.date_utils import DOW, find_holidays
 from src.core.emissions_scaler import EmissionsScaler
 from scaled_emissions import ScaledEmissions
 from src.emissions.sparse_emissions import SparseEmissions
-from src.surrogates.calvadtemporalloader import CALVAD_TYPE
 
 
 class Emfac2CmaqScaler(EmissionsScaler):
 
-    PERIODS_BY_HR = ['off', 'off', 'off', 'off', 'off', 'off',  # off peak: 6 AM to 10 AM
-                     'am',  'am',  'am',  'am',  'mid', 'mid',  # midday:   10 AM to 3 PM
-                     'mid', 'mid', 'mid', 'pm',  'pm',  'pm',   # pm peak:  3 PM to 7 PM
-                     'pm',  'off', 'off', 'off', 'off', 'off']  # off peak: 7 PM to 6 AM
+    PERIODS_BY_HR = ['OFF', 'OFF', 'OFF', 'OFF', 'OFF', 'OFF',  # off peak: 6 AM to 10 AM
+                     'AM',  'AM',  'AM',  'AM',  'MID', 'MID',  # midday:   10 AM to 3 PM
+                     'MID', 'MID', 'MID', 'PM',  'PM',  'PM',   # pm peak:  3 PM to 7 PM
+                     'PM',  'OFF', 'OFF', 'OFF', 'OFF', 'OFF']  # off peak: 7 PM to 6 AM
     STONS_HR_2_G_SEC = np.float32(251.99583333333334)
 
     def __init__(self, config, position):
@@ -98,7 +97,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 for hr in xrange(24):
                     # apply diurnal, then spatial profiles (this line long for performance reasons)
                     sparse_emis = self._apply_spatial_surrs(self._apply_factors(deepcopy(emis_table),
-                                                                                factors_by_hour[hr]),
+                                                                                factors_by_hour[hr]),  # TODO: need to add hour back in
                                                             spatial_surrs, region, box, dow_num, hr)
                     e.add_subgrid_nocheck(-999, date, hr + 1, -999, sparse_emis, box)
 
@@ -188,7 +187,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
         return se
 
-    def _apply_factors(self, emissions_table, factors):
+    def _apply_factors(self, emissions_table, factors):  # TODO: Need to add hours back in
         """ Apply CalVad DOW or diurnal factors to an emissions table, altering the table.
             Date Types:
             EmissionsTable[EIC][pollutant] = value
@@ -197,7 +196,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
         zeros = []
         # scale emissions table for diurnal factors
         for eic in emissions_table:
-            factor = factors[CALVAD_TYPE[self.eic_info[eic][0]]]
+            factor = factors[CALVAD_TYPE[self.eic_info[eic][0]]]  # TODO: NO LONGER CALLED CALVAD
             if not factor:
                 zeros.append(eic)
             else:

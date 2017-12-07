@@ -3,23 +3,19 @@ import os
 import numpy as np
 from src.core.temporal_loader import TemporalLoader
 
-# Calvad vehicle type mapping, used only for DOW temporal profiles
-# LDA, LDT1, LDT2, MDV, LHDT1, LHDT2, MHDT, HHDT, OBUS, UBUS, MCY, SBUS, MH
-# 0 = LD, 1 = LM, 2 = HH, 3 = SBUS
-CALVAD_TYPE = [0, 0, 0, 0, 1, 1, 1, 2, 1, 0, 0, 3, 0,
-               0, 0, 0, 0, 1, 1, 1, 2, 1, 0, 0, 3, 0]
+# TODO: Ditch the name "Calvad"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 class CalvadTemporalLoader(TemporalLoader):
 
     def __init__(self, config, position):
         super(CalvadTemporalLoader, self).__init__(config, position)
-        self.dow_path = os.path.join(self.directory, self.config['Surrogates']['calvad_dow'])
-        diurnal_file = self.config['Surrogates']['calvad_diurnal']
+        self.dow_path = os.path.join(self.directory, self.config['Surrogates']['temporal_dow'])
+        diurnal_file = self.config['Surrogates']['temporal_diurnal']
         self.diurnal_path = os.path.join(self.directory, diurnal_file)
 
     def load(self, spatial_surrogates, temporal_surrogates):
-        """ master method to load both day-of-week and diurnal CALVAD time profiles """
+        """ master method to load both day-of-week and diurnal time profiles """
         if not temporal_surrogates:
             temporal_surrogates = {}
 
@@ -33,67 +29,61 @@ class CalvadTemporalLoader(TemporalLoader):
 
     @staticmethod
     def load_diurnal(file_path):
-        """ generate the diurnal temporal surrogates from the CalVad data
-            hours range from 0 to 23
+        """ generate the diurnal temporal surrogates from the CSV file
+            (hours range from 0 to 23)
 
-            CalVad File Format:
+            Example File Format:
             REGION,DAY,HR,LD,LM,HH,SBUS
             Alameda,sun,00,0.020204,0.040504,0.060651,0.0
             Alameda,sun,01,0.012772,0.038892,0.055813,0.0
         """
-        calvad = {}
+        surrs = {}
         f = open(file_path, 'r')
-        header = f.readline()
+        keywords = f.readline().rstrip().split(',')[3:]
         for line in f.xreadlines():
             # read line
-            ln = line.strip().split(',')
+            ln = line.rstrip().split(',')
             region = int(ln[0])
             dow = ln[1]
             hr = int(ln[2])
-            ld = np.float32(ln[3])
-            lm = np.float32(ln[4])
-            hh = np.float32(ln[5])
-            sbus = np.float32(ln[6])
+            values = [np.float32(val) for val in ln[3:]]
+
+            # make sure the surrogate structure is ready
+            if region not in surrs:
+                surrs[region] = {}
+            if dow not in surrs[region]:
+                surrs[region][dow] = dict((k, np.zeros(24, dtype=np.float32)) for k in keywords)
 
             # load data into surrogate
-            if region not in calvad:
-                calvad[region] = {}
-            if dow not in calvad[region]:
-                calvad[region][dow] = {}
-            calvad[region][dow][hr] = [ld, lm, hh, sbus]
+            for i, val in enumerate(values):
+                surrs[region][dow][keywords[i]][hr] = val
 
         f.close()
-
-        return calvad
+        return surrs
 
     @staticmethod
     def load_dow(file_path):
-        """ generate the DOW temporal surrogates from the CalVad data
+        """ generate the DOW temporal surrogates from the CSV file
 
-            CalVad File Format:
+            Example File Format:
             REGION,Day,DOW,LD,LM,HH,SBUS
             1,1,sun,0.79679,0.495819,0.324035,0.0
             1,2,mon,0.948027,0.91867,0.893196,0.0
-            1,3,tuth,1,1,1
         """
-        calvad = {}
+        surrs = {}
         f = open(file_path, 'r')
-        header = f.readline()
+        keywords = f.readline().rstrip().split(',')[3:]
         for line in f.xreadlines():
             # read line
-            ln = line.strip().split(',')
+            ln = line.rstrip().split(',')
             region = int(ln[0])
             dow = ln[2]
-            ld = np.float32(ln[3])
-            lm = np.float32(ln[4])
-            hh = np.float32(ln[5])
-            sbus = np.float32(ln[6])
+            values = [np.float32(val) for val in ln[3:]]
 
             # load data into surrogate
-            if region not in calvad:
-                calvad[region] = {}
-            calvad[region][dow] = [ld, lm, hh, sbus]
+            if region not in surrs:
+                surrs[region] = {}
+            surrs[region][dow] = values
 
         f.close()
-
-        return calvad
+        return surrs

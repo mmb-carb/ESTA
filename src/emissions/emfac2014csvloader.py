@@ -12,7 +12,7 @@ from emissions_table import EmissionsTable
 class Emfac2014CsvLoader(EmissionsLoader):
 
     SUMMER_MONTHS = [4, 5, 6, 7, 8, 9]
-    VALID_POLLUTANTS = ['nox', 'co', 'pm', 'sox', 'tog']
+    VALID_POLLUTANTS = ['nox', 'co', 'pm', 'sox', 'tog']  # TODO: Make upper case
 
     def __init__(self, config, position):
         super(Emfac2014CsvLoader, self).__init__(config, position)

@@ -15,14 +15,14 @@ class SmokeSpatialSurrogateLoader(SpatialLoader):
         daily periods.
     '''
 
-    PERIODS = ['am', 'mid', 'pm', 'off']
+    PERIODS = ['AM', 'MID', 'PM', 'OFF']
 
     def __init__(self, config, position):
         super(SmokeSpatialSurrogateLoader, self).__init__(config, position)
         self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
         self.smoke_surrogates = self.config.getlist('Surrogates', 'smoke4_surrogates')
-        self.eic_labels = self.config.getlist('Surrogates', 'smoke_eic_labels')
-        if len(self.smoke_surrogates) != len(self.eic_labels):
+        self.smoke_labels = self.config.getlist('Surrogates', 'smoke_labels')
+        if len(self.smoke_surrogates) != len(self.smoke_labels):
             sys.exit('ERROR: You need the same number of SMOKE surrogates as EIC labels.')
         self.region_info = self.config.eval_file('Regions', 'region_info')
         self.regions = self.config.parse_regions('Regions', 'regions')
@@ -41,14 +41,11 @@ class SmokeSpatialSurrogateLoader(SpatialLoader):
             # read SMOKE spatial surrogate
             file_path = os.path.join(self.directory, surr_file_path)
             region_surrogates = self._load_surrogate_file(file_path)
-
-            # create list of veh/act pairs
-            veh_act_pairs = self._create_veh_act_pairs(i)
-
-            # set the spatial surrogate above for each and every veh/act pair
-            for veh, act in veh_act_pairs:
+            
+            # add the surrogate above for each label in the config file
+            for label in self.smoke_labels:
                 for region, surrogate in region_surrogates.iteritems():
-                    spatial_surrogates.set_nocheck(region, veh, act, surrogate)
+                    spatial_surrogates.set_nocheck(region, label, surrogate)
 
         # normalize surrogates
         spatial_surrogates.surrogates()
@@ -79,37 +76,10 @@ class SmokeSpatialSurrogateLoader(SpatialLoader):
             if region not in self.regions:
                 continue
 
-            # re-wrote for speed
+            # re-written for speed
             #cell = (int(ln[3]) - 1, int(ln[2]) - 1)  # (x, y)
             #fraction = np.float32(ln[4])
             surrogates[region][(int(ln[3]) - 1, int(ln[2]) - 1)] = np.float32(ln[4])
 
         f.close()
         return surrogates
-
-    def _create_veh_act_pairs(self, i):
-        ''' create list of veh/act pairs for a given set of EICs '''
-        # read list of EICs from config.ini file
-        label = self.eic_labels[i]
-        period = label.split('_')[-1]
-        if period not in ['am', 'mid', 'pm', 'off']:
-            period = ''
-
-        # select all EICs whose label in the config.ini file matches a label in the eic_info.py file
-        if period:
-            short_label = label[:-1 - len(period)]
-            eics = [eic for eic in self.eic_info if self.eic_info[eic][1] == short_label]
-        else:
-            eics = [eic for eic in self.eic_info if self.eic_info[eic][1] == label]
-
-        # collect all vehicle / activity pairs that are relevant to this surrogate
-        if period:
-            veh_act_pairs = []
-            for eic in eics:
-                veh, act = self.eic_info[eic][:2]
-                for per in self.PERIODS:
-                    veh_act_pairs.append((veh, act + '_' + per))
-        else:
-            veh_act_pairs = [self.eic_info[eic][:2] for eic in eics]
-
-        return veh_act_pairs

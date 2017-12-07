@@ -15,50 +15,40 @@ class SpatialSurrogateData(object):
             if region not in self.data:
                 self.data[region] = {}
 
-    def get(self, region, veh, act):
+    def get(self, region, label):
         """ Getter method """
-        return self.data.get(region, {}).get(veh, {}).get(act, None)
+        return self.data.get(region, {}).get(label, None)
 
-    def set(self, region, veh, act, surrogate):
+    def set(self, region, label, surrogate):
         """ Setter method """
         # type validation
         if type(surrogate) != SpatialSurrogate:
             raise TypeError('Only spatial surrogates can be used in SpatialSurrogateData.')
 
-        # auto-fill the mulit-level dictionary format, to hide this from the user
+        # auto-fill the region, if it does not already exist
         if region not in self.data:
             self.data[region] = {}
-            self.data[region][veh] = {}
-        elif veh not in self.data[region]:
-            self.data[region][veh] = {}
 
         # add surrogate
-        self.data[region][veh][act] = surrogate
+        self.data[region][label] = surrogate
 
-    def set_nocheck(self, region, veh, act, surrogate):
+    def set_nocheck(self, region, label, surrogate):
         """ Setter method - no safety checking
             NOTE: This version of the method skips certain safety and type checking. It is faster,
                   but care must be taken to do these checks earlier in the code.
         """
-        # auto-fill the mulit-level dictionary format, to hide this from the user
-        if veh not in self.data[region]:
-            self.data[region][veh] = {}
-
-        # add surrogate
-        self.data[region][veh][act] = surrogate
+        self.data[region][label] = surrogate
 
     def add_file(self, region, surrogate_dict):
         """ Setter method to add an entire dictionary of spatial surrogates to this object.
             The dict represents an entire input text file. So it has two layers of keys:
             vehicle type and activity type, then it has a spatial surrogate
         """
-        for veh in surrogate_dict:
-            for act in surrogate_dict[veh]:
-                self.set(region, veh, act, surrogate_dict[veh][act])
+        for label in surrogate_dict:
+            self.set(region, label, surrogate_dict[desc])
 
     def surrogates(self):
         """ Finally, normalize all the spatial surrogates, so the grid cells sum to 1.0. """
         for region in self.data:
-            for veh in self.data[region]:
-                for act in self.data[region][veh]:
-                    self.data[region][veh][act] = self.data[region][veh][act].surrogate()
+            for label in self.data[region]:
+                self.data[region][label] = self.data[region][label].surrogate()

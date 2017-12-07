@@ -14,10 +14,10 @@ from src.surrogates.calvadtemporalloader import CALVAD_TYPE
 
 class EmfacSmokeScaler(EmissionsScaler):
 
-    PERIODS_BY_HR = ['off', 'off', 'off', 'off', 'off', 'off',  # off peak: 6 AM to 10 AM
-                     'am',  'am',  'am',  'am',  'mid', 'mid',  # midday:   10 AM to 3 PM
-                     'mid', 'mid', 'mid', 'pm',  'pm',  'pm',   # pm peak:  3 PM to 7 PM
-                     'pm',  'off', 'off', 'off', 'off', 'off']  # off peak: 7 PM to 6 AM
+    PERIODS_BY_HR = ['OFF', 'OFF', 'OFF', 'OFF', 'OFF', 'OFF',  # off peak: 6 AM to 10 AM
+                     'AM',  'AM',  'AM',  'AM',  'MID', 'MID',  # midday:   10 AM to 3 PM
+                     'MID', 'MID', 'MID', 'PM',  'PM',  'PM',   # pm peak:  3 PM to 7 PM
+                     'PM',  'OFF', 'OFF', 'OFF', 'OFF', 'OFF']  # off peak: 7 PM to 6 AM
 
     def __init__(self, config, position):
         super(EmfacSmokeScaler, self).__init__(config, position)
