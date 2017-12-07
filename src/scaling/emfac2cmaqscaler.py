@@ -42,7 +42,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
             Emissions: EMFAC2014EmissionsData
                        emis_data[region][date string] = EmissionsTable
                        EmissionsTable[EIC][pollutant] = value
-            Spatial Surrogates: SpatialSurrogateData[region][veh][act] = SpatialSurrogate()
+            Spatial Surrogates: SpatialSurrogateData[region][label] = SpatialSurrogate()
             Temporal Surrogates: {'diurnal': {}, 'dow': {}}
             OUTPUT FORMAT:
             ScaledEmissions: data[region][date][hr][eic] = SparseEmissions
@@ -83,7 +83,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 # handle region bounding box (limits are inclusive: {'lat': (51, 92), 'lon': (156, 207)})
                 box = self.region_boxes[region]
 
-                # apply CalVad DOW factors (this line is long for performance reasons)
+                # apply DOW factors (this line is long for performance reasons)
                 emis_table = self._apply_factors(deepcopy(emissions.data[region][date]),
                                                  temp_surr['dow'][region][dow])
 
@@ -97,7 +97,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 for hr in xrange(24):
                     # apply diurnal, then spatial profiles (this line long for performance reasons)
                     sparse_emis = self._apply_spatial_surrs(self._apply_factors(deepcopy(emis_table),
-                                                                                factors_by_hour[hr]),  # TODO: need to add hour back in
+                                                                                factors_by_hour[hr]),
                                                             spatial_surrs, region, box, dow_num, hr)
                     e.add_subgrid_nocheck(-999, date, hr + 1, -999, sparse_emis, box)
 
@@ -187,16 +187,16 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
         return se
 
-    def _apply_factors(self, emissions_table, factors):  # TODO: Need to add hours back in
-        """ Apply CalVad DOW or diurnal factors to an emissions table, altering the table.
+    def _apply_factors(self, emissions_table, factors):
+        """ Apply DOW or diurnal factors to an emissions table, altering the table.
             Date Types:
             EmissionsTable[EIC][pollutant] = value
-            factors = [ld, lm, hh, sbus]
+            factors = {'LD': 1.0, 'LM': 0.5, 'HH': 0.0, ...}
         """
         zeros = []
         # scale emissions table for diurnal factors
         for eic in emissions_table:
-            factor = factors[CALVAD_TYPE[self.eic_info[eic][0]]]  # TODO: NO LONGER CALLED CALVAD
+            factor = factors[self.eic_info[eic][0]]
             if not factor:
                 zeros.append(eic)
             else:

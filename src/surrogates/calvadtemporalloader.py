@@ -30,7 +30,7 @@ class CalvadTemporalLoader(TemporalLoader):
     @staticmethod
     def load_diurnal(file_path):
         """ generate the diurnal temporal surrogates from the CSV file
-            (hours range from 0 to 23)
+            (hours must range from 0 to 23)
 
             Example File Format:
             REGION,DAY,HR,LD,LM,HH,SBUS
@@ -39,24 +39,26 @@ class CalvadTemporalLoader(TemporalLoader):
         """
         surrs = {}
         f = open(file_path, 'r')
-        keywords = f.readline().rstrip().split(',')[3:]
+        labels = f.readline().rstrip().split(',')[3:]
         for line in f.xreadlines():
             # read line
             ln = line.rstrip().split(',')
             region = int(ln[0])
             dow = ln[1]
             hr = int(ln[2])
+            if hr < 0 or hr > 23:
+                raise ValueError('Hour in Diurnal CSV outside valid range 0 to 23: ' + ln[2])
             values = [np.float32(val) for val in ln[3:]]
 
             # make sure the surrogate structure is ready
             if region not in surrs:
                 surrs[region] = {}
             if dow not in surrs[region]:
-                surrs[region][dow] = dict((k, np.zeros(24, dtype=np.float32)) for k in keywords)
+                surrs[region][dow] = [dict((l, np.float32(0.0)) for l in labels) for _ in xrange(24)]
 
             # load data into surrogate
             for i, val in enumerate(values):
-                surrs[region][dow][keywords[i]][hr] = val
+                surrs[region][dow][hr][labels[i]] = val
 
         f.close()
         return surrs
@@ -72,7 +74,7 @@ class CalvadTemporalLoader(TemporalLoader):
         """
         surrs = {}
         f = open(file_path, 'r')
-        keywords = f.readline().rstrip().split(',')[3:]
+        labels = f.readline().rstrip().split(',')[3:]
         for line in f.xreadlines():
             # read line
             ln = line.rstrip().split(',')
@@ -83,7 +85,7 @@ class CalvadTemporalLoader(TemporalLoader):
             # load data into surrogate
             if region not in surrs:
                 surrs[region] = {}
-            surrs[region][dow] = values
+            surrs[region][dow] = dict((labels[i], val) for i, val in enumerate(values))
 
         f.close()
         return surrs
