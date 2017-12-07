@@ -108,8 +108,8 @@ class Emfac2CmaqScaler(EmissionsScaler):
             sparely-gridded emissions (one for each eic).
             Data Types:
             EmissionsTable[EIC][pollutant] = value
-            spatial_surrs[veh][act] = SpatialSurrogate()
-                                      SpatialSurrogate[(grid, cell)] = fraction
+            spatial_surrs[label] = SpatialSurrogate()
+                                   SpatialSurrogate[(grid, cell)] = fraction
             region_box: {'lat': (51, 92), 'lon': (156, 207)}
             output: {EIC: SparseEmissions[pollutant][(grid, cell)] = value}
         """
@@ -137,16 +137,16 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
         # grid emissions, by EIC
         for eic in emis_table:
-            veh, act, _ = self.eic_info[eic]
+            label = self.eic_info[eic][1]
 
             # check if the surrogate is by period
-            if act not in spatial_surrs[veh]:
-                act += '_' + self.PERIODS_BY_HR[hr]
+            if label not in spatial_surrs:
+                label += '_' + self.PERIODS_BY_HR[hr]
 
             # build default spatial surrogate for this EIC
             ss = np.zeros((num_rows, num_cols), dtype=np.float32)
             try:
-                for cell, cell_fraction in spatial_surrs[veh][act].iteritems():
+                for cell, cell_fraction in spatial_surrs[label].iteritems():
                     ss[(cell[0] - min_lat, cell[1] - min_lon)] = cell_fraction
             except KeyError:
                 err = ('Spatial Surrogate grid cell (%d, %d) found outside of bounding box' + \

@@ -151,11 +151,11 @@ class EmfacSmokeScaler(EmissionsScaler):
         """ Apply CalVad DOW or diurnal factors to an emissions table, altering the table.
             Date Types:
             EmissionsTable[EIC][pollutant] = value
-            factors = [ld, lm, hh, sbus]
+            factors = {'LD': 1.0, 'LM': 0.5, 'HH': 0.0, ...}
         """
         eics2delete = []
         for eic in emissions_table:
-            factor = factors[CALVAD_TYPE[self.eic_info[eic][0]]]
+            factor = factors[self.eic_info[eic][0]]
             if factor:
                 emissions_table[eic].update((x, y * factor) for x, y in emissions_table[eic].items())
             else:
@@ -172,8 +172,8 @@ class EmfacSmokeScaler(EmissionsScaler):
             sparely-gridded emissions (one for each eic).
             Data Types:
             EmissionsTable[EIC][pollutant] = value
-            spatial_surrs[veh][act] = SpatialSurrogate()
-                                      SpatialSurrogate[(grid, cell)] = fraction
+            spatial_surrs[label] = SpatialSurrogate()
+                                   SpatialSurrogate[(grid, cell)] = fraction
             output: {EIC: SparseEmissions[pollutant][(grid, cell)] = value}
         """
         e = {}
@@ -181,26 +181,26 @@ class EmfacSmokeScaler(EmissionsScaler):
         # loop through each on-road EIC
         for eic in emis_table:
             se = SparseEmissions(self.nrows, self.ncols)
-            veh, act, _ = self.eic_info[eic]
+            label = self.eic_info[eic][1]
 
             # check if the surrogate is by period
-            if act not in spatial_surrs[veh]:
-                act += '_' + self.PERIODS_BY_HR[hr]
+            if label not in spatial_surrs:
+                label += '_' + self.PERIODS_BY_HR[hr]
 
-            # if not value or act not in spatial_surrs[veh]:
-            if act not in spatial_surrs[veh]:
+            # if not value or act not in spatial_surrs:
+            if label not in spatial_surrs:
                 continue
 
             # add emissions to sparse grid
             for poll, value in emis_table[eic].iteritems():
-                for cell, fraction in spatial_surrs[veh][act].iteritems():
+                for cell, fraction in spatial_surrs[label].iteritems():
                     se.add(poll, cell, value * fraction)
 
             # add NH3, based on CO fractions
             nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, np.float32(0.0))
             if 'co' in emis_table[eic] and nh3_fraction:
                 value = emis_table[eic]['co']
-                for cell, fraction in spatial_surrs[veh][act].iteritems():
+                for cell, fraction in spatial_surrs[label].iteritems():
                     se.add('nh3', cell, value * fraction * nh3_fraction)
 
             e[eic] = se
