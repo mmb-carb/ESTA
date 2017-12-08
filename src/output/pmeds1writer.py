@@ -13,7 +13,7 @@ class Pmeds1Writer(OutputWriter):
         One for each region/date combination.
     """
 
-    COLUMNS = {'co': 0, 'nox': 1, 'sox': 2, 'tog': 3, 'pm': 4, 'nh3': 5}
+    COLUMNS = {'CO': 0, 'NOX': 1, 'SOX': 2, 'TOG': 3, 'PM': 4, 'NH3': 5}
     STONS_2_KG = np.float32(907.185)
     MIN_EMIS = np.float32(5e-6) / STONS_2_KG
 

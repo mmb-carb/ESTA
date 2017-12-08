@@ -170,7 +170,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
                     continue
 
                 # loop through each species in this pollutant group
-                for spec in species_data[poll.upper()]:  # TODO: Make all species names uppercase everywhere in ESTA
+                for spec in species_data[poll.upper()]:
                     spec_value = value * species_data[poll.upper()][spec]['mass_fract'] * self.STONS_HR_2_G_SEC / species_data[poll.upper()][spec]['weight']
 
                     # loop through each grid cell

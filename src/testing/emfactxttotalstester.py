@@ -158,7 +158,7 @@ class EmfacTxtTotalsTester(OutputTester):
             eics = set(emfac_emis.get(region_num, date).keys() + out_emis[region_num].keys())
             for eic in eics:
                 for poll in self.POLLUTANTS:
-                    emfac = emfac_emis.get(region_num, date).get(eic, {}).get(poll.lower(), zero)
+                    emfac = emfac_emis.get(region_num, date).get(eic, {}).get(poll.upper(), zero)
                     emfac *= self.original_profs[dow][region_num][eic]
                     final = out_emis.get(region_num, {}).get(eic, {}).get(poll, zero)
                     diff = EmfacTxtTotalsTester.percent_diff(emfac, final)

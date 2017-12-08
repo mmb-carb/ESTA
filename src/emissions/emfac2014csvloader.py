@@ -12,7 +12,7 @@ from emissions_table import EmissionsTable
 class Emfac2014CsvLoader(EmissionsLoader):
 
     SUMMER_MONTHS = [4, 5, 6, 7, 8, 9]
-    VALID_POLLUTANTS = ['nox', 'co', 'pm', 'sox', 'tog']  # TODO: Make upper case
+    VALID_POLLUTANTS = ['NOX', 'CO', 'PM', 'SOX', 'TOG']
 
     def __init__(self, config, position):
         super(Emfac2014CsvLoader, self).__init__(config, position)
@@ -134,7 +134,7 @@ class Emfac2014CsvLoader(EmissionsLoader):
         header = f.readline()
         for line in f.readlines():
             ln = line.strip().split(',')
-            poll = ln[6].lower()
+            poll = ln[6].upper()
             if poll not in Emfac2014CsvLoader.VALID_POLLUTANTS:
                 continue
             if ln[2] != region_name:
@@ -188,5 +188,5 @@ class EMFAC2014EmissionsData(object):
             self.data[region][date].add_table(table)
 
     def __repr__(self):
-        """ standard Python helper to allower for str(x) and print(x) """
+        """ standard Python helper to allow for str(x) and print(x) """
         return dict.__repr__(self.data).replace('dict', self.__class__.__name__, 1)

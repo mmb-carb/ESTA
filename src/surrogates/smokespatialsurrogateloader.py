@@ -41,7 +41,7 @@ class SmokeSpatialSurrogateLoader(SpatialLoader):
             # read SMOKE spatial surrogate
             file_path = os.path.join(self.directory, surr_file_path)
             region_surrogates = self._load_surrogate_file(file_path)
-            
+
             # add the surrogate above for each label in the config file
             for label in self.smoke_labels:
                 for region, surrogate in region_surrogates.iteritems():

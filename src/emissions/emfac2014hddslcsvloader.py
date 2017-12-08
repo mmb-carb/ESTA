@@ -37,7 +37,7 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
         for line in f.readlines():
             ln = line.rstrip().split(',')
             # is pollutant relevant
-            poll = ln[-1].lower()
+            poll = ln[-1].upper()
             if poll not in Emfac2014CsvLoader.VALID_POLLUTANTS:
                 continue
             # pull EIC info
