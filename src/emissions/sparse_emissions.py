@@ -28,10 +28,10 @@ class SparseEmissions(object):
             for any pollutant.
             Note: This method gives no performance gaurantees.
         """
-        polls = list(self.pollutants)
-        mask = self._data[polls[0].upper()] > min_val
+        polls = [p.upper() for p in self.pollutants]
+        mask = self._data[polls[0]] > min_val
         for poll in polls[1:]:
-            mask += self._data[poll.upper()] > min_val
+            mask += self._data[poll] > min_val
 
         return mask
 
@@ -54,8 +54,8 @@ class SparseEmissions(object):
     def add_nocheck(self, poll, cell, value):
         """ Setter method for sparse grid emissions
             NOTE: This method is naive in that it does no checking to see if the pollutant
-                  already exists or is the correct dimensions. This is a faster version of
-                  the method, but more dangerous if you are not doing these checks elsewhere.
+                  already exists or if it is the correct dimensions. This is a faster version of
+                  the `add` method, but more dangerous if you are not doing these checks elsewhere.
         """
         self._data[poll.upper()][cell] += value
 
@@ -76,7 +76,7 @@ class SparseEmissions(object):
                   already exists or is the correct dimensions. This is a faster version of
                   the method, but more dangerous if you are not doing these checks elsewhere.
         """
-        self._data[poll.upper()] += grid
+        self._data[poll] += grid
 
     def add_subgrid(self, poll, subgrid, min_row, max_row, min_col, max_col):
         """ Add a subgrid of emissions to a particular pollutant.

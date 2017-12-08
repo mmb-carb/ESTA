@@ -4,7 +4,6 @@ import os
 from os.path import basename
 from netCDF4 import Dataset
 import numpy as np
-import sys
 import time
 from src.core.output_files import OutputFiles, build_arb_file_path
 from src.core.output_writer import OutputWriter

@@ -4,10 +4,9 @@ from copy import deepcopy
 from datetime import datetime as dt
 from datetime import timedelta
 import numpy as np
-import sys
 from src.core.date_utils import DOW, find_holidays
 from src.core.emissions_scaler import EmissionsScaler
-from scaled_emissions import ScaledEmissions
+from src.scaling.scaled_emissions import ScaledEmissions
 from src.emissions.sparse_emissions import SparseEmissions
 
 
@@ -60,11 +59,9 @@ class Emfac2CmaqScaler(EmissionsScaler):
             date = today.strftime(self.date_format)
             today += timedelta(days=1)
             if date[5:] in find_holidays(self.base_year):
-                dow_num = 7
                 dow = 'holi'
             else:
                 by_date = str(self.base_year) + date[4:]
-                dow_num = dt.strptime(by_date, self.date_format).weekday()
                 dow = DOW[dt.strptime(by_date, self.date_format).weekday()]
 
             # create a statewide emissions object
@@ -95,15 +92,13 @@ class Emfac2CmaqScaler(EmissionsScaler):
 
                 # loop through each hour of the day
                 for hr in xrange(24):
-                    # apply diurnal, then spatial profiles (this line long for performance reasons)
-                    sparse_emis = self._apply_spatial_surrs(self._apply_factors(deepcopy(emis_table),
-                                                                                factors_by_hour[hr]),
-                                                            spatial_surrs, region, box, dow_num, hr)
+                    sparse_emis = self._apply_spatial_surrs(self._apply_factors(emis_table, factors_by_hour[hr]),
+                                                            spatial_surrs, region, box, hr)
                     e.add_subgrid_nocheck(-999, date, hr + 1, -999, sparse_emis, box)
 
             yield e
 
-    def _apply_spatial_surrs(self, emis_table, spatial_surrs, region, box, dow=2, hr=0):
+    def _apply_spatial_surrs(self, emis_table, spatial_surrs, region, box, hr=0):
         """ Apply the spatial surrogates for each hour to this EIC and create a dictionary of
             sparely-gridded emissions (one for each eic).
             Data Types:
@@ -113,8 +108,6 @@ class Emfac2CmaqScaler(EmissionsScaler):
             region_box: {'lat': (51, 92), 'lon': (156, 207)}
             output: {EIC: SparseEmissions[pollutant][(grid, cell)] = value}
         """
-        zero = np.float32(0.0)
-
         # determine the region for HD diesel NOx
         r = 'default'
         if str(region) in self.diesel_nox:
@@ -122,7 +115,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
         # determine the year for HD diesel NOx
         yr = self.start_date.year
         if self.start_date.year not in self.diesel_nox[r]:
-            yr = min(self.diesel_nox[r].keys(), key=lambda y: abs(y - self.start_date.year))
+            yr = min(self.diesel_nox[r].iterkeys(), key=lambda y: abs(y - self.start_date.year))
 
         hono_fract, no_fract, no2_fract = self.diesel_nox[r][yr]
 
@@ -147,7 +140,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
             ss = np.zeros((num_rows, num_cols), dtype=np.float32)
             try:
                 for cell, cell_fraction in spatial_surrs[label].iteritems():
-                    ss[(cell[0] - min_lat, cell[1] - min_lon)] = cell_fraction
+                    ss[cell[0] - min_lat, cell[1] - min_lon] = cell_fraction
             except KeyError:
                 err = ('Spatial Surrogate grid cell (%d, %d) found outside of bounding box' + \
                        ' %s in region %d.') % (cell[0], cell[1], box, region)
@@ -165,25 +158,23 @@ class Emfac2CmaqScaler(EmissionsScaler):
                                        'NO2':  {'mass_fract': no2_fract,  'weight': np.float32(46.006)}}
 
             # speciate by pollutant, while gridding
-            for poll, value in emis_table[eic].iteritems():
+            for pol, value in emis_table[eic].iteritems():
                 if not value:
                     continue
 
                 # loop through each species in this pollutant group
-                for spec in species_data[poll.upper()]:
-                    spec_value = value * species_data[poll.upper()][spec]['mass_fract'] * self.STONS_HR_2_G_SEC / species_data[poll.upper()][spec]['weight']
-
-                    # loop through each grid cell
-                    se.add_grid_nocheck(spec, ss * spec_value)
+                poll = pol.upper()
+                for spec, spec_data in species_data[poll].iteritems():
+                    se.add_grid_nocheck(spec, (value * spec_data['mass_fract'] * self.STONS_HR_2_G_SEC / spec_data['weight']) * ss)
 
             # add NH3, based on NH3/CO fractions
-            if 'co' in emis_table[eic]:
-                nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, zero)
+            if 'CO' in emis_table[eic]:
+                nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0)
                 if not nh3_fraction:
                     continue
 
-                nh3_fraction *= (self.STONS_HR_2_G_SEC / self.gspro['default']['NH3']['NH3']['weight'])
-                se.add_grid_nocheck('NH3', ss * (emis_table[eic]['co'] * nh3_fraction))
+                # add NH3 based on its relation to CO
+                se.add_grid_nocheck('NH3', (emis_table[eic]['CO'] * nh3_fraction * (self.STONS_HR_2_G_SEC / self.gspro['default']['NH3']['NH3']['weight'])) * ss)
 
         return se
 
@@ -193,20 +184,16 @@ class Emfac2CmaqScaler(EmissionsScaler):
             EmissionsTable[EIC][pollutant] = value
             factors = {'LD': 1.0, 'LM': 0.5, 'HH': 0.0, ...}
         """
-        zeros = []
-        # scale emissions table for diurnal factors
-        for eic in emissions_table:
+        new_emis_table = {}
+
+        # loop through all EICs and add time-scaled data
+        for eic, emis in emissions_table.iteritems():
             factor = factors[self.eic_info[eic][0]]
-            if not factor:
-                zeros.append(eic)
-            else:
-                emissions_table[eic].update((x, y * factor) for x, y in emissions_table[eic].items())
+            if factor:
+                # ignore EICs with zerod emissions
+                new_emis_table[eic] = dict((p, v * factor) for p, v in emis.iteritems())
 
-        # remove zero-emissions EICs
-        for eic in zeros:
-            del emissions_table[eic]
-
-        return emissions_table
+        return new_emis_table
 
     def _prebuild_scaled_emissions(self, date):
         """ Pre-Build a ScaledEmissions object, for the On-Road NetCDF case, where:
@@ -257,7 +244,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
         nh3_id = 7664417
         inv = {}
         f = open(inv_file, 'r')
-        header = f.readline()
+        _ = f.readline()
 
         for line in f.xreadlines():
             # parse line

@@ -197,10 +197,10 @@ class EmfacSmokeScaler(EmissionsScaler):
 
             # add NH3, based on CO fractions
             nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, np.float32(0.0))
-            if 'co' in emis_table[eic] and nh3_fraction:
-                value = emis_table[eic]['co']
+            if 'CO' in emis_table[eic] and nh3_fraction:
+                value = emis_table[eic]['CO']
                 for cell, fraction in spatial_surrs[label].iteritems():
-                    se.add('nh3', cell, value * fraction * nh3_fraction)
+                    se.add('NH3', cell, value * fraction * nh3_fraction)
 
             e[eic] = se
 
