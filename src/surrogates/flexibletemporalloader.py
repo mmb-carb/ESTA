@@ -3,13 +3,11 @@ import os
 import numpy as np
 from src.core.temporal_loader import TemporalLoader
 
-# TODO: Ditch the name "Calvad"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-
-class CalvadTemporalLoader(TemporalLoader):
+class FlexibleTemporalLoader(TemporalLoader):
 
     def __init__(self, config, position):
-        super(CalvadTemporalLoader, self).__init__(config, position)
+        super(FlexibleTemporalLoader, self).__init__(config, position)
         self.dow_path = os.path.join(self.directory, self.config['Surrogates']['temporal_dow'])
         diurnal_file = self.config['Surrogates']['temporal_diurnal']
         self.diurnal_path = os.path.join(self.directory, diurnal_file)
@@ -20,10 +18,10 @@ class CalvadTemporalLoader(TemporalLoader):
             temporal_surrogates = {}
 
         # load DOW time profiles
-        temporal_surrogates['dow'] = CalvadTemporalLoader.load_dow(self.dow_path)
+        temporal_surrogates['dow'] = FlexibleTemporalLoader.load_dow(self.dow_path)
 
         # load diurnal time profiles
-        temporal_surrogates['diurnal'] = CalvadTemporalLoader.load_diurnal(self.diurnal_path)
+        temporal_surrogates['diurnal'] = FlexibleTemporalLoader.load_diurnal(self.diurnal_path)
 
         return temporal_surrogates
 

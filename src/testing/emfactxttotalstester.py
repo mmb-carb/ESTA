@@ -8,7 +8,7 @@ from src.core.date_utils import DOW, find_holidays
 from src.core.eic_utils import eic_reduce, MAX_EIC_PRECISION
 from src.core.output_tester import OutputTester
 from src.emissions.emissions_table import EmissionsTable
-from src.surrogates.calvadtemporalloader import CalvadTemporalLoader
+from src.surrogates.flexibletemporalloader import FlexibleTemporalLoader
 
 
 class EmfacTxtTotalsTester(OutputTester):
@@ -68,8 +68,8 @@ class EmfacTxtTotalsTester(OutputTester):
         """
         try:
             # read the DOW temporal profiles file
-            ind = self.config.getlist('Surrogates', 'temporal_loaders').index('CalvadTemporalLoader')
-            ctl = CalvadTemporalLoader(self.config, ind)
+            ind = self.config.getlist('Surrogates', 'temporal_loaders').index('FlexibleTemporalLoader')
+            ctl = FlexibleTemporalLoader(self.config, ind)
             orig_profs = ctl.load_dow(ctl.dow_path)
         except ValueError:
             # some other temporal profiles were used, so we can't test thouse

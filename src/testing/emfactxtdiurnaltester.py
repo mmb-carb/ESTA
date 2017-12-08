@@ -9,7 +9,7 @@ from src.core.date_utils import DOW, find_holidays
 from src.core.eic_utils import eic_reduce, MAX_EIC_PRECISION
 from src.core.output_tester import OutputTester
 from src.emissions.emissions_table import EmissionsTable
-from src.surrogates.calvadtemporalloader import CalvadTemporalLoader
+from src.surrogates.flexibletemporalloader import FlexibleTemporalLoader
 
 
 class EmfacTxtDiurnalTester(OutputTester):
@@ -89,8 +89,8 @@ class EmfacTxtDiurnalTester(OutputTester):
             profs[dow][region][eic] = np.zeros(24, dtype=np.float32)
         """
         # read the diurnal profiles file
-        ind = self.config.getlist('Surrogates', 'temporal_loaders').index('CalvadTemporalLoader')
-        ctl = CalvadTemporalLoader(self.config, ind)
+        ind = self.config.getlist('Surrogates', 'temporal_loaders').index('FlexibleTemporalLoader')
+        ctl = FlexibleTemporalLoader(self.config, ind)
         orig_profs = ctl.load_diurnal(ctl.diurnal_path)
 
         # reorganize the data into something more useful for our individual EICs
