@@ -46,7 +46,10 @@ class FlexibleTemporalLoader(TemporalLoader):
             hr = int(ln[2])
             if hr < 0 or hr > 23:
                 raise ValueError('Hour in Diurnal CSV outside valid range 0 to 23: ' + ln[2])
+            
             values = [np.float32(val) for val in ln[3:]]
+            if len(values) != len(labels):
+                raise ValueError('Diurnal CSV line not the same length as header: ' + str(len(labels)))
 
             # make sure the surrogate structure is ready
             if region not in surrs:
@@ -79,6 +82,8 @@ class FlexibleTemporalLoader(TemporalLoader):
             region = int(ln[0])
             dow = ln[2]
             values = [np.float32(val) for val in ln[3:]]
+            if len(values) != len(labels):
+                raise ValueError('DOW CSV line not the same length as header: ' + str(len(labels)))
 
             # load data into surrogate
             if region not in surrs:
