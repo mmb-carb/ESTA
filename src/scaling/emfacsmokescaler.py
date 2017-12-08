@@ -9,7 +9,6 @@ from src.core.date_utils import DOW, find_holidays
 from src.core.emissions_scaler import EmissionsScaler
 from src.core.eic_utils import eic_reduce
 from src.emissions.sparse_emissions import SparseEmissions
-from src.surrogates.calvadtemporalloader import CALVAD_TYPE
 
 
 class EmfacSmokeScaler(EmissionsScaler):
@@ -71,7 +70,7 @@ class EmfacSmokeScaler(EmissionsScaler):
                 if self.by_region:
                     e = ScaledEmissions()
 
-                # apply Calvad DOW factors (this line is long for performance reasons)
+                # apply DOW factors (this line is long for performance reasons)
                 emis_table = self._apply_factors(deepcopy(emissions.data[region][date]),
                                                  temp_surr['dow'][region][dow])
 
@@ -148,7 +147,7 @@ class EmfacSmokeScaler(EmissionsScaler):
         return inv
 
     def _apply_factors(self, emissions_table, factors):
-        """ Apply CalVad DOW or diurnal factors to an emissions table, altering the table.
+        """ Apply DOW or diurnal factors to an emissions table, altering the table.
             Date Types:
             EmissionsTable[EIC][pollutant] = value
             factors = {'LD': 1.0, 'LM': 0.5, 'HH': 0.0, ...}

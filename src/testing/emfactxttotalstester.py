@@ -29,7 +29,7 @@ class EmfacTxtTotalsTester(OutputTester):
         self.can_test_dow = True if self.precision == MAX_EIC_PRECISION else False
         self.eic_reduce = eic_reduce(str(self.precision))
         # read input day-of-week temporal profiles
-        self.original_profs = self._load_calvad_dow_profiles()
+        self.original_profs = self._load_dow_profiles()
 
     def test(self, emis, out_paths):
         ''' Master Testing Method.
@@ -62,12 +62,12 @@ class EmfacTxtTotalsTester(OutputTester):
             if pmeds_files or cse_files:
                 self._read_and_compare_txt(pmeds_files, cse_files, date, emis, dow)
 
-    def _load_calvad_dow_profiles(self):
-        """ read the original Calvad Day-of-Week temporal profiles
+    def _load_dow_profiles(self):
+        """ read the original Day-of-Week temporal profiles
             and convert them to a by-EIC and by-DOW format for easier use
         """
         try:
-            # read the Calvad DOW temporal profiles file
+            # read the DOW temporal profiles file
             ind = self.config.getlist('Surrogates', 'temporal_loaders').index('CalvadTemporalLoader')
             ctl = CalvadTemporalLoader(self.config, ind)
             orig_profs = ctl.load_dow(ctl.dow_path)

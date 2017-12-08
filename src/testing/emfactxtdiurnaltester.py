@@ -24,7 +24,7 @@ class EmfacTxtDiurnalTester(OutputTester):
         self.by_region = self.config.getboolean('Output', 'by_region')
         self.region_info = self.config.eval_file('Regions', 'region_info')
         self.region_names = dict((g, d['name']) for g,d in self.region_info.iteritems())
-        self.original_profs = self._load_calvad_diurnal_profiles()
+        self.original_profs = self._load_diurnal_profiles()
         # How many digits of EIC were preserved in the output files?
         self.precision = MAX_EIC_PRECISION
         if 'eic_precision' in self.config['Output']:
@@ -78,17 +78,17 @@ class EmfacTxtDiurnalTester(OutputTester):
                 output_profs = self._output_cse_profiles(file_path, eics)
                 self._write_profile_comparision(output_profs, date, dow)
 
-    def _load_calvad_diurnal_profiles(self):
-        """ Read the Calvad diurnal profiles file, and parse it into a collection, based on the
+    def _load_diurnal_profiles(self):
+        """ Read the diurnal profiles file, and parse it into a collection, based on the
             day-of-week and region for each EIC.
 
-            The original Calvad profiles will be in a dictionary with the form:
-            calvad[region][dow][hr] = [ld, lm, hh, sbus]
+            The original profiles will be in a dictionary with the form:
+            profs[region][dow][hr] = {'LD': 1.0, 'LM': 0.5, 'HH': 0.0, ...}
 
             The new output profiles will be arranged like:
             profs[dow][region][eic] = np.zeros(24, dtype=np.float32)
         """
-        # read the Calvad diurnal temporal profiles file
+        # read the diurnal profiles file
         ind = self.config.getlist('Surrogates', 'temporal_loaders').index('CalvadTemporalLoader')
         ctl = CalvadTemporalLoader(self.config, ind)
         orig_profs = ctl.load_diurnal(ctl.diurnal_path)
