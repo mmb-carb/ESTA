@@ -1,7 +1,6 @@
 
 import numpy as np
 import os
-import sys
 from spatial_surrogate import SpatialSurrogate
 from src.core.spatial_loader import SpatialLoader
 from spatial_surrogate_data import SpatialSurrogateData
@@ -23,7 +22,7 @@ class SmokeSpatialSurrogateLoader(SpatialLoader):
         self.smoke_surrogates = self.config.getlist('Surrogates', 'smoke4_surrogates')
         self.smoke_labels = self.config.getlist('Surrogates', 'smoke_labels')
         if len(self.smoke_surrogates) != len(self.smoke_labels):
-            sys.exit('ERROR: You need the same number of SMOKE surrogates as EIC labels.')
+            raise ValueError('You need the same number of SMOKE surrogates as EIC labels.')
         self.region_info = self.config.eval_file('Regions', 'region_info')
         self.regions = self.config.parse_regions('Regions', 'regions')
 

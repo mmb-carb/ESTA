@@ -2,7 +2,6 @@
 import gzip
 import numpy as np
 import os
-#import sys
 from emfac2014csvloader import Emfac2014CsvLoader
 from emissions_table import EmissionsTable
 
