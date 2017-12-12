@@ -22,7 +22,7 @@ class Emfac2014CsvLoader(EmissionsLoader):
         self.time_units = time_units_list[position]
         self.region_info = self.config.eval_file('Regions', 'region_info')
         self.region_names = dict((g, d['name']) for g,d in self.region_info.iteritems())
-        self.vtp2eic = self.config.eval_file('Misc', 'vtp2eic')
+        self.vtp2eic = self.config.eval_file('Emissions', 'vtp2eic')
         self.hd_ld = 'ld'
 
     def load(self, emissions):
