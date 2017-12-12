@@ -19,7 +19,6 @@ class EmfacTxtTotalsTester(OutputTester):
     def __init__(self, config, position):
         super(EmfacTxtTotalsTester, self).__init__(config, position)
         self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
-        self.by_region = self.config.getboolean('Output', 'by_region')
         self.region_info = self.config.eval_file('Regions', 'region_info')
         self.region_names = dict((g, d['name']) for g,d in self.region_info.iteritems())
         # How many digits of EIC were preserved in the output files?

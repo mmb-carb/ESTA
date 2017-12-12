@@ -22,8 +22,6 @@ class CseWriter(OutputWriter):
         self.version = self.config['Output'].get('inventory_version', '')
         self.grid_size = int(self.config['GridInfo']['grid_size'])
         self.region_boxes = self.config.eval_file('Surrogates', 'region_boxes')  # bounds are inclusive
-        self.by_region = self.config.getboolean('Output', 'by_region')
-        self.combine = self.config.getboolean('Output', 'combine_regions') if self.by_region else False
         # parse and format specialized region info for CSE files
         self.region_info = self.config.eval_file('Regions', 'region_info')
         self.gai_to_county = dict((g, str(d['county']).rjust(2)) for g,d in self.region_info.iteritems())
@@ -36,14 +34,6 @@ class CseWriter(OutputWriter):
         """ The master method to write output files.
             This can write output files by region, or for the entire day.
         """
-        if self.by_region:
-            return self.write_by_region(scaled_emissions)
-        else:
-            return self.write_by_state(scaled_emissions)
-
-    def write_by_region(self, scaled_emissions):
-        """ Write a single file for each region/date combo
-        """
         out_paths = OutputFiles()
         for region, region_data in scaled_emissions.data.iteritems():
             for date, hourly_emis in region_data.iteritems():
@@ -52,66 +42,6 @@ class CseWriter(OutputWriter):
                     out_paths[date[5:]] += new_files
 
         return out_paths
-
-    def write_by_state(self, scaled_emissions):
-        """ Write a single output file per day
-        """
-        # find all dates
-        dates = set()
-        for region_data in scaled_emissions.data.itervalues():
-            for date in region_data:
-                dates.add(date)
-
-        # write a file for each date
-        dates = sorted(dates)
-        out_paths = OutputFiles()
-        for date in dates:
-            out_paths[date[5:]] += self._write_cse_by_state(scaled_emissions, date)
-
-        return out_paths
-
-    def _write_cse_by_state(self, scaled_emissions, date):
-        """ Write a single 24-hour CSE file for a given date, for the entire state.
-        """
-        out_path = build_arb_file_path(dt.strptime(date, self.date_format), 'cse', self.grid_size,
-                                       self.directory, self.base_year, self.start_date.year,
-                                       self.version)
-        jul_day = str(dt.strptime(str(self.base_year) + date[4:], self.date_format).timetuple().tm_yday).rjust(3)
-
-        f = gzip.open(out_path, 'wb')
-
-        # loop through the different levels of the scaled emissions dictionary
-        for region, region_data in scaled_emissions.data.iteritems():
-            # pull bounding box for region
-            box = self.region_boxes[region]  # {'lat': (51, 92), 'lon': (156, 207)}
-            x_min, x_max = box['lon']
-            y_min, y_max = box['lat']
-            x_max += 1
-            y_max += 1
-            day_data = region_data.get(date, {})
-            for hr, hr_data in day_data.iteritems():
-                for eic, sparse_emis in hr_data.iteritems():
-                    polls = [(p, self.COLUMNS[p]) for p in sparse_emis.pollutants if p in self.COLUMNS]
-                    for i in xrange(y_min, y_max):
-                        for j in xrange(x_min, x_max):
-                            emis_found = False
-                            emis = ['', '', '', '', '', '']
-                            for poll, col in polls:
-                                try:
-                                    value = sparse_emis.get(poll, (i, j))
-                                    if value > self.MIN_EMIS:
-                                        emis[col] = '%.5f' % (value * self.STONS_2_KG)
-                                        emis_found = True
-                                except KeyError:
-                                    # pollutant not in this grid cell
-                                    pass
-
-                            # build CSE line
-                            if emis_found:
-                                f.write(self._build_cse_line(region, date, jul_day, hr, eic, (i, j), emis))
-
-        f.close()
-        return [out_path]
 
     def _write_cse_by_region(self, hourly_emis, region, date):
         """ Write a single 24-hour CSE file for a given region/date combination.
@@ -154,10 +84,6 @@ class CseWriter(OutputWriter):
         ''' If all the region files have been written, this will cat them all
             together into one big file.
         '''
-        if not self.combine:
-            print('    + writing: ' + out_path)
-            return [out_path]
-
         # new output file path
         out_file = build_arb_file_path(dt.strptime(date, self.date_format), 'cse', self.grid_size,
                                        self.directory, self.base_year, self.start_date.year,

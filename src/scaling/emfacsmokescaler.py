@@ -20,7 +20,7 @@ class EmfacSmokeScaler(EmissionsScaler):
 
     def __init__(self, config, position):
         super(EmfacSmokeScaler, self).__init__(config, position)
-        self.by_region = self.config.getboolean('Output', 'by_region')
+        self.by_region = 'CmaqNetcdfWriter' not in self.config.getlist('Output', 'writers')
         self.region_info = self.config.eval_file('Regions', 'region_info')
         self.reverse_regions = dict(((d['air_basin'], d['county'], d['district']), g) for g,d in self.region_info.iteritems())
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
