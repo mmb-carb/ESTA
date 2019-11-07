@@ -225,7 +225,10 @@ class Emfac2CmaqScaler(EmissionsScaler):
                 eics.update(set(emissions.data[region][date].keys()))
 
         # now find all the species we care about for this run
-        self.species = set(['CO', 'HONO', 'NH3', 'NO', 'NO2', 'SO2', 'SULF'])
+        if self.config['Output']['dpmout']:
+            self.species = set(['CO', 'HONO', 'NH3', 'NO', 'NO2', 'SO2', 'SULF', 'PM10', 'PM25', 'DPM10', 'DPM25', 'DPM'])
+        else:
+            self.species = set(['CO', 'HONO', 'NH3', 'NO', 'NO2', 'SO2', 'SULF'])
         for eic in eics:
             if eic not in self.gsref:
                 print('ERROR: EIC MISSING FROM GSREF: ' + str(eic))
@@ -340,7 +343,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
             1,TOG,ALK3,9.4629E-03,1,0.5500000
             1,TOG,ETOH,5.4268E-03,1,0.2500000
         '''
-        special_profile = ['CO', 'DEFNOX', 'NH3', 'SOX']
+        special_profile = ['CO', 'DEFNOX', 'NH3', 'SOX', 'PM10', 'PM25', 'DPM10', 'DPM25', 'DPM']
         gspro = {}
 
         f = open(file_path, 'r')
@@ -350,6 +353,8 @@ class Emfac2CmaqScaler(EmissionsScaler):
             profile = ln[0].upper()
             group = ln[1].upper()
             species = ln[2].upper()
+            if np.float32(ln[3]) == 0.:
+                continue
 
             # handle PM and TOG profiles differently
             if profile in special_profile:

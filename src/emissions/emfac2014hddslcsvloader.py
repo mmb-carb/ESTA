@@ -2,6 +2,7 @@
 import gzip
 import numpy as np
 import os
+import sys
 from emfac2014csvloader import Emfac2014CsvLoader
 from emissions_table import EmissionsTable
 
@@ -12,13 +13,13 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
         super(Emfac2014HdDslCsvLoader, self).__init__(config, position)
         self.hd_ld = 'hd'
         self.reverse_region_names = dict(zip(self.region_names.values(), self.region_names.keys()))
+        self.vtp2eic_lower = dict(((k[0].lower(),k[1].lower(),k[2].lower()),v) for k,v in self.vtp2eic.iteritems())
 
     def read_emfac_file(self, file_path, region=0):
         """ Read an EMFAC2014 HD Diesel CSV emissions file and colate the data into a table
             File Format:
-            2031,3,6.27145245709e-08,IDLEX,T6 CAIRP heavy,TOG
-            2031,3,9.39715480515e-05,PMTW,T7 NNOOS,PM10
-            2031,3,2.51918142645e-06,RUNEX,T7 POAK,SOx
+            2017,Riverside (MDSCAQMD),8.52735275164e-08,IDLEX,T6 CAIRP heavy,TOG
+            2017,Riverside (MDSCAQMD),0.000292340818039,PMTW,T7 NNOOS,PM10
         """
         emis_by_region = {}
 
@@ -42,7 +43,7 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
             # pull EIC info
             v = ln[4]
             p = ln[3]
-            eic = self.vtp2eic[(v, 'DSL', p)]
+            eic = self.vtp2eic_lower[(v.lower(), 'dsl', p.lower())]
             if eic not in self.eic_info:
                 raise KeyError('eic_info file does not include the EIC: ' + str(eic))
             # pull emissions value
@@ -51,14 +52,50 @@ class Emfac2014HdDslCsvLoader(Emfac2014CsvLoader):
                 continue
             # pull region info
             region_name = ln[1]
+            if region_name in self.REGION_CORRECTION:
+                region_name = self.REGION_CORRECTION[region_name]
             try:
                 region = self.reverse_region_names[region_name]
             except KeyError:
                 region = int(region_name)
+            
             # fill output dictionary
             if region not in emis_by_region:
                 emis_by_region[region] = EmissionsTable()
-            emis_by_region[region][eic][poll] += value
+
+            # output DPM scenario
+            if self.config['Output']['dpmout']:
+                # check if eic_info.py has appended element for "is DPM eic?" (True/False)
+                try:
+                    is_dpm_eic = self.eic_info[eic][3]
+                except:
+                    sys.exit('\nERROR: "Run output DPM scenario?" is true, but eic_info file does not include "Is DPM eic?" field.\nCheck file: %s' % self.config['Surrogates']['eic_info'])
+                # map PM/PM10/PM2.5 to DPM/DPM10/DPM2.5 and aggregate emissions
+                if is_dpm_eic:
+                    try:
+                        dpmpoll = self.PM2DPM[poll]  # this can fail with non-DPM pollutants --> aggregate to criteria pollutant as normally done
+                        # if DPM/DPM10/DPM2.5 has been identified in config file to output to ncf
+                        if dpmpoll in self.dpm_polls:
+                            emis_by_region[region][eic][dpmpoll] += value
+
+                        if poll == 'PM':  # Add DPM to PM
+                            emis_by_region[region][eic][poll] += value
+
+                        elif poll == 'PM10':
+                            emis_by_region[region][eic][poll] += value
+
+                        elif poll == 'PM25':
+                            emis_by_region[region][eic][poll] += value
+
+                    # failed to map PM/PM10/PM2.5 to DPM/DPM10/DPM2.5 (pollutant is likely CO, TOG, NOX, SOX, etc.) --> aggregate to criteria pollutant as normally done
+                    except:
+                        emis_by_region[region][eic][poll] += value
+                # not a DPM eic, therefore aggregate criteria pollutant as normally done 
+                else:
+                    emis_by_region[region][eic][poll] += value
+            # regular scenario (should only involve criteria pollutants)
+            else:
+                emis_by_region[region][eic][poll] += value
 
         f.close()
         return emis_by_region

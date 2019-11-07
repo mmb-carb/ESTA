@@ -14,7 +14,6 @@ from src.surrogates.flexibletemporalloader import FlexibleTemporalLoader
 class EmfacTxtTotalsTester(OutputTester):
 
     KG_2_STONS = np.float32(0.001102310995)
-    POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM', 'NH3']
 
     def __init__(self, config, position):
         super(EmfacTxtTotalsTester, self).__init__(config, position)
@@ -29,6 +28,17 @@ class EmfacTxtTotalsTester(OutputTester):
         self.eic_reduce = eic_reduce(str(self.precision))
         # read input day-of-week temporal profiles
         self.original_profs = self._load_dow_profiles()
+        self.config['Output']['dpmout'] = False
+        try:
+            self.dpm_polls = self.config.getlist('Output', 'dpm')
+            self.config['Output']['dpmout'] = True
+        except:
+            pass
+
+        if self.config['Output']['dpmout']:
+            self.POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM', 'NH3', 'DPM10', 'DPM25', 'DPM']
+        else:
+            self.POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM', 'NH3']
 
     def test(self, emis, out_paths):
         ''' Master Testing Method.
@@ -147,11 +157,11 @@ class EmfacTxtTotalsTester(OutputTester):
         f.write('Region,EIC,Pollutant,EMFAC,OUTPUT,Percent Diff\n')
 
         # compare DOW profiles by: Region, EIC, and pollutant
-        total_totals = {'emfac': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero},
-                        'final': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero}}
+        total_totals = {'emfac': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero, 'DPM': zero, 'DPM10': zero, 'DPM25': zero},
+                        'final': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero, 'DPM': zero, 'DPM10': zero, 'DPM25': zero}}
         for region_num in self.regions:
-            region_totals = {'emfac': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero},
-                             'final': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero}}
+            region_totals = {'emfac': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero, 'DPM': zero, 'DPM10': zero, 'DPM25': zero},
+                             'final': {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero, 'DPM': zero, 'DPM10': zero, 'DPM25': zero}}
             c = self.region_names[region_num]
             # write granular totals, by EIC
             eics = set(emfac_emis.get(region_num, date).keys() + out_emis[region_num].keys())
@@ -241,6 +251,9 @@ class EmfacTxtTotalsTester(OutputTester):
             print('Emissions File Not Found: ' + file_path)
             return e
 
+        num_of_pols = len(self.POLLUTANTS)
+        end_pos = 9 + num_of_pols
+
         # now that file exists, read it
         eic_limit = 1e13
         for line in lines:
@@ -249,14 +262,14 @@ class EmfacTxtTotalsTester(OutputTester):
             region = int(ln[4])
             if eic > eic_limit:
                 eic = self.eic_reduce(eic)
-            vals = [np.float32(v) if v else np.float32(0.0) for v in ln[9:15]]
+            vals = [np.float32(v) if v else np.float32(0.0) for v in ln[9:end_pos]]
 
             if region not in e:
                 e[region] = {}
             if eic not in e[region]:
                 e[region][eic] = dict(zip(self.POLLUTANTS, [np.float32(0.0)]*len(self.POLLUTANTS)))
 
-            for i in xrange(6):
+            for i in xrange(num_of_pols):
                 e[region][eic][self.POLLUTANTS[i]] += vals[i] * self.KG_2_STONS
 
         return e

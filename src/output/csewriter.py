@@ -4,6 +4,7 @@ from glob import glob
 import gzip
 import numpy as np
 import os
+import shutil
 from src.core.output_files import OutputFiles, build_arb_file_path
 from src.core.output_writer import OutputWriter
 
@@ -13,7 +14,6 @@ class CseWriter(OutputWriter):
         One for each region/date combination.
     """
 
-    COLUMNS = {'CO': 0, 'NOX': 1, 'SOX': 2, 'TOG': 3, 'PM': 4, 'NH3': 5}
     STONS_2_KG = np.float32(907.185)
     MIN_EMIS = np.float32(5e-6) / STONS_2_KG
 
@@ -29,6 +29,18 @@ class CseWriter(OutputWriter):
         self.region_names = dict((g, d['name']) for g,d in self.region_info.iteritems())
         self.short_region_names = dict((g, d['name'][:8].ljust(8)) for g,d in self.region_info.iteritems())
         self.short_regions = dict((g, str(g).rjust(3)) for g in self.region_info)
+        self.config['Output']['dpmout'] = False
+        try:
+            self.dpm_polls = self.config.getlist('Output', 'dpm')
+            self.config['Output']['dpmout'] = True
+        except:
+            pass
+
+        if self.config['Output']['dpmout']:
+            self.COLUMNS = {'CO': 0, 'NOX': 1, 'SOX': 2, 'TOG': 3, 'PM': 4, 'NH3': 5, 'DPM10': 6, 'DPM25': 7, 'DPM': 8}
+        else:
+            self.COLUMNS = {'CO': 0, 'NOX': 1, 'SOX': 2, 'TOG': 3, 'PM': 4, 'NH3': 5}
+
 
     def write(self, scaled_emissions):
         """ The master method to write output files.
@@ -66,55 +78,73 @@ class CseWriter(OutputWriter):
                 for i in xrange(y_min, y_max):
                     for j in xrange(x_min, x_max):
                         emis_found = False
-                        emis = ['', '', '', '', '', '']
+                        if self.config['Output']['dpmout']:
+                            emis = ['', '', '', '', '', '', '', '', '']
+                        else:
+                            emis = ['', '', '', '', '', '']
+
                         for poll, col in polls:
                             value = sparse_emis.get(poll, (i, j))
                             if value > self.MIN_EMIS:
                                 emis[col] = '%.5f' % (value * self.STONS_2_KG)
                                 emis_found = True
+                            #elif value > 0.0:
+                            #    print value
 
                         # build CSE line
                         if emis_found:
                             f.write(self._build_cse_line(region, date, jul_day, hr, eic, (i, j), emis))
-
         f.close()
-        return self._combine_regions(date, out_path)
+        with open(out_path, 'r') as f:
+            lines = f.readlines()
+            line_count = len(lines)
+        if line_count == 0: 
+            region_name = '_'.join([self.region_info[region]['county_name'].replace(' ','_'),self.region_info[region]['air_basin'],self.region_info[region]['district']])
+            print('    + not writing file for region: %s --> little to no emissions.' % region_name)
+            os.system('rm ' + out_path)
+            shutil.rmtree(self.directory)
+            return self._combine_regions(line_count=0)
+        else:
+            return self._combine_regions(date=date, out_path=out_path)
 
-    def _combine_regions(self, date, out_path):
+    def _combine_regions(self, date=None, out_path=None, line_count=None):
         ''' If all the region files have been written, this will cat them all
             together into one big file.
         '''
-        # new output file path
-        out_file = build_arb_file_path(dt.strptime(date, self.date_format), 'cse', self.grid_size,
-                                       self.directory, self.base_year, self.start_date.year,
-                                       self.version)
-
-        # use glob to count files in the output folder
-        yr, month, day = date.split('-')
-        region_paths = os.path.join(self.directory, month, day, '*.cse')
-        region_files = glob(region_paths)
-
-        # if all regions are finished, zcat results together
-        if len(region_files) != len(self.regions):
+        if line_count == 0:
             return []
-        print('    + writing: ' + out_file)
-        out_file += '.gz'
-        os.system('cat ' + ' '.join(region_files) + ' | gzip -9c > ' + out_file)
-
-        # remove old region files
-        os.system('rm ' + ' '.join(region_files))
-
-        # if the directory is empty, feel free to delete it
-        day_dir = os.path.dirname(region_files[0])
-        if not os.listdir(day_dir):
-            os.system('rm -rf ' + day_dir)
-
-            # if the directory above THAT is empty, try deleting it
-            month_dir = os.path.dirname(day_dir)
-            if not os.listdir(month_dir):
-                os.system('rm -rf ' + month_dir)
-
-        return [out_file]
+        else:
+            # new output file path
+            out_file = build_arb_file_path(dt.strptime(date, self.date_format), 'cse', self.grid_size,
+                                           self.directory, self.base_year, self.start_date.year,
+                                           self.version)
+    
+            # use glob to count files in the output folder
+            yr, month, day = date.split('-')
+            region_paths = os.path.join(self.directory, month, day, '*.cse')
+            region_files = glob(region_paths)
+    
+            # if all regions are finished, zcat results together
+            if len(region_files) != len(self.regions):
+                return []
+            print('    + writing: ' + out_file)
+            out_file += '.gz'
+            os.system('cat ' + ' '.join(region_files) + ' | gzip -9c > ' + out_file)
+    
+            # remove old region files
+            os.system('rm ' + ' '.join(region_files))
+    
+            # if the directory is empty, feel free to delete it
+            day_dir = os.path.dirname(region_files[0])
+            if not os.listdir(day_dir):
+                os.system('rm -rf ' + day_dir)
+    
+                # if the directory above THAT is empty, try deleting it
+                month_dir = os.path.dirname(day_dir)
+                if not os.listdir(month_dir):
+                    os.system('rm -rf ' + month_dir)
+    
+            return [out_file]
 
     def _build_cse_line(self, region, date, jul_day, hr, eic, grid_cell, emis):
         """ Build the complicated CSE line from available data

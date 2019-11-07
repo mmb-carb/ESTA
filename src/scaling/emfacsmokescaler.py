@@ -9,6 +9,7 @@ from src.core.date_utils import DOW, find_holidays
 from src.core.emissions_scaler import EmissionsScaler
 from src.core.eic_utils import eic_reduce
 from src.emissions.sparse_emissions import SparseEmissions
+import pdb
 
 
 class EmfacSmokeScaler(EmissionsScaler):

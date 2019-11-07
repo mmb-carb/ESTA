@@ -24,6 +24,9 @@ class SmokeSpatialSurrogateLoader(SpatialLoader):
         if len(self.smoke_surrogates) != len(self.smoke_labels):
             raise ValueError('You need the same number of SMOKE surrogates as EIC labels.')
         self.region_info = self.config.eval_file('Regions', 'region_info')
+        self.gai_codes = dict((d['air_basin'].rjust(3, '0') + '006' + str(d['county']).rjust(3, '0') + d['district'].rjust(3, '0'), g)
+                              for g,d in self.region_info.iteritems())
+
         self.regions = self.config.parse_regions('Regions', 'regions')
 
     def load(self, spatial_surrogates, temporal_surrogates):
@@ -71,7 +74,11 @@ class SmokeSpatialSurrogateLoader(SpatialLoader):
             ln = line.rstrip().split(';')
             if len(ln) != 5:
                 continue
-            region = int(ln[1]) % 1000
+
+            if len(ln[1]) == 12:
+                region = self.gai_codes[ln[1]]
+            else:
+                region = int(ln[1]) % 1000
             if region not in self.regions:
                 continue
 

@@ -10,9 +10,16 @@ from src.core.output_tester import OutputTester
 class EmfacNcfTotalsTester(OutputTester):
 
     MOLESEC2KG = np.float32(3600.0) * np.float32(0.000001102310995)
+    PRINT_POLLS = ['CO', 'NOX', 'SOX', 'TOG', 'PM', 'NH3']
 
     def __init__(self, config, position):
         super(EmfacNcfTotalsTester, self).__init__(config, position)
+        try:
+            for poll in self.config['Output']['dpm'].split():
+                if poll not in self.PRINT_POLLS:
+                    self.PRINT_POLLS.append(poll)
+        except:
+            pass
 
     def test(self, emis, out_paths):
         ''' Master Testing Method.
@@ -64,18 +71,19 @@ class EmfacNcfTotalsTester(OutputTester):
         f.write('Pollutant,EMFAC,NetCDF,Percent Diff\n')
 
         # create all-region EMFAC totals
-        emfac_totals = {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'NH3': zero}
+        emfac_totals = {'CO': zero, 'NOX': zero, 'SOX': zero, 'TOG': zero, 'PM': zero, 'PM10':zero, 'PM25':zero, 'DPM':zero, 'DPM10':zero, 'DPM25':zero, 'NH3': zero}
         for region in self.regions:
             if region not in emfac_emis.data:
                 continue
             region_data = emfac_emis.get(region, date)
             for eic_data in region_data.itervalues():
                 for poll, value in eic_data.iteritems():
+                    #print poll, value  #MMD
                     if poll.upper() in emfac_totals:
                         emfac_totals[poll.upper()] += value
 
         # find diff between EMFAC and NetCDF & add to file
-        for poll in ['CO', 'NOX', 'SOX', 'TOG', 'PM', 'NH3']:
+        for poll in self.PRINT_POLLS:
             emfac_val = emfac_totals[poll]
             ncf_val = ncf_emis.get(poll, 0.0)
             diff = EmfacNcfTotalsTester.percent_diff(emfac_val, ncf_val)
@@ -88,7 +96,7 @@ class EmfacNcfTotalsTester(OutputTester):
             of the emissions by pollutant.
         '''
         # initialize emissions dictionary
-        e = {'CO': 0.0, 'NH3': 0.0, 'NOX': 0.0, 'PM': 0.0, 'SOX': 0.0, 'TOG': 0.0}
+        e = {'CO': 0.0, 'NH3': 0.0, 'NOX': 0.0, 'PM': 0.0, 'PM10':0.0, 'PM25': 0.0, 'DPM': 0.0, 'DPM10':0.0, 'DPM25': 0.0, 'SOX': 0.0, 'TOG': 0.0}
 
         # open NetCDF file (if gzip, copy to temp file)
         if file_path.endswith('.gz'):
@@ -155,6 +163,9 @@ class EmfacNcfTotalsTester(OutputTester):
                      'CH4':  {'group': 'TOG', 'weight': 16.04},
                      'CO':   {'group': 'CO', 'weight': 28.01},
                      'CRES': {'group': 'TOG', 'weight': 108.14},
+                     'DPM': {'group': 'DPM', 'weight': 1.00},
+                     'DPM10': {'group': 'DPM10', 'weight': 1.00},
+                     'DPM25': {'group': 'DPM25', 'weight': 1.00},
                      'ETHE': {'group': 'TOG', 'weight': 28.05},
                      'ETOH': {'group': 'TOG', 'weight': 46.07},
                      'FACD': {'group': 'TOG', 'weight': 46.03},
@@ -179,11 +190,15 @@ class EmfacNcfTotalsTester(OutputTester):
                      'OXYL': {'group': 'TOG', 'weight': 106.17},
                      'PACD': {'group': 'TOG', 'weight': 74.08},
                      'PAL':  {'group': 'PM', 'weight': 1.0},
+                     'PAS':  {'group': 'PM', 'weight': 1.0},
                      'PCA':  {'group': 'PM', 'weight': 1.0},
+                     'PCD':  {'group': 'PM', 'weight': 1.0},
                      'PCL':  {'group': 'PM', 'weight': 1.0},
                      'PEC':  {'group': 'PM', 'weight': 1.0},
                      'PFE':  {'group': 'PM', 'weight': 1.0},
                      'PK':   {'group': 'PM', 'weight': 1.0},
+                     'PM10': {'group': 'PM10', 'weight': 1.0},
+                     'PM25': {'group': 'PM25', 'weight': 1.0},
                      'PMC':  {'group': 'PM', 'weight': 1.0},
                      'PMG':  {'group': 'PM', 'weight': 1.0},
                      'PMN':  {'group': 'PM', 'weight': 1.0},
@@ -191,8 +206,10 @@ class EmfacNcfTotalsTester(OutputTester):
                      'PNA':    {'group': 'PM', 'weight': 1.0},
                      'PNCOM':  {'group': 'PM', 'weight': 1.0},
                      'PNH4': {'group': 'PM', 'weight': 1.0},
+                     'PNI': {'group': 'PM', 'weight': 1.0},
                      'PNO3': {'group': 'PM', 'weight': 1.0},
                      'POC':  {'group': 'PM', 'weight': 1.0},
+                     'PPB':  {'group': 'PM', 'weight': 1.0},
                      'PRD2': {'group': 'TOG', 'weight': 116.16},
                      'PRPE': {'group': 'TOG', 'weight': 42.08},
                      'PSI':  {'group': 'PM', 'weight': 1.0},
@@ -206,4 +223,6 @@ class EmfacNcfTotalsTester(OutputTester):
                      'SULF': {'group': 'SOX', 'weight': 80.058},
                      'TERP': {'group': 'TOG', 'weight': 136.23},
                      'TOLU': {'group': 'TOG', 'weight': 92.14},
+                     'PDCB': {'group': 'TOG', 'weight': 147.01},
+                     'PERC': {'group': 'TOG', 'weight': 165.82},
                      '13BDE': {'group': 'TOG', 'weight': 54.09}}

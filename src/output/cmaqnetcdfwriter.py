@@ -25,6 +25,7 @@ class CmaqNetcdfWriter(OutputWriter):
         self.species = set()
         self.num_species = -1
         self.units = self.load_gspro(self.config['Output']['gspro_file'])
+        self.drop_polls = ['PM10', 'PM25']
 
         # build some custom text to put in the NetCDF header
         file_desc = "regions: " + ' '.join([str(r) for r in self.regions]) + \
@@ -84,6 +85,8 @@ class CmaqNetcdfWriter(OutputWriter):
         """
         # find all the input pollutants
         self.species = scaled_emissions.pollutants()
+        if self.config['Output']['dpmout']:
+            self.species = set([x for x in list(self.species) if x not in self.drop_polls])
         self.num_species = len(self.species)
 
         # find all dates with emissions data
@@ -231,6 +234,8 @@ class CmaqNetcdfWriter(OutputWriter):
             sparse_emis = hr_data[-999]
 
             for poll in sparse_emis.pollutants:
+                if poll.upper() in self.drop_polls:
+                    continue
                 if poll.upper() not in rootgrp.variables:
                     print('No variable for: ' + poll.upper())
                     continue
@@ -260,7 +265,7 @@ class CmaqNetcdfWriter(OutputWriter):
             group = ln[1].upper()
             species = ln[2].upper()
 
-            if group == 'PM':
+            if group in ['PM', 'PM10', 'PM25', 'DPM', 'DPM10', 'DPM25']:
                 units[species] = 'g/s'
             else:
                 units[species] = 'moles/s'

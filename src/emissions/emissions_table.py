@@ -40,6 +40,7 @@ class EmissionsTable(defaultdict):
         e = EmissionsTable()
         for eic, eic_data in self.iteritems():
             for poll, value in eic_data.iteritems():
+                #print poll, value  #MMD
                 e[eic][poll] = value
 
         return e

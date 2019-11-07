@@ -16,7 +16,6 @@ class EmfacTxtDiurnalTester(OutputTester):
 
     KG_2_STONS = np.float32(0.001102310995)
     NUM_TESTED = 5
-    POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM', 'NH3']
 
     def __init__(self, config, position):
         super(EmfacTxtDiurnalTester, self).__init__(config, position)
@@ -32,6 +31,18 @@ class EmfacTxtDiurnalTester(OutputTester):
         self.num_tested = EmfacTxtDiurnalTester.NUM_TESTED
         if 'num_tested' in self.config['Output']:
             self.num_tested = int(self.config['Output']['num_tested'])
+
+        self.config['Output']['dpmout'] = False
+        try:
+            self.dpm_polls = self.config.getlist('Output', 'dpm')
+            self.config['Output']['dpmout'] = True
+        except:
+            pass
+
+        if self.config['Output']['dpmout']:
+            self.POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM', 'NH3', 'DPM10', 'DPM25', 'DPM']
+        else:
+            self.POLLUTANTS = ['CO', 'NOX', 'SOX', 'TOG', 'PM', 'NH3']
 
     def test(self, emis, out_paths):
         ''' Master Testing Method.
@@ -189,6 +200,9 @@ class EmfacTxtDiurnalTester(OutputTester):
             print('Emissions File Not Found: ' + file_path)
             return e
 
+        num_of_pols = len(self.POLLUTANTS)
+        end_pos = 9 + num_of_pols
+
         # now that file exists, read it
         e = {}
         for line in lines:
@@ -198,7 +212,7 @@ class EmfacTxtDiurnalTester(OutputTester):
                 continue
             region = int(ln[4])
             hr = int(ln[7]) % 24
-            vals = [np.float32(v) if v else 0.0 for v in ln[9:15]]
+            vals = [np.float32(v) if v else 0.0 for v in ln[9:end_pos]]
 
             if region not in e:
                 e[region] = {}
@@ -241,7 +255,7 @@ class EmfacTxtDiurnalTester(OutputTester):
 
                 # bulid total emissions for comparision
                 for poll, hourly_emis in poll_data.iteritems():
-                    body += 'OUTPUT_' + poll.ljust(4)[:4] + ',emis_kg,' + ','.join(['%.5f' % v for v in hourly_emis]) + '\n'
+                    body += 'OUTPUT_' + poll.ljust(5)[:5] + ',emis_kg,' + ','.join(['%.5f' % v for v in hourly_emis]) + '\n'
 
                 # build output diurnal profiles lines
                 for poll, hourly_emis in poll_data.iteritems():
@@ -252,7 +266,7 @@ class EmfacTxtDiurnalTester(OutputTester):
                         max_diff = diff
                     if total < min_total:
                         min_total = total
-                    body += 'OUTPUT_' + poll.ljust(4)[:4]  + ',profile,' + ','.join(['%.5f' % v for v in prof]) + '\n'
+                    body += 'OUTPUT_' + poll.ljust(5)[:5]  + ',profile,' + ','.join(['%.5f' % v for v in prof]) + '\n'
                 # build input diurnal profile lines
                 body += 'INPUT      ,profile,' + ','.join(['%.5f' % v for v in in_prof]) + '\n'
 
