@@ -3,8 +3,11 @@
 
 ESTA is a command-line tool for processing raw emissions data into spatially and temporally-allocated emissions inventories, suitable for photochemicaly modeling or other analysis. ESTA is an open-source, Python-based tool designed by the AQPSD branch of the [California EPA][CalEPA]'s [Air Resources Board][ARB].  Though it is a general-purpose model, it is currently only used for processing on-road inventories.
 
+
 ## Recent Updates
->The source code is updated to read EMFAC2017 emissions, and has the option to output diesel PM emissions.
+
+The source code is updated to read EMFAC2017 emissions, and has the option to output diesel PM emissions.
+
 
 ## ESTA Documentation
 
