@@ -45,9 +45,9 @@ class SmokeSpatialSurrogateLoader(SpatialLoader):
             region_surrogates = self._load_surrogate_file(file_path)
 
             # add the surrogate above for each label in the config file
-            for label in self.smoke_labels:
-                for region, surrogate in region_surrogates.iteritems():
-                    spatial_surrogates.set_nocheck(region, label, surrogate)
+            label = self.smoke_labels[i]
+            for region, surrogate in region_surrogates.iteritems():
+                spatial_surrogates.set_nocheck(region, label, surrogate)
 
         # normalize surrogates
         spatial_surrogates.surrogates()
