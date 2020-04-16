@@ -13,7 +13,7 @@ from emissions_table import EmissionsTable
 class Emfac2014CsvLoader(EmissionsLoader):
 
     SUMMER_MONTHS = [4, 5, 6, 7, 8, 9]
-    VALID_POLLUTANTS = ['NOX', 'CO', 'PM', 'SOX', 'TOG']
+    VALID_POLLUTANTS = ['NOX', 'CO', 'PM', 'SOX', 'TOG', 'NH3']
     DPM2PM = {'DPM10':'PM10', 'DPM25':'PM25', 'DPM':'PM'}
     PM2DPM = dict((v,k) for k,v in DPM2PM.iteritems())  # reverse lookup for DPM2PM
     REGION_CORRECTION = {'Riverside (MD/MDAQMD)':'Riverside (MDMDAQMD)', 'Riverside (MD/SCAQMD)':'Riverside (MDSCAQMD)'}
