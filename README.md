@@ -7,7 +7,7 @@ ESTA is a command-line tool for processing raw emissions data into spatially and
 ## Recent Updates
 
 The source code is updated to read EMFAC2017 emissions, and has the option to output diesel PM emissions.
-The directory NH3_data_EF17 contains the NH3 emissions files for sereval years and user can append the specific year of the NH3 emissions files to the EMFAC2017 files.  A sample of the scripts that append the NH3 emissions files to the EMFAC2017 emissions files are provided at EF17_format_ld and EF17_format_hd directories.
+The directory NH3_data_EF17 contains the NH3 emissions files for several years and user can append the specific year of the NH3 emissions files to the EMFAC2017 files.  A sample of the scripts that append the NH3 emissions files to the EMFAC2017 emissions files are provided at EF17_format_ld and EF17_format_hd directories.
 
 
 ## ESTA Documentation
