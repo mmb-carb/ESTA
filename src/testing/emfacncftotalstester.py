@@ -35,7 +35,7 @@ class EmfacNcfTotalsTester(OutputTester):
             if date not in out_paths:
                 print('    + No output NetCDF files found for testing on date: ' + str(date))
                 continue
-            ncf_files = [f for f in out_paths[date] if f.rstrip('.gz').endswith('.ncf')]
+            ncf_files = [f for f in out_paths[date] if f.endswith('.nc7')]
             if ncf_files:
                 self._read_and_compare_ncf(ncf_files, date, emis)
 

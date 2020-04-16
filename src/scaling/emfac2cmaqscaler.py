@@ -23,7 +23,7 @@ class Emfac2CmaqScaler(EmissionsScaler):
         self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
         self.region_info = self.config.eval_file('Regions', 'region_info')
         self.reverse_regions = dict(((d['air_basin'], d['county'], d['district']), g) for g,d in self.region_info.iteritems())
-        self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
+        #self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
         self.region_boxes = self.config.eval_file('Surrogates', 'region_boxes')  # bounds are inclusive
@@ -168,13 +168,13 @@ class Emfac2CmaqScaler(EmissionsScaler):
                     se.add_grid_nocheck(spec, (value * spec_data['mass_fract'] * self.STONS_HR_2_G_SEC / spec_data['weight']) * ss)
 
             # add NH3, based on NH3/CO fractions
-            if 'CO' in emis_table[eic]:
-                nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0)
-                if not nh3_fraction:
-                    continue
+            #if 'CO' in emis_table[eic]:
+            #    nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, 0)
+            #    if not nh3_fraction:
+            #        continue
 
                 # add NH3 based on its relation to CO
-                se.add_grid_nocheck('NH3', (emis_table[eic]['CO'] * nh3_fraction * (self.STONS_HR_2_G_SEC / self.gspro['default']['NH3']['NH3']['weight'])) * ss)
+                #se.add_grid_nocheck('NH3', (emis_table[eic]['CO'] * nh3_fraction * (self.STONS_HR_2_G_SEC / self.gspro['default']['NH3']['NH3']['weight'])) * ss)
 
         return se
 

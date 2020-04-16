@@ -113,7 +113,7 @@ class CmaqNetcdfWriter(OutputWriter):
         jdate = int(str(d.year) + dt(self.base_year, d.month, d.day).strftime('%j'))
 
         # final output file path
-        out_path = build_arb_file_path(dt.strptime(date, self.date_format), 'ncf', self.grid_size,
+        out_path = build_arb_file_path(dt.strptime(date, self.date_format), 'nc7', self.grid_size,
                                        self.directory, self.base_year, self.start_date.year,
                                        self.version)
         print('    + writing: ' + out_path)
@@ -125,12 +125,12 @@ class CmaqNetcdfWriter(OutputWriter):
         self._fill_grid(scaled_emissions, date, rootgrp, gmt_shift)
 
         # compress output file
-        if is_last_date:
-            os.system('gzip -1 ' + out_path)
-        else:
-            os.system('gzip -1 ' + out_path + ' &')
+        #if is_last_date:
+        #    os.system('gzip -1 ' + out_path)
+        #else:
+        #    os.system('gzip -1 ' + out_path + ' &')
 
-        return [out_path + '.gz']
+        return [out_path]
 
     def _create_netcdf(self, out_path, jdate):
         ''' Creates a blank CMAQ-ready NetCDF file, including all the important
@@ -141,7 +141,7 @@ class CmaqNetcdfWriter(OutputWriter):
         current_time = int(time.strftime("%H%M%S"))
 
         # create and outline NetCDF file
-        rootgrp = Dataset(out_path, 'w', format='NETCDF3_CLASSIC')
+        rootgrp = Dataset(out_path, 'w', format='NETCDF4_CLASSIC')
         _ = rootgrp.createDimension('TSTEP', None)
         _ = rootgrp.createDimension('DATE-TIME', 2)
         _ = rootgrp.createDimension('LAY', 1)
@@ -150,7 +150,7 @@ class CmaqNetcdfWriter(OutputWriter):
         _ = rootgrp.createDimension('COL', self.ncols)        # Domain: number of columns
 
         # define TFLAG Variable
-        TFLAG = rootgrp.createVariable('TFLAG', 'i4', ('TSTEP', 'VAR', 'DATE-TIME',), zlib=False)
+        TFLAG = rootgrp.createVariable('TFLAG', 'i4', ('TSTEP', 'VAR', 'DATE-TIME',), zlib=True)
         TFLAG.units = '<YYYYDDD,HHMMSS>'
         TFLAG.long_name = 'TFLAG'
         TFLAG.var_desc = 'Timestep-valid flags:  (1) YYYYDDD or (2) HHMMSS'
@@ -159,7 +159,7 @@ class CmaqNetcdfWriter(OutputWriter):
         varl = ''
         for spec in self.species:
             units = self.units[spec]
-            rootgrp.createVariable(spec, 'f4', ('TSTEP', 'LAY', 'ROW', 'COL'), zlib=False)
+            rootgrp.createVariable(spec, 'f4', ('TSTEP', 'LAY', 'ROW', 'COL'), zlib=True)
             rootgrp.variables[spec].long_name = spec
             rootgrp.variables[spec].units = units
             rootgrp.variables[spec].var_desc = 'emissions'

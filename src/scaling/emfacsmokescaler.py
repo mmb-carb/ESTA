@@ -26,7 +26,7 @@ class EmfacSmokeScaler(EmissionsScaler):
         self.reverse_regions = dict(((d['air_basin'], d['county'], d['district']), g) for g,d in self.region_info.iteritems())
         self.eic_reduce = eic_reduce(self.config['Output']['eic_precision'])
         self.eic_info = self.config.eval_file('Surrogates', 'eic_info')
-        self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
+        #self.nh3_fractions = self._read_nh3_inventory(self.config['Scaling']['nh3_inventory'])
         self.nrows = int(self.config['GridInfo']['rows'])
         self.ncols = int(self.config['GridInfo']['columns'])
         self.is_smoke4 = 'smoke4' in self.config['Surrogates']['spatial_loaders'].lower()
@@ -197,11 +197,11 @@ class EmfacSmokeScaler(EmissionsScaler):
                     se.add(poll, cell, value * fraction)
 
             # add NH3, based on CO fractions
-            nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, np.float32(0.0))
-            if 'CO' in emis_table[eic] and nh3_fraction:
-                value = emis_table[eic]['CO']
-                for cell, fraction in spatial_surrs[label].iteritems():
-                    se.add('NH3', cell, value * fraction * nh3_fraction)
+            #nh3_fraction = self.nh3_fractions.get(region, {}).get(eic, np.float32(0.0))
+            #if 'CO' in emis_table[eic] and nh3_fraction:
+                #value = emis_table[eic]['CO']
+                #for cell, fraction in spatial_surrs[label].iteritems():
+                    #se.add('NH3', cell, value * fraction * nh3_fraction)
 
             e[eic] = se
 
