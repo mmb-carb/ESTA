@@ -1,0 +1,1885 @@
+2000,Alameda (SF),0.000532094,RUNEX,All Other Buses,NH3
+2000,Alameda (SF),0.000243851,RUNEX,Motor Coach,NH3
+2000,Alameda (SF),0.000528346,RUNEX,PTO,NH3
+2000,Alameda (SF),0.000205818,RUNEX,SBUS,NH3
+2000,Alameda (SF),2.02e-06,RUNEX,T6 Ag,NH3
+2000,Alameda (SF),0.000223056,RUNEX,T6 CAIRP heavy,NH3
+2000,Alameda (SF),3.2e-05,RUNEX,T6 CAIRP small,NH3
+2000,Alameda (SF),0.001381867,RUNEX,T6 instate construction heavy,NH3
+2000,Alameda (SF),0.00226678,RUNEX,T6 instate construction small,NH3
+2000,Alameda (SF),0.00836653,RUNEX,T6 instate heavy,NH3
+2000,Alameda (SF),0.011692859,RUNEX,T6 instate small,NH3
+2000,Alameda (SF),0.000130715,RUNEX,T6 OOS heavy,NH3
+2000,Alameda (SF),1.57e-05,RUNEX,T6 OOS small,NH3
+2000,Alameda (SF),0.000343917,RUNEX,T6 Public,NH3
+2000,Alameda (SF),9.21e-05,RUNEX,T6 utility,NH3
+2000,Alameda (SF),2.63e-06,RUNEX,T7 Ag,NH3
+2000,Alameda (SF),0.006950941,RUNEX,T7 CAIRP,NH3
+2000,Alameda (SF),0.000992543,RUNEX,T7 CAIRP construction,NH3
+2000,Alameda (SF),0.008473461,RUNEX,T7 NNOOS,NH3
+2000,Alameda (SF),0.002730962,RUNEX,T7 NOOS,NH3
+2000,Alameda (SF),0.000661795,RUNEX,T7 other port,NH3
+2000,Alameda (SF),0.002949096,RUNEX,T7 POAK,NH3
+2000,Alameda (SF),0.000434851,RUNEX,T7 Public,NH3
+2000,Alameda (SF),0.002660858,RUNEX,T7 Single,NH3
+2000,Alameda (SF),0.002462475,RUNEX,T7 single construction,NH3
+2000,Alameda (SF),0.000806411,RUNEX,T7 SWCV,NH3
+2000,Alameda (SF),2.04e-05,RUNEX,T7 SWCV,NH3
+2000,Alameda (SF),0.011830437,RUNEX,T7 tractor,NH3
+2000,Alameda (SF),0.002031325,RUNEX,T7 tractor construction,NH3
+2000,Alameda (SF),5.96e-05,RUNEX,T7 utility,NH3
+2000,Alpine (GBV),2.62e-06,RUNEX,All Other Buses,NH3
+2000,Alpine (GBV),1.14e-06,RUNEX,Motor Coach,NH3
+2000,Alpine (GBV),3.53e-06,RUNEX,SBUS,NH3
+2000,Alpine (GBV),7.89e-07,RUNEX,T6 instate construction heavy,NH3
+2000,Alpine (GBV),9.79e-07,RUNEX,T6 instate construction small,NH3
+2000,Alpine (GBV),1.52e-05,RUNEX,T6 instate heavy,NH3
+2000,Alpine (GBV),2.34e-06,RUNEX,T6 instate small,NH3
+2000,Alpine (GBV),3.44e-06,RUNEX,T6 Public,NH3
+2000,Alpine (GBV),6.72e-08,RUNEX,T6 utility,NH3
+2000,Alpine (GBV),9.85e-05,RUNEX,T7 CAIRP,NH3
+2000,Alpine (GBV),5.67e-07,RUNEX,T7 CAIRP construction,NH3
+2000,Alpine (GBV),0.000120495,RUNEX,T7 NNOOS,NH3
+2000,Alpine (GBV),3.85e-05,RUNEX,T7 NOOS,NH3
+2000,Alpine (GBV),1.88e-06,RUNEX,T7 Public,NH3
+2000,Alpine (GBV),1.41e-06,RUNEX,T7 single construction,NH3
+2000,Alpine (GBV),4.52e-07,RUNEX,T7 SWCV,NH3
+2000,Alpine (GBV),3.03e-05,RUNEX,T7 tractor,NH3
+2000,Alpine (GBV),1.16e-06,RUNEX,T7 tractor construction,NH3
+2000,Alpine (GBV),5.57e-08,RUNEX,T7 utility,NH3
+2000,Amador (MC),1.19e-05,RUNEX,All Other Buses,NH3
+2000,Amador (MC),6.97e-06,RUNEX,Motor Coach,NH3
+2000,Amador (MC),2.31e-05,RUNEX,PTO,NH3
+2000,Amador (MC),3.54e-05,RUNEX,SBUS,NH3
+2000,Amador (MC),2.87e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Amador (MC),1.92e-06,RUNEX,T6 instate construction heavy,NH3
+2000,Amador (MC),6.55e-05,RUNEX,T6 instate construction small,NH3
+2000,Amador (MC),0.000163685,RUNEX,T6 instate heavy,NH3
+2000,Amador (MC),0.000145512,RUNEX,T6 instate small,NH3
+2000,Amador (MC),1.22e-05,RUNEX,T6 OOS heavy,NH3
+2000,Amador (MC),8.09e-07,RUNEX,T6 OOS small,NH3
+2000,Amador (MC),2.21e-05,RUNEX,T6 Public,NH3
+2000,Amador (MC),2.38e-06,RUNEX,T6 utility,NH3
+2000,Amador (MC),3.71e-05,RUNEX,T7 CAIRP,NH3
+2000,Amador (MC),1.38e-06,RUNEX,T7 CAIRP construction,NH3
+2000,Amador (MC),4.57e-05,RUNEX,T7 NNOOS,NH3
+2000,Amador (MC),1.45e-05,RUNEX,T7 NOOS,NH3
+2000,Amador (MC),1.98e-06,RUNEX,T7 POAK,NH3
+2000,Amador (MC),3.29e-05,RUNEX,T7 Public,NH3
+2000,Amador (MC),0.000116467,RUNEX,T7 Single,NH3
+2000,Amador (MC),3.42e-06,RUNEX,T7 single construction,NH3
+2000,Amador (MC),2.01e-05,RUNEX,T7 SWCV,NH3
+2000,Amador (MC),1.4e-05,RUNEX,T7 tractor,NH3
+2000,Amador (MC),2.82e-06,RUNEX,T7 tractor construction,NH3
+2000,Amador (MC),6.66e-08,RUNEX,T7 utility,NH3
+2000,Butte (SV),5.29e-05,RUNEX,All Other Buses,NH3
+2000,Butte (SV),2.17e-05,RUNEX,Motor Coach,NH3
+2000,Butte (SV),4.66e-05,RUNEX,PTO,NH3
+2000,Butte (SV),9.72e-05,RUNEX,SBUS,NH3
+2000,Butte (SV),1.92e-05,RUNEX,T6 Ag,NH3
+2000,Butte (SV),4.91e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Butte (SV),7.56e-06,RUNEX,T6 CAIRP small,NH3
+2000,Butte (SV),0.000133088,RUNEX,T6 instate construction heavy,NH3
+2000,Butte (SV),0.000203024,RUNEX,T6 instate construction small,NH3
+2000,Butte (SV),0.000512278,RUNEX,T6 instate heavy,NH3
+2000,Butte (SV),0.000611048,RUNEX,T6 instate small,NH3
+2000,Butte (SV),2.77e-05,RUNEX,T6 OOS heavy,NH3
+2000,Butte (SV),3.65e-06,RUNEX,T6 OOS small,NH3
+2000,Butte (SV),5.03e-05,RUNEX,T6 Public,NH3
+2000,Butte (SV),8.69e-06,RUNEX,T6 utility,NH3
+2000,Butte (SV),1.53e-05,RUNEX,T7 Ag,NH3
+2000,Butte (SV),0.001702543,RUNEX,T7 CAIRP,NH3
+2000,Butte (SV),9.56e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Butte (SV),0.002075873,RUNEX,T7 NNOOS,NH3
+2000,Butte (SV),0.00066877,RUNEX,T7 NOOS,NH3
+2000,Butte (SV),1.76e-05,RUNEX,T7 other port,NH3
+2000,Butte (SV),4.11e-05,RUNEX,T7 POAK,NH3
+2000,Butte (SV),9.41e-05,RUNEX,T7 Public,NH3
+2000,Butte (SV),0.000234672,RUNEX,T7 Single,NH3
+2000,Butte (SV),0.000237162,RUNEX,T7 single construction,NH3
+2000,Butte (SV),5.34e-05,RUNEX,T7 SWCV,NH3
+2000,Butte (SV),0.001259549,RUNEX,T7 tractor,NH3
+2000,Butte (SV),0.000195638,RUNEX,T7 tractor construction,NH3
+2000,Butte (SV),6.04e-06,RUNEX,T7 utility,NH3
+2000,Calaveras (MC),1.63e-05,RUNEX,All Other Buses,NH3
+2000,Calaveras (MC),9.44e-06,RUNEX,Motor Coach,NH3
+2000,Calaveras (MC),1.7e-05,RUNEX,PTO,NH3
+2000,Calaveras (MC),4.58e-05,RUNEX,SBUS,NH3
+2000,Calaveras (MC),2.39e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Calaveras (MC),7.5e-06,RUNEX,T6 instate construction heavy,NH3
+2000,Calaveras (MC),6.05e-05,RUNEX,T6 instate construction small,NH3
+2000,Calaveras (MC),0.000146097,RUNEX,T6 instate heavy,NH3
+2000,Calaveras (MC),0.000118494,RUNEX,T6 instate small,NH3
+2000,Calaveras (MC),1.09e-05,RUNEX,T6 OOS heavy,NH3
+2000,Calaveras (MC),8.09e-07,RUNEX,T6 OOS small,NH3
+2000,Calaveras (MC),2.11e-05,RUNEX,T6 Public,NH3
+2000,Calaveras (MC),2.2e-06,RUNEX,T6 utility,NH3
+2000,Calaveras (MC),0.00014589,RUNEX,T7 CAIRP,NH3
+2000,Calaveras (MC),5.38e-06,RUNEX,T7 CAIRP construction,NH3
+2000,Calaveras (MC),0.000178404,RUNEX,T7 NNOOS,NH3
+2000,Calaveras (MC),5.72e-05,RUNEX,T7 NOOS,NH3
+2000,Calaveras (MC),8.13e-06,RUNEX,T7 POAK,NH3
+2000,Calaveras (MC),3.85e-05,RUNEX,T7 Public,NH3
+2000,Calaveras (MC),8.57e-05,RUNEX,T7 Single,NH3
+2000,Calaveras (MC),1.34e-05,RUNEX,T7 single construction,NH3
+2000,Calaveras (MC),1.83e-05,RUNEX,T7 SWCV,NH3
+2000,Calaveras (MC),5.75e-05,RUNEX,T7 tractor,NH3
+2000,Calaveras (MC),1.1e-05,RUNEX,T7 tractor construction,NH3
+2000,Calaveras (MC),2.49e-07,RUNEX,T7 utility,NH3
+2000,Colusa (SV),3.79e-06,RUNEX,All Other Buses,NH3
+2000,Colusa (SV),1.47e-06,RUNEX,Motor Coach,NH3
+2000,Colusa (SV),6.32e-06,RUNEX,PTO,NH3
+2000,Colusa (SV),2.17e-05,RUNEX,SBUS,NH3
+2000,Colusa (SV),1.78e-05,RUNEX,T6 Ag,NH3
+2000,Colusa (SV),6.8e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Colusa (SV),4.52e-05,RUNEX,T6 instate construction small,NH3
+2000,Colusa (SV),0.000114651,RUNEX,T6 instate heavy,NH3
+2000,Colusa (SV),0.000146419,RUNEX,T6 instate small,NH3
+2000,Colusa (SV),5.58e-06,RUNEX,T6 OOS heavy,NH3
+2000,Colusa (SV),9.73e-07,RUNEX,T6 OOS small,NH3
+2000,Colusa (SV),9.92e-06,RUNEX,T6 Public,NH3
+2000,Colusa (SV),1.89e-06,RUNEX,T6 utility,NH3
+2000,Colusa (SV),1.59e-05,RUNEX,T7 Ag,NH3
+2000,Colusa (SV),0.000869551,RUNEX,T7 CAIRP,NH3
+2000,Colusa (SV),4.88e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Colusa (SV),0.00106042,RUNEX,T7 NNOOS,NH3
+2000,Colusa (SV),0.000341482,RUNEX,T7 NOOS,NH3
+2000,Colusa (SV),8.89e-06,RUNEX,T7 other port,NH3
+2000,Colusa (SV),2.08e-05,RUNEX,T7 POAK,NH3
+2000,Colusa (SV),3.1e-05,RUNEX,T7 Public,NH3
+2000,Colusa (SV),3.18e-05,RUNEX,T7 Single,NH3
+2000,Colusa (SV),0.000121156,RUNEX,T7 single construction,NH3
+2000,Colusa (SV),1.17e-05,RUNEX,T7 SWCV,NH3
+2000,Colusa (SV),0.000623748,RUNEX,T7 tractor,NH3
+2000,Colusa (SV),9.99e-05,RUNEX,T7 tractor construction,NH3
+2000,Colusa (SV),3.05e-06,RUNEX,T7 utility,NH3
+2000,Contra Costa (SF),0.000162772,RUNEX,All Other Buses,NH3
+2000,Contra Costa (SF),7.46e-05,RUNEX,Motor Coach,NH3
+2000,Contra Costa (SF),0.000228882,RUNEX,PTO,NH3
+2000,Contra Costa (SF),0.001912737,RUNEX,SBUS,NH3
+2000,Contra Costa (SF),5.97e-06,RUNEX,T6 Ag,NH3
+2000,Contra Costa (SF),6.91e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Contra Costa (SF),8e-06,RUNEX,T6 CAIRP small,NH3
+2000,Contra Costa (SF),0.000376889,RUNEX,T6 instate construction heavy,NH3
+2000,Contra Costa (SF),0.00068969,RUNEX,T6 instate construction small,NH3
+2000,Contra Costa (SF),0.00185622,RUNEX,T6 instate heavy,NH3
+2000,Contra Costa (SF),0.002513403,RUNEX,T6 instate small,NH3
+2000,Contra Costa (SF),3.99e-05,RUNEX,T6 OOS heavy,NH3
+2000,Contra Costa (SF),4.76e-06,RUNEX,T6 OOS small,NH3
+2000,Contra Costa (SF),0.000130701,RUNEX,T6 Public,NH3
+2000,Contra Costa (SF),2.8e-05,RUNEX,T6 utility,NH3
+2000,Contra Costa (SF),2.35e-06,RUNEX,T7 Ag,NH3
+2000,Contra Costa (SF),0.00189537,RUNEX,T7 CAIRP,NH3
+2000,Contra Costa (SF),0.000270705,RUNEX,T7 CAIRP construction,NH3
+2000,Contra Costa (SF),0.002310973,RUNEX,T7 NNOOS,NH3
+2000,Contra Costa (SF),0.000744666,RUNEX,T7 NOOS,NH3
+2000,Contra Costa (SF),0.000180186,RUNEX,T7 other port,NH3
+2000,Contra Costa (SF),0.000803869,RUNEX,T7 POAK,NH3
+2000,Contra Costa (SF),0.000160812,RUNEX,T7 Public,NH3
+2000,Contra Costa (SF),0.001152696,RUNEX,T7 Single,NH3
+2000,Contra Costa (SF),0.000671613,RUNEX,T7 single construction,NH3
+2000,Contra Costa (SF),0.000245176,RUNEX,T7 SWCV,NH3
+2000,Contra Costa (SF),6.2e-06,RUNEX,T7 SWCV,NH3
+2000,Contra Costa (SF),0.003219472,RUNEX,T7 tractor,NH3
+2000,Contra Costa (SF),0.000554022,RUNEX,T7 tractor construction,NH3
+2000,Contra Costa (SF),1.62e-05,RUNEX,T7 utility,NH3
+2000,Del Norte (NC),1.15e-05,RUNEX,All Other Buses,NH3
+2000,Del Norte (NC),8.25e-06,RUNEX,Motor Coach,NH3
+2000,Del Norte (NC),7.71e-06,RUNEX,PTO,NH3
+2000,Del Norte (NC),2.16e-05,RUNEX,SBUS,NH3
+2000,Del Norte (NC),4.15e-07,RUNEX,T6 instate construction heavy,NH3
+2000,Del Norte (NC),7.48e-06,RUNEX,T6 instate construction small,NH3
+2000,Del Norte (NC),0.000144986,RUNEX,T6 instate heavy,NH3
+2000,Del Norte (NC),5.13e-05,RUNEX,T6 instate small,NH3
+2000,Del Norte (NC),4.28e-06,RUNEX,T6 OOS heavy,NH3
+2000,Del Norte (NC),1.66e-07,RUNEX,T6 OOS small,NH3
+2000,Del Norte (NC),9.35e-06,RUNEX,T6 Public,NH3
+2000,Del Norte (NC),6.43e-07,RUNEX,T6 utility,NH3
+2000,Del Norte (NC),2.08e-05,RUNEX,T7 CAIRP,NH3
+2000,Del Norte (NC),2.98e-07,RUNEX,T7 CAIRP construction,NH3
+2000,Del Norte (NC),2.6e-05,RUNEX,T7 NNOOS,NH3
+2000,Del Norte (NC),8.11e-06,RUNEX,T7 NOOS,NH3
+2000,Del Norte (NC),1.26e-06,RUNEX,T7 other port,NH3
+2000,Del Norte (NC),1.97e-05,RUNEX,T7 Public,NH3
+2000,Del Norte (NC),3.88e-05,RUNEX,T7 Single,NH3
+2000,Del Norte (NC),7.4e-07,RUNEX,T7 single construction,NH3
+2000,Del Norte (NC),3.18e-06,RUNEX,T7 SWCV,NH3
+2000,Del Norte (NC),1.59e-05,RUNEX,T7 tractor,NH3
+2000,Del Norte (NC),6.11e-07,RUNEX,T7 tractor construction,NH3
+2000,Del Norte (NC),4.24e-08,RUNEX,T7 utility,NH3
+2000,El Dorado (LT),1.68e-05,RUNEX,All Other Buses,NH3
+2000,El Dorado (LT),2.56e-05,RUNEX,Motor Coach,NH3
+2000,El Dorado (LT),3.25e-06,RUNEX,PTO,NH3
+2000,El Dorado (LT),4.63e-05,RUNEX,SBUS,NH3
+2000,El Dorado (LT),4.14e-05,RUNEX,T6 instate construction heavy,NH3
+2000,El Dorado (LT),7.03e-05,RUNEX,T6 instate construction small,NH3
+2000,El Dorado (LT),9.44e-05,RUNEX,T6 instate heavy,NH3
+2000,El Dorado (LT),0.000121098,RUNEX,T6 instate small,NH3
+2000,El Dorado (LT),1.87e-05,RUNEX,T6 Public,NH3
+2000,El Dorado (LT),2.25e-06,RUNEX,T6 utility,NH3
+2000,El Dorado (LT),1.87e-06,RUNEX,T7 Ag,NH3
+2000,El Dorado (LT),0.00021906,RUNEX,T7 CAIRP,NH3
+2000,El Dorado (LT),2.98e-05,RUNEX,T7 CAIRP construction,NH3
+2000,El Dorado (LT),0.000268354,RUNEX,T7 NNOOS,NH3
+2000,El Dorado (LT),8.58e-05,RUNEX,T7 NOOS,NH3
+2000,El Dorado (LT),5.72e-05,RUNEX,T7 Public,NH3
+2000,El Dorado (LT),1.64e-05,RUNEX,T7 Single,NH3
+2000,El Dorado (LT),7.39e-05,RUNEX,T7 single construction,NH3
+2000,El Dorado (LT),6.59e-06,RUNEX,T7 SWCV,NH3
+2000,El Dorado (LT),4.26e-06,RUNEX,T7 tractor,NH3
+2000,El Dorado (LT),6.09e-05,RUNEX,T7 tractor construction,NH3
+2000,El Dorado (LT),1.37e-06,RUNEX,T7 utility,NH3
+2000,El Dorado (MC),2.65e-05,RUNEX,All Other Buses,NH3
+2000,El Dorado (MC),1.54e-05,RUNEX,Motor Coach,NH3
+2000,El Dorado (MC),5.33e-05,RUNEX,PTO,NH3
+2000,El Dorado (MC),7.08e-05,RUNEX,SBUS,NH3
+2000,El Dorado (MC),1.28e-06,RUNEX,T6 Ag,NH3
+2000,El Dorado (MC),3.12e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,El Dorado (MC),4.74e-06,RUNEX,T6 CAIRP small,NH3
+2000,El Dorado (MC),8.58e-07,RUNEX,T6 instate construction heavy,NH3
+2000,El Dorado (MC),9.45e-05,RUNEX,T6 instate construction small,NH3
+2000,El Dorado (MC),0.000384679,RUNEX,T6 instate heavy,NH3
+2000,El Dorado (MC),0.000446791,RUNEX,T6 instate small,NH3
+2000,El Dorado (MC),1.83e-05,RUNEX,T6 OOS heavy,NH3
+2000,El Dorado (MC),1.4e-06,RUNEX,T6 OOS small,NH3
+2000,El Dorado (MC),3.35e-05,RUNEX,T6 Public,NH3
+2000,El Dorado (MC),3.44e-06,RUNEX,T6 utility,NH3
+2000,El Dorado (MC),4.25e-07,RUNEX,T7 Ag,NH3
+2000,El Dorado (MC),1.65e-05,RUNEX,T7 CAIRP,NH3
+2000,El Dorado (MC),6.16e-07,RUNEX,T7 CAIRP construction,NH3
+2000,El Dorado (MC),2.04e-05,RUNEX,T7 NNOOS,NH3
+2000,El Dorado (MC),6.35e-06,RUNEX,T7 NOOS,NH3
+2000,El Dorado (MC),8.18e-07,RUNEX,T7 POAK,NH3
+2000,El Dorado (MC),4.7e-05,RUNEX,T7 Public,NH3
+2000,El Dorado (MC),0.000268674,RUNEX,T7 Single,NH3
+2000,El Dorado (MC),1.53e-06,RUNEX,T7 single construction,NH3
+2000,El Dorado (MC),2.9e-05,RUNEX,T7 SWCV,NH3
+2000,El Dorado (MC),6.18e-06,RUNEX,T7 tractor,NH3
+2000,El Dorado (MC),1.26e-06,RUNEX,T7 tractor construction,NH3
+2000,El Dorado (MC),3.4e-08,RUNEX,T7 utility,NH3
+2000,Fresno (SJV),0.000241874,RUNEX,All Other Buses,NH3
+2000,Fresno (SJV),0.000158336,RUNEX,Motor Coach,NH3
+2000,Fresno (SJV),0.00023288,RUNEX,PTO,NH3
+2000,Fresno (SJV),0.000418388,RUNEX,SBUS,NH3
+2000,Fresno (SJV),5.12e-05,RUNEX,T6 Ag,NH3
+2000,Fresno (SJV),0.00060474,RUNEX,T6 CAIRP heavy,NH3
+2000,Fresno (SJV),8.46e-05,RUNEX,T6 CAIRP small,NH3
+2000,Fresno (SJV),0.000309241,RUNEX,T6 instate construction heavy,NH3
+2000,Fresno (SJV),0.000998938,RUNEX,T6 instate construction small,NH3
+2000,Fresno (SJV),0.003771692,RUNEX,T6 instate heavy,NH3
+2000,Fresno (SJV),0.004292844,RUNEX,T6 instate small,NH3
+2000,Fresno (SJV),0.000349762,RUNEX,T6 OOS heavy,NH3
+2000,Fresno (SJV),4.99e-05,RUNEX,T6 OOS small,NH3
+2000,Fresno (SJV),0.000215732,RUNEX,T6 Public,NH3
+2000,Fresno (SJV),4.82e-05,RUNEX,T6 utility,NH3
+2000,Fresno (SJV),3.44e-05,RUNEX,T7 Ag,NH3
+2000,Fresno (SJV),0.009607985,RUNEX,T7 CAIRP,NH3
+2000,Fresno (SJV),0.000222116,RUNEX,T7 CAIRP construction,NH3
+2000,Fresno (SJV),0.011712316,RUNEX,T7 NNOOS,NH3
+2000,Fresno (SJV),0.003775047,RUNEX,T7 NOOS,NH3
+2000,Fresno (SJV),0.00015715,RUNEX,T7 other port,NH3
+2000,Fresno (SJV),0.000488801,RUNEX,T7 POAK,NH3
+2000,Fresno (SJV),0.000394234,RUNEX,T7 POLA,NH3
+2000,Fresno (SJV),0.000263663,RUNEX,T7 Public,NH3
+2000,Fresno (SJV),0.001172831,RUNEX,T7 Single,NH3
+2000,Fresno (SJV),0.000551065,RUNEX,T7 single construction,NH3
+2000,Fresno (SJV),0.000283713,RUNEX,T7 SWCV,NH3
+2000,Fresno (SJV),0.013589678,RUNEX,T7 tractor,NH3
+2000,Fresno (SJV),0.00045458,RUNEX,T7 tractor construction,NH3
+2000,Fresno (SJV),1.58e-05,RUNEX,T7 utility,NH3
+2000,Glenn (SV),1.16e-05,RUNEX,All Other Buses,NH3
+2000,Glenn (SV),4.76e-06,RUNEX,Motor Coach,NH3
+2000,Glenn (SV),1.78e-05,RUNEX,PTO,NH3
+2000,Glenn (SV),2.32e-05,RUNEX,SBUS,NH3
+2000,Glenn (SV),1.48e-05,RUNEX,T6 Ag,NH3
+2000,Glenn (SV),5.4e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Glenn (SV),4.68e-05,RUNEX,T6 instate construction small,NH3
+2000,Glenn (SV),0.000226376,RUNEX,T6 instate heavy,NH3
+2000,Glenn (SV),0.000144943,RUNEX,T6 instate small,NH3
+2000,Glenn (SV),5.58e-06,RUNEX,T6 OOS heavy,NH3
+2000,Glenn (SV),9.73e-07,RUNEX,T6 OOS small,NH3
+2000,Glenn (SV),2.42e-05,RUNEX,T6 Public,NH3
+2000,Glenn (SV),1.95e-06,RUNEX,T6 utility,NH3
+2000,Glenn (SV),1.07e-05,RUNEX,T7 Ag,NH3
+2000,Glenn (SV),0.000690827,RUNEX,T7 CAIRP,NH3
+2000,Glenn (SV),3.88e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Glenn (SV),0.000842597,RUNEX,T7 NNOOS,NH3
+2000,Glenn (SV),0.000271286,RUNEX,T7 NOOS,NH3
+2000,Glenn (SV),7.06e-06,RUNEX,T7 other port,NH3
+2000,Glenn (SV),1.65e-05,RUNEX,T7 POAK,NH3
+2000,Glenn (SV),3.48e-05,RUNEX,T7 Public,NH3
+2000,Glenn (SV),8.98e-05,RUNEX,T7 Single,NH3
+2000,Glenn (SV),9.63e-05,RUNEX,T7 single construction,NH3
+2000,Glenn (SV),1.21e-05,RUNEX,T7 SWCV,NH3
+2000,Glenn (SV),0.000498515,RUNEX,T7 tractor,NH3
+2000,Glenn (SV),7.94e-05,RUNEX,T7 tractor construction,NH3
+2000,Glenn (SV),2.41e-06,RUNEX,T7 utility,NH3
+2000,Humboldt (NC),4.26e-05,RUNEX,All Other Buses,NH3
+2000,Humboldt (NC),3.08e-05,RUNEX,Motor Coach,NH3
+2000,Humboldt (NC),0.00011884,RUNEX,PTO,NH3
+2000,Humboldt (NC),0.000129361,RUNEX,SBUS,NH3
+2000,Humboldt (NC),1.31e-06,RUNEX,T6 Ag,NH3
+2000,Humboldt (NC),3.98e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Humboldt (NC),6.13e-06,RUNEX,T6 CAIRP small,NH3
+2000,Humboldt (NC),1.5e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Humboldt (NC),4.29e-05,RUNEX,T6 instate construction small,NH3
+2000,Humboldt (NC),0.000592003,RUNEX,T6 instate heavy,NH3
+2000,Humboldt (NC),0.000515813,RUNEX,T6 instate small,NH3
+2000,Humboldt (NC),2e-05,RUNEX,T6 OOS heavy,NH3
+2000,Humboldt (NC),2.76e-06,RUNEX,T6 OOS small,NH3
+2000,Humboldt (NC),3.43e-05,RUNEX,T6 Public,NH3
+2000,Humboldt (NC),4.07e-06,RUNEX,T6 utility,NH3
+2000,Humboldt (NC),4.16e-06,RUNEX,T7 Ag,NH3
+2000,Humboldt (NC),0.000772176,RUNEX,T7 CAIRP,NH3
+2000,Humboldt (NC),1.08e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Humboldt (NC),0.000941672,RUNEX,T7 NNOOS,NH3
+2000,Humboldt (NC),0.000303274,RUNEX,T7 NOOS,NH3
+2000,Humboldt (NC),4.94e-05,RUNEX,T7 other port,NH3
+2000,Humboldt (NC),8.37e-05,RUNEX,T7 Public,NH3
+2000,Humboldt (NC),0.000598504,RUNEX,T7 Single,NH3
+2000,Humboldt (NC),2.67e-05,RUNEX,T7 single construction,NH3
+2000,Humboldt (NC),1.9e-05,RUNEX,T7 SWCV,NH3
+2000,Humboldt (NC),0.000622213,RUNEX,T7 tractor,NH3
+2000,Humboldt (NC),2.2e-05,RUNEX,T7 tractor construction,NH3
+2000,Humboldt (NC),1.5e-06,RUNEX,T7 utility,NH3
+2000,Imperial (SS),9.83e-05,RUNEX,All Other Buses,NH3
+2000,Imperial (SS),5.46e-05,RUNEX,Motor Coach,NH3
+2000,Imperial (SS),4.23e-05,RUNEX,PTO,NH3
+2000,Imperial (SS),9.84e-05,RUNEX,SBUS,NH3
+2000,Imperial (SS),1.37e-05,RUNEX,T6 Ag,NH3
+2000,Imperial (SS),0.000228783,RUNEX,T6 CAIRP heavy,NH3
+2000,Imperial (SS),3.29e-05,RUNEX,T6 CAIRP small,NH3
+2000,Imperial (SS),0.000130333,RUNEX,T6 instate construction heavy,NH3
+2000,Imperial (SS),0.000327463,RUNEX,T6 instate construction small,NH3
+2000,Imperial (SS),0.000593151,RUNEX,T6 instate heavy,NH3
+2000,Imperial (SS),0.000601223,RUNEX,T6 instate small,NH3
+2000,Imperial (SS),0.000132329,RUNEX,T6 OOS heavy,NH3
+2000,Imperial (SS),1.91e-05,RUNEX,T6 OOS small,NH3
+2000,Imperial (SS),6.59e-05,RUNEX,T6 Public,NH3
+2000,Imperial (SS),8.39e-06,RUNEX,T6 utility,NH3
+2000,Imperial (SS),9.02e-06,RUNEX,T7 Ag,NH3
+2000,Imperial (SS),0.006138994,RUNEX,T7 CAIRP,NH3
+2000,Imperial (SS),0.000124736,RUNEX,T7 CAIRP construction,NH3
+2000,Imperial (SS),0.007483941,RUNEX,T7 NNOOS,NH3
+2000,Imperial (SS),0.002411932,RUNEX,T7 NOOS,NH3
+2000,Imperial (SS),0.000453061,RUNEX,T7 POLA,NH3
+2000,Imperial (SS),0.000205442,RUNEX,T7 Public,NH3
+2000,Imperial (SS),0.000265705,RUNEX,T7 Single,NH3
+2000,Imperial (SS),0.000309467,RUNEX,T7 single construction,NH3
+2000,Imperial (SS),8e-05,RUNEX,T7 SWCV,NH3
+2000,Imperial (SS),0.002899004,RUNEX,T7 tractor,NH3
+2000,Imperial (SS),0.000255283,RUNEX,T7 tractor construction,NH3
+2000,Imperial (SS),4.68e-06,RUNEX,T7 utility,NH3
+2000,Inyo (GBV),1.93e-05,RUNEX,All Other Buses,NH3
+2000,Inyo (GBV),9.5e-06,RUNEX,Motor Coach,NH3
+2000,Inyo (GBV),8.32e-06,RUNEX,PTO,NH3
+2000,Inyo (GBV),2.11e-05,RUNEX,SBUS,NH3
+2000,Inyo (GBV),2.21e-07,RUNEX,T6 Ag,NH3
+2000,Inyo (GBV),3.25e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Inyo (GBV),2.53e-06,RUNEX,T6 CAIRP small,NH3
+2000,Inyo (GBV),4.6e-06,RUNEX,T6 instate construction heavy,NH3
+2000,Inyo (GBV),1.41e-05,RUNEX,T6 instate construction small,NH3
+2000,Inyo (GBV),6.49e-05,RUNEX,T6 instate heavy,NH3
+2000,Inyo (GBV),5.95e-05,RUNEX,T6 instate small,NH3
+2000,Inyo (GBV),1.8e-05,RUNEX,T6 OOS heavy,NH3
+2000,Inyo (GBV),1e-06,RUNEX,T6 OOS small,NH3
+2000,Inyo (GBV),2.23e-05,RUNEX,T6 Public,NH3
+2000,Inyo (GBV),9.19e-07,RUNEX,T6 utility,NH3
+2000,Inyo (GBV),0.000576122,RUNEX,T7 CAIRP,NH3
+2000,Inyo (GBV),3.31e-06,RUNEX,T7 CAIRP construction,NH3
+2000,Inyo (GBV),0.000702781,RUNEX,T7 NNOOS,NH3
+2000,Inyo (GBV),0.000226219,RUNEX,T7 NOOS,NH3
+2000,Inyo (GBV),6.86e-05,RUNEX,T7 Public,NH3
+2000,Inyo (GBV),4.19e-05,RUNEX,T7 Single,NH3
+2000,Inyo (GBV),8.2e-06,RUNEX,T7 single construction,NH3
+2000,Inyo (GBV),6.92e-06,RUNEX,T7 SWCV,NH3
+2000,Inyo (GBV),0.000182361,RUNEX,T7 tractor,NH3
+2000,Inyo (GBV),6.76e-06,RUNEX,T7 tractor construction,NH3
+2000,Inyo (GBV),3.02e-07,RUNEX,T7 utility,NH3
+2000,Kern (MD),2.6e-05,RUNEX,All Other Buses,NH3
+2000,Kern (MD),2.74e-05,RUNEX,Motor Coach,NH3
+2000,Kern (MD),1.7e-05,RUNEX,PTO,NH3
+2000,Kern (MD),9.47e-05,RUNEX,SBUS,NH3
+2000,Kern (MD),0.000235854,RUNEX,T6 CAIRP heavy,NH3
+2000,Kern (MD),3.43e-05,RUNEX,T6 CAIRP small,NH3
+2000,Kern (MD),7.56e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Kern (MD),0.000236381,RUNEX,T6 instate construction small,NH3
+2000,Kern (MD),0.00013689,RUNEX,T6 instate heavy,NH3
+2000,Kern (MD),0.000161405,RUNEX,T6 instate small,NH3
+2000,Kern (MD),0.000137219,RUNEX,T6 OOS heavy,NH3
+2000,Kern (MD),1.97e-05,RUNEX,T6 OOS small,NH3
+2000,Kern (MD),9.55e-06,RUNEX,T6 Public,NH3
+2000,Kern (MD),6.62e-06,RUNEX,T6 utility,NH3
+2000,Kern (MD),0.003910744,RUNEX,T7 CAIRP,NH3
+2000,Kern (MD),5.43e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Kern (MD),0.004767453,RUNEX,T7 NNOOS,NH3
+2000,Kern (MD),0.001536584,RUNEX,T7 NOOS,NH3
+2000,Kern (MD),0.000150308,RUNEX,T7 POLA,NH3
+2000,Kern (MD),9.74e-06,RUNEX,T7 Public,NH3
+2000,Kern (MD),8.55e-05,RUNEX,T7 Single,NH3
+2000,Kern (MD),0.000134761,RUNEX,T7 single construction,NH3
+2000,Kern (MD),3.23e-05,RUNEX,T7 SWCV,NH3
+2000,Kern (MD),0.001041551,RUNEX,T7 tractor,NH3
+2000,Kern (MD),0.000111166,RUNEX,T7 tractor construction,NH3
+2000,Kern (MD),2.23e-06,RUNEX,T7 utility,NH3
+2000,Kern (SJV),0.000106286,RUNEX,All Other Buses,NH3
+2000,Kern (SJV),6.96e-05,RUNEX,Motor Coach,NH3
+2000,Kern (SJV),0.000231425,RUNEX,PTO,NH3
+2000,Kern (SJV),0.000363269,RUNEX,SBUS,NH3
+2000,Kern (SJV),6.76e-05,RUNEX,T6 Ag,NH3
+2000,Kern (SJV),0.000509119,RUNEX,T6 CAIRP heavy,NH3
+2000,Kern (SJV),7.39e-05,RUNEX,T6 CAIRP small,NH3
+2000,Kern (SJV),0.000448217,RUNEX,T6 instate construction heavy,NH3
+2000,Kern (SJV),0.000838991,RUNEX,T6 instate construction small,NH3
+2000,Kern (SJV),0.002313198,RUNEX,T6 instate heavy,NH3
+2000,Kern (SJV),0.002893996,RUNEX,T6 instate small,NH3
+2000,Kern (SJV),0.000293065,RUNEX,T6 OOS heavy,NH3
+2000,Kern (SJV),4.18e-05,RUNEX,T6 OOS small,NH3
+2000,Kern (SJV),0.000133512,RUNEX,T6 Public,NH3
+2000,Kern (SJV),4.05e-05,RUNEX,T6 utility,NH3
+2000,Kern (SJV),2.3e-05,RUNEX,T7 Ag,NH3
+2000,Kern (SJV),0.013926154,RUNEX,T7 CAIRP,NH3
+2000,Kern (SJV),0.000321938,RUNEX,T7 CAIRP construction,NH3
+2000,Kern (SJV),0.01697598,RUNEX,T7 NNOOS,NH3
+2000,Kern (SJV),0.005471764,RUNEX,T7 NOOS,NH3
+2000,Kern (SJV),0.000228036,RUNEX,T7 other port,NH3
+2000,Kern (SJV),0.000709058,RUNEX,T7 POAK,NH3
+2000,Kern (SJV),0.000579928,RUNEX,T7 POLA,NH3
+2000,Kern (SJV),0.000114901,RUNEX,T7 Public,NH3
+2000,Kern (SJV),0.001165502,RUNEX,T7 Single,NH3
+2000,Kern (SJV),0.000798719,RUNEX,T7 single construction,NH3
+2000,Kern (SJV),0.00023829,RUNEX,T7 SWCV,NH3
+2000,Kern (SJV),0.019800008,RUNEX,T7 tractor,NH3
+2000,Kern (SJV),0.000658873,RUNEX,T7 tractor construction,NH3
+2000,Kern (SJV),2.29e-05,RUNEX,T7 utility,NH3
+2000,Kings (SJV),2.43e-05,RUNEX,All Other Buses,NH3
+2000,Kings (SJV),1.59e-05,RUNEX,Motor Coach,NH3
+2000,Kings (SJV),1.77e-05,RUNEX,PTO,NH3
+2000,Kings (SJV),6.37e-05,RUNEX,SBUS,NH3
+2000,Kings (SJV),2.57e-05,RUNEX,T6 Ag,NH3
+2000,Kings (SJV),5.44e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Kings (SJV),6.98e-06,RUNEX,T6 CAIRP small,NH3
+2000,Kings (SJV),8.49e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Kings (SJV),9.59e-05,RUNEX,T6 instate construction small,NH3
+2000,Kings (SJV),0.000286504,RUNEX,T6 instate heavy,NH3
+2000,Kings (SJV),0.000280745,RUNEX,T6 instate small,NH3
+2000,Kings (SJV),3.39e-05,RUNEX,T6 OOS heavy,NH3
+2000,Kings (SJV),4.74e-06,RUNEX,T6 OOS small,NH3
+2000,Kings (SJV),3.38e-05,RUNEX,T6 Public,NH3
+2000,Kings (SJV),4.57e-06,RUNEX,T6 utility,NH3
+2000,Kings (SJV),2.82e-05,RUNEX,T7 Ag,NH3
+2000,Kings (SJV),0.00263762,RUNEX,T7 CAIRP,NH3
+2000,Kings (SJV),6.1e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Kings (SJV),0.003215527,RUNEX,T7 NNOOS,NH3
+2000,Kings (SJV),0.001036238,RUNEX,T7 NOOS,NH3
+2000,Kings (SJV),4.3e-05,RUNEX,T7 other port,NH3
+2000,Kings (SJV),0.000133986,RUNEX,T7 POAK,NH3
+2000,Kings (SJV),0.0001041,RUNEX,T7 POLA,NH3
+2000,Kings (SJV),4.1e-05,RUNEX,T7 Public,NH3
+2000,Kings (SJV),8.91e-05,RUNEX,T7 Single,NH3
+2000,Kings (SJV),0.000151293,RUNEX,T7 single construction,NH3
+2000,Kings (SJV),2.7e-05,RUNEX,T7 SWCV,NH3
+2000,Kings (SJV),0.003675813,RUNEX,T7 tractor,NH3
+2000,Kings (SJV),0.000124803,RUNEX,T7 tractor construction,NH3
+2000,Kings (SJV),4.31e-06,RUNEX,T7 utility,NH3
+2000,Lake (LC),1.42e-05,RUNEX,All Other Buses,NH3
+2000,Lake (LC),1.31e-05,RUNEX,Motor Coach,NH3
+2000,Lake (LC),1.73e-05,RUNEX,PTO,NH3
+2000,Lake (LC),4.11e-05,RUNEX,SBUS,NH3
+2000,Lake (LC),2.21e-07,RUNEX,T6 Ag,NH3
+2000,Lake (LC),2.71e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Lake (LC),7.1e-05,RUNEX,T6 instate construction small,NH3
+2000,Lake (LC),0.000175917,RUNEX,T6 instate heavy,NH3
+2000,Lake (LC),0.000165948,RUNEX,T6 instate small,NH3
+2000,Lake (LC),2.02e-05,RUNEX,T6 Public,NH3
+2000,Lake (LC),2.08e-06,RUNEX,T6 utility,NH3
+2000,Lake (LC),1.1e-06,RUNEX,T7 Ag,NH3
+2000,Lake (LC),7.77e-05,RUNEX,T7 CAIRP,NH3
+2000,Lake (LC),1.95e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Lake (LC),9.53e-05,RUNEX,T7 NNOOS,NH3
+2000,Lake (LC),3.04e-05,RUNEX,T7 NOOS,NH3
+2000,Lake (LC),3.48e-05,RUNEX,T7 Public,NH3
+2000,Lake (LC),8.71e-05,RUNEX,T7 Single,NH3
+2000,Lake (LC),4.83e-05,RUNEX,T7 single construction,NH3
+2000,Lake (LC),1.61e-06,RUNEX,T7 SWCV,NH3
+2000,Lake (LC),0.000379007,RUNEX,T7 tractor,NH3
+2000,Lake (LC),3.99e-05,RUNEX,T7 tractor construction,NH3
+2000,Lake (LC),8.11e-07,RUNEX,T7 utility,NH3
+2000,Lassen (NEP),1.4e-05,RUNEX,All Other Buses,NH3
+2000,Lassen (NEP),1.04e-05,RUNEX,Motor Coach,NH3
+2000,Lassen (NEP),1.24e-05,RUNEX,PTO,NH3
+2000,Lassen (NEP),2.89e-05,RUNEX,SBUS,NH3
+2000,Lassen (NEP),2.21e-07,RUNEX,T6 Ag,NH3
+2000,Lassen (NEP),3.98e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Lassen (NEP),7.37e-06,RUNEX,T6 CAIRP small,NH3
+2000,Lassen (NEP),2.04e-07,RUNEX,T6 instate construction heavy,NH3
+2000,Lassen (NEP),1.14e-05,RUNEX,T6 instate construction small,NH3
+2000,Lassen (NEP),0.000118947,RUNEX,T6 instate heavy,NH3
+2000,Lassen (NEP),9.99e-05,RUNEX,T6 instate small,NH3
+2000,Lassen (NEP),2.7e-05,RUNEX,T6 OOS heavy,NH3
+2000,Lassen (NEP),3.13e-06,RUNEX,T6 OOS small,NH3
+2000,Lassen (NEP),3.16e-05,RUNEX,T6 Public,NH3
+2000,Lassen (NEP),1.17e-06,RUNEX,T6 utility,NH3
+2000,Lassen (NEP),4.42e-07,RUNEX,T7 Ag,NH3
+2000,Lassen (NEP),4.33e-05,RUNEX,T7 CAIRP,NH3
+2000,Lassen (NEP),1.46e-07,RUNEX,T7 CAIRP construction,NH3
+2000,Lassen (NEP),5.33e-05,RUNEX,T7 NNOOS,NH3
+2000,Lassen (NEP),1.68e-05,RUNEX,T7 NOOS,NH3
+2000,Lassen (NEP),3.48e-05,RUNEX,T7 Public,NH3
+2000,Lassen (NEP),6.26e-05,RUNEX,T7 Single,NH3
+2000,Lassen (NEP),3.63e-07,RUNEX,T7 single construction,NH3
+2000,Lassen (NEP),7.26e-06,RUNEX,T7 SWCV,NH3
+2000,Lassen (NEP),1.3e-05,RUNEX,T7 tractor,NH3
+2000,Lassen (NEP),3e-07,RUNEX,T7 tractor construction,NH3
+2000,Lassen (NEP),2.35e-08,RUNEX,T7 utility,NH3
+2000,Los Angeles (MD),3.97e-05,RUNEX,All Other Buses,NH3
+2000,Los Angeles (MD),4.16e-05,RUNEX,Motor Coach,NH3
+2000,Los Angeles (MD),5.54e-05,RUNEX,PTO,NH3
+2000,Los Angeles (MD),0.000212145,RUNEX,SBUS,NH3
+2000,Los Angeles (MD),3.71e-07,RUNEX,T6 Ag,NH3
+2000,Los Angeles (MD),0.000502324,RUNEX,T6 CAIRP heavy,NH3
+2000,Los Angeles (MD),7.36e-05,RUNEX,T6 CAIRP small,NH3
+2000,Los Angeles (MD),4.75e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Los Angeles (MD),0.000494478,RUNEX,T6 instate construction small,NH3
+2000,Los Angeles (MD),0.000842632,RUNEX,T6 instate heavy,NH3
+2000,Los Angeles (MD),0.001036913,RUNEX,T6 instate small,NH3
+2000,Los Angeles (MD),0.000286562,RUNEX,T6 OOS heavy,NH3
+2000,Los Angeles (MD),4.12e-05,RUNEX,T6 OOS small,NH3
+2000,Los Angeles (MD),2.87e-05,RUNEX,T6 Public,NH3
+2000,Los Angeles (MD),1.38e-05,RUNEX,T6 utility,NH3
+2000,Los Angeles (MD),3.33e-07,RUNEX,T7 Ag,NH3
+2000,Los Angeles (MD),0.002206654,RUNEX,T7 CAIRP,NH3
+2000,Los Angeles (MD),3.07e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Los Angeles (MD),0.002690292,RUNEX,T7 NNOOS,NH3
+2000,Los Angeles (MD),0.000866801,RUNEX,T7 NOOS,NH3
+2000,Los Angeles (MD),6.91e-05,RUNEX,T7 POLA,NH3
+2000,Los Angeles (MD),1.56e-05,RUNEX,T7 Public,NH3
+2000,Los Angeles (MD),0.000420754,RUNEX,T7 Single,NH3
+2000,Los Angeles (MD),7.6e-05,RUNEX,T7 single construction,NH3
+2000,Los Angeles (MD),6.07e-05,RUNEX,T7 SWCV,NH3
+2000,Los Angeles (MD),0.00060313,RUNEX,T7 tractor,NH3
+2000,Los Angeles (MD),6.27e-05,RUNEX,T7 tractor construction,NH3
+2000,Los Angeles (MD),1.21e-06,RUNEX,T7 utility,NH3
+2000,Los Angeles (SC),0.003069774,RUNEX,All Other Buses,NH3
+2000,Los Angeles (SC),0.001976055,RUNEX,Motor Coach,NH3
+2000,Los Angeles (SC),0.00175633,RUNEX,PTO,NH3
+2000,Los Angeles (SC),0.003483019,RUNEX,SBUS,NH3
+2000,Los Angeles (SC),7.13e-06,RUNEX,T6 Ag,NH3
+2000,Los Angeles (SC),0.000877818,RUNEX,T6 CAIRP heavy,NH3
+2000,Los Angeles (SC),0.00012508,RUNEX,T6 CAIRP small,NH3
+2000,Los Angeles (SC),0.003430182,RUNEX,T6 instate construction heavy,NH3
+2000,Los Angeles (SC),0.008830443,RUNEX,T6 instate construction small,NH3
+2000,Los Angeles (SC),0.02336549,RUNEX,T6 instate heavy,NH3
+2000,Los Angeles (SC),0.033096777,RUNEX,T6 instate small,NH3
+2000,Los Angeles (SC),0.000500919,RUNEX,T6 OOS heavy,NH3
+2000,Los Angeles (SC),7.29e-05,RUNEX,T6 OOS small,NH3
+2000,Los Angeles (SC),0.001338142,RUNEX,T6 Public,NH3
+2000,Los Angeles (SC),0.000350695,RUNEX,T6 utility,NH3
+2000,Los Angeles (SC),6.1e-06,RUNEX,T7 Ag,NH3
+2000,Los Angeles (SC),0.021812838,RUNEX,T7 CAIRP,NH3
+2000,Los Angeles (SC),0.003106034,RUNEX,T7 CAIRP construction,NH3
+2000,Los Angeles (SC),0.026589696,RUNEX,T7 NNOOS,NH3
+2000,Los Angeles (SC),0.008570577,RUNEX,T7 NOOS,NH3
+2000,Los Angeles (SC),0.012306234,RUNEX,T7 POLA,NH3
+2000,Los Angeles (SC),0.002683944,RUNEX,T7 Public,NH3
+2000,Los Angeles (SC),0.008316481,RUNEX,T7 Single,NH3
+2000,Los Angeles (SC),0.007705994,RUNEX,T7 single construction,NH3
+2000,Los Angeles (SC),0.004040612,RUNEX,T7 SWCV,NH3
+2000,Los Angeles (SC),0.000213809,RUNEX,T7 SWCV,NH3
+2000,Los Angeles (SC),0.033688736,RUNEX,T7 tractor,NH3
+2000,Los Angeles (SC),0.006356767,RUNEX,T7 tractor construction,NH3
+2000,Los Angeles (SC),0.000182059,RUNEX,T7 utility,NH3
+2000,Madera (SJV),6.61e-05,RUNEX,All Other Buses,NH3
+2000,Madera (SJV),4.33e-05,RUNEX,Motor Coach,NH3
+2000,Madera (SJV),3.53e-05,RUNEX,PTO,NH3
+2000,Madera (SJV),0.000129601,RUNEX,SBUS,NH3
+2000,Madera (SJV),1.52e-05,RUNEX,T6 Ag,NH3
+2000,Madera (SJV),0.000102981,RUNEX,T6 CAIRP heavy,NH3
+2000,Madera (SJV),1.38e-05,RUNEX,T6 CAIRP small,NH3
+2000,Madera (SJV),7.13e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Madera (SJV),0.000168378,RUNEX,T6 instate construction small,NH3
+2000,Madera (SJV),0.000483864,RUNEX,T6 instate heavy,NH3
+2000,Madera (SJV),0.000396903,RUNEX,T6 instate small,NH3
+2000,Madera (SJV),5.88e-05,RUNEX,T6 OOS heavy,NH3
+2000,Madera (SJV),8.47e-06,RUNEX,T6 OOS small,NH3
+2000,Madera (SJV),2.28e-05,RUNEX,T6 Public,NH3
+2000,Madera (SJV),8.06e-06,RUNEX,T6 utility,NH3
+2000,Madera (SJV),1.06e-05,RUNEX,T7 Ag,NH3
+2000,Madera (SJV),0.002215349,RUNEX,T7 CAIRP,NH3
+2000,Madera (SJV),5.12e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Madera (SJV),0.002701019,RUNEX,T7 NNOOS,NH3
+2000,Madera (SJV),0.000870388,RUNEX,T7 NOOS,NH3
+2000,Madera (SJV),3.6e-05,RUNEX,T7 other port,NH3
+2000,Madera (SJV),0.000112404,RUNEX,T7 POAK,NH3
+2000,Madera (SJV),8.4e-05,RUNEX,T7 POLA,NH3
+2000,Madera (SJV),2.99e-05,RUNEX,T7 Public,NH3
+2000,Madera (SJV),0.000177627,RUNEX,T7 Single,NH3
+2000,Madera (SJV),0.000127086,RUNEX,T7 single construction,NH3
+2000,Madera (SJV),4.76e-05,RUNEX,T7 SWCV,NH3
+2000,Madera (SJV),0.003123145,RUNEX,T7 tractor,NH3
+2000,Madera (SJV),0.000104834,RUNEX,T7 tractor construction,NH3
+2000,Madera (SJV),3.6e-06,RUNEX,T7 utility,NH3
+2000,Marin (SF),6.17e-05,RUNEX,All Other Buses,NH3
+2000,Marin (SF),2.83e-05,RUNEX,Motor Coach,NH3
+2000,Marin (SF),3.15e-05,RUNEX,PTO,NH3
+2000,Marin (SF),0.000107378,RUNEX,SBUS,NH3
+2000,Marin (SF),1.97e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Marin (SF),4.39e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Marin (SF),0.000189937,RUNEX,T6 instate construction small,NH3
+2000,Marin (SF),0.00056114,RUNEX,T6 instate heavy,NH3
+2000,Marin (SF),0.000760798,RUNEX,T6 instate small,NH3
+2000,Marin (SF),1.14e-05,RUNEX,T6 OOS heavy,NH3
+2000,Marin (SF),1.11e-06,RUNEX,T6 OOS small,NH3
+2000,Marin (SF),6.12e-05,RUNEX,T6 Public,NH3
+2000,Marin (SF),7.64e-06,RUNEX,T6 utility,NH3
+2000,Marin (SF),7.5e-07,RUNEX,T7 Ag,NH3
+2000,Marin (SF),0.000220663,RUNEX,T7 CAIRP,NH3
+2000,Marin (SF),3.16e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Marin (SF),0.000269412,RUNEX,T7 NNOOS,NH3
+2000,Marin (SF),8.66e-05,RUNEX,T7 NOOS,NH3
+2000,Marin (SF),2.07e-05,RUNEX,T7 other port,NH3
+2000,Marin (SF),9.34e-05,RUNEX,T7 POAK,NH3
+2000,Marin (SF),6.59e-05,RUNEX,T7 Public,NH3
+2000,Marin (SF),0.000158525,RUNEX,T7 Single,NH3
+2000,Marin (SF),7.83e-05,RUNEX,T7 single construction,NH3
+2000,Marin (SF),6.73e-05,RUNEX,T7 SWCV,NH3
+2000,Marin (SF),1.7e-06,RUNEX,T7 SWCV,NH3
+2000,Marin (SF),0.00037241,RUNEX,T7 tractor,NH3
+2000,Marin (SF),6.46e-05,RUNEX,T7 tractor construction,NH3
+2000,Marin (SF),1.85e-06,RUNEX,T7 utility,NH3
+2000,Mariposa (MC),7.71e-06,RUNEX,All Other Buses,NH3
+2000,Mariposa (MC),4.42e-06,RUNEX,Motor Coach,NH3
+2000,Mariposa (MC),4.25e-06,RUNEX,PTO,NH3
+2000,Mariposa (MC),3.11e-05,RUNEX,SBUS,NH3
+2000,Mariposa (MC),1.06e-07,RUNEX,T6 instate construction heavy,NH3
+2000,Mariposa (MC),1.36e-05,RUNEX,T6 instate construction small,NH3
+2000,Mariposa (MC),7.86e-05,RUNEX,T6 instate heavy,NH3
+2000,Mariposa (MC),4.43e-05,RUNEX,T6 instate small,NH3
+2000,Mariposa (MC),3.15e-06,RUNEX,T6 OOS heavy,NH3
+2000,Mariposa (MC),8.48e-06,RUNEX,T6 Public,NH3
+2000,Mariposa (MC),4.48e-07,RUNEX,T6 utility,NH3
+2000,Mariposa (MC),1.64e-06,RUNEX,T7 CAIRP,NH3
+2000,Mariposa (MC),7.6e-08,RUNEX,T7 CAIRP construction,NH3
+2000,Mariposa (MC),2.45e-06,RUNEX,T7 NNOOS,NH3
+2000,Mariposa (MC),5.96e-07,RUNEX,T7 NOOS,NH3
+2000,Mariposa (MC),1.21e-07,RUNEX,T7 POAK,NH3
+2000,Mariposa (MC),1.6e-05,RUNEX,T7 Public,NH3
+2000,Mariposa (MC),2.14e-05,RUNEX,T7 Single,NH3
+2000,Mariposa (MC),1.89e-07,RUNEX,T7 single construction,NH3
+2000,Mariposa (MC),3.94e-06,RUNEX,T7 SWCV,NH3
+2000,Mariposa (MC),8.43e-07,RUNEX,T7 tractor,NH3
+2000,Mariposa (MC),1.56e-07,RUNEX,T7 tractor construction,NH3
+2000,Mariposa (MC),4.19e-09,RUNEX,T7 utility,NH3
+2000,Mendocino (NC),1.55e-05,RUNEX,All Other Buses,NH3
+2000,Mendocino (NC),1.11e-05,RUNEX,Motor Coach,NH3
+2000,Mendocino (NC),7.3e-05,RUNEX,PTO,NH3
+2000,Mendocino (NC),8.06e-05,RUNEX,SBUS,NH3
+2000,Mendocino (NC),9.3e-06,RUNEX,T6 Ag,NH3
+2000,Mendocino (NC),3.98e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Mendocino (NC),7.37e-06,RUNEX,T6 CAIRP small,NH3
+2000,Mendocino (NC),2.38e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Mendocino (NC),4.95e-05,RUNEX,T6 instate construction small,NH3
+2000,Mendocino (NC),0.000495281,RUNEX,T6 instate heavy,NH3
+2000,Mendocino (NC),0.00050226,RUNEX,T6 instate small,NH3
+2000,Mendocino (NC),2.43e-05,RUNEX,T6 OOS heavy,NH3
+2000,Mendocino (NC),3.09e-06,RUNEX,T6 OOS small,NH3
+2000,Mendocino (NC),2.77e-05,RUNEX,T6 Public,NH3
+2000,Mendocino (NC),4.73e-06,RUNEX,T6 utility,NH3
+2000,Mendocino (NC),9.82e-06,RUNEX,T7 Ag,NH3
+2000,Mendocino (NC),0.001227321,RUNEX,T7 CAIRP,NH3
+2000,Mendocino (NC),1.71e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Mendocino (NC),0.001496568,RUNEX,T7 NNOOS,NH3
+2000,Mendocino (NC),0.000482079,RUNEX,T7 NOOS,NH3
+2000,Mendocino (NC),7.86e-05,RUNEX,T7 other port,NH3
+2000,Mendocino (NC),6.12e-05,RUNEX,T7 Public,NH3
+2000,Mendocino (NC),0.000367629,RUNEX,T7 Single,NH3
+2000,Mendocino (NC),4.25e-05,RUNEX,T7 single construction,NH3
+2000,Mendocino (NC),2.18e-05,RUNEX,T7 SWCV,NH3
+2000,Mendocino (NC),0.000984426,RUNEX,T7 tractor,NH3
+2000,Mendocino (NC),3.5e-05,RUNEX,T7 tractor construction,NH3
+2000,Mendocino (NC),2.39e-06,RUNEX,T7 utility,NH3
+2000,Merced (SJV),0.000115723,RUNEX,All Other Buses,NH3
+2000,Merced (SJV),7.58e-05,RUNEX,Motor Coach,NH3
+2000,Merced (SJV),6.78e-05,RUNEX,PTO,NH3
+2000,Merced (SJV),0.000270791,RUNEX,SBUS,NH3
+2000,Merced (SJV),2.2e-05,RUNEX,T6 Ag,NH3
+2000,Merced (SJV),0.000210847,RUNEX,T6 CAIRP heavy,NH3
+2000,Merced (SJV),3.1e-05,RUNEX,T6 CAIRP small,NH3
+2000,Merced (SJV),0.000198018,RUNEX,T6 instate construction heavy,NH3
+2000,Merced (SJV),0.000348059,RUNEX,T6 instate construction small,NH3
+2000,Merced (SJV),0.001003592,RUNEX,T6 instate heavy,NH3
+2000,Merced (SJV),0.00085835,RUNEX,T6 instate small,NH3
+2000,Merced (SJV),0.000121574,RUNEX,T6 OOS heavy,NH3
+2000,Merced (SJV),1.75e-05,RUNEX,T6 OOS small,NH3
+2000,Merced (SJV),5.29e-05,RUNEX,T6 Public,NH3
+2000,Merced (SJV),1.68e-05,RUNEX,T6 utility,NH3
+2000,Merced (SJV),5.97e-05,RUNEX,T7 Ag,NH3
+2000,Merced (SJV),0.006152101,RUNEX,T7 CAIRP,NH3
+2000,Merced (SJV),0.000142229,RUNEX,T7 CAIRP construction,NH3
+2000,Merced (SJV),0.007499787,RUNEX,T7 NNOOS,NH3
+2000,Merced (SJV),0.002417189,RUNEX,T7 NOOS,NH3
+2000,Merced (SJV),0.000100605,RUNEX,T7 other port,NH3
+2000,Merced (SJV),0.0003128,RUNEX,T7 POAK,NH3
+2000,Merced (SJV),0.000249364,RUNEX,T7 POLA,NH3
+2000,Merced (SJV),7.88e-05,RUNEX,T7 Public,NH3
+2000,Merced (SJV),0.000341294,RUNEX,T7 Single,NH3
+2000,Merced (SJV),0.000352867,RUNEX,T7 single construction,NH3
+2000,Merced (SJV),9.87e-05,RUNEX,T7 SWCV,NH3
+2000,Merced (SJV),0.008615953,RUNEX,T7 tractor,NH3
+2000,Merced (SJV),0.000291084,RUNEX,T7 tractor construction,NH3
+2000,Merced (SJV),1.01e-05,RUNEX,T7 utility,NH3
+2000,Modoc (NEP),8.67e-06,RUNEX,All Other Buses,NH3
+2000,Modoc (NEP),6.41e-06,RUNEX,Motor Coach,NH3
+2000,Modoc (NEP),4.66e-06,RUNEX,PTO,NH3
+2000,Modoc (NEP),9.83e-06,RUNEX,SBUS,NH3
+2000,Modoc (NEP),2.21e-07,RUNEX,T6 Ag,NH3
+2000,Modoc (NEP),2.39e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Modoc (NEP),1.74e-07,RUNEX,T6 instate construction heavy,NH3
+2000,Modoc (NEP),5.47e-06,RUNEX,T6 instate construction small,NH3
+2000,Modoc (NEP),0.000105277,RUNEX,T6 instate heavy,NH3
+2000,Modoc (NEP),3.06e-05,RUNEX,T6 instate small,NH3
+2000,Modoc (NEP),1.34e-05,RUNEX,T6 OOS heavy,NH3
+2000,Modoc (NEP),1.19e-06,RUNEX,T6 OOS small,NH3
+2000,Modoc (NEP),7.9e-06,RUNEX,T6 Public,NH3
+2000,Modoc (NEP),5.13e-07,RUNEX,T6 utility,NH3
+2000,Modoc (NEP),9.04e-07,RUNEX,T7 Ag,NH3
+2000,Modoc (NEP),3.69e-05,RUNEX,T7 CAIRP,NH3
+2000,Modoc (NEP),1.25e-07,RUNEX,T7 CAIRP construction,NH3
+2000,Modoc (NEP),4.55e-05,RUNEX,T7 NNOOS,NH3
+2000,Modoc (NEP),1.43e-05,RUNEX,T7 NOOS,NH3
+2000,Modoc (NEP),3.1e-05,RUNEX,T7 Public,NH3
+2000,Modoc (NEP),2.35e-05,RUNEX,T7 Single,NH3
+2000,Modoc (NEP),3.1e-07,RUNEX,T7 single construction,NH3
+2000,Modoc (NEP),3.42e-06,RUNEX,T7 SWCV,NH3
+2000,Modoc (NEP),1.14e-05,RUNEX,T7 tractor,NH3
+2000,Modoc (NEP),2.56e-07,RUNEX,T7 tractor construction,NH3
+2000,Modoc (NEP),2e-08,RUNEX,T7 utility,NH3
+2000,Mono (GBV),3.76e-05,RUNEX,All Other Buses,NH3
+2000,Mono (GBV),1.85e-05,RUNEX,Motor Coach,NH3
+2000,Mono (GBV),3.96e-06,RUNEX,PTO,NH3
+2000,Mono (GBV),1.21e-05,RUNEX,SBUS,NH3
+2000,Mono (GBV),1.95e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Mono (GBV),3.35e-06,RUNEX,T6 instate construction heavy,NH3
+2000,Mono (GBV),7.79e-06,RUNEX,T6 instate construction small,NH3
+2000,Mono (GBV),0.000123426,RUNEX,T6 instate heavy,NH3
+2000,Mono (GBV),2.96e-05,RUNEX,T6 instate small,NH3
+2000,Mono (GBV),9.41e-06,RUNEX,T6 OOS heavy,NH3
+2000,Mono (GBV),3.33e-07,RUNEX,T6 OOS small,NH3
+2000,Mono (GBV),6.79e-06,RUNEX,T6 Public,NH3
+2000,Mono (GBV),4.84e-07,RUNEX,T6 utility,NH3
+2000,Mono (GBV),0.000419727,RUNEX,T7 CAIRP,NH3
+2000,Mono (GBV),2.41e-06,RUNEX,T7 CAIRP construction,NH3
+2000,Mono (GBV),0.000512078,RUNEX,T7 NNOOS,NH3
+2000,Mono (GBV),0.000164843,RUNEX,T7 NOOS,NH3
+2000,Mono (GBV),4.98e-05,RUNEX,T7 Public,NH3
+2000,Mono (GBV),1.99e-05,RUNEX,T7 Single,NH3
+2000,Mono (GBV),5.98e-06,RUNEX,T7 single construction,NH3
+2000,Mono (GBV),3.84e-06,RUNEX,T7 SWCV,NH3
+2000,Mono (GBV),0.000132343,RUNEX,T7 tractor,NH3
+2000,Mono (GBV),4.93e-06,RUNEX,T7 tractor construction,NH3
+2000,Mono (GBV),2.13e-07,RUNEX,T7 utility,NH3
+2000,Monterey (NCC),0.000290354,RUNEX,All Other Buses,NH3
+2000,Monterey (NCC),0.000183056,RUNEX,Motor Coach,NH3
+2000,Monterey (NCC),0.000114019,RUNEX,PTO,NH3
+2000,Monterey (NCC),0.000191115,RUNEX,SBUS,NH3
+2000,Monterey (NCC),5.29e-05,RUNEX,T6 Ag,NH3
+2000,Monterey (NCC),8.77e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Monterey (NCC),1.28e-05,RUNEX,T6 CAIRP small,NH3
+2000,Monterey (NCC),0.000114317,RUNEX,T6 instate construction heavy,NH3
+2000,Monterey (NCC),0.000508649,RUNEX,T6 instate construction small,NH3
+2000,Monterey (NCC),0.001058814,RUNEX,T6 instate heavy,NH3
+2000,Monterey (NCC),0.001410241,RUNEX,T6 instate small,NH3
+2000,Monterey (NCC),4.65e-05,RUNEX,T6 OOS heavy,NH3
+2000,Monterey (NCC),6.88e-06,RUNEX,T6 OOS small,NH3
+2000,Monterey (NCC),6.05e-05,RUNEX,T6 Public,NH3
+2000,Monterey (NCC),2.51e-05,RUNEX,T6 utility,NH3
+2000,Monterey (NCC),3.41e-05,RUNEX,T7 Ag,NH3
+2000,Monterey (NCC),0.001043091,RUNEX,T7 CAIRP,NH3
+2000,Monterey (NCC),8.21e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Monterey (NCC),0.001271896,RUNEX,T7 NNOOS,NH3
+2000,Monterey (NCC),0.000409767,RUNEX,T7 NOOS,NH3
+2000,Monterey (NCC),5.31e-05,RUNEX,T7 POAK,NH3
+2000,Monterey (NCC),7e-05,RUNEX,T7 Public,NH3
+2000,Monterey (NCC),0.000574225,RUNEX,T7 Single,NH3
+2000,Monterey (NCC),0.000203711,RUNEX,T7 single construction,NH3
+2000,Monterey (NCC),0.00011969,RUNEX,T7 SWCV,NH3
+2000,Monterey (NCC),0.000755851,RUNEX,T7 tractor,NH3
+2000,Monterey (NCC),0.000168044,RUNEX,T7 tractor construction,NH3
+2000,Monterey (NCC),5.96e-06,RUNEX,T7 utility,NH3
+2000,Napa (SF),8.16e-05,RUNEX,All Other Buses,NH3
+2000,Napa (SF),3.74e-05,RUNEX,Motor Coach,NH3
+2000,Napa (SF),4.43e-05,RUNEX,PTO,NH3
+2000,Napa (SF),7.04e-05,RUNEX,SBUS,NH3
+2000,Napa (SF),1.61e-05,RUNEX,T6 Ag,NH3
+2000,Napa (SF),1.67e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Napa (SF),6.42e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Napa (SF),0.00016765,RUNEX,T6 instate construction small,NH3
+2000,Napa (SF),0.000527976,RUNEX,T6 instate heavy,NH3
+2000,Napa (SF),0.000640807,RUNEX,T6 instate small,NH3
+2000,Napa (SF),8.74e-06,RUNEX,T6 OOS heavy,NH3
+2000,Napa (SF),1.16e-06,RUNEX,T6 OOS small,NH3
+2000,Napa (SF),4.53e-05,RUNEX,T6 Public,NH3
+2000,Napa (SF),6.76e-06,RUNEX,T6 utility,NH3
+2000,Napa (SF),6.07e-06,RUNEX,T7 Ag,NH3
+2000,Napa (SF),0.000322372,RUNEX,T7 CAIRP,NH3
+2000,Napa (SF),4.61e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Napa (SF),0.000393454,RUNEX,T7 NNOOS,NH3
+2000,Napa (SF),0.000126541,RUNEX,T7 NOOS,NH3
+2000,Napa (SF),3.04e-05,RUNEX,T7 other port,NH3
+2000,Napa (SF),0.000136531,RUNEX,T7 POAK,NH3
+2000,Napa (SF),4.18e-05,RUNEX,T7 Public,NH3
+2000,Napa (SF),0.000222897,RUNEX,T7 Single,NH3
+2000,Napa (SF),0.000114363,RUNEX,T7 single construction,NH3
+2000,Napa (SF),5.95e-05,RUNEX,T7 SWCV,NH3
+2000,Napa (SF),1.5e-06,RUNEX,T7 SWCV,NH3
+2000,Napa (SF),0.000523613,RUNEX,T7 tractor,NH3
+2000,Napa (SF),9.43e-05,RUNEX,T7 tractor construction,NH3
+2000,Napa (SF),2.73e-06,RUNEX,T7 utility,NH3
+2000,Nevada (MC),2.86e-05,RUNEX,All Other Buses,NH3
+2000,Nevada (MC),1.66e-05,RUNEX,Motor Coach,NH3
+2000,Nevada (MC),3.65e-05,RUNEX,PTO,NH3
+2000,Nevada (MC),4.64e-05,RUNEX,SBUS,NH3
+2000,Nevada (MC),3.98e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Nevada (MC),6.13e-06,RUNEX,T6 CAIRP small,NH3
+2000,Nevada (MC),7.03e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Nevada (MC),0.00011204,RUNEX,T6 instate construction small,NH3
+2000,Nevada (MC),0.000301063,RUNEX,T6 instate heavy,NH3
+2000,Nevada (MC),0.000335372,RUNEX,T6 instate small,NH3
+2000,Nevada (MC),1.9e-05,RUNEX,T6 OOS heavy,NH3
+2000,Nevada (MC),1.46e-06,RUNEX,T6 OOS small,NH3
+2000,Nevada (MC),4.54e-05,RUNEX,T6 Public,NH3
+2000,Nevada (MC),4.09e-06,RUNEX,T6 utility,NH3
+2000,Nevada (MC),1.74e-06,RUNEX,T7 Ag,NH3
+2000,Nevada (MC),0.001373381,RUNEX,T7 CAIRP,NH3
+2000,Nevada (MC),5.05e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Nevada (MC),0.001674616,RUNEX,T7 NNOOS,NH3
+2000,Nevada (MC),0.000539441,RUNEX,T7 NOOS,NH3
+2000,Nevada (MC),7.97e-05,RUNEX,T7 POAK,NH3
+2000,Nevada (MC),6.39e-05,RUNEX,T7 Public,NH3
+2000,Nevada (MC),0.000183651,RUNEX,T7 Single,NH3
+2000,Nevada (MC),0.000125355,RUNEX,T7 single construction,NH3
+2000,Nevada (MC),3.45e-05,RUNEX,T7 SWCV,NH3
+2000,Nevada (MC),0.000551337,RUNEX,T7 tractor,NH3
+2000,Nevada (MC),0.000103407,RUNEX,T7 tractor construction,NH3
+2000,Nevada (MC),2.72e-06,RUNEX,T7 utility,NH3
+2000,Orange (SC),0.000609278,RUNEX,All Other Buses,NH3
+2000,Orange (SC),0.000392175,RUNEX,Motor Coach,NH3
+2000,Orange (SC),0.000761868,RUNEX,PTO,NH3
+2000,Orange (SC),0.00108846,RUNEX,SBUS,NH3
+2000,Orange (SC),1.72e-06,RUNEX,T6 Ag,NH3
+2000,Orange (SC),0.000340363,RUNEX,T6 CAIRP heavy,NH3
+2000,Orange (SC),5.04e-05,RUNEX,T6 CAIRP small,NH3
+2000,Orange (SC),0.000653346,RUNEX,T6 instate construction heavy,NH3
+2000,Orange (SC),0.003463834,RUNEX,T6 instate construction small,NH3
+2000,Orange (SC),0.01140039,RUNEX,T6 instate heavy,NH3
+2000,Orange (SC),0.015708324,RUNEX,T6 instate small,NH3
+2000,Orange (SC),0.000195872,RUNEX,T6 OOS heavy,NH3
+2000,Orange (SC),2.87e-05,RUNEX,T6 OOS small,NH3
+2000,Orange (SC),0.000299927,RUNEX,T6 Public,NH3
+2000,Orange (SC),0.000137501,RUNEX,T6 utility,NH3
+2000,Orange (SC),1.74e-06,RUNEX,T7 Ag,NH3
+2000,Orange (SC),0.003252566,RUNEX,T7 CAIRP,NH3
+2000,Orange (SC),0.000463202,RUNEX,T7 CAIRP construction,NH3
+2000,Orange (SC),0.00396525,RUNEX,T7 NNOOS,NH3
+2000,Orange (SC),0.001277856,RUNEX,T7 NOOS,NH3
+2000,Orange (SC),0.001826885,RUNEX,T7 POLA,NH3
+2000,Orange (SC),0.000488173,RUNEX,T7 Public,NH3
+2000,Orange (SC),0.003265706,RUNEX,T7 Single,NH3
+2000,Orange (SC),0.001149193,RUNEX,T7 single construction,NH3
+2000,Orange (SC),0.001240811,RUNEX,T7 SWCV,NH3
+2000,Orange (SC),6.57e-05,RUNEX,T7 SWCV,NH3
+2000,Orange (SC),0.005029251,RUNEX,T7 tractor,NH3
+2000,Orange (SC),0.000947983,RUNEX,T7 tractor construction,NH3
+2000,Orange (SC),2.71e-05,RUNEX,T7 utility,NH3
+2000,Placer (LT),1.76e-05,RUNEX,All Other Buses,NH3
+2000,Placer (LT),2.68e-05,RUNEX,Motor Coach,NH3
+2000,Placer (LT),4.72e-06,RUNEX,PTO,NH3
+2000,Placer (LT),3.74e-07,RUNEX,SBUS,NH3
+2000,Placer (LT),1.3e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Placer (LT),6.81e-05,RUNEX,T6 instate construction small,NH3
+2000,Placer (LT),0.000111623,RUNEX,T6 instate heavy,NH3
+2000,Placer (LT),0.000102186,RUNEX,T6 instate small,NH3
+2000,Placer (LT),1.34e-05,RUNEX,T6 Public,NH3
+2000,Placer (LT),2.17e-06,RUNEX,T6 utility,NH3
+2000,Placer (LT),6.84e-05,RUNEX,T7 CAIRP,NH3
+2000,Placer (LT),9.36e-06,RUNEX,T7 CAIRP construction,NH3
+2000,Placer (LT),8.43e-05,RUNEX,T7 NNOOS,NH3
+2000,Placer (LT),2.67e-05,RUNEX,T7 NOOS,NH3
+2000,Placer (LT),2.74e-05,RUNEX,T7 Public,NH3
+2000,Placer (LT),2.38e-05,RUNEX,T7 Single,NH3
+2000,Placer (LT),2.32e-05,RUNEX,T7 single construction,NH3
+2000,Placer (LT),6.52e-06,RUNEX,T7 SWCV,NH3
+2000,Placer (LT),1.59e-06,RUNEX,T7 tractor,NH3
+2000,Placer (LT),1.92e-05,RUNEX,T7 tractor construction,NH3
+2000,Placer (LT),3.9e-07,RUNEX,T7 utility,NH3
+2000,Placer (MC),1.57e-06,RUNEX,All Other Buses,NH3
+2000,Placer (MC),8.8e-07,RUNEX,Motor Coach,NH3
+2000,Placer (MC),6.75e-06,RUNEX,PTO,NH3
+2000,Placer (MC),3.67e-06,RUNEX,SBUS,NH3
+2000,Placer (MC),5.07e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Placer (MC),1.09e-05,RUNEX,T6 instate construction small,NH3
+2000,Placer (MC),4.44e-05,RUNEX,T6 instate heavy,NH3
+2000,Placer (MC),3.6e-05,RUNEX,T6 instate small,NH3
+2000,Placer (MC),2.06e-06,RUNEX,T6 OOS heavy,NH3
+2000,Placer (MC),2.23e-06,RUNEX,T6 Public,NH3
+2000,Placer (MC),3.7e-07,RUNEX,T6 utility,NH3
+2000,Placer (MC),7.13e-07,RUNEX,T7 Ag,NH3
+2000,Placer (MC),0.000989802,RUNEX,T7 CAIRP,NH3
+2000,Placer (MC),3.64e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Placer (MC),0.0012067,RUNEX,T7 NNOOS,NH3
+2000,Placer (MC),0.000388799,RUNEX,T7 NOOS,NH3
+2000,Placer (MC),5.75e-05,RUNEX,T7 POAK,NH3
+2000,Placer (MC),3.07e-06,RUNEX,T7 Public,NH3
+2000,Placer (MC),3.4e-05,RUNEX,T7 Single,NH3
+2000,Placer (MC),9.03e-05,RUNEX,T7 single construction,NH3
+2000,Placer (MC),3.24e-06,RUNEX,T7 SWCV,NH3
+2000,Placer (MC),0.000400904,RUNEX,T7 tractor,NH3
+2000,Placer (MC),7.45e-05,RUNEX,T7 tractor construction,NH3
+2000,Placer (MC),1.97e-06,RUNEX,T7 utility,NH3
+2000,Placer (SV),8.95e-05,RUNEX,All Other Buses,NH3
+2000,Placer (SV),3.67e-05,RUNEX,Motor Coach,NH3
+2000,Placer (SV),0.000100959,RUNEX,PTO,NH3
+2000,Placer (SV),0.000177472,RUNEX,SBUS,NH3
+2000,Placer (SV),1.09e-06,RUNEX,T6 Ag,NH3
+2000,Placer (SV),9.99e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Placer (SV),1.28e-05,RUNEX,T6 CAIRP small,NH3
+2000,Placer (SV),7.83e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Placer (SV),0.000413658,RUNEX,T6 instate construction small,NH3
+2000,Placer (SV),0.001807953,RUNEX,T6 instate heavy,NH3
+2000,Placer (SV),0.001332765,RUNEX,T6 instate small,NH3
+2000,Placer (SV),5.57e-05,RUNEX,T6 OOS heavy,NH3
+2000,Placer (SV),7.6e-06,RUNEX,T6 OOS small,NH3
+2000,Placer (SV),9.08e-05,RUNEX,T6 Public,NH3
+2000,Placer (SV),1.78e-05,RUNEX,T6 utility,NH3
+2000,Placer (SV),0.001000711,RUNEX,T7 CAIRP,NH3
+2000,Placer (SV),5.62e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Placer (SV),0.001220575,RUNEX,T7 NNOOS,NH3
+2000,Placer (SV),0.000392984,RUNEX,T7 NOOS,NH3
+2000,Placer (SV),1.01e-05,RUNEX,T7 other port,NH3
+2000,Placer (SV),2.39e-05,RUNEX,T7 POAK,NH3
+2000,Placer (SV),0.000148137,RUNEX,T7 Public,NH3
+2000,Placer (SV),0.000508451,RUNEX,T7 Single,NH3
+2000,Placer (SV),0.000139452,RUNEX,T7 single construction,NH3
+2000,Placer (SV),0.000108978,RUNEX,T7 SWCV,NH3
+2000,Placer (SV),0.000764713,RUNEX,T7 tractor,NH3
+2000,Placer (SV),0.000115036,RUNEX,T7 tractor construction,NH3
+2000,Placer (SV),3.5e-06,RUNEX,T7 utility,NH3
+2000,Plumas (MC),7.46e-06,RUNEX,All Other Buses,NH3
+2000,Plumas (MC),4.11e-06,RUNEX,Motor Coach,NH3
+2000,Plumas (MC),3.75e-05,RUNEX,PTO,NH3
+2000,Plumas (MC),1.05e-05,RUNEX,SBUS,NH3
+2000,Plumas (MC),2.17e-06,RUNEX,T6 instate construction heavy,NH3
+2000,Plumas (MC),3.42e-05,RUNEX,T6 instate construction small,NH3
+2000,Plumas (MC),0.000100011,RUNEX,T6 instate heavy,NH3
+2000,Plumas (MC),9.81e-05,RUNEX,T6 instate small,NH3
+2000,Plumas (MC),6.84e-06,RUNEX,T6 OOS heavy,NH3
+2000,Plumas (MC),6.51e-07,RUNEX,T6 OOS small,NH3
+2000,Plumas (MC),1.41e-05,RUNEX,T6 Public,NH3
+2000,Plumas (MC),1.21e-06,RUNEX,T6 utility,NH3
+2000,Plumas (MC),4.19e-05,RUNEX,T7 CAIRP,NH3
+2000,Plumas (MC),1.56e-06,RUNEX,T7 CAIRP construction,NH3
+2000,Plumas (MC),5.16e-05,RUNEX,T7 NNOOS,NH3
+2000,Plumas (MC),1.64e-05,RUNEX,T7 NOOS,NH3
+2000,Plumas (MC),2.28e-06,RUNEX,T7 POAK,NH3
+2000,Plumas (MC),4.14e-05,RUNEX,T7 Public,NH3
+2000,Plumas (MC),0.000189097,RUNEX,T7 Single,NH3
+2000,Plumas (MC),3.87e-06,RUNEX,T7 single construction,NH3
+2000,Plumas (MC),1.04e-05,RUNEX,T7 SWCV,NH3
+2000,Plumas (MC),1.58e-05,RUNEX,T7 tractor,NH3
+2000,Plumas (MC),3.19e-06,RUNEX,T7 tractor construction,NH3
+2000,Plumas (MC),7.83e-08,RUNEX,T7 utility,NH3
+2000,Riverside (MDMDAQMD),4.04e-06,RUNEX,All Other Buses,NH3
+2000,Riverside (MDMDAQMD),4.31e-06,RUNEX,Motor Coach,NH3
+2000,Riverside (MDMDAQMD),2.47e-06,RUNEX,PTO,NH3
+2000,Riverside (MDMDAQMD),1.49e-05,RUNEX,SBUS,NH3
+2000,Riverside (MDMDAQMD),1.82e-07,RUNEX,T6 Ag,NH3
+2000,Riverside (MDMDAQMD),2.68e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Riverside (MDMDAQMD),2.09e-06,RUNEX,T6 CAIRP small,NH3
+2000,Riverside (MDMDAQMD),4.34e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Riverside (MDMDAQMD),2.71e-05,RUNEX,T6 instate construction small,NH3
+2000,Riverside (MDMDAQMD),2.82e-05,RUNEX,T6 instate heavy,NH3
+2000,Riverside (MDMDAQMD),4.22e-05,RUNEX,T6 instate small,NH3
+2000,Riverside (MDMDAQMD),1.53e-05,RUNEX,T6 OOS heavy,NH3
+2000,Riverside (MDMDAQMD),2.12e-06,RUNEX,T6 OOS small,NH3
+2000,Riverside (MDMDAQMD),1.56e-05,RUNEX,T6 Public,NH3
+2000,Riverside (MDMDAQMD),7.06e-07,RUNEX,T6 utility,NH3
+2000,Riverside (MDMDAQMD),7.83e-07,RUNEX,T7 Ag,NH3
+2000,Riverside (MDMDAQMD),0.002960919,RUNEX,T7 CAIRP,NH3
+2000,Riverside (MDMDAQMD),4.11e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Riverside (MDMDAQMD),0.003609754,RUNEX,T7 NNOOS,NH3
+2000,Riverside (MDMDAQMD),0.001163149,RUNEX,T7 NOOS,NH3
+2000,Riverside (MDMDAQMD),0.000103918,RUNEX,T7 POLA,NH3
+2000,Riverside (MDMDAQMD),1.74e-05,RUNEX,T7 Public,NH3
+2000,Riverside (MDMDAQMD),1.35e-05,RUNEX,T7 Single,NH3
+2000,Riverside (MDMDAQMD),0.000102037,RUNEX,T7 single construction,NH3
+2000,Riverside (MDMDAQMD),4.65e-06,RUNEX,T7 SWCV,NH3
+2000,Riverside (MDMDAQMD),0.000793476,RUNEX,T7 tractor,NH3
+2000,Riverside (MDMDAQMD),8.42e-05,RUNEX,T7 tractor construction,NH3
+2000,Riverside (MDMDAQMD),1.66e-06,RUNEX,T7 utility,NH3
+2000,Riverside (MDSCAQMD),2.88e-07,RUNEX,All Other Buses,NH3
+2000,Riverside (MDSCAQMD),2.71e-07,RUNEX,Motor Coach,NH3
+2000,Riverside (MDSCAQMD),2.27e-06,RUNEX,SBUS,NH3
+2000,Riverside (MDSCAQMD),4.92e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Riverside (MDSCAQMD),3.47e-06,RUNEX,T6 instate construction small,NH3
+2000,Riverside (MDSCAQMD),1.12e-05,RUNEX,T6 instate heavy,NH3
+2000,Riverside (MDSCAQMD),4.59e-06,RUNEX,T6 instate small,NH3
+2000,Riverside (MDSCAQMD),6.02e-07,RUNEX,T6 OOS heavy,NH3
+2000,Riverside (MDSCAQMD),9.6e-08,RUNEX,T6 utility,NH3
+2000,Riverside (MDSCAQMD),0.003218754,RUNEX,T7 CAIRP,NH3
+2000,Riverside (MDSCAQMD),4.47e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Riverside (MDSCAQMD),0.003924157,RUNEX,T7 NNOOS,NH3
+2000,Riverside (MDSCAQMD),0.001264685,RUNEX,T7 NOOS,NH3
+2000,Riverside (MDSCAQMD),0.0001155,RUNEX,T7 POLA,NH3
+2000,Riverside (MDSCAQMD),0.000110924,RUNEX,T7 single construction,NH3
+2000,Riverside (MDSCAQMD),4.75e-07,RUNEX,T7 SWCV,NH3
+2000,Riverside (MDSCAQMD),4.62e-08,RUNEX,T7 SWCV,NH3
+2000,Riverside (MDSCAQMD),0.000867839,RUNEX,T7 tractor,NH3
+2000,Riverside (MDSCAQMD),9.15e-05,RUNEX,T7 tractor construction,NH3
+2000,Riverside (MDSCAQMD),1.8e-06,RUNEX,T7 utility,NH3
+2000,Riverside (SC),0.000189159,RUNEX,All Other Buses,NH3
+2000,Riverside (SC),0.000121809,RUNEX,Motor Coach,NH3
+2000,Riverside (SC),0.000530092,RUNEX,PTO,NH3
+2000,Riverside (SC),0.00105651,RUNEX,SBUS,NH3
+2000,Riverside (SC),7.97e-06,RUNEX,T6 Ag,NH3
+2000,Riverside (SC),0.000281453,RUNEX,T6 CAIRP heavy,NH3
+2000,Riverside (SC),4.23e-05,RUNEX,T6 CAIRP small,NH3
+2000,Riverside (SC),0.00182371,RUNEX,T6 instate construction heavy,NH3
+2000,Riverside (SC),0.002846425,RUNEX,T6 instate construction small,NH3
+2000,Riverside (SC),0.005862181,RUNEX,T6 instate heavy,NH3
+2000,Riverside (SC),0.007735679,RUNEX,T6 instate small,NH3
+2000,Riverside (SC),0.000161963,RUNEX,T6 OOS heavy,NH3
+2000,Riverside (SC),2.32e-05,RUNEX,T6 OOS small,NH3
+2000,Riverside (SC),0.00048954,RUNEX,T6 Public,NH3
+2000,Riverside (SC),0.000112963,RUNEX,T6 utility,NH3
+2000,Riverside (SC),8.12e-06,RUNEX,T7 Ag,NH3
+2000,Riverside (SC),0.008665503,RUNEX,T7 CAIRP,NH3
+2000,Riverside (SC),0.001233995,RUNEX,T7 CAIRP construction,NH3
+2000,Riverside (SC),0.010563706,RUNEX,T7 NNOOS,NH3
+2000,Riverside (SC),0.003404675,RUNEX,T7 NOOS,NH3
+2000,Riverside (SC),0.004865535,RUNEX,T7 POLA,NH3
+2000,Riverside (SC),0.000519827,RUNEX,T7 Public,NH3
+2000,Riverside (SC),0.003680714,RUNEX,T7 Single,NH3
+2000,Riverside (SC),0.00306151,RUNEX,T7 single construction,NH3
+2000,Riverside (SC),0.000972951,RUNEX,T7 SWCV,NH3
+2000,Riverside (SC),5.15e-05,RUNEX,T7 SWCV,NH3
+2000,Riverside (SC),0.013386699,RUNEX,T7 tractor,NH3
+2000,Riverside (SC),0.002525476,RUNEX,T7 tractor construction,NH3
+2000,Riverside (SC),7.22e-05,RUNEX,T7 utility,NH3
+2000,Riverside (SS),9.93e-05,RUNEX,All Other Buses,NH3
+2000,Riverside (SS),5.53e-05,RUNEX,Motor Coach,NH3
+2000,Riverside (SS),8.17e-05,RUNEX,PTO,NH3
+2000,Riverside (SS),0.000184113,RUNEX,SBUS,NH3
+2000,Riverside (SS),2.55e-06,RUNEX,T6 Ag,NH3
+2000,Riverside (SS),0.000670356,RUNEX,T6 CAIRP heavy,NH3
+2000,Riverside (SS),9.55e-05,RUNEX,T6 CAIRP small,NH3
+2000,Riverside (SS),0.000356856,RUNEX,T6 instate construction heavy,NH3
+2000,Riverside (SS),0.000956279,RUNEX,T6 instate construction small,NH3
+2000,Riverside (SS),0.001377787,RUNEX,T6 instate heavy,NH3
+2000,Riverside (SS),0.001648202,RUNEX,T6 instate small,NH3
+2000,Riverside (SS),0.000383421,RUNEX,T6 OOS heavy,NH3
+2000,Riverside (SS),5.57e-05,RUNEX,T6 OOS small,NH3
+2000,Riverside (SS),0.000104777,RUNEX,T6 Public,NH3
+2000,Riverside (SS),2.45e-05,RUNEX,T6 utility,NH3
+2000,Riverside (SS),0.010095309,RUNEX,T7 CAIRP,NH3
+2000,Riverside (SS),0.000205114,RUNEX,T7 CAIRP construction,NH3
+2000,Riverside (SS),0.012306549,RUNEX,T7 NNOOS,NH3
+2000,Riverside (SS),0.003966537,RUNEX,T7 NOOS,NH3
+2000,Riverside (SS),0.00077322,RUNEX,T7 POLA,NH3
+2000,Riverside (SS),6.87e-05,RUNEX,T7 Public,NH3
+2000,Riverside (SS),0.000527481,RUNEX,T7 Single,NH3
+2000,Riverside (SS),0.000508882,RUNEX,T7 single construction,NH3
+2000,Riverside (SS),0.000140306,RUNEX,T7 SWCV,NH3
+2000,Riverside (SS),7.29e-06,RUNEX,T7 SWCV,NH3
+2000,Riverside (SS),0.004810043,RUNEX,T7 tractor,NH3
+2000,Riverside (SS),0.000419783,RUNEX,T7 tractor construction,NH3
+2000,Riverside (SS),7.71e-06,RUNEX,T7 utility,NH3
+2000,Sacramento (SV),0.000681322,RUNEX,All Other Buses,NH3
+2000,Sacramento (SV),0.000279977,RUNEX,Motor Coach,NH3
+2000,Sacramento (SV),0.0003447,RUNEX,PTO,NH3
+2000,Sacramento (SV),0.000401357,RUNEX,SBUS,NH3
+2000,Sacramento (SV),9.23e-06,RUNEX,T6 Ag,NH3
+2000,Sacramento (SV),0.000440616,RUNEX,T6 CAIRP heavy,NH3
+2000,Sacramento (SV),6.21e-05,RUNEX,T6 CAIRP small,NH3
+2000,Sacramento (SV),0.000240133,RUNEX,T6 instate construction heavy,NH3
+2000,Sacramento (SV),0.001761695,RUNEX,T6 instate construction small,NH3
+2000,Sacramento (SV),0.004708547,RUNEX,T6 instate heavy,NH3
+2000,Sacramento (SV),0.006331398,RUNEX,T6 instate small,NH3
+2000,Sacramento (SV),0.000237278,RUNEX,T6 OOS heavy,NH3
+2000,Sacramento (SV),3.26e-05,RUNEX,T6 OOS small,NH3
+2000,Sacramento (SV),0.002294807,RUNEX,T6 Public,NH3
+2000,Sacramento (SV),7.6e-05,RUNEX,T6 utility,NH3
+2000,Sacramento (SV),1.51e-05,RUNEX,T7 Ag,NH3
+2000,Sacramento (SV),0.003072338,RUNEX,T7 CAIRP,NH3
+2000,Sacramento (SV),0.000172478,RUNEX,T7 CAIRP construction,NH3
+2000,Sacramento (SV),0.003745614,RUNEX,T7 NNOOS,NH3
+2000,Sacramento (SV),0.001207041,RUNEX,T7 NOOS,NH3
+2000,Sacramento (SV),3.2e-05,RUNEX,T7 other port,NH3
+2000,Sacramento (SV),7.46e-05,RUNEX,T7 POAK,NH3
+2000,Sacramento (SV),0.002035311,RUNEX,T7 Public,NH3
+2000,Sacramento (SV),0.00173598,RUNEX,T7 Single,NH3
+2000,Sacramento (SV),0.000427915,RUNEX,T7 single construction,NH3
+2000,Sacramento (SV),0.000462447,RUNEX,T7 SWCV,NH3
+2000,Sacramento (SV),5.68e-05,RUNEX,T7 SWCV,NH3
+2000,Sacramento (SV),0.002319756,RUNEX,T7 tractor,NH3
+2000,Sacramento (SV),0.000352992,RUNEX,T7 tractor construction,NH3
+2000,Sacramento (SV),1.09e-05,RUNEX,T7 utility,NH3
+2000,San Benito (NCC),1.06e-05,RUNEX,All Other Buses,NH3
+2000,San Benito (NCC),6.68e-06,RUNEX,Motor Coach,NH3
+2000,San Benito (NCC),1.52e-05,RUNEX,PTO,NH3
+2000,San Benito (NCC),1.37e-05,RUNEX,SBUS,NH3
+2000,San Benito (NCC),9.75e-07,RUNEX,T6 Ag,NH3
+2000,San Benito (NCC),0.000115799,RUNEX,T6 instate construction heavy,NH3
+2000,San Benito (NCC),4.07e-05,RUNEX,T6 instate construction small,NH3
+2000,San Benito (NCC),0.000149173,RUNEX,T6 instate heavy,NH3
+2000,San Benito (NCC),0.000165643,RUNEX,T6 instate small,NH3
+2000,San Benito (NCC),2.91e-06,RUNEX,T6 OOS heavy,NH3
+2000,San Benito (NCC),4.49e-07,RUNEX,T6 OOS small,NH3
+2000,San Benito (NCC),4.01e-06,RUNEX,T6 Public,NH3
+2000,San Benito (NCC),1.98e-06,RUNEX,T6 utility,NH3
+2000,San Benito (NCC),1.82e-05,RUNEX,T7 Ag,NH3
+2000,San Benito (NCC),0.001056696,RUNEX,T7 CAIRP,NH3
+2000,San Benito (NCC),8.32e-05,RUNEX,T7 CAIRP construction,NH3
+2000,San Benito (NCC),0.001288407,RUNEX,T7 NNOOS,NH3
+2000,San Benito (NCC),0.000415145,RUNEX,T7 NOOS,NH3
+2000,San Benito (NCC),5.4e-05,RUNEX,T7 POAK,NH3
+2000,San Benito (NCC),6.79e-06,RUNEX,T7 Public,NH3
+2000,San Benito (NCC),7.64e-05,RUNEX,T7 Single,NH3
+2000,San Benito (NCC),0.000206352,RUNEX,T7 single construction,NH3
+2000,San Benito (NCC),9.44e-06,RUNEX,T7 SWCV,NH3
+2000,San Benito (NCC),0.000791877,RUNEX,T7 tractor,NH3
+2000,San Benito (NCC),0.000170223,RUNEX,T7 tractor construction,NH3
+2000,San Benito (NCC),6.04e-06,RUNEX,T7 utility,NH3
+2000,San Bernardino (MD),4.68e-05,RUNEX,All Other Buses,NH3
+2000,San Bernardino (MD),4.95e-05,RUNEX,Motor Coach,NH3
+2000,San Bernardino (MD),7.4e-05,RUNEX,PTO,NH3
+2000,San Bernardino (MD),0.000407755,RUNEX,SBUS,NH3
+2000,San Bernardino (MD),3.75e-06,RUNEX,T6 Ag,NH3
+2000,San Bernardino (MD),0.00115207,RUNEX,T6 CAIRP heavy,NH3
+2000,San Bernardino (MD),0.000165288,RUNEX,T6 CAIRP small,NH3
+2000,San Bernardino (MD),0.000446666,RUNEX,T6 instate construction heavy,NH3
+2000,San Bernardino (MD),0.001127026,RUNEX,T6 instate construction small,NH3
+2000,San Bernardino (MD),0.001098342,RUNEX,T6 instate heavy,NH3
+2000,San Bernardino (MD),0.001411568,RUNEX,T6 instate small,NH3
+2000,San Bernardino (MD),0.000654309,RUNEX,T6 OOS heavy,NH3
+2000,San Bernardino (MD),9.41e-05,RUNEX,T6 OOS small,NH3
+2000,San Bernardino (MD),6.28e-05,RUNEX,T6 Public,NH3
+2000,San Bernardino (MD),3.18e-05,RUNEX,T6 utility,NH3
+2000,San Bernardino (MD),1.73e-06,RUNEX,T7 Ag,NH3
+2000,San Bernardino (MD),0.026859106,RUNEX,T7 CAIRP,NH3
+2000,San Bernardino (MD),0.000373028,RUNEX,T7 CAIRP construction,NH3
+2000,San Bernardino (MD),0.032741009,RUNEX,T7 NNOOS,NH3
+2000,San Bernardino (MD),0.010553098,RUNEX,T7 NOOS,NH3
+2000,San Bernardino (MD),0.001040368,RUNEX,T7 POLA,NH3
+2000,San Bernardino (MD),0.000125022,RUNEX,T7 Public,NH3
+2000,San Bernardino (MD),0.000597423,RUNEX,T7 Single,NH3
+2000,San Bernardino (MD),0.000925473,RUNEX,T7 single construction,NH3
+2000,San Bernardino (MD),0.000179654,RUNEX,T7 SWCV,NH3
+2000,San Bernardino (MD),0.007168445,RUNEX,T7 tractor,NH3
+2000,San Bernardino (MD),0.000763434,RUNEX,T7 tractor construction,NH3
+2000,San Bernardino (MD),1.55e-05,RUNEX,T7 utility,NH3
+2000,San Bernardino (SC),0.000221054,RUNEX,All Other Buses,NH3
+2000,San Bernardino (SC),0.000142356,RUNEX,Motor Coach,NH3
+2000,San Bernardino (SC),0.00044779,RUNEX,PTO,NH3
+2000,San Bernardino (SC),0.000910431,RUNEX,SBUS,NH3
+2000,San Bernardino (SC),2.7e-06,RUNEX,T6 Ag,NH3
+2000,San Bernardino (SC),0.000266029,RUNEX,T6 CAIRP heavy,NH3
+2000,San Bernardino (SC),3.82e-05,RUNEX,T6 CAIRP small,NH3
+2000,San Bernardino (SC),0.001253894,RUNEX,T6 instate construction heavy,NH3
+2000,San Bernardino (SC),0.002699958,RUNEX,T6 instate construction small,NH3
+2000,San Bernardino (SC),0.006547974,RUNEX,T6 instate heavy,NH3
+2000,San Bernardino (SC),0.008662379,RUNEX,T6 instate small,NH3
+2000,San Bernardino (SC),0.000154261,RUNEX,T6 OOS heavy,NH3
+2000,San Bernardino (SC),2.24e-05,RUNEX,T6 OOS small,NH3
+2000,San Bernardino (SC),0.000306504,RUNEX,T6 Public,NH3
+2000,San Bernardino (SC),0.000107128,RUNEX,T6 utility,NH3
+2000,San Bernardino (SC),5.09e-06,RUNEX,T7 Ag,NH3
+2000,San Bernardino (SC),0.007050599,RUNEX,T7 CAIRP,NH3
+2000,San Bernardino (SC),0.001004025,RUNEX,T7 CAIRP construction,NH3
+2000,San Bernardino (SC),0.008595029,RUNEX,T7 NNOOS,NH3
+2000,San Bernardino (SC),0.002770193,RUNEX,T7 NOOS,NH3
+2000,San Bernardino (SC),0.0039669,RUNEX,T7 POLA,NH3
+2000,San Bernardino (SC),0.000509501,RUNEX,T7 Public,NH3
+2000,San Bernardino (SC),0.002739564,RUNEX,T7 Single,NH3
+2000,San Bernardino (SC),0.002490962,RUNEX,T7 single construction,NH3
+2000,San Bernardino (SC),0.001092237,RUNEX,T7 SWCV,NH3
+2000,San Bernardino (SC),5.78e-05,RUNEX,T7 SWCV,NH3
+2000,San Bernardino (SC),0.010875808,RUNEX,T7 tractor,NH3
+2000,San Bernardino (SC),0.002054824,RUNEX,T7 tractor construction,NH3
+2000,San Bernardino (SC),5.88e-05,RUNEX,T7 utility,NH3
+2000,San Diego (SD),0.00110358,RUNEX,All Other Buses,NH3
+2000,San Diego (SD),0.000527144,RUNEX,Motor Coach,NH3
+2000,San Diego (SD),0.000645586,RUNEX,PTO,NH3
+2000,San Diego (SD),0.001297296,RUNEX,SBUS,NH3
+2000,San Diego (SD),3.05e-05,RUNEX,T6 Ag,NH3
+2000,San Diego (SD),0.000371716,RUNEX,T6 CAIRP heavy,NH3
+2000,San Diego (SD),5.16e-05,RUNEX,T6 CAIRP small,NH3
+2000,San Diego (SD),0.001572444,RUNEX,T6 instate construction heavy,NH3
+2000,San Diego (SD),0.004112687,RUNEX,T6 instate construction small,NH3
+2000,San Diego (SD),0.008236675,RUNEX,T6 instate heavy,NH3
+2000,San Diego (SD),0.011019321,RUNEX,T6 instate small,NH3
+2000,San Diego (SD),0.00021397,RUNEX,T6 OOS heavy,NH3
+2000,San Diego (SD),2.96e-05,RUNEX,T6 OOS small,NH3
+2000,San Diego (SD),0.000733502,RUNEX,T6 Public,NH3
+2000,San Diego (SD),0.000146151,RUNEX,T6 utility,NH3
+2000,San Diego (SD),7.68e-06,RUNEX,T7 Ag,NH3
+2000,San Diego (SD),0.007214024,RUNEX,T7 CAIRP,NH3
+2000,San Diego (SD),0.001129427,RUNEX,T7 CAIRP construction,NH3
+2000,San Diego (SD),0.008794229,RUNEX,T7 NNOOS,NH3
+2000,San Diego (SD),0.002834438,RUNEX,T7 NOOS,NH3
+2000,San Diego (SD),0.001679932,RUNEX,T7 other port,NH3
+2000,San Diego (SD),0.000351137,RUNEX,T7 POLA,NH3
+2000,San Diego (SD),0.000683246,RUNEX,T7 Public,NH3
+2000,San Diego (SD),0.003251302,RUNEX,T7 Single,NH3
+2000,San Diego (SD),0.002802082,RUNEX,T7 single construction,NH3
+2000,San Diego (SD),0.00113928,RUNEX,T7 SWCV,NH3
+2000,San Diego (SD),6.26e-05,RUNEX,T7 SWCV,NH3
+2000,San Diego (SD),0.010048511,RUNEX,T7 tractor,NH3
+2000,San Diego (SD),0.002311471,RUNEX,T7 tractor construction,NH3
+2000,San Diego (SD),5.92e-05,RUNEX,T7 utility,NH3
+2000,San Francisco (SF),0.00030067,RUNEX,All Other Buses,NH3
+2000,San Francisco (SF),0.000137762,RUNEX,Motor Coach,NH3
+2000,San Francisco (SF),0.000104222,RUNEX,PTO,NH3
+2000,San Francisco (SF),0.000193004,RUNEX,SBUS,NH3
+2000,San Francisco (SF),0.000109307,RUNEX,T6 CAIRP heavy,NH3
+2000,San Francisco (SF),1.35e-05,RUNEX,T6 CAIRP small,NH3
+2000,San Francisco (SF),3.4e-05,RUNEX,T6 instate construction heavy,NH3
+2000,San Francisco (SF),0.001036447,RUNEX,T6 instate construction small,NH3
+2000,San Francisco (SF),0.002740363,RUNEX,T6 instate heavy,NH3
+2000,San Francisco (SF),0.003873274,RUNEX,T6 instate small,NH3
+2000,San Francisco (SF),5.84e-05,RUNEX,T6 OOS heavy,NH3
+2000,San Francisco (SF),7.43e-06,RUNEX,T6 OOS small,NH3
+2000,San Francisco (SF),0.000142976,RUNEX,T6 Public,NH3
+2000,San Francisco (SF),4.21e-05,RUNEX,T6 utility,NH3
+2000,San Francisco (SF),0.000170495,RUNEX,T7 CAIRP,NH3
+2000,San Francisco (SF),2.44e-05,RUNEX,T7 CAIRP construction,NH3
+2000,San Francisco (SF),0.000208373,RUNEX,T7 NNOOS,NH3
+2000,San Francisco (SF),6.69e-05,RUNEX,T7 NOOS,NH3
+2000,San Francisco (SF),1.6e-05,RUNEX,T7 other port,NH3
+2000,San Francisco (SF),7.19e-05,RUNEX,T7 POAK,NH3
+2000,San Francisco (SF),0.000187376,RUNEX,T7 Public,NH3
+2000,San Francisco (SF),0.000524884,RUNEX,T7 Single,NH3
+2000,San Francisco (SF),6.06e-05,RUNEX,T7 single construction,NH3
+2000,San Francisco (SF),0.000368468,RUNEX,T7 SWCV,NH3
+2000,San Francisco (SF),9.31e-06,RUNEX,T7 SWCV,NH3
+2000,San Francisco (SF),0.000288744,RUNEX,T7 tractor,NH3
+2000,San Francisco (SF),5e-05,RUNEX,T7 tractor construction,NH3
+2000,San Francisco (SF),1.43e-06,RUNEX,T7 utility,NH3
+2000,San Joaquin (SJV),8.01e-05,RUNEX,All Other Buses,NH3
+2000,San Joaquin (SJV),5.24e-05,RUNEX,Motor Coach,NH3
+2000,San Joaquin (SJV),0.000202413,RUNEX,PTO,NH3
+2000,San Joaquin (SJV),0.000253995,RUNEX,SBUS,NH3
+2000,San Joaquin (SJV),4.5e-05,RUNEX,T6 Ag,NH3
+2000,San Joaquin (SJV),0.00040984,RUNEX,T6 CAIRP heavy,NH3
+2000,San Joaquin (SJV),5.75e-05,RUNEX,T6 CAIRP small,NH3
+2000,San Joaquin (SJV),0.000168202,RUNEX,T6 instate construction heavy,NH3
+2000,San Joaquin (SJV),0.000670276,RUNEX,T6 instate construction small,NH3
+2000,San Joaquin (SJV),0.002388463,RUNEX,T6 instate heavy,NH3
+2000,San Joaquin (SJV),0.002851159,RUNEX,T6 instate small,NH3
+2000,San Joaquin (SJV),0.00023286,RUNEX,T6 OOS heavy,NH3
+2000,San Joaquin (SJV),3.29e-05,RUNEX,T6 OOS small,NH3
+2000,San Joaquin (SJV),0.000102576,RUNEX,T6 Public,NH3
+2000,San Joaquin (SJV),3.23e-05,RUNEX,T6 utility,NH3
+2000,San Joaquin (SJV),3.92e-05,RUNEX,T7 Ag,NH3
+2000,San Joaquin (SJV),0.005225698,RUNEX,T7 CAIRP,NH3
+2000,San Joaquin (SJV),0.000120813,RUNEX,T7 CAIRP construction,NH3
+2000,San Joaquin (SJV),0.006370506,RUNEX,T7 NNOOS,NH3
+2000,San Joaquin (SJV),0.002053234,RUNEX,T7 NOOS,NH3
+2000,San Joaquin (SJV),8.53e-05,RUNEX,T7 other port,NH3
+2000,San Joaquin (SJV),0.000265666,RUNEX,T7 POAK,NH3
+2000,San Joaquin (SJV),0.000212267,RUNEX,T7 POLA,NH3
+2000,San Joaquin (SJV),0.000150013,RUNEX,T7 Public,NH3
+2000,San Joaquin (SJV),0.001019391,RUNEX,T7 Single,NH3
+2000,San Joaquin (SJV),0.000299735,RUNEX,T7 single construction,NH3
+2000,San Joaquin (SJV),0.000190239,RUNEX,T7 SWCV,NH3
+2000,San Joaquin (SJV),0.007335043,RUNEX,T7 tractor,NH3
+2000,San Joaquin (SJV),0.000247255,RUNEX,T7 tractor construction,NH3
+2000,San Joaquin (SJV),8.56e-06,RUNEX,T7 utility,NH3
+2000,San Luis Obispo (SCC),6.75e-05,RUNEX,All Other Buses,NH3
+2000,San Luis Obispo (SCC),3.9e-05,RUNEX,Motor Coach,NH3
+2000,San Luis Obispo (SCC),6.59e-05,RUNEX,PTO,NH3
+2000,San Luis Obispo (SCC),0.000101888,RUNEX,SBUS,NH3
+2000,San Luis Obispo (SCC),5.75e-06,RUNEX,T6 Ag,NH3
+2000,San Luis Obispo (SCC),1.95e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,San Luis Obispo (SCC),8.58e-07,RUNEX,T6 CAIRP small,NH3
+2000,San Luis Obispo (SCC),0.000121781,RUNEX,T6 instate construction heavy,NH3
+2000,San Luis Obispo (SCC),0.000267474,RUNEX,T6 instate construction small,NH3
+2000,San Luis Obispo (SCC),0.00068874,RUNEX,T6 instate heavy,NH3
+2000,San Luis Obispo (SCC),0.000785222,RUNEX,T6 instate small,NH3
+2000,San Luis Obispo (SCC),9.71e-06,RUNEX,T6 OOS heavy,NH3
+2000,San Luis Obispo (SCC),1.44e-06,RUNEX,T6 OOS small,NH3
+2000,San Luis Obispo (SCC),3.22e-05,RUNEX,T6 Public,NH3
+2000,San Luis Obispo (SCC),9.53e-06,RUNEX,T6 utility,NH3
+2000,San Luis Obispo (SCC),1.38e-06,RUNEX,T7 Ag,NH3
+2000,San Luis Obispo (SCC),0.000435349,RUNEX,T7 CAIRP,NH3
+2000,San Luis Obispo (SCC),8.75e-05,RUNEX,T7 CAIRP construction,NH3
+2000,San Luis Obispo (SCC),0.000530939,RUNEX,T7 NNOOS,NH3
+2000,San Luis Obispo (SCC),0.000170953,RUNEX,T7 NOOS,NH3
+2000,San Luis Obispo (SCC),9.98e-05,RUNEX,T7 other port,NH3
+2000,San Luis Obispo (SCC),7.36e-05,RUNEX,T7 Public,NH3
+2000,San Luis Obispo (SCC),0.00033183,RUNEX,T7 Single,NH3
+2000,San Luis Obispo (SCC),0.000217014,RUNEX,T7 single construction,NH3
+2000,San Luis Obispo (SCC),7.85e-05,RUNEX,T7 SWCV,NH3
+2000,San Luis Obispo (SCC),0.000609698,RUNEX,T7 tractor,NH3
+2000,San Luis Obispo (SCC),0.000179017,RUNEX,T7 tractor construction,NH3
+2000,San Luis Obispo (SCC),4.59e-06,RUNEX,T7 utility,NH3
+2000,San Mateo (SF),0.000461482,RUNEX,All Other Buses,NH3
+2000,San Mateo (SF),0.000211438,RUNEX,Motor Coach,NH3
+2000,San Mateo (SF),0.000129685,RUNEX,PTO,NH3
+2000,San Mateo (SF),9.92e-05,RUNEX,SBUS,NH3
+2000,San Mateo (SF),3.82e-06,RUNEX,T6 Ag,NH3
+2000,San Mateo (SF),8.7e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,San Mateo (SF),9.81e-06,RUNEX,T6 CAIRP small,NH3
+2000,San Mateo (SF),5.56e-05,RUNEX,T6 instate construction heavy,NH3
+2000,San Mateo (SF),0.000907643,RUNEX,T6 instate construction small,NH3
+2000,San Mateo (SF),0.003527494,RUNEX,T6 instate heavy,NH3
+2000,San Mateo (SF),0.004931276,RUNEX,T6 instate small,NH3
+2000,San Mateo (SF),5.17e-05,RUNEX,T6 OOS heavy,NH3
+2000,San Mateo (SF),6.72e-06,RUNEX,T6 OOS small,NH3
+2000,San Mateo (SF),0.000106917,RUNEX,T6 Public,NH3
+2000,San Mateo (SF),3.69e-05,RUNEX,T6 utility,NH3
+2000,San Mateo (SF),1.94e-06,RUNEX,T7 Ag,NH3
+2000,San Mateo (SF),0.000279547,RUNEX,T7 CAIRP,NH3
+2000,San Mateo (SF),4e-05,RUNEX,T7 CAIRP construction,NH3
+2000,San Mateo (SF),0.000341104,RUNEX,T7 NNOOS,NH3
+2000,San Mateo (SF),0.00010971,RUNEX,T7 NOOS,NH3
+2000,San Mateo (SF),2.64e-05,RUNEX,T7 other port,NH3
+2000,San Mateo (SF),0.000118162,RUNEX,T7 POAK,NH3
+2000,San Mateo (SF),0.000154023,RUNEX,T7 Public,NH3
+2000,San Mateo (SF),0.000653121,RUNEX,T7 Single,NH3
+2000,San Mateo (SF),9.92e-05,RUNEX,T7 single construction,NH3
+2000,San Mateo (SF),0.000322678,RUNEX,T7 SWCV,NH3
+2000,San Mateo (SF),8.16e-06,RUNEX,T7 SWCV,NH3
+2000,San Mateo (SF),0.000469826,RUNEX,T7 tractor,NH3
+2000,San Mateo (SF),8.18e-05,RUNEX,T7 tractor construction,NH3
+2000,San Mateo (SF),2.35e-06,RUNEX,T7 utility,NH3
+2000,Santa Barbara (SCC),0.000146657,RUNEX,All Other Buses,NH3
+2000,Santa Barbara (SCC),8.47e-05,RUNEX,Motor Coach,NH3
+2000,Santa Barbara (SCC),9.32e-05,RUNEX,PTO,NH3
+2000,Santa Barbara (SCC),0.000446675,RUNEX,SBUS,NH3
+2000,Santa Barbara (SCC),1.37e-05,RUNEX,T6 Ag,NH3
+2000,Santa Barbara (SCC),3.98e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Santa Barbara (SCC),7.37e-06,RUNEX,T6 CAIRP small,NH3
+2000,Santa Barbara (SCC),0.000185376,RUNEX,T6 instate construction heavy,NH3
+2000,Santa Barbara (SCC),0.000729986,RUNEX,T6 instate construction small,NH3
+2000,Santa Barbara (SCC),0.001314467,RUNEX,T6 instate heavy,NH3
+2000,Santa Barbara (SCC),0.00167272,RUNEX,T6 instate small,NH3
+2000,Santa Barbara (SCC),2.4e-05,RUNEX,T6 OOS heavy,NH3
+2000,Santa Barbara (SCC),3.25e-06,RUNEX,T6 OOS small,NH3
+2000,Santa Barbara (SCC),8.83e-05,RUNEX,T6 Public,NH3
+2000,Santa Barbara (SCC),2.61e-05,RUNEX,T6 utility,NH3
+2000,Santa Barbara (SCC),4.2e-06,RUNEX,T7 Ag,NH3
+2000,Santa Barbara (SCC),0.000662679,RUNEX,T7 CAIRP,NH3
+2000,Santa Barbara (SCC),0.000133149,RUNEX,T7 CAIRP construction,NH3
+2000,Santa Barbara (SCC),0.000808233,RUNEX,T7 NNOOS,NH3
+2000,Santa Barbara (SCC),0.000260308,RUNEX,T7 NOOS,NH3
+2000,Santa Barbara (SCC),0.000151991,RUNEX,T7 other port,NH3
+2000,Santa Barbara (SCC),0.000144777,RUNEX,T7 Public,NH3
+2000,Santa Barbara (SCC),0.000469275,RUNEX,T7 Single,NH3
+2000,Santa Barbara (SCC),0.000330339,RUNEX,T7 single construction,NH3
+2000,Santa Barbara (SCC),0.000214431,RUNEX,T7 SWCV,NH3
+2000,Santa Barbara (SCC),0.00092691,RUNEX,T7 tractor,NH3
+2000,Santa Barbara (SCC),0.000272501,RUNEX,T7 tractor construction,NH3
+2000,Santa Barbara (SCC),6.99e-06,RUNEX,T7 utility,NH3
+2000,Santa Clara (SF),0.000572486,RUNEX,All Other Buses,NH3
+2000,Santa Clara (SF),0.000262356,RUNEX,Motor Coach,NH3
+2000,Santa Clara (SF),0.000402523,RUNEX,PTO,NH3
+2000,Santa Clara (SF),0.000591559,RUNEX,SBUS,NH3
+2000,Santa Clara (SF),2.76e-06,RUNEX,T6 Ag,NH3
+2000,Santa Clara (SF),0.000151606,RUNEX,T6 CAIRP heavy,NH3
+2000,Santa Clara (SF),2.01e-05,RUNEX,T6 CAIRP small,NH3
+2000,Santa Clara (SF),0.000667127,RUNEX,T6 instate construction heavy,NH3
+2000,Santa Clara (SF),0.001521854,RUNEX,T6 instate construction small,NH3
+2000,Santa Clara (SF),0.005898121,RUNEX,T6 instate heavy,NH3
+2000,Santa Clara (SF),0.008175214,RUNEX,T6 instate small,NH3
+2000,Santa Clara (SF),8.73e-05,RUNEX,T6 OOS heavy,NH3
+2000,Santa Clara (SF),1.07e-05,RUNEX,T6 OOS small,NH3
+2000,Santa Clara (SF),0.000282826,RUNEX,T6 Public,NH3
+2000,Santa Clara (SF),6.18e-05,RUNEX,T6 utility,NH3
+2000,Santa Clara (SF),4.39e-07,RUNEX,T7 Ag,NH3
+2000,Santa Clara (SF),0.003355494,RUNEX,T7 CAIRP,NH3
+2000,Santa Clara (SF),0.000479172,RUNEX,T7 CAIRP construction,NH3
+2000,Santa Clara (SF),0.004090717,RUNEX,T7 NNOOS,NH3
+2000,Santa Clara (SF),0.00131834,RUNEX,T7 NOOS,NH3
+2000,Santa Clara (SF),0.000319251,RUNEX,T7 other port,NH3
+2000,Santa Clara (SF),0.001423503,RUNEX,T7 POAK,NH3
+2000,Santa Clara (SF),0.000336401,RUNEX,T7 Public,NH3
+2000,Santa Clara (SF),0.002027189,RUNEX,T7 Single,NH3
+2000,Santa Clara (SF),0.001188815,RUNEX,T7 single construction,NH3
+2000,Santa Clara (SF),0.000541301,RUNEX,T7 SWCV,NH3
+2000,Santa Clara (SF),1.37e-05,RUNEX,T7 SWCV,NH3
+2000,Santa Clara (SF),0.005711678,RUNEX,T7 tractor,NH3
+2000,Santa Clara (SF),0.000980668,RUNEX,T7 tractor construction,NH3
+2000,Santa Clara (SF),2.87e-05,RUNEX,T7 utility,NH3
+2000,Santa Cruz (NCC),1.81e-05,RUNEX,All Other Buses,NH3
+2000,Santa Cruz (NCC),1.15e-05,RUNEX,Motor Coach,NH3
+2000,Santa Cruz (NCC),7.16e-05,RUNEX,PTO,NH3
+2000,Santa Cruz (NCC),5.24e-05,RUNEX,SBUS,NH3
+2000,Santa Cruz (NCC),1.18e-05,RUNEX,T6 Ag,NH3
+2000,Santa Cruz (NCC),2.96e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Santa Cruz (NCC),4.57e-06,RUNEX,T6 CAIRP small,NH3
+2000,Santa Cruz (NCC),1.4e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Santa Cruz (NCC),0.000180352,RUNEX,T6 instate construction small,NH3
+2000,Santa Cruz (NCC),0.000822787,RUNEX,T6 instate heavy,NH3
+2000,Santa Cruz (NCC),0.001077815,RUNEX,T6 instate small,NH3
+2000,Santa Cruz (NCC),1.53e-05,RUNEX,T6 OOS heavy,NH3
+2000,Santa Cruz (NCC),2.27e-06,RUNEX,T6 OOS small,NH3
+2000,Santa Cruz (NCC),3.83e-05,RUNEX,T6 Public,NH3
+2000,Santa Cruz (NCC),8.87e-06,RUNEX,T6 utility,NH3
+2000,Santa Cruz (NCC),7.99e-06,RUNEX,T7 Ag,NH3
+2000,Santa Cruz (NCC),0.000127024,RUNEX,T7 CAIRP,NH3
+2000,Santa Cruz (NCC),1e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Santa Cruz (NCC),0.000155168,RUNEX,T7 NNOOS,NH3
+2000,Santa Cruz (NCC),4.98e-05,RUNEX,T7 NOOS,NH3
+2000,Santa Cruz (NCC),6.33e-06,RUNEX,T7 POAK,NH3
+2000,Santa Cruz (NCC),9.17e-05,RUNEX,T7 Public,NH3
+2000,Santa Cruz (NCC),0.000360533,RUNEX,T7 Single,NH3
+2000,Santa Cruz (NCC),2.49e-05,RUNEX,T7 single construction,NH3
+2000,Santa Cruz (NCC),4.23e-05,RUNEX,T7 SWCV,NH3
+2000,Santa Cruz (NCC),8.43e-05,RUNEX,T7 tractor,NH3
+2000,Santa Cruz (NCC),2.05e-05,RUNEX,T7 tractor construction,NH3
+2000,Santa Cruz (NCC),6.85e-07,RUNEX,T7 utility,NH3
+2000,Shasta (SV),5e-05,RUNEX,All Other Buses,NH3
+2000,Shasta (SV),2.05e-05,RUNEX,Motor Coach,NH3
+2000,Shasta (SV),7.38e-05,RUNEX,PTO,NH3
+2000,Shasta (SV),0.000121605,RUNEX,SBUS,NH3
+2000,Shasta (SV),7.64e-07,RUNEX,T6 Ag,NH3
+2000,Shasta (SV),3.88e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Shasta (SV),5.97e-06,RUNEX,T6 CAIRP small,NH3
+2000,Shasta (SV),0.000178394,RUNEX,T6 instate construction heavy,NH3
+2000,Shasta (SV),0.000161201,RUNEX,T6 instate construction small,NH3
+2000,Shasta (SV),0.000506364,RUNEX,T6 instate heavy,NH3
+2000,Shasta (SV),0.00056809,RUNEX,T6 instate small,NH3
+2000,Shasta (SV),2.19e-05,RUNEX,T6 OOS heavy,NH3
+2000,Shasta (SV),2.88e-06,RUNEX,T6 OOS small,NH3
+2000,Shasta (SV),4.47e-05,RUNEX,T6 Public,NH3
+2000,Shasta (SV),6.91e-06,RUNEX,T6 utility,NH3
+2000,Shasta (SV),7.68e-07,RUNEX,T7 Ag,NH3
+2000,Shasta (SV),0.002282455,RUNEX,T7 CAIRP,NH3
+2000,Shasta (SV),0.000128133,RUNEX,T7 CAIRP construction,NH3
+2000,Shasta (SV),0.002782601,RUNEX,T7 NNOOS,NH3
+2000,Shasta (SV),0.000896685,RUNEX,T7 NOOS,NH3
+2000,Shasta (SV),2.37e-05,RUNEX,T7 other port,NH3
+2000,Shasta (SV),5.54e-05,RUNEX,T7 POAK,NH3
+2000,Shasta (SV),6.84e-05,RUNEX,T7 Public,NH3
+2000,Shasta (SV),0.000371487,RUNEX,T7 Single,NH3
+2000,Shasta (SV),0.000317896,RUNEX,T7 single construction,NH3
+2000,Shasta (SV),4.24e-05,RUNEX,T7 SWCV,NH3
+2000,Shasta (SV),0.001750392,RUNEX,T7 tractor,NH3
+2000,Shasta (SV),0.000262236,RUNEX,T7 tractor construction,NH3
+2000,Shasta (SV),8.12e-06,RUNEX,T7 utility,NH3
+2000,Sierra (MC),1.36e-06,RUNEX,All Other Buses,NH3
+2000,Sierra (MC),7.98e-07,RUNEX,Motor Coach,NH3
+2000,Sierra (MC),1.18e-06,RUNEX,PTO,NH3
+2000,Sierra (MC),2.11e-06,RUNEX,SBUS,NH3
+2000,Sierra (MC),7.87e-07,RUNEX,T6 instate construction heavy,NH3
+2000,Sierra (MC),7.22e-06,RUNEX,T6 instate construction small,NH3
+2000,Sierra (MC),2.04e-05,RUNEX,T6 instate heavy,NH3
+2000,Sierra (MC),4.79e-06,RUNEX,T6 instate small,NH3
+2000,Sierra (MC),6.13e-06,RUNEX,T6 Public,NH3
+2000,Sierra (MC),2.1e-07,RUNEX,T6 utility,NH3
+2000,Sierra (MC),1.5e-05,RUNEX,T7 CAIRP,NH3
+2000,Sierra (MC),5.66e-07,RUNEX,T7 CAIRP construction,NH3
+2000,Sierra (MC),1.87e-05,RUNEX,T7 NNOOS,NH3
+2000,Sierra (MC),5.74e-06,RUNEX,T7 NOOS,NH3
+2000,Sierra (MC),6.74e-07,RUNEX,T7 POAK,NH3
+2000,Sierra (MC),8.46e-06,RUNEX,T7 Public,NH3
+2000,Sierra (MC),5.94e-06,RUNEX,T7 Single,NH3
+2000,Sierra (MC),1.4e-06,RUNEX,T7 single construction,NH3
+2000,Sierra (MC),2.08e-06,RUNEX,T7 SWCV,NH3
+2000,Sierra (MC),5.72e-06,RUNEX,T7 tractor,NH3
+2000,Sierra (MC),1.16e-06,RUNEX,T7 tractor construction,NH3
+2000,Sierra (MC),3.12e-08,RUNEX,T7 utility,NH3
+2000,Siskiyou (NEP),1.86e-05,RUNEX,All Other Buses,NH3
+2000,Siskiyou (NEP),1.41e-05,RUNEX,Motor Coach,NH3
+2000,Siskiyou (NEP),3.03e-05,RUNEX,PTO,NH3
+2000,Siskiyou (NEP),5.27e-05,RUNEX,SBUS,NH3
+2000,Siskiyou (NEP),6.66e-06,RUNEX,T6 Ag,NH3
+2000,Siskiyou (NEP),7.76e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Siskiyou (NEP),8.98e-06,RUNEX,T6 CAIRP small,NH3
+2000,Siskiyou (NEP),1.29e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Siskiyou (NEP),1.8e-05,RUNEX,T6 instate construction small,NH3
+2000,Siskiyou (NEP),0.00023593,RUNEX,T6 instate heavy,NH3
+2000,Siskiyou (NEP),0.000189,RUNEX,T6 instate small,NH3
+2000,Siskiyou (NEP),4.1e-05,RUNEX,T6 OOS heavy,NH3
+2000,Siskiyou (NEP),5.29e-06,RUNEX,T6 OOS small,NH3
+2000,Siskiyou (NEP),2.32e-05,RUNEX,T6 Public,NH3
+2000,Siskiyou (NEP),1.89e-06,RUNEX,T6 utility,NH3
+2000,Siskiyou (NEP),2.65e-06,RUNEX,T7 Ag,NH3
+2000,Siskiyou (NEP),0.002775104,RUNEX,T7 CAIRP,NH3
+2000,Siskiyou (NEP),9.29e-06,RUNEX,T7 CAIRP construction,NH3
+2000,Siskiyou (NEP),0.003383179,RUNEX,T7 NNOOS,NH3
+2000,Siskiyou (NEP),0.001090224,RUNEX,T7 NOOS,NH3
+2000,Siskiyou (NEP),8.65e-05,RUNEX,T7 Public,NH3
+2000,Siskiyou (NEP),0.00015276,RUNEX,T7 Single,NH3
+2000,Siskiyou (NEP),2.31e-05,RUNEX,T7 single construction,NH3
+2000,Siskiyou (NEP),1.15e-05,RUNEX,T7 SWCV,NH3
+2000,Siskiyou (NEP),0.000964967,RUNEX,T7 tractor,NH3
+2000,Siskiyou (NEP),1.9e-05,RUNEX,T7 tractor construction,NH3
+2000,Siskiyou (NEP),1.44e-06,RUNEX,T7 utility,NH3
+2000,Solano (SF),0.000361606,RUNEX,All Other Buses,NH3
+2000,Solano (SF),0.000165616,RUNEX,Motor Coach,NH3
+2000,Solano (SF),9.57e-05,RUNEX,PTO,NH3
+2000,Solano (SF),0.000136584,RUNEX,SBUS,NH3
+2000,Solano (SF),2.96e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Solano (SF),1.3e-06,RUNEX,T6 CAIRP small,NH3
+2000,Solano (SF),0.00021924,RUNEX,T6 instate construction heavy,NH3
+2000,Solano (SF),0.000279949,RUNEX,T6 instate construction small,NH3
+2000,Solano (SF),0.000870591,RUNEX,T6 instate heavy,NH3
+2000,Solano (SF),0.001179688,RUNEX,T6 instate small,NH3
+2000,Solano (SF),1.49e-05,RUNEX,T6 OOS heavy,NH3
+2000,Solano (SF),1.39e-06,RUNEX,T6 OOS small,NH3
+2000,Solano (SF),5.55e-05,RUNEX,T6 Public,NH3
+2000,Solano (SF),1.13e-05,RUNEX,T6 utility,NH3
+2000,Solano (SF),2.28e-07,RUNEX,T7 Ag,NH3
+2000,Solano (SF),0.001102426,RUNEX,T7 CAIRP,NH3
+2000,Solano (SF),0.000157472,RUNEX,T7 CAIRP construction,NH3
+2000,Solano (SF),0.001344275,RUNEX,T7 NNOOS,NH3
+2000,Solano (SF),0.000432983,RUNEX,T7 NOOS,NH3
+2000,Solano (SF),0.000104633,RUNEX,T7 other port,NH3
+2000,Solano (SF),0.00046724,RUNEX,T7 POAK,NH3
+2000,Solano (SF),7.38e-05,RUNEX,T7 Public,NH3
+2000,Solano (SF),0.000482125,RUNEX,T7 Single,NH3
+2000,Solano (SF),0.000390685,RUNEX,T7 single construction,NH3
+2000,Solano (SF),9.93e-05,RUNEX,T7 SWCV,NH3
+2000,Solano (SF),2.51e-06,RUNEX,T7 SWCV,NH3
+2000,Solano (SF),0.0018754,RUNEX,T7 tractor,NH3
+2000,Solano (SF),0.00032228,RUNEX,T7 tractor construction,NH3
+2000,Solano (SF),9.39e-06,RUNEX,T7 utility,NH3
+2000,Solano (SV),3.92e-05,RUNEX,All Other Buses,NH3
+2000,Solano (SV),1.61e-05,RUNEX,Motor Coach,NH3
+2000,Solano (SV),2.54e-05,RUNEX,PTO,NH3
+2000,Solano (SV),5.1e-05,RUNEX,SBUS,NH3
+2000,Solano (SV),2.93e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Solano (SV),1.29e-06,RUNEX,T6 CAIRP small,NH3
+2000,Solano (SV),0.000194292,RUNEX,T6 instate construction heavy,NH3
+2000,Solano (SV),0.000112922,RUNEX,T6 instate construction small,NH3
+2000,Solano (SV),0.000263223,RUNEX,T6 instate heavy,NH3
+2000,Solano (SV),0.00024365,RUNEX,T6 instate small,NH3
+2000,Solano (SV),1.5e-05,RUNEX,T6 OOS heavy,NH3
+2000,Solano (SV),2.04e-06,RUNEX,T6 OOS small,NH3
+2000,Solano (SV),2.73e-05,RUNEX,T6 Public,NH3
+2000,Solano (SV),4.81e-06,RUNEX,T6 utility,NH3
+2000,Solano (SV),0.002485688,RUNEX,T7 CAIRP,NH3
+2000,Solano (SV),0.000139553,RUNEX,T7 CAIRP construction,NH3
+2000,Solano (SV),0.003030548,RUNEX,T7 NNOOS,NH3
+2000,Solano (SV),0.000976533,RUNEX,T7 NOOS,NH3
+2000,Solano (SV),2.57e-05,RUNEX,T7 other port,NH3
+2000,Solano (SV),6.01e-05,RUNEX,T7 POAK,NH3
+2000,Solano (SV),3.07e-05,RUNEX,T7 Public,NH3
+2000,Solano (SV),0.000128153,RUNEX,T7 Single,NH3
+2000,Solano (SV),0.000346226,RUNEX,T7 single construction,NH3
+2000,Solano (SV),2.96e-05,RUNEX,T7 SWCV,NH3
+2000,Solano (SV),0.001907503,RUNEX,T7 tractor,NH3
+2000,Solano (SV),0.000285606,RUNEX,T7 tractor construction,NH3
+2000,Solano (SV),8.83e-06,RUNEX,T7 utility,NH3
+2000,Sonoma (NC),8.36e-06,RUNEX,All Other Buses,NH3
+2000,Sonoma (NC),5.87e-06,RUNEX,Motor Coach,NH3
+2000,Sonoma (NC),2.59e-05,RUNEX,PTO,NH3
+2000,Sonoma (NC),2.38e-05,RUNEX,SBUS,NH3
+2000,Sonoma (NC),2.6e-05,RUNEX,T6 Ag,NH3
+2000,Sonoma (NC),3.03e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Sonoma (NC),1.18e-06,RUNEX,T6 CAIRP small,NH3
+2000,Sonoma (NC),5.36e-06,RUNEX,T6 instate construction heavy,NH3
+2000,Sonoma (NC),3.04e-05,RUNEX,T6 instate construction small,NH3
+2000,Sonoma (NC),0.000251482,RUNEX,T6 instate heavy,NH3
+2000,Sonoma (NC),0.000264613,RUNEX,T6 instate small,NH3
+2000,Sonoma (NC),1.38e-05,RUNEX,T6 OOS heavy,NH3
+2000,Sonoma (NC),1.82e-06,RUNEX,T6 OOS small,NH3
+2000,Sonoma (NC),1.41e-05,RUNEX,T6 Public,NH3
+2000,Sonoma (NC),2.9e-06,RUNEX,T6 utility,NH3
+2000,Sonoma (NC),1.46e-05,RUNEX,T7 Ag,NH3
+2000,Sonoma (NC),0.000275659,RUNEX,T7 CAIRP,NH3
+2000,Sonoma (NC),3.85e-06,RUNEX,T7 CAIRP construction,NH3
+2000,Sonoma (NC),0.000336457,RUNEX,T7 NNOOS,NH3
+2000,Sonoma (NC),0.000108162,RUNEX,T7 NOOS,NH3
+2000,Sonoma (NC),1.74e-05,RUNEX,T7 other port,NH3
+2000,Sonoma (NC),2.19e-05,RUNEX,T7 Public,NH3
+2000,Sonoma (NC),0.000130207,RUNEX,T7 Single,NH3
+2000,Sonoma (NC),9.55e-06,RUNEX,T7 single construction,NH3
+2000,Sonoma (NC),1.33e-05,RUNEX,T7 SWCV,NH3
+2000,Sonoma (NC),0.0001853,RUNEX,T7 tractor,NH3
+2000,Sonoma (NC),7.88e-06,RUNEX,T7 tractor construction,NH3
+2000,Sonoma (NC),5.08e-07,RUNEX,T7 utility,NH3
+2000,Sonoma (SF),0.000191189,RUNEX,All Other Buses,NH3
+2000,Sonoma (SF),8.75e-05,RUNEX,Motor Coach,NH3
+2000,Sonoma (SF),0.000227458,RUNEX,PTO,NH3
+2000,Sonoma (SF),0.000188893,RUNEX,SBUS,NH3
+2000,Sonoma (SF),1.14e-05,RUNEX,T6 Ag,NH3
+2000,Sonoma (SF),5.62e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Sonoma (SF),7.92e-06,RUNEX,T6 CAIRP small,NH3
+2000,Sonoma (SF),6.92e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Sonoma (SF),0.000556839,RUNEX,T6 instate construction small,NH3
+2000,Sonoma (SF),0.002753723,RUNEX,T6 instate heavy,NH3
+2000,Sonoma (SF),0.002787458,RUNEX,T6 instate small,NH3
+2000,Sonoma (SF),3.11e-05,RUNEX,T6 OOS heavy,NH3
+2000,Sonoma (SF),3.89e-06,RUNEX,T6 OOS small,NH3
+2000,Sonoma (SF),8.94e-05,RUNEX,T6 Public,NH3
+2000,Sonoma (SF),2.26e-05,RUNEX,T6 utility,NH3
+2000,Sonoma (SF),2.1e-05,RUNEX,T7 Ag,NH3
+2000,Sonoma (SF),0.000347655,RUNEX,T7 CAIRP,NH3
+2000,Sonoma (SF),4.97e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Sonoma (SF),0.000424157,RUNEX,T7 NNOOS,NH3
+2000,Sonoma (SF),0.000136482,RUNEX,T7 NOOS,NH3
+2000,Sonoma (SF),3.28e-05,RUNEX,T7 other port,NH3
+2000,Sonoma (SF),0.000147092,RUNEX,T7 POAK,NH3
+2000,Sonoma (SF),0.000123202,RUNEX,T7 Public,NH3
+2000,Sonoma (SF),0.001145524,RUNEX,T7 Single,NH3
+2000,Sonoma (SF),0.000123292,RUNEX,T7 single construction,NH3
+2000,Sonoma (SF),0.00019785,RUNEX,T7 SWCV,NH3
+2000,Sonoma (SF),5e-06,RUNEX,T7 SWCV,NH3
+2000,Sonoma (SF),0.000539619,RUNEX,T7 tractor,NH3
+2000,Sonoma (SF),0.000101705,RUNEX,T7 tractor construction,NH3
+2000,Sonoma (SF),2.94e-06,RUNEX,T7 utility,NH3
+2000,Stanislaus (SJV),8.68e-05,RUNEX,All Other Buses,NH3
+2000,Stanislaus (SJV),5.69e-05,RUNEX,Motor Coach,NH3
+2000,Stanislaus (SJV),0.000155058,RUNEX,PTO,NH3
+2000,Stanislaus (SJV),0.000107564,RUNEX,SBUS,NH3
+2000,Stanislaus (SJV),3.63e-05,RUNEX,T6 Ag,NH3
+2000,Stanislaus (SJV),0.000240286,RUNEX,T6 CAIRP heavy,NH3
+2000,Stanislaus (SJV),3.41e-05,RUNEX,T6 CAIRP small,NH3
+2000,Stanislaus (SJV),9.39e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Stanislaus (SJV),0.000392567,RUNEX,T6 instate construction small,NH3
+2000,Stanislaus (SJV),0.001527133,RUNEX,T6 instate heavy,NH3
+2000,Stanislaus (SJV),0.001731897,RUNEX,T6 instate small,NH3
+2000,Stanislaus (SJV),0.000137321,RUNEX,T6 OOS heavy,NH3
+2000,Stanislaus (SJV),1.97e-05,RUNEX,T6 OOS small,NH3
+2000,Stanislaus (SJV),8.73e-05,RUNEX,T6 Public,NH3
+2000,Stanislaus (SJV),1.89e-05,RUNEX,T6 utility,NH3
+2000,Stanislaus (SJV),5.1e-05,RUNEX,T7 Ag,NH3
+2000,Stanislaus (SJV),0.002916837,RUNEX,T7 CAIRP,NH3
+2000,Stanislaus (SJV),6.74e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Stanislaus (SJV),0.003555956,RUNEX,T7 NNOOS,NH3
+2000,Stanislaus (SJV),0.001145964,RUNEX,T7 NOOS,NH3
+2000,Stanislaus (SJV),4.75e-05,RUNEX,T7 other port,NH3
+2000,Stanislaus (SJV),0.000148107,RUNEX,T7 POAK,NH3
+2000,Stanislaus (SJV),0.000128953,RUNEX,T7 POLA,NH3
+2000,Stanislaus (SJV),0.000111108,RUNEX,T7 Public,NH3
+2000,Stanislaus (SJV),0.000780902,RUNEX,T7 Single,NH3
+2000,Stanislaus (SJV),0.00016731,RUNEX,T7 single construction,NH3
+2000,Stanislaus (SJV),0.00011144,RUNEX,T7 SWCV,NH3
+2000,Stanislaus (SJV),0.003995911,RUNEX,T7 tractor,NH3
+2000,Stanislaus (SJV),0.000138016,RUNEX,T7 tractor construction,NH3
+2000,Stanislaus (SJV),4.76e-06,RUNEX,T7 utility,NH3
+2000,Sutter (SV),4.14e-06,RUNEX,All Other Buses,NH3
+2000,Sutter (SV),1.7e-06,RUNEX,Motor Coach,NH3
+2000,Sutter (SV),5.81e-06,RUNEX,PTO,NH3
+2000,Sutter (SV),1.41e-05,RUNEX,SBUS,NH3
+2000,Sutter (SV),3.16e-06,RUNEX,T6 Ag,NH3
+2000,Sutter (SV),1.07e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Sutter (SV),1.55e-06,RUNEX,T6 CAIRP small,NH3
+2000,Sutter (SV),2.95e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Sutter (SV),4.68e-05,RUNEX,T6 instate construction small,NH3
+2000,Sutter (SV),9.04e-05,RUNEX,T6 instate heavy,NH3
+2000,Sutter (SV),0.000115548,RUNEX,T6 instate small,NH3
+2000,Sutter (SV),6.5e-06,RUNEX,T6 OOS heavy,NH3
+2000,Sutter (SV),8.23e-07,RUNEX,T6 OOS small,NH3
+2000,Sutter (SV),3.81e-06,RUNEX,T6 Public,NH3
+2000,Sutter (SV),2e-06,RUNEX,T6 utility,NH3
+2000,Sutter (SV),3.45e-06,RUNEX,T7 Ag,NH3
+2000,Sutter (SV),0.000376934,RUNEX,T7 CAIRP,NH3
+2000,Sutter (SV),2.12e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Sutter (SV),0.000459593,RUNEX,T7 NNOOS,NH3
+2000,Sutter (SV),0.000148093,RUNEX,T7 NOOS,NH3
+2000,Sutter (SV),3.89e-06,RUNEX,T7 other port,NH3
+2000,Sutter (SV),9.13e-06,RUNEX,T7 POAK,NH3
+2000,Sutter (SV),7.89e-06,RUNEX,T7 Public,NH3
+2000,Sutter (SV),2.93e-05,RUNEX,T7 Single,NH3
+2000,Sutter (SV),5.25e-05,RUNEX,T7 single construction,NH3
+2000,Sutter (SV),1.23e-05,RUNEX,T7 SWCV,NH3
+2000,Sutter (SV),0.000278249,RUNEX,T7 tractor,NH3
+2000,Sutter (SV),4.33e-05,RUNEX,T7 tractor construction,NH3
+2000,Sutter (SV),1.34e-06,RUNEX,T7 utility,NH3
+2000,Tehama (SV),2.71e-05,RUNEX,All Other Buses,NH3
+2000,Tehama (SV),1.11e-05,RUNEX,Motor Coach,NH3
+2000,Tehama (SV),3.59e-05,RUNEX,PTO,NH3
+2000,Tehama (SV),6.96e-05,RUNEX,SBUS,NH3
+2000,Tehama (SV),2.87e-06,RUNEX,T6 Ag,NH3
+2000,Tehama (SV),1.02e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Tehama (SV),0.000186447,RUNEX,T6 instate construction heavy,NH3
+2000,Tehama (SV),7.3e-05,RUNEX,T6 instate construction small,NH3
+2000,Tehama (SV),0.000371786,RUNEX,T6 instate heavy,NH3
+2000,Tehama (SV),0.000224156,RUNEX,T6 instate small,NH3
+2000,Tehama (SV),9.81e-06,RUNEX,T6 OOS heavy,NH3
+2000,Tehama (SV),1.28e-06,RUNEX,T6 OOS small,NH3
+2000,Tehama (SV),1.96e-05,RUNEX,T6 Public,NH3
+2000,Tehama (SV),3.09e-06,RUNEX,T6 utility,NH3
+2000,Tehama (SV),4.05e-06,RUNEX,T7 Ag,NH3
+2000,Tehama (SV),0.002385198,RUNEX,T7 CAIRP,NH3
+2000,Tehama (SV),0.000133918,RUNEX,T7 CAIRP construction,NH3
+2000,Tehama (SV),0.002908213,RUNEX,T7 NNOOS,NH3
+2000,Tehama (SV),0.000937114,RUNEX,T7 NOOS,NH3
+2000,Tehama (SV),2.47e-05,RUNEX,T7 other port,NH3
+2000,Tehama (SV),5.78e-05,RUNEX,T7 POAK,NH3
+2000,Tehama (SV),2.91e-05,RUNEX,T7 Public,NH3
+2000,Tehama (SV),0.000180875,RUNEX,T7 Single,NH3
+2000,Tehama (SV),0.000332248,RUNEX,T7 single construction,NH3
+2000,Tehama (SV),1.9e-05,RUNEX,T7 SWCV,NH3
+2000,Tehama (SV),0.001816036,RUNEX,T7 tractor,NH3
+2000,Tehama (SV),0.000274075,RUNEX,T7 tractor construction,NH3
+2000,Tehama (SV),8.47e-06,RUNEX,T7 utility,NH3
+2000,Trinity (NC),2.78e-06,RUNEX,All Other Buses,NH3
+2000,Trinity (NC),2.04e-06,RUNEX,Motor Coach,NH3
+2000,Trinity (NC),6.31e-06,RUNEX,PTO,NH3
+2000,Trinity (NC),1.56e-05,RUNEX,SBUS,NH3
+2000,Trinity (NC),7.8e-06,RUNEX,T6 instate construction heavy,NH3
+2000,Trinity (NC),5.5e-06,RUNEX,T6 instate construction small,NH3
+2000,Trinity (NC),8.55e-05,RUNEX,T6 instate heavy,NH3
+2000,Trinity (NC),2.7e-05,RUNEX,T6 instate small,NH3
+2000,Trinity (NC),4.28e-06,RUNEX,T6 OOS heavy,NH3
+2000,Trinity (NC),1.66e-07,RUNEX,T6 OOS small,NH3
+2000,Trinity (NC),1.7e-05,RUNEX,T6 Public,NH3
+2000,Trinity (NC),4.77e-07,RUNEX,T6 utility,NH3
+2000,Trinity (NC),0.000401337,RUNEX,T7 CAIRP,NH3
+2000,Trinity (NC),5.6e-06,RUNEX,T7 CAIRP construction,NH3
+2000,Trinity (NC),0.000489706,RUNEX,T7 NNOOS,NH3
+2000,Trinity (NC),0.000157604,RUNEX,T7 NOOS,NH3
+2000,Trinity (NC),2.54e-05,RUNEX,T7 other port,NH3
+2000,Trinity (NC),2.63e-05,RUNEX,T7 Public,NH3
+2000,Trinity (NC),3.18e-05,RUNEX,T7 Single,NH3
+2000,Trinity (NC),1.39e-05,RUNEX,T7 single construction,NH3
+2000,Trinity (NC),2.15e-06,RUNEX,T7 SWCV,NH3
+2000,Trinity (NC),0.000330088,RUNEX,T7 tractor,NH3
+2000,Trinity (NC),1.15e-05,RUNEX,T7 tractor construction,NH3
+2000,Trinity (NC),7.53e-07,RUNEX,T7 utility,NH3
+2000,Tulare (SJV),8.09e-05,RUNEX,All Other Buses,NH3
+2000,Tulare (SJV),5.3e-05,RUNEX,Motor Coach,NH3
+2000,Tulare (SJV),7.96e-05,RUNEX,PTO,NH3
+2000,Tulare (SJV),0.000187814,RUNEX,SBUS,NH3
+2000,Tulare (SJV),2.82e-05,RUNEX,T6 Ag,NH3
+2000,Tulare (SJV),0.000220514,RUNEX,T6 CAIRP heavy,NH3
+2000,Tulare (SJV),3.18e-05,RUNEX,T6 CAIRP small,NH3
+2000,Tulare (SJV),8.68e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Tulare (SJV),0.000355732,RUNEX,T6 instate construction small,NH3
+2000,Tulare (SJV),0.00122634,RUNEX,T6 instate heavy,NH3
+2000,Tulare (SJV),0.00153178,RUNEX,T6 instate small,NH3
+2000,Tulare (SJV),0.000125148,RUNEX,T6 OOS heavy,NH3
+2000,Tulare (SJV),1.79e-05,RUNEX,T6 OOS small,NH3
+2000,Tulare (SJV),5.51e-05,RUNEX,T6 Public,NH3
+2000,Tulare (SJV),1.71e-05,RUNEX,T6 utility,NH3
+2000,Tulare (SJV),5.82e-05,RUNEX,T7 Ag,NH3
+2000,Tulare (SJV),0.002695168,RUNEX,T7 CAIRP,NH3
+2000,Tulare (SJV),6.23e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Tulare (SJV),0.003285697,RUNEX,T7 NNOOS,NH3
+2000,Tulare (SJV),0.001058823,RUNEX,T7 NOOS,NH3
+2000,Tulare (SJV),4.39e-05,RUNEX,T7 other port,NH3
+2000,Tulare (SJV),0.00013679,RUNEX,T7 POAK,NH3
+2000,Tulare (SJV),0.00010524,RUNEX,T7 POLA,NH3
+2000,Tulare (SJV),0.000109085,RUNEX,T7 Public,NH3
+2000,Tulare (SJV),0.000401123,RUNEX,T7 Single,NH3
+2000,Tulare (SJV),0.000154594,RUNEX,T7 single construction,NH3
+2000,Tulare (SJV),0.000100939,RUNEX,T7 SWCV,NH3
+2000,Tulare (SJV),0.003655274,RUNEX,T7 tractor,NH3
+2000,Tulare (SJV),0.000127526,RUNEX,T7 tractor construction,NH3
+2000,Tulare (SJV),4.4e-06,RUNEX,T7 utility,NH3
+2000,Tuolumne (MC),1.99e-05,RUNEX,All Other Buses,NH3
+2000,Tuolumne (MC),1.14e-05,RUNEX,Motor Coach,NH3
+2000,Tuolumne (MC),2.7e-05,RUNEX,PTO,NH3
+2000,Tuolumne (MC),5.55e-05,RUNEX,SBUS,NH3
+2000,Tuolumne (MC),1.95e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Tuolumne (MC),1.64e-06,RUNEX,T6 instate construction heavy,NH3
+2000,Tuolumne (MC),5.51e-05,RUNEX,T6 instate construction small,NH3
+2000,Tuolumne (MC),0.000263965,RUNEX,T6 instate heavy,NH3
+2000,Tuolumne (MC),0.000184956,RUNEX,T6 instate small,NH3
+2000,Tuolumne (MC),1.09e-05,RUNEX,T6 OOS heavy,NH3
+2000,Tuolumne (MC),8.09e-07,RUNEX,T6 OOS small,NH3
+2000,Tuolumne (MC),1.89e-05,RUNEX,T6 Public,NH3
+2000,Tuolumne (MC),1.98e-06,RUNEX,T6 utility,NH3
+2000,Tuolumne (MC),1.75e-06,RUNEX,T7 Ag,NH3
+2000,Tuolumne (MC),3.16e-05,RUNEX,T7 CAIRP,NH3
+2000,Tuolumne (MC),1.18e-06,RUNEX,T7 CAIRP construction,NH3
+2000,Tuolumne (MC),3.9e-05,RUNEX,T7 NNOOS,NH3
+2000,Tuolumne (MC),1.23e-05,RUNEX,T7 NOOS,NH3
+2000,Tuolumne (MC),1.74e-06,RUNEX,T7 POAK,NH3
+2000,Tuolumne (MC),3.48e-05,RUNEX,T7 Public,NH3
+2000,Tuolumne (MC),0.000135791,RUNEX,T7 Single,NH3
+2000,Tuolumne (MC),2.92e-06,RUNEX,T7 single construction,NH3
+2000,Tuolumne (MC),1.67e-05,RUNEX,T7 SWCV,NH3
+2000,Tuolumne (MC),1.05e-05,RUNEX,T7 tractor,NH3
+2000,Tuolumne (MC),2.41e-06,RUNEX,T7 tractor construction,NH3
+2000,Tuolumne (MC),5.93e-08,RUNEX,T7 utility,NH3
+2000,Ventura (SCC),6e-05,RUNEX,All Other Buses,NH3
+2000,Ventura (SCC),3.47e-05,RUNEX,Motor Coach,NH3
+2000,Ventura (SCC),0.000195678,RUNEX,PTO,NH3
+2000,Ventura (SCC),0.00015412,RUNEX,SBUS,NH3
+2000,Ventura (SCC),5.19e-05,RUNEX,T6 Ag,NH3
+2000,Ventura (SCC),3.3e-05,RUNEX,T6 CAIRP heavy,NH3
+2000,Ventura (SCC),6.12e-06,RUNEX,T6 CAIRP small,NH3
+2000,Ventura (SCC),0.000287591,RUNEX,T6 instate construction heavy,NH3
+2000,Ventura (SCC),0.000611074,RUNEX,T6 instate construction small,NH3
+2000,Ventura (SCC),0.002225327,RUNEX,T6 instate heavy,NH3
+2000,Ventura (SCC),0.002915458,RUNEX,T6 instate small,NH3
+2000,Ventura (SCC),1.99e-05,RUNEX,T6 OOS heavy,NH3
+2000,Ventura (SCC),2.7e-06,RUNEX,T6 OOS small,NH3
+2000,Ventura (SCC),0.00013231,RUNEX,T6 Public,NH3
+2000,Ventura (SCC),2.19e-05,RUNEX,T6 utility,NH3
+2000,Ventura (SCC),5.3e-06,RUNEX,T7 Ag,NH3
+2000,Ventura (SCC),0.001015895,RUNEX,T7 CAIRP,NH3
+2000,Ventura (SCC),0.000204065,RUNEX,T7 CAIRP construction,NH3
+2000,Ventura (SCC),0.001238762,RUNEX,T7 NNOOS,NH3
+2000,Ventura (SCC),0.00039908,RUNEX,T7 NOOS,NH3
+2000,Ventura (SCC),0.000233183,RUNEX,T7 other port,NH3
+2000,Ventura (SCC),0.000177933,RUNEX,T7 Public,NH3
+2000,Ventura (SCC),0.000807461,RUNEX,T7 Single,NH3
+2000,Ventura (SCC),0.000506281,RUNEX,T7 single construction,NH3
+2000,Ventura (SCC),0.000169492,RUNEX,T7 SWCV,NH3
+2000,Ventura (SCC),0.000166803,RUNEX,T7 SWCV,NH3
+2000,Ventura (SCC),0.001421157,RUNEX,T7 tractor,NH3
+2000,Ventura (SCC),0.000417637,RUNEX,T7 tractor construction,NH3
+2000,Ventura (SCC),1.07e-05,RUNEX,T7 utility,NH3
+2000,Yolo (SV),2.43e-05,RUNEX,All Other Buses,NH3
+2000,Yolo (SV),9.96e-06,RUNEX,Motor Coach,NH3
+2000,Yolo (SV),0.000127017,RUNEX,PTO,NH3
+2000,Yolo (SV),7.32e-05,RUNEX,SBUS,NH3
+2000,Yolo (SV),1.31e-05,RUNEX,T6 Ag,NH3
+2000,Yolo (SV),0.000122047,RUNEX,T6 CAIRP heavy,NH3
+2000,Yolo (SV),1.82e-05,RUNEX,T6 CAIRP small,NH3
+2000,Yolo (SV),7.94e-05,RUNEX,T6 instate construction heavy,NH3
+2000,Yolo (SV),0.000505131,RUNEX,T6 instate construction small,NH3
+2000,Yolo (SV),0.002241048,RUNEX,T6 instate heavy,NH3
+2000,Yolo (SV),0.002876965,RUNEX,T6 instate small,NH3
+2000,Yolo (SV),6.79e-05,RUNEX,T6 OOS heavy,NH3
+2000,Yolo (SV),9.45e-06,RUNEX,T6 OOS small,NH3
+2000,Yolo (SV),6.22e-05,RUNEX,T6 Public,NH3
+2000,Yolo (SV),2.17e-05,RUNEX,T6 utility,NH3
+2000,Yolo (SV),5.3e-06,RUNEX,T7 Ag,NH3
+2000,Yolo (SV),0.001016166,RUNEX,T7 CAIRP,NH3
+2000,Yolo (SV),5.71e-05,RUNEX,T7 CAIRP construction,NH3
+2000,Yolo (SV),0.001239081,RUNEX,T7 NNOOS,NH3
+2000,Yolo (SV),0.000399204,RUNEX,T7 NOOS,NH3
+2000,Yolo (SV),1.04e-05,RUNEX,T7 other port,NH3
+2000,Yolo (SV),2.44e-05,RUNEX,T7 POAK,NH3
+2000,Yolo (SV),6.68e-05,RUNEX,T7 Public,NH3
+2000,Yolo (SV),0.000639681,RUNEX,T7 Single,NH3
+2000,Yolo (SV),0.000141566,RUNEX,T7 single construction,NH3
+2000,Yolo (SV),0.000133195,RUNEX,T7 SWCV,NH3
+2000,Yolo (SV),0.000756594,RUNEX,T7 tractor,NH3
+2000,Yolo (SV),0.000116779,RUNEX,T7 tractor construction,NH3
+2000,Yolo (SV),3.58e-06,RUNEX,T7 utility,NH3
+2000,Yuba (SV),3.73e-05,RUNEX,All Other Buses,NH3
+2000,Yuba (SV),1.53e-05,RUNEX,Motor Coach,NH3
+2000,Yuba (SV),3.2e-05,RUNEX,PTO,NH3
+2000,Yuba (SV),4.05e-05,RUNEX,SBUS,NH3
+2000,Yuba (SV),1.06e-05,RUNEX,T6 Ag,NH3
+2000,Yuba (SV),5.16e-06,RUNEX,T6 CAIRP heavy,NH3
+2000,Yuba (SV),7.96e-06,RUNEX,T6 instate construction heavy,NH3
+2000,Yuba (SV),5.7e-05,RUNEX,T6 instate construction small,NH3
+2000,Yuba (SV),0.000283822,RUNEX,T6 instate heavy,NH3
+2000,Yuba (SV),0.000233117,RUNEX,T6 instate small,NH3
+2000,Yuba (SV),7.23e-06,RUNEX,T6 OOS heavy,NH3
+2000,Yuba (SV),1.12e-06,RUNEX,T6 OOS small,NH3
+2000,Yuba (SV),1.49e-05,RUNEX,T6 Public,NH3
+2000,Yuba (SV),2.38e-06,RUNEX,T6 utility,NH3
+2000,Yuba (SV),3.98e-06,RUNEX,T7 Ag,NH3
+2000,Yuba (SV),0.000101487,RUNEX,T7 CAIRP,NH3
+2000,Yuba (SV),5.72e-06,RUNEX,T7 CAIRP construction,NH3
+2000,Yuba (SV),0.000124113,RUNEX,T7 NNOOS,NH3
+2000,Yuba (SV),3.97e-05,RUNEX,T7 NOOS,NH3
+2000,Yuba (SV),9.54e-07,RUNEX,T7 other port,NH3
+2000,Yuba (SV),2.33e-06,RUNEX,T7 POAK,NH3
+2000,Yuba (SV),2.16e-05,RUNEX,T7 Public,NH3
+2000,Yuba (SV),0.000161214,RUNEX,T7 Single,NH3
+2000,Yuba (SV),1.42e-05,RUNEX,T7 single construction,NH3
+2000,Yuba (SV),1.48e-05,RUNEX,T7 SWCV,NH3
+2000,Yuba (SV),6.57e-05,RUNEX,T7 tractor,NH3
+2000,Yuba (SV),1.17e-05,RUNEX,T7 tractor construction,NH3
+2000,Yuba (SV),3.25e-07,RUNEX,T7 utility,NH3
