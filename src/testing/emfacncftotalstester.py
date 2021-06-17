@@ -225,4 +225,6 @@ class EmfacNcfTotalsTester(OutputTester):
                      'TOLU': {'group': 'TOG', 'weight': 92.14},
                      'PDCB': {'group': 'TOG', 'weight': 147.01},
                      'PERC': {'group': 'TOG', 'weight': 165.82},
+                     'ARO2MN': {'group': 'TOG', 'weight': 118.72},
+                     'NAPH': {'group': 'TOG', 'weight': 128.17},
                      '13BDE': {'group': 'TOG', 'weight': 54.09}}
