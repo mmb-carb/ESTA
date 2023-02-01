@@ -1,0 +1,1319 @@
+calendar_year,season_month,sub_area,vehicle_class,fuel,process,cat_ncat,pollutant,emission
+2017,July,Mendocino (NC),All Other Buses,Dsl,IDLEX,DSL,CO,6.252112219235574e-05
+2017,July,Mendocino (NC),All Other Buses,Dsl,IDLEX,DSL,NOx,0.00015166153939951557
+2017,July,Mendocino (NC),All Other Buses,Dsl,IDLEX,DSL,PM,4.971414743967392e-06
+2017,July,Mendocino (NC),All Other Buses,Dsl,IDLEX,DSL,PM10,4.9415862555035866e-06
+2017,July,Mendocino (NC),All Other Buses,Dsl,IDLEX,DSL,PM2_5,4.727815421512991e-06
+2017,July,Mendocino (NC),All Other Buses,Dsl,IDLEX,DSL,SOx,9.043099308861543e-08
+2017,July,Mendocino (NC),All Other Buses,Dsl,IDLEX,DSL,TOG,1.990787029544073e-05
+2017,July,Mendocino (NC),All Other Buses,Dsl,PMBW,DSL,PM,3.121855805895652e-05
+2017,July,Mendocino (NC),All Other Buses,Dsl,PMBW,DSL,PM10,3.121855805895652e-05
+2017,July,Mendocino (NC),All Other Buses,Dsl,PMBW,DSL,PM2_5,1.092649532063478e-05
+2017,July,Mendocino (NC),All Other Buses,Dsl,PMTW,DSL,PM,8.119737641539372e-06
+2017,July,Mendocino (NC),All Other Buses,Dsl,PMTW,DSL,PM10,8.119737641539372e-06
+2017,July,Mendocino (NC),All Other Buses,Dsl,PMTW,DSL,PM2_5,2.029934410384843e-06
+2017,July,Mendocino (NC),All Other Buses,Dsl,RUNEX,DSL,CO,0.0034572525193130362
+2017,July,Mendocino (NC),All Other Buses,Dsl,RUNEX,DSL,NH3,1.8269404457435077e-05
+2017,July,Mendocino (NC),All Other Buses,Dsl,RUNEX,DSL,NOx,0.008813065800841634
+2017,July,Mendocino (NC),All Other Buses,Dsl,RUNEX,DSL,PM,0.0007021204049227752
+2017,July,Mendocino (NC),All Other Buses,Dsl,RUNEX,DSL,PM10,0.0006979076824932386
+2017,July,Mendocino (NC),All Other Buses,Dsl,RUNEX,DSL,PM2_5,0.0006677165050815591
+2017,July,Mendocino (NC),All Other Buses,Dsl,RUNEX,DSL,SOx,8.495585688826997e-06
+2017,July,Mendocino (NC),All Other Buses,Dsl,RUNEX,DSL,TOG,0.001668617899544414
+2017,July,Mendocino (NC),Motor Coach,Dsl,IDLEX,DSL,CO,0.00022730940270725023
+2017,July,Mendocino (NC),Motor Coach,Dsl,IDLEX,DSL,NOx,0.0005124148965603237
+2017,July,Mendocino (NC),Motor Coach,Dsl,IDLEX,DSL,PM,3.3937024895113994e-06
+2017,July,Mendocino (NC),Motor Coach,Dsl,IDLEX,DSL,PM10,3.373340274574331e-06
+2017,July,Mendocino (NC),Motor Coach,Dsl,IDLEX,DSL,PM2_5,3.227411067525342e-06
+2017,July,Mendocino (NC),Motor Coach,Dsl,IDLEX,DSL,SOx,5.039055740745838e-07
+2017,July,Mendocino (NC),Motor Coach,Dsl,IDLEX,DSL,TOG,4.190490062557195e-05
+2017,July,Mendocino (NC),Motor Coach,Dsl,PMBW,DSL,PM,4.434900448975948e-05
+2017,July,Mendocino (NC),Motor Coach,Dsl,PMBW,DSL,PM10,4.434900448975948e-05
+2017,July,Mendocino (NC),Motor Coach,Dsl,PMBW,DSL,PM2_5,1.5522151571415817e-05
+2017,July,Mendocino (NC),Motor Coach,Dsl,PMTW,DSL,PM,6.41283546172456e-06
+2017,July,Mendocino (NC),Motor Coach,Dsl,PMTW,DSL,PM10,6.41283546172456e-06
+2017,July,Mendocino (NC),Motor Coach,Dsl,PMTW,DSL,PM2_5,1.60320886543114e-06
+2017,July,Mendocino (NC),Motor Coach,Dsl,RUNEX,DSL,CO,0.0005852788120917367
+2017,July,Mendocino (NC),Motor Coach,Dsl,RUNEX,DSL,NH3,7.900169432321893e-05
+2017,July,Mendocino (NC),Motor Coach,Dsl,RUNEX,DSL,NOx,0.003353370179410836
+2017,July,Mendocino (NC),Motor Coach,Dsl,RUNEX,DSL,PM,0.00010079288912650969
+2017,July,Mendocino (NC),Motor Coach,Dsl,RUNEX,DSL,PM10,0.00010018813179175058
+2017,July,Mendocino (NC),Motor Coach,Dsl,RUNEX,DSL,PM2_5,9.585403755931073e-05
+2017,July,Mendocino (NC),Motor Coach,Dsl,RUNEX,DSL,SOx,8.641195816053233e-06
+2017,July,Mendocino (NC),Motor Coach,Dsl,RUNEX,DSL,TOG,0.00018937141143571698
+2017,July,Mendocino (NC),Motor Coach,Dsl,STREX,DSL,NOx,0.00010500727264949693
+2017,July,Mendocino (NC),PTO,Dsl,PMTW,DSL,PM,0.0
+2017,July,Mendocino (NC),PTO,Dsl,PMTW,DSL,PM10,0.0
+2017,July,Mendocino (NC),PTO,Dsl,PMTW,DSL,PM2_5,0.0
+2017,July,Mendocino (NC),PTO,Dsl,RUNEX,DSL,CO,0.019030091281179207
+2017,July,Mendocino (NC),PTO,Dsl,RUNEX,DSL,NH3,0.0005657072793519493
+2017,July,Mendocino (NC),PTO,Dsl,RUNEX,DSL,NOx,0.05184978049161354
+2017,July,Mendocino (NC),PTO,Dsl,RUNEX,DSL,PM,0.002334333809517218
+2017,July,Mendocino (NC),PTO,Dsl,RUNEX,DSL,PM10,0.002320327806660115
+2017,July,Mendocino (NC),PTO,Dsl,RUNEX,DSL,PM2_5,0.0022199514528508744
+2017,July,Mendocino (NC),PTO,Dsl,RUNEX,DSL,SOx,0.00010228177071432064
+2017,July,Mendocino (NC),PTO,Dsl,RUNEX,DSL,TOG,0.005332948051860166
+2017,July,Mendocino (NC),SBUS,Dsl,IDLEX,DSL,CO,0.0003213961067678396
+2017,July,Mendocino (NC),SBUS,Dsl,IDLEX,DSL,NOx,0.003509350209615061
+2017,July,Mendocino (NC),SBUS,Dsl,IDLEX,DSL,PM,5.6886279856486725e-06
+2017,July,Mendocino (NC),SBUS,Dsl,IDLEX,DSL,PM10,5.6544962177347816e-06
+2017,July,Mendocino (NC),SBUS,Dsl,IDLEX,DSL,PM2_5,5.409885214351888e-06
+2017,July,Mendocino (NC),SBUS,Dsl,IDLEX,DSL,SOx,2.6712478450094742e-06
+2017,July,Mendocino (NC),SBUS,Dsl,IDLEX,DSL,TOG,2.9654980978567455e-05
+2017,July,Mendocino (NC),SBUS,Dsl,PMBW,DSL,PM,0.00011139388866356549
+2017,July,Mendocino (NC),SBUS,Dsl,PMBW,DSL,PM10,0.00011139388866356549
+2017,July,Mendocino (NC),SBUS,Dsl,PMBW,DSL,PM2_5,3.898786103224792e-05
+2017,July,Mendocino (NC),SBUS,Dsl,PMTW,DSL,PM,2.975984573591895e-05
+2017,July,Mendocino (NC),SBUS,Dsl,PMTW,DSL,PM10,2.975984573591895e-05
+2017,July,Mendocino (NC),SBUS,Dsl,PMTW,DSL,PM2_5,7.439961433979738e-06
+2017,July,Mendocino (NC),SBUS,Dsl,RUNEX,DSL,CO,0.0007654017351992703
+2017,July,Mendocino (NC),SBUS,Dsl,RUNEX,DSL,NH3,0.00020687701909165648
+2017,July,Mendocino (NC),SBUS,Dsl,RUNEX,DSL,NOx,0.019142066853307434
+2017,July,Mendocino (NC),SBUS,Dsl,RUNEX,DSL,PM,0.00012970431879390297
+2017,July,Mendocino (NC),SBUS,Dsl,RUNEX,DSL,PM10,0.00012892609288113954
+2017,July,Mendocino (NC),SBUS,Dsl,RUNEX,DSL,PM2_5,0.00012334880717300174
+2017,July,Mendocino (NC),SBUS,Dsl,RUNEX,DSL,SOx,2.7352207748668232e-05
+2017,July,Mendocino (NC),SBUS,Dsl,RUNEX,DSL,TOG,0.000308922338156445
+2017,July,Mendocino (NC),SBUS,Dsl,STREX,DSL,NOx,0.0003864762738440559
+2017,July,Mendocino (NC),SBUS,Gas,DIURN,CAT,TOG,0.0002942394552841333
+2017,July,Mendocino (NC),SBUS,Gas,DIURN,NCAT,TOG,5.014993476397712e-05
+2017,July,Mendocino (NC),SBUS,Gas,HOTSOAK,CAT,TOG,8.750194275604336e-05
+2017,July,Mendocino (NC),SBUS,Gas,HOTSOAK,NCAT,TOG,3.298875735013417e-05
+2017,July,Mendocino (NC),SBUS,Gas,IDLEX,CAT,CO,0.003748254781866859
+2017,July,Mendocino (NC),SBUS,Gas,IDLEX,CAT,NOx,4.227352877373897e-05
+2017,July,Mendocino (NC),SBUS,Gas,IDLEX,CAT,SOx,1.2692229493423264e-06
+2017,July,Mendocino (NC),SBUS,Gas,IDLEX,CAT,TOG,0.0006990072660521527
+2017,July,Mendocino (NC),SBUS,Gas,IDLEX,NCAT,CO,0.00019050139719952282
+2017,July,Mendocino (NC),SBUS,Gas,IDLEX,NCAT,NOx,2.154231027246366e-06
+2017,July,Mendocino (NC),SBUS,Gas,IDLEX,NCAT,SOx,7.019433133182353e-08
+2017,July,Mendocino (NC),SBUS,Gas,IDLEX,NCAT,TOG,3.42410429486635e-05
+2017,July,Mendocino (NC),SBUS,Gas,PMBW,CAT,PM,5.665610825149059e-05
+2017,July,Mendocino (NC),SBUS,Gas,PMBW,CAT,PM10,5.665610825149059e-05
+2017,July,Mendocino (NC),SBUS,Gas,PMBW,CAT,PM2_5,1.98296378880217e-05
+2017,July,Mendocino (NC),SBUS,Gas,PMBW,NCAT,PM,3.1172622305009728e-06
+2017,July,Mendocino (NC),SBUS,Gas,PMBW,NCAT,PM10,3.1172622305009728e-06
+2017,July,Mendocino (NC),SBUS,Gas,PMBW,NCAT,PM2_5,1.0910417806753404e-06
+2017,July,Mendocino (NC),SBUS,Gas,PMTW,CAT,PM,1.7329383274925723e-05
+2017,July,Mendocino (NC),SBUS,Gas,PMTW,CAT,PM10,1.7329383274925723e-05
+2017,July,Mendocino (NC),SBUS,Gas,PMTW,CAT,PM2_5,4.332345818731431e-06
+2017,July,Mendocino (NC),SBUS,Gas,PMTW,NCAT,PM,9.534758674388826e-07
+2017,July,Mendocino (NC),SBUS,Gas,PMTW,NCAT,PM10,9.534758674388826e-07
+2017,July,Mendocino (NC),SBUS,Gas,PMTW,NCAT,PM2_5,2.3836896685972064e-07
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,CAT,CO,0.02091088235557253
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,CAT,NH3,8.771317293015033e-05
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,CAT,NOx,0.0023502390018666536
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,CAT,PM,7.1145203661345146e-06
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,CAT,PM10,6.360381207324257e-06
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,CAT,PM2_5,5.8481357409625695e-06
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,CAT,SOx,1.1105455370990794e-05
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,CAT,TOG,0.0015211619213249565
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,NCAT,CO,0.009917826571595073
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,NCAT,NH3,5.959222463574251e-07
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,NCAT,NOx,0.0001960663312731729
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,NCAT,PM,2.925852734970185e-06
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,NCAT,PM10,2.8117444783063467e-06
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,NCAT,PM2_5,2.6830069579676595e-06
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,NCAT,SOx,7.65294539363661e-07
+2017,July,Mendocino (NC),SBUS,Gas,RUNEX,NCAT,TOG,0.0004774774269327357
+2017,July,Mendocino (NC),SBUS,Gas,RUNLOSS,CAT,TOG,0.00022593115705923014
+2017,July,Mendocino (NC),SBUS,Gas,RUNLOSS,NCAT,TOG,3.503126405173225e-05
+2017,July,Mendocino (NC),SBUS,Gas,STREX,CAT,CO,0.002934439283521557
+2017,July,Mendocino (NC),SBUS,Gas,STREX,CAT,NOx,0.00010432251051454826
+2017,July,Mendocino (NC),SBUS,Gas,STREX,CAT,PM,4.5561518650029134e-07
+2017,July,Mendocino (NC),SBUS,Gas,STREX,CAT,PM10,4.073199767312607e-07
+2017,July,Mendocino (NC),SBUS,Gas,STREX,CAT,PM2_5,3.7451568330323955e-07
+2017,July,Mendocino (NC),SBUS,Gas,STREX,CAT,SOx,1.2891935107947008e-07
+2017,July,Mendocino (NC),SBUS,Gas,STREX,CAT,TOG,0.0001145079431985089
+2017,July,Mendocino (NC),SBUS,Gas,STREX,NCAT,CO,2.2858504083972982e-05
+2017,July,Mendocino (NC),SBUS,Gas,STREX,NCAT,NOx,6.505837357460755e-06
+2017,July,Mendocino (NC),SBUS,Gas,STREX,NCAT,PM,2.547059011273014e-07
+2017,July,Mendocino (NC),SBUS,Gas,STREX,NCAT,PM10,2.4477237098333665e-07
+2017,July,Mendocino (NC),SBUS,Gas,STREX,NCAT,PM2_5,2.3356531133373543e-07
+2017,July,Mendocino (NC),SBUS,Gas,STREX,NCAT,SOx,1.267312829432684e-08
+2017,July,Mendocino (NC),SBUS,Gas,STREX,NCAT,TOG,0.0001156563895733856
+2017,July,Mendocino (NC),SBUS,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),SBUS,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),SBUS,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),SBUS,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),SBUS,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),SBUS,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),SBUS,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),SBUS,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),SBUS,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),SBUS,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),SBUS,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),SBUS,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),SBUS,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),SBUS,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),SBUS,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),SBUS,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),SBUS,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),SBUS,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,IDLEX,DSL,CO,1.6888771406105137e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,IDLEX,DSL,NOx,6.134596198434547e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,IDLEX,DSL,PM,2.0028996844168456e-08
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,IDLEX,DSL,PM10,1.9908822863103445e-08
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,IDLEX,DSL,PM2_5,1.90475759988042e-08
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,IDLEX,DSL,SOx,5.99145100985386e-09
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,IDLEX,DSL,TOG,1.0886107546717628e-07
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,PMBW,DSL,PM,2.6695628251854998e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,PMBW,DSL,PM10,2.6695628251854998e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,PMBW,DSL,PM2_5,9.343469888149249e-07
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,PMTW,DSL,PM,7.570756620645888e-07
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,PMTW,DSL,PM10,7.570756620645888e-07
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,PMTW,DSL,PM2_5,1.892689155161472e-07
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,RUNEX,DSL,CO,1.9246014564303023e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,RUNEX,DSL,NH3,1.0447125402784568e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,RUNEX,DSL,NOx,0.0001410668468871678
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,RUNEX,DSL,PM,4.866953480903254e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,RUNEX,DSL,PM10,4.837751760017834e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,RUNEX,DSL,PM2_5,4.628472760338993e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,RUNEX,DSL,SOx,6.743300178661674e-07
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,RUNEX,DSL,TOG,6.032913770108253e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 4,Dsl,STREX,DSL,NOx,7.746859684344137e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,IDLEX,DSL,CO,2.1202448021345797e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,IDLEX,DSL,NOx,7.116899833038502e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,IDLEX,DSL,PM,2.4266260583509735e-08
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,IDLEX,DSL,PM10,2.4120663020008675e-08
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,IDLEX,DSL,PM2_5,2.307721381491775e-08
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,IDLEX,DSL,SOx,7.343784794492546e-09
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,IDLEX,DSL,TOG,1.3291782254726128e-07
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,PMBW,DSL,PM,3.6621601378628424e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,PMBW,DSL,PM10,3.6621601378628424e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,PMBW,DSL,PM2_5,1.2817560482519946e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,PMTW,DSL,PM,1.038571666042886e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,PMTW,DSL,PM10,1.038571666042886e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,PMTW,DSL,PM2_5,2.596429165107215e-07
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,RUNEX,DSL,CO,2.756275738214386e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,RUNEX,DSL,NH3,1.4711466748707664e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,RUNEX,DSL,NOx,0.00018142180196003576
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,RUNEX,DSL,PM,7.100825437817805e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,RUNEX,DSL,PM10,7.058220485190897e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,RUNEX,DSL,PM2_5,6.752884991364732e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,RUNEX,DSL,SOx,9.233403293290558e-07
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,RUNEX,DSL,TOG,8.19009126712908e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 5,Dsl,STREX,DSL,NOx,1.0371489326666923e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,IDLEX,DSL,CO,5.707092982705838e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,IDLEX,DSL,NOx,2.161476859050492e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,IDLEX,DSL,PM,9.624134609041938e-08
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,IDLEX,DSL,PM10,9.566389801387685e-08
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,IDLEX,DSL,PM2_5,9.152552013198879e-08
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,IDLEX,DSL,SOx,1.9631035360125583e-08
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,IDLEX,DSL,TOG,4.4474901542352847e-07
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,PMBW,DSL,PM,9.569329222432642e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,PMBW,DSL,PM10,9.569329222432642e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,PMBW,DSL,PM2_5,3.349265227851424e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,PMTW,DSL,PM,2.713817479116191e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,PMTW,DSL,PM10,2.713817479116191e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,PMTW,DSL,PM2_5,6.784543697790478e-07
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,RUNEX,DSL,CO,0.00010154669452354082
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,RUNEX,DSL,NH3,3.445838486557204e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,RUNEX,DSL,NOx,0.0006714554079704451
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,RUNEX,DSL,PM,2.611753546853377e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,RUNEX,DSL,PM10,2.5960830255722566e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,RUNEX,DSL,PM2_5,2.4837776230575608e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,RUNEX,DSL,SOx,2.3466435333420018e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,RUNEX,DSL,TOG,3.188910105757957e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 6,Dsl,STREX,DSL,NOx,2.361218939783306e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,IDLEX,DSL,CO,1.4205254137823921e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,IDLEX,DSL,NOx,4.865963648450729e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,IDLEX,DSL,PM,2.3053757614040322e-07
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,IDLEX,DSL,PM10,2.2915435068356076e-07
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,IDLEX,DSL,PM2_5,2.1924123490952344e-07
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,IDLEX,DSL,SOx,5.019382521607159e-08
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,IDLEX,DSL,TOG,1.1684691374917817e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,PMBW,DSL,PM,6.002366971821173e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,PMBW,DSL,PM10,6.002366971821173e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,PMBW,DSL,PM2_5,2.10082844013741e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,PMTW,DSL,PM,1.7022434933069504e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,PMTW,DSL,PM10,1.7022434933069504e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,PMTW,DSL,PM2_5,4.255608733267376e-06
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,RUNEX,DSL,CO,0.0005936647819154734
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,RUNEX,DSL,NH3,0.0002171728033241439
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,RUNEX,DSL,NOx,0.004202801857198066
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,RUNEX,DSL,PM,0.00015032479899107024
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,RUNEX,DSL,PM10,0.00014942285019712385
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,RUNEX,DSL,PM2_5,0.00014295888384050788
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,RUNEX,DSL,SOx,1.4053635921062183e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,RUNEX,DSL,TOG,0.00019142347551927736
+2017,July,Mendocino (NC),T6 CAIRP Class 7,Dsl,STREX,DSL,NOx,6.034584269590795e-05
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 CAIRP Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,CO,0.00018740587314332928
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,NOx,0.0010334605594572116
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,PM,6.260384631968285e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,PM10,6.222822324176474e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,PM2_5,5.953625785001838e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,SOx,6.386124231395869e-07
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,TOG,2.254891129704123e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,PMBW,DSL,PM,3.4738262144905025e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,PMBW,DSL,PM10,3.4738262144905025e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,PMBW,DSL,PM2_5,1.2158391750716759e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,PMTW,DSL,PM,8.76437237921523e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,PMTW,DSL,PM10,8.76437237921523e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,PMTW,DSL,PM2_5,2.1910930948038074e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,CO,0.0012385121854669328
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,NH3,5.647053107469227e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,NOx,0.005808162827863961
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,PM,0.000201244652832127
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,PM10,0.00020003718491513423
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,PM2_5,0.00019138366484335278
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,SOx,8.778687602268644e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,TOG,0.0005360321343027441
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,Dsl,STREX,DSL,NOx,0.0001242020805695233
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 4,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,CO,8.44138043320414e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,NOx,0.0004782228838986913
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,PM,3.263875351248302e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,PM10,3.2442920991408123e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,PM2_5,3.1039454590371355e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,SOx,3.150789145782228e-07
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,TOG,1.2454789171492531e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,PMBW,DSL,PM,1.0480483190130027e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,PMBW,DSL,PM10,1.0480483190130027e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,PMBW,DSL,PM2_5,3.6681691165455096e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,PMTW,DSL,PM,2.6441984060471268e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,PMTW,DSL,PM10,2.6441984060471268e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,PMTW,DSL,PM2_5,6.610496015117817e-07
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,CO,0.00039878990599654106
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,NH3,1.2052457099203946e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,NOx,0.0018892674146181474
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,PM,6.785765236962342e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,PM10,6.745050645540566e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,PM2_5,6.453262740351186e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,SOx,2.6872696876610393e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,TOG,0.0001755182446886901
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,Dsl,STREX,DSL,NOx,4.075166333381116e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 5,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,CO,0.0003510271979429697
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,NOx,0.0015280145865700827
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,PM,1.2046551570023636e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,PM10,1.1974272260603494e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,PM2_5,1.145627054309248e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,SOx,1.0813713139137645e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,TOG,4.583825434945742e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,PMBW,DSL,PM,5.381119357217492e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,PMBW,DSL,PM10,5.381119357217492e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,PMBW,DSL,PM2_5,1.8833917750261225e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,PMTW,DSL,PM,1.3576422927240345e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,PMTW,DSL,PM10,1.3576422927240345e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,PMTW,DSL,PM2_5,3.394105731810086e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,CO,0.0016802629364899996
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,NH3,0.00010717951345584055
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,NOx,0.008470432107397187
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,PM,0.0002957482621853472
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,PM10,0.0002939737726122351
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,PM2_5,0.0002812565973382652
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,SOx,1.3225942494721388e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,TOG,0.0007202349192494872
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,Dsl,STREX,DSL,NOx,0.00030985769767935583
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,CO,0.00010142439767099288
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,NOx,0.0004903430744630355
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,PM,4.451870923312378e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,PM10,4.425159697772504e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,PM2_5,4.233729248070071e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,SOx,3.884122971976372e-07
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,TOG,1.8932407544854693e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,PMBW,DSL,PM,3.125220780287508e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,PMBW,DSL,PM10,3.125220780287508e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,PMBW,DSL,PM2_5,1.0938272731006278e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,PMTW,DSL,PM,7.884850016804486e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,PMTW,DSL,PM10,7.884850016804486e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,PMTW,DSL,PM2_5,1.9712125042011215e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,CO,0.0008538701576198682
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,NH3,5.335685746665288e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,NOx,0.005142237120149864
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,PM,0.00015087226583037516
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,PM10,0.0001499670322353929
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,PM2_5,0.00014347952480468675
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,SOx,7.979485191553063e-06
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,TOG,0.00037800633392439954
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,Dsl,STREX,DSL,NOx,8.867169607993382e-05
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Delivery Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,IDLEX,DSL,CO,0.0011465493991713708
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,IDLEX,DSL,NOx,0.005880383324268832
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,IDLEX,DSL,PM,5.052176659493237e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,IDLEX,DSL,PM10,5.021863599536279e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,IDLEX,DSL,PM2_5,4.804620003178069e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,IDLEX,DSL,SOx,3.5226079065159566e-06
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,IDLEX,DSL,TOG,0.0001846807812526543
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,PMBW,DSL,PM,0.00020228442131329437
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,PMBW,DSL,PM10,0.00020228442131329437
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,PMBW,DSL,PM2_5,7.079954745965305e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,PMTW,DSL,PM,5.4106351530128005e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,PMTW,DSL,PM10,5.4106351530128005e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,PMTW,DSL,PM2_5,1.3526587882532001e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,CO,0.007562660090885082
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,NH3,0.00022408083777309938
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,NOx,0.039450392583285025
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,PM,0.0015069097893712449
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,PM10,0.001497868330635018
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,PM2_5,0.0014330712096920538
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,SOx,5.065604626480273e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,TOG,0.00309897289615424
+2017,July,Mendocino (NC),T6 Instate Other Class 4,Dsl,STREX,DSL,NOx,0.0002535863901960727
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 4,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,IDLEX,DSL,CO,0.0015017874868246935
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,IDLEX,DSL,NOx,0.006574198665729579
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,IDLEX,DSL,PM,3.0594254939207974e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,IDLEX,DSL,PM10,3.0410689409572736e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,IDLEX,DSL,PM2_5,2.9095136447186786e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,IDLEX,DSL,SOx,5.425632676861383e-06
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,IDLEX,DSL,TOG,0.0001341099879489663
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,PMBW,DSL,PM,0.0004995547220138254
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,PMBW,DSL,PM10,0.0004995547220138254
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,PMBW,DSL,PM2_5,0.0001748441527048389
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,PMTW,DSL,PM,0.00013361920419938453
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,PMTW,DSL,PM10,0.00013361920419938453
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,PMTW,DSL,PM2_5,3.340480104984613e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,CO,0.008049024990915192
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,NH3,0.0014586605452831813
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,NOx,0.04451622076637646
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,PM,0.0015135072226491377
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,PM10,0.0015044261793132432
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,PM2_5,0.0014393453687393302
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,SOx,0.00012304338066355703
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,TOG,0.0031219967083716037
+2017,July,Mendocino (NC),T6 Instate Other Class 5,Dsl,STREX,DSL,NOx,0.0021939065047231056
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 5,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,IDLEX,DSL,CO,0.001569199264638544
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,IDLEX,DSL,NOx,0.007229521893323659
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,IDLEX,DSL,PM,6.387694205180008e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,IDLEX,DSL,PM10,6.349368039948928e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,IDLEX,DSL,PM2_5,6.0746971891261864e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,IDLEX,DSL,SOx,4.828575091008897e-06
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,IDLEX,DSL,TOG,0.00024317441924406188
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,PMBW,DSL,PM,0.0003360018204918867
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,PMBW,DSL,PM10,0.0003360018204918867
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,PMBW,DSL,PM2_5,0.00011760063717216033
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,PMTW,DSL,PM,8.98726283332536e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,PMTW,DSL,PM10,8.98726283332536e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,PMTW,DSL,PM2_5,2.24681570833134e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,CO,0.009842446440670718
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,NH3,0.0006022254348183532
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,NOx,0.052041526787667436
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,PM,0.001953771697556072
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,PM10,0.0019420490673707355
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,PM2_5,0.0018580368843758243
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,SOx,8.335311267217912e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,TOG,0.0039966243010037495
+2017,July,Mendocino (NC),T6 Instate Other Class 6,Dsl,STREX,DSL,NOx,0.0008123629754851813
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,IDLEX,DSL,CO,0.002667901223683237
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,IDLEX,DSL,NOx,0.007704946562256586
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,IDLEX,DSL,PM,0.00016992494565685562
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,IDLEX,DSL,PM10,0.00016890539598291455
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,IDLEX,DSL,PM2_5,0.00016159862331966974
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,IDLEX,DSL,SOx,5.5936115441457545e-06
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,IDLEX,DSL,TOG,0.0006868159883818271
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,PMBW,DSL,PM,0.00036603560588691476
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,PMBW,DSL,PM10,0.00036603560588691476
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,PMBW,DSL,PM2_5,0.00012811246206042017
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,PMTW,DSL,PM,9.790596347499945e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,PMTW,DSL,PM10,9.790596347499945e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,PMTW,DSL,PM2_5,2.4476490868749864e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,CO,0.0114141006813041
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,NH3,0.0008306714200677468
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,NOx,0.056362231059390144
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,PM,0.0025449424604327554
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,PM10,0.0025296728056701597
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,PM2_5,0.0024202402798715506
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,SOx,9.163341338447849e-05
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,TOG,0.00491268440668882
+2017,July,Mendocino (NC),T6 Instate Other Class 7,Dsl,STREX,DSL,NOx,0.0011365585200472695
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Other Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,CO,0.0005090503502372811
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,NOx,0.002396576670377681
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,PM,2.433036669691871e-05
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,PM10,2.418438449673719e-05
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,PM2_5,2.3138178728769687e-05
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,SOx,1.7757929983477716e-06
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,TOG,9.675270190063067e-05
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,PMBW,DSL,PM,0.00011970828167277914
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,PMBW,DSL,PM10,0.00011970828167277914
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,PMBW,DSL,PM2_5,4.1897898585472695e-05
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,PMTW,DSL,PM,3.201916552547337e-05
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,PMTW,DSL,PM10,3.201916552547337e-05
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,PMTW,DSL,PM2_5,8.004791381368343e-06
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,CO,0.003267340001208389
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,NH3,0.00018556255605917932
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,NOx,0.02259452489925078
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,PM,0.0006185741273058197
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,PM10,0.0006148626825419848
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,PM2_5,0.0005882639950678346
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,SOx,2.8911504238427557e-05
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,TOG,0.0014269318865433066
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,Dsl,STREX,DSL,NOx,0.00024129296732764186
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Instate Tractor Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,IDLEX,DSL,CO,8.766157325476452e-07
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,IDLEX,DSL,NOx,3.18417687727064e-06
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,IDLEX,DSL,PM,1.0396098869747051e-08
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,IDLEX,DSL,PM10,1.0333722276528569e-08
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,IDLEX,DSL,PM2_5,9.886690025129444e-09
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,IDLEX,DSL,SOx,3.109877024101893e-09
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,IDLEX,DSL,TOG,5.65046024386311e-08
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,PMBW,DSL,PM,1.38564298692349e-06
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,PMBW,DSL,PM10,1.38564298692349e-06
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,PMBW,DSL,PM2_5,4.849750454232214e-07
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,PMTW,DSL,PM,3.929619381171003e-07
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,PMTW,DSL,PM10,3.929619381171003e-07
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,PMTW,DSL,PM2_5,9.824048452927507e-08
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,RUNEX,DSL,CO,9.98969001246281e-06
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,RUNEX,DSL,NH3,5.422605496542978e-06
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,RUNEX,DSL,NOx,7.322108517418591e-05
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,RUNEX,DSL,PM,2.526203875371876e-06
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,RUNEX,DSL,PM10,2.511046652119645e-06
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,RUNEX,DSL,PM2_5,2.4024198854786533e-06
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,RUNEX,DSL,SOx,3.5001261306318776e-07
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,RUNEX,DSL,TOG,3.1313983597605838e-06
+2017,July,Mendocino (NC),T6 OOS Class 4,Dsl,STREX,DSL,NOx,4.021026109733656e-06
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,IDLEX,DSL,CO,1.1005181521727577e-06
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,IDLEX,DSL,NOx,3.694043934645161e-06
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,IDLEX,DSL,PM,1.2595460777909875e-08
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,IDLEX,DSL,PM10,1.2519888013242413e-08
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,IDLEX,DSL,PM2_5,1.1978283199792289e-08
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,IDLEX,DSL,SOx,3.811809119076982e-09
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,IDLEX,DSL,TOG,6.899131471849063e-08
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,PMBW,DSL,PM,1.9008530074648299e-06
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,PMBW,DSL,PM10,1.9008530074648299e-06
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,PMBW,DSL,PM2_5,6.652985526126902e-07
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,PMTW,DSL,PM,5.390731154693476e-07
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,PMTW,DSL,PM10,5.390731154693476e-07
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,PMTW,DSL,PM2_5,1.347682788673369e-07
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,RUNEX,DSL,CO,1.43065153529836e-05
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,RUNEX,DSL,NH3,7.63602211950833e-06
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,RUNEX,DSL,NOx,9.416742162916621e-05
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,RUNEX,DSL,PM,3.685700481089542e-06
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,RUNEX,DSL,PM10,3.6635862782030054e-06
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,RUNEX,DSL,PM2_5,3.5051011575161543e-06
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,RUNEX,DSL,SOx,4.792620136365901e-07
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,RUNEX,DSL,TOG,4.2510865238404474e-06
+2017,July,Mendocino (NC),T6 OOS Class 5,Dsl,STREX,DSL,NOx,5.383346423343163e-06
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,IDLEX,DSL,CO,2.9622803063311644e-06
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,IDLEX,DSL,NOx,1.1219197499283004e-05
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,IDLEX,DSL,PM,4.9954301607145426e-08
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,IDLEX,DSL,PM10,4.965457579750257e-08
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,IDLEX,DSL,PM2_5,4.75065408283953e-08
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,IDLEX,DSL,SOx,1.0189536006616133e-08
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,IDLEX,DSL,TOG,2.308480435853037e-07
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,PMBW,DSL,PM,4.966983291891499e-06
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,PMBW,DSL,PM10,4.966983291891499e-06
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,PMBW,DSL,PM2_5,1.7384441521620245e-06
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,PMTW,DSL,PM,1.4086134735979521e-06
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,PMTW,DSL,PM10,1.4086134735979521e-06
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,PMTW,DSL,PM2_5,3.5215336839948803e-07
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,RUNEX,DSL,CO,5.2708055419206114e-05
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,RUNEX,DSL,NH3,1.7885707338594546e-05
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,RUNEX,DSL,NOx,0.0003485205404674354
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,RUNEX,DSL,PM,1.3556369444741603e-05
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,RUNEX,DSL,PM10,1.3475031228073156e-05
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,RUNEX,DSL,PM2_5,1.2892107341949261e-05
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,RUNEX,DSL,SOx,1.2180309561200257e-06
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,RUNEX,DSL,TOG,1.6552114411813702e-05
+2017,July,Mendocino (NC),T6 OOS Class 6,Dsl,STREX,DSL,NOx,1.2255963563005868e-05
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,IDLEX,DSL,CO,7.426878359021734e-06
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,IDLEX,DSL,NOx,2.5256901080884347e-05
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,IDLEX,DSL,PM,1.2194891994847195e-07
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,IDLEX,DSL,PM10,1.212172264287811e-07
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,IDLEX,DSL,PM2_5,1.1597342287099679e-07
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,IDLEX,DSL,SOx,2.6049351500147806e-08
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,IDLEX,DSL,TOG,6.144206739795201e-07
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,PMBW,DSL,PM,3.6116144923582e-05
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,PMBW,DSL,PM10,3.6116144923582e-05
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,PMBW,DSL,PM2_5,1.2640650723253697e-05
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,PMTW,DSL,PM,1.024237154910993e-05
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,PMTW,DSL,PM10,1.024237154910993e-05
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,PMTW,DSL,PM2_5,2.5605928872774823e-06
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,RUNEX,DSL,CO,0.0003817919988081357
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,RUNEX,DSL,NH3,0.0001286584882712995
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,RUNEX,DSL,NOx,0.0026346041976722844
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,RUNEX,DSL,PM,9.641824007591867e-05
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,RUNEX,DSL,PM10,9.583973063546317e-05
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,RUNEX,DSL,PM2_5,9.169374631219861e-05
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,RUNEX,DSL,SOx,8.45481360266688e-06
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,RUNEX,DSL,TOG,0.00012492083893544343
+2017,July,Mendocino (NC),T6 OOS Class 7,Dsl,STREX,DSL,NOx,3.132265444914999e-05
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,IDLEX,DSL,CO,0.00016924051880873466
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,IDLEX,DSL,NOx,0.0008320351290930946
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,IDLEX,DSL,PM,7.925787257287587e-06
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,IDLEX,DSL,PM10,7.878232533743862e-06
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,IDLEX,DSL,PM2_5,7.537423681680493e-06
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,IDLEX,DSL,SOx,5.122426785613634e-07
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,IDLEX,DSL,TOG,2.9062223441924438e-05
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,PMBW,DSL,PM,1.9173617364368792e-05
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,PMBW,DSL,PM10,1.9173617364368792e-05
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,PMBW,DSL,PM2_5,6.710766077529076e-06
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,PMTW,DSL,PM,4.98346336659495e-06
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,PMTW,DSL,PM10,4.98346336659495e-06
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,PMTW,DSL,PM2_5,1.2458658416487375e-06
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,RUNEX,DSL,CO,0.0006036270029183779
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,RUNEX,DSL,NH3,1.2093713083152985e-05
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,RUNEX,DSL,NOx,0.004460019581645851
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,RUNEX,DSL,PM,0.00014456703844495969
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,RUNEX,DSL,PM10,0.00014369963621428992
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,RUNEX,DSL,PM2_5,0.00013748325356115665
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,RUNEX,DSL,SOx,5.0056575848328575e-06
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,RUNEX,DSL,TOG,0.00033156458596091863
+2017,July,Mendocino (NC),T6 Public Class 4,Dsl,STREX,DSL,NOx,2.490047295761451e-06
+2017,July,Mendocino (NC),T6 Public Class 4,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Public Class 4,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,IDLEX,DSL,CO,0.00025864548748434917
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,IDLEX,DSL,NOx,0.0014746658544074942
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,IDLEX,DSL,PM,6.82809170828831e-06
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,IDLEX,DSL,PM10,6.787123158038582e-06
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,IDLEX,DSL,PM2_5,6.493515214582184e-06
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,IDLEX,DSL,SOx,1.0497261950017723e-06
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,IDLEX,DSL,TOG,2.7244710388332217e-05
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,PMBW,DSL,PM,6.142812772795367e-05
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,PMBW,DSL,PM10,6.142812772795367e-05
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,PMBW,DSL,PM2_5,2.149984470478378e-05
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,PMTW,DSL,PM,1.596593998895891e-05
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,PMTW,DSL,PM10,1.596593998895891e-05
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,PMTW,DSL,PM2_5,3.991484997239728e-06
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,RUNEX,DSL,CO,0.0011193282472151856
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,RUNEX,DSL,NH3,0.00011827753193758642
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,RUNEX,DSL,NOx,0.007785298881856187
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,RUNEX,DSL,PM,0.00022131168821838505
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,RUNEX,DSL,PM10,0.00021998381808907477
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,RUNEX,DSL,PM2_5,0.0002104674154956842
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,RUNEX,DSL,SOx,1.5822031635861345e-05
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,RUNEX,DSL,TOG,0.0005504875026233874
+2017,July,Mendocino (NC),T6 Public Class 5,Dsl,STREX,DSL,NOx,8.302105241729025e-05
+2017,July,Mendocino (NC),T6 Public Class 5,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Public Class 5,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,IDLEX,DSL,CO,0.0002670584243095694
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,IDLEX,DSL,NOx,0.0009957062780568654
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,IDLEX,DSL,PM,1.6424058709851187e-05
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,IDLEX,DSL,PM10,1.632551435759208e-05
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,IDLEX,DSL,PM2_5,1.561927983306848e-05
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,IDLEX,DSL,SOx,5.69191971224377e-07
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,IDLEX,DSL,TOG,6.24673921310127e-05
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,PMBW,DSL,PM,2.695775438647887e-05
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,PMBW,DSL,PM10,2.695775438647887e-05
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,PMBW,DSL,PM2_5,9.435214035267603e-06
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,PMTW,DSL,PM,7.006658100955821e-06
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,PMTW,DSL,PM10,7.006658100955821e-06
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,PMTW,DSL,PM2_5,1.7516645252389553e-06
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,RUNEX,DSL,CO,0.0012636564307002991
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,RUNEX,DSL,NH3,1.576497620889358e-05
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,RUNEX,DSL,NOx,0.007057873517402699
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,RUNEX,DSL,PM,0.0003029085020571986
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,RUNEX,DSL,PM10,0.00030109105104485543
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,RUNEX,DSL,PM2_5,0.0002880659854563959
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,RUNEX,DSL,SOx,7.146193102636267e-06
+2017,July,Mendocino (NC),T6 Public Class 6,Dsl,RUNEX,DSL,TOG,0.0006997695849129482
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,IDLEX,DSL,CO,0.001587046230284348
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,IDLEX,DSL,NOx,0.0035380435749927464
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,IDLEX,DSL,PM,0.0001120141109246902
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,IDLEX,DSL,PM10,0.00011134202625914208
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,IDLEX,DSL,PM2_5,0.0001065254194893804
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,IDLEX,DSL,SOx,2.4616381949741283e-06
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,IDLEX,DSL,TOG,0.0004482081033674728
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,PMBW,DSL,PM,0.00020272663818827872
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,PMBW,DSL,PM10,0.00020272663818827872
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,PMBW,DSL,PM2_5,7.095432336589753e-05
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,PMTW,DSL,PM,5.269119309336417e-05
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,PMTW,DSL,PM10,5.269119309336417e-05
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,PMTW,DSL,PM2_5,1.3172798273341042e-05
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,RUNEX,DSL,CO,0.009904119412122844
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,RUNEX,DSL,NH3,0.00028199254439471817
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,RUNEX,DSL,NOx,0.04633469226915551
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,RUNEX,DSL,PM,0.0025835504898095497
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,RUNEX,DSL,PM10,0.0025680491868706927
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,RUNEX,DSL,PM2_5,0.002456956515808882
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,RUNEX,DSL,SOx,5.472343344843471e-05
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,RUNEX,DSL,TOG,0.005634741181545789
+2017,July,Mendocino (NC),T6 Public Class 7,Dsl,STREX,DSL,NOx,0.00010509078949274925
+2017,July,Mendocino (NC),T6 Public Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Public Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,IDLEX,DSL,CO,4.086971619367086e-05
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,IDLEX,DSL,NOx,0.00011973557902527095
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,IDLEX,DSL,PM,4.6154685280152614e-08
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,IDLEX,DSL,PM10,4.5877757168471704e-08
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,IDLEX,DSL,PM2_5,4.389310570142514e-08
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,IDLEX,DSL,SOx,1.6275841007313403e-07
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,IDLEX,DSL,TOG,1.5467435037242037e-06
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,PMBW,DSL,PM,1.6946831253440643e-05
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,PMBW,DSL,PM10,1.6946831253440643e-05
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,PMBW,DSL,PM2_5,5.9313909387042245e-06
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,PMTW,DSL,PM,4.469819085613091e-06
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,PMTW,DSL,PM10,4.469819085613091e-06
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,PMTW,DSL,PM2_5,1.1174547714032728e-06
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,RUNEX,DSL,CO,4.133275537306134e-05
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,RUNEX,DSL,NH3,6.6979993212579e-05
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,RUNEX,DSL,NOx,0.0006800048512000851
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,RUNEX,DSL,PM,3.402539387702209e-06
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,RUNEX,DSL,PM10,3.3821241513759948e-06
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,RUNEX,DSL,PM2_5,3.235814957704801e-06
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,RUNEX,DSL,SOx,4.027451360499661e-06
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,RUNEX,DSL,TOG,1.3463602738473593e-05
+2017,July,Mendocino (NC),T6 Utility Class 5,Dsl,STREX,DSL,NOx,0.00012919237342037278
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Utility Class 5,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,IDLEX,DSL,CO,7.253950473241791e-06
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,IDLEX,DSL,NOx,3.513060119682514e-05
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,IDLEX,DSL,PM,1.9723689661737272e-08
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,IDLEX,DSL,PM10,1.9605347523766837e-08
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,IDLEX,DSL,PM2_5,1.875722886831214e-08
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,IDLEX,DSL,SOx,3.573135415448485e-08
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,IDLEX,DSL,TOG,3.2002808787926857e-07
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,PMBW,DSL,PM,3.2026080566364056e-06
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,PMBW,DSL,PM10,3.2026080566364056e-06
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,PMBW,DSL,PM2_5,1.1209128198227417e-06
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,PMTW,DSL,PM,8.447053258045116e-07
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,PMTW,DSL,PM10,8.447053258045116e-07
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,PMTW,DSL,PM2_5,2.111763314511279e-07
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,RUNEX,DSL,CO,9.489136018162792e-06
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,RUNEX,DSL,NH3,1.0524289482071299e-05
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,RUNEX,DSL,NOx,0.00019192180853037363
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,RUNEX,DSL,PM,1.0478878515992555e-06
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,RUNEX,DSL,PM10,1.0416005244896601e-06
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,RUNEX,DSL,PM2_5,9.96541346870892e-07
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,RUNEX,DSL,SOx,7.811355265373596e-07
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,RUNEX,DSL,TOG,3.440368803355101e-06
+2017,July,Mendocino (NC),T6 Utility Class 6,Dsl,STREX,DSL,NOx,2.184717042158435e-05
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Utility Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,IDLEX,DSL,CO,9.180619913487432e-06
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,IDLEX,DSL,NOx,4.9370570620817704e-05
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,IDLEX,DSL,PM,3.300595663852903e-08
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,IDLEX,DSL,PM10,3.280792089869786e-08
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,IDLEX,DSL,PM2_5,3.1388664763241116e-08
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,IDLEX,DSL,SOx,4.7798251970855214e-08
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,IDLEX,DSL,TOG,4.039457936866652e-07
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,PMBW,DSL,PM,4.455891637843909e-06
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,PMBW,DSL,PM10,4.455891637843909e-06
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,PMBW,DSL,PM2_5,1.5595620732453677e-06
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,PMTW,DSL,PM,1.1752656994336218e-06
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,PMTW,DSL,PM10,1.1752656994336218e-06
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,PMTW,DSL,PM2_5,2.9381642485840544e-07
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,RUNEX,DSL,CO,1.1500753010080324e-05
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,RUNEX,DSL,NH3,1.4809568939491624e-05
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,RUNEX,DSL,NOx,0.00028305796579723854
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,RUNEX,DSL,PM,1.4843423937998448e-06
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,RUNEX,DSL,PM10,1.4754363394370456e-06
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,RUNEX,DSL,PM2_5,1.4116096165036523e-06
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,RUNEX,DSL,SOx,1.0881139515515452e-06
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,RUNEX,DSL,TOG,4.1586844375671155e-06
+2017,July,Mendocino (NC),T6 Utility Class 7,Dsl,STREX,DSL,NOx,2.4422606122681994e-05
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T6 Utility Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,IDLEX,DSL,CO,0.0303892373145226
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,IDLEX,DSL,NOx,0.03881865388424399
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,IDLEX,DSL,PM,0.00011220569636185829
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,IDLEX,DSL,PM10,0.00011153246218368714
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,IDLEX,DSL,PM2_5,0.00010670761724012723
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,IDLEX,DSL,SOx,6.908676883811562e-05
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,IDLEX,DSL,TOG,0.0034642890780145954
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,PMBW,DSL,PM,0.005460169881404345
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,PMBW,DSL,PM10,0.005460169881404345
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,PMBW,DSL,PM2_5,0.0019110594584915207
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,PMTW,DSL,PM,0.002448258033110448
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,PMTW,DSL,PM10,0.002448258033110448
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,PMTW,DSL,PM2_5,0.000612064508277612
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,CO,0.03623125966242364
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,NH3,0.011034348735386893
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,NOx,0.34021118670145095
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,PM,0.006862522406736985
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,PM10,0.0068213472722965605
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,PM2_5,0.006526258808806873
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,SOx,0.0010196736358112854
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,TOG,0.01134693358178077
+2017,July,Mendocino (NC),T7 CAIRP Class 8,Dsl,STREX,DSL,NOx,0.008259389327535366
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T7 CAIRP Class 8,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,IDLEX,DSL,CO,0.04124027993289651
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,IDLEX,DSL,NOx,0.04100086253254567
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,IDLEX,DSL,PM,0.00021682709693808647
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,IDLEX,DSL,PM10,0.00021552613435645794
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,IDLEX,DSL,PM2_5,0.00020620256918812017
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,IDLEX,DSL,SOx,7.775256935883869e-05
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,IDLEX,DSL,TOG,0.004584737196874779
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,PMBW,DSL,PM,0.006409410534017771
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,PMBW,DSL,PM10,0.006409410534017771
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,PMBW,DSL,PM2_5,0.00224329368690622
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,PMTW,DSL,PM,0.0028945957906892144
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,PMTW,DSL,PM10,0.0028945957906892144
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,PMTW,DSL,PM2_5,0.0007236489476723036
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,CO,0.059646829872048474
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,NH3,0.014047633229357478
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,NOx,0.36208695299052934
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,PM,0.01154379685018026
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,PM10,0.011474534069079176
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,PM2_5,0.010978150804521422
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,SOx,0.0012149363836990313
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,TOG,0.017258479399045467
+2017,July,Mendocino (NC),T7 NNOOS Class 8,Dsl,STREX,DSL,NOx,0.009753213816655896
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,IDLEX,DSL,CO,0.014104842702825153
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,IDLEX,DSL,NOx,0.017895431489403948
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,IDLEX,DSL,PM,5.6702242410799496e-05
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,IDLEX,DSL,PM10,5.636202895633469e-05
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,IDLEX,DSL,PM2_5,5.392383253267032e-05
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,IDLEX,DSL,SOx,3.200311951007917e-05
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,IDLEX,DSL,TOG,0.0016285569690128567
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,PMBW,DSL,PM,0.0023517210921461923
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,PMBW,DSL,PM10,0.0023517210921461923
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,PMBW,DSL,PM2_5,0.0008231023822511672
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,PMTW,DSL,PM,0.001051555234169492
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,PMTW,DSL,PM10,0.001051555234169492
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,PMTW,DSL,PM2_5,0.000262888808542373
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,RUNEX,DSL,CO,0.018089496767290936
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,RUNEX,DSL,NH3,0.004694025252736837
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,RUNEX,DSL,NOx,0.15279094464085935
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,RUNEX,DSL,PM,0.003324304300659491
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,RUNEX,DSL,PM10,0.0033043584748555332
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,RUNEX,DSL,PM2_5,0.0031614133899271757
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,RUNEX,DSL,SOx,0.00043796054659713115
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,RUNEX,DSL,TOG,0.0057093781908918815
+2017,July,Mendocino (NC),T7 NOOS Class 8,Dsl,STREX,DSL,NOx,0.003083640702764445
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,IDLEX,DSL,CO,0.0006806866335046785
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,IDLEX,DSL,NOx,0.0016924032157410954
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,IDLEX,DSL,PM,7.427724954502008e-07
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,IDLEX,DSL,PM10,7.383158604774998e-07
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,IDLEX,DSL,PM2_5,7.06376643173141e-07
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,IDLEX,DSL,SOx,2.4247663700417454e-06
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,IDLEX,DSL,TOG,9.600592963344787e-05
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,PMBW,DSL,PM,0.0004078259603848643
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,PMBW,DSL,PM10,0.0004078259603848643
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,PMBW,DSL,PM2_5,0.0001427390861347025
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,PMTW,DSL,PM,0.00015257561945810944
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,PMTW,DSL,PM10,0.00015257561945810944
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,PMTW,DSL,PM2_5,3.814390486452736e-05
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,RUNEX,DSL,CO,0.0018199497821850205
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,RUNEX,DSL,NH3,0.0005416525569155743
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,RUNEX,DSL,NOx,0.02081977433710604
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,RUNEX,DSL,PM,0.00014983660506386382
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,RUNEX,DSL,PM10,0.00014893758543348067
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,RUNEX,DSL,PM2_5,0.0001424946114157345
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,RUNEX,DSL,SOx,6.93427159644606e-05
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,RUNEX,DSL,TOG,0.0006744175633792665
+2017,July,Mendocino (NC),T7 Other Port Class 8,Dsl,STREX,DSL,NOx,0.00036573954951113924
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,IDLEX,DSL,CO,0.00331136134424056
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,IDLEX,DSL,NOx,0.007740936539462647
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,IDLEX,DSL,PM,0.00019351014221980707
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,IDLEX,DSL,PM10,0.00019234908136648814
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,IDLEX,DSL,PM2_5,0.00018402814525103652
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,IDLEX,DSL,SOx,5.900511952595813e-06
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,IDLEX,DSL,TOG,0.0014104626799056274
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,PMBW,DSL,PM,0.0010159277227487016
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,PMBW,DSL,PM10,0.0010159277227487016
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,PMBW,DSL,PM2_5,0.00035557470296204566
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,PMTW,DSL,PM,0.00029296352014131693
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,PMTW,DSL,PM10,0.00029296352014131693
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,PMTW,DSL,PM2_5,7.324088003532923e-05
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,RUNEX,DSL,CO,0.03231590588487593
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,RUNEX,DSL,NH3,0.0005367112042789794
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,RUNEX,DSL,NOx,0.11949140755146082
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,RUNEX,DSL,PM,0.0057311449393724085
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,RUNEX,DSL,PM10,0.005696758069736175
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,RUNEX,DSL,PM2_5,0.005450318837343159
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,RUNEX,DSL,SOx,0.00015249296458589033
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,RUNEX,DSL,TOG,0.011550261352414756
+2017,July,Mendocino (NC),T7 Public Class 8,Dsl,STREX,DSL,NOx,0.000748592716417173
+2017,July,Mendocino (NC),T7 Public Class 8,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T7 Public Class 8,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,CO,0.00017838162879587786
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,NOx,0.0004841493804377513
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,PM,3.4656024624296614e-06
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,PM10,3.4448088476550826e-06
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,PM2_5,3.2957879417706078e-06
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,SOx,3.75045318527146e-07
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,TOG,3.68704213141947e-05
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,PMBW,DSL,PM,0.00011663077575676215
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,PMBW,DSL,PM10,0.00011663077575676215
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,PMBW,DSL,PM2_5,4.082077151486674e-05
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,PMTW,DSL,PM,4.190072007544983e-05
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,PMTW,DSL,PM10,4.190072007544983e-05
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,PMTW,DSL,PM2_5,1.0475180018862458e-05
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,CO,0.0020058245595518717
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,NH3,9.662424553356978e-05
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,NOx,0.009361789839050144
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,PM,0.0004284649065192816
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,PM10,0.00042589411708016594
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,PM2_5,0.00040747012609983684
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,SOx,1.8719894590394287e-05
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,TOG,0.0005750385830210127
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,Dsl,STREX,DSL,NOx,8.96218824214481e-05
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,PMBW,CAT,PM,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,PMBW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,PMTW,CAT,PM,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,PMTW,CAT,PM10,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,CO,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,PM,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mendocino (NC),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,IDLEX,DSL,CO,0.0013926791479451563
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,IDLEX,DSL,NOx,0.003554825380334764
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,IDLEX,DSL,PM,5.853746161206634e-05
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,IDLEX,DSL,PM10,5.818623684239394e-05
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,IDLEX,DSL,PM2_5,5.566912599307508e-05
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,IDLEX,DSL,SOx,3.242845840225698e-06
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,IDLEX,DSL,TOG,0.0004778911750490293
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,PMBW,DSL,PM,0.0005676527778094644
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,PMBW,DSL,PM10,0.0005676527778094644
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,PMBW,DSL,PM2_5,0.00019867847223331252
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,PMTW,DSL,PM,0.00020467344129525945
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,PMTW,DSL,PM10,0.00020467344129525945
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,PMTW,DSL,PM2_5,5.116836032381486e-05
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,CO,0.015799985045253356
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,NH3,0.0004549071253974988
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,NOx,0.06604938726562312
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,PM,0.0028150904687706544
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,PM10,0.0027981999259580306
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,PM2_5,0.0026771510358008913
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,SOx,9.2741574082202e-05
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,TOG,0.004587409414937645
+2017,July,Mendocino (NC),T7 Single Dump Class 8,Dsl,STREX,DSL,NOx,0.0004617264229230401
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,IDLEX,CAT,CO,3.618814960517735e-05
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,IDLEX,CAT,NOx,1.1721132690769698e-05
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,IDLEX,CAT,PM,2.5271458899337657e-08
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,IDLEX,CAT,PM10,2.259268425600786e-08
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,IDLEX,CAT,PM2_5,2.077313921525555e-08
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,IDLEX,CAT,TOG,3.628756529661589e-05
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,PMBW,CAT,PM,6.824200452657477e-06
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,PMBW,CAT,PM10,6.824200452657477e-06
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,PMBW,CAT,PM2_5,2.3884701584301166e-06
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,PMTW,CAT,PM,2.4081333989643713e-06
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,PMTW,CAT,PM10,2.4081333989643713e-06
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,PMTW,CAT,PM2_5,6.020333497410928e-07
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,RUNEX,CAT,CO,0.00070357555216503
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,RUNEX,CAT,NH3,7.090612975885411e-05
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,RUNEX,CAT,NOx,4.081465533532424e-05
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,RUNEX,CAT,PM,9.014352146841176e-08
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,RUNEX,CAT,PM10,8.058830819276011e-08
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,RUNEX,CAT,PM2_5,7.409797464703446e-08
+2017,July,Mendocino (NC),T7 Single Dump Class 8,NG,RUNEX,CAT,TOG,7.184584692546724e-05
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,IDLEX,DSL,CO,0.005273899195170305
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,IDLEX,DSL,NOx,0.009493382109405686
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,IDLEX,DSL,PM,0.00011216346731677716
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,IDLEX,DSL,PM10,0.00011149048651287654
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,IDLEX,DSL,PM2_5,0.00010666745741825514
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,IDLEX,DSL,SOx,1.0694342420955072e-05
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,IDLEX,DSL,TOG,0.0011295718377967695
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,PMBW,DSL,PM,0.0015724406667742515
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,PMBW,DSL,PM10,0.0015724406667742515
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,PMBW,DSL,PM2_5,0.0005503542333709878
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,PMTW,DSL,PM,0.0006100089800163487
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,PMTW,DSL,PM10,0.0006100089800163487
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,PMTW,DSL,PM2_5,0.00015250224500408717
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,RUNEX,DSL,CO,0.02644474971333279
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,RUNEX,DSL,NH3,0.00224131794097212
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,RUNEX,DSL,NOx,0.12785304169724662
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,RUNEX,DSL,PM,0.004769245761387298
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,RUNEX,DSL,PM10,0.004740630286818972
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,RUNEX,DSL,PM2_5,0.00453555271907932
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,RUNEX,DSL,SOx,0.0002740854215164653
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,RUNEX,DSL,TOG,0.007863383988499263
+2017,July,Mendocino (NC),T7 Single Other Class 8,Dsl,STREX,DSL,NOx,0.003694867139383571
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,IDLEX,CAT,CO,0.00018053865362333883
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,IDLEX,CAT,NOx,5.847542739873376e-05
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,IDLEX,CAT,PM,1.260764978193641e-07
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,IDLEX,CAT,PM10,1.127123890505115e-07
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,IDLEX,CAT,PM2_5,1.036348812075173e-07
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,IDLEX,CAT,TOG,0.00018103462745115728
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,PMBW,CAT,PM,2.891690874475574e-05
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,PMBW,CAT,PM10,2.891690874475574e-05
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,PMBW,CAT,PM2_5,1.012091806066451e-05
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,PMTW,CAT,PM,1.1603992573977691e-05
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,PMTW,CAT,PM10,1.1603992573977691e-05
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,PMTW,CAT,PM2_5,2.900998143494423e-06
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,RUNEX,CAT,CO,0.0033902961879380728
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,RUNEX,CAT,NH3,0.00034167301675442404
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,RUNEX,CAT,NOx,0.00019667222655698433
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,RUNEX,CAT,PM,4.3437159841788505e-07
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,RUNEX,CAT,PM10,3.883282089855892e-07
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,RUNEX,CAT,PM2_5,3.5705345389950136e-07
+2017,July,Mendocino (NC),T7 Single Other Class 8,NG,RUNEX,CAT,TOG,0.0003462012007112213
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,IDLEX,DSL,CO,0.0002005795828287453
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,IDLEX,DSL,NOx,0.0029908833990035786
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,IDLEX,DSL,PM,3.687594394494976e-06
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,IDLEX,DSL,PM10,3.665468828128007e-06
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,IDLEX,DSL,PM2_5,3.506902269164722e-06
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,IDLEX,DSL,SOx,1.9540753690711838e-06
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,IDLEX,DSL,TOG,4.851690757294062e-05
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,PMBW,DSL,PM,0.0006751043128919618
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,PMBW,DSL,PM10,0.0006751043128919618
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,PMBW,DSL,PM2_5,0.0002362865095121866
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,PMTW,DSL,PM,0.00011573216792725229
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,PMTW,DSL,PM10,0.00011573216792725229
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,PMTW,DSL,PM2_5,2.893304198181307e-05
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,RUNEX,DSL,CO,0.00014090398012959725
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,RUNEX,DSL,NH3,0.0001347036121209536
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,RUNEX,DSL,NOx,0.04459096783387621
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,RUNEX,DSL,PM,3.5112238646000604e-05
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,RUNEX,DSL,PM10,3.49015652141246e-05
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,RUNEX,DSL,PM2_5,3.3391738952346585e-05
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,RUNEX,DSL,SOx,0.0001296431065709128
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,RUNEX,DSL,TOG,5.1906787332019805e-05
+2017,July,Mendocino (NC),T7 SWCV Class 8,Dsl,STREX,DSL,NOx,9.411503437628315e-05
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,IDLEX,DSL,CO,0.010056193204331215
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,IDLEX,DSL,NOx,0.017507824072331167
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,IDLEX,DSL,PM,3.7440854298135835e-05
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,IDLEX,DSL,PM10,3.721620917234702e-05
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,IDLEX,DSL,PM2_5,3.5606252437527185e-05
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,IDLEX,DSL,SOx,2.524679770481844e-05
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,IDLEX,DSL,TOG,0.0012578495914882671
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,PMBW,DSL,PM,0.0026963591598335524
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,PMBW,DSL,PM10,0.0026963591598335524
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,PMBW,DSL,PM2_5,0.0009437257059417433
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,PMTW,DSL,PM,0.0010841817719986083
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,PMTW,DSL,PM10,0.0010841817719986083
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,PMTW,DSL,PM2_5,0.0002710454429996521
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,RUNEX,DSL,CO,0.025350787045454164
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,RUNEX,DSL,NH3,0.0039587825690287955
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,RUNEX,DSL,NOx,0.20567930076354143
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,RUNEX,DSL,PM,0.004215797298407265
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,RUNEX,DSL,PM10,0.004190502514616821
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,RUNEX,DSL,PM2_5,0.004009223230785309
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,RUNEX,DSL,SOx,0.00045585091001371526
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,RUNEX,DSL,TOG,0.008092840880507032
+2017,July,Mendocino (NC),T7 Tractor Class 8,Dsl,STREX,DSL,NOx,0.008634607498977327
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,IDLEX,CAT,CO,0.00015782024824369064
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,IDLEX,CAT,NOx,5.111706708236502e-05
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,IDLEX,CAT,PM,1.1021143552482415e-07
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,IDLEX,CAT,PM10,9.85290233591928e-08
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,IDLEX,CAT,PM2_5,9.059380000140544e-08
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,IDLEX,CAT,TOG,0.00015825381031506826
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,PMBW,CAT,PM,1.582938640839515e-05
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,PMBW,CAT,PM10,1.582938640839515e-05
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,PMBW,CAT,PM2_5,5.540285242938301e-06
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,PMTW,CAT,PM,7.2709347280668266e-06
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,PMTW,CAT,PM10,7.2709347280668266e-06
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,PMTW,CAT,PM2_5,1.8177336820167066e-06
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,RUNEX,CAT,CO,0.002086097038624883
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,RUNEX,CAT,NH3,0.00021408857230175918
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,RUNEX,CAT,NOx,0.00011706791847308881
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,RUNEX,CAT,PM,2.61293070426286e-07
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,RUNEX,CAT,PM10,2.335960049610997e-07
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,RUNEX,CAT,PM2_5,2.1478290389040706e-07
+2017,July,Mendocino (NC),T7 Tractor Class 8,NG,RUNEX,CAT,TOG,0.0002046834194198036
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,IDLEX,DSL,CO,4.1378302570079684e-05
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,IDLEX,DSL,NOx,8.167014278132712e-05
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,IDLEX,DSL,PM,5.190505212762582e-08
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,IDLEX,DSL,PM10,5.1593621814860075e-08
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,IDLEX,DSL,PM2_5,4.936170457337214e-08
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,IDLEX,DSL,SOx,1.0309269879081334e-07
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,IDLEX,DSL,TOG,4.207703520896719e-06
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,PMBW,DSL,PM,2.9790154966401935e-05
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,PMBW,DSL,PM10,2.9790154966401935e-05
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,PMBW,DSL,PM2_5,1.0426554238240675e-05
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,PMTW,DSL,PM,1.0588273286258878e-05
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,PMTW,DSL,PM10,1.0588273286258878e-05
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,PMTW,DSL,PM2_5,2.6470683215647196e-06
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,RUNEX,DSL,CO,6.831672097273949e-05
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,RUNEX,DSL,NH3,5.088031941166148e-05
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,RUNEX,DSL,NOx,0.0010103849896064305
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,RUNEX,DSL,PM,4.5598713806483005e-06
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,RUNEX,DSL,PM10,4.532512152364412e-06
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,RUNEX,DSL,PM2_5,4.336437682996535e-06
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,RUNEX,DSL,SOx,4.97608432202852e-06
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,RUNEX,DSL,TOG,1.8529784687416666e-05
+2017,July,Mendocino (NC),T7 Utility Class 8,Dsl,STREX,DSL,NOx,0.00025444402180758736

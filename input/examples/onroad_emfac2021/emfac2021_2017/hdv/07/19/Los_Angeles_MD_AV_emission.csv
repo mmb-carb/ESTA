@@ -1,0 +1,1408 @@
+calendar_year,season_month,sub_area,vehicle_class,fuel,process,cat_ncat,pollutant,emission
+2017,July,Los Angeles (MD),All Other Buses,Dsl,IDLEX,DSL,CO,0.00011291385344095167
+2017,July,Los Angeles (MD),All Other Buses,Dsl,IDLEX,DSL,NOx,0.00044425006938398644
+2017,July,Los Angeles (MD),All Other Buses,Dsl,IDLEX,DSL,PM,6.486866492845047e-06
+2017,July,Los Angeles (MD),All Other Buses,Dsl,IDLEX,DSL,PM10,6.447945293887978e-06
+2017,July,Los Angeles (MD),All Other Buses,Dsl,IDLEX,DSL,PM2_5,6.16901003469564e-06
+2017,July,Los Angeles (MD),All Other Buses,Dsl,IDLEX,DSL,SOx,2.7230825906697454e-07
+2017,July,Los Angeles (MD),All Other Buses,Dsl,IDLEX,DSL,TOG,2.4872981275292137e-05
+2017,July,Los Angeles (MD),All Other Buses,Dsl,PMBW,DSL,PM,8.098371941115902e-05
+2017,July,Los Angeles (MD),All Other Buses,Dsl,PMBW,DSL,PM10,8.098371941115902e-05
+2017,July,Los Angeles (MD),All Other Buses,Dsl,PMBW,DSL,PM2_5,2.8344301793905653e-05
+2017,July,Los Angeles (MD),All Other Buses,Dsl,PMTW,DSL,PM,2.2476060624131467e-05
+2017,July,Los Angeles (MD),All Other Buses,Dsl,PMTW,DSL,PM10,2.2476060624131467e-05
+2017,July,Los Angeles (MD),All Other Buses,Dsl,PMTW,DSL,PM2_5,5.619015156032867e-06
+2017,July,Los Angeles (MD),All Other Buses,Dsl,RUNEX,DSL,CO,0.0045513271664066575
+2017,July,Los Angeles (MD),All Other Buses,Dsl,RUNEX,DSL,NH3,0.00010040121488944675
+2017,July,Los Angeles (MD),All Other Buses,Dsl,RUNEX,DSL,NOx,0.01776460002745713
+2017,July,Los Angeles (MD),All Other Buses,Dsl,RUNEX,DSL,PM,0.0008951274635177816
+2017,July,Los Angeles (MD),All Other Buses,Dsl,RUNEX,DSL,PM10,0.0008897566987366751
+2017,July,Los Angeles (MD),All Other Buses,Dsl,RUNEX,DSL,PM2_5,0.0008512662178054104
+2017,July,Los Angeles (MD),All Other Buses,Dsl,RUNEX,DSL,SOx,2.0052537657514597e-05
+2017,July,Los Angeles (MD),All Other Buses,Dsl,RUNEX,DSL,TOG,0.001751578912064803
+2017,July,Los Angeles (MD),All Other Buses,Dsl,STREX,DSL,NOx,4.282798033033186e-05
+2017,July,Los Angeles (MD),All Other Buses,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),All Other Buses,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),Motor Coach,Dsl,IDLEX,DSL,CO,0.0008354340433747115
+2017,July,Los Angeles (MD),Motor Coach,Dsl,IDLEX,DSL,NOx,0.0018832870256148522
+2017,July,Los Angeles (MD),Motor Coach,Dsl,IDLEX,DSL,PM,1.2472931427631189e-05
+2017,July,Los Angeles (MD),Motor Coach,Dsl,IDLEX,DSL,PM10,1.2398093839065405e-05
+2017,July,Los Angeles (MD),Motor Coach,Dsl,IDLEX,DSL,PM2_5,1.1861757787677262e-05
+2017,July,Los Angeles (MD),Motor Coach,Dsl,IDLEX,DSL,SOx,1.8520125705946312e-06
+2017,July,Los Angeles (MD),Motor Coach,Dsl,IDLEX,DSL,TOG,0.00015401378099578466
+2017,July,Los Angeles (MD),Motor Coach,Dsl,PMBW,DSL,PM,0.00019421486248947636
+2017,July,Los Angeles (MD),Motor Coach,Dsl,PMBW,DSL,PM10,0.00019421486248947636
+2017,July,Los Angeles (MD),Motor Coach,Dsl,PMBW,DSL,PM2_5,6.797520187131673e-05
+2017,July,Los Angeles (MD),Motor Coach,Dsl,PMTW,DSL,PM,2.3569201253781456e-05
+2017,July,Los Angeles (MD),Motor Coach,Dsl,PMTW,DSL,PM10,2.3569201253781456e-05
+2017,July,Los Angeles (MD),Motor Coach,Dsl,PMTW,DSL,PM2_5,5.892300313445364e-06
+2017,July,Los Angeles (MD),Motor Coach,Dsl,RUNEX,DSL,CO,0.002586340856914626
+2017,July,Los Angeles (MD),Motor Coach,Dsl,RUNEX,DSL,NH3,0.0002903562463136913
+2017,July,Los Angeles (MD),Motor Coach,Dsl,RUNEX,DSL,NOx,0.011979908746439727
+2017,July,Los Angeles (MD),Motor Coach,Dsl,RUNEX,DSL,PM,0.0003307685983977289
+2017,July,Los Angeles (MD),Motor Coach,Dsl,RUNEX,DSL,PM10,0.0003287839868073424
+2017,July,Los Angeles (MD),Motor Coach,Dsl,RUNEX,DSL,PM2_5,0.0003145609370762402
+2017,July,Los Angeles (MD),Motor Coach,Dsl,RUNEX,DSL,SOx,3.209893503668008e-05
+2017,July,Los Angeles (MD),Motor Coach,Dsl,RUNEX,DSL,TOG,0.000791752744960805
+2017,July,Los Angeles (MD),Motor Coach,Dsl,STREX,DSL,NOx,0.0003859349825765997
+2017,July,Los Angeles (MD),PTO,Dsl,PMTW,DSL,PM,0.0
+2017,July,Los Angeles (MD),PTO,Dsl,PMTW,DSL,PM10,0.0
+2017,July,Los Angeles (MD),PTO,Dsl,PMTW,DSL,PM2_5,0.0
+2017,July,Los Angeles (MD),PTO,Dsl,RUNEX,DSL,CO,0.01075636343147743
+2017,July,Los Angeles (MD),PTO,Dsl,RUNEX,DSL,NH3,0.0004918825990904744
+2017,July,Los Angeles (MD),PTO,Dsl,RUNEX,DSL,NOx,0.041381231512665435
+2017,July,Los Angeles (MD),PTO,Dsl,RUNEX,DSL,PM,0.0011886289717683842
+2017,July,Los Angeles (MD),PTO,Dsl,RUNEX,DSL,PM10,0.0011814971979377746
+2017,July,Los Angeles (MD),PTO,Dsl,RUNEX,DSL,PM2_5,0.0011303861521517334
+2017,July,Los Angeles (MD),PTO,Dsl,RUNEX,DSL,SOx,8.716183393952486e-05
+2017,July,Los Angeles (MD),PTO,Dsl,RUNEX,DSL,TOG,0.0034344846325295585
+2017,July,Los Angeles (MD),SBUS,Dsl,IDLEX,DSL,CO,0.00126044073217463
+2017,July,Los Angeles (MD),SBUS,Dsl,IDLEX,DSL,NOx,0.011060771191717628
+2017,July,Los Angeles (MD),SBUS,Dsl,IDLEX,DSL,PM,2.0310052337246977e-05
+2017,July,Los Angeles (MD),SBUS,Dsl,IDLEX,DSL,PM10,2.018819202322349e-05
+2017,July,Los Angeles (MD),SBUS,Dsl,IDLEX,DSL,PM2_5,1.9314859772721874e-05
+2017,July,Los Angeles (MD),SBUS,Dsl,IDLEX,DSL,SOx,8.619750825796293e-06
+2017,July,Los Angeles (MD),SBUS,Dsl,IDLEX,DSL,TOG,0.00010349965969325766
+2017,July,Los Angeles (MD),SBUS,Dsl,PMBW,DSL,PM,0.00044558488710360505
+2017,July,Los Angeles (MD),SBUS,Dsl,PMBW,DSL,PM10,0.00044558488710360505
+2017,July,Los Angeles (MD),SBUS,Dsl,PMBW,DSL,PM2_5,0.0001559547104862618
+2017,July,Los Angeles (MD),SBUS,Dsl,PMTW,DSL,PM,0.00011414275347050415
+2017,July,Los Angeles (MD),SBUS,Dsl,PMTW,DSL,PM10,0.00011414275347050415
+2017,July,Los Angeles (MD),SBUS,Dsl,PMTW,DSL,PM2_5,2.8535688367626037e-05
+2017,July,Los Angeles (MD),SBUS,Dsl,RUNEX,DSL,CO,0.00322887598411765
+2017,July,Los Angeles (MD),SBUS,Dsl,RUNEX,DSL,NH3,0.0009692279118055852
+2017,July,Los Angeles (MD),SBUS,Dsl,RUNEX,DSL,NOx,0.06971576506883512
+2017,July,Los Angeles (MD),SBUS,Dsl,RUNEX,DSL,PM,0.0005862317790896698
+2017,July,Los Angeles (MD),SBUS,Dsl,RUNEX,DSL,PM10,0.0005827143884151317
+2017,July,Los Angeles (MD),SBUS,Dsl,RUNEX,DSL,PM2_5,0.0005575064219142759
+2017,July,Los Angeles (MD),SBUS,Dsl,RUNEX,DSL,SOx,0.00011556697097692626
+2017,July,Los Angeles (MD),SBUS,Dsl,RUNEX,DSL,TOG,0.001568744624075556
+2017,July,Los Angeles (MD),SBUS,Dsl,STREX,DSL,NOx,0.0016368654993428743
+2017,July,Los Angeles (MD),SBUS,Gas,DIURN,CAT,TOG,0.00039382813742442176
+2017,July,Los Angeles (MD),SBUS,Gas,HOTSOAK,CAT,TOG,7.910237794172906e-05
+2017,July,Los Angeles (MD),SBUS,Gas,IDLEX,CAT,CO,0.00432404399475202
+2017,July,Los Angeles (MD),SBUS,Gas,IDLEX,CAT,NOx,4.8747500433319146e-05
+2017,July,Los Angeles (MD),SBUS,Gas,IDLEX,CAT,SOx,1.4278236841016317e-06
+2017,July,Los Angeles (MD),SBUS,Gas,IDLEX,CAT,TOG,0.0008091943725084999
+2017,July,Los Angeles (MD),SBUS,Gas,PMBW,CAT,PM,0.00021377248319914117
+2017,July,Los Angeles (MD),SBUS,Gas,PMBW,CAT,PM10,0.00021377248319914117
+2017,July,Los Angeles (MD),SBUS,Gas,PMBW,CAT,PM2_5,7.482036911969942e-05
+2017,July,Los Angeles (MD),SBUS,Gas,PMTW,CAT,PM,3.6507192463649206e-05
+2017,July,Los Angeles (MD),SBUS,Gas,PMTW,CAT,PM10,3.6507192463649206e-05
+2017,July,Los Angeles (MD),SBUS,Gas,PMTW,CAT,PM2_5,9.126798115912302e-06
+2017,July,Los Angeles (MD),SBUS,Gas,RUNEX,CAT,CO,0.05867985008086734
+2017,July,Los Angeles (MD),SBUS,Gas,RUNEX,CAT,NH3,0.00019020560015630533
+2017,July,Los Angeles (MD),SBUS,Gas,RUNEX,CAT,NOx,0.005307090501747057
+2017,July,Los Angeles (MD),SBUS,Gas,RUNEX,CAT,PM,2.1143206155254906e-05
+2017,July,Los Angeles (MD),SBUS,Gas,RUNEX,CAT,PM10,1.8902026302797888e-05
+2017,July,Los Angeles (MD),SBUS,Gas,RUNEX,CAT,PM2_5,1.7379715459619532e-05
+2017,July,Los Angeles (MD),SBUS,Gas,RUNEX,CAT,SOx,4.251457360578689e-05
+2017,July,Los Angeles (MD),SBUS,Gas,RUNEX,CAT,TOG,0.004664252140883432
+2017,July,Los Angeles (MD),SBUS,Gas,RUNLOSS,CAT,TOG,0.00019805238014253658
+2017,July,Los Angeles (MD),SBUS,Gas,STREX,CAT,CO,0.0017983389766586602
+2017,July,Los Angeles (MD),SBUS,Gas,STREX,CAT,NOx,0.00010131782821482939
+2017,July,Los Angeles (MD),SBUS,Gas,STREX,CAT,PM,3.854699844608058e-07
+2017,July,Los Angeles (MD),SBUS,Gas,STREX,CAT,PM10,3.4461016610796036e-07
+2017,July,Los Angeles (MD),SBUS,Gas,STREX,CAT,PM2_5,3.1685632722678223e-07
+2017,July,Los Angeles (MD),SBUS,Gas,STREX,CAT,SOx,1.2024606318590488e-07
+2017,July,Los Angeles (MD),SBUS,Gas,STREX,CAT,TOG,9.408154216224499e-05
+2017,July,Los Angeles (MD),SBUS,NG,IDLEX,CAT,CO,0.0002972866190207292
+2017,July,Los Angeles (MD),SBUS,NG,IDLEX,CAT,NOx,9.628941923244807e-05
+2017,July,Los Angeles (MD),SBUS,NG,IDLEX,CAT,PM,2.0760571302704553e-07
+2017,July,Los Angeles (MD),SBUS,NG,IDLEX,CAT,PM10,1.8559950744617866e-07
+2017,July,Los Angeles (MD),SBUS,NG,IDLEX,CAT,PM2_5,1.706518961082314e-07
+2017,July,Los Angeles (MD),SBUS,NG,IDLEX,CAT,TOG,0.000298103321600348
+2017,July,Los Angeles (MD),SBUS,NG,PMBW,CAT,PM,2.3696061542363224e-05
+2017,July,Los Angeles (MD),SBUS,NG,PMBW,CAT,PM10,2.3696061542363224e-05
+2017,July,Los Angeles (MD),SBUS,NG,PMBW,CAT,PM2_5,8.293621539827129e-06
+2017,July,Los Angeles (MD),SBUS,NG,PMTW,CAT,PM,6.070075061192481e-06
+2017,July,Los Angeles (MD),SBUS,NG,PMTW,CAT,PM10,6.070075061192481e-06
+2017,July,Los Angeles (MD),SBUS,NG,PMTW,CAT,PM2_5,1.5175187652981203e-06
+2017,July,Los Angeles (MD),SBUS,NG,RUNEX,CAT,CO,0.00986346760888829
+2017,July,Los Angeles (MD),SBUS,NG,RUNEX,CAT,NH3,0.0005361898100661653
+2017,July,Los Angeles (MD),SBUS,NG,RUNEX,CAT,NOx,0.0005512534569285261
+2017,July,Los Angeles (MD),SBUS,NG,RUNEX,CAT,PM,2.5364814023237634e-06
+2017,July,Los Angeles (MD),SBUS,NG,RUNEX,CAT,PM10,2.2676143736774447e-06
+2017,July,Los Angeles (MD),SBUS,NG,RUNEX,CAT,PM2_5,2.0849877127101336e-06
+2017,July,Los Angeles (MD),SBUS,NG,RUNEX,CAT,TOG,0.0027688813131286783
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,IDLEX,DSL,CO,1.659632181394527e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,IDLEX,DSL,NOx,6.0283682133930096e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,IDLEX,DSL,PM,1.9682170434028826e-07
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,IDLEX,DSL,PM10,1.9564077411424653e-07
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,IDLEX,DSL,PM2_5,1.871774408276141e-07
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,IDLEX,DSL,SOx,5.887701757635064e-08
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,IDLEX,DSL,TOG,1.0697601370886795e-06
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,PMBW,DSL,PM,2.615128966039515e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,PMBW,DSL,PM10,2.615128966039515e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,PMBW,DSL,PM2_5,9.152951381138302e-06
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,PMTW,DSL,PM,7.4396597593388804e-06
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,PMTW,DSL,PM10,7.4396597593388804e-06
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,PMTW,DSL,PM2_5,1.8599149398347201e-06
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,CO,0.0001906928162119287
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,NH3,0.00010266220716686111
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,NOx,0.0013263239822199494
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,PM,4.290992787999403e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,PM10,4.265246831271406e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,PM2_5,4.0807341413874315e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,SOx,6.408296442186283e-06
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,TOG,5.9055349440808466e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 4,Dsl,STREX,DSL,NOx,7.612713398582506e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,IDLEX,DSL,CO,2.0835301878649394e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,IDLEX,DSL,NOx,6.9936620673321e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,IDLEX,DSL,PM,2.3846060804600613e-07
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,IDLEX,DSL,PM10,2.370298443977301e-07
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,IDLEX,DSL,PM2_5,2.267760382517518e-07
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,IDLEX,DSL,SOx,7.216618240075058e-08
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,IDLEX,DSL,TOG,1.3061618899085767e-06
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,PMBW,DSL,PM,3.587486679618867e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,PMBW,DSL,PM10,3.587486679618867e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,PMBW,DSL,PM2_5,1.2556203378666032e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,PMTW,DSL,PM,1.0205875363747337e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,PMTW,DSL,PM10,1.0205875363747337e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,PMTW,DSL,PM2_5,2.551468840936834e-06
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,CO,0.000269526632833627
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,NH3,0.00014456719835935115
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,NOx,0.0017002412619724749
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,PM,6.22475822029797e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,PM10,6.18740967097618e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,PM2_5,5.9197450675033685e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,SOx,8.76239670517091e-06
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,TOG,8.063637938653382e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 5,Dsl,STREX,DSL,NOx,0.00010191894390437434
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,IDLEX,DSL,CO,5.608267735144768e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,IDLEX,DSL,NOx,0.00021240482616296196
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,IDLEX,DSL,PM,9.457481027580802e-07
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,IDLEX,DSL,PM10,9.400736141415319e-07
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,IDLEX,DSL,PM2_5,8.994064457229345e-07
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,IDLEX,DSL,SOx,1.9291100136497125e-07
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,IDLEX,DSL,TOG,4.370476459723979e-06
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,PMBW,DSL,PM,9.37420533347868e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,PMBW,DSL,PM10,9.37420533347868e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,PMBW,DSL,PM2_5,3.280971866717537e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,PMTW,DSL,PM,2.6668244320233434e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,PMTW,DSL,PM10,2.6668244320233434e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,PMTW,DSL,PM2_5,6.667061080058358e-06
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,CO,0.0009997817571630399
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,NH3,0.0003386169606273529
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,NOx,0.006303065149880038
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,PM,0.00023039485750522666
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,PM10,0.00022901248836019526
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,PM2_5,0.00021910550948747053
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,SOx,2.239931992829769e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,TOG,0.00030982321432436823
+2017,July,Los Angeles (MD),T6 CAIRP Class 6,Dsl,STREX,DSL,NOx,0.0002320331565602251
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,IDLEX,DSL,CO,0.0001395927290690784
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,IDLEX,DSL,NOx,0.0004781703577055615
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,IDLEX,DSL,PM,2.2654553796908796e-06
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,IDLEX,DSL,PM10,2.251862647412734e-06
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,IDLEX,DSL,PM2_5,2.154448066086027e-06
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,IDLEX,DSL,SOx,4.932465816061145e-07
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,IDLEX,DSL,TOG,1.1482356750039564e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,PMBW,DSL,PM,0.0005879975408397166
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,PMBW,DSL,PM10,0.0005879975408397166
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,PMBW,DSL,PM2_5,0.00020579913929390074
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,PMTW,DSL,PM,0.00016727670795526494
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,PMTW,DSL,PM10,0.00016727670795526494
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,PMTW,DSL,PM2_5,4.1819176988816236e-05
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,CO,0.005905168910230179
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,NH3,0.002134121924408397
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,NOx,0.039405786927177874
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,PM,0.0013504837781714856
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,PM10,0.0013423808755024566
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,PM2_5,0.001284310073041083
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,SOx,0.00013447222353278946
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,TOG,0.0018883902836187125
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,Dsl,STREX,DSL,NOx,0.0005930088112584477
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 CAIRP Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,CO,0.0006564622448906233
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,NOx,0.003609283110926332
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,PM,2.28972957502767e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,PM10,2.2759911975775035e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,PM2_5,2.177532825851314e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,SOx,2.2592245115021414e-06
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,TOG,8.324760083082175e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,PMBW,DSL,PM,0.0001345232230275517
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,PMBW,DSL,PM10,0.0001345232230275517
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,PMBW,DSL,PM2_5,4.708312805964309e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,PMTW,DSL,PM,3.787539842394954e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,PMTW,DSL,PM10,3.787539842394954e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,PMTW,DSL,PM2_5,9.468849605987385e-06
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,CO,0.0037896321658201014
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,NH3,0.00021505659676154077
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,NOx,0.02111638311645523
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,PM,0.0008137922612138858
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,PM10,0.0008089095076466028
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,PM2_5,0.0007739164404144053
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,SOx,3.199700126903291e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,TOG,0.0012273109186062038
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,Dsl,STREX,DSL,NOx,0.000379530317368963
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 4,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,CO,0.0004133422626255159
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,NOx,0.0022209496934839468
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,PM,1.4290081768510884e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,PM10,1.4204341277899822e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,PM2_5,1.3589867761853849e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,SOx,1.4611091584445916e-06
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,TOG,5.401663493518002e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,PMBW,DSL,PM,8.815798104712674e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,PMBW,DSL,PM10,8.815798104712674e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,PMBW,DSL,PM2_5,3.085529336649436e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,PMTW,DSL,PM,2.482113185562803e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,PMTW,DSL,PM10,2.482113185562803e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,PMTW,DSL,PM2_5,6.205282963907008e-06
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,CO,0.0022527423454596733
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,NH3,0.0001681930965905027
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,NOx,0.01129610019026577
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,PM,0.0005361187753118855
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,PM10,0.0005329020626600141
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,PM2_5,0.0005098489553216031
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,SOx,2.1405494528149173e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,TOG,0.0007359968567439567
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,Dsl,STREX,DSL,NOx,0.0003025215949952388
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 5,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,CO,0.0011525755010738745
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,NOx,0.0066057895430711895
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,PM,4.5710079505735154e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,PM10,4.543581902870074e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,PM2_5,4.3470285609954126e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,SOx,4.073574113302611e-06
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,TOG,0.00016780399583913463
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,PMBW,DSL,PM,0.00024836453045409015
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,PMBW,DSL,PM10,0.00024836453045409015
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,PMBW,DSL,PM2_5,8.692758565893156e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,PMTW,DSL,PM,6.992774432262287e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,PMTW,DSL,PM10,6.992774432262287e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,PMTW,DSL,PM2_5,1.748193608065572e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,CO,0.007136275837399658
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,NH3,0.000326037575802475
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,NOx,0.04218759420244073
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,PM,0.0015874031519794623
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,PM10,0.0015778787330675854
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,PM2_5,0.0015096203975324685
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,SOx,5.94836976809874e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,TOG,0.0024448720112944973
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,Dsl,STREX,DSL,NOx,0.00045828457986417414
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,CO,0.0004071136736062175
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,NOx,0.002946463066028086
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,PM,1.7944092181418094e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,PM10,1.7836427628329587e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,PM2_5,1.706483166452861e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,SOx,2.0176345071018844e-06
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,TOG,7.383002949370303e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,PMBW,DSL,PM,0.00013865593574424013
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,PMBW,DSL,PM10,0.00013865593574424013
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,PMBW,DSL,PM2_5,4.8529577510484024e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,PMTW,DSL,PM,3.9038975516391314e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,PMTW,DSL,PM10,3.9038975516391314e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,PMTW,DSL,PM2_5,9.759743879097828e-06
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,CO,0.0025875110563275154
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,NH3,0.00019507859567947914
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,NOx,0.02112717923700316
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,PM,0.0005840761655210053
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,PM10,0.0005805717085278795
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,PM2_5,0.0005554564334104763
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,SOx,3.36296649112871e-05
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,TOG,0.0009124570641882218
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,Dsl,STREX,DSL,NOx,0.0003218800660607246
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Delivery Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,IDLEX,DSL,CO,0.002337234996721116
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,IDLEX,DSL,NOx,0.013938525655846808
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,IDLEX,DSL,PM,9.523378594017309e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,IDLEX,DSL,PM10,9.466238322453203e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,IDLEX,DSL,PM2_5,9.056733042910457e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,IDLEX,DSL,SOx,8.405596546198881e-06
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,IDLEX,DSL,TOG,0.0003502273241401242
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,PMBW,DSL,PM,0.0005261463218710173
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,PMBW,DSL,PM10,0.0005261463218710173
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,PMBW,DSL,PM2_5,0.000184151212654856
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,PMTW,DSL,PM,0.00014839161169568897
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,PMTW,DSL,PM10,0.00014839161169568897
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,PMTW,DSL,PM2_5,3.709790292392224e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,CO,0.01500587519508674
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,NH3,0.0005632848072509844
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,NOx,0.08743239480456304
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,PM,0.003333756124004454
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,PM10,0.0033137535872604282
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,PM2_5,0.0031704020739282365
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,SOx,0.00012803473254417686
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,TOG,0.0050417994074552636
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,Dsl,STREX,DSL,NOx,0.0004398767344571575
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 4,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,IDLEX,DSL,CO,0.0025622125016458224
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,IDLEX,DSL,NOx,0.012988497396260616
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,IDLEX,DSL,PM,6.464258287396456e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,IDLEX,DSL,PM10,6.425472737672078e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,IDLEX,DSL,PM2_5,6.147509631314029e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,IDLEX,DSL,SOx,9.244420287772534e-06
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,IDLEX,DSL,TOG,0.00025417456205627416
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,PMBW,DSL,PM,0.0008609862381304896
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,PMBW,DSL,PM10,0.0008609862381304896
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,PMBW,DSL,PM2_5,0.0003013451833456714
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,PMTW,DSL,PM,0.0002428281453525247
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,PMTW,DSL,PM10,0.0002428281453525247
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,PMTW,DSL,PM2_5,6.0707036338131174e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,CO,0.01727150486596126
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,NH3,0.002191639470856398
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,NOx,0.0878878845266809
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,PM,0.003915748318427314
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,PM10,0.003892253828516751
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,PM2_5,0.003723876650824376
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,SOx,0.0002075893499990094
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,TOG,0.005325218785975963
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,Dsl,STREX,DSL,NOx,0.0028537744239798862
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 5,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,IDLEX,DSL,CO,0.003787656141349492
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,IDLEX,DSL,NOx,0.016338264822965985
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,IDLEX,DSL,PM,0.00011310583061811717
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,IDLEX,DSL,PM10,0.00011242719563440845
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,IDLEX,DSL,PM2_5,0.00010756364491782944
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,IDLEX,DSL,SOx,1.2250182293668135e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,IDLEX,DSL,TOG,0.0004502119362094534
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,PMBW,DSL,PM,0.0008732023197945534
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,PMBW,DSL,PM10,0.0008732023197945534
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,PMBW,DSL,PM2_5,0.00030562081192809365
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,PMTW,DSL,PM,0.000246273506407773
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,PMTW,DSL,PM10,0.000246273506407773
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,PMTW,DSL,PM2_5,6.156837660194325e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,CO,0.016191785893147785
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,NH3,0.002311181563222406
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,NOx,0.09194452530370073
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,PM,0.0036463638815876437
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,PM10,0.0036244856982981166
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,PM2_5,0.0034676920513898486
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,SOx,0.00021056714344437874
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,TOG,0.0052892279472748225
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,Dsl,STREX,DSL,NOx,0.003842895983120665
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,IDLEX,DSL,CO,0.002069524691491058
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,IDLEX,DSL,NOx,0.008685389113455053
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,IDLEX,DSL,PM,8.916087427723888e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,IDLEX,DSL,PM10,8.862590903157542e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,IDLEX,DSL,PM2_5,8.479199143765415e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,IDLEX,DSL,SOx,6.837129156922397e-06
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,IDLEX,DSL,TOG,0.00036645668200008805
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,PMBW,DSL,PM,0.0004858888478561379
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,PMBW,DSL,PM10,0.0004858888478561379
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,PMBW,DSL,PM2_5,0.00017006109674964825
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,PMTW,DSL,PM,0.00013703760007659842
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,PMTW,DSL,PM10,0.00013703760007659842
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,PMTW,DSL,PM2_5,3.4259400019149605e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,CO,0.007928627806891244
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,NH3,0.0012394981490192196
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,NOx,0.05878656762347052
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,PM,0.0018140947938976861
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,PM10,0.0018032102251342994
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,PM2_5,0.0017252041489966988
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,SOx,0.00011511554861442598
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,TOG,0.0029957860430363135
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,Dsl,STREX,DSL,NOx,0.0017266260087896235
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,IDLEX,CAT,CO,2.957051265501922e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,IDLEX,CAT,NOx,9.577718295349913e-06
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,IDLEX,CAT,PM,2.065013011531636e-08
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,IDLEX,CAT,PM10,1.846121632309282e-08
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,IDLEX,CAT,PM2_5,1.6974406954790044e-08
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,IDLEX,CAT,TOG,2.9651748447082652e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,PMBW,CAT,PM,4.737282308374003e-06
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,PMBW,CAT,PM10,4.737282308374003e-06
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,PMBW,CAT,PM2_5,1.6580488079309008e-06
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,PMTW,CAT,PM,1.3360788198561675e-06
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,PMTW,CAT,PM10,1.3360788198561675e-06
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,PMTW,CAT,PM2_5,3.340197049640419e-07
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,RUNEX,CAT,CO,0.00027215564917162395
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,RUNEX,CAT,NH3,0.00011802026192924338
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,RUNEX,CAT,NOx,1.7360927383191385e-05
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,RUNEX,CAT,PM,4.401460540760622e-08
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,RUNEX,CAT,PM10,3.9349057234399976e-08
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,RUNEX,CAT,PM2_5,3.6180005645052305e-08
+2017,July,Los Angeles (MD),T6 Instate Other Class 7,NG,RUNEX,CAT,TOG,4.479745586755928e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,CO,5.542526214143435e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,NOx,0.0001882559070756983
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,PM,2.244382788937457e-06
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,PM10,2.2309164922038323e-06
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,PM2_5,2.1344080322795215e-06
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,SOx,1.3534122321506467e-07
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,TOG,8.379356810523082e-06
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,PMBW,DSL,PM,7.38317149515201e-06
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,PMBW,DSL,PM10,7.38317149515201e-06
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,PMBW,DSL,PM2_5,2.584110023303204e-06
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,PMTW,DSL,PM,2.0823118437761475e-06
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,PMTW,DSL,PM10,2.0823118437761475e-06
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,PMTW,DSL,PM2_5,5.205779609440369e-07
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,CO,0.0001468917043675832
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,NH3,1.939513826995061e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,NOx,0.0012840886099400133
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,PM,3.189180775231741e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,PM10,3.170045690580351e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,PM2_5,3.032910917245386e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,SOx,1.6776036159839382e-06
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,TOG,5.8021548764649504e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,Dsl,STREX,DSL,NOx,4.113938631986936e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,CO,0.0005840405595991217
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,NOx,0.003970935536783937
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,PM,2.0041952599926878e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,PM10,1.9921700884327323e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,PM2_5,1.9059896922530464e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,SOx,2.954988719443901e-06
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,TOG,8.400289597747514e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,PMBW,DSL,PM,0.0002534969582238639
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,PMBW,DSL,PM10,0.0002534969582238639
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,PMBW,DSL,PM2_5,8.872393537835234e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,PMTW,DSL,PM,7.149498272082479e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,PMTW,DSL,PM10,7.149498272082479e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,PMTW,DSL,PM2_5,1.7873745680206198e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,CO,0.0036028557454003108
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,NH3,0.00048300984367230754
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,NOx,0.03929903121751353
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,PM,0.0007235810525733489
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,PM10,0.0007192395662579088
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,PM2_5,0.000688125580997255
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,SOx,5.8123887699912796e-05
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,TOG,0.0013645586473627848
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,Dsl,STREX,DSL,NOx,0.0005019967609757234
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Instate Tractor Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,IDLEX,DSL,CO,9.583181969310469e-06
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,IDLEX,DSL,NOx,3.480948984188669e-05
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,IDLEX,DSL,PM,1.1365037557583873e-07
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,IDLEX,DSL,PM10,1.129684733223837e-07
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,IDLEX,DSL,PM2_5,1.0808150717262264e-07
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,IDLEX,DSL,SOx,3.399724225520486e-08
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,IDLEX,DSL,TOG,6.177095244449255e-07
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,PMBW,DSL,PM,1.5100488547823328e-05
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,PMBW,DSL,PM10,1.5100488547823328e-05
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,PMBW,DSL,PM2_5,5.285170991738165e-06
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,PMTW,DSL,PM,4.295868328273539e-06
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,PMTW,DSL,PM10,4.295868328273539e-06
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,PMTW,DSL,PM2_5,1.0739670820683848e-06
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,CO,0.00011011138353805042
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,NH3,5.9280039489166184e-05
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,NOx,0.0007658566883949375
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,PM,2.4777396548064093e-05
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,PM10,2.4628732168775707e-05
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,PM2_5,2.3563304117208953e-05
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,SOx,3.7003302054230613e-06
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,TOG,3.410021605255488e-05
+2017,July,Los Angeles (MD),T6 OOS Class 4,Dsl,STREX,DSL,NOx,4.39579435802925e-05
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,IDLEX,DSL,CO,1.2030888017661305e-05
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,IDLEX,DSL,NOx,4.0383367436778394e-05
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,IDLEX,DSL,PM,1.3769384707621895e-07
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,IDLEX,DSL,PM10,1.3686768399376165e-07
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,IDLEX,DSL,PM2_5,1.3094684856948425e-07
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,IDLEX,DSL,SOx,4.167077895605344e-08
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,IDLEX,DSL,TOG,7.542145306105702e-07
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,PMBW,DSL,PM,2.0715154861956027e-05
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,PMBW,DSL,PM10,2.0715154861956027e-05
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,PMBW,DSL,PM2_5,7.250304201684608e-06
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,PMTW,DSL,PM,5.8931588474722565e-06
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,PMTW,DSL,PM10,5.8931588474722565e-06
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,PMTW,DSL,PM2_5,1.4732897118680641e-06
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,CO,0.00015563224157877286
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,NH3,8.34771574054376e-05
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,NOx,0.0009817670190566691
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,PM,3.594350082916563e-05
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,PM10,3.572783982419064e-05
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,PM2_5,3.41822692885365e-05
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,SOx,5.059653760960416e-06
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,TOG,4.6561708375463976e-05
+2017,July,Los Angeles (MD),T6 OOS Class 5,Dsl,STREX,DSL,NOx,5.885085843577449e-05
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,IDLEX,DSL,CO,3.238371177434168e-05
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,IDLEX,DSL,NOx,0.0001226485074284455
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,IDLEX,DSL,PM,5.461014954178622e-07
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,IDLEX,DSL,PM10,5.42824886445355e-07
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,IDLEX,DSL,PM2_5,5.193425221423869e-07
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,IDLEX,DSL,SOx,1.1139222593057477e-07
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,IDLEX,DSL,TOG,2.5236357582905266e-06
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,PMBW,DSL,PM,5.412929232131555e-05
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,PMBW,DSL,PM10,5.412929232131555e-05
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,PMBW,DSL,PM2_5,1.8945252312460444e-05
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,PMTW,DSL,PM,1.5398992673552815e-05
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,PMTW,DSL,PM10,1.5398992673552815e-05
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,PMTW,DSL,PM2_5,3.849748168388204e-06
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,CO,0.0005773020438467886
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,NH3,0.000195526935834875
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,NOx,0.0036395667031719654
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,PM,0.00013303645637831958
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,PM10,0.00013223823764004966
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,PM2_5,0.00012651767001578193
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,SOx,1.2933995928963029e-05
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,TOG,0.00017890061864419667
+2017,July,Los Angeles (MD),T6 OOS Class 6,Dsl,STREX,DSL,NOx,0.00013398245624931252
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,IDLEX,DSL,CO,8.11907933383695e-05
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,IDLEX,DSL,NOx,0.0002761089837340262
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,IDLEX,DSL,PM,1.333148205577711e-06
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,IDLEX,DSL,PM10,1.3251493163442446e-06
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,IDLEX,DSL,PM2_5,1.2678239435044036e-06
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,IDLEX,DSL,SOx,2.8477206869530967e-07
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,IDLEX,DSL,TOG,6.71685997163199e-06
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,PMBW,DSL,PM,0.00039358726439742527
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,PMBW,DSL,PM10,0.00039358726439742527
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,PMBW,DSL,PM2_5,0.0001377555425390988
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,PMTW,DSL,PM,0.00011196982522664438
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,PMTW,DSL,PM10,0.00011196982522664438
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,PMTW,DSL,PM2_5,2.7992456306661095e-05
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,CO,0.004232148237486504
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,NH3,0.00140649735040256
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,NOx,0.02750364448625956
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,PM,0.0009647045142509969
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,PM10,0.0009589162871654908
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,PM2_5,0.000917433993052698
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,SOx,9.006740597649395e-05
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,TOG,0.001365680175980324
+2017,July,Los Angeles (MD),T6 OOS Class 7,Dsl,STREX,DSL,NOx,0.00034241992951195634
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,IDLEX,DSL,CO,2.488784975859765e-05
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,IDLEX,DSL,NOx,0.0004296142745384616
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,IDLEX,DSL,PM,3.7855482522388975e-07
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,IDLEX,DSL,PM10,3.7628349627254646e-07
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,IDLEX,DSL,PM2_5,3.600056387879192e-07
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,IDLEX,DSL,SOx,2.6633320600936645e-07
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,IDLEX,DSL,TOG,1.729353103525402e-06
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,PMBW,DSL,PM,1.4961539587412632e-05
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,PMBW,DSL,PM10,1.4961539587412632e-05
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,PMBW,DSL,PM2_5,5.236538855594421e-06
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,PMTW,DSL,PM,4.242387845634501e-06
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,PMTW,DSL,PM10,4.242387845634501e-06
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,PMTW,DSL,PM2_5,1.0605969614086252e-06
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,RUNEX,DSL,CO,4.489744835409831e-05
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,RUNEX,DSL,NH3,2.67826040517033e-05
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,RUNEX,DSL,NOx,0.0021876198323674554
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,RUNEX,DSL,PM,1.1300578708578505e-05
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,RUNEX,DSL,PM10,1.1232775236327036e-05
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,RUNEX,DSL,PM2_5,1.0746850351858156e-05
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,RUNEX,DSL,SOx,3.7293375260348473e-06
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,RUNEX,DSL,TOG,1.4136784818796377e-05
+2017,July,Los Angeles (MD),T6 Public Class 4,Dsl,STREX,DSL,NOx,1.3269462564133936e-05
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 4,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,IDLEX,DSL,CO,0.0001224422285537264
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,IDLEX,DSL,NOx,0.0006268904153359405
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,IDLEX,DSL,PM,4.5353366548988576e-07
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,IDLEX,DSL,PM10,4.5081246349694643e-07
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,IDLEX,DSL,PM2_5,4.313105158808813e-07
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,IDLEX,DSL,SOx,5.927099211040048e-07
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,IDLEX,DSL,TOG,5.173791587828786e-06
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,PMBW,DSL,PM,3.207315723751509e-05
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,PMBW,DSL,PM10,3.207315723751509e-05
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,PMBW,DSL,PM2_5,1.1225605033130281e-05
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,PMTW,DSL,PM,9.094436547829157e-06
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,PMTW,DSL,PM10,9.094436547829157e-06
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,PMTW,DSL,PM2_5,2.2736091369572894e-06
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,RUNEX,DSL,CO,5.648426048875841e-05
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,RUNEX,DSL,NH3,0.00011331385104843816
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,RUNEX,DSL,NOx,0.0018158767269828252
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,RUNEX,DSL,PM,1.2308770623949796e-05
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,RUNEX,DSL,PM10,1.2234918000206096e-05
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,RUNEX,DSL,PM2_5,1.1705640863376256e-05
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,RUNEX,DSL,SOx,7.747928597944162e-06
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,RUNEX,DSL,TOG,1.63146301889461e-05
+2017,July,Los Angeles (MD),T6 Public Class 5,Dsl,STREX,DSL,NOx,9.410438290002085e-05
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 5,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,IDLEX,DSL,CO,7.810534323930692e-05
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,IDLEX,DSL,NOx,0.0011287116715712558
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,IDLEX,DSL,PM,2.7581044688262667e-06
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,IDLEX,DSL,PM10,2.7415558420133093e-06
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,IDLEX,DSL,PM2_5,2.622957349853779e-06
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,IDLEX,DSL,SOx,7.598352767016241e-07
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,IDLEX,DSL,TOG,1.2025726279426983e-05
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,PMBW,DSL,PM,3.0145348805430493e-05
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,PMBW,DSL,PM10,3.0145348805430493e-05
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,PMBW,DSL,PM2_5,1.0550872081900674e-05
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,PMTW,DSL,PM,8.547800888229789e-06
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,PMTW,DSL,PM10,8.547800888229789e-06
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,PMTW,DSL,PM2_5,2.136950222057447e-06
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,RUNEX,DSL,CO,0.0001181196816178088
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,RUNEX,DSL,NH3,4.499305920894535e-05
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,RUNEX,DSL,NOx,0.0055991605331663676
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,RUNEX,DSL,PM,2.9667176403583797e-05
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,RUNEX,DSL,PM10,2.9489173345162292e-05
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,RUNEX,DSL,PM2_5,2.8213484759808184e-05
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,RUNEX,DSL,SOx,7.57047594030635e-06
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,RUNEX,DSL,TOG,4.669394505587148e-05
+2017,July,Los Angeles (MD),T6 Public Class 6,Dsl,STREX,DSL,NOx,2.818739505505055e-05
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,IDLEX,DSL,CO,0.00017006316402652153
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,IDLEX,DSL,NOx,0.002301942190108337
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,IDLEX,DSL,PM,5.163896320241743e-06
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,IDLEX,DSL,PM10,5.132912942320292e-06
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,IDLEX,DSL,PM2_5,4.910865400549897e-06
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,IDLEX,DSL,SOx,1.5768769569050536e-06
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,IDLEX,DSL,TOG,2.2919340530172818e-05
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,PMBW,DSL,PM,9.667470008389755e-05
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,PMBW,DSL,PM10,9.667470008389755e-05
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,PMBW,DSL,PM2_5,3.383614502936414e-05
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,PMTW,DSL,PM,2.741239096552185e-05
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,PMTW,DSL,PM10,2.741239096552185e-05
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,PMTW,DSL,PM2_5,6.8530977413804625e-06
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,RUNEX,DSL,CO,0.0003886720549673133
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,RUNEX,DSL,NH3,0.00016490756655163238
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,RUNEX,DSL,NOx,0.01453958298743801
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,RUNEX,DSL,PM,0.00010496681779117276
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,RUNEX,DSL,PM10,0.0001043370168844257
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,RUNEX,DSL,PM2_5,9.982344371940529e-05
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,RUNEX,DSL,SOx,2.3914353233709378e-05
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,RUNEX,DSL,TOG,0.00014249419869547002
+2017,July,Los Angeles (MD),T6 Public Class 7,Dsl,STREX,DSL,NOx,8.818902883957917e-05
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Public Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,IDLEX,DSL,CO,1.8669486403323767e-05
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,IDLEX,DSL,NOx,5.469579857157344e-05
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,IDLEX,DSL,PM,2.108368615050326e-08
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,IDLEX,DSL,PM10,2.095718403360024e-08
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,IDLEX,DSL,PM2_5,2.00505855291286e-08
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,IDLEX,DSL,SOx,7.434883837919907e-08
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,IDLEX,DSL,TOG,7.065600033865739e-07
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,PMBW,DSL,PM,7.200897194400489e-06
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,PMBW,DSL,PM10,7.200897194400489e-06
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,PMBW,DSL,PM2_5,2.5203140180401706e-06
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,PMTW,DSL,PM,2.0418352373902445e-06
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,PMTW,DSL,PM10,2.0418352373902445e-06
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,PMTW,DSL,PM2_5,5.104588093475611e-07
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,CO,1.0402577931349327e-05
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,NH3,3.0596788756349544e-05
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,NOx,0.0002561254653747268
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,PM,1.7485459801848128e-06
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,PM10,1.7380547043037042e-06
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,PM2_5,1.6628672271557569e-06
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,SOx,1.6674070742645379e-06
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,TOG,3.393458950356349e-06
+2017,July,Los Angeles (MD),T6 Utility Class 5,Dsl,STREX,DSL,NOx,5.9015708539671626e-05
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 5,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,IDLEX,DSL,CO,3.3136400822754926e-06
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,IDLEX,DSL,NOx,1.6047830581370314e-05
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,IDLEX,DSL,PM,9.009877979534546e-09
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,IDLEX,DSL,PM10,8.955818711657337e-09
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,IDLEX,DSL,PM2_5,8.568393958537353e-09
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,IDLEX,DSL,SOx,1.632225747295028e-08
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,IDLEX,DSL,TOG,1.461903969929932e-07
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,PMBW,DSL,PM,1.3608238071543224e-06
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,PMBW,DSL,PM10,1.3608238071543224e-06
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,PMBW,DSL,PM2_5,4.762883325040128e-07
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,PMTW,DSL,PM,3.8586552846330037e-07
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,PMTW,DSL,PM10,3.8586552846330037e-07
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,PMTW,DSL,PM2_5,9.646638211582509e-08
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,CO,2.612182390973211e-06
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,NH3,4.807546961814724e-06
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,NOx,7.208358665350428e-05
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,PM,5.093930117113831e-07
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,PM10,5.063366536411147e-07
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,PM2_5,4.844327541375254e-07
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,SOx,3.220025473314461e-07
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,TOG,8.293620701271015e-07
+2017,July,Los Angeles (MD),T6 Utility Class 6,Dsl,STREX,DSL,NOx,9.979894384488786e-06
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,IDLEX,DSL,CO,4.193752113098345e-06
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,IDLEX,DSL,NOx,2.255271831499605e-05
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,IDLEX,DSL,PM,1.5077282547588074e-08
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,IDLEX,DSL,PM10,1.4986818852302546e-08
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,IDLEX,DSL,PM2_5,1.4338495702756263e-08
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,IDLEX,DSL,SOx,2.1834475459624487e-08
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,IDLEX,DSL,TOG,1.8452441575997282e-07
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,PMBW,DSL,PM,1.89335794831663e-06
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,PMBW,DSL,PM10,1.89335794831663e-06
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,PMBW,DSL,PM2_5,6.626752819108206e-07
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,PMTW,DSL,PM,5.36867125234337e-07
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,PMTW,DSL,PM10,5.36867125234337e-07
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,PMTW,DSL,PM2_5,1.3421678130858426e-07
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,CO,3.3442822056567364e-06
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,NH3,6.765083594574561e-06
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,NOx,0.0001074099499009182
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,PM,6.930292687853296e-07
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,PM10,6.888710931726174e-07
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,PM2_5,6.590708346148483e-07
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,SOx,4.5163461875422863e-07
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,TOG,1.0113976789303355e-06
+2017,July,Los Angeles (MD),T6 Utility Class 7,Dsl,STREX,DSL,NOx,1.115636601880179e-05
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T6 Utility Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,IDLEX,DSL,CO,0.039361922475850554
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,IDLEX,DSL,NOx,0.05028019719594236
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,IDLEX,DSL,PM,0.0001453353987082013
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,IDLEX,DSL,PM10,0.000144463386315952
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,IDLEX,DSL,PM2_5,0.00013821396417149944
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,IDLEX,DSL,SOx,8.948523488654168e-05
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,IDLEX,DSL,TOG,0.004487150391812601
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,PMBW,DSL,PM,0.007238752756944555
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,PMBW,DSL,PM10,0.007238752756944555
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,PMBW,DSL,PM2_5,0.0025335634649305944
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,PMTW,DSL,PM,0.003171127392910593
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,PMTW,DSL,PM10,0.003171127392910593
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,PMTW,DSL,PM2_5,0.0007927818482276483
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,CO,0.046925158678685484
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,NH3,0.01429233563802839
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,NOx,0.4046104129114233
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,PM,0.007855078778919338
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,PM10,0.007807948306245827
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,PM2_5,0.007470179918752293
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,SOx,0.00128450048829594
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,TOG,0.014150374652696213
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,Dsl,STREX,DSL,NOx,0.010698045464041673
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 CAIRP Class 8,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,IDLEX,DSL,CO,0.053541964140252335
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,IDLEX,DSL,NOx,0.053231130220477894
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,IDLEX,DSL,PM,0.0002815050884180223
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,IDLEX,DSL,PM10,0.00027981605788751423
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,IDLEX,DSL,PM2_5,0.00026771133908553934
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,IDLEX,DSL,SOx,0.00010094561160101791
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,IDLEX,DSL,TOG,0.005952331918866035
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,PMBW,DSL,PM,0.008502908789829747
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,PMBW,DSL,PM10,0.008502908789829747
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,PMBW,DSL,PM2_5,0.0029760180764404113
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,PMTW,DSL,PM,0.0037517767634292947
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,PMTW,DSL,PM10,0.0037517767634292947
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,PMTW,DSL,PM2_5,0.0009379441908573237
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,CO,0.0761461127343951
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,NH3,0.018207579828799406
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,NOx,0.43044989418477436
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,PM,0.01329263360448765
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,PM10,0.013212877802860724
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,PM2_5,0.012641294557867753
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,SOx,0.001529177151290793
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,TOG,0.02137744571043504
+2017,July,Los Angeles (MD),T7 NNOOS Class 8,Dsl,STREX,DSL,NOx,0.01266252860730585
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,IDLEX,DSL,CO,0.018269419507193418
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,IDLEX,DSL,NOx,0.0231792124187727
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,IDLEX,DSL,PM,7.344406991465277e-05
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,IDLEX,DSL,PM10,7.300340549516489e-05
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,IDLEX,DSL,PM2_5,6.984531048883482e-05
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,IDLEX,DSL,SOx,4.145231734852131e-05
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,IDLEX,DSL,TOG,0.0021094024999158546
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,PMBW,DSL,PM,0.0031198161626917395
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,PMBW,DSL,PM10,0.0031198161626917395
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,PMBW,DSL,PM2_5,0.0010919356569421084
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,PMTW,DSL,PM,0.0013629311418681628
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,PMTW,DSL,PM10,0.0013629311418681628
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,PMTW,DSL,PM2_5,0.0003407327854670407
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,CO,0.023440935146214373
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,NH3,0.006083972567283536
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,NOx,0.18218057348815675
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,PM,0.0038191116398205408
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,PM10,0.0037961969699816184
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,PM2_5,0.003631975169469334
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,SOx,0.0005522920702038458
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,TOG,0.007088206435403795
+2017,July,Los Angeles (MD),T7 NOOS Class 8,Dsl,STREX,DSL,NOx,0.003994112291445575
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,IDLEX,DSL,CO,0.0010681362655116536
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,IDLEX,DSL,NOx,0.0027109548161113038
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,IDLEX,DSL,PM,9.171621217322044e-07
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,IDLEX,DSL,PM10,9.116591490018112e-07
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,IDLEX,DSL,PM2_5,8.722211777673265e-07
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,IDLEX,DSL,SOx,4.02599598952843e-06
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,IDLEX,DSL,TOG,0.0001554246794961194
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,PMBW,DSL,PM,0.0004298157859326257
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,PMBW,DSL,PM10,0.0004298157859326257
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,PMBW,DSL,PM2_5,0.00015043552507641895
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,PMTW,DSL,PM,0.00017955256201373013
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,PMTW,DSL,PM10,0.00017955256201373013
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,PMTW,DSL,PM2_5,4.488814050343253e-05
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,CO,0.001529522700993742
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,NH3,0.0005690202965445916
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,NOx,0.024060112982408993
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,PM,0.0001868796534469726
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,PM10,0.00018575837552629084
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,PM2_5,0.00017772255042807096
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,SOx,7.689903999404102e-05
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,TOG,0.0006160881456154435
+2017,July,Los Angeles (MD),T7 POLA Class 8,Dsl,STREX,DSL,NOx,0.0005597044063758693
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,IDLEX,CAT,CO,0.0005852672851828314
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,IDLEX,CAT,NOx,0.00018956469407911024
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,IDLEX,CAT,PM,4.0871275000224965e-07
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,IDLEX,CAT,PM10,3.653891985020112e-07
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,IDLEX,CAT,PM2_5,3.3596188050184917e-07
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,IDLEX,CAT,TOG,0.0005868751251102004
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,PMBW,CAT,PM,8.176071702975982e-05
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,PMBW,CAT,PM10,8.176071702975982e-05
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,PMBW,CAT,PM2_5,2.8616250960415933e-05
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,PMTW,CAT,PM,3.7922756880649376e-05
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,PMTW,CAT,PM10,3.7922756880649376e-05
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,PMTW,CAT,PM2_5,9.480689220162344e-06
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,RUNEX,CAT,CO,0.01052105448075386
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,RUNEX,CAT,NH3,0.001116614188129777
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,RUNEX,CAT,NOx,0.0005490981189023007
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,RUNEX,CAT,PM,1.2335276711886508e-06
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,RUNEX,CAT,PM10,1.1027737380426535e-06
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,RUNEX,CAT,PM2_5,1.0139597457170707e-06
+2017,July,Los Angeles (MD),T7 POLA Class 8,NG,RUNEX,CAT,TOG,0.0009872890259836847
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,IDLEX,DSL,CO,0.00020777828165751707
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,IDLEX,DSL,NOx,0.0016231941916271437
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,IDLEX,DSL,PM,4.75390067332195e-06
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,IDLEX,DSL,PM10,4.725377269282018e-06
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,IDLEX,DSL,PM2_5,4.5209595403291746e-06
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,IDLEX,DSL,SOx,1.2934496164676695e-06
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,IDLEX,DSL,TOG,5.2340395752628744e-05
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,PMBW,DSL,PM,0.00014956735432843237
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,PMBW,DSL,PM10,0.00014956735432843237
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,PMBW,DSL,PM2_5,5.234857401495132e-05
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,PMTW,DSL,PM,5.630384017899235e-05
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,PMTW,DSL,PM10,5.630384017899235e-05
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,PMTW,DSL,PM2_5,1.4075960044748088e-05
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,RUNEX,DSL,CO,0.0005236637771744443
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,RUNEX,DSL,NH3,0.00011822443112827045
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,RUNEX,DSL,NOx,0.014930098574684133
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,RUNEX,DSL,PM,9.89710010637487e-05
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,RUNEX,DSL,PM10,9.837717505736617e-05
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,RUNEX,DSL,PM2_5,9.412142201162499e-05
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,RUNEX,DSL,SOx,2.51109518253898e-05
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,RUNEX,DSL,TOG,0.00015089450657963452
+2017,July,Los Angeles (MD),T7 Public Class 8,Dsl,STREX,DSL,NOx,0.00021724296941115717
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 Public Class 8,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,CO,0.0006228668075340916
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,NOx,0.0014970756351496723
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,PM,8.388396765296445e-06
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,PM10,8.338066384704664e-06
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,PM2_5,7.977365323796918e-06
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,SOx,1.2883207863951625e-06
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,TOG,0.00010560498315277237
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,PMBW,DSL,PM,0.00022492277305385185
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,PMBW,DSL,PM10,0.00022492277305385185
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,PMBW,DSL,PM2_5,7.872297056884815e-05
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,PMTW,DSL,PM,8.63026644439364e-05
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,PMTW,DSL,PM10,8.63026644439364e-05
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,PMTW,DSL,PM2_5,2.15756661109841e-05
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,CO,0.0028134990190505746
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,NH3,0.00024586628406771886
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,NOx,0.024128390785927056
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,PM,0.0004558019952794023
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,PM10,0.0004530671833077259
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,PM2_5,0.0004334676975107116
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,SOx,3.753993037917743e-05
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,TOG,0.0009120791429885365
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,STREX,DSL,NOx,0.00046062322396806844
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,IDLEX,DSL,CO,0.0022214861232608177
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,IDLEX,DSL,NOx,0.004648620780545197
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,IDLEX,DSL,PM,3.156640191629071e-05
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,IDLEX,DSL,PM10,3.1377003504792974e-05
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,IDLEX,DSL,PM2_5,3.0019648222392462e-05
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,IDLEX,DSL,SOx,4.857004449484946e-06
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,IDLEX,DSL,TOG,0.0003891451200666062
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,PMBW,DSL,PM,0.000987980659932761
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,PMBW,DSL,PM10,0.000987980659932761
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,PMBW,DSL,PM2_5,0.00034579323097646636
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,PMTW,DSL,PM,0.00039695135788572224
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,PMTW,DSL,PM10,0.00039695135788572224
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,PMTW,DSL,PM2_5,9.923783947143056e-05
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,CO,0.011138719794821502
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,NH3,0.0014403102104129546
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,NOx,0.08596914495754916
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,PM,0.0017573267187493949
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,PM10,0.001746782758436899
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,PM2_5,0.001671217709530675
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,SOx,0.00016799783057576607
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,TOG,0.0032102536613857883
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,Dsl,STREX,DSL,NOx,0.0015407896629265464
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,IDLEX,CAT,CO,3.8513378572714486e-05
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,IDLEX,CAT,NOx,1.2474260926456691e-05
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,IDLEX,CAT,PM,2.6895248148740365e-08
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,IDLEX,CAT,PM10,2.4044351844973892e-08
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,IDLEX,CAT,PM2_5,2.2107893978264586e-08
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,IDLEX,CAT,TOG,3.861918210791078e-05
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,PMBW,CAT,PM,7.936566188245529e-06
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,PMBW,CAT,PM10,7.936566188245529e-06
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,PMBW,CAT,PM2_5,2.7777981658859337e-06
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,PMTW,CAT,PM,3.689626559754208e-06
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,PMTW,CAT,PM10,3.689626559754208e-06
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,PMTW,CAT,PM2_5,9.22406639938552e-07
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,RUNEX,CAT,CO,0.0010314641136442502
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,RUNEX,CAT,NH3,0.00010863897312339754
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,RUNEX,CAT,NOx,5.4484258358249395e-05
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,RUNEX,CAT,PM,1.2220830918614186e-07
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,RUNEX,CAT,PM10,1.0925422841241079e-07
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,RUNEX,CAT,PM2_5,1.0045523015100854e-07
+2017,July,Los Angeles (MD),T7 Single Dump Class 8,NG,RUNEX,CAT,TOG,9.817468944090824e-05
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,IDLEX,DSL,CO,0.002281545091930639
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,IDLEX,DSL,NOx,0.00543159550979609
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,IDLEX,DSL,PM,4.3256633655719144e-05
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,IDLEX,DSL,PM10,4.299709385378483e-05
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,IDLEX,DSL,PM2_5,4.113705860658891e-05
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,IDLEX,DSL,SOx,5.921269129775489e-06
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,IDLEX,DSL,TOG,0.000489110172524291
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,PMBW,DSL,PM,0.0008185809465476757
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,PMBW,DSL,PM10,0.0008185809465476757
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,PMBW,DSL,PM2_5,0.0002865033312916865
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,PMTW,DSL,PM,0.00032103897492619923
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,PMTW,DSL,PM10,0.00032103897492619923
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,PMTW,DSL,PM2_5,8.025974373154981e-05
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,CO,0.01086162660110711
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,NH3,0.0009730063880354934
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,NOx,0.06833688930891194
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,PM,0.0019041794615011704
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,PM10,0.0018927543847321632
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,PM2_5,0.001810874667887613
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,SOx,0.0001374729119855995
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,TOG,0.003089457214344795
+2017,July,Los Angeles (MD),T7 Single Other Class 8,Dsl,STREX,DSL,NOx,0.0013303524450724972
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,IDLEX,CAT,CO,4.003588183342931e-05
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,IDLEX,CAT,NOx,1.296739094099645e-05
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,IDLEX,CAT,PM,2.7958465776528602e-08
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,IDLEX,CAT,PM10,2.4994868404216574e-08
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,IDLEX,CAT,PM2_5,2.2981858868306512e-08
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,IDLEX,CAT,TOG,4.01458679730426e-05
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,PMBW,CAT,PM,5.995876201497732e-06
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,PMBW,CAT,PM10,5.995876201497732e-06
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,PMBW,CAT,PM2_5,2.0985566705242074e-06
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,PMTW,CAT,PM,2.787420095457513e-06
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,PMTW,CAT,PM10,2.787420095457513e-06
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,PMTW,CAT,PM2_5,6.968550238643782e-07
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,RUNEX,CAT,CO,0.0007792452031532389
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,RUNEX,CAT,NH3,8.207401262153755e-05
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,RUNEX,CAT,NOx,4.1161487260109195e-05
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,RUNEX,CAT,PM,9.232530483519433e-08
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,RUNEX,CAT,PM10,8.253882252266374e-08
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,RUNEX,CAT,PM2_5,7.589140057452974e-08
+2017,July,Los Angeles (MD),T7 Single Other Class 8,NG,RUNEX,CAT,TOG,7.416850940901677e-05
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,IDLEX,DSL,CO,7.63322072047678e-06
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,IDLEX,DSL,NOx,0.00010034791846142621
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,IDLEX,DSL,PM,6.332499480869992e-07
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,IDLEX,DSL,PM10,6.294504483984774e-07
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,IDLEX,DSL,PM2_5,6.022207006307364e-07
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,IDLEX,DSL,SOx,7.70049362594301e-08
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,IDLEX,DSL,TOG,4.203011094923571e-06
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,PMBW,DSL,PM,7.512561074444369e-05
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,PMBW,DSL,PM10,7.512561074444369e-05
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,PMBW,DSL,PM2_5,2.6293963760555286e-05
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,PMTW,DSL,PM,1.2878676127618917e-05
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,PMTW,DSL,PM10,1.2878676127618917e-05
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,PMTW,DSL,PM2_5,3.2196690319047293e-06
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,CO,4.941921619465509e-06
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,NH3,9.659004327434461e-06
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,NOx,0.006555951367961876
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,PM,6.266955630109915e-06
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,PM10,6.2293538963292574e-06
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,PM2_5,5.95987480423453e-06
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,SOx,1.3198156072427404e-05
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,TOG,8.652359326031831e-08
+2017,July,Los Angeles (MD),T7 SWCV Class 8,Dsl,STREX,DSL,NOx,0.0
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,IDLEX,CAT,CO,0.00021207108507093135
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,IDLEX,CAT,NOx,2.777925439598054e-05
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,IDLEX,CAT,PM,1.3975056879964245e-09
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,IDLEX,CAT,PM10,1.2493700850688033e-09
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,IDLEX,CAT,PM2_5,1.1487496755330605e-09
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,IDLEX,CAT,TOG,6.115309181183948e-05
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,PMBW,CAT,PM,7.500910162084934e-05
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,PMBW,CAT,PM10,7.500910162084934e-05
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,PMBW,CAT,PM2_5,2.6253185567297267e-05
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,PMTW,CAT,PM,1.2858703135002746e-05
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,PMTW,CAT,PM10,1.2858703135002746e-05
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,PMTW,CAT,PM2_5,3.2146757837506866e-06
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,RUNEX,CAT,CO,0.004006609767357031
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,RUNEX,CAT,NH3,0.0002071679355782967
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,RUNEX,CAT,NOx,0.0021401877711461257
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,RUNEX,CAT,PM,2.3769449577906616e-06
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,RUNEX,CAT,PM10,2.1249887922648515e-06
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,RUNEX,CAT,PM2_5,1.9538487553039245e-06
+2017,July,Los Angeles (MD),T7 SWCV Class 8,NG,RUNEX,CAT,TOG,0.0012710578004450808
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,IDLEX,DSL,CO,0.004133025643382964
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,IDLEX,DSL,NOx,0.007150955165253679
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,IDLEX,DSL,PM,1.533548395950165e-05
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,IDLEX,DSL,PM10,1.5243471055744637e-05
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,IDLEX,DSL,PM2_5,1.458404524548606e-05
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,IDLEX,DSL,SOx,1.0340549989473565e-05
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,IDLEX,DSL,TOG,0.0005156215665356179
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,PMBW,DSL,PM,0.0010748276101025431
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,PMBW,DSL,PM10,0.0010748276101025431
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,PMBW,DSL,PM2_5,0.00037618966353589005
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,PMTW,DSL,PM,0.00044731799746533047
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,PMTW,DSL,PM10,0.00044731799746533047
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,PMTW,DSL,PM2_5,0.00011182949936633262
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,CO,0.00964689613025152
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,NH3,0.0016401427249168774
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,NOx,0.07876359248486921
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,PM,0.0016115029822666791
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,PM10,0.0016018339643730792
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,PM2_5,0.0015325393361356114
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,SOx,0.00018188912532272317
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,TOG,0.002848220123168835
+2017,July,Los Angeles (MD),T7 Tractor Class 8,Dsl,STREX,DSL,NOx,0.003541680946033614
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,IDLEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,IDLEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,IDLEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,IDLEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,IDLEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,PMBW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,PMBW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,PMTW,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,PMTW,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,RUNEX,CAT,CO,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,RUNEX,CAT,NOx,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,RUNEX,CAT,PM,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,RUNEX,CAT,PM10,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Los Angeles (MD),T7 Tractor Class 8,NG,RUNEX,CAT,TOG,0.0
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,IDLEX,DSL,CO,1.5599926273845326e-05
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,IDLEX,DSL,NOx,3.079024819844538e-05
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,IDLEX,DSL,PM,1.9568588756382676e-08
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,IDLEX,DSL,PM10,1.9451177223844378e-08
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,IDLEX,DSL,PM2_5,1.860972790731992e-08
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,IDLEX,DSL,SOx,3.886671034377653e-08
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,IDLEX,DSL,TOG,1.5863353649420085e-06
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,PMBW,DSL,PM,9.124378034620668e-06
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,PMBW,DSL,PM10,9.124378034620668e-06
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,PMBW,DSL,PM2_5,3.193532312117234e-06
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,PMTW,DSL,PM,3.990135263152235e-06
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,PMTW,DSL,PM10,3.990135263152235e-06
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,PMTW,DSL,PM2_5,9.975338157880588e-07
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,CO,1.2373020028770402e-05
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,NH3,1.9173981554517638e-05
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,NOx,0.000305900099882443
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,PM,1.9245373858418706e-06
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,PM10,1.9129901615268197e-06
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,PM2_5,1.8302350539356189e-06
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,SOx,1.6765217337667121e-06
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,TOG,3.4049484548351868e-06
+2017,July,Los Angeles (MD),T7 Utility Class 8,Dsl,STREX,DSL,NOx,9.592727914095802e-05

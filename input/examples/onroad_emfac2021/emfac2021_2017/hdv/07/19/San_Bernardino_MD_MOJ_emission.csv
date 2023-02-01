@@ -1,0 +1,1439 @@
+calendar_year,season_month,sub_area,vehicle_class,fuel,process,cat_ncat,pollutant,emission
+2017,July,San Bernardino (MD),All Other Buses,Dsl,IDLEX,DSL,CO,0.00023821731290677648
+2017,July,San Bernardino (MD),All Other Buses,Dsl,IDLEX,DSL,NOx,0.0006497237781931153
+2017,July,San Bernardino (MD),All Other Buses,Dsl,IDLEX,DSL,PM,1.6581013322581454e-05
+2017,July,San Bernardino (MD),All Other Buses,Dsl,IDLEX,DSL,PM10,1.6481527242645966e-05
+2017,July,San Bernardino (MD),All Other Buses,Dsl,IDLEX,DSL,PM2_5,1.576854366977496e-05
+2017,July,San Bernardino (MD),All Other Buses,Dsl,IDLEX,DSL,SOx,4.106079284437214e-07
+2017,July,San Bernardino (MD),All Other Buses,Dsl,IDLEX,DSL,TOG,6.486966859921444e-05
+2017,July,San Bernardino (MD),All Other Buses,Dsl,PMBW,DSL,PM,0.0001292062988552756
+2017,July,San Bernardino (MD),All Other Buses,Dsl,PMBW,DSL,PM10,0.0001292062988552756
+2017,July,San Bernardino (MD),All Other Buses,Dsl,PMBW,DSL,PM2_5,4.522220459934647e-05
+2017,July,San Bernardino (MD),All Other Buses,Dsl,PMTW,DSL,PM,3.7184082038465e-05
+2017,July,San Bernardino (MD),All Other Buses,Dsl,PMTW,DSL,PM10,3.7184082038465e-05
+2017,July,San Bernardino (MD),All Other Buses,Dsl,PMTW,DSL,PM2_5,9.29602050961625e-06
+2017,July,San Bernardino (MD),All Other Buses,Dsl,RUNEX,DSL,CO,0.0076490668601659675
+2017,July,San Bernardino (MD),All Other Buses,Dsl,RUNEX,DSL,NH3,8.637611116512993e-05
+2017,July,San Bernardino (MD),All Other Buses,Dsl,RUNEX,DSL,NOx,0.035392631975695754
+2017,July,San Bernardino (MD),All Other Buses,Dsl,RUNEX,DSL,PM,0.002060478640039247
+2017,July,San Bernardino (MD),All Other Buses,Dsl,RUNEX,DSL,PM10,0.0020481157681990114
+2017,July,San Bernardino (MD),All Other Buses,Dsl,RUNEX,DSL,PM2_5,0.0019595151866773236
+2017,July,San Bernardino (MD),All Other Buses,Dsl,RUNEX,DSL,SOx,3.139130249545303e-05
+2017,July,San Bernardino (MD),All Other Buses,Dsl,RUNEX,DSL,TOG,0.0034109348973030617
+2017,July,San Bernardino (MD),All Other Buses,Dsl,STREX,DSL,NOx,9.197949946150403e-06
+2017,July,San Bernardino (MD),All Other Buses,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),All Other Buses,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),Motor Coach,Dsl,IDLEX,DSL,CO,0.0009926697834354008
+2017,July,San Bernardino (MD),Motor Coach,Dsl,IDLEX,DSL,NOx,0.0022377375433637785
+2017,July,San Bernardino (MD),Motor Coach,Dsl,IDLEX,DSL,PM,1.482044242422362e-05
+2017,July,San Bernardino (MD),Motor Coach,Dsl,IDLEX,DSL,PM10,1.4731519769678276e-05
+2017,July,San Bernardino (MD),Motor Coach,Dsl,IDLEX,DSL,PM2_5,1.4094240745436655e-05
+2017,July,San Bernardino (MD),Motor Coach,Dsl,IDLEX,DSL,SOx,2.2005769718762e-06
+2017,July,San Bernardino (MD),Motor Coach,Dsl,IDLEX,DSL,TOG,0.00018300047483051923
+2017,July,San Bernardino (MD),Motor Coach,Dsl,PMBW,DSL,PM,0.00018709631534482557
+2017,July,San Bernardino (MD),Motor Coach,Dsl,PMBW,DSL,PM10,0.00018709631534482557
+2017,July,San Bernardino (MD),Motor Coach,Dsl,PMBW,DSL,PM2_5,6.548371037068894e-05
+2017,July,San Bernardino (MD),Motor Coach,Dsl,PMTW,DSL,PM,2.8005123915636592e-05
+2017,July,San Bernardino (MD),Motor Coach,Dsl,PMTW,DSL,PM10,2.8005123915636592e-05
+2017,July,San Bernardino (MD),Motor Coach,Dsl,PMTW,DSL,PM2_5,7.001280978909148e-06
+2017,July,San Bernardino (MD),Motor Coach,Dsl,RUNEX,DSL,CO,0.002360929988344039
+2017,July,San Bernardino (MD),Motor Coach,Dsl,RUNEX,DSL,NH3,0.00034500374323841
+2017,July,San Bernardino (MD),Motor Coach,Dsl,RUNEX,DSL,NOx,0.013734185594972775
+2017,July,San Bernardino (MD),Motor Coach,Dsl,RUNEX,DSL,PM,0.0004300638145007264
+2017,July,San Bernardino (MD),Motor Coach,Dsl,RUNEX,DSL,PM10,0.0004274834316137221
+2017,July,San Bernardino (MD),Motor Coach,Dsl,RUNEX,DSL,PM2_5,0.0004089906875901907
+2017,July,San Bernardino (MD),Motor Coach,Dsl,RUNEX,DSL,SOx,3.7181002457237635e-05
+2017,July,San Bernardino (MD),Motor Coach,Dsl,RUNEX,DSL,TOG,0.0007251991285751999
+2017,July,San Bernardino (MD),Motor Coach,Dsl,STREX,DSL,NOx,0.0004585712045285026
+2017,July,San Bernardino (MD),PTO,Dsl,PMTW,DSL,PM,0.0
+2017,July,San Bernardino (MD),PTO,Dsl,PMTW,DSL,PM10,0.0
+2017,July,San Bernardino (MD),PTO,Dsl,PMTW,DSL,PM2_5,0.0
+2017,July,San Bernardino (MD),PTO,Dsl,RUNEX,DSL,CO,0.016433266758299914
+2017,July,San Bernardino (MD),PTO,Dsl,RUNEX,DSL,NH3,0.0005642824714552882
+2017,July,San Bernardino (MD),PTO,Dsl,RUNEX,DSL,NOx,0.05633523308099286
+2017,July,San Bernardino (MD),PTO,Dsl,RUNEX,DSL,PM,0.00198318589384879
+2017,July,San Bernardino (MD),PTO,Dsl,RUNEX,DSL,PM10,0.001971286778485697
+2017,July,San Bernardino (MD),PTO,Dsl,RUNEX,DSL,PM2_5,0.0018860097850501984
+2017,July,San Bernardino (MD),PTO,Dsl,RUNEX,DSL,SOx,0.00011465510544797505
+2017,July,San Bernardino (MD),PTO,Dsl,RUNEX,DSL,TOG,0.005221008859684144
+2017,July,San Bernardino (MD),SBUS,Dsl,IDLEX,DSL,CO,0.0020243945281858892
+2017,July,San Bernardino (MD),SBUS,Dsl,IDLEX,DSL,NOx,0.016239585545889064
+2017,July,San Bernardino (MD),SBUS,Dsl,IDLEX,DSL,PM,2.1284525349459337e-05
+2017,July,San Bernardino (MD),SBUS,Dsl,IDLEX,DSL,PM10,2.115681819736258e-05
+2017,July,San Bernardino (MD),SBUS,Dsl,IDLEX,DSL,PM2_5,2.024158360733583e-05
+2017,July,San Bernardino (MD),SBUS,Dsl,IDLEX,DSL,SOx,1.2919981701070932e-05
+2017,July,San Bernardino (MD),SBUS,Dsl,IDLEX,DSL,TOG,0.0001315942356671246
+2017,July,San Bernardino (MD),SBUS,Dsl,PMBW,DSL,PM,0.0007731873352355849
+2017,July,San Bernardino (MD),SBUS,Dsl,PMBW,DSL,PM10,0.0007731873352355849
+2017,July,San Bernardino (MD),SBUS,Dsl,PMBW,DSL,PM2_5,0.00027061556733245465
+2017,July,San Bernardino (MD),SBUS,Dsl,PMTW,DSL,PM,0.00019806266762317543
+2017,July,San Bernardino (MD),SBUS,Dsl,PMTW,DSL,PM10,0.00019806266762317543
+2017,July,San Bernardino (MD),SBUS,Dsl,PMTW,DSL,PM2_5,4.951566690579386e-05
+2017,July,San Bernardino (MD),SBUS,Dsl,RUNEX,DSL,CO,0.004508279801316161
+2017,July,San Bernardino (MD),SBUS,Dsl,RUNEX,DSL,NH3,0.001836054596302278
+2017,July,San Bernardino (MD),SBUS,Dsl,RUNEX,DSL,NOx,0.09238807614393194
+2017,July,San Bernardino (MD),SBUS,Dsl,RUNEX,DSL,PM,0.0007345863748835972
+2017,July,San Bernardino (MD),SBUS,Dsl,RUNEX,DSL,PM10,0.0007301788566342956
+2017,July,San Bernardino (MD),SBUS,Dsl,RUNEX,DSL,PM2_5,0.0006985916425143009
+2017,July,San Bernardino (MD),SBUS,Dsl,RUNEX,DSL,SOx,0.00019935420501444057
+2017,July,San Bernardino (MD),SBUS,Dsl,RUNEX,DSL,TOG,0.0020600894885571316
+2017,July,San Bernardino (MD),SBUS,Dsl,STREX,DSL,NOx,0.002910785537831154
+2017,July,San Bernardino (MD),SBUS,Gas,DIURN,CAT,TOG,0.0006822622323638619
+2017,July,San Bernardino (MD),SBUS,Gas,DIURN,NCAT,TOG,0.00019054263367527578
+2017,July,San Bernardino (MD),SBUS,Gas,HOTSOAK,CAT,TOG,0.00012935299987742473
+2017,July,San Bernardino (MD),SBUS,Gas,HOTSOAK,NCAT,TOG,8.179592488810802e-05
+2017,July,San Bernardino (MD),SBUS,Gas,IDLEX,CAT,CO,0.006685750788901935
+2017,July,San Bernardino (MD),SBUS,Gas,IDLEX,CAT,NOx,7.538153437653304e-05
+2017,July,San Bernardino (MD),SBUS,Gas,IDLEX,CAT,SOx,2.2360617189485197e-06
+2017,July,San Bernardino (MD),SBUS,Gas,IDLEX,CAT,TOG,0.001250184922476825
+2017,July,San Bernardino (MD),SBUS,Gas,IDLEX,NCAT,CO,0.0004457423772374343
+2017,July,San Bernardino (MD),SBUS,Gas,IDLEX,NCAT,NOx,5.04055126796645e-06
+2017,July,San Bernardino (MD),SBUS,Gas,IDLEX,NCAT,SOx,1.6424335241840162e-07
+2017,July,San Bernardino (MD),SBUS,Gas,IDLEX,NCAT,TOG,8.01184878819597e-05
+2017,July,San Bernardino (MD),SBUS,Gas,PMBW,CAT,PM,0.0002200549864364636
+2017,July,San Bernardino (MD),SBUS,Gas,PMBW,CAT,PM10,0.0002200549864364636
+2017,July,San Bernardino (MD),SBUS,Gas,PMBW,CAT,PM2_5,7.701924525276229e-05
+2017,July,San Bernardino (MD),SBUS,Gas,PMBW,NCAT,PM,2.090131524726441e-05
+2017,July,San Bernardino (MD),SBUS,Gas,PMBW,NCAT,PM10,2.090131524726441e-05
+2017,July,San Bernardino (MD),SBUS,Gas,PMBW,NCAT,PM2_5,7.315460336542543e-06
+2017,July,San Bernardino (MD),SBUS,Gas,PMTW,CAT,PM,3.758009273316037e-05
+2017,July,San Bernardino (MD),SBUS,Gas,PMTW,CAT,PM10,3.758009273316037e-05
+2017,July,San Bernardino (MD),SBUS,Gas,PMTW,CAT,PM2_5,9.395023183290093e-06
+2017,July,San Bernardino (MD),SBUS,Gas,PMTW,NCAT,PM,3.569441338081221e-06
+2017,July,San Bernardino (MD),SBUS,Gas,PMTW,NCAT,PM10,3.569441338081221e-06
+2017,July,San Bernardino (MD),SBUS,Gas,PMTW,NCAT,PM2_5,8.923603345203053e-07
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,CAT,CO,0.07694953365948135
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,CAT,NH3,0.0001946258032080542
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,CAT,NOx,0.008121835835590474
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,CAT,PM,2.8631229450569893e-05
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,CAT,PM10,2.559631912880948e-05
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,CAT,PM2_5,2.353487060836845e-05
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,CAT,SOx,4.4601606753654856e-05
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,CAT,TOG,0.00594863090588403
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,NCAT,CO,0.07416747961242423
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,NCAT,NH3,2.2309001969226683e-06
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,NCAT,NOx,0.0011645780408233851
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,NCAT,PM,2.107067886610088e-05
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,NCAT,PM10,2.0248922390322942e-05
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,NCAT,PM2_5,1.932181252021451e-05
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,NCAT,SOx,5.4075543892479445e-06
+2017,July,San Bernardino (MD),SBUS,Gas,RUNEX,NCAT,TOG,0.003096573000820159
+2017,July,San Bernardino (MD),SBUS,Gas,RUNLOSS,CAT,TOG,0.0003334214235875483
+2017,July,San Bernardino (MD),SBUS,Gas,RUNLOSS,NCAT,TOG,8.438280517208645e-05
+2017,July,San Bernardino (MD),SBUS,Gas,STREX,CAT,CO,0.003098955897698485
+2017,July,San Bernardino (MD),SBUS,Gas,STREX,CAT,NOx,0.0001843793534532108
+2017,July,San Bernardino (MD),SBUS,Gas,STREX,CAT,PM,6.492030140003547e-07
+2017,July,San Bernardino (MD),SBUS,Gas,STREX,CAT,PM10,5.803874945163169e-07
+2017,July,San Bernardino (MD),SBUS,Gas,STREX,CAT,PM2_5,5.336448775082914e-07
+2017,July,San Bernardino (MD),SBUS,Gas,STREX,CAT,SOx,1.9327697882263122e-07
+2017,July,San Bernardino (MD),SBUS,Gas,STREX,CAT,TOG,0.00016076419615267056
+2017,July,San Bernardino (MD),SBUS,Gas,STREX,NCAT,CO,4.906601137137235e-05
+2017,July,San Bernardino (MD),SBUS,Gas,STREX,NCAT,NOx,1.4015603464070016e-05
+2017,July,San Bernardino (MD),SBUS,Gas,STREX,NCAT,PM,5.959705048565945e-07
+2017,July,San Bernardino (MD),SBUS,Gas,STREX,NCAT,PM10,5.727276551671875e-07
+2017,July,San Bernardino (MD),SBUS,Gas,STREX,NCAT,PM2_5,5.465049529534972e-07
+2017,July,San Bernardino (MD),SBUS,Gas,STREX,NCAT,SOx,2.7019269283151866e-08
+2017,July,San Bernardino (MD),SBUS,Gas,STREX,NCAT,TOG,0.000185610759576476
+2017,July,San Bernardino (MD),SBUS,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),SBUS,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),SBUS,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),SBUS,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),SBUS,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),SBUS,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),SBUS,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),SBUS,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),SBUS,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),SBUS,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),SBUS,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),SBUS,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),SBUS,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),SBUS,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),SBUS,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),SBUS,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),SBUS,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),SBUS,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,IDLEX,DSL,CO,5.091949145080943e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,IDLEX,DSL,NOx,0.00018495751477069373
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,IDLEX,DSL,PM,6.038724244951611e-07
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,IDLEX,DSL,PM10,6.002491899481903e-07
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,IDLEX,DSL,PM2_5,5.742826756948981e-07
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,IDLEX,DSL,SOx,1.8064170041635643e-07
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,IDLEX,DSL,TOG,3.282151477029886e-06
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,PMBW,DSL,PM,7.931382434561971e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,PMBW,DSL,PM10,7.931382434561971e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,PMBW,DSL,PM2_5,2.7759838520966895e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,PMTW,DSL,PM,2.2825761986570805e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,PMTW,DSL,PM10,2.2825761986570805e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,PMTW,DSL,PM2_5,5.706440496642701e-06
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,CO,0.0005491607857103497
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,NH3,0.0003149798756408496
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,NOx,0.003986487740269566
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,PM,0.0001447004641202035
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,PM10,0.00014383226133548227
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,PM2_5,0.00013761014137831355
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,SOx,2.01265161591337e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,RUNEX,DSL,TOG,0.00016116799554092065
+2017,July,San Bernardino (MD),T6 CAIRP Class 4,Dsl,STREX,DSL,NOx,0.0002335671115336344
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,IDLEX,DSL,CO,6.392518702508331e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,IDLEX,DSL,NOx,0.00021457387958585976
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,IDLEX,DSL,PM,7.316255390125486e-07
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,IDLEX,DSL,PM10,7.272357857784734e-07
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,IDLEX,DSL,PM2_5,6.957758876009336e-07
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,IDLEX,DSL,SOx,2.2141444043974177e-07
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,IDLEX,DSL,TOG,4.007460203060643e-06
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,PMBW,DSL,PM,0.00010880430450017762
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,PMBW,DSL,PM10,0.00010880430450017762
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,PMBW,DSL,PM2_5,3.808150657506216e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,PMTW,DSL,PM,3.13128408335613e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,PMTW,DSL,PM10,3.13128408335613e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,PMTW,DSL,PM2_5,7.828210208390325e-06
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,CO,0.0007919974140497867
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,NH3,0.0004435493782395278
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,NOx,0.005119016339883356
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,PM,0.000212393065105469
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,PM10,0.00021111870671483614
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,PM2_5,0.00020198580491530098
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,SOx,2.7560018214458937e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,RUNEX,DSL,TOG,0.00022023499576902635
+2017,July,San Bernardino (MD),T6 CAIRP Class 5,Dsl,STREX,DSL,NOx,0.0003126994553970167
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,IDLEX,DSL,CO,0.00017206833188399638
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,IDLEX,DSL,NOx,0.0006516832977309286
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,IDLEX,DSL,PM,2.90166778957882e-06
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,IDLEX,DSL,PM10,2.884257782841347e-06
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,IDLEX,DSL,PM2_5,2.7594860678894574e-06
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,IDLEX,DSL,SOx,5.918739221191106e-07
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,IDLEX,DSL,TOG,1.340914217148314e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,PMBW,DSL,PM,0.0002843087605711429
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,PMBW,DSL,PM10,0.0002843087605711429
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,PMBW,DSL,PM2_5,9.950806619990004e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,PMTW,DSL,PM,8.182134896452332e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,PMTW,DSL,PM10,8.182134896452332e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,PMTW,DSL,PM2_5,2.045533724113083e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,CO,0.0029113033113650263
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,NH3,0.001038917154354103
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,NOx,0.018991187432932436
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,PM,0.0007758137354717045
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,PM10,0.0007711588530588741
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,PM2_5,0.0007377988624335907
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,SOx,6.993892224546701e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,RUNEX,DSL,TOG,0.0008557069358360776
+2017,July,San Bernardino (MD),T6 CAIRP Class 6,Dsl,STREX,DSL,NOx,0.0007119053525369087
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,IDLEX,DSL,CO,0.0004282871141035313
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,IDLEX,DSL,NOx,0.001467083593230878
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,IDLEX,DSL,PM,6.950686852880308e-06
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,IDLEX,DSL,PM10,6.908982731763027e-06
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,IDLEX,DSL,PM2_5,6.610103197089169e-06
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,IDLEX,DSL,SOx,1.5133392432851974e-06
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,IDLEX,DSL,TOG,3.52292377144376e-05
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,PMBW,DSL,PM,0.0017833282513542244
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,PMBW,DSL,PM10,0.0017833282513542244
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,PMBW,DSL,PM2_5,0.0006241648879739784
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,PMTW,DSL,PM,0.000513224857648503
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,PMTW,DSL,PM10,0.000513224857648503
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,PMTW,DSL,PM2_5,0.00012830621441212574
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,CO,0.017004719724848346
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,NH3,0.006547740174035243
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,NOx,0.11874518066087891
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,PM,0.004472755144896887
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,PM10,0.004445918614027507
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,PM2_5,0.004253590142796941
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,SOx,0.00041824087982858115
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,RUNEX,DSL,TOG,0.005160723523276103
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,Dsl,STREX,DSL,NOx,0.0018194216425567798
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 CAIRP Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,CO,0.0005112509557860388
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,NOx,0.0026104489788079926
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,PM,1.9521589044890933e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,PM10,1.9404459510621586e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,PM2_5,1.8565031181691275e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,SOx,1.6992221454957029e-06
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,TOG,7.245990411791367e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,PMBW,DSL,PM,0.00013377317430033074
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,PMBW,DSL,PM10,0.00013377317430033074
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,PMBW,DSL,PM2_5,4.6820611005115754e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,PMTW,DSL,PM,3.846936301421678e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,PMTW,DSL,PM10,3.846936301421678e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,PMTW,DSL,PM2_5,9.617340753554194e-06
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,CO,0.003236177388773089
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,NH3,0.00021533961144810433
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,NOx,0.02264553339820393
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,PM,0.0008331689752814016
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,PM10,0.000828169961429713
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,PM2_5,0.0007923436954926129
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,SOx,3.192721261811755e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,TOG,0.0011395122068541756
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,Dsl,STREX,DSL,NOx,0.00025976439195113437
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 4,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,CO,0.00042188712043187955
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,NOx,0.0022119388046433664
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,PM,1.2625597744762404e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,PM10,1.2549844158293832e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,PM2_5,1.2006943455269046e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,SOx,1.492119550561877e-06
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,IDLEX,DSL,TOG,4.7631116392993935e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,PMBW,DSL,PM,9.526735453927554e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,PMBW,DSL,PM10,9.526735453927554e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,PMBW,DSL,PM2_5,3.334357408874644e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,PMTW,DSL,PM,2.7396183609634377e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,PMTW,DSL,PM10,2.7396183609634377e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,PMTW,DSL,PM2_5,6.849045902408594e-06
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,CO,0.001972683631474532
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,NH3,0.000210636761324476
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,NOx,0.012678792692521878
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,PM,0.0005160140773162541
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,PM10,0.0005129179928523564
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,PM2_5,0.0004907293875277576
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,SOx,2.288333749217238e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,RUNEX,DSL,TOG,0.0006247955755030036
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,Dsl,STREX,DSL,NOx,0.00042854626528476803
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 5,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,CO,0.0021454976077169706
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,NOx,0.012522788690006358
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,PM,7.128830129940925e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,PM10,7.086057149161279e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,PM2_5,6.77951745357382e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,SOx,7.83191226143099e-06
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,IDLEX,DSL,TOG,0.00026036962817546953
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,PMBW,DSL,PM,0.000509892287071303
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,PMBW,DSL,PM10,0.000509892287071303
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,PMBW,DSL,PM2_5,0.000178462300474956
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,PMTW,DSL,PM,0.0001466305303143777
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,PMTW,DSL,PM10,0.0001466305303143777
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,PMTW,DSL,PM2_5,3.6657632578594424e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,CO,0.012958656934298823
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,NH3,0.0008682481723517024
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,NOx,0.07375208313948506
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,PM,0.0033771790629959016
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,PM10,0.003356915988617926
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,PM2_5,0.0032116972889091023
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,SOx,0.00012025008903822178
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,RUNEX,DSL,TOG,0.0037960249042236936
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,Dsl,STREX,DSL,NOx,0.0013772430257544047
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,CO,0.00045900640097212115
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,NOx,0.003413508803952249
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,PM,1.7724086357186747e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,PM10,1.7617741839043625e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,PM2_5,1.6855606125684593e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,SOx,2.187182580651375e-06
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,TOG,6.90376097566991e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,PMBW,DSL,PM,0.0001636467310184558
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,PMBW,DSL,PM10,0.0001636467310184558
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,PMBW,DSL,PM2_5,5.727635585645954e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,PMTW,DSL,PM,4.706014890179146e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,PMTW,DSL,PM10,4.706014890179146e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,PMTW,DSL,PM2_5,1.1765037225447864e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,CO,0.0030504375679873265
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,NH3,0.0002563816132697515
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,NOx,0.02542975119745855
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,PM,0.0008134336253020024
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,PM10,0.0008085530235501901
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,PM2_5,0.0007735753776622041
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,SOx,3.931823400531991e-05
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,TOG,0.001001338376665577
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,Dsl,STREX,DSL,NOx,0.0004064437848812265
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Delivery Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,IDLEX,DSL,CO,0.003817160256433783
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,IDLEX,DSL,NOx,0.022225205149792857
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,IDLEX,DSL,PM,0.00014216623772518586
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,IDLEX,DSL,PM10,0.00014131324029883477
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,IDLEX,DSL,PM2_5,0.00013520009207665178
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,IDLEX,DSL,SOx,1.4024677081341147e-05
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,IDLEX,DSL,TOG,0.0005357047166823814
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,PMBW,DSL,PM,0.0007779287702048874
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,PMBW,DSL,PM10,0.0007779287702048874
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,PMBW,DSL,PM2_5,0.00027227506957171047
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,PMTW,DSL,PM,0.00022373660254268866
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,PMTW,DSL,PM10,0.00022373660254268866
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,PMTW,DSL,PM2_5,5.5934150635672166e-05
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,CO,0.017846576924327166
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,NH3,0.001153045017921473
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,NOx,0.1165814213911708
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,PM,0.004608274899826585
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,PM10,0.004580625250427627
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,PM2_5,0.004382469429735083
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,SOx,0.0001877439839413599
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,RUNEX,DSL,TOG,0.0057826587472707665
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,Dsl,STREX,DSL,NOx,0.0014272082910238412
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 4,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,IDLEX,DSL,CO,0.0043959290933330624
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,IDLEX,DSL,NOx,0.018947356144922874
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,IDLEX,DSL,PM,8.558240112729121e-05
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,IDLEX,DSL,PM10,8.506890672052744e-05
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,IDLEX,DSL,PM2_5,8.138886347205394e-05
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,IDLEX,DSL,SOx,1.5745433354044956e-05
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,IDLEX,DSL,TOG,0.00037380972538275556
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,PMBW,DSL,PM,0.0012653647107618135
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,PMBW,DSL,PM10,0.0012653647107618135
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,PMBW,DSL,PM2_5,0.00044287764876663465
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,PMTW,DSL,PM,0.0003639258659744597
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,PMTW,DSL,PM10,0.0003639258659744597
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,PMTW,DSL,PM2_5,9.098146649361492e-05
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,CO,0.017960024777506037
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,NH3,0.003981870388735951
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,NOx,0.09590062734491005
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,PM,0.004801555760981602
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,PM10,0.004772746426415716
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,PM2_5,0.004566279528693505
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,SOx,0.00031155795708164447
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,RUNEX,DSL,TOG,0.004834533571141014
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,Dsl,STREX,DSL,NOx,0.006549586943072324
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 5,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,IDLEX,DSL,CO,0.005077355929242009
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,IDLEX,DSL,NOx,0.023796850868454202
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,IDLEX,DSL,PM,0.00017113675790989731
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,IDLEX,DSL,PM10,0.00017010993736243802
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,IDLEX,DSL,PM2_5,0.00016275105677231242
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,IDLEX,DSL,SOx,1.6444679897128645e-05
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,IDLEX,DSL,TOG,0.0006554368597741558
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,PMBW,DSL,PM,0.0011020965258422063
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,PMBW,DSL,PM10,0.0011020965258422063
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,PMBW,DSL,PM2_5,0.00038573378404477217
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,PMTW,DSL,PM,0.000316969035996821
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,PMTW,DSL,PM10,0.000316969035996821
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,PMTW,DSL,PM2_5,7.924225899920525e-05
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,CO,0.0234719021018356
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,NH3,0.0024644933129485003
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,NOx,0.14098400019289145
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,PM,0.006134123596457663
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,PM10,0.006097318854878917
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,PM2_5,0.005833551540231238
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,SOx,0.0002661289066093282
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,RUNEX,DSL,TOG,0.007260231656608755
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,Dsl,STREX,DSL,NOx,0.003940367608873798
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,IDLEX,DSL,CO,0.0035910864713520254
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,IDLEX,DSL,NOx,0.012851803862180124
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,IDLEX,DSL,PM,0.00019904190148316845
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,IDLEX,DSL,PM10,0.00019784765007426942
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,IDLEX,DSL,PM2_5,0.0001892888483104931
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,IDLEX,DSL,SOx,9.71877836737214e-06
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,IDLEX,DSL,TOG,0.0008072362098448283
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,PMBW,DSL,PM,0.0007359709673346927
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,PMBW,DSL,PM10,0.0007359709673346927
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,PMBW,DSL,PM2_5,0.0002575898385671425
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,PMTW,DSL,PM,0.0002116693071502573
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,PMTW,DSL,PM10,0.0002116693071502573
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,PMTW,DSL,PM2_5,5.291732678756432e-05
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,CO,0.013093996186908092
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,NH3,0.0017346171502796142
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,NOx,0.09974177860772827
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,PM,0.003697979655072685
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,PM10,0.0036757917771422493
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,PM2_5,0.0035167786519741243
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,SOx,0.00017825088767367916
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,RUNEX,DSL,TOG,0.0052315863859144635
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,Dsl,STREX,DSL,NOx,0.002033818779435258
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Other Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,CO,6.337185557564996e-05
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,NOx,0.0003114240947280065
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,PM,1.3948149590811008e-06
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,PM10,1.3864460693266141e-06
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,PM2_5,1.326469026086127e-06
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,SOx,2.595071275726575e-07
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,TOG,6.001985643661324e-06
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,PMBW,DSL,PM,1.6484026754129274e-05
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,PMBW,DSL,PM10,1.6484026754129274e-05
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,PMBW,DSL,PM2_5,5.769409363945245e-06
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,PMTW,DSL,PM,4.74089696055375e-06
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,PMTW,DSL,PM10,4.74089696055375e-06
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,PMTW,DSL,PM2_5,1.1852242401384375e-06
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,CO,0.00024328237009541405
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,NH3,4.7758719694793384e-05
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,NOx,0.0015044841832500895
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,PM,6.389751073419036e-05
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,PM10,6.351412566978521e-05
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,PM2_5,6.076653270821503e-05
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,SOx,3.6739218279382467e-06
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,TOG,6.672740256558203e-05
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,Dsl,STREX,DSL,NOx,7.857192013548375e-05
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,CO,0.001133445680673626
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,NOx,0.00679803493340139
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,PM,3.2056995341487466e-05
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,PM10,3.186465336943854e-05
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,PM2_5,3.0486202569754583e-05
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,SOx,5.344130915237153e-06
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,TOG,0.00014229209492308445
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,PMBW,DSL,PM,0.00041161862302532576
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,PMBW,DSL,PM10,0.00041161862302532576
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,PMBW,DSL,PM2_5,0.00014406651805886402
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,PMTW,DSL,PM,0.00011838378497652269
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,PMTW,DSL,PM10,0.00011838378497652269
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,PMTW,DSL,PM2_5,2.9595946244130672e-05
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,CO,0.004533459981943095
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,NH3,0.0010141943421317927
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,NOx,0.04752708715552021
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,PM,0.0011660505996790305
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,PM10,0.0011590542960809563
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,PM2_5,0.0011089141202947578
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,SOx,9.214446619412069e-05
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,TOG,0.0016014249982366827
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,Dsl,STREX,DSL,NOx,0.0014322072417978602
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Instate Tractor Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,IDLEX,DSL,CO,2.8573743281808185e-05
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,IDLEX,DSL,NOx,0.0001037898925114898
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,IDLEX,DSL,PM,3.3886622063368347e-07
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,IDLEX,DSL,PM10,3.368330233098814e-07
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,IDLEX,DSL,PM2_5,3.22261775822633e-07
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,IDLEX,DSL,SOx,1.0136805036162344e-07
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,IDLEX,DSL,TOG,1.8417967467111658e-06
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,PMBW,DSL,PM,4.450737409585296e-05
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,PMBW,DSL,PM10,4.450737409585296e-05
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,PMBW,DSL,PM2_5,1.5577580933548537e-05
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,PMTW,DSL,PM,1.2808797660950427e-05
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,PMTW,DSL,PM10,1.2808797660950427e-05
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,PMTW,DSL,PM2_5,3.202199415237607e-06
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,CO,0.00030816449359440633
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,NH3,0.00017675263139525438
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,NOx,0.0022370387833348863
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,PM,8.119943449674707e-05
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,PM10,8.071223788976658e-05
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,PM2_5,7.722066220640646e-05
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,SOx,1.1294101518651672e-05
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,RUNEX,DSL,TOG,9.044027728274392e-05
+2017,July,San Bernardino (MD),T6 OOS Class 4,Dsl,STREX,DSL,NOx,0.0001310674261515522
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,IDLEX,DSL,CO,3.587195847576824e-05
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,IDLEX,DSL,NOx,0.00012040927300438846
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,IDLEX,DSL,PM,4.105555597754684e-07
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,IDLEX,DSL,PM10,4.0809222641681546e-07
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,IDLEX,DSL,PM2_5,3.904383373464703e-07
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,IDLEX,DSL,SOx,1.242478901116929e-07
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,IDLEX,DSL,TOG,2.2488075929363263e-06
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,PMBW,DSL,PM,6.105611377562082e-05
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,PMBW,DSL,PM10,6.105611377562082e-05
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,PMBW,DSL,PM2_5,2.1369639821467287e-05
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,PMTW,DSL,PM,1.7571367064514467e-05
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,PMTW,DSL,PM10,1.7571367064514467e-05
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,PMTW,DSL,PM2_5,4.392841766128617e-06
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,CO,0.00044443355820765994
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,NH3,0.0002489000911459143
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,NOx,0.0028725632263636716
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,PM,0.00011918549731115828
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,PM10,0.00011847038432729133
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,PM2_5,0.0001133454079429115
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,SOx,1.546545070532627e-05
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,RUNEX,DSL,TOG,0.00012358603839632284
+2017,July,San Bernardino (MD),T6 OOS Class 5,Dsl,STREX,DSL,NOx,0.00017547296151143086
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,IDLEX,DSL,CO,9.655705899307741e-05
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,IDLEX,DSL,NOx,0.0003656955462580553
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,IDLEX,DSL,PM,1.6282863025926929e-06
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,IDLEX,DSL,PM10,1.6185165847771367e-06
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,IDLEX,DSL,PM2_5,1.5485002737656506e-06
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,IDLEX,DSL,SOx,3.321331972535246e-07
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,IDLEX,DSL,TOG,7.524611399962088e-06
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,PMBW,DSL,PM,0.00015954137212639794
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,PMBW,DSL,PM10,0.00015954137212639794
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,PMBW,DSL,PM2_5,5.5839480244239285e-05
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,PMTW,DSL,PM,4.591448486078708e-05
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,PMTW,DSL,PM10,4.591448486078708e-05
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,PMTW,DSL,PM2_5,1.147862121519677e-05
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,CO,0.0016336933268474333
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,NH3,0.0005829938831443829
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,NOx,0.010657005767822681
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,PM,0.00043535200112499925
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,PM10,0.0004327398891182493
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,PM2_5,0.0004140197530698743
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,SOx,3.924659795132998e-05
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,RUNEX,DSL,TOG,0.00048018449518137207
+2017,July,San Bernardino (MD),T6 OOS Class 6,Dsl,STREX,DSL,NOx,0.0003994894724314004
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,IDLEX,DSL,CO,0.00024208294208816227
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,IDLEX,DSL,NOx,0.0008232617563020842
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,IDLEX,DSL,PM,3.974988130745216e-06
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,IDLEX,DSL,PM10,3.9511382019607456e-06
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,IDLEX,DSL,PM2_5,3.7802137123386997e-06
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,IDLEX,DSL,SOx,8.490920876580922e-07
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,IDLEX,DSL,TOG,2.0027359712452062e-05
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,PMBW,DSL,PM,0.0011600641632457654
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,PMBW,DSL,PM10,0.0011600641632457654
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,PMBW,DSL,PM2_5,0.0004060224571360177
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,PMTW,DSL,PM,0.00033385539907912205
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,PMTW,DSL,PM10,0.00033385539907912205
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,PMTW,DSL,PM2_5,8.346384976978051e-05
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,CO,0.011817016709579065
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,NH3,0.004193689980956015
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,NOx,0.08049756639829898
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,PM,0.0030966791861640336
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,PM10,0.0030780991110470513
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,PM2_5,0.002944941906041997
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,SOx,0.00027199665372794747
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,RUNEX,DSL,TOG,0.003640523946731088
+2017,July,San Bernardino (MD),T6 OOS Class 7,Dsl,STREX,DSL,NOx,0.0010209781251971234
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,IDLEX,DSL,CO,0.00011409507354782203
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,IDLEX,DSL,NOx,0.0038183239499870293
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,IDLEX,DSL,PM,3.66620128712308e-06
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,IDLEX,DSL,PM10,3.6442040794003415e-06
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,IDLEX,DSL,PM2_5,3.4865574240540487e-06
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,IDLEX,DSL,SOx,2.298469307051457e-06
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,IDLEX,DSL,TOG,1.8787617003602454e-05
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,PMBW,DSL,PM,8.314001807030691e-05
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,PMBW,DSL,PM10,8.314001807030691e-05
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,PMBW,DSL,PM2_5,2.9099006324607417e-05
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,PMTW,DSL,PM,2.392061508072978e-05
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,PMTW,DSL,PM10,2.392061508072978e-05
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,PMTW,DSL,PM2_5,5.980153770182445e-06
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,RUNEX,DSL,CO,0.0002851418737877787
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,RUNEX,DSL,NH3,6.152353856342254e-05
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,RUNEX,DSL,NOx,0.012081115502905415
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,RUNEX,DSL,PM,8.231308492104408e-05
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,RUNEX,DSL,PM10,8.181920641151781e-05
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,RUNEX,DSL,PM2_5,7.827974375991291e-05
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,RUNEX,DSL,SOx,2.0000872635100527e-05
+2017,July,San Bernardino (MD),T6 Public Class 4,Dsl,RUNEX,DSL,TOG,9.245413624026017e-05
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Public Class 4,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,IDLEX,DSL,CO,0.0003768022706743045
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,IDLEX,DSL,NOx,0.0023220714312732257
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,IDLEX,DSL,PM,2.1006159658758143e-06
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,IDLEX,DSL,PM10,2.0880122700805588e-06
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,IDLEX,DSL,PM2_5,1.997685783547899e-06
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,IDLEX,DSL,SOx,2.261724913667184e-06
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,IDLEX,DSL,TOG,2.2721553438975964e-05
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,PMBW,DSL,PM,0.0001234388006301331
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,PMBW,DSL,PM10,0.0001234388006301331
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,PMBW,DSL,PM2_5,4.3203580220546576e-05
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,PMTW,DSL,PM,3.5515171928437586e-05
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,PMTW,DSL,PM10,3.5515171928437586e-05
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,PMTW,DSL,PM2_5,8.878792982109397e-06
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,RUNEX,DSL,CO,0.0002139067852408914
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,RUNEX,DSL,NH3,0.0003653285076613454
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,RUNEX,DSL,NOx,0.009320426724560979
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,RUNEX,DSL,PM,5.404068541204203e-05
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,RUNEX,DSL,PM10,5.371644129956979e-05
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,RUNEX,DSL,PM2_5,5.139269182685197e-05
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,RUNEX,DSL,SOx,3.112803165116502e-05
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,RUNEX,DSL,TOG,7.863021721429435e-05
+2017,July,San Bernardino (MD),T6 Public Class 5,Dsl,STREX,DSL,NOx,0.0002844252581150486
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,IDLEX,CAT,CO,4.7983288429573334e-05
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,IDLEX,CAT,NOx,1.5541510044972792e-05
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,IDLEX,CAT,PM,3.350841972174118e-08
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,IDLEX,CAT,PM10,2.995652723123661e-08
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,IDLEX,CAT,PM2_5,2.754392101127125e-08
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,IDLEX,CAT,TOG,4.811510759980076e-05
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,PMBW,CAT,PM,3.775033754161155e-06
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,PMBW,CAT,PM10,3.775033754161155e-06
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,PMBW,CAT,PM2_5,1.3212618139564042e-06
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,PMTW,CAT,PM,1.0861331455772427e-06
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,PMTW,CAT,PM10,1.0861331455772427e-06
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,PMTW,CAT,PM2_5,2.715332863943107e-07
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,RUNEX,CAT,CO,0.0002051057116436818
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,RUNEX,CAT,NH3,9.594173369566531e-05
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,RUNEX,CAT,NOx,1.1111783912448959e-05
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,RUNEX,CAT,PM,3.0072543719982946e-08
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,RUNEX,CAT,PM10,2.6884854085664755e-08
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,RUNEX,CAT,PM2_5,2.4719630937825986e-08
+2017,July,San Bernardino (MD),T6 Public Class 5,NG,RUNEX,CAT,TOG,2.8913364360583696e-05
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,IDLEX,DSL,CO,0.00018311288692678926
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,IDLEX,DSL,NOx,0.0034713444262156066
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,IDLEX,DSL,PM,8.404921003356577e-06
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,IDLEX,DSL,PM10,8.35449147733644e-06
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,IDLEX,DSL,PM2_5,7.993079874192106e-06
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,IDLEX,DSL,SOx,2.1115873886789535e-06
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,IDLEX,DSL,TOG,3.32884566913246e-05
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,PMBW,DSL,PM,9.463246643861512e-05
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,PMBW,DSL,PM10,9.463246643861512e-05
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,PMBW,DSL,PM2_5,3.312136325351528e-05
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,PMTW,DSL,PM,2.7227162759381814e-05
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,PMTW,DSL,PM10,2.7227162759381814e-05
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,PMTW,DSL,PM2_5,6.8067906898454534e-06
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,RUNEX,DSL,CO,0.00040497911115421493
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,RUNEX,DSL,NH3,9.764730841568287e-05
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,RUNEX,DSL,NOx,0.018058621398540718
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,RUNEX,DSL,PM,0.00012594576518380515
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,RUNEX,DSL,PM10,0.00012519009059270235
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,RUNEX,DSL,PM2_5,0.00011977442268979871
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,RUNEX,DSL,SOx,2.3327406676306487e-05
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,RUNEX,DSL,TOG,0.00014685149761687013
+2017,July,San Bernardino (MD),T6 Public Class 6,Dsl,STREX,DSL,NOx,4.203094617547396e-05
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,IDLEX,CAT,CO,2.2702869304065246e-05
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,IDLEX,CAT,NOx,3.001549624120485e-06
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,IDLEX,CAT,PM,1.383681002239648e-08
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,IDLEX,CAT,PM10,1.2370108160022453e-08
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,IDLEX,CAT,PM2_5,1.1373857838409908e-08
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,IDLEX,CAT,TOG,7.046881510641779e-06
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,PMBW,CAT,PM,3.5078752133244745e-07
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,PMBW,CAT,PM10,3.5078752133244745e-07
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,PMBW,CAT,PM2_5,1.227756324663566e-07
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,PMTW,CAT,PM,1.0092676749024653e-07
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,PMTW,CAT,PM10,1.0092676749024653e-07
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,PMTW,CAT,PM2_5,2.523169187256163e-08
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,RUNEX,CAT,CO,8.088897033813206e-06
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,RUNEX,CAT,NH3,8.915195239868433e-06
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,RUNEX,CAT,NOx,3.138894878338614e-07
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,RUNEX,CAT,PM,8.830790919847766e-09
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,RUNEX,CAT,PM10,7.894727082343904e-09
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,RUNEX,CAT,PM2_5,7.258910136114864e-09
+2017,July,San Bernardino (MD),T6 Public Class 6,NG,RUNEX,CAT,TOG,3.8376276690545995e-06
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,IDLEX,DSL,CO,0.000540869884317027
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,IDLEX,DSL,NOx,0.006923966889407167
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,IDLEX,DSL,PM,2.4623317607309865e-05
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,IDLEX,DSL,PM10,2.4475577701666014e-05
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,IDLEX,DSL,PM2_5,2.341677504455169e-05
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,IDLEX,DSL,SOx,4.695806481815473e-06
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,IDLEX,DSL,TOG,0.00010346205495772422
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,PMBW,DSL,PM,0.00025123693624739895
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,PMBW,DSL,PM10,0.00025123693624739895
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,PMBW,DSL,PM2_5,8.793292768658961e-05
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,PMTW,DSL,PM,7.228458912474342e-05
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,PMTW,DSL,PM10,7.228458912474342e-05
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,PMTW,DSL,PM2_5,1.8071147281185854e-05
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,RUNEX,DSL,CO,0.0010808548410083127
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,RUNEX,DSL,NH3,0.00036505331370482655
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,RUNEX,DSL,NOx,0.04909994088175681
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,RUNEX,DSL,PM,0.00033611982098501886
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,RUNEX,DSL,PM10,0.0003341031020591088
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,RUNEX,DSL,PM2_5,0.000319649949756753
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,RUNEX,DSL,SOx,6.264787494024502e-05
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,RUNEX,DSL,TOG,0.00045510405773400346
+2017,July,San Bernardino (MD),T6 Public Class 7,Dsl,STREX,DSL,NOx,0.00017587909068447847
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,IDLEX,CAT,CO,4.540573860813049e-05
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,IDLEX,CAT,NOx,6.00309924824097e-06
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,IDLEX,CAT,PM,2.767362004479296e-08
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,IDLEX,CAT,PM10,2.4740216320044905e-08
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,IDLEX,CAT,PM2_5,2.2747715676819815e-08
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,IDLEX,CAT,TOG,1.4093763021283559e-05
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,PMBW,CAT,PM,1.0405997962139291e-06
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,PMBW,CAT,PM10,1.0405997962139291e-06
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,PMBW,CAT,PM2_5,3.6420992867487525e-07
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,PMTW,CAT,PM,2.9939597989105126e-07
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,PMTW,CAT,PM10,2.9939597989105126e-07
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,PMTW,CAT,PM2_5,7.484899497276281e-08
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,RUNEX,CAT,CO,2.3995450502369082e-05
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,RUNEX,CAT,NH3,2.6446637310745065e-05
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,RUNEX,CAT,NOx,9.311429774722648e-07
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,RUNEX,CAT,PM,2.6196254634988926e-08
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,RUNEX,CAT,PM10,2.3419451643680097e-08
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,RUNEX,CAT,PM2_5,2.1533321309960896e-08
+2017,July,San Bernardino (MD),T6 Public Class 7,NG,RUNEX,CAT,TOG,1.1384197918997534e-05
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,IDLEX,DSL,CO,0.0002301915381117933
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,IDLEX,DSL,NOx,0.0006743897357134472
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,IDLEX,DSL,PM,2.5995820341295593e-07
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,IDLEX,DSL,PM10,2.583984541924782e-07
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,IDLEX,DSL,PM2_5,2.4722025144572104e-07
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,IDLEX,DSL,SOx,9.167083171760972e-07
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,IDLEX,DSL,TOG,8.71176262882483e-06
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,PMBW,DSL,PM,8.750149042811713e-05
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,PMBW,DSL,PM10,8.750149042811713e-05
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,PMBW,DSL,PM2_5,3.0625521649841e-05
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,PMTW,DSL,PM,2.517547530181123e-05
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,PMTW,DSL,PM10,2.517547530181123e-05
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,PMTW,DSL,PM2_5,6.293868825452808e-06
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,CO,0.00010527838569767235
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,NH3,0.00037725311305468115
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,NOx,0.003147970670248484
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,PM,2.6287961205591217e-05
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,PM10,2.6130233438357666e-05
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,PM2_5,2.4999851106517246e-05
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,SOx,2.096659621427961e-05
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,RUNEX,DSL,TOG,3.566334651876855e-05
+2017,July,San Bernardino (MD),T6 Utility Class 5,Dsl,STREX,DSL,NOx,0.0007276534784098693
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 5,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,IDLEX,DSL,CO,4.0856609057659344e-05
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,IDLEX,DSL,NOx,0.00019786697529212375
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,IDLEX,DSL,PM,1.1109023705865817e-07
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,IDLEX,DSL,PM10,1.1042369563630621e-07
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,IDLEX,DSL,PM2_5,1.0564681544278386e-07
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,IDLEX,DSL,SOx,2.012506113979776e-07
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,IDLEX,DSL,TOG,1.8025023085262652e-06
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,PMBW,DSL,PM,1.6536010425873007e-05
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,PMBW,DSL,PM10,1.6536010425873007e-05
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,PMBW,DSL,PM2_5,5.787603649055552e-06
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,PMTW,DSL,PM,4.757655212845235e-06
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,PMTW,DSL,PM10,4.757655212845235e-06
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,PMTW,DSL,PM2_5,1.1894138032113087e-06
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,CO,2.761239703798615e-05
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,NH3,5.927622235384918e-05
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,NOx,0.0008613733292455653
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,PM,7.264032565362143e-06
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,PM10,7.220448369969971e-06
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,PM2_5,6.908094969659398e-06
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,SOx,4.0046153278241766e-06
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,RUNEX,DSL,TOG,8.27242801141164e-06
+2017,July,San Bernardino (MD),T6 Utility Class 6,Dsl,STREX,DSL,NOx,0.0001230503715490392
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,IDLEX,DSL,CO,5.1708238165664084e-05
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,IDLEX,DSL,NOx,0.0002780711159042227
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,IDLEX,DSL,PM,1.859002859102491e-07
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,IDLEX,DSL,PM10,1.8478488419478764e-07
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,IDLEX,DSL,PM2_5,1.7679117190064693e-07
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,IDLEX,DSL,SOx,2.6921530573119345e-07
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,IDLEX,DSL,TOG,2.275154129328707e-06
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,PMBW,DSL,PM,2.300708338552869e-05
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,PMBW,DSL,PM10,2.300708338552869e-05
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,PMBW,DSL,PM2_5,8.052479184935038e-06
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,PMTW,DSL,PM,6.619478784934709e-06
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,PMTW,DSL,PM10,6.619478784934709e-06
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,PMTW,DSL,PM2_5,1.6548696962336773e-06
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,CO,3.6468912233427574e-05
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,NH3,8.34123104726325e-05
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,NOx,0.001285401612731548
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,PM,9.87214490064563e-06
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,PM10,9.812912031241757e-06
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,PM2_5,9.388409800513992e-06
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,SOx,5.644891657227659e-06
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,RUNEX,DSL,TOG,1.0587001589158594e-05
+2017,July,San Bernardino (MD),T6 Utility Class 7,Dsl,STREX,DSL,NOx,0.0001375560633070724
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T6 Utility Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,IDLEX,DSL,CO,0.4773280314202124
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,IDLEX,DSL,NOx,0.6087274843980902
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,IDLEX,DSL,PM,0.0017556515618569208
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,IDLEX,DSL,PM10,0.0017451176524857796
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,IDLEX,DSL,PM2_5,0.0016696246353259318
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,IDLEX,DSL,SOx,0.0010838016328479528
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,IDLEX,DSL,TOG,0.05435228874454423
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,PMBW,DSL,PM,0.08124607727476493
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,PMBW,DSL,PM10,0.08124607727476493
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,PMBW,DSL,PM2_5,0.028436127046167717
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,PMTW,DSL,PM,0.03833310127239951
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,PMTW,DSL,PM10,0.03833310127239951
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,PMTW,DSL,PM2_5,0.009583275318099877
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,CO,0.503561782426314
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,NH3,0.1729543280418134
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,NOx,4.9728254819062405
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,PM,0.1091008789129965
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,PM10,0.10844627363951848
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,PM2_5,0.10375493584625965
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,SOx,0.015701929728182646
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,RUNEX,DSL,TOG,0.15114065253407852
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,Dsl,STREX,DSL,NOx,0.12980902767401944
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,IDLEX,CAT,CO,0.00015244604691595185
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,IDLEX,CAT,NOx,4.9376394305320745e-05
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,IDLEX,CAT,PM,1.0645844153501025e-07
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,IDLEX,CAT,PM10,9.517384673229916e-08
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,IDLEX,CAT,PM2_5,8.750883894177843e-08
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,IDLEX,CAT,TOG,0.00015286484503982864
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,PMBW,CAT,PM,1.5027538329512544e-05
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,PMBW,CAT,PM10,1.5027538329512544e-05
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,PMBW,CAT,PM2_5,5.259638415329389e-06
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,PMTW,CAT,PM,7.68039496435234e-06
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,PMTW,CAT,PM10,7.68039496435234e-06
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,PMTW,CAT,PM2_5,1.920098741088085e-06
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,RUNEX,CAT,CO,0.0011840314679824895
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,RUNEX,CAT,NH3,0.00022614489802592284
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,RUNEX,CAT,NOx,7.393414900548978e-05
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,RUNEX,CAT,PM,3.207192239561686e-07
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,RUNEX,CAT,PM10,2.867229862168149e-07
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,RUNEX,CAT,PM2_5,2.636312020919707e-07
+2017,July,San Bernardino (MD),T7 CAIRP Class 8,NG,RUNEX,CAT,TOG,0.0001772462489366517
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,IDLEX,DSL,CO,0.6465970572695491
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,IDLEX,DSL,NOx,0.6428432857922977
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,IDLEX,DSL,PM,0.003399583199837383
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,IDLEX,DSL,PM10,0.003379185700638358
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,IDLEX,DSL,PM2_5,0.0032330036230453513
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,IDLEX,DSL,SOx,0.0012190650166384691
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,IDLEX,DSL,TOG,0.07188306152812439
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,PMBW,DSL,PM,0.0953649870627432
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,PMBW,DSL,PM10,0.0953649870627432
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,PMBW,DSL,PM2_5,0.03337774547196011
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,PMTW,DSL,PM,0.04530815881915273
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,PMTW,DSL,PM10,0.04530815881915273
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,PMTW,DSL,PM2_5,0.011327039704788183
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,CO,0.8658422160215925
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,NH3,0.21988299694078864
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,NOx,5.28003889925561
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,PM,0.18370182020530473
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,PM10,0.1825996092840729
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,PM2_5,0.17470043101524482
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,SOx,0.018743614854380676
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,RUNEX,DSL,TOG,0.23419336073576066
+2017,July,San Bernardino (MD),T7 NNOOS Class 8,Dsl,STREX,DSL,NOx,0.15291844194636334
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,IDLEX,DSL,CO,0.22062980096192064
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,IDLEX,DSL,NOx,0.2799226883149898
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,IDLEX,DSL,PM,0.0008869439185368238
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,IDLEX,DSL,PM10,0.0008816222550256026
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,IDLEX,DSL,PM2_5,0.0008434836665285195
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,IDLEX,DSL,SOx,0.0005005969961121982
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,IDLEX,DSL,TOG,0.025474101873995878
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,PMBW,DSL,PM,0.03499027417955914
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,PMBW,DSL,PM10,0.03499027417955914
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,PMBW,DSL,PM2_5,0.012246595962845698
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,PMTW,DSL,PM,0.016459374990348514
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,PMTW,DSL,PM10,0.016459374990348514
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,PMTW,DSL,PM2_5,0.0041148437475871285
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,CO,0.25313465891470444
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,NH3,0.07347281373192037
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,NOx,2.2381548556327644
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,PM,0.05273207008905184
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,PM10,0.052415677668517506
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,PM2_5,0.05014819865468828
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,SOx,0.006740839114286819
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,RUNEX,DSL,TOG,0.07639650630609054
+2017,July,San Bernardino (MD),T7 NOOS Class 8,Dsl,STREX,DSL,NOx,0.04823471263190519
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,IDLEX,DSL,CO,0.011095834735394177
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,IDLEX,DSL,NOx,0.02893578621367494
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,IDLEX,DSL,PM,1.042879966484877e-05
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,IDLEX,DSL,PM10,1.0366226866859676e-05
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,IDLEX,DSL,PM2_5,9.917788481271182e-06
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,IDLEX,DSL,SOx,4.104152771138841e-05
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,IDLEX,DSL,TOG,0.0016011161737008652
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,PMBW,DSL,PM,0.004424790246763101
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,PMBW,DSL,PM10,0.004424790246763101
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,PMBW,DSL,PM2_5,0.0015486765863670848
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,PMTW,DSL,PM,0.001960789068981866
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,PMTW,DSL,PM10,0.001960789068981866
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,PMTW,DSL,PM2_5,0.0004901972672454665
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,CO,0.011283903979088938
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,NH3,0.006090709946241235
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,NOx,0.25532665028415064
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,PM,0.002094689686539455
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,PM10,0.0020821215484202182
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,PM2_5,0.0019920498918990213
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,SOx,0.0008295725024572465
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,RUNEX,DSL,TOG,0.004346995015523313
+2017,July,San Bernardino (MD),T7 POLA Class 8,Dsl,STREX,DSL,NOx,0.005948493849218195
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,IDLEX,CAT,CO,0.0015517417476235726
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,IDLEX,CAT,NOx,0.0005026001916135723
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,IDLEX,CAT,PM,1.083635892558738e-06
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,IDLEX,CAT,PM10,9.687704879475117e-07
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,IDLEX,CAT,PM2_5,8.907487036832826e-07
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,IDLEX,CAT,TOG,0.0015560046756941462
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,PMBW,CAT,PM,0.00021000638552441726
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,PMBW,CAT,PM10,0.00021000638552441726
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,PMBW,CAT,PM2_5,7.350223493354605e-05
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,PMTW,CAT,PM,0.00010719951449755598
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,PMTW,CAT,PM10,0.00010719951449755598
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,PMTW,CAT,PM2_5,2.6799878624388996e-05
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,RUNEX,CAT,CO,0.02829953469127198
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,RUNEX,CAT,NH3,0.0031564292444591136
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,RUNEX,CAT,NOx,0.0012948052710433718
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,RUNEX,CAT,PM,3.1210463709878294e-06
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,RUNEX,CAT,PM10,2.7902154556631195e-06
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,RUNEX,CAT,PM2_5,2.5655001169519954e-06
+2017,July,San Bernardino (MD),T7 POLA Class 8,NG,RUNEX,CAT,TOG,0.0023490285032207628
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,IDLEX,DSL,CO,0.0010075878369545375
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,IDLEX,DSL,NOx,0.008533198701355068
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,IDLEX,DSL,PM,3.429858300008774e-05
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,IDLEX,DSL,PM10,3.409279150208722e-05
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,IDLEX,DSL,PM2_5,3.261795243308345e-05
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,IDLEX,DSL,SOx,6.55034931382327e-06
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,IDLEX,DSL,TOG,0.00028842578393352663
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,PMBW,DSL,PM,0.0007267197068411969
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,PMBW,DSL,PM10,0.0007267197068411969
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,PMBW,DSL,PM2_5,0.00025435189739441886
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,PMTW,DSL,PM,0.00029312782112072904
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,PMTW,DSL,PM10,0.00029312782112072904
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,PMTW,DSL,PM2_5,7.328195528018226e-05
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,RUNEX,DSL,CO,0.002842229695674491
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,RUNEX,DSL,NH3,0.0005662977495981087
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,RUNEX,DSL,NOx,0.10054304661258544
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,RUNEX,DSL,PM,0.0006752879923623337
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,RUNEX,DSL,PM10,0.0006712362644081597
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,RUNEX,DSL,PM2_5,0.0006421988807365794
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,RUNEX,DSL,SOx,0.0001298343813585437
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,RUNEX,DSL,TOG,0.0008182638589768399
+2017,July,San Bernardino (MD),T7 Public Class 8,Dsl,STREX,DSL,NOx,0.0009679162177682508
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,IDLEX,CAT,CO,7.742699087176183e-05
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,IDLEX,CAT,NOx,2.5078155245746413e-05
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,IDLEX,CAT,PM,5.406999359909746e-08
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,IDLEX,CAT,PM10,4.833857427759313e-08
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,IDLEX,CAT,PM2_5,4.444553473845811e-08
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,IDLEX,CAT,TOG,7.763969745989917e-05
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,PMBW,CAT,PM,1.496074502959638e-05
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,PMBW,CAT,PM10,1.496074502959638e-05
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,PMBW,CAT,PM2_5,5.236260760358734e-06
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,PMTW,CAT,PM,6.534747824719681e-06
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,PMTW,CAT,PM10,6.534747824719681e-06
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,PMTW,CAT,PM2_5,1.6336869561799202e-06
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,RUNEX,CAT,CO,0.0013611310102769674
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,RUNEX,CAT,NH3,0.00019241196413796288
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,RUNEX,CAT,NOx,7.081604060907815e-05
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,RUNEX,CAT,PM,2.3256626234678213e-07
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,RUNEX,CAT,PM10,2.0791423853802327e-07
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,RUNEX,CAT,PM2_5,1.911694676490549e-07
+2017,July,San Bernardino (MD),T7 Public Class 8,NG,RUNEX,CAT,TOG,0.00014723684631126475
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,CO,0.0007417973984233632
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,NOx,0.002655228854651456
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,PM,1.2166420253839671e-05
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,PM10,1.2093421732316635e-05
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,PM2_5,1.1570265661401526e-05
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,SOx,1.8586207195372943e-06
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,IDLEX,DSL,TOG,0.000140965505121833
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,PMBW,DSL,PM,0.0004533758950945371
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,PMBW,DSL,PM10,0.0004533758950945371
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,PMBW,DSL,PM2_5,0.00015868156328308793
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,PMTW,DSL,PM,0.00017629117613419672
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,PMTW,DSL,PM10,0.00017629117613419672
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,PMTW,DSL,PM2_5,4.407279403354918e-05
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,CO,0.0066144686264142626
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,NH3,0.0002588563375434835
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,NOx,0.03606772167070907
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,PM,0.0018045531857828927
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,PM10,0.0017937258666681955
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,PM2_5,0.0017161300796795314
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,SOx,7.488011784402967e-05
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,RUNEX,DSL,TOG,0.0014805354899732148
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,Dsl,STREX,DSL,NOx,0.00041009973428180537
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,IDLEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,PMBW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,PMBW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,PMBW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,PMTW,CAT,PM,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,PMTW,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,PMTW,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,CO,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,NOx,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,PM,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,PM10,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,San Bernardino (MD),T7 Single Concrete/Transit Mix Class 8,NG,RUNEX,CAT,TOG,0.0
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,IDLEX,DSL,CO,0.002309128003798167
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,IDLEX,DSL,NOx,0.005125216903674342
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,IDLEX,DSL,PM,3.2063322941119756e-05
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,IDLEX,DSL,PM10,3.1870943003473036e-05
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,IDLEX,DSL,PM2_5,3.049222011700488e-05
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,IDLEX,DSL,SOx,5.29740621998523e-06
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,IDLEX,DSL,TOG,0.0004090538464864866
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,PMBW,DSL,PM,0.0008383404047990644
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,PMBW,DSL,PM10,0.0008383404047990644
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,PMBW,DSL,PM2_5,0.0002934191416796725
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,PMTW,DSL,PM,0.0003650998473011756
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,PMTW,DSL,PM10,0.0003650998473011756
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,PMTW,DSL,PM2_5,9.12749618252939e-05
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,CO,0.009171516479746143
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,NH3,0.0012204905607121513
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,NOx,0.07678674117583782
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,PM,0.0018115721470627363
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,PM10,0.00180070271418036
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,PM2_5,0.0017228051118566624
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,SOx,0.00015592289826784234
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,RUNEX,DSL,TOG,0.0026866578284766257
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,Dsl,STREX,DSL,NOx,0.0016758624012400763
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,IDLEX,CAT,CO,7.941767466753846e-05
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,IDLEX,CAT,NOx,2.5722926232111654e-05
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,IDLEX,CAT,PM,5.54601581771545e-08
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,IDLEX,CAT,PM10,4.958138141037613e-08
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,IDLEX,CAT,PM2_5,4.5588250021621e-08
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,IDLEX,CAT,TOG,7.963585004057227e-05
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,PMBW,CAT,PM,1.2788890077628142e-05
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,PMBW,CAT,PM10,1.2788890077628142e-05
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,PMBW,CAT,PM2_5,4.476111527169849e-06
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,PMTW,CAT,PM,6.173103944544002e-06
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,PMTW,CAT,PM10,6.173103944544002e-06
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,PMTW,CAT,PM2_5,1.5432759861360005e-06
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,RUNEX,CAT,CO,0.0016313910573851633
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,RUNEX,CAT,NH3,0.0001817635640512983
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,RUNEX,CAT,NOx,7.449753852537696e-05
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,RUNEX,CAT,PM,1.802145238646128e-07
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,RUNEX,CAT,PM10,1.6111178433496382e-07
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,RUNEX,CAT,PM2_5,1.481363386167117e-07
+2017,July,San Bernardino (MD),T7 Single Dump Class 8,NG,RUNEX,CAT,TOG,0.00013569103746784863
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,IDLEX,DSL,CO,0.004324408401067945
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,IDLEX,DSL,NOx,0.009439608433710474
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,IDLEX,DSL,PM,0.00011752057813507661
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,IDLEX,DSL,PM10,0.00011681545466626617
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,IDLEX,DSL,PM2_5,0.00011176206980645786
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,IDLEX,DSL,SOx,9.674817809230325e-06
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,IDLEX,DSL,TOG,0.0010976988337967728
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,PMBW,DSL,PM,0.0013198977177468903
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,PMBW,DSL,PM10,0.0013198977177468903
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,PMBW,DSL,PM2_5,0.00046196420121141167
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,PMTW,DSL,PM,0.0005641317972542539
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,PMTW,DSL,PM10,0.0005641317972542539
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,PMTW,DSL,PM2_5,0.00014103294931356347
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,CO,0.02294711422013385
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,NH3,0.0017003641887932018
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,NOx,0.12423411255534547
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,PM,0.004862868207035141
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,PM10,0.004833690997792931
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,PM2_5,0.004624587664890417
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,SOx,0.00024167336933021596
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,RUNEX,DSL,TOG,0.006497111133049872
+2017,July,San Bernardino (MD),T7 Single Other Class 8,Dsl,STREX,DSL,NOx,0.0024039849900129107
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,IDLEX,CAT,CO,0.00015449670248475418
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,IDLEX,CAT,NOx,5.004058980266552e-05
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,IDLEX,CAT,PM,1.0789048651352088e-07
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,IDLEX,CAT,PM10,9.645409494308767e-08
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,IDLEX,CAT,PM2_5,8.868597991411415e-08
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,IDLEX,CAT,TOG,0.0001549211341473307
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,PMBW,CAT,PM,2.1906309231146765e-05
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,PMBW,CAT,PM10,2.1906309231146765e-05
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,PMBW,CAT,PM2_5,7.667208230901368e-06
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,PMTW,CAT,PM,1.0341783430521433e-05
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,PMTW,CAT,PM10,1.0341783430521433e-05
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,PMTW,CAT,PM2_5,2.585445857630358e-06
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,RUNEX,CAT,CO,0.0027330647851601967
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,RUNEX,CAT,NH3,0.0003045079804041907
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,RUNEX,CAT,NOx,0.00012480551379947423
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,RUNEX,CAT,PM,3.019128777978211e-07
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,RUNEX,CAT,PM10,2.6991011275125215e-07
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,RUNEX,CAT,PM2_5,2.48172385549809e-07
+2017,July,San Bernardino (MD),T7 Single Other Class 8,NG,RUNEX,CAT,TOG,0.00022732280803331245
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,IDLEX,DSL,CO,0.00021331676693758182
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,IDLEX,DSL,NOx,0.0023882679890747946
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,IDLEX,DSL,PM,4.9959437734394265e-06
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,IDLEX,DSL,PM10,4.965968110798791e-06
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,IDLEX,DSL,PM2_5,4.751142528540895e-06
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,IDLEX,DSL,SOx,1.618924763583811e-06
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,IDLEX,DSL,TOG,4.928687327282836e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,PMBW,DSL,PM,0.0006153592646169413
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,PMBW,DSL,PM10,0.0006153592646169413
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,PMBW,DSL,PM2_5,0.00021537574261592951
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,PMTW,DSL,PM,0.00010549015964861852
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,PMTW,DSL,PM10,0.00010549015964861852
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,PMTW,DSL,PM2_5,2.637253991215463e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,CO,3.790802453926909e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,NH3,0.0001488629564283962
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,NOx,0.0359548718966026
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,PM,4.647509696163813e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,PM10,4.619624637986829e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,PM2_5,4.419781721051787e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,SOx,9.950807472776263e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,RUNEX,DSL,TOG,1.9468313507945337e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,Dsl,STREX,DSL,NOx,0.00014137579475553434
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,IDLEX,CAT,CO,9.754741903160934e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,IDLEX,CAT,NOx,1.2777765380150929e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,IDLEX,CAT,PM,6.428178216773339e-10
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,IDLEX,CAT,PM10,5.746791325795365e-10
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,IDLEX,CAT,PM2_5,5.283962494187686e-10
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,IDLEX,CAT,TOG,2.7781417105196414e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,PMBW,CAT,PM,1.8631585367317117e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,PMBW,CAT,PM10,1.8631585367317117e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,PMBW,CAT,PM2_5,6.521054878560993e-06
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,PMTW,CAT,PM,3.1939860629686494e-06
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,PMTW,CAT,PM10,3.1939860629686494e-06
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,PMTW,CAT,PM2_5,7.984965157421623e-07
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,RUNEX,CAT,CO,0.0012240943343878779
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,RUNEX,CAT,NH3,5.145864959973084e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,RUNEX,CAT,NOx,8.948859548242667e-05
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,RUNEX,CAT,PM,2.8661149231271565e-08
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,RUNEX,CAT,PM10,2.562306741275678e-08
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,RUNEX,CAT,PM2_5,2.3559464668105226e-08
+2017,July,San Bernardino (MD),T7 SWCV Class 8,NG,RUNEX,CAT,TOG,0.00030683491605577716
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,IDLEX,DSL,CO,0.048978954616463705
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,IDLEX,DSL,NOx,0.08524100086319883
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,IDLEX,DSL,PM,0.0001837459320686423
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,IDLEX,DSL,PM10,0.00018264345647623045
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,IDLEX,DSL,PM2_5,0.00017474238139727883
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,IDLEX,DSL,SOx,0.00012287549141874374
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,IDLEX,DSL,TOG,0.006131982069959759
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,PMBW,DSL,PM,0.011800629116304093
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,PMBW,DSL,PM10,0.011800629116304093
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,PMBW,DSL,PM2_5,0.004130220190706434
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,PMTW,DSL,PM,0.005280285502687149
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,PMTW,DSL,PM10,0.005280285502687149
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,PMTW,DSL,PM2_5,0.0013200713756717872
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,CO,0.1015062302800751
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,NH3,0.01928029251814016
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,NOx,0.9332323794196776
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,PM,0.02058794065656643
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,PM10,0.020464413012627036
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,PM2_5,0.01957913156439468
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,SOx,0.0021488848170478658
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,RUNEX,DSL,TOG,0.030479605687633665
+2017,July,San Bernardino (MD),T7 Tractor Class 8,Dsl,STREX,DSL,NOx,0.0419848618511152
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,IDLEX,CAT,CO,0.0008763944758984401
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,IDLEX,CAT,NOx,0.00028385911005500945
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,IDLEX,CAT,PM,6.120171166227679e-07
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,IDLEX,CAT,PM10,5.471433022607546e-07
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,IDLEX,CAT,PM2_5,5.030780698639151e-07
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,IDLEX,CAT,TOG,0.0008788020972812664
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,PMBW,CAT,PM,8.008671591546202e-05
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,PMBW,CAT,PM10,8.008671591546202e-05
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,PMBW,CAT,PM2_5,2.8030350570411704e-05
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,PMTW,CAT,PM,4.093962246148996e-05
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,PMTW,CAT,PM10,4.093962246148996e-05
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,PMTW,CAT,PM2_5,1.023490561537249e-05
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,RUNEX,CAT,CO,0.010800185791481004
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,RUNEX,CAT,NH3,0.0012054440936624597
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,RUNEX,CAT,NOx,0.0004950392266540344
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,RUNEX,CAT,PM,1.1899364051771422e-06
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,RUNEX,CAT,PM10,1.063803146228365e-06
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,RUNEX,CAT,PM2_5,9.78127725055611e-07
+2017,July,San Bernardino (MD),T7 Tractor Class 8,NG,RUNEX,CAT,TOG,0.0008952246279367784
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,IDLEX,DSL,CO,0.00018839178921169062
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,IDLEX,DSL,NOx,0.00037183701041603254
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,IDLEX,DSL,PM,2.3631915840163648e-07
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,IDLEX,DSL,PM10,2.3490124345122668e-07
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,IDLEX,DSL,PM2_5,2.2473951963995636e-07
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,IDLEX,DSL,SOx,4.6937203252767007e-07
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,IDLEX,DSL,TOG,1.9157305774723975e-05
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,PMBW,DSL,PM,0.0001016053876188255
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,PMBW,DSL,PM10,0.0001016053876188255
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,PMBW,DSL,PM2_5,3.5561885666588924e-05
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,PMTW,DSL,PM,4.8186684182737865e-05
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,PMTW,DSL,PM10,4.8186684182737865e-05
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,PMTW,DSL,PM2_5,1.2046671045684466e-05
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,CO,0.00011899511766803797
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,NH3,0.00023155370250863903
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,NOx,0.0037129349661436206
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,PM,2.861435324236494e-05
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,PM10,2.844266712291075e-05
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,PM2_5,2.7212249933489056e-05
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,SOx,2.059449179887893e-05
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,RUNEX,DSL,TOG,3.4105154062994966e-05
+2017,July,San Bernardino (MD),T7 Utility Class 8,Dsl,STREX,DSL,NOx,0.0011584613564407384

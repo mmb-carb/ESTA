@@ -1,0 +1,1048 @@
+calendar_year,season_month,sub_area,vehicle_class,fuel,process,cat_ncat,pollutant,emission
+2017,July,Mariposa (MC),All Other Buses,Dsl,IDLEX,DSL,CO,9.707324922582008e-06
+2017,July,Mariposa (MC),All Other Buses,Dsl,IDLEX,DSL,NOx,2.268909333476565e-05
+2017,July,Mariposa (MC),All Other Buses,Dsl,IDLEX,DSL,PM,7.833025724374083e-07
+2017,July,Mariposa (MC),All Other Buses,Dsl,IDLEX,DSL,PM10,7.786027570027839e-07
+2017,July,Mariposa (MC),All Other Buses,Dsl,IDLEX,DSL,PM2_5,7.449207463879755e-07
+2017,July,Mariposa (MC),All Other Buses,Dsl,IDLEX,DSL,SOx,1.3630210283630054e-08
+2017,July,Mariposa (MC),All Other Buses,Dsl,IDLEX,DSL,TOG,3.146390889773271e-06
+2017,July,Mariposa (MC),All Other Buses,Dsl,PMBW,DSL,PM,2.119485878600812e-06
+2017,July,Mariposa (MC),All Other Buses,Dsl,PMBW,DSL,PM10,2.119485878600812e-06
+2017,July,Mariposa (MC),All Other Buses,Dsl,PMBW,DSL,PM2_5,7.41820057510284e-07
+2017,July,Mariposa (MC),All Other Buses,Dsl,PMTW,DSL,PM,5.512640666069698e-07
+2017,July,Mariposa (MC),All Other Buses,Dsl,PMTW,DSL,PM10,5.512640666069698e-07
+2017,July,Mariposa (MC),All Other Buses,Dsl,PMTW,DSL,PM2_5,1.3781601665174246e-07
+2017,July,Mariposa (MC),All Other Buses,Dsl,RUNEX,DSL,CO,0.00024258340984200603
+2017,July,Mariposa (MC),All Other Buses,Dsl,RUNEX,DSL,NH3,1.2403437943819835e-06
+2017,July,Mariposa (MC),All Other Buses,Dsl,RUNEX,DSL,NOx,0.0006871494759655946
+2017,July,Mariposa (MC),All Other Buses,Dsl,RUNEX,DSL,PM,4.884860984956236e-05
+2017,July,Mariposa (MC),All Other Buses,Dsl,RUNEX,DSL,PM10,4.8555518190464976e-05
+2017,July,Mariposa (MC),All Other Buses,Dsl,RUNEX,DSL,PM2_5,4.6455027966933804e-05
+2017,July,Mariposa (MC),All Other Buses,Dsl,RUNEX,DSL,SOx,5.803310127318913e-07
+2017,July,Mariposa (MC),All Other Buses,Dsl,RUNEX,DSL,TOG,0.00011851402952567518
+2017,July,Mariposa (MC),Motor Coach,Dsl,IDLEX,DSL,CO,9.375086929950224e-05
+2017,July,Mariposa (MC),Motor Coach,Dsl,IDLEX,DSL,NOx,0.00021133900059741175
+2017,July,Mariposa (MC),Motor Coach,Dsl,IDLEX,DSL,PM,1.3996893870040974e-06
+2017,July,Mariposa (MC),Motor Coach,Dsl,IDLEX,DSL,PM10,1.3912912506820728e-06
+2017,July,Mariposa (MC),Motor Coach,Dsl,IDLEX,DSL,PM2_5,1.3311046070408966e-06
+2017,July,Mariposa (MC),Motor Coach,Dsl,IDLEX,DSL,SOx,2.078294388692709e-07
+2017,July,Mariposa (MC),Motor Coach,Dsl,IDLEX,DSL,TOG,1.7283142777055553e-05
+2017,July,Mariposa (MC),Motor Coach,Dsl,PMBW,DSL,PM,1.8291182329363042e-05
+2017,July,Mariposa (MC),Motor Coach,Dsl,PMBW,DSL,PM10,1.8291182329363042e-05
+2017,July,Mariposa (MC),Motor Coach,Dsl,PMBW,DSL,PM2_5,6.401913815277063e-06
+2017,July,Mariposa (MC),Motor Coach,Dsl,PMTW,DSL,PM,2.644892349403107e-06
+2017,July,Mariposa (MC),Motor Coach,Dsl,PMTW,DSL,PM10,2.644892349403107e-06
+2017,July,Mariposa (MC),Motor Coach,Dsl,PMTW,DSL,PM2_5,6.612230873507768e-07
+2017,July,Mariposa (MC),Motor Coach,Dsl,RUNEX,DSL,CO,0.00024139079532111993
+2017,July,Mariposa (MC),Motor Coach,Dsl,RUNEX,DSL,NH3,3.258324311492202e-05
+2017,July,Mariposa (MC),Motor Coach,Dsl,RUNEX,DSL,NOx,0.001374533491271571
+2017,July,Mariposa (MC),Motor Coach,Dsl,RUNEX,DSL,PM,4.1570744004906976e-05
+2017,July,Mariposa (MC),Motor Coach,Dsl,RUNEX,DSL,PM10,4.132131954087757e-05
+2017,July,Mariposa (MC),Motor Coach,Dsl,RUNEX,DSL,PM2_5,3.953377754866653e-05
+2017,July,Mariposa (MC),Motor Coach,Dsl,RUNEX,DSL,SOx,3.5639512100357362e-06
+2017,July,Mariposa (MC),Motor Coach,Dsl,RUNEX,DSL,TOG,7.81038279075542e-05
+2017,July,Mariposa (MC),Motor Coach,Dsl,STREX,DSL,NOx,4.330891277004871e-05
+2017,July,Mariposa (MC),PTO,Dsl,PMTW,DSL,PM,0.0
+2017,July,Mariposa (MC),PTO,Dsl,PMTW,DSL,PM10,0.0
+2017,July,Mariposa (MC),PTO,Dsl,PMTW,DSL,PM2_5,0.0
+2017,July,Mariposa (MC),PTO,Dsl,RUNEX,DSL,CO,0.0021982569733334737
+2017,July,Mariposa (MC),PTO,Dsl,RUNEX,DSL,NH3,2.5408577912327495e-05
+2017,July,Mariposa (MC),PTO,Dsl,RUNEX,DSL,NOx,0.004651919251617789
+2017,July,Mariposa (MC),PTO,Dsl,RUNEX,DSL,PM,0.0002809752459889883
+2017,July,Mariposa (MC),PTO,Dsl,RUNEX,DSL,PM10,0.00027928939451305433
+2017,July,Mariposa (MC),PTO,Dsl,RUNEX,DSL,PM2_5,0.00026720745893552786
+2017,July,Mariposa (MC),PTO,Dsl,RUNEX,DSL,SOx,6.468817455955122e-06
+2017,July,Mariposa (MC),PTO,Dsl,RUNEX,DSL,TOG,0.0005783863276222068
+2017,July,Mariposa (MC),SBUS,Dsl,IDLEX,DSL,CO,0.00016143123289583052
+2017,July,Mariposa (MC),SBUS,Dsl,IDLEX,DSL,NOx,0.0005992221750123464
+2017,July,Mariposa (MC),SBUS,Dsl,IDLEX,DSL,PM,2.989160567705296e-07
+2017,July,Mariposa (MC),SBUS,Dsl,IDLEX,DSL,PM10,2.971225604299064e-07
+2017,July,Mariposa (MC),SBUS,Dsl,IDLEX,DSL,PM2_5,2.8426916998877363e-07
+2017,July,Mariposa (MC),SBUS,Dsl,IDLEX,DSL,SOx,7.295546083145058e-07
+2017,July,Mariposa (MC),SBUS,Dsl,IDLEX,DSL,TOG,6.7643322001322935e-06
+2017,July,Mariposa (MC),SBUS,Dsl,PMBW,DSL,PM,4.34274273065063e-05
+2017,July,Mariposa (MC),SBUS,Dsl,PMBW,DSL,PM10,4.34274273065063e-05
+2017,July,Mariposa (MC),SBUS,Dsl,PMBW,DSL,PM2_5,1.5199599557277204e-05
+2017,July,Mariposa (MC),SBUS,Dsl,PMTW,DSL,PM,1.160201473217961e-05
+2017,July,Mariposa (MC),SBUS,Dsl,PMTW,DSL,PM10,1.160201473217961e-05
+2017,July,Mariposa (MC),SBUS,Dsl,PMTW,DSL,PM2_5,2.9005036830449024e-06
+2017,July,Mariposa (MC),SBUS,Dsl,RUNEX,DSL,CO,0.00014437958346502674
+2017,July,Mariposa (MC),SBUS,Dsl,RUNEX,DSL,NH3,0.00015228750305995605
+2017,July,Mariposa (MC),SBUS,Dsl,RUNEX,DSL,NOx,0.002629775783429337
+2017,July,Mariposa (MC),SBUS,Dsl,RUNEX,DSL,PM,1.4696404660737839e-05
+2017,July,Mariposa (MC),SBUS,Dsl,RUNEX,DSL,PM10,1.460822623277341e-05
+2017,July,Mariposa (MC),SBUS,Dsl,RUNEX,DSL,PM2_5,1.3976280832361682e-05
+2017,July,Mariposa (MC),SBUS,Dsl,RUNEX,DSL,SOx,1.0223942927073157e-05
+2017,July,Mariposa (MC),SBUS,Dsl,RUNEX,DSL,TOG,5.0100171981518285e-05
+2017,July,Mariposa (MC),SBUS,Dsl,STREX,DSL,NOx,0.00037359573448883515
+2017,July,Mariposa (MC),SBUS,Gas,DIURN,CAT,TOG,2.233213091004214e-06
+2017,July,Mariposa (MC),SBUS,Gas,DIURN,NCAT,TOG,2.4360229014050722e-05
+2017,July,Mariposa (MC),SBUS,Gas,HOTSOAK,CAT,TOG,5.229542730318797e-07
+2017,July,Mariposa (MC),SBUS,Gas,HOTSOAK,NCAT,TOG,1.2957911991104593e-05
+2017,July,Mariposa (MC),SBUS,Gas,IDLEX,CAT,CO,0.00016557038845298454
+2017,July,Mariposa (MC),SBUS,Gas,IDLEX,CAT,NOx,1.865325403840964e-06
+2017,July,Mariposa (MC),SBUS,Gas,IDLEX,CAT,SOx,5.3018615460423724e-08
+2017,July,Mariposa (MC),SBUS,Gas,IDLEX,CAT,TOG,3.1261703818163145e-05
+2017,July,Mariposa (MC),SBUS,Gas,IDLEX,NCAT,CO,7.318211169621916e-05
+2017,July,Mariposa (MC),SBUS,Gas,IDLEX,NCAT,NOx,8.2755915690365e-07
+2017,July,Mariposa (MC),SBUS,Gas,IDLEX,NCAT,SOx,2.6965520838604073e-08
+2017,July,Mariposa (MC),SBUS,Gas,IDLEX,NCAT,TOG,1.3153876383592249e-05
+2017,July,Mariposa (MC),SBUS,Gas,PMBW,CAT,PM,2.3510539586729095e-06
+2017,July,Mariposa (MC),SBUS,Gas,PMBW,CAT,PM10,2.3510539586729095e-06
+2017,July,Mariposa (MC),SBUS,Gas,PMBW,CAT,PM2_5,8.228688855355183e-07
+2017,July,Mariposa (MC),SBUS,Gas,PMBW,NCAT,PM,1.1755269793364548e-06
+2017,July,Mariposa (MC),SBUS,Gas,PMBW,NCAT,PM10,1.1755269793364548e-06
+2017,July,Mariposa (MC),SBUS,Gas,PMBW,NCAT,PM2_5,4.114344427677591e-07
+2017,July,Mariposa (MC),SBUS,Gas,PMTW,CAT,PM,7.191160213303626e-07
+2017,July,Mariposa (MC),SBUS,Gas,PMTW,CAT,PM10,7.191160213303626e-07
+2017,July,Mariposa (MC),SBUS,Gas,PMTW,CAT,PM2_5,1.7977900533259064e-07
+2017,July,Mariposa (MC),SBUS,Gas,PMTW,NCAT,PM,3.595580106651813e-07
+2017,July,Mariposa (MC),SBUS,Gas,PMTW,NCAT,PM10,3.595580106651813e-07
+2017,July,Mariposa (MC),SBUS,Gas,PMTW,NCAT,PM2_5,8.988950266629532e-08
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,CAT,CO,9.923783191647337e-06
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,CAT,NH3,4.045026460674901e-06
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,CAT,NOx,5.9486249995094554e-06
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,CAT,PM,3.863626102749308e-08
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,CAT,PM10,3.454081735857881e-08
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,CAT,PM2_5,3.175900656459931e-08
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,CAT,SOx,4.374732153960063e-07
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,CAT,TOG,9.362490006469092e-07
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,NCAT,CO,0.0032851055418267375
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,NCAT,NH3,2.2472369225971675e-07
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,NCAT,NOx,6.954400982219712e-05
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,NCAT,PM,1.1033460046670693e-06
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,NCAT,PM10,1.0603155104850536e-06
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,NCAT,PM2_5,1.0117682862797027e-06
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,NCAT,SOx,2.806642442888201e-07
+2017,July,Mariposa (MC),SBUS,Gas,RUNEX,NCAT,TOG,0.0001531687151862522
+2017,July,Mariposa (MC),SBUS,Gas,RUNLOSS,CAT,TOG,6.829510889625647e-07
+2017,July,Mariposa (MC),SBUS,Gas,RUNLOSS,NCAT,TOG,1.3403681323736514e-05
+2017,July,Mariposa (MC),SBUS,Gas,STREX,CAT,CO,5.7471792259028976e-05
+2017,July,Mariposa (MC),SBUS,Gas,STREX,CAT,NOx,5.228529177739041e-06
+2017,July,Mariposa (MC),SBUS,Gas,STREX,CAT,PM,3.2348858788347437e-09
+2017,July,Mariposa (MC),SBUS,Gas,STREX,CAT,PM10,2.891987975678261e-09
+2017,July,Mariposa (MC),SBUS,Gas,STREX,CAT,PM2_5,2.6590761924021595e-09
+2017,July,Mariposa (MC),SBUS,Gas,STREX,CAT,SOx,4.284628688788753e-09
+2017,July,Mariposa (MC),SBUS,Gas,STREX,CAT,TOG,2.60884485099045e-06
+2017,July,Mariposa (MC),SBUS,Gas,STREX,NCAT,CO,1.1603952296996985e-05
+2017,July,Mariposa (MC),SBUS,Gas,STREX,NCAT,NOx,2.418557095209144e-06
+2017,July,Mariposa (MC),SBUS,Gas,STREX,NCAT,PM,9.784660889632055e-08
+2017,July,Mariposa (MC),SBUS,Gas,STREX,NCAT,PM10,9.403059114936404e-08
+2017,July,Mariposa (MC),SBUS,Gas,STREX,NCAT,PM2_5,8.972534035792595e-08
+2017,July,Mariposa (MC),SBUS,Gas,STREX,NCAT,SOx,4.192824145424573e-09
+2017,July,Mariposa (MC),SBUS,Gas,STREX,NCAT,TOG,2.0566978767665318e-05
+2017,July,Mariposa (MC),SBUS,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),SBUS,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),SBUS,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),SBUS,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),SBUS,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),SBUS,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),SBUS,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),SBUS,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),SBUS,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),SBUS,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),SBUS,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),SBUS,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),SBUS,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),SBUS,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),SBUS,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),SBUS,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),SBUS,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),SBUS,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,CO,3.1662390060479314e-05
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,NOx,0.00016151747893439151
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,PM,1.433852315194641e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,PM10,1.4252492013034728e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,PM2_5,1.3635935517501035e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,SOx,9.055094838081282e-08
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,IDLEX,DSL,TOG,5.02010824481784e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,PMBW,DSL,PM,5.383682208726423e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,PMBW,DSL,PM10,5.383682208726423e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,PMBW,DSL,PM2_5,1.8842887730542475e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,PMTW,DSL,PM,1.3582888934343174e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,PMTW,DSL,PM10,1.3582888934343174e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,PMTW,DSL,PM2_5,3.3957222335857936e-07
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,CO,0.0003024185949397441
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,NH3,3.056149134331997e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,NOx,0.0014730878187179772
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,PM,4.8388830865839425e-05
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,PM10,4.809849788064439e-05
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,PM2_5,4.601777815341328e-05
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,SOx,1.3725164150684622e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 4,Dsl,RUNEX,DSL,TOG,0.00012999511277014738
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,CO,9.402110727558804e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,NOx,1.2359942944224974e-05
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,PM,2.9073110389000227e-09
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,PM10,2.889867172666622e-09
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,PM2_5,2.76485279799392e-09
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,SOx,2.6287195330486387e-08
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,IDLEX,DSL,TOG,2.7270901743768775e-07
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,PMBW,DSL,PM,3.650221979667415e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,PMBW,DSL,PM10,3.650221979667415e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,PMBW,DSL,PM2_5,1.277577692883595e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,PMTW,DSL,PM,9.209414265789227e-07
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,PMTW,DSL,PM10,9.209414265789227e-07
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,PMTW,DSL,PM2_5,2.3023535664473069e-07
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,CO,3.581499441447313e-06
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,NH3,1.6883921314999183e-05
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,NOx,2.848710305684763e-05
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,PM,1.5142771109619227e-07
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,PM10,1.5051914482961514e-07
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,PM2_5,1.440077532524789e-07
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,SOx,9.054698217492569e-07
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,RUNEX,DSL,TOG,4.6702611439379393e-07
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,Dsl,STREX,DSL,NOx,2.726015221871849e-05
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Delivery Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,IDLEX,DSL,CO,0.0001395727926406179
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,IDLEX,DSL,NOx,0.0007672710238109606
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,IDLEX,DSL,PM,5.895572612610982e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,IDLEX,DSL,PM10,5.860199176935316e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,IDLEX,DSL,PM2_5,5.606689554593043e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,IDLEX,DSL,SOx,4.6224844035030176e-07
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,IDLEX,DSL,TOG,2.1690181987974926e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,PMBW,DSL,PM,2.7330721867742828e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,PMBW,DSL,PM10,2.7330721867742828e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,PMBW,DSL,PM2_5,9.56575265370999e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,PMTW,DSL,PM,7.31032886935947e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,PMTW,DSL,PM10,7.31032886935947e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,PMTW,DSL,PM2_5,1.8275822173398676e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,CO,0.000939845638505143
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,NH3,3.074698723730045e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,NOx,0.0051099640062086645
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,PM,0.00017711043964494807
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,PM10,0.00017604777700707845
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,PM2_5,0.00016843202810234564
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,SOx,6.905840023354138e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,RUNEX,DSL,TOG,0.00038779603121570985
+2017,July,Mariposa (MC),T6 Instate Other Class 4,Dsl,STREX,DSL,NOx,2.836948238111323e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 4,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,IDLEX,DSL,CO,0.0001737257038885144
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,IDLEX,DSL,NOx,0.000677075420191877
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,IDLEX,DSL,PM,4.604290249552619e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,IDLEX,DSL,PM10,4.576664508055305e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,IDLEX,DSL,PM2_5,4.378680027324541e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,IDLEX,DSL,SOx,5.844158486182386e-07
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,IDLEX,DSL,TOG,1.920412045540502e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,PMBW,DSL,PM,6.448976269593958e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,PMBW,DSL,PM10,6.448976269593958e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,PMBW,DSL,PM2_5,2.2571416943578856e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,PMTW,DSL,PM,1.7249503188962188e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,PMTW,DSL,PM10,1.7249503188962188e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,PMTW,DSL,PM2_5,4.312375797240547e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,CO,0.0012613901370952976
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,NH3,0.0001778480673041548
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,NOx,0.006766192978181543
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,PM,0.0002478095083603268
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,PM10,0.0002463226513101649
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,PM2_5,0.0002356668424506708
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,SOx,1.5451155481258817e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,RUNEX,DSL,TOG,0.0004988518905113405
+2017,July,Mariposa (MC),T6 Instate Other Class 5,Dsl,STREX,DSL,NOx,0.00022224212513528017
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 5,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,IDLEX,DSL,CO,0.00019068905828904952
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,IDLEX,DSL,NOx,0.000878407797045248
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,IDLEX,DSL,PM,6.786324301364119e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,IDLEX,DSL,PM10,6.745606355555933e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,IDLEX,DSL,PM2_5,6.453794410597276e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,IDLEX,DSL,SOx,5.674515482117076e-07
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,IDLEX,DSL,TOG,2.484994657005683e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,PMBW,DSL,PM,3.675521820137424e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,PMBW,DSL,PM10,3.675521820137424e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,PMBW,DSL,PM2_5,1.2864326370480984e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,PMTW,DSL,PM,9.831161211817028e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,PMTW,DSL,PM10,9.831161211817028e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,PMTW,DSL,PM2_5,2.457790302954257e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,CO,0.0011738289096560432
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,NH3,6.845664829351769e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,NOx,0.00669368028823066
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,PM,0.0002154725430102892
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,PM10,0.00021417970775222748
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,PM2_5,0.00020491438840278506
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,SOx,9.065887582646538e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,RUNEX,DSL,TOG,0.00048105735620607404
+2017,July,Mariposa (MC),T6 Instate Other Class 6,Dsl,STREX,DSL,NOx,0.00011753276125394002
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,IDLEX,DSL,CO,0.0002682019913617517
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,IDLEX,DSL,NOx,0.0007727306560547615
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,IDLEX,DSL,PM,1.750908248263347e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,IDLEX,DSL,PM10,1.7404027987737665e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,IDLEX,DSL,PM2_5,1.665113744098443e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,IDLEX,DSL,SOx,5.283513959263072e-07
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,IDLEX,DSL,TOG,6.930743271684461e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,PMBW,DSL,PM,2.741416173322361e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,PMBW,DSL,PM10,2.741416173322361e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,PMBW,DSL,PM2_5,9.594956606628266e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,PMTW,DSL,PM,7.332647081824967e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,PMTW,DSL,PM10,7.332647081824967e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,PMTW,DSL,PM2_5,1.8331617704562417e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,CO,0.0010739648019890593
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,NH3,4.675007191748322e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,NOx,0.00523569563676082
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,PM,0.0002405129101777204
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,PM10,0.000239069832716654
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,PM2_5,0.0002287277775790121
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,SOx,7.023660716747185e-06
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,RUNEX,DSL,TOG,0.00046807091701562425
+2017,July,Mariposa (MC),T6 Instate Other Class 7,Dsl,STREX,DSL,NOx,5.4707867073605233e-05
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Other Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,CO,1.8587510804569305e-06
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,NOx,4.3097914195317284e-05
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,PM,1.1539373409633183e-08
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,PM10,1.1470137169175383e-08
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,PM2_5,1.097394411256116e-08
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,SOx,3.162197462845659e-08
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,IDLEX,DSL,TOG,3.2786293168866745e-07
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,PMBW,DSL,PM,2.235459694197745e-06
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,PMBW,DSL,PM10,2.235459694197745e-06
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,PMBW,DSL,PM2_5,7.824108929692106e-07
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,PMTW,DSL,PM,5.979331836848005e-07
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,PMTW,DSL,PM10,5.979331836848005e-07
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,PMTW,DSL,PM2_5,1.4948329592120013e-07
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,CO,1.7552430664893606e-05
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,NH3,1.8934545390026827e-06
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,NOx,0.00022651167967648728
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,PM,1.3374060652825486e-06
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,PM10,1.3293816288908535e-06
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,PM2_5,1.2718731680837041e-06
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,SOx,5.846229431667535e-07
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,Dsl,RUNEX,DSL,TOG,8.08779140500219e-06
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,CO,4.208911366214714e-06
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,NOx,5.2574391730237835e-05
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,PM,1.7703190703198452e-07
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,PM10,1.7596971558979254e-07
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,PM2_5,1.6835734358741717e-07
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,SOx,2.8969818943808128e-08
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,IDLEX,DSL,TOG,6.092807724563876e-07
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,PMBW,DSL,PM,3.5661616990130218e-06
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,PMBW,DSL,PM10,3.5661616990130218e-06
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,PMBW,DSL,PM2_5,1.2481565946545573e-06
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,PMTW,DSL,PM,9.538648465728194e-07
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,PMTW,DSL,PM10,9.538648465728194e-07
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,PMTW,DSL,PM2_5,2.3846621164320486e-07
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,CO,8.91435426084584e-05
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,NH3,2.1461952896872538e-06
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,NOx,0.0009066397464344999
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,PM,1.4053545388201686e-05
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,PM10,1.3969224115872476e-05
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,PM2_5,1.3364921664179802e-05
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,SOx,8.622814683103608e-07
+2017,July,Mariposa (MC),T6 Instate Tractor Class 7,Dsl,RUNEX,DSL,TOG,3.42629817921041e-05
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,IDLEX,DSL,CO,3.704010137525259e-08
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,IDLEX,DSL,NOx,1.345426849550974e-07
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,IDLEX,DSL,PM,4.392717832287483e-10
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,IDLEX,DSL,PM10,4.366361525293758e-10
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,IDLEX,DSL,PM2_5,4.177474658505396e-10
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,IDLEX,DSL,SOx,1.314032545395166e-10
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,IDLEX,DSL,TOG,2.3875184128999048e-09
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,PMBW,DSL,PM,5.8548295842387535e-08
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,PMBW,DSL,PM10,5.8548295842387535e-08
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,PMBW,DSL,PM2_5,2.0491903544835634e-08
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,PMTW,DSL,PM,1.6604025730148878e-08
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,PMTW,DSL,PM10,1.6604025730148878e-08
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,PMTW,DSL,PM2_5,4.1510064325372195e-09
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,RUNEX,DSL,CO,4.2209958246316394e-07
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,RUNEX,DSL,NH3,2.291241783376379e-07
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,RUNEX,DSL,NOx,3.0747770436940635e-06
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,RUNEX,DSL,PM,1.06741009949358e-07
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,RUNEX,DSL,PM10,1.0610056388966187e-07
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,RUNEX,DSL,PM2_5,1.0151070046183947e-07
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,RUNEX,DSL,SOx,1.478926549737747e-08
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,RUNEX,DSL,TOG,1.323126081521841e-07
+2017,July,Mariposa (MC),T6 OOS Class 4,Dsl,STREX,DSL,NOx,1.6990251167888678e-07
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,IDLEX,DSL,CO,4.650076699321507e-08
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,IDLEX,DSL,NOx,1.5608636343571084e-07
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,IDLEX,DSL,PM,5.322025680806986e-10
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,IDLEX,DSL,PM10,5.290093526722143e-10
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,IDLEX,DSL,PM2_5,5.061246422447441e-10
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,IDLEX,DSL,SOx,1.6106235714409765e-10
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,IDLEX,DSL,TOG,2.9151259740207273e-09
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,PMBW,DSL,PM,8.031773263124552e-08
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,PMBW,DSL,PM10,8.031773263124552e-08
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,PMBW,DSL,PM2_5,2.8111206420935934e-08
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,PMTW,DSL,PM,2.2777737251080275e-08
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,PMTW,DSL,PM10,2.2777737251080275e-08
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,PMTW,DSL,PM2_5,5.694434312770069e-09
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,RUNEX,DSL,CO,6.045006481265263e-07
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,RUNEX,DSL,NH3,3.22648821635565e-07
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,RUNEX,DSL,NOx,3.954374384464851e-06
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,RUNEX,DSL,PM,1.5573382299234955e-07
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,RUNEX,DSL,PM10,1.5479942005439542e-07
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,RUNEX,DSL,PM2_5,1.4810286566572438e-07
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,RUNEX,DSL,SOx,2.025050759864619e-08
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,RUNEX,DSL,TOG,1.7962337407114076e-07
+2017,July,Mariposa (MC),T6 OOS Class 5,Dsl,STREX,DSL,NOx,2.2746534183140098e-07
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,IDLEX,DSL,CO,1.251667735069506e-07
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,IDLEX,DSL,NOx,4.740505985612532e-07
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,IDLEX,DSL,PM,2.1107451383300868e-09
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,IDLEX,DSL,PM10,2.098080667500107e-09
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,IDLEX,DSL,PM2_5,2.0073186265519125e-09
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,IDLEX,DSL,SOx,4.3054377492744195e-10
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,IDLEX,DSL,TOG,9.754142686702967e-09
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,PMBW,DSL,PM,2.0987253352940982e-07
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,PMBW,DSL,PM10,2.0987253352940982e-07
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,PMBW,DSL,PM2_5,7.345538673529345e-08
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,PMTW,DSL,PM,5.951887918573704e-08
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,PMTW,DSL,PM10,5.951887918573704e-08
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,PMTW,DSL,PM2_5,1.487971979643426e-08
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,RUNEX,DSL,CO,2.2271009339402795e-06
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,RUNEX,DSL,NH3,7.557341131475649e-07
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,RUNEX,DSL,NOx,1.4635459821778577e-05
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,RUNEX,DSL,PM,5.72804342924443e-07
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,RUNEX,DSL,PM10,5.693675168668965e-07
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,RUNEX,DSL,PM2_5,5.447369301211454e-07
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,RUNEX,DSL,SOx,5.1466096754436864e-08
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,RUNEX,DSL,TOG,6.993851162227511e-07
+2017,July,Mariposa (MC),T6 OOS Class 6,Dsl,STREX,DSL,NOx,5.178576153382757e-07
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,IDLEX,DSL,CO,3.1381176164880554e-07
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,IDLEX,DSL,NOx,1.0671930034176487e-06
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,IDLEX,DSL,PM,5.1527712654283906e-09
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,IDLEX,DSL,PM10,5.121854637835822e-09
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,IDLEX,DSL,PM2_5,4.9002854734224e-09
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,IDLEX,DSL,SOx,1.1006768239499076e-09
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,IDLEX,DSL,TOG,2.596143692871213e-08
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,PMBW,DSL,PM,1.5260342950409484e-06
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,PMBW,DSL,PM10,1.5260342950409484e-06
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,PMBW,DSL,PM2_5,5.341120032643319e-07
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,PMTW,DSL,PM,4.3277626334608346e-07
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,PMTW,DSL,PM10,4.3277626334608346e-07
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,PMTW,DSL,PM2_5,1.0819406583652086e-07
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,RUNEX,DSL,CO,1.6132056314045353e-05
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,RUNEX,DSL,NH3,5.4362741611973245e-06
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,RUNEX,DSL,NOx,0.00011063513013513985
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,RUNEX,DSL,PM,4.074010150714345e-06
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,RUNEX,DSL,PM10,4.04956608981006e-06
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,RUNEX,DSL,PM2_5,3.874383653329342e-06
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,RUNEX,DSL,SOx,3.5724564576724284e-07
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,RUNEX,DSL,TOG,5.278345315762075e-06
+2017,July,Mariposa (MC),T6 OOS Class 7,Dsl,STREX,DSL,NOx,1.3234924415133796e-06
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,IDLEX,DSL,CO,6.080889869402024e-05
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,IDLEX,DSL,NOx,0.0002642067123250848
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,IDLEX,DSL,PM,2.981560907574739e-06
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,IDLEX,DSL,PM10,2.9636715421292907e-06
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,IDLEX,DSL,PM2_5,2.835464423103577e-06
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,IDLEX,DSL,SOx,1.5219984068236453e-07
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,IDLEX,DSL,TOG,1.0635904761920092e-05
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,PMBW,DSL,PM,5.893953704129517e-06
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,PMBW,DSL,PM10,5.893953704129517e-06
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,PMBW,DSL,PM2_5,2.0628837964453312e-06
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,PMTW,DSL,PM,1.5319124091586367e-06
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,PMTW,DSL,PM10,1.5319124091586367e-06
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,PMTW,DSL,PM2_5,3.8297810228965917e-07
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,RUNEX,DSL,CO,0.00022059660914097165
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,RUNEX,DSL,NH3,3.4468019327502556e-06
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,RUNEX,DSL,NOx,0.001726129822203975
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,RUNEX,DSL,PM,5.52610710528891e-05
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,RUNEX,DSL,PM10,5.4929504626571766e-05
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,RUNEX,DSL,PM2_5,5.255327857129754e-05
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,RUNEX,DSL,SOx,1.541452501669693e-06
+2017,July,Mariposa (MC),T6 Public Class 4,Dsl,RUNEX,DSL,TOG,0.00012762168101582494
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,IDLEX,DSL,CO,1.5829240822801825e-05
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,IDLEX,DSL,NOx,0.00014252240006067379
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,IDLEX,DSL,PM,4.3140749120185973e-07
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,IDLEX,DSL,PM10,4.288190462546487e-07
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,IDLEX,DSL,PM2_5,4.102685241329687e-07
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,IDLEX,DSL,SOx,1.3356712901671732e-07
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,IDLEX,DSL,TOG,2.321488158659293e-06
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,PMBW,DSL,PM,5.8309760845936835e-06
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,PMBW,DSL,PM10,5.8309760845936835e-06
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,PMBW,DSL,PM2_5,2.0408416296077886e-06
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,PMTW,DSL,PM,1.5155437368362498e-06
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,PMTW,DSL,PM10,1.5155437368362498e-06
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,PMTW,DSL,PM2_5,3.7888593420906244e-07
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,RUNEX,DSL,CO,8.767660029574022e-05
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,RUNEX,DSL,NH3,4.357090106060392e-06
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,RUNEX,DSL,NOx,0.0006652704625417658
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,RUNEX,DSL,PM,1.3233702373217755e-05
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,RUNEX,DSL,PM10,1.3154300158978449e-05
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,RUNEX,DSL,PM2_5,1.2585250956930086e-05
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,RUNEX,DSL,SOx,1.5542548147038343e-06
+2017,July,Mariposa (MC),T6 Public Class 5,Dsl,RUNEX,DSL,TOG,3.978147811581219e-05
+2017,July,Mariposa (MC),T6 Public Class 5,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Public Class 5,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,IDLEX,DSL,CO,6.14782617280387e-05
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,IDLEX,DSL,NOx,0.00020587630405648747
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,IDLEX,DSL,PM,4.472104233718447e-06
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,IDLEX,DSL,PM10,4.445271608316135e-06
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,IDLEX,DSL,PM2_5,4.252971126266242e-06
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,IDLEX,DSL,SOx,1.1526474464919916e-07
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,IDLEX,DSL,TOG,1.768881878136212e-05
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,PMBW,DSL,PM,5.135436182886179e-06
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,PMBW,DSL,PM10,5.135436182886179e-06
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,PMBW,DSL,PM2_5,1.7974026640101634e-06
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,PMTW,DSL,PM,1.334764202422165e-06
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,PMTW,DSL,PM10,1.334764202422165e-06
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,PMTW,DSL,PM2_5,3.336910506055413e-07
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,RUNEX,DSL,CO,0.00024725427811118266
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,RUNEX,DSL,NH3,3.0032185947245962e-06
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,RUNEX,DSL,NOx,0.0010035244794594103
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,RUNEX,DSL,PM,5.8038720131507854e-05
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,RUNEX,DSL,PM10,5.769048781071879e-05
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,RUNEX,DSL,PM2_5,5.5194822845063964e-05
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,RUNEX,DSL,SOx,1.3692315634608734e-06
+2017,July,Mariposa (MC),T6 Public Class 6,Dsl,RUNEX,DSL,TOG,0.00012738622296164798
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,IDLEX,DSL,CO,0.0007385008371671295
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,IDLEX,DSL,NOx,0.0009121346992067238
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,IDLEX,DSL,PM,6.558898928271005e-05
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,IDLEX,DSL,PM10,6.51954553470138e-05
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,IDLEX,DSL,PM2_5,6.237512880785726e-05
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,IDLEX,DSL,SOx,6.252242346709462e-07
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,IDLEX,DSL,TOG,0.00026691473903866066
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,PMBW,DSL,PM,3.4996900983658925e-05
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,PMBW,DSL,PM10,3.4996900983658925e-05
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,PMBW,DSL,PM2_5,1.2248915344280622e-05
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,PMTW,DSL,PM,9.096133018724017e-06
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,PMTW,DSL,PM10,9.096133018724017e-06
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,PMTW,DSL,PM2_5,2.274033254681004e-06
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,RUNEX,DSL,CO,0.0029574473046923306
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,RUNEX,DSL,NH3,2.046629342647008e-05
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,RUNEX,DSL,NOx,0.010930331587086726
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,RUNEX,DSL,PM,0.000795524939987315
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,RUNEX,DSL,PM10,0.0007907517903473913
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,RUNEX,DSL,PM2_5,0.0007565442179279365
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,RUNEX,DSL,SOx,9.93613567496188e-06
+2017,July,Mariposa (MC),T6 Public Class 7,Dsl,RUNEX,DSL,TOG,0.0017056750006512295
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,IDLEX,DSL,CO,6.978694767243149e-08
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,IDLEX,DSL,NOx,2.0445408889966502e-07
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,IDLEX,DSL,PM,7.881127902185824e-11
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,IDLEX,DSL,PM10,7.83384113477271e-11
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,IDLEX,DSL,PM2_5,7.494952634978719e-11
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,IDLEX,DSL,SOx,2.779175806652878e-10
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,IDLEX,DSL,TOG,2.6411367146657717e-09
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,PMBW,DSL,PM,2.8937504169366383e-08
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,PMBW,DSL,PM10,2.8937504169366383e-08
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,PMBW,DSL,PM2_5,1.0128126459278238e-08
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,PMTW,DSL,PM,7.632424403823683e-09
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,PMTW,DSL,PM10,7.632424403823683e-09
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,PMTW,DSL,PM2_5,1.908106100955921e-09
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,RUNEX,DSL,CO,7.057760610536147e-08
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,RUNEX,DSL,NH3,1.1437146000138679e-07
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,RUNEX,DSL,NOx,1.153258490166e-06
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,RUNEX,DSL,PM,5.80999457925657e-09
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,RUNEX,DSL,PM10,5.77513461178103e-09
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,RUNEX,DSL,PM2_5,5.5253048448729975e-09
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,RUNEX,DSL,SOx,6.877060896721782e-09
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,RUNEX,DSL,TOG,2.2989729144802363e-08
+2017,July,Mariposa (MC),T6 Utility Class 5,Dsl,STREX,DSL,NOx,2.2060200665061154e-07
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Utility Class 5,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,IDLEX,DSL,CO,1.2386458954000025e-08
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,IDLEX,DSL,NOx,5.99871409873788e-08
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,IDLEX,DSL,PM,3.3679120545106566e-11
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,IDLEX,DSL,PM10,3.3477045821835925e-11
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,IDLEX,DSL,PM2_5,3.202884363839633e-11
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,IDLEX,DSL,SOx,6.101295469799005e-11
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,IDLEX,DSL,TOG,5.464628948413751e-10
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,PMBW,DSL,PM,5.468603011212738e-09
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,PMBW,DSL,PM10,5.468603011212738e-09
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,PMBW,DSL,PM2_5,1.914011053924458e-09
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,PMTW,DSL,PM,1.4423738423781862e-09
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,PMTW,DSL,PM10,1.4423738423781862e-09
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,PMTW,DSL,PM2_5,3.6059346059454656e-10
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,RUNEX,DSL,CO,1.6203143464652714e-08
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,RUNEX,DSL,NH3,1.7970716408231322e-08
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,RUNEX,DSL,NOx,3.254931467950338e-07
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,RUNEX,DSL,PM,1.7893175060227231e-09
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,RUNEX,DSL,PM10,1.7785816009865866e-09
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,RUNEX,DSL,PM2_5,1.7016409482276094e-09
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,RUNEX,DSL,SOx,1.333825437594727e-09
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,RUNEX,DSL,TOG,5.874590603968504e-09
+2017,July,Mariposa (MC),T6 Utility Class 6,Dsl,STREX,DSL,NOx,3.730506303926594e-08
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Utility Class 6,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,IDLEX,DSL,CO,1.5676336935323432e-08
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,IDLEX,DSL,NOx,8.43025533171343e-08
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,IDLEX,DSL,PM,5.6359211253056654e-11
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,IDLEX,DSL,PM10,5.602105598553833e-11
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,IDLEX,DSL,PM2_5,5.3597609901656876e-11
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,IDLEX,DSL,SOx,8.161774584674832e-11
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,IDLEX,DSL,TOG,6.897562937047169e-10
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,PMBW,DSL,PM,7.608643573434783e-09
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,PMBW,DSL,PM10,7.608643573434783e-09
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,PMBW,DSL,PM2_5,2.6630252507021744e-09
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,PMTW,DSL,PM,2.006821201648623e-09
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,PMTW,DSL,PM10,2.006821201648623e-09
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,PMTW,DSL,PM2_5,5.017053004121557e-10
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,RUNEX,DSL,CO,1.9638074170526712e-08
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,RUNEX,DSL,NH3,2.5288032271656762e-08
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,RUNEX,DSL,NOx,4.800600886335825e-07
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,RUNEX,DSL,PM,2.5345841266523237e-09
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,RUNEX,DSL,PM10,2.51937662189241e-09
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,RUNEX,DSL,PM2_5,2.4103895044463595e-09
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,RUNEX,DSL,SOx,1.8580055121455822e-09
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,RUNEX,DSL,TOG,7.10114836525715e-09
+2017,July,Mariposa (MC),T6 Utility Class 7,Dsl,STREX,DSL,NOx,4.170273968704371e-08
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T6 Utility Class 7,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,IDLEX,DSL,CO,5.085248394488364e-05
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,IDLEX,DSL,NOx,6.495802948194265e-05
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,IDLEX,DSL,PM,1.8776181559644132e-07
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,IDLEX,DSL,PM10,1.8663524470286274e-07
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,IDLEX,DSL,PM2_5,1.7856148663221573e-07
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,IDLEX,DSL,SOx,1.1560783071924057e-07
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,IDLEX,DSL,TOG,5.797042646936875e-06
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,PMBW,DSL,PM,9.136892692115018e-06
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,PMBW,DSL,PM10,9.136892692115018e-06
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,PMBW,DSL,PM2_5,3.197912442240256e-06
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,PMTW,DSL,PM,4.096845229545379e-06
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,PMTW,DSL,PM10,4.096845229545379e-06
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,PMTW,DSL,PM2_5,1.0242113073863448e-06
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,CO,6.0628357510110454e-05
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,NH3,1.846456475025911e-05
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,NOx,0.0005657912237891
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,PM,1.1483549448000662e-05
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,PM10,1.141464815131266e-05
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,PM2_5,1.0920855525048634e-05
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,SOx,1.706292806587596e-06
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,RUNEX,DSL,TOG,1.8987635325115928e-05
+2017,July,Mariposa (MC),T7 CAIRP Class 8,Dsl,STREX,DSL,NOx,1.3821026793993224e-05
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 CAIRP Class 8,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,IDLEX,DSL,CO,6.944539721945893e-05
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,IDLEX,DSL,NOx,6.904223709310513e-05
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,IDLEX,DSL,PM,3.6511982700671145e-07
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,IDLEX,DSL,PM10,3.629291080446712e-07
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,IDLEX,DSL,PM2_5,3.4722895548338274e-07
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,IDLEX,DSL,SOx,1.3092922920852856e-07
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,IDLEX,DSL,TOG,7.720337890573476e-06
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,PMBW,DSL,PM,1.0725324987989473e-05
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,PMBW,DSL,PM10,1.0725324987989473e-05
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,PMBW,DSL,PM2_5,3.753863745796316e-06
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,PMTW,DSL,PM,4.843734131124094e-06
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,PMTW,DSL,PM10,4.843734131124094e-06
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,PMTW,DSL,PM2_5,1.2109335327810235e-06
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,CO,9.981130581130358e-05
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,NH3,2.350690923873364e-05
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,NOx,0.0006021703842771824
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,PM,1.93170607743706e-05
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,PM10,1.9201158409724382e-05
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,PM2_5,1.8370524796426444e-05
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,SOx,2.0330399317917462e-06
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,RUNEX,DSL,TOG,2.887984774432154e-05
+2017,July,Mariposa (MC),T7 NNOOS Class 8,Dsl,STREX,DSL,NOx,1.642364719070938e-05
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,IDLEX,DSL,CO,2.3602641937570234e-05
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,IDLEX,DSL,NOx,2.9945705220670037e-05
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,IDLEX,DSL,PM,9.488391702598356e-08
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,IDLEX,DSL,PM10,9.431461352382767e-08
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,IDLEX,DSL,PM2_5,9.023460509171036e-08
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,IDLEX,DSL,SOx,5.3553108432068626e-08
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,IDLEX,DSL,TOG,2.725180835008255e-06
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,PMBW,DSL,PM,3.935303086855966e-06
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,PMBW,DSL,PM10,3.935303086855966e-06
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,PMBW,DSL,PM2_5,1.3773560803995879e-06
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,PMTW,DSL,PM,1.759642575323513e-06
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,PMTW,DSL,PM10,1.759642575323513e-06
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,PMTW,DSL,PM2_5,4.3991064383087826e-07
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,RUNEX,DSL,CO,3.0270448611329535e-05
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,RUNEX,DSL,NH3,7.854848148688034e-06
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,RUNEX,DSL,NOx,0.00025410036324284536
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,RUNEX,DSL,PM,5.562796123963422e-06
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,RUNEX,DSL,PM10,5.529419347219644e-06
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,RUNEX,DSL,PM2_5,5.290219113889214e-06
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,RUNEX,DSL,SOx,7.328707033757705e-07
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,RUNEX,DSL,TOG,9.55391083308286e-06
+2017,July,Mariposa (MC),T7 NOOS Class 8,Dsl,STREX,DSL,NOx,5.160076500313513e-06
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,IDLEX,DSL,CO,1.349348442119178e-06
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,IDLEX,DSL,NOx,3.4079492269195056e-06
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,IDLEX,DSL,PM,2.3050767129644554e-09
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,IDLEX,DSL,PM10,2.291246252686668e-09
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,IDLEX,DSL,PM2_5,2.192127954029197e-09
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,IDLEX,DSL,SOx,4.734118581515278e-09
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,IDLEX,DSL,TOG,1.9329552385536167e-07
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,PMBW,DSL,PM,5.340368084553569e-07
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,PMBW,DSL,PM10,5.340368084553569e-07
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,PMBW,DSL,PM2_5,1.8691288295937498e-07
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,PMTW,DSL,PM,1.959543594784713e-07
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,PMTW,DSL,PM10,1.959543594784713e-07
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,PMTW,DSL,PM2_5,4.8988589869617824e-08
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,RUNEX,DSL,CO,2.7777617416790667e-06
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,RUNEX,DSL,NH3,6.400920805364093e-07
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,RUNEX,DSL,NOx,2.8878246330669567e-05
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,RUNEX,DSL,PM,2.5172187632936353e-07
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,RUNEX,DSL,PM10,2.5021154507138747e-07
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,RUNEX,DSL,PM2_5,2.3938750438922474e-07
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,RUNEX,DSL,SOx,8.933752456230745e-08
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,RUNEX,DSL,TOG,1.0293131426509182e-06
+2017,July,Mariposa (MC),T7 POAK Class 8,Dsl,STREX,DSL,NOx,7.138334592520597e-07
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 POAK Class 8,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,IDLEX,DSL,CO,0.0007856997067395654
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,IDLEX,DSL,NOx,0.0017566071651642556
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,IDLEX,DSL,PM,5.4061281447370444e-05
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,IDLEX,DSL,PM10,5.3736913758686204e-05
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,IDLEX,DSL,PM2_5,5.1412278656449276e-05
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,IDLEX,DSL,SOx,1.765055255611309e-06
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,IDLEX,DSL,TOG,0.0003895166845355208
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,PMBW,DSL,PM,0.0002602497749968576
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,PMBW,DSL,PM10,0.0002602497749968576
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,PMBW,DSL,PM2_5,9.108742124890016e-05
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,PMTW,DSL,PM,7.450157219045085e-05
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,PMTW,DSL,PM10,7.450157219045085e-05
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,PMTW,DSL,PM2_5,1.8625393047612712e-05
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,RUNEX,DSL,CO,0.007114030206016117
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,RUNEX,DSL,NH3,0.00010180322792509446
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,RUNEX,DSL,NOx,0.027318019898367407
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,RUNEX,DSL,PM,0.0011828854936857317
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,RUNEX,DSL,PM10,0.0011757881807236174
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,RUNEX,DSL,PM2_5,0.0011249241044951307
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,RUNEX,DSL,SOx,3.948392971390726e-05
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,RUNEX,DSL,TOG,0.0025518348899743687
+2017,July,Mariposa (MC),T7 Public Class 8,Dsl,STREX,DSL,NOx,0.00013615502117791372
+2017,July,Mariposa (MC),T7 Public Class 8,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Public Class 8,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,IDLEX,DSL,CO,0.00014683601444826354
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,IDLEX,DSL,NOx,0.00036342079943097534
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,IDLEX,DSL,PM,5.719010932789359e-06
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,IDLEX,DSL,PM10,5.684696867192622e-06
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,IDLEX,DSL,PM2_5,5.438779397082681e-06
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,IDLEX,DSL,SOx,3.063211125554897e-07
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,IDLEX,DSL,TOG,4.5658122243652255e-05
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,PMBW,DSL,PM,4.6710759214629856e-05
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,PMBW,DSL,PM10,4.6710759214629856e-05
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,PMBW,DSL,PM2_5,1.6348765725120447e-05
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,PMTW,DSL,PM,1.6608050593146918e-05
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,PMTW,DSL,PM10,1.6608050593146918e-05
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,PMTW,DSL,PM2_5,4.1520126482867295e-06
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,CO,0.001259491319027718
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,NH3,3.403364405380389e-05
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,NOx,0.005756548127404919
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,PM,0.00022994848412228447
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,PM10,0.00022856879321755074
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,PM2_5,0.00021868100840029254
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,SOx,7.522555350857427e-06
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,RUNEX,DSL,TOG,0.00035503237092210333
+2017,July,Mariposa (MC),T7 Single Dump Class 8,Dsl,STREX,DSL,NOx,6.230842922804526e-05
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Single Dump Class 8,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,IDLEX,DSL,CO,0.0003210601792486511
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,IDLEX,DSL,NOx,0.0006673505853199651
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,IDLEX,DSL,PM,1.447463647104817e-05
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,IDLEX,DSL,PM10,1.4387788652221878e-05
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,IDLEX,DSL,PM2_5,1.3765379283966806e-05
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,IDLEX,DSL,SOx,5.579157774602606e-07
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,IDLEX,DSL,TOG,0.00011200450935818221
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,PMBW,DSL,PM,0.00010542897649332836
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,PMBW,DSL,PM10,0.00010542897649332836
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,PMBW,DSL,PM2_5,3.6900141772664926e-05
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,PMTW,DSL,PM,3.827288588860164e-05
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,PMTW,DSL,PM10,3.827288588860164e-05
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,PMTW,DSL,PM2_5,9.56822147215041e-06
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,RUNEX,DSL,CO,0.0038866657536954967
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,RUNEX,DSL,NH3,9.392903306913002e-05
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,RUNEX,DSL,NOx,0.013204855789263026
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,RUNEX,DSL,PM,0.0006948207265351784
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,RUNEX,DSL,PM10,0.0006906518021759674
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,RUNEX,DSL,PM2_5,0.0006607745109349549
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,RUNEX,DSL,SOx,1.751383340092803e-05
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,RUNEX,DSL,TOG,0.0011017769774804573
+2017,July,Mariposa (MC),T7 Single Other Class 8,Dsl,STREX,DSL,NOx,0.00011983484177623528
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Single Other Class 8,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,IDLEX,DSL,CO,8.554266042409346e-06
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,IDLEX,DSL,NOx,1.4800579096056971e-05
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,IDLEX,DSL,PM,3.1740381260083734e-08
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,IDLEX,DSL,PM10,3.1549938972523236e-08
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,IDLEX,DSL,PM2_5,3.018510257833963e-08
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,IDLEX,DSL,SOx,2.140219376001433e-08
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,IDLEX,DSL,TOG,1.0671997799992478e-06
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,PMBW,DSL,PM,2.28032779783757e-06
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,PMBW,DSL,PM10,2.28032779783757e-06
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,PMBW,DSL,PM2_5,7.981147292431493e-07
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,PMTW,DSL,PM,9.17594370439988e-07
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,PMTW,DSL,PM10,9.17594370439988e-07
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,PMTW,DSL,PM2_5,2.29398592609997e-07
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,RUNEX,DSL,CO,2.143692068708271e-05
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,RUNEX,DSL,NH3,3.364452437950523e-06
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,RUNEX,DSL,NOx,0.00017233952006754893
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,RUNEX,DSL,PM,3.565590826472805e-06
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,RUNEX,DSL,PM10,3.5441972815139687e-06
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,RUNEX,DSL,PM2_5,3.390876875975638e-06
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,RUNEX,DSL,SOx,3.8570165446933464e-07
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,RUNEX,DSL,TOG,6.836848008611057e-06
+2017,July,Mariposa (MC),T7 Tractor Class 8,Dsl,STREX,DSL,NOx,7.330339481006774e-06
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,IDLEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,IDLEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,IDLEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,IDLEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,IDLEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,IDLEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,PMBW,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,PMBW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,PMBW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,PMTW,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,PMTW,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,PMTW,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,RUNEX,CAT,CO,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,RUNEX,CAT,NOx,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,RUNEX,CAT,PM,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,RUNEX,CAT,PM10,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,RUNEX,CAT,PM2_5,0.0
+2017,July,Mariposa (MC),T7 Tractor Class 8,NG,RUNEX,CAT,TOG,0.0
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,IDLEX,DSL,CO,7.065538264440824e-08
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,IDLEX,DSL,NOx,1.3945558010904688e-07
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,IDLEX,DSL,PM,8.86302987669487e-11
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,IDLEX,DSL,PM10,8.809851697434704e-11
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,IDLEX,DSL,PM2_5,8.428741412736822e-11
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,IDLEX,DSL,SOx,1.7603559422412564e-10
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,IDLEX,DSL,TOG,7.184850123314498e-09
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,PMBW,DSL,PM,5.0868075769413425e-08
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,PMBW,DSL,PM10,5.0868075769413425e-08
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,PMBW,DSL,PM2_5,1.7803826519294697e-08
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,PMTW,DSL,PM,1.80799693187271e-08
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,PMTW,DSL,PM10,1.80799693187271e-08
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,PMTW,DSL,PM2_5,4.519992329681775e-09
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,RUNEX,DSL,CO,1.1665397990304309e-07
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,RUNEX,DSL,NH3,8.688051290513153e-08
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,RUNEX,DSL,NOx,1.71459491823207e-06
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,RUNEX,DSL,PM,7.786192557615055e-09
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,RUNEX,DSL,PM10,7.739475402269363e-09
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,RUNEX,DSL,PM2_5,7.4046691222919165e-09
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,RUNEX,DSL,SOx,8.496895521806317e-09
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,RUNEX,DSL,TOG,3.164046956229286e-08
+2017,July,Mariposa (MC),T7 Utility Class 8,Dsl,STREX,DSL,NOx,4.3447504140483677e-07
