@@ -10,6 +10,10 @@ The source code is updated to read EMFAC2017 emissions, and has the option to ou
 The directory NH3_data_EF17_MPO010 contains the NH3 emissions files for several years and user can append the specific year of the NH3 emissions files to the EMFAC2017 emissions files.  The scripts that append the NH3 emissions files to the EMFAC2017 emissions files are provided at EF17_format_ld and EF17_format_hd directories.
 The current version of the NH3 inventory is MPO010.  Day of week fraction file 'calvad_gai_dow_factors_2012.csv' has been replaced with 'pems_dow_factors_2018.csv'.
 
+There is another version of ESTA that uses EMFAC2021 emissions (branch EMFAC2021).
+The source code can be downloaded by using the following command.
+git clone -b EMFAC2021 https://github.com/mmb-carb/ESTA.git
+
 
 ## ESTA Documentation
 
