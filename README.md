@@ -6,10 +6,7 @@ ESTA is a command-line tool for processing raw emissions data into spatially and
 
 ## Recent Updates
 
-The source code is updated to read EMFAC2021 emissions, and has the option to output diesel PM emissions.
-EMFAC2021 output file includes the NH3 emissions.
-A day specifc fraction file which created by the PeMS data is used for the Heavy Heavy-duty vehicles.
-The 2017 day specific fraction file (doy_fractions_2017_truck_final.csv) is located at input/defaults/surrogates/temporal directory.  User needs to replace this file if the model year is not 2017.
+The source code is updated to read EMFAC2021 emissions, and has the option to output diesel PM emissions.  EMFAC2021 output file includes the NH3 emissions.  A day specifc fraction file which created by the PeMS data is used for the Heavy Heavy-duty vehicles.  The 2017 day specific fraction file (doy_fractions_2017_truck_final.csv) is located at input/defaults/surrogates/temporal directory.  User needs to replace this file if the model year is not 2017.
 
 
 ## ESTA Documentation
