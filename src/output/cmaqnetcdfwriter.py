@@ -25,7 +25,8 @@ class CmaqNetcdfWriter(OutputWriter):
         self.species = set()
         self.num_species = -1
         self.units = self.load_gspro(self.config['Output']['gspro_file'])
-        self.drop_polls = ['PM10', 'PM25']
+        #self.drop_polls = ['PM10', 'PM25']
+        self.drop_polls = []
 
         # build some custom text to put in the NetCDF header
         file_desc = "regions: " + ' '.join([str(r) for r in self.regions]) + \
